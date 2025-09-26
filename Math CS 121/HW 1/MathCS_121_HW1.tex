@@ -1,0 +1,198 @@
+\documentclass{article}
+\usepackage{../../Self_Style}
+
+\title{Math CS 121 HW 1}
+\author{Zih-Yu Hsieh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{ques}\label{q1}
+    Chapter 1.2 \# 12
+
+    Prove that the event $B$ is impossible if and only if for every event $A$,
+    $$A=(B\cap A^c)\cup (B^c\cap A)$$ 
+\end{ques}
+
+\begin{proof}
+    \begin{itemize}
+        \item[$\implies$:] First, suppose the event $B$ is impossible, which is equivalent to saying $B=\emptyset$. Then, we have $B^c = \Omega$ the whole sample space. For any event $A$, the following holds:
+        \begin{align}
+            (B\cap A^c)\cup (B^c\cap A) = (\emptyset \cap A^c) \cup (\Omega \cap A) = \emptyset \cup A = A
+        \end{align}
+        Hence the given equality of event holds.
+
+        \item[$\impliedby$:] Now, suppose for all event $A$, $A=(B \cap A^c)\cup (B^c\cap A)$, then in particular it works for setting $A=B$. Which, $B \cap B^c=B^c\cap B=\emptyset$, so we get:
+        \begin{align}
+            B=(B\cap B^c)\cup(B^c\cap B) = \emptyset\cup\emptyset = \emptyset
+        \end{align}
+        Hence, $B=\emptyset$ is an impossible event.
+    \end{itemize}
+\end{proof}
+
+\hfil
+
+\begin{ques}\label{q2}
+    Chapter 1.2 \# 16
+
+    Let $A$ and $B$ be two events. Prove the following relations by the elementwise method.
+    \begin{itemize}
+        \item[(a)] $(A\setminus (A\cap B))\cup B = A\cup B$
+        \item[(b)] $(A\cup B)\setminus (A\cap B) = (A\cap B^c)\cup (A^c\cap B)$ 
+    \end{itemize}
+\end{ques}
+
+\begin{proof}
+    \begin{itemize}
+        \item[(a)]
+        \begin{itemize}
+            \item[$\subseteq$:] Suppose $x\in (A\setminus (A\cap B))\cup B$, either $x\in (A\setminus (A\cap B))\subseteq A\subseteq A\cup B$, or $x\in B\subseteq A\cup B$, hence $x\in A\cup B$, showing $(A\setminus (A\cap B))\cup B\subseteq A\cup B$.
+            \item[$\supseteq$:] Suppose $x\in A\cup B$, then either $x\in A$ or $x\in B$. If $x\in B$, then $x\in B\subseteq (A\setminus(A\cap B))\cup B$; else, if $x\notin B$, it enforces $x\in A$, and shows that $x\notin A\cap B$. Hence, $x\in A\setminus(A\cap B) \subseteq (A\setminus(A\cap B))\cup B$. With the above two cases, $A\cup B\subseteq (A\setminus(A\cap B))\cup B$.
+        \end{itemize}
+        \item[(b)]
+        \begin{itemize}
+            \item[$\subseteq$:] Suppose $x\in (A\cup B)\setminus (A\cap B)$, it states $x\notin (A\cap B)$, while $x\in A$ or $x\in B$. Suppose $x\in A$, then with $x\notin (A\cap B)$ it concludes $x\notin B$ (or $x\in B^c$), hence $x\in (A\cap B^c)\subseteq (A\cap B^c)\cup(A^c\cap B)$. Else, suppose $x\in B$, then with $x\notin (A\cap B)$ it concludes $x\notin A$ (or $x\in A^c)$, hence $x\in (A^c\cap B)\subseteq (A\cap B^c)\cup(A^c\cap B)$. 
+            
+            These two cases conclude that $(A\cup B)\setminus(A\cap B)\subseteq (A\cap B^c)\cup (A^c\cap B)$.
+
+            \item[$\supseteq$:] Now, suppose $x\in (A\cap B^c)\cup (A^c\cap B)$, then either $x\in A\cap B^c$ (stating $x\in A$ and $x\notin B$), or $x\in A^c\cap B$ (stating $x\notin A$ and $x\in B$). 
+            
+            In the first case $x\in A\subseteq (A\cup B)$, while $x\notin B$ implies $x\notin (A\cap B)$, showing that $x\in (A\cup B)\setminus (A\cap B)$. Similarly, in the second case $x\in B\subseteq (A\cup B)$, while $x\notin A$ implies $x\notin (A\cap B)$, hence again $x\in (A\cup B)\setminus(A\cap B)$.
+
+            These two cases conclude that $(A\cap B^c)\cup (A^c\cap B)\subseteq (A\cup B)\setminus(A\cap B)$.
+        \end{itemize}
+    \end{itemize}
+\end{proof}
+
+\hfil
+
+\begin{ques}\label{q3}
+    Chapter 1.2 \# 17
+
+    Let $\{A_n\}_{n=1}^\infty$ be a sequence of events. rove that for every event $B$,
+    \begin{itemize}
+        \item[(a)] $B\cap (\bigcup_{i=1}^\infty A_i)=\bigcup_{i=1}^\infty(B\cap A_i)$
+        \item[(b)] $B\cup (\bigcap_{i=1}^\infty A_i)=\bigcap_{i=1}^\infty(B\cup A_i)$.
+    \end{itemize}
+\end{ques}
+
+\begin{proof}
+    \begin{itemize}
+        \item[(a)]
+        \begin{itemize}
+            \item[$\subseteq$:] Suppose $x\in B\cap (\bigcup_{i=1}^\infty A_i)$, then $x\in B$ and $x\in \bigcup_{i=1}^\infty A_i$, hence there exists $n\in\NN$ such that $x\in A_n$. This concludes that $x\in B\cap A_n \subseteq \bigcup_{i=1}^\infty(B\cap A_i)$.
+            
+            Which, it further concludes that $B\cap (\bigcup_{i=1}^\infty A_i) \subseteq \bigcup_{i=1}^\infty(B\cap A_i)$.
+            \item[$\supseteq$:] Suppose $x\in \bigcup_{i=1}^\infty(B\cap A_i)$, then there exists $n\in \NN$ such that $x\in B\cap A_n$. In particular $x\in B$, and $x\in A_n\subseteq \bigcup_{i=1}^\infty A_i$, showing that $x\in B\cap (\bigcup_{i=1}^\infty A_i)$.
+            
+            This concludes that $\bigcup_{i=1}^\infty(B\cap A_i)\subseteq B\cap (\bigcup_{i=1}^\infty A_i)$.
+        \end{itemize}
+        \item[(b)] 
+        \begin{itemize}
+            \item[$\subseteq$:] Suppose $x\in B\cup (\bigcap_{i=1}^\infty A_i)$, then either $x\in B$, or $x\in \bigcap_{i=1}^\infty A_i$
+            . If $x\in B$, then for all $n\in\NN$ it satisfies $x\in B\cup A_n$, hence $x\in \bigcap_{i=1}^\infty(B\cup A_i)$; else if $x\in \bigcap_{i=1}^\infty A_i$, for eveery $n\in\NN$ it satisfies $x\in A_n \subseteq (B\cup A_n)$, hence $x\in \bigcap_{i=1}^\infty (B\cup A_i)$.
+
+            This concludes that $x\in \bigcap_{i=1}^\infty(B\cup A_i)$, or $B\cup (\bigcap_{i=1}^\infty A_i) \subseteq \bigcap_{i=1}^\infty(B\cup A_i)$.
+            \item[$\supseteq$:] Suppose $x\in \bigcap_{i=1}^\infty (B\cup A_i)$, then for each $n\in \NN$, one has $x\in B\cup A_n$, showing that $x\in B$ or $x\in A_n$.
+            
+            If for some $n\in\NN$ it satisfies $x\in B$, it's clear that $x\in B\cup (\bigcap_{i=1}^\infty A_i)$; else, if $x\notin B$ for all $n\in\NN$, then $x\in (B\cup A_n)$ for all $n\in\NN$ implies $x\in A_n$ for all $n\in\NN$. Hence, $x\in \bigcap_{i=1}^\infty A_i \subseteq B\cup (\bigcap_{i=1}^\infty A_i)$.
+
+            This concludes that $\bigcap_{i=1}^\infty(B\cup A_i)\subseteq B\cup (\bigcap_{i=1}^\infty A_i)$.
+        \end{itemize}
+    \end{itemize}
+\end{proof}
+
+\newpage
+
+\begin{ques}\label{q4}
+    Chapter 1.4 \# 5
+
+    Suppose that $75\%$ of all investors invest in traditional annuities and $45\%$ of them invest in the stock market. If $85\%$ invest in the stock market and/or traditional annuities, what percentage invest in both?
+\end{ques}
+
+\begin{proof}
+    Let sample space $\Omega$ collects all investors, let event $A\subseteq \Omega$ denotes all investors invest in traditional annuities, and event $B\subseteq \Omega$ denotes all investors invest in the stock market. Which, $A\cup B$ denotes all investors investing in the stock market and/or traditional annuities, while $A\cap B$ denotes all investors investing in both the stock market and traditional annuities.
+
+    Based on the description, the provided probability function satisfies $\mathbb{P}(A)=0.75$, $\mathbb{P}(B)=0.45$, and $\mathbb{P}(A\cup B)=0.85$. Then, the following equation hold:
+    \begin{align}
+        \mathbb{P}(A\cup B)=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cap B)
+    \end{align}
+    After rearranging, we get $\mathbb{P}(A\cap B)=\mathbb{P}(A)+\mathbb{P}(B)-\mathbb{P}(A\cup B)$. With the above conditions given, we get:
+    \begin{align}
+        \mathbb{P}(A\cap B)=0.75+0.45-0.85 = 0.3
+    \end{align}
+\end{proof}
+
+\hfil
+
+\section*{5,6,7,8,9,10 Not Done}
+\begin{ques}\label{q5}
+    Chapter 1.4 \# 15
+
+    Let $A,B$, and $C$ be three events. Show that exactly two of these events will occur with probability:
+    $$\PP(A\cap B)+\PP(A\cap C)+\PP(B\cap C)-3\PP(A\cap B\cap C)$$
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+
+\begin{ques}\label{q6}
+    Chapter 1.5 \# 20
+
+    The coefficients of the quadratic equation $x^2+bx+c=0$ are determined by tossing a fair die twice (the first outcome is $b$, the second one is $c$). Find the probability that the equation has real roots.
+\end{ques}
+
+\begin{proof}
+    For the equation to have real roots, the discriminat $b^2 - 4ac\geq 0$. In this case $a=1$, so $b^2-4c\geq 0$, or $b^2\geq 4c$.
+
+
+\end{proof}
+
+\newpage
+
+\begin{ques}\label{q7}
+    Chapter 1.4 \# 25
+
+    A number is selected at random from the set of natural numbers $\{1,2,...,1000\}$. What is the probability that it is divisible by $4$but neither by $5$ nor by $7$?
+\end{ques}
+
+\begin{proof}
+    Let the sample space $\Omega:=\{1,2,...,1000\}$. Let $A$ denotes
+\end{proof}
+
+\newpage
+
+\begin{ques}\label{q8}
+    Chapter 1.4 \# 26
+
+    For a Democratic candidate to win an election, she must win districts I,II, and III. Polls have shown that the probability of winning I and III is $0.55$, losing II but not I is $0.34$, and losing II and III but not I is $0.15$. Find the probability that this candidate will win all three districts. (Draw a Venn Diagram).
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\begin{ques}\label{q9}
+    Chapter 1.4 \# 28
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\begin{ques}\label{q10}
+    Chapter 1.7 \# 8
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\end{document}
