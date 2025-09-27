@@ -149,7 +149,14 @@
 \begin{proof}
     For the equation to have real roots, the discriminat $b^2 - 4ac\geq 0$. In this case $a=1$, so $b^2-4c\geq 0$, or $b^2\geq 4c$.
 
-
+    Given the fair dice with six sides (from $1$ to $6$), the probability of getting each number is precisely $\frac{1}{6}$. Now, since the two tosses of the fair die can be treated as independent events, the probability can be calculated by simply multiply the two tosses' probability together. 
+    
+    For the first toss, we have the following cases:
+    \begin{itemize}
+        \item For first toss getting $b=1$, since the second toss $c\geq 1$ by definition, then $b^2 = 1<4 \leq 4c$, showing $b^2-4c<0$ for all cases. Hence, for $b=1$, the probability to have real root is $0$.
+        \item For first toss getting $b=2$, suppose $b^2 \geq 4c$ is true, we get $4 \geq 4c \geq 4$ (due to $c\geq 1$), which enforces $4c=4$ or $c=1$. Hence, for $b=2$ the probability to have real root is $\frac{1}{6}$ (when $c=1$).
+        \item For first toss getting $b=3$, suppose $b^2\geq 4c$ is true, we get $9\geq 4c\geq 4$, hence $c=1,2$. THerefore, for $b=3
+$ the probability to have     \end{itemize}
 \end{proof}
 
 \newpage
