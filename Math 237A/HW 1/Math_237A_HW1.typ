@@ -20,8 +20,25 @@
   Proof
 ]
 
-= ND//2
-#problem[][]
+#pagebreak()
+
+= D//2
+#problem[
+  Lazarsfeld Problem Set 1 (4):
+
+  Let $n>=2$, and let $f in k[x_1,...,x_n]$ be a non-constant polynomial over an algebraically closed field $k$. Show that $X={f=0} subset.eq AA^n$ is infinite. When $k=CC$, show that $X$ is non-compact in the classical topology.
+][
+  For $n>=2$, one can view $k[x_1,...,x_n] = R[x_n]$ (where $R = k[x_1,...,x_(n-1)]$, and $R$ is not a field, since $n-1 >=1$, so there are indeterminates used in $R$). Then, for all $(a_1,...,a_(n-1)) in AA^(n-1)$, one can consider $f(a_1,...,a_(n-1), x_n) in k[x_n]$ (since plugging in $a_1,...,a_(n-1)$ for indeterminates $x_1,...,x_(n-1)$, $f$ is left with only one indeterminate $x_n$), then because $k$ is algebraically closed, $f(a_1,...,a_(n-1),x_n) in k[x_n]$ has a solution, say $a_n in k$. Then, $(a_1,...,a_(n-1),a_n) in AA^n$ is a solution of $f(x_1,...,x_n)$.
+
+  Then, since $k$ is algebraically closed (in particular infinite), then $AA^(n-1)$ is infinite. Hence, since for each $(a_1,...,a_(n-1)) in AA^(n-1)$, there exists $a_n in k$ such that $(a_1,...,a_(n-1),a_n) in X$ (being a solution to $f$), we conclude that $X$ is infinite.
+
+  \ 
+
+
+  Now, when $k=CC$, to show that $X$ is non-compact, it suffices to show that it's not bounded (since in $CC^n$, with Heine-Borel Theorem it guarantees that $X$ is compact iff it is closed and bounded). For all real number $M>0$, choose $a_1=...=a_(n-1)=M in CC$, since there exists $a_n in CC$ such that $f(a_1,...,a_(n-1),a_n) = 0$, we have $(a_1,...,a_(n-1),a_n) in X$. Which, if consider its norm, we get:
+  $ ||(a_1,...,a_(n-1),a_n)|| = sqrt(|a_1|^2 + ... + |a_(n-1)|^2 + |a_n|^2) = sqrt((n-1) dot M^2 + |a_n|^2) >= M sqrt(n-1) >= M $
+  Hence, for all $M>0$, one can choose $(a_1,...,a_(n-1),a_n) in X$, such that $||(a_1,...,a_(n-1),a_n)||>= M$, showing that $X$ is in fact not bounded, hence not compact in classical topology of $CC^n$.
+]
 
 #pagebreak()
 
