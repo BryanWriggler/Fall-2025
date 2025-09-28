@@ -10,12 +10,6 @@
   eq-chapterwise: true,
   margins: 1.0in,
 )
-#show: ergo-init.with(
-    colors: "bootstrap",  
-    headers: "classic", //"tab" for upper bar, classic for the one I used, sidebar for the emphasis on the left
-    all-breakable: true,
-    inline-qed: true
-)
 
 //common syntaxes needed
 
