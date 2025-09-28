@@ -15,9 +15,19 @@
 )
 
 = ND//1
-#problem[Statement][
-  
-  Proof
+#problem[
+  Lazarsfeld Problem Set 1 (1):
+
+  Let $k$ be an algebraically closed field, and let $M_(n times n) = AA^(n^2)(k)$ be the affine space of all $n times n$ matrices with entries in $k$. Determine which of the following subsets of $M_(n times n)$ are algebraic:
+
+  (a) $SL(n) := {A in M_(n times n)|det(A)=1}$.
+
+  (b) $"Diag"(n) := {A in M_(n times n) | A "can be diagonalized"}$.
+
+  (c) $"Nilp"(n) := {A in M_(n times n)|A "is nilpotent"}$.
+][
+
+  #text(weight: "bold")[(a):] Given $det:M_(n times n) arrow.r k$, it is in fact a polynomial function in $k[x_(11),...,x_(n n)]$ (polynomial ring with all entries of $n times n$ matrix as indeterminates). Which, if consider $det - 1 in k[x_(11),...,x_(n n)]$, for any $A in M_(n times n)$, we have $det(A)-1=0 <==> A in SL(n)$. This shows that $SL(n) = Z(det-1)$, the algebraic set corresponding to the polynomial $det-1$.
 ]
 
 #pagebreak()
@@ -30,13 +40,15 @@
 ][
   For $n>=2$, one can view $k[x_1,...,x_n] = R[x_n]$ (where $R = k[x_1,...,x_(n-1)]$, and $R$ is not a field, since $n-1 >=1$, so there are indeterminates used in $R$). Then, for all $(a_1,...,a_(n-1)) in AA^(n-1)$, one can consider $f(a_1,...,a_(n-1), x_n) in k[x_n]$ (since plugging in $a_1,...,a_(n-1)$ for indeterminates $x_1,...,x_(n-1)$, $f$ is left with only one indeterminate $x_n$), then because $k$ is algebraically closed, $f(a_1,...,a_(n-1),x_n) in k[x_n]$ has a solution, say $a_n in k$. Then, $(a_1,...,a_(n-1),a_n) in AA^n$ is a solution of $f(x_1,...,x_n)$.
 
-  Then, since $k$ is algebraically closed (in particular infinite), then $AA^(n-1)$ is infinite. Hence, since for each $(a_1,...,a_(n-1)) in AA^(n-1)$, there exists $a_n in k$ such that $(a_1,...,a_(n-1),a_n) in X$ (being a solution to $f$), we conclude that $X$ is infinite.
+  Then, since $k$ is algebraically closed (in particular infinite), then $AA^(n-1) = k^(n-1)$ (as set) is infinite. Hence, since for each $(a_1,...,a_(n-1)) in AA^(n-1)$, there exists $a_n in k$ such that $(a_1,...,a_(n-1),a_n) in X$ (being a solution to $f$), we conclude that $X$ is infinite.
 
   \ 
 
 
-  Now, when $k=CC$, to show that $X$ is non-compact, it suffices to show that it's not bounded (since in $CC^n$, with Heine-Borel Theorem it guarantees that $X$ is compact iff it is closed and bounded). For all real number $M>0$, choose $a_1=...=a_(n-1)=M in CC$, since there exists $a_n in CC$ such that $f(a_1,...,a_(n-1),a_n) = 0$, we have $(a_1,...,a_(n-1),a_n) in X$. Which, if consider its norm, we get:
+  Now, when $k=CC$, to show that $X$ is non-compact in classical topology, it suffices to show that it's not bounded (since in $CC^n$, with Heine-Borel Theorem it guarantees that $X$ is compact iff it is closed and bounded). For all real number $M>0$, choose $a_1=...=a_(n-1)=M in CC$, since there exists $a_n in CC$ such that $f(a_1,...,a_(n-1),a_n) = 0$, we have $(a_1,...,a_(n-1),a_n) in X$. Which, if consider its norm, we get:
   $ ||(a_1,...,a_(n-1),a_n)|| = sqrt(|a_1|^2 + ... + |a_(n-1)|^2 + |a_n|^2) = sqrt((n-1) dot M^2 + |a_n|^2) >= M sqrt(n-1) >= M $
+  (Note: The above requires $n>=2$, or $(n-1)>=1$).
+
   Hence, for all $M>0$, one can choose $(a_1,...,a_(n-1),a_n) in X$, such that $||(a_1,...,a_(n-1),a_n)||>= M$, showing that $X$ is in fact not bounded, hence not compact in classical topology of $CC^n$.
 ]
 
@@ -86,7 +98,9 @@
 
   \ 
 
-  Now, if consider the ideal $I=(y-x^2, z-x^3)$, we claim that $I$ is the ideal corrersponding to $Y$.
+  Now, if consider the ideal $a=(y-x^2, z-x^3)$, we claim that $a=I(Y)$ (the radical corresponding to $Y$), which suffices to show that $I$ is prime through some specific methods.
+
+
 ]
 
 #pagebreak()
