@@ -89,7 +89,7 @@ Let $f_1,...,f_m$ be functions $RR^n arrow.r RR$ which are smooth. Let $X subset
 
   Given $Y$ as the real line with coordinate $t$, and let $F:X arrow.r Y$ be defined by $F(x,y,t)=t$. Then, to prove that it is not a submersion, we'll consider the point $(x,y,t)=(1,1,1) in RR^3$:
 
-  Notice that it satisfies the equation, since $1^3 + 1^3 - 3 dot 1 dot 1 dot 1+1 = 0$, so $(1,1,1) in X$. Now, here let's explicitly calculate the local charts: From previous part, $d f= mat(3x^2-3t y, 3y^2 - 3t x, -3x y)$, so $d f(1,1,1) = mat(0,0,-3)$. By Implicit Function Theorem (Smooth Version), since the $(partial f)/(partial t)$ column is an invertible $1 times 1$ minor, then there exists an open neighborhood $U subset.eq RR^2$ containing $(x,y)=(1,1)$, open neighborhood $W subset.eq RR$ containing $t=1$, and a smooth function $g:U arrow.r W$, such that for all $(x',y') in U$, $t'=g(x',y')$ satisfies $f(x',y',t')=0$ (or $(x',y',t') in X$). In prticular, $g(1,1) =1$ (since it's the basepoint we choose for using Implicit Function Theorem).
+  Notice that it satisfies the equation, since $1^3 + 1^3 - 3 dot 1 dot 1 dot 1+1 = 0$, so $(1,1,1) in X$. Now, here let's explicitly calculate the local charts: From previous part, $d f= mat(3x^2-3t y, 3y^2 - 3t x, -3x y)$, so $d f(1,1,1) = mat(0,0,-3)$. By Implicit Function Theorem (Smooth Version), since the $(partial f)/(partial t)$ column is an invertible $1 times 1$ minor in $d f(1,1,1)$, then there exists an open neighborhood $U subset.eq RR^2$ containing $(x,y)=(1,1)$, open neighborhood $W subset.eq RR$ containing $t=1$, and a smooth function $g:U arrow.r W$, such that for all $(x',y') in U$, $t'=g(x',y')$ satisfies $f(x',y',t')=0$ (or $(x',y',t') in X$). In prticular, $g(1,1) =1$ (since it's the basepoint we choose for using Implicit Function Theorem).
   
   Hence, if consider $tilde(g):U arrow.r X$ by $tilde(g)(x',y') = (x',y',g(x',y'))$. If restrict $tilde(g)$ onto its image, then it becomes a homeomorphism (since the inverse is given by the projection $pi:tilde(g)(U) arrow.r U$, $pi(x',y',t') = (x',y')$ due to the property of Implicit Function Theorem, where each $(x',y') in RR^2$ is paired with a unique $t' in W$ satisfying $f(x',y',t')=0$. hence, $pi$ here is the desired local chart, where $tilde(g)$ is the map we'll use for calculating differential.
 
@@ -104,6 +104,7 @@ Let $f_1,...,f_m$ be functions $RR^n arrow.r RR$ which are smooth. Let $X subset
   \ 
 
   To prove that it's a differential for open set $t!=1$ in $X$, there are several cases to consider:
+  1. For $x,y !=0$, since the differential 
 ]
 
 #pagebreak()
