@@ -14,7 +14,7 @@
   date: datetime.today().display("[month repr:long] [day], [year]"),
 )
 
-= ND (b)//1
+= D//1
 #problem[
   Lazarsfeld Problem Set 1 (1):
 
@@ -31,11 +31,21 @@
 
   \ 
 
-  #text(weight: "bold")[(b):] We'll aim to show that $"Diag"(n) in M_(n times n)$ doesn't form an algebraic set. Notice that since $"Diag"(n)$ is a proper subset of $M_(n times n)$ (since any matrix in Jordan Canonical Form  is non-diagonalizable), it suffices to show that for every proper algebraic set $V subset.neq M_(n times n)$, there exists $A in "Diag"(n) \\ V$ (or, none of the proper algebraic set contains $"Diag"(n)$).
+  #text(weight: "bold")[(b):] For $k=CC$ specifically, we aim to show that $"Diag"(n)$ is not an algebraic set. One way of proving this, is showing that $"Diag"(n)$ is dense within $M_(n times n)(CC)$ under classical topology.
+  
+  For all $Y subset.eq AA^(n^2)(CC)$ that is an algebraic set, since it can be interpreted as solutions of finitely many polynomials, or solutions to $(f_1,...,f_k) = I(Y)$ specifically, hence if view each polynomial $f_i:CC^(n^2) arrow CC$ as continuous functions, we get $Y = sect.big_(i=1)^n f_i^(-1)(0)$ is closed under classical topology. So, closed sets in Zariski Topology is closed in classical topology also. 
 
-  For all proper algebraic set $V subset.neq M_(n times n)$ (WLOG, can consider $V!= emptyset$), let $(f_1,...,f_k)=J=I(V)$ be the corresponding radical. Since $V!= emptyset$ by our assumption, then the corresponding radical $J=I(V) != k[x_(1 1),...,x_(n n)]$. Hence, with $J=(f_1,...,f_k)$ (utilizing Hilbert's Basis Theorem), one can guarantee $f_1$ is not a unit, hence its algebraic set $Z(f_1) != M_(n times n)$. So, it suffices to find $A in "Diag"(n) \\ Z(f_1)$ (since $(f_1) subset.eq J$, we have $V=Z(J) subset.eq Z(f_1)$).
+  Which, if one can show $"Diag"(n)$ is dense under classical topology, the closure of $"Diag"(n)$ under Zariski Topology must be a closed set in classical topology containing $"Diag"(n)$, which is the whole space. Since $"Diag"(n)$ is a proper subset of $M_(n times n)(CC)$, closure being the whole space implies $"Diag"(n)$ is not closed under classical topology, consequently it's also not closed under Zariski Topology.
 
-  Let $x_(i j)$ be an indeterminate involves in $f_1$ (i.e. $f_1$ is non-constant with respect to $x_(i j)$)...... 
+  Recall the following norm on $M_(n times n)(CC)$:
+  $ ||A||_(max):= sup_(v in CC^n, ||v||=1){||A v||} $
+  This is a norm equivalent to the Euclidean 2-norm, which they generate the same topology on $M_(n times n)(CC)$ (suppose $c,C>0$ are two constants such that $c||A||_(max)<=||A||_2 <= C||A||_(max)$). For all matrix $A in M_(n times n)(CC)$, it can be turned into an upper triangular matrix, so there exists invertible $S in M_(n times n)(CC)$, such that $A=S T S^(-1)$ (where $T$ is upper triangular).
+
+  Since $T$ is upper triangular, all the eigenvalues are on its diagonal. For all $epsilon>0$, choose $T'$ that is also upper triangular, so that it fixes all nondiagonal entries of $T$, while perterbate the diagonals so that $T'$ has distinct eigenvalues, and satisfies $||T-T'||_(max) < epsilon/(C dot ||S||_(max) dot ||S^(-1)||_(max))$. Then, the following inequality holds:
+  $ ||A-S T'S^(-1)||_2 <= C||S T S^(-1) - S T' S^(-1)||_(max) <=C||S||_(max) dot ||T-T'||_(max) dot ||S^(-1)||_(max) < epsilon $
+  (Note: The above property is true if view matrices as linear operators, which for all $||v||=1$, $||A dot B v||<= ||A||_(max) dot ||B v|| <= ||A||_(max) dot ||B||_(max)$, hence $||A dot B||_(max)<= ||A||_(max) dot ||B||_(max)$).
+
+  Hence, $A$ and $S T' S^(-1)$ has Euclidean distance $< epsilon$, while $S T' S^(-1)$ is diagonalizable (since it has upper triangular form being $T'$, and $T'$ has $n$ distinct eigenvalues based on construction, which has a basis formed by eigenvectors corresponding to distinct eigenvalues of $T'$). So, this shows that $"Diag"(n)$ is dense in $M_(n times n)(CC)$ under classical topology. Which, based on the previous claims we deduce that $"Diag"(n)$ can't be cloesd under Zariski Topology, hence not an algebraic set.
 
   \ 
 
@@ -70,7 +80,9 @@
   Hence, for all $M>0$, one can choose $(a_1,...,a_(n-1),a_n) in X$, such that $||(a_1,...,a_(n-1),a_n)||>= M$, showing that $X$ is in fact not bounded, hence not compact in classical topology of $CC^n$.
 ]
 
-#pagebreak()
+\ 
+
+\ 
 
 = D//3
 #problem[
