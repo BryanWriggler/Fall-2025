@@ -23,8 +23,9 @@
 #let Char = math.upright[char] //characteristics
 #let coim = math.upright[coim] //coimage (homological algebra)
 #let im = math.upright[im] //image
-#let Spec = math.upright[Spec]
-#let coker = math.upright[coker]
+#let Spec = math.upright[Spec] //spectrum of a ring / vector space
+#let coker = math.upright[coker] //cokernel
+#let span = math.upright[span] //span of vectors
 
 //category theory
 #let cat(name) = math.sans[name] //general category font command
