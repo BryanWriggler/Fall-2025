@@ -1,0 +1,313 @@
+\documentclass{article}
+\usepackage{../../Self_Style}
+
+\title{Physics 115A -- Homework 1}
+\author{Zih-Yu Hsieh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{ques}[Discrete statistics at the Tour de France]\label{q1}
+Suppose we’re lucky enough to gather all 61 official winners of the Tour de France in one
+room, alive and dead. Four people have won it 5 times apiece, one person has won it 4
+times, three people have won it 3 times apiece, twelve people have won it 2 times apiece, and
+forty-one people have won it once. If we let $N(j)$ represent the number of winners with $j$
+victories in the Tour de France, then $N(5) = 4$, $N(4) = 1$, $N(3) = 3$, $N(2) = 12$, $N(1) = 41$,
+and all other $N(j)$ for $j \neq 5, 4, 3, 2, 1$ are zero.
+
+(a) Compute $\langle j^2\rangle$ and $\langle j\rangle^2$.
+
+(b) Determine $\Delta j \equiv j-\langle j\rangle$ for each $j$, and compute the standard deviation using Griffiths
+Eq. 1.11 (i.e., $\sigma^2 = \langle (\Delta j)^2\rangle$).
+
+(c) Use your results from (a) and (b) to verify Griffiths Eq. 1.12 (i.e., $\sigma =
+\sqrt{\langle j^2\rangle - \langle j\rangle^2}$).
+\end{ques}
+
+\begin{proof}
+
+    \hfil
+
+    \begin{itemize}
+        \item[(a)] First, consider the total number of winners, we get $N_\textmd{tot} = \sum_{i=1}^5 N(i) = 61$ (in particular, since for $j>5$ we have $N(j)=0$, one can exclude all cases for $j>$). So, the probability for $j=1,2,3,4,5$ is given as $\PP(j) = \frac{N(j)}{N_\textmd{tot}}$. Then, the expectation value of $j$ and $j^2$ is given as follow, respectively:
+        \begin{align}
+            \left<j\right>=\sum_{i=1}^5 j \cdot \PP(j) = 1\cdot \frac{41}{61}+2\cdot \frac{12}{61}+3\cdot\frac{3}{61}+4\cdot\frac{1}{61}+5\cdot \frac{4}{61}=\frac{98}{61}
+        \end{align}
+        \begin{align}
+            \left<j^2\right> = \sum_{j=1}^{5}j^2\cdot\PP(j) = 1\cdot\frac{41}{61}+4\cdot\frac{12}{61}+9\cdot\frac{3}{61}+16\cdot\frac{1}{61}+25\cdot\frac{4}{61}=\frac{232}{61}
+        \end{align}
+        So, we get $\left<j^2\right>=\frac{232}{61}$, and $\left<j\right>^2 = \left(\frac{98}{61}\right)^2$.
+
+        \item[(b)] For each $j$, the difference from the expectation value $\left<j\right>$ is given as:
+        \begin{align}
+            &\Delta 1 = 1-\frac{98}{61}=\frac{-37}{61},\quad \Delta 2=2-\frac{98}{61}=\frac{24}{61},\quad \Delta 3=3-\frac{98}{61}=\frac{85}{61}\\
+            &\Delta 4=4-\frac{98}{61}=\frac{146}{61},\quad \Delta 5=5-\frac{98}{61}=\frac{207}{61}
+        \end{align}
+        So, the variance is given as:
+        \begin{align}
+            \sigma^2=\left<(\Delta j)^2\right> = \sum_{j=1}^5(\Delta j)^2\cdot \PP(j)=\frac{4548}{3721}
+        \end{align}
+        Hence, the standard deviation $\sigma=\sqrt{\frac{4548}{3721}}\approx 1.106$.
+
+        \item[(c)] If we consider $\left<j^2\right>-\left<j\right>^2 = \frac{232}{61}-\left(\frac{98}{61}\right)^2 = \frac{4548}{3721}=\sigma^2$ found in part (b), hence $\sigma =\sqrt{\left<j^2\right>-\left<j\right>^2}$ in this case.
+    \end{itemize}
+\end{proof}
+
+\hfil
+
+\section{Insert Image, (c) (d) not done}
+\begin{ques}[Fun with gaussians]\label{q2}
+We’ll encounter physical situations involving gaussian probability densities repeatedly through-
+out the course, so now’s a good time to get comfortable with them. If you’re finding yourself
+stuck, please take a look at the accompanying note on gaussian integrals on Gauchospace.
+
+(a) Consider the probability density $\rho(x) = A e^{-\lambda(x-\mu)^2}$, where $A,\mu, \lambda$ are positive, real
+constants. Determine $A$ using Griffiths Eq. 1.16 (i.e.,
+\[
+\int_{-\infty}^\infty \rho(x) \, dx = 1).
+\]
+Find $\langle x\rangle$, $\langle x^2\rangle$, and $\sigma$. Sketch $\rho(x)$.
+
+(b) Consider now the probability density $\rho(x) = A x e^{-\lambda(x-\mu)^2}$ for positive, real $A,\mu, \lambda$.
+Determine $A$, $\langle x\rangle$, $\langle x^2\rangle$, and $\sigma$. Sketch $\rho(x)$. Although it is normalizable, can $\rho(x)$
+always be considered a probability density?
+
+(c) Now consider the probability density $\rho(x) = A x^2 e^{-\lambda(x-\mu)^2}$ for positive, real $A,\mu, \lambda$.
+Determine $A$, $\langle x\rangle$, $\langle x^2\rangle$, and $\sigma$. Sketch $\rho(x)$.
+
+(d) Shifting back to QM, consider the gaussian wavefunction, $\Psi(x) = A e^{-x^2/b^2}$, find $A$
+from the normalization condition (remember how the wavefunction relates to the
+probability density). For this wavefunction, calculate $\langle x\rangle$, $\langle x^2\rangle$, and $\sigma_x$, as well as
+$\langle p\rangle$, $\langle p^2\rangle$, and $\sigma_p$. Test the uncertainty principle on $\sigma_p$ and $\sigma_x$ for this distribution.
+\end{ques}
+\begin{proof}
+
+    \hfil
+
+    \begin{itemize}
+        \item[(a)] First, $\rho(x)=A e^{-\lambda(x-\mu)^2} = A e^{-(\sqrt{\lambda}(x-\mu))^2}$. Hence, if perform the integration, doing substitution $u=\sqrt{\lambda}(x-\mu)$ and $du = \sqrt{\lambda} dx$, we get:
+        \begin{align}
+            \int_{-\infty}^{\infty}\rho(x)dx = \int_{-\infty}^{\infty}A e^{-(\sqrt{\lambda}(x-\mu))^2}dx = \frac{A}{\sqrt{\lambda}}\int_{-\infty}^{\infty}e^{-u^2}dx = A\sqrt{\frac{\pi}{\lambda}}
+        \end{align}
+        Hence, for the normalization to happen (or the above integral being $1$), we need $A=\sqrt{\frac{\lambda}{\pi}}$.
+
+        \hfil
+
+        To find $\left<x\right>$ and $\left<x^2\right>$, consider the following integrals (using similar substitutions as above):
+        \begin{align}
+            \left<x\right> &= \int_{-\infty}^{\infty}x\rho(x)dx = \int_{-\infty}^{\infty}x \cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &= \frac{1}{\sqrt{\lambda}}\int_{-\infty}^{\infty}\sqrt{\lambda}(x-\mu)Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx+\mu\int_{-\infty}^{\infty}A e^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &= \frac{A}{\lambda}\int_{-\infty}^{\infty}ue^{-u^2}du + \mu = -\frac{A}{2\lambda}e^{-u^2}\bigg|_{-\infty}^{^\infty}+\mu = \mu
+        \end{align}
+        \begin{align}
+            \left<x^2\right>&= \int_{-\infty}^{\infty}x^2\rho(x)dx=\int_{-\infty}^{\infty}x^2\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\ 
+            &= \frac{1}{\lambda}\int_{-\infty}^{\infty}(\sqrt{\lambda}(x-\mu))^2 Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx + \int_{-\infty}^{\infty}2\mu x Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx-\int_{-\infty}^{\infty}\mu^2 Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &= \frac{A}{\lambda\sqrt{\lambda}}\int_{-\infty}^{\infty}u^2 e^{-u^2}du + 2\mu\left<x\right>-\mu^2\cdot \int_{-\infty}^{\infty}\rho(x)dx\\ 
+            &= \frac{A}{\lambda^\frac{3}{2}}\left(-\frac{1}{2}ue^{-u^2}\bigg|_{-\infty}^{\infty}+\frac{1}{2}\int_{-\infty}^{\infty}e^{-u^2}du\right) + 2\mu^2-\mu^2 =\sqrt{\frac{\lambda}{\pi}}\cdot\frac{1}{\lambda^\frac{3}{2}}\cdot\frac{\sqrt{\pi}}{2}+\mu^2 = \mu^2+\frac{1}{2\lambda}
+        \end{align}
+        With these values in mind, we get $\sigma=\sqrt{\left<x^2\right>-\left<x\right>^2}=\sqrt{\mu^2+\frac{1}{2\lambda}-\mu^2} = \frac{1}{\sqrt{2\lambda}}$.
+
+        And, the following is a sketch of $\rho(x)$:
+
+        \textbf{insert image}
+
+        \item[(b)] If now consider the function $\rho(x)=A xe^{-\lambda(x-\mu)^2}$, where $\rho(x)$ is normalized. To get the constant $A$, consider the following integral (with the same substitution as part (a)):
+        \begin{align}
+            \int_{-\infty}^{\infty}\rho(x)dx &= \int_{-\infty}^{\infty}A xe^{-(\sqrt{\lambda}(x-\mu))^2}dx = \frac{A}{\sqrt{\lambda}}\int_{-\infty}^{\infty}\sqrt{\lambda}(x-\mu)e^{-(\sqrt{\lambda}(x-\mu))^2}dx + A\mu\int_{-\infty}^{\infty}e^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &= \frac{A}{\lambda}\int_{-\infty}^{\infty}ue^{-u^2}du + \frac{A\mu}{\sqrt{\lambda}}\int_{-\infty}^{\infty}e^{-u^2}du = -\frac{A}{2\lambda}e^{-u^2}\bigg|_{-\infty}^{\infty} + A\mu\sqrt{\frac{\pi}{\lambda}} = A\mu\sqrt{\frac{\pi}{\lambda}}
+        \end{align}
+        Hence, for normalization to happen (or the above integral is $1$), we need $A=\sqrt{\frac{\lambda}{\pi \mu^2}}$.
+
+        \hfil
+
+        To find $\left<x\right>$ and $\left<x^2\right>$, consider the following integrals:
+        \begin{align}
+            \left<x\right>&=\int_{-\infty}^{\infty}x\rho(x)dx = \int_{-\infty}^{\infty}x \cdot Axe^{-(\sqrt{\lambda}(x-\mu))^2}dx = \frac{A}{\lambda^\frac{3}{2}}\left(-\frac{1}{2}ue^{-u^2}\bigg|_{-\infty}^{\infty}+\frac{1}{2}\int_{-\infty}^{\infty}e^{-u^2}du\right) + \mu^2\\
+            &= \sqrt{\frac{\lambda}{\pi \mu^2}}\cdot\frac{1}{\lambda^\frac{3}{2}}\cdot\frac{\sqrt{\pi}}{2}+\mu^2=\frac{1}{2\mu\lambda}+\mu^2
+        \end{align}
+        (\textbf{Note:} The above integral is the same form of $\left<x^2\right>$ in part (a), except $A$ is different, so we can continue from Equation (13)).
+        \begin{align}
+            \left<x^2\right>&=\int_{-\infty}^{\infty}x^2\rho(x)dx = \int_{-\infty}^{\infty}x^2 \cdot Axe^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &= \frac{1}{\sqrt{\lambda}^3}\int_{-\infty}^{\infty}(\sqrt{\lambda}(x-\mu))^3\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx+\int_{-\infty}^{\infty}3\mu x^2\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\ &- \int_{-\infty}^{\infty}3\mu^2 x\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx +\int_{-\infty}^{\infty}\mu^3\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &=\frac{A}{\lambda^2}\int_{-\infty}^{\infty}u^3e^{-u^2}du + 3\mu\left<x\right> - 3\mu^2\int_{-\infty}^{\infty}\rho(x)dx + \frac{\mu^3A}{\sqrt{\lambda}}\int_{-\infty}^{\infty}e^{-u^2}du\\
+            &= \frac{A}{\lambda^2}\left(-\frac{1}{2}u^2e^{-u^2}\bigg|_{-\infty}^{\infty}+\int_{-\infty}^{\infty}ue^{-u^2}du\right)+\frac{3}{2\lambda}+\mu^3-3\mu^2+\mu^3 A\sqrt{\frac{\pi}{\lambda}}\\
+            &= \frac{A}{\lambda^2}\left(-\frac{1}{2}e^{-u^2}\bigg|_{-\infty}^{\infty}\right)+\frac{3}{2\lambda}+\mu^3-3\mu^2+\mu^3 \cdot\sqrt{\frac{\lambda}{\pi \mu^2}}\sqrt{\frac{\pi}{\lambda}}\\
+            &= \frac{3}{2\lambda}+\mu^3-2\mu^2
+        \end{align}
+        With the above equations, we get $\sigma=\sqrt{\left<x^2\right>-\left<x\right>^2} = \sqrt{\frac{3}{2\lambda}-\frac{1}{2\mu\lambda}+\mu^3-3\mu^2}$. And, here is a sketch of $\rho(x)$:
+
+        \textbf{insert image}
+
+        Overall, even though $\rho(x)$ is normalizable, the reason why $\rho(x)$ is not a probability density function, is because it yields negative values for $x<0$.
+
+        \item[(c)] If consider $\rho(x)=Ax^2e^{-\lambda(x-\mu)^2}$, for normalization, consider the following:
+        \begin{align}
+            \int_{-\infty}^{\infty}\rho(x)dx = \int_{-\infty}^{\infty}Ax^2e^{-(\sqrt{\lambda}(x-\mu))^2}dx
+        \end{align}
+    \end{itemize}
+\end{proof}
+
+\newpage
+
+\begin{ques}[Fun with probability densities]\label{q3}
+Consider the function
+\[
+\rho(r) =
+\begin{cases}
+Ar^2 & r \leq R,\\
+0 & r \geq R
+\end{cases}
+\]
+such that $dP = 4\pi \rho(r) r^2 dr$ represents the probability of finding a particle in a spherical shell of thickness $dr$ located at the radial coordinate $r$ in three-dimensional spherical
+coordinates.
+
+(a) Determine $A$ by requiring that the probability of finding the particle anywhere is
+unity. Don’t forget that we’re in three spatial dimensions.
+
+(b) What is the probability of finding the particle between $r = R/2$ and $r = R$?
+
+(c) Determine $\langle r\rangle$, the average radial position of the particle.
+\end{ques}
+\begin{proof}
+    \begin{itemize}
+        \item[(a)] Since $dP=4\pi \rho(r)r^2 dr$ represents the probability of finding a partical in a concentric spherical shell of thickness $dr$ and radius $r$, then the total integral of the probability is given by the following (which runs through all radius $r\geq 0$):
+        \begin{align}
+            1 = \int_{0}^{\infty}4\pi\rho(r)r^2 dr = \int_{0}^{R}4\pi A r^4dr = \frac{4\pi A}{5}r^5\bigg|_{0}^{R} = \frac{4\pi AR^5}{5}
+        \end{align}
+        Hence, for normalization to happen, $A = \frac{5}{4\pi R^5}$.
+        \item[(b)] For the probability to find the partical in $\frac{R}{2}\leq r\leq R$, we get:
+        \begin{align}
+            \PP\left(\frac{R}{2}\leq r\leq R\right)=\int_{\frac{R}{2}}^{R}4\pi \rho(r)r^2dr = \frac{4\pi A}{5}r^5\bigg|_{\frac{R}{2}}^{R}=\frac{4\pi }{5}\cdot\frac{5}{4\pi R^5}\left(1-\frac{1}{2^5}\right)R^5 = \frac{31}{32}
+        \end{align}
+        \item[(c)] To calculate $\left<r\right>$, it's given by the following integral:
+        \begin{align}
+            \left<r\right>=\int_{0}^{\infty}r \cdot 4\pi \rho(r)r^2 dr = \int_{0}^{R}4\pi A r^5 dr = \frac{4\pi A}{6}r^6\bigg|_{0}^{R} = \frac{2\pi}{3}\cdot \frac{5}{4\pi R^5}R^6=\frac{5R}{6}
+        \end{align}
+    \end{itemize}
+\end{proof}
+\newpage
+
+\begin{ques}[Probability currents, Griffiths problem 1.9 and 1.14 modified]\label{q4}
+Let $P_{ab}(t)$ be the probability of finding a particle in the range $a < x < b$ at time $t$. Show
+that
+\[
+\frac{dP_{ab}}{dt} = J(a, t) - J(b, t)
+\]
+where
+\[
+J(x, t) \equiv \frac{i\hbar}{2m}
+\left(
+\Psi \frac{\partial\Psi^*}{\partial x}
+- \Psi^* \frac{\partial \Psi}{\partial x}
+\right).
+\]
+
+(a) What are the units of $J(x, t)$? J is called the probability current because it tells you
+
+the rate at which probability is “flowing” past the point $x$. If $P_{ab}(t)$ is increasing,
+then more probability is flowing into the region at one end than flows out the other.
+
+(b) Consider a particle described by the wavefunction $\Psi(x, t) = A e^{-amx^2/\hbar} e^{-iat}$. Find $A$
+for this wavefunction.
+
+(c) Compute the average velocity $\langle v\rangle = d\langle x\rangle/dt$ for this wavefunction.
+
+(d) Compute the probability current for this wavefunction.
+\end{ques}
+\begin{proof}
+    
+    \hfil
+
+    \begin{itemize}
+        \item[(a)] Since Probability itself has no unit, then $J$ as a consequence of time derivative of probability, endows with the unit of $1/s$ (where $s$ represents seconds for simplicity).
+        \item[(b)] Given $\Psi(x,t)=Ae{-amx^2/\hbar}\cdot e^{-iat}$, then it satisfies the following:
+        \begin{align}
+            1=\int_{-\infty}^{\infty}|\Psi(x,t)|^2 dx = \int_{-\infty}^{\infty}|A|^2e^{-2amx^2/\hbar}dx = \int_{-\infty}^{\infty}|A|^2e^{-\left(\sqrt{2am/\hbar}x\right)^2}dx
+        \end{align}
+        Takes substitution $u=\sqrt{2am/\hbar}x$, $du=\sqrt{2am/\hbar}dx$, we get:
+        \begin{align}
+            1=\frac{|A|^2}{\sqrt{2am/\hbar}}\int_{-\infty}^{\infty}e^{-u^2}du = |A|^2\sqrt{\frac{\pi\hbar}{2am}}
+        \end{align}
+        Hence, we require $|A|=\left(\frac{\pi\hbar}{2am}\right)^{1/4}$.
+        \item[(c)] First, we'll compute the expectation value $\left<x\right>$ (with the same substitution as above):
+        \begin{align}
+            \left<x\right>=\int_{-\infty}^{\infty}x|\Psi(x,t)|^2dx = |A|^2\int_{-\infty}^{\infty}xe^{-(\sqrt{2am/\hbar}x)^2}dx = 0
+        \end{align}
+        So, the average velocity $\left<v\right>=\frac{d\left<x\right>}{dt}=0$.
+        \item[(d)] Given that $\Psi^*(x,t)=A^*e^{-amx^2/\hbar}\cdot e^{iat}$, $\frac{d\Psi^*}{dx}=-A^*\frac{2amx}{\hbar}e^{-amx^2/\hbar}\cdot e^{iat}$, and $\frac{d\Psi}{dx}=-A\frac{2amx}{\hbar}e^{-amx^2/\hbar}\cdot e^{-iat}$. So, the Probability Current is given by:
+        \begin{align}
+            J(x,t) &= \frac{i\hbar}{2m}\left(-Ae^{-amx^2/\hbar}e^{-iat}\cdot A^*\frac{2amx}{\hbar}e^{-amx^2/\hbar} e^{iat}+A^*e^{-amx^2/\hbar}e^{iat}\cdot A\frac{2amx}{\hbar}e^{-amx^2/\hbar}e^{-iat}\right)\\
+            &=0
+        \end{align}
+    \end{itemize}
+\end{proof}
+
+\newpage
+
+\begin{ques}[More intuition about probability currents]\label{q5}
+The wave function of a beam of free particles traveling in one dimension with velocity $v$ is
+\[
+\Psi(x) = A \exp [ikx]
+\]
+where $k = mv/\hbar$. (You might notice that this wave function is not strictly normalizable, but
+you can set aside this concern for now.) Argue that the probability current corresponding
+to this beam of particles has the form
+\[
+J(x) = v \times \text{density of particles}.
+\]
+\end{ques}
+
+\begin{ques}[Classical Particle in a Well (Griffiths Problem 1.11)]\label{q6}
+Imagine a particle of mass $m$ and energy $E$ in a potential well $V (x)$, sliding frictionlessly
+back and forth between the classical turning points (call them $a$ and $b$). Classically, the
+probability of finding the particle in the range $dx$ (if, for example, you took a snapshot at
+a random time $t$) is equal to the fraction of the time $T$ it takes to get from $a$ to $b$ that it
+spends in the interval $dx$:
+\[
+\rho(x)dx = \frac{dt}{T} = \frac{(dt/dx)dx}{T} = \frac{1}{v(x)T} dx
+\]
+where $v(x)$ is the speed, and
+\[
+T = \int_0^T dt = \int_a^b \frac{1}{v(x)} dx .
+\]
+Thus
+\[
+\rho(x) = \frac{1}{v(x)T}.
+\]
+
+(a) Use conservation of energy to express $v(x)$ in terms of $E$ and $V(x)$.
+
+(b) As an example, find $\rho(x)$ for the simple harmonic oscillator, $V(x) = kx^2/2$. Plot $\rho(x)$
+and check that it is correctly normalized.
+
+(c) For the classical harmonic oscillator in part (b), find $\langle x\rangle$, $\langle x^2\rangle$, and $\sigma_x$.
+\end{ques}
+
+\begin{ques}[Unstable Particles (Griffiths Problem 1.17)]\label{q7}
+Suppose you wanted to describe an unstable particle, that spontaneously disintegrates with
+a “lifetime” $\tau$. In that case, the total probability of finding the particle somewhere should
+not be constant, but should decrease at (say) an exponential rate:
+\[
+P (t) = \int_{-\infty}^{\infty} |\Psi(x, t)|^2 dx = e^{-t/\tau}.
+\]
+
+A crude way of achieving this result is as follows. In Griffiths Eq. 1.24 we tacitly assumed
+that $V$ (the potential energy) is real. That is certainly reasonable, but it leads to the
+“conservation of probability” enshrined in Griffiths Eq. 1.27. What if we assign to $V$ an
+imaginary part,
+\[
+V = V_0 - i\Gamma
+\]
+where $V_0$ is the true (real) potential energy and $\Gamma$ is a positive real constant?
+
+(a) Show that (in place of Griffiths Eq. 1.27, i.e.
+$\tfrac{d}{dt}\int_{-\infty}^\infty |\Psi(x, t)|^2dx = 0$) we now get
+\[
+\frac{dP}{dt} = -\frac{2\Gamma}{\hbar}P.
+\]
+
+(b) Solve for $P(t)$, and find the lifetime of the particle in terms of $\Gamma$.
+\end{ques}
+
+\end{document}
