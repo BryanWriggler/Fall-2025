@@ -245,6 +245,7 @@ for this wavefunction.
 
 \newpage
 
+\section{5 Not done}
 \begin{ques}[More intuition about probability currents]\label{q5}
 The wave function of a beam of free particles traveling in one dimension with velocity $v$ is
 \[
@@ -257,6 +258,16 @@ to this beam of particles has the form
 J(x) = v \times \text{density of particles}.
 \]
 \end{ques}
+
+\begin{proof}
+    Given the definition of probability current $J(x,t):=-\frac{i\hbar}{2m}\left(\Psi^*\frac{\partial \Psi}{\partial x}-\frac{\partial \Psi^*}{\partial x}\Psi\right)$, with $\Psi(x,t)=Ae^{ikx}$, then we have $\frac{\partial \Psi}{\partial x}=Aike^{ikx}$ and $\frac{\partial \Psi^*}{\partial x}=-Aike^{-ikx}$. Hence, $J$ expands to the following form:
+    \begin{align}
+        J(x,t)=-\frac{i\hbar}{2m}\left(Ae^{-ikx}\cdot Aike^{ikx}+Aike^{-ikx}\cdot Ae^{ikx}\right) = \frac{\hbar}{m}\cdot A^2k=A^2\frac{\hbar}{m}\cdot \frac{mv}{\hbar} = vA^2
+    \end{align}
+
+\end{proof}
+
+\newpage
 
 \begin{ques}[Classical Particle in a Well (Griffiths Problem 1.11)]\label{q6}
 Imagine a particle of mass $m$ and energy $E$ in a potential well $V (x)$, sliding frictionlessly
@@ -283,6 +294,17 @@ and check that it is correctly normalized.
 
 (c) For the classical harmonic oscillator in part (b), find $\langle x\rangle$, $\langle x^2\rangle$, and $\sigma_x$.
 \end{ques}
+
+\begin{proof}
+    \hfill
+
+    \begin{itemize}
+        \item[(a)] Assume the conservation of energy, the particle has mass $m$, total energy $E$, and the potential is recorded by $V(x)$. Then, the kinetic energy of the particle is $K=\frac{1}{2}mv(x)^2=E-V(x)$, hence $v(x)=\sqrt{\frac{2(E-V(x))}{m}}$.
+        \item[(b)] Given $V(x)=\frac{kx^2}{2}$,  
+    \end{itemize}
+\end{proof}
+
+\newpage
 
 \begin{ques}[Unstable Particles (Griffiths Problem 1.17)]\label{q7}
 Suppose you wanted to describe an unstable particle, that spontaneously disintegrates with
