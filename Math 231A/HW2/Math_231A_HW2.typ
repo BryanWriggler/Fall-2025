@@ -26,7 +26,7 @@
   date: datetime.today().display("[month repr:long] [day], [year]"),
 )
 
-=//1
+= D//1
 #problem[
   Etingof Problem Sets 2.2:
 
@@ -80,15 +80,19 @@
 
 #pagebreak()
 
+= ND//2
 #problem[
   Etingof Problem Sets 2.4:
 
   Let $cal(F)_n (CC)$ be the set of all flags in $CC^n$. Show that 
   $ cal(F)_n (CC)=GL(n,CC)\/B(n,CC) = U(n)\/T(n) $
-  Where $B(n,CC)$ is the group of invertible complex upper triangular matrices, and $T(n)$ is the group of diagonal nitary matrices (which is easily shown to be the $n$-dimensional torus $(RR\/ZZ)^n$). Deduce from this that $cal(F)_n(CC)$ is a compact complex manifold and find its dimension over $CC$.
+  Where $B(n,CC)$ is the group of invertible complex upper triangular matrices, and $T(n)$ is the group of diagonal unitary matrices (which is easily shown to be the $n$-dimensional torus $(RR\/ZZ)^n$). Deduce from this that $cal(F)_n(CC)$ is a compact complex manifold and find its dimension over $CC$.
 ][
   As a premise, we'll identify $GL(n,CC)$ as a collection of linear operators on $CC^n$ with standard basis ${e_1,...,e_n}$ being the ordered basis. Let $V_i:= span{e_1,...,e_i}$, we'll denote the flag ${0}=V_0 subset.neq V_1 subset.neq ... subset.neq V_n = CC^n$ as $cal(F)_0$, called the #emph[Standard Flag]. 
+
+  \ 
   
+  #text(weight: "bold")[Equality between Sets:]\
   Notice that $GL(n,CC)$ has a natural action on $cal(F)_n (CC)$: For each $A in GL(n,CC)$ (viewed as an operator on $CC$), any subspace has its dimension being preserved (i.e. given $V subset.eq CC^n$ with $dim(V)=k$, $A(V) subset.eq CC^n$ also has $dim(A(V))=k$), and it preserves subspace inclusion (so $U subset.eq V ==> A(U) subset.eq A(V)$). Hence, if $U_0 subset.neq U_1 subset.neq ... subset.neq U_n$ is a flag, so is $A(U_0) subset.neq A(U_1) subset.neq ... subset.neq A(U_n)$; so, it makes sense to define $mu:GL(n,CC) times cal(F)_n (CC) arrow.r cal(F)_n (CC)$ by $mu(A, cal(F)) = A(cal(F))$ (where given $cal(F)$ as $U_0 subset.neq U_1 subset.neq ... subset.neq U_n$, $A(cal(F))$ denotes $A(U_0) subset.neq A(U_1) subset.neq ... subset.neq A(U_n)$). It's clear that $mu(B, mu(A,cal(F))) = mu(B A,cal(F))$ for all $A,B in GL(n,CC)$ and $cal(F) in cal(F)_n (CC)$ by composition of operators, while the identity matrix satisfies $mu(id,cal(F))=cal(F)$, hence $mu$ in fact forms a left action.
 
   \ 
@@ -105,5 +109,21 @@
     So, this concludes that $cal(F)_0$ is stable under (and only under) $B(n,CC)$, which $B(n,CC)$ is a stabilizer of $cal(F)_0$.
 
   #text(weight: "bold")[2. $mu$ is a Transitive Action:]
-    To show such, consider a flag $cal(F)$ formed by ${0}=U_0 subset.neq U_1 subset.neq ... subset.neq U_n = CC^n$. Choose $u_1$ so that $U_1 = span{u_1}$, and inductively choose $u_i in U_i \\ U_{i-1}$ so that $U_i = span{u_1,...,u_i}$, then the list ${u_1,...,u_n}$ eventually forms a basis of $CC^n$. Then, take a linear operator $T in cal(L)(CC^n)$ that satisfies $T(e_i)=u_i$
+    To show such, consider a flag $cal(F)$ formed by ${0}=U_0 subset.neq U_1 subset.neq ... subset.neq U_n = CC^n$. Choose $u_1$ so that $U_1 = span{u_1}$, and inductively choose $u_i in U_i \\ U_(i-1)$ so that $U_i = span{u_1,...,u_i}$, then the list ${u_1,...,u_n}$ eventually forms a basis of $CC^n$ (#text(weight: "bold")[Rmk:] in particular using Gram Schmidt Formula one can restrict ${u_1,...,u_n}$ to be an orthonormal basis of $CC^n$ with Euclidean Inner Product). 
+    
+    Then, take a linear operator $T in GL(n,CC)$ that satisfies $T(e_i)=u_i$ for all index $i$. It satisfies $T(V_1)= T(span{e_1})subset.eq span{u_1}=U_1$, while the two have the same dimension, hence $T(V_1)=U_1$. Then, inductively one can derive $T(V_i)=span{u_1,...,u_i} = U_i$ using similar logic. Hence, $mu(T,cal(F)_0) = T(cal(F)_0)=cal(F)$, which shows that $mu$ is a transitive action. (#text(weight: "bold")[Rmk 2:] Because $u_i$s can be chosen as orthonormal basis, $T$ in fact can be chosen as a unitary operator, or $T in U(n)$. Hence, resrict the action $mu$ to an sub-action $U(n) times cal(F)_n (CC) arrow.r cal(F)_n (CC)$ is still a transitive action).
+
+  \ 
+
+  Then, since the orbit $Orb(cal(F)_0) = cal(F)_n (CC)$ while $G_(cal(F)_0) = B(n,CC)$ (the stabilizer), there is a one-to-one correspondance between $cal(F)_n$ and cosets of $B(n,CC)$, hence set wise $cal(F)_n (CC) tilde.equiv GL(n,CC)\/ B(n,CC)$.
+
+  On the other hand, one has $B(n,CC) sect U(n) = T(n)$: Recall that $U(n)$ collects all unitary operators, so $A in B(n,CC)$ satisfies $A in U(n)$, iff as an uppertriangular matrix, it's also unitary (which equivalently requires $A$ to have orthonormal column vectors). Which, let $u_j$ be the $j^upright(t h)$ column vector of $A$, $u_j = sum_(i=1)^j a_(i,j) e_i$. Since $u_1 dot u_2=0$, it satisfies $(a_(1,1)e_1) dot (a_(1,2)e_1 + a_(2,2)e_2) = a_(1,2)a_(1,2)=0$, with $u_1!=bold(0)$ (or $a_(1,1)!=0$), it requires $a_(1,2)=0$, showing $u_2=a_(2,2)e_2$ Inductively one can verify $u_i = a_(i,i)e_i$ by the fact that ${u_1,...,u_n}$ is an orthonormal list. Hence, $A$ is in fact a diagonal matrix, showing $A in T(n)$, which concludes that $B(n,CC) sect U(n)subset.eq T(n)$ (while $T(n) subset.eq B(n,CC) sect U(n)$ by definition). Hence, $B(n,CC) sect U(n)=T(n)$.
+
+  As a consequence, the sub-action $mu:U(n) times cal(F)_n (CC) arrow.r cal(F)_n (CC)$ has stabilizer of $cal(F)_0$, $G_(cal(F)_0)=B(n,CC) sect U(n)=T(n)$, hence set wise $cal(F)_n (CC) tilde.equiv U(n)\/T(n)$ also.
+
+  \ 
+
+  Since $GL(n,CC),U(n)$ are Lie groups, while $B(n,CC), T(n)$ are their closed Lie subgroups, then can classify $cal(F)_n (CC) := GL(n,CC)\/B(n,CC)$ or $cal(F)_n (CC) := U(n)\/T(n)$ as homogeneous space (and these two structures are compatible, since the cosets in $U(n)\/T(n)$ is simply a restriction of cosets in $GL(n,CC)\/B(n,CC)$ onto $U(n)$). Hence, with $U(n)$ being a compact Lie group, its quotient $cal(F)_n (CC)=U(n)\/T(n)$ is also compact.
+
+  Finally, to collect the dimension of $cal(F)_n (CC)$, we claim that $B(n,CC)$ has dimension $n(n+1)/2$:
 ]

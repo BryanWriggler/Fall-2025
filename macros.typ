@@ -26,6 +26,7 @@
 #let Spec = math.upright[Spec] //spectrum of a ring / vector space
 #let coker = math.upright[coker] //cokernel
 #let span = math.upright[span] //span of vectors
+#let Orb = math.upright[Orb] //orbit in group theory
 
 //category theory
 #let cat(name) = math.sans[name] //general category font command
