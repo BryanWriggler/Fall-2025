@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.6.12)  5 OCT 2025 08:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.6.12)  5 OCT 2025 10:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -697,7 +697,50 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 12.
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count345
 \l__pdf_internal_box=\box85
-) (Lab_Report1.aux)
+) (Lab_Report1.aux
+
+LaTeX Warning: Label `tab:mass_5.5g_1' multiply defined.
+
+
+LaTeX Warning: Label `sub@tab:mass_5.5g_1' multiply defined.
+
+
+LaTeX Warning: Label `tab:mass_5.5g_1' multiply defined.
+
+
+LaTeX Warning: Label `sub@tab:mass_5.5g_1' multiply defined.
+
+
+LaTeX Warning: Label `tab:mass_5.5g_1' multiply defined.
+
+
+LaTeX Warning: Label `sub@tab:mass_5.5g_1' multiply defined.
+
+
+LaTeX Warning: Label `tab:mass_5.5g' multiply defined.
+
+
+LaTeX Warning: Label `sub@tab:mass_5.5g' multiply defined.
+
+
+LaTeX Warning: Label `tab:mass_20g' multiply defined.
+
+
+LaTeX Warning: Label `sub@tab:mass_20g' multiply defined.
+
+
+LaTeX Warning: Label `tab:mass_66g' multiply defined.
+
+
+LaTeX Warning: Label `sub@tab:mass_66g' multiply defined.
+
+
+LaTeX Warning: Label `tab:mass_71.5g' multiply defined.
+
+
+LaTeX Warning: Label `sub@tab:mass_71.5g' multiply defined.
+
+)
 \openout1 = `Lab_Report1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
@@ -796,12 +839,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [1
 
 {C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-<setup_sketch.png, id=89, 808.01875pt x 1166.3575pt>
+<setup_sketch.png, id=99, 808.01875pt x 1166.3575pt>
 File: setup_sketch.png Graphic file (type png)
 <use setup_sketch.png>
 Package pdftex.def Info: setup_sketch.png  used on input line 54.
 (pdftex.def)             Requested size: 140.92804pt x 203.42152pt.
-<lab_setup.jpg, id=90, 1715.40875pt x 3785.14125pt>
+<lab_setup.jpg, id=100, 1715.40875pt x 3785.14125pt>
 File: lab_setup.jpg Graphic file (type jpg)
 <use lab_setup.jpg>
 Package pdftex.def Info: lab_setup.jpg  used on input line 61.
@@ -826,46 +869,99 @@ Overfull \hbox (50.7482pt too wide) in paragraph at lines 160--174
  [][] 
  []
 
-<mass1.png, id=102, 462.528pt x 346.896pt>
+
+Overfull \hbox (8.81218pt too wide) in paragraph at lines 186--200
+ [][] 
+ []
+
+
+Overfull \hbox (8.81218pt too wide) in paragraph at lines 205--219
+ [][] 
+ []
+
+
+Overfull \hbox (8.81218pt too wide) in paragraph at lines 226--240
+ [][] 
+ []
+
+
+Overfull \hbox (8.81218pt too wide) in paragraph at lines 245--259
+ [][] 
+ []
+
+<mass1.png, id=112, 462.528pt x 346.896pt>
 File: mass1.png Graphic file (type png)
 <use mass1.png>
-Package pdftex.def Info: mass1.png  used on input line 185.
+Package pdftex.def Info: mass1.png  used on input line 269.
 (pdftex.def)             Requested size: 230.18271pt x 172.63771pt.
-<mass2.png, id=104, 462.528pt x 346.896pt>
+<mass2.png, id=114, 462.528pt x 346.896pt>
 File: mass2.png Graphic file (type png)
 <use mass2.png>
-Package pdftex.def Info: mass2.png  used on input line 191.
+Package pdftex.def Info: mass2.png  used on input line 275.
 (pdftex.def)             Requested size: 230.18271pt x 172.63771pt.
-<mass3.png, id=105, 462.528pt x 346.896pt>
+<mass3.png, id=115, 462.528pt x 346.896pt>
 File: mass3.png Graphic file (type png)
 <use mass3.png>
-Package pdftex.def Info: mass3.png  used on input line 200.
+Package pdftex.def Info: mass3.png  used on input line 284.
 (pdftex.def)             Requested size: 230.18271pt x 172.63771pt.
-<mass4.png, id=106, 462.528pt x 346.896pt>
+<mass4.png, id=116, 462.528pt x 346.896pt>
 File: mass4.png Graphic file (type png)
 <use mass4.png>
-Package pdftex.def Info: mass4.png  used on input line 206.
+Package pdftex.def Info: mass4.png  used on input line 290.
 (pdftex.def)             Requested size: 230.18271pt x 172.63771pt.
-[4] [5 <./mass1.png> <./mass2.png> <./mass3.png> <./mass4.png>] (Lab_Report1.aux)
+[4] [5 <./mass1.png> <./mass2.png> <./mass3.png> <./mass4.png>] [6]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 372.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 372.
+
+
+Overfull \hbox (100.74835pt too wide) in paragraph at lines 382--396
+ [][] 
+ []
+
+
+Overfull \hbox (95.74834pt too wide) in paragraph at lines 403--417
+ [][] 
+ []
+
+
+Overfull \hbox (90.74832pt too wide) in paragraph at lines 425--439
+ [][] 
+ []
+
+
+Overfull \hbox (100.74835pt too wide) in paragraph at lines 446--460
+ [][] 
+ []
+
+[7] [8] [9] (Lab_Report1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `Lab_Report1.out' has not changed.
-(rerunfilecheck)             Checksum: 1CE77F20603604E41AAF08A31879BE6E;1020.
+(rerunfilecheck)             Checksum: 00BE1289BF9F45100A8ADA7A769DC977;1406.
  ) 
 Here is how much of TeX's memory you used:
- 31025 strings out of 474486
- 635396 string characters out of 5744227
- 1947542 words of memory out of 5000000
- 52793 multiletter control sequences out of 15000+600000
- 566259 words of font info for 68 fonts, out of 8000000 for 9000
+ 31049 strings out of 474486
+ 635686 string characters out of 5744227
+ 1958542 words of memory out of 5000000
+ 52807 multiletter control sequences out of 15000+600000
+ 567506 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,18n,113p,607b,562s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Lab_Report1.pdf (5 pages, 982989 bytes).
+ 108i,19n,113p,607b,563s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on Lab_Report1.pdf (9 pages, 1012566 bytes).
 PDF statistics:
- 180 PDF objects out of 1000 (max. 8388607)
- 16 named destinations out of 1000 (max. 500000)
- 235 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 223 PDF objects out of 1000 (max. 8388607)
+ 26 named destinations out of 1000 (max. 500000)
+ 251 words of extra memory for PDF output out of 10000 (max. 10000000)
 
