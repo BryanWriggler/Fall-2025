@@ -1,6 +1,6 @@
 \contentsline {section}{\numberline {1}Introduction and Goal of the Experiment}{1}{section.1}%
-\contentsline {section}{\numberline {2}Experimental Setup (fxxk you image problem)}{2}{section.2}%
+\contentsline {section}{\numberline {2}Experimental Setup}{2}{section.2}%
 \contentsline {section}{\numberline {3}Procedure and Methods of Measurement}{3}{section.3}%
 \contentsline {section}{\numberline {4}Experimental Data and Tables}{4}{section.4}%
-\contentsline {section}{\numberline {5}Data Analysis}{4}{section.5}%
-\contentsline {section}{\numberline {6}Conclusion}{4}{section.6}%
+\contentsline {section}{\numberline {5}Data Analysis}{5}{section.5}%
+\contentsline {section}{\numberline {6}Conclusion}{5}{section.6}%
