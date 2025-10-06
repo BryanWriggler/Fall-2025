@@ -80,7 +80,7 @@
 
 #pagebreak()
 
-= ND//2
+= D//2
 #problem[
   Etingof Problem Sets 2.4:
 
@@ -123,7 +123,82 @@
 
   \ 
 
-  Since $GL(n,CC),U(n)$ are Lie groups, while $B(n,CC), T(n)$ are their closed Lie subgroups, then can classify $cal(F)_n (CC) := GL(n,CC)\/B(n,CC)$ or $cal(F)_n (CC) := U(n)\/T(n)$ as homogeneous space (and these two structures are compatible, since the cosets in $U(n)\/T(n)$ is simply a restriction of cosets in $GL(n,CC)\/B(n,CC)$ onto $U(n)$). Hence, with $U(n)$ being a compact Lie group, its quotient $cal(F)_n (CC)=U(n)\/T(n)$ is also compact.
+  Since $GL(n,CC),U(n)$ are Lie groups, while $B(n,CC), T(n)$ are their closed Lie subgroups (since they're stabilizers of the given action / sub-action $mu$, and all stabilizers are closed Lie subgroups b #text(weight: "bold")[Proposition 4.12] in Etingof's lecture notes), then can classify $cal(F)_n (CC) := GL(n,CC)\/B(n,CC)$ or $cal(F)_n (CC) := U(n)\/T(n)$ as homogeneous space (and these two structures are compatible, since the cosets in $U(n)\/T(n)$ is simply a restriction of cosets in $GL(n,CC)\/B(n,CC)$ onto $U(n)$). Hence, with $U(n)$ being a compact Lie group, its quotient $cal(F)_n (CC)=U(n)\/T(n)$ is also compact. 
+  
+  (#text(weight: "bold")[Note:] The reason why $U(n)$ is compact, since chosen the smooth endomorphism on $M_n (CC)$ by $A mapsto A A^dagger$ (here it represents conjugate transpose), we have the preimage of ${id}$ being $U(n)$, hence ${id}$ is closed implies $U(n)$ is closed; similarly, $U(n)$ is compact, since for all $A in U(n)$, its operator norm $||A||:= sup_(||v||=1)||A v|| = 1$, and this operator norm is compactible with Euclidean norm, showing that $U(n)$ is also bounded under Euclidean Norm).
 
-  Finally, to collect the dimension of $cal(F)_n (CC)$, we claim that $B(n,CC)$ has dimension $n(n+1)/2$:
+  \ 
+
+  Finally, to collect the dimension of $cal(F)_n (CC)$, we claim that $B(n,CC)$ has real dimension $n(n+1)$: Given any $A in B(n,CC) subset.eq GL(n,CC)$, since $GL(n,CC)$ is open in $M_n (CC)$, there exists $r>0$ such that with respect to the Euclidean Norm $B_r (A) subset.eq GL(n,CC)$. Take the smooth inclusion $iota:CC^(n(n+1)/2) arrow.r.hook M_n (CC)$, by sending $n(n+1)/2$ entries to an upper triangular matrix in some particular order, then take $iota^(-1)(B_r (A))$ as the desired open set, it has a natural 1-to-1 correspondance with $B_r (A) sect B(n,CC)$, and $iota$ (when restricting onto $B(n,CC)$) has inverse naturally given by canonical projection $pi:B(n,CC) arrow.r CC^(n(n+1)/2)$ that projects the $n(n+1)/2$ upper triangular entries back. Hence, this $iota$ characterizes a homeomorphism from an open subset of $CC^(n(n+1)/2)$ to an open neighborhood of $A$, showing that $B(n,CC)$ has real dimension of $n(n+1)$ (since $CC^(n(n+1)/2)$ has real dimension $n(n+1)$).
+
+  Then, with $GL(n,CC)$ having real dimension of $2n^2$, $cal(F)_n (CC) = GL(n,CC)\/ B(n,CC)$ has real dimension $2n^2-n(n+1) = n^2-n$.
 ]
+
+#pagebreak()
+
+= D//3
+#problem[
+  Etingof Problem Sets 2.5:
+
+  Let $G_(n,k)$ be the set of all dimension $k$ subspaces in $RR^n$ (usually called the Grassmanian). Show that $G_(n,k)$ is a homogeneous space of the group $O(n,RR)$ and thus can be identified with coset space $O(n,RR)\/H$ for appropriate $H$. Use it to prove that $G_(n,k)$ is a manifold and find its dimension.
+][
+  First, let ${e_1,...,e_n}$ be the ordered elementary basis of $RR^n$, and we'll set $V_s := span{e_1,...,e_k}$ as the standard subspace with dimension $k$. We aim to show that $O(n,RR)$ has a transitive action on $G_(n,k)$.
+
+  \  
+
+  #text(weight: "bold")[1. Action of $O(n,RR)$ on $G_(n,k)$:]
+  First, given $V in G_(n,k)$ (a $k$-dimensional subspace), it's clear that all $A in O(n,RR)$ satisfies $dim(A(V))=k$ (since the linear operator is invertible). So, define the map $mu:O(n,RR) times G_(n,k) arrow.r O(n,RR)$ by $mu(A,V) = A(V)$, it forms a left action since $mu(B,mu(A,V)) = B(A(V)) = (B A)(V) = mu(B A,V)$ for all $A,B in O(n,RR)$ and $V in G_(n,k)$, while $mu(id,V) = id(V)=V$.
+
+  #text(weight: "bold")[2. Action $mu$ is Transitive:]
+  To show it is transitive, it suffices to show that $O(n,RR)$ can permute the standard subspace $V_s$ to any $k$-dimensional subspace $V in G_(n,k)$. 
+
+  For any $V in G_(n,k)$, let ${v_1,...,v_k}$ be a a basis of $V$, and extend it to a basiss ${v_1,...,v_n}$ of the whole space $RR^n$. Using Gram Schmidt formula, ${v_1,...,v_n}$ can specifically be modified to an orthonormal basis ${f_1,...,f_n}$, such that $V=span{f_1,...,f_k}$ still, so WLOG, we'll say ${v_1,...,v_n}$ is orthonormal.
+
+  Define a linear operator $A in M_n (RR)$ satisfying $A(e_i)=v_i$ for all index $i=1,...,n$, since it sends orthonormal basis ${e_1,...,e_n}$ to orthonormal basis ${v_1,...,v_n}$, it's a real unitary operator, hence $A in O(n,RR)$. And, since $A(e_i)=v_i$, then $A(V_s) = A(span{e_1,...,e_k}) = span{A(e_1),...,A(e_k)} = span{v_1,...,v_k} = V$, showing that $mu(A,V_s) = A(V_s)=V$. This shows the transitivity of the action $mu$.
+
+  \ 
+
+  Hence, let $H = G_(V_s)$, the stabilizer of $V_s$ under the action $mu$, $H <= O(n,RR)$ is a closed Lie subgroup (by #text(weight: "bold")[Proposition 4.12] in Etingof's lecture notes), and since $G_(n,k) = Orb(V_s)$ has a natural set isomorphism to the let cosets of $G_(V_s)$, we have $G_(n,k) tilde.equiv O(n,RR)\/H$ as sets, showing that $G_(n,k)$ can be identified as a homogeneous space of $O(n,RR)$ by $O(n,RR)\/H$, with dimension $dim(O(n,RR)) - dim(H)$.
+
+  \ 
+
+  Now, to calculate the dimension of $G_(n,k)$, it requires both the dimension of $O(n,RR)$ and $H$. For this, we'll explicitly calculate $H$. Recall that dimension of $O(l,RR)$ for all $l in NN\\{0}$ is given by $l(l-1)/2$. We'll eventually show that $H tilde.equiv O(k,RR) times O(n-k,RR)$.
+
+  For all $A in H = G_(V_s)$, let $u_i = A(e_i)$ for all index $i$, we have ${u_1,...,u_n}$ being an orthonormal basis, such that $span{u_1,...,u_k} = span{A(e_1),...,A(e_k)} = A(span{e_1,...,e_k}) = A(V_s) = V_s$, hence if restrict $A$ as a linear operator to $V_s$, since ${u_1,...,u_k}$ is an orthonormal basis of $V_s = span{e_1,...,e_k}$ (so each component can be expressed as unique linear combination of $e_1,...,e_k$), hence $A|_(V_s) in O(V_s)$ (or it's a unitary operator on $V_s$).
+
+  Similarly, since $u_(k+1),...,u_n$ are all orthogonal to $u_1,...,u_k$, then $span{u_(k+1),...,u_n} subset.eq span{u_1,...,u_k}^perp = V_s^perp$; and since $dim(V_s^perp)=n-dim(V_s)=n-k$, then ${u_(k+1),...,u_n} subset V_s^(perp)$ (an orthonormal list of $n-k$ vectors) is a basis of $V_s^(perp)$. Notice that $e_(k+1),...,e_n in V_s^perp$ (since $V_s = span{e_1,...,e_k}$, and the standard basis forms an orthonormal basis), hence we again get $A(V_s^perp)=V_s^perp$ (since it sends ${e_(k+1),...,e_n}$ an orthonormal basis of $V_s^perp$ to ${u_(k+1),...,u_n}$ another orthonormal basis of $V_s^perp$). So, when restricting to $V_s^perp$, $A|_(V_s^perp) in O(V_s^perp)$.
+
+  Then, given $O(V_s) = O(k,RR)$ (if using $e_1,...,e_k$ as its basis) and $O(V_s^perp) tilde.equiv O(n-k,RR)$ (if using $e_(k+1),...,e_n$ as its basis) by similar reason, then, $A$ in fact can be decomposed as follow:
+  $ A = mat(A|_(V_s), 0; 0, A|_(V_s^perp)) $
+  This is due to the fac that each $u_1,...,u_k in V_s$ can be written as linear combination of $e_1,...,e_k$ (and such linear combination is unique), and similar reason for $u_(k+1),...,u_n in V_s^perp$ being written as unique linear combination of $e_(k+1),...,e_n$.
+  
+  Hence, there is a natural group homomorphism $rho:H arrow.r O(k,RR) times O(n-k,RR)$ given by $rho(A) = (A|_(V_s), A|_(V_s^perp))$, since it satisfies the following for all $A,B in H$:
+  $ A B = mat(A|_(V_s), 0; 0, A|_(V_s^perp))mat(B|_(V_s), 0; 0, B|_(V_s^perp)) = mat(A|_(V_s)B|_(V_s), 0; 0, A|_(V_s^perp) B|_(V_s^perp)) = mat((A B)|_(V_s), 0; 0, (A B)|_(V_s^perp))  $
+  Which, $rho(A B) = (A|_(V_s) B|_(V_s), A|_(V_s^perp) B|_(V_s^perp)) = (A|_(V_s),A|_(V_s^perp)) dot (B|_(V_s),B|_(V_s)^perp) = rho(A) dot rho(B)$.
+
+  This morphism is injective, simply because if $rho(A) = (id|_(V_s), id|_(V_s)^perp)$, with $RR^n = V_s plus.circle V_s^perp$ and restriction of $A$ fixing both subspaces, we must have $A = id$; and, this morphism is surjective, simply because any unitary operators $A_k in O(k,RR)$ and $A_(n-k) in O(n-k,RR)$, the following is a unitary operator fixing $V_s$:
+  $ A := mat(A_k,0;0,A_(n-k)) $
+  Since first $k$ and last $(n-k)$ column vectors form two orthonormal lists, while any column vector $u_i$ ($i<=k$) and $u_j$ ($j>k$) are orthonormal because their nonzero entries are mutually disjoint. Hence, the column vectors of $A$ form an orthonormal list of $n$ vectors, which is an orthonormal basis, showing $A in O(n,RR)$; also, since every $e_i$ for $1<=i<=k$ satisfies $A(e_i) in span{e_1,...,e_k}=V_s$, it stabilizes $V_s$, hence $A in H$.
+
+  \ 
+
+  As a result, one has $H tilde.equiv O(k,RR) times O(n-k,RR)$, and the map is in fact smooth (since it's essentially projecting onto the top left $k times k$ minor, and the bottom right $(n-k) times (n-k)$ minor), which demonstrates that $dim(H) = dim(O(k,RR))+dim(O(n-k,RR)) = k(k-1)/2+(n-k)(n-k-1)/2$. Finally, we conclude that the dimension of $O(n,RR)\/H$ is given as follow:
+  $ dim(O(n,RR)\/H) = dim(O(n,RR))-dim(H) $ 
+  $ = n(n-1)/2 - (k(k-1)/2+(n-k)(n-k-1)/2) = k(n-k) $
+]
+
+#pagebreak()
+
+= ND//4
+#problem[
+  Etingof Problem Sets 2.6:
+
+  Show that if $G=GL(n,RR) subset End(RR^n)$ so that each tangent space is canonically identified with $End(RR^n)$, then $(L_g)_* v=g v$ (or $(d L_g)_id v = g v$) where the product in the right-hand side is the usual product of matrices, and similarly for the right action. Also, the adjoint action is given by $"Ad" g(v)=g v g^(-1)$.
+][
+
+]
+
+= ND//5
+#problem[
+  Let $phi:SU(2) arrow.r SO(3,RR)$ be the morphism defined in the previous problem. Compute explicitly the map of tangent spaces $phi_*: su(2) arrow.r so(3,RR)$ and show that $phi_*$ is an isomorphism. Deduce from this that $ker phi$ is a discrete normal subgroup in $SU(2)$ and that $im phi$ is an open subgroup in $SO(3,RR)$.
+][]
