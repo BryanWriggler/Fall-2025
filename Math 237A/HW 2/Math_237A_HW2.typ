@@ -26,6 +26,8 @@
   date: datetime.today().display("[month repr:long] [day], [year]"),
 )
 
+#set enum(numbering: "(a)")
+
 = ND//1
 #problem[Statement][
   
@@ -136,7 +138,7 @@
 
 #pagebreak()
 
-= ND//3
+= (a) ND//3
 #problem[
   Hartshorne 3.2:
 
@@ -147,5 +149,87 @@
 ][
   #set enum(numbering: "(a)")
 
-  + First to verify $phi$ is bijective, for all $(x,y)$ on the curve $y^2=x^3$, since the equation $t^2-x in k[t]$ has precisely two solutions (by the assumption $k=overline(k)$). If $x=0$, the only solution for $t^2$ is $t=0$, hence 
+  + First to verify $phi$ is bijective, for all $(x,y)$ on the curve $y^2=x^3$, if $(x,y)=(0,0)$ the $phi(0)=(0^2,0^3)$ does the job. Else if $x!=0$ or $y!=0$ (which since     $x^2=y^3$ and $k$ is a field, the two must happen together), let $t=y/x$, it satisfies:
+    $ phi(t)=(t^2,t^3)=(y^2/x^2,y^3/x^3)=(x^3/x^2,y^3/y^2)=(x,y) $
+    This proves that $y$ is surjective. 
+
+    To show injectivity, if $t,t'$ both gets map to $(0,0)$, then it's clear that $t^2,t'^2=0$, hence $t=t'=0$. Else, if $t,t'$ gets mapped to $(x,y)!=(0,0)$, as said before $x,y!=0$, hence they satisfy $t^2=t'^2=x$ and $t^3=t'^3=y$. Hence, $t = t^3/t^2=y/x=t'^3/t'^2=t'$, showing $phi$ is injective everywhere.
+
+    To show bicontinuity, it suffices to show that $phi$ is both a closed map (or the inverse is continuous) and itself is continuous. Let $V subset.eq AA^1$ be closed, which if $V=emptyset $ or $V=AA^1$ the image under $phi$ is $emptyset$ or the whole curve $y^2=x^3$, hence closed; else if $V!=emptyset, AA^1$, then $V$ must be a finite set, hence $phi(V)$ is also a finite set, which is again closed. So, $phi$ is a closed map.
+
+    $phi$ is continuous, since for all $V' subset.eq AA^2$ that's closed, so is $V' sect Y$ (where $Y$ represents the curve $y^2=x^3$). Then, if consider $phi^(-1)(V)$, $t in phi^(-1)(V) <==> phi(t)=(t^2,t^3) in V'$, which for all coresponding polynomial $f_1,...,f_n in k[x,y]$ for $V$, $t in phi^(-1)(V)$ iff it satisfies $f_1(t^2,t^3)=0$, for all index $i$. Hence, this shows that $phi^(-1)(V)$ is also algebraic, which is closed. Hence, $phi$ is continuous since preimage of closed set is closed.
+
+    \ 
+
+    However, even if $phi$ is bijective and bicontinuous, it's not an isomorphism, and it can be seen from the induced morphism between coordinate ring: Let $Y$ represents the curve $y^2=x^3$, then $Y=Z(y^2-x^3)$. We'll first claim that $I(Y)=(y^2-x^3)$, which suffices to claim that $y^2-x^3$ is irreducible (or its principal ideal is prime). Suppose the contrary that it is reducible, then it can either be reduced in the form of $(y-f_1(x))(y-f_2(x))$
+
+    \ 
+
+  + To show that Frobenious morphism is bijective, given any $l in k$, since $k$ is algebraically closed, then the equation $t^p=l$, or $t^p-l=0$ has a solution. Let $q in k$ be a solution for it, then it satisfies $q^p=l$, hence $t^p-l=t^p-q^p = (t-q)^p$ is the unique factorization of $t^p-l in k[t]$, hence showing that $q$ is the unique solution to $t^p-l=0$. So, since all $l in k=AA^1$ has a unique $q in k=AA^1$ such that $phi(q)=q^p=l$, hence $phi$ is bijective.
+
+    To show it's bicontinuous, it suffices to check it's both closed and continuous. However, since in $AA^1$ besices $emptyset$ and $AA^1$ as special closed sets, other nonempty proper closed sets are finite. Hence, if closed set $V != emptyset,AA^1$, it has $phi(V)$ and $phi^(-1)(V)$ both being finite (which is closed in $AA^1$), while $emptyset = phi(emptyset) = phi^(-1)(emptyset)$ and $AA^1=phi(AA^1)=phi^(-1)(AA^1)$, this shows that $phi$ is both closed and continuous, hence bicontinuous.
+
+    \ 
+
+    Finally, to show it's not an isomorphism, it suffices to check it doesn't induce an isomorphism on the coordinate ring (which for $AA^1$ since its corresponding ideal is $(0)$, then the coordinate ring $k[AA^1]=k[t]$ the polynomial ring).
+
+    Since $phi:AA^1 arrow.r AA^1$ is given by $phi(t)=t^p$, then its induced morphism on coordinate ring $phi^*:k[t] arrow.r k[t]$ is given by $phi^*(f) = f compose phi(t) = f(t^p)$. However, notice that $phi^*$ is not surjective, since for all $g in im(phi^*)$, $g = f(t^p)$ for some $f in k[t]$, then $deg(g)$ is divisible by $p$. Which, choose $t in k[t]$, it has degree $1!=p$, hence not divisible by $p$, showing that $t in.not im(phi^*)$, or $phi^*$ is not surjective. Hence, it doesn't induce an isomorphism on coordinate ring, which implies itself is not an isomorphism.
+]
+
+= ND //4
+#problem[
+  Hartshorne 3.15 (a)(b):
+
+  #emph[Products of Affine Varieties]. Let $X subset.eq AA^n$ and $Y subset.eq AA^m$ be affine varieties.
+
+  #set enum(numbering: "(a)")
+  + Show that $X times Y subset.eq AA^(n+m)$ with its induced topology is irreducible.
+  + Show that $k[X times Y] tilde.equiv k[X] times.circle_k k[Y]$.
+][]
+
+#pagebreak()
+
+= D //5
+#problem[
+  Hartshorne 3.19 (a):
+
+  #emph[Automorphisms of $AA^n$]. Let $phi:AA^n arrow.r AA^n$ be a morphsim of $AA^n$ to $AA^n$ given by $n$ polynomials $f_1,...,f_n$ of $n$ variables $x_1,...,x_n$. Let $J=det|(partial f_i)/(partial x_j)|$ be the #emph[Jacobian polynomial] of $phi$.
+
+  #set enum(numbering: "(a)")
+  + If $phi$ is an isomorphism (in which case we call $phi$ an automorphism of $AA^n$), show that $J$ is a onzero constant polynomial.
+][
+  First, we'll observe the case for identity: If $phi=id_(AA^n)$, then each $f_i = x_i$ as polynomial (since $phi(t_1,...,t_n) = (f_1,...,f_n)=(t_1,...,t_n)$ for all $(t_1,...,t_n) in AA^n$). Then, $(partial f_i)/(partial x_j) = delta_(i j)$. Hence, express in matrix form we get $((partial f_i)/(partial x_j))_(1<=i,j<=n) = id in M_n (k)$. So, $det|(partial f_i)/(partial x_j)| = 1$, which is a nonzero constant polynomial.
+
+  \ 
+
+  Then, recall that #emph[Chain Rule] also applies in differential calculus for polynomial ring over a field, hence given $g, f_1,...,f_n in k[x_1,...,x_n]$, it satisfies:
+  $ forall j in {1,...,n}, quad (partial)/(partial x_j)g(f_1,...,f_n) = sum_(i=1)^n (partial g(f_1,...,f_n))/(partial f_i)(partial f_i)/(partial x_j) $
+  Hence, given $phi$ as an isomorphism, it equips with $phi^(-1)$ also as an isomorphism that's represented by $g_1,...,g_n$. Which, $g compose f = id_(AA^n)$ is represented by $g_i (f_1,...,f_n) = x_i$. Hence, we get the following:
+  $ delta_(i k)=(partial x_i)/(partial x_k)= partial/(partial x_k)g_i (f_1,...,f_n)=sum_(j=1)^n (partial g_i (f_1,...,f_n))/(partial f_j) (partial f_j)/(partial x_k) $
+  Then, express in matrix form, we get:
+  $ id=(delta_(i k))_(1<=i,k<=n) = ((partial g_i)/(partial x_j))_(1<=i,j<=n\ x_j = f_j) ((partial f_j)/(partial x_k))_(1<=j,k<=n) $
+  So, we get that $1=det|id| = det|(partial g_i (f_1,...,f_n))/(partial f_j)| dot det|(partial f_j)/(partial x_k)|$, hence showing that $det|(partial f_j)/(partial f_k)| in k[x_1,...,x_n]$ is invertible. Yet, recall that $(k[x_1,...,x_n])^times = k^times$, hence $det|(partial f_j)/(partial f_k)|$ (the Jacobian Polynomial of $f$) is a nonzero constant polynomial.
+]
+
+#pagebreak()
+
+= D//6
+#problem[Hartshorne 3.21 (a)(b):
+  
+  #emph[Group Varieties]. A group variety consists of a variety $Y$ together with a morphism $mu:Y times Y arrow Y$, such that the set of points of $Y$ with the operation given by $mu$ is a group, and such that the inverse map $y arrow y^(-1)$ is also a morphism of $Y arrow Y$.
+  + The #emph[additive group] $G_a$ is given by the variety $AA^1$ and the morphism $mu:AA^2 arrow AA^1$ defined by $mu(a,b)=a+b$. Show it is a group variety.
+  + The #emph[multiplicative group] $G_m$ is given by the variety $AA^1-{(0)}$ and the morphism $mu(a,b)=a b$. Show it is a group variety.
+][
+
+  + To show that the inverse map of the morphism $mu:AA^1 times AA^1 arrow AA^1$ by $mu(a,b)=a+b$, since for al $y in k=AA^1$, the inverse under this morphism is $-y in AA^1$. Hence, the inverse map $iota:AA^1 arrow AA^1$ is $iota(y)=-y$, which is a morphism (since it's given by a polynomial). Hence, $G_a$ the additive group is a group variety.
+
+  + To show that the inverse map of $mu:AA^1\\{(0)} times AA^1\\{(0)} arrow.r AA^1\\{(0)}$ by $mu(a,b)=a b$ defines a group variety (or verify its inverse is continuous), one needs to do extra work, converting $AA^1\\{(0)}$ into some variety in higher dimension affine space.
+
+    Consider the affine space $AA^2$ together with the algebraic set $Y:= Z(x y-1)$ (where it's over the polynomial ring $k[x,y]$). Notice that $x y-1$ has degree of $y$ being $1$, hence it's automatically irreducible inside $(k[x])[y]$, showing $(x y-1)$ is prime, or $Y$ is an affine variety. 
+
+    To show that $Y$ has a 1-to-1 correspondance with $AA^1\\{(0)}$, notice that every $(x,y) in Y$ satisfies $x y-1=0$, or $x y=1$, hence $x,y!=0$, and $y=x^(-1)$. So, define a set function $Y arrow AA^(-1)\\{(0)}$ by $(x,x^(-1)) mapsto x$ (which is also a morphism onto closure of $AA^1\\{(0)}$), it is bijective, since all $x in AA^1\\{(0)}$ has $(x,x^(-1)) mapsto x$ (which is surjective), while if $(x,y), (x',y') mapsto x'' in AA^1\\{(0)}$, we must have $x=x'=x''$, hence $y=x^(-1)=(x')^(-1)=y'$, showing the map is also injective.
+
+    Hence, there's no ambiguity identifying $AA^1\\{(0)}$ as $Y$, where the morphism $mu$ corresponds to another morphism $mu':Y times Y arrow Y$ by $mu'((x,x^(-1)), (y,y^(-1)))= (x y, x^(-1)y^(-1))$ (since $(x,x^(-1))$ projects to $x$, $(y,y^(-1))$ projects to $y$, while $(x y, x^(-1)y^(-1))$ projects to $x y$, so each input corresponds to the $mu$'s action on the projection $mu(x,y)=x y$).
+
+    Which, in this variety the inverse map of $mu'$ is given by $iota(x,x^(-1)) = (x^(-1),x)$, which for all $(x,y) in Y$, $iota(x,y)=(y,x)$ is a morphism, hence showing that the corresponding structure on $Y$ forms a group variety, hence it defines a group variety on $AA^1\\{(0)}$.
 ]
