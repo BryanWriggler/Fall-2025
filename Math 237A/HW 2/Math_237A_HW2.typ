@@ -29,7 +29,13 @@
 #set enum(numbering: "(a)")
 
 = ND//1
-#problem[Statement][
+#problem[
+  Lazarsfeld Problem Set 2 (3):
+
+  Let 
+  $ M^(<=r)_(n times m) subset.eq AA^(n m) $
+  be the set of all $n times m$ matrices for rank $<=r$. Prove that $M^(<=r)_(n times m)$ is irreducible.
+][
   
   Proof
 ]
@@ -175,6 +181,8 @@
 
     Since $phi:AA^1 arrow.r AA^1$ is given by $phi(t)=t^p$, then its induced morphism on coordinate ring $phi^*:k[t] arrow.r k[t]$ is given by $phi^*(f) = f compose phi(t) = f(t^p)$. However, notice that $phi^*$ is not surjective, since for all $g in im(phi^*)$, $g = f(t^p)$ for some $f in k[t]$, then $deg(g)$ is divisible by $p$. Which, choose $t in k[t]$, it has degree $1!=p$, hence not divisible by $p$, showing that $t in.not im(phi^*)$, or $phi^*$ is not surjective. Hence, it doesn't induce an isomorphism on coordinate ring, which implies itself is not an isomorphism.
 ]
+
+#pagebreak()
 
 = ND //4
 #problem[
