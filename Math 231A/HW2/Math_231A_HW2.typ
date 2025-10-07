@@ -189,16 +189,76 @@
 
 #pagebreak()
 
-= ND//4
+= D//4
 #problem[
   Etingof Problem Sets 2.6:
 
   Show that if $G=GL(n,RR) subset End(RR^n)$ so that each tangent space is canonically identified with $End(RR^n)$, then $(L_g)_* v=g v$ (or $(d L_g)_id v = g v$) where the product in the right-hand side is the usual product of matrices, and similarly for the right action. Also, the adjoint action is given by $"Ad" g(v)=g v g^(-1)$.
 ][
   Given $GL(n,RR)$ is an open subset of $End(RR^n) = M(n,RR) tilde.equiv RR^(n^2)$ (the $n times n$ matrix space), then for any $g in GL(n,RR)$, the left multiplication $L_g:GL(n,RR) arrow.r.tilde GL(n,RR)$ can be viewed as a restriction of a left multiplication $L_g:M(n,RR) arrow.r.tilde M(n,RR)$, and since $GL(n,RR)$ is viewed as an open subset, so the tangent space  $T_g GL(n,RR)$ can be identified as $T_g M(n,RR) tilde.equiv M(n,RR)$, hence it suffices to calculate $(d L_g)_id:T_id M(n,RR) arrow.r T_g M(n,RR)$.
+
+  \ 
+
+  For this question specifically, calculating using directional derivative would be a lot easier: Recall that $L_g:M(n,RR) arrow.r M(n,RR)$ is a linear map, since for all $a,b in RR$ and $S,T in M(n,RR)$, it satisfies $L_g(a S+b T) = g dot (a S+b T) = a(g dot S)+b(g dot T) = a L_g(S)+b L_g(T)$. Then, for each entry $x_(i j)$, denote $e_(i j) in M(n,RR)$ as the elementary matrix that has $1$ at the $i j$ entry, while $0$ everywhere else (so that $e_(i j)$ for $i<=i,j<=n$ forms a basis for for $M_(n, RR)$). 
+
+  Then, for each basis direction $e_(i j)$ (which corresponds to a tangent vector $e_(i j) in T_id M(n,RR)$), its corresponding differential in $T_g M(n,RR)$ can be calculated as follow:
+  $ (d L_g)_id(e_(i j)) = lim_(t arrow.r 0)(L_g (id + t dot e_(i j))-L_g (id))/t = lim_(t arrow.r 0)(t dot L_g (e_(i j)))/t = g e_(i j) $
+  Hence, since $L_g$ is smooth, arbitrary differential (the directional derivative) can be expressed as linear combinations of the differentials of the basis elements. Hence, given $v = sum_(1<=i,j<=n)a_(i j)e_(i j) in M(n,RR)$, we have the following:
+  $ (d L_g)_(id) (v) = sum_(1<=i,j<=n)a_(i j) (d L_g)_id(e_(i j)) = sum_(1<=i,j<=n)a_(i j) g dot e_(i j) = g dot (sum_(1<=i,j<=n)a_(i j)e_(i j)) = g dot v $ 
+  Showing that the differential of $L_g$ acts canonically on the tangent space, the same way as doing a left multipliation.
+
+  Apply similar proof for right multiplication $R_g$ one would get similar results.
+
+  \ 
+
+  (Note: In general given any linear map on $RR^n$ to $RR^m$, its differential with respect to standard basis is automatically given by its own matrix with respect to the standard basis).
 ]
 
-= ND//5
+#pagebreak()
+
+= D//5
 #problem[
   Let $phi:SU(2) arrow.r SO(3,RR)$ be the morphism defined in the previous problem. Compute explicitly the map of tangent spaces $phi_*: su(2) arrow.r so(3,RR)$ and show that $phi_*$ is an isomorphism. Deduce from this that $ker phi$ is a discrete normal subgroup in $SU(2)$ and that $im phi$ is an open subgroup in $SO(3,RR)$.
-][]
+][
+  We'll compute the differential of $phi$, by doing an explicit calculation of its map with respect to $SU(2)$ (when characterizing it as $S^3$), and later on when computing the differential we'll utilize stereographic projection for calculation.
+
+  \ 
+
+  #text(weight: "bold")[1. Explicit Map of $phi$:]
+
+  Given that all matrix $A in SU(2)$ are in the form $A=mat(a,b;-overline(b),overline(a))$, where $a=x+i y$ and $b=z+i w$ satisfies $(x,y,z,w) in S^3$.
+
+  Given also the basis $i sigma_1 = mat(0,i;i,0)$, $i sigma_2 = mat(0,1;-1,0)$, and $i sigma_3 = mat(i,0;0,-i)$ for Lie algebra $su(2)$. If you are willing to believe my calculation (that I spent 2 hours on, and I devastatedly want to believe in myself), $phi(A) = cal(M)("Ad" A)$ under the basis ${i sigma_1,i sigma_2, i sigma_3}$ is given as follow:
+  $ phi(A) = mat(Re(a^2-b^2), Im(a^2+b^2), -2 Re(a b);
+              -Im(a^2-b^2), Re(a^2+b^2), 2 Im(a b);
+              2 Re(a overline(b)), 2 Im (a overline(b)),|a|^2-|b|^2) $
+  $ = mat((x^2-y^2-z^2+w^2), 2(x y+z w), -2(x z-y w);
+          -2(x y-z w), (x^2-y^2+z^2-w^2), 2(y z+x w);
+          2(x z+y w), 2(y z-x w), (x^2+y^2-z^2-w^2)) $
+
+  \ 
+
+  #text(weight: "bold")[2. Stereographic Projection onto $S^3$:]
+
+  If we specifically consider $RR^3$ as $RR^3 times {0}$ (the affine plane that's tangent to the south pole of $S^3 subset RR^4$), then the stereographic projection is given as follow: Let $v = (x,y,z) in RR^3$, $t=2/(1+||v||^2)$, we have the following:
+  $ (x,y,z) mapsto (t x,t y, t z, 1-t) $
+  Hence, if mapping to the point $(1,0,0,0) in S^3$, one needs $y,z=0$ (since $t>0$ in general) and $t=1$ (since $1-t=0$), so $t x=1 ==> x=1$. Hence, $(1,0,0) mapsto (1,0,0,0) in S^3$.
+
+  \ 
+
+  Now, to do the explicit calculation, since $S^3 tilde.equiv SU(2)$ by $(x,y,z,w) mapsto mat(a,b;-overline(b),overline(a))$ (where $a=x+i y, b=z+i w$), and $(1,0,0,0) mapsto id$ (since then $a=1$ and $b=0$), then if consider the map $RR^3 arrow.r SO(3,RR)$ by compose $phi$ with the map of $S^3 arrow.r SU(2)$, and the stereographic projection $RR^3 arrow.r S^3$, we get the following map:
+  $ (x,y,z) mapsto t^2mat((x^2-y^2-z^2+w^2), 2(x y+z w), -2(x z-y w);
+          -2(x y-z w), (x^2-y^2+z^2-w^2), 2(y z+x w);
+          2(x z+y w), 2(y z-x w), (x^2+y^2-z^2-w^2)),\ w=1/t-1 $
+  If taking the partial derivative with respect to $x,y,z$ and evaluated at $(x,y,z)=(1,0,0)$ (which corresponds to the point that maps to $(1,0,0,0) in S^3$, or $id in SU(2)$), we get the following (where $t=1$ and $w=0$, $partial/(partial k)w^2=0$, $partial/(partial k)w=k$, $partial/(partial k)t = k$ for all $k=x,y,z$):
+  $ partial/(partial x) = 2 mat(1,0,0;0,1,0;0,0,1)+ mat(2,0,0;0,2,0;0,0,2) = 4 id $
+  $ partial/(partial y)= mat(0,2,0;-2,0,0;0,0,0) $
+  $ partial/(partial z)=mat(0,0,-2;0,0,0;2,0,0) $
+  Notice that the three tangent vectors that're spanning the image of the differential in $so(3,RR)$ are linearly independent, hence they span a $3$-dimensional subspace of $su(3,RR)$; on the other hand, because $SU(3,RR)$ has dimension $3$, then its tangent space $so(3,RR)$ is also $3$-dimensional. Hence, this shows that $phi_*$ maps $3$ basis of tangent vectors (in the original space $su(3)$) to the above $3$ linearly independent tangent vectors in $so(3,RR)$ (which forms a basis since $dim(so(3,RR))=3$), hence $phi_*$ is an isomorphism.
+
+  \ 
+
+  Finally, since $phi_*$ is an isomorphism, in particular it's a submersion, so if we take $phi^(-1)(id) = ker(phi)$, it is naturally a smooth manifold with dimension $dim(ker(phi))=dim(SU(2))-dim(SO(3,RR)) = 3-3 = 0$, hence $ker(phi)$ must be a discrete normal subgroup in $SU(2)$.
+
+  Also, for all $A in SU(2)$, hence $(theta,U)$ be a local chart in $SU(2)$ with $A in U$, and let $(psi,V)$ be a local chart of $SO(3,RR)$ with $phi(A) in V$ (WLOG, say $phi(U) subset.eq V$ for simplicity). Then, given $theta:U arrow.r.tilde tilde(U) subset.eq RR^3$ and $psi:V arrow.r.tilde tilde(V) subset.eq RR^3$ (based on the dimension of the manifold), the map $psi compose phi compose theta^(-1): tilde(U) arrow.r V$ is in fact a real smooth function with its differential being an isomorphism (since $psi, theta^(-1)$ are both diffeomorphisms, which have differentials being isomorphism; and, $phi_*$ by our verification has differential also being isomorphism). Then, apply Inverse Function Theorem, there exists open subsets $W subset.eq tilde(V)$ and $X subset.eq tilde(U)$ open, such that restricting to $X$ and $W$ has $psi compose phi compose theta^(-1):X arrow.r.tilde W$ be a diffeomorphism. Hence, $psi^(-1)(W)$ is an open neighborhood of $phi(A)$ that is also contained in the image of $phi$, showing that $im(phi)$ is actually an open subgroup of $SO(3,RR)$.
+]
