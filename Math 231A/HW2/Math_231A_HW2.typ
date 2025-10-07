@@ -195,7 +195,7 @@
 
   Show that if $G=GL(n,RR) subset End(RR^n)$ so that each tangent space is canonically identified with $End(RR^n)$, then $(L_g)_* v=g v$ (or $(d L_g)_id v = g v$) where the product in the right-hand side is the usual product of matrices, and similarly for the right action. Also, the adjoint action is given by $"Ad" g(v)=g v g^(-1)$.
 ][
-
+  Given $GL(n,RR)$ is an open subset of $End(RR^n) = M(n,RR) tilde.equiv RR^(n^2)$ (the $n times n$ matrix space), then for any $g in GL(n,RR)$, the left multiplication $L_g:GL(n,RR) arrow.r.tilde GL(n,RR)$ can be viewed as a restriction of a left multiplication $L_g:M(n,RR) arrow.r.tilde M(n,RR)$, and since $GL(n,RR)$ is viewed as an open subset, so the tangent space  $T_g GL(n,RR)$ can be identified as $T_g M(n,RR) tilde.equiv M(n,RR)$, hence it suffices to calculate $(d L_g)_id:T_id M(n,RR) arrow.r T_g M(n,RR)$.
 ]
 
 = ND//5

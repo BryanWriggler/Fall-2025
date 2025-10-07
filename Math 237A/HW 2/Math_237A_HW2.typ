@@ -28,7 +28,7 @@
 
 #set enum(numbering: "(a)")
 
-= ND//1
+= D//1
 #problem[
   Lazarsfeld Problem Set 2 (3):
 
@@ -37,7 +37,36 @@
   be the set of all $n times m$ matrices for rank $<=r$. Prove that $M^(<=r)_(n times m)$ is irreducible.
 ][
   
-  Proof
+  Recall that $GL_n (k) subset.eq AA^(n^2)$ is irreducible: Given that $AA^(n^2)$ is irreducible (since it corresponds to prime ideal $(0) subset.eq k[x_(11),...,x_(n n)]$), then $GL_n (k) = det^(-1)(AA^1\\{0})$, which is open in $AA^(n^2)$ under Zariski Topology (since $AA^1\\{0}$ is open in $AA^1$). Then, since all open subsets of an irreducible space is dense and irreducible, $GL_n (k)$ is irreducible.
+
+  Passing it to product, we have $GL_n (k) times GL_m (k) subset.eq AA^(n^2+m^2)$ to also be irreducible. 
+
+  \ 
+
+  Now, recall from linear algebra, that every $K in M_(n times m)^r$ (all the $n times m$ rank $r$ matrix) can be written as $K=A dot M dot B$, where $A in GL_n (k)$, $B in GL_m (k)$, and $M in M_(n times m)$ is in the following form:
+  $ M=mat(id_r,0;0,0) $
+  Where $id_r in GL_r (k)$ is the identity matrix. On the other hand, given any $N in M_(n times m)^r$ and $A in GL_n (k)$ and $B in GL_m (k)$, one has $A dot N dot B in M_(n times m)^r$ (since matrix multiplication with any invertible matrices wouldn't change the rank). Hence, we can define a map $mu:GL_n (k) times GL_m (k) arrow.r M_(n times m)^r$ by $mu(A,B) arrow.r A dot M dot B$ without ambiguity. And, $mu$ is surjective, since every $K in M_(n times m)$, there exists $A in GL_n (k)$ and $B in GL_m (k)$ such that $mu(A,B) = A dot M dot B = K$ based on the Linear Algebra fact provided above.
+
+  Notice that $mu$ itself is actually a morphism, since given matrices $X_n$ ($n times n$ indeterminate matrix of $M_(n times n)$) and $X_m$ ($m times m$ indeterminate matrix of $M_(m times m)$), $X_n dot M dot X_m$ has all the entries being polynomials. Hence, $mu$ defined above (in general) can be viewed as restrictions of a morphism from $AA^(n^2+m^2) arrow.r AA^(n m)$, and we can work with its subspace topology.
+
+  \ 
+
+  In particular, we can prove $M_(n times m)^r$ is in fact an irreducible subset under subspace topology of $M_(n times m)^(<=r)$: Suppose $V_1,V_2 subset.eq M_(n times m)^r$ are two closed sets (under subspace topology) such that $V_1 union V_2 = M_(n times m)^r$, then since $mu$ is a morphism, in particular it's also a continuous maps between varieties. Hence:
+  $ GL_n (k) times GL_m (k)=mu^(-1)(M_(n times m)^r) =mu^(-1)(V_1 union V_2) = mu^(-1)(V_1) union mu^(-1)(V_2)  $
+  Where because $mu$ is continuous, $mu^(-1)(V_1), mu^(-1)(V_2)$ are also closed. Hence, by irreducibility of $GL_n (k) times GL_m (k)$, WLOG $mu^(-1)(V_1)=GL_n (k) times GL_m (k)$, hence $mu(GL_n (k) times GL_m (k)) subset.eq mu(mu^(-1)(V_1)) subset.eq V_1$.
+
+  However, recall that $mu$ is actually surjective, so $mu(GL_n (k) times GL_m (k)) = M_(n times m)^r$, hence $M_(n times m)^r subset.eq V_1$, showing $V_1= M_(n times m)^r$. This shows that under subspace topology of $M_(n times m)^(<=r)$, $M_(n times m)^r$ is irreducible.
+
+  \ 
+
+  Finally, if we first look at $r=0$, we have $M_(n times m)^(<=(r-1)) subset.eq M_(n times m)^(<=r)$ being closed in $M_(n times m)$, hence also closed in $M_(n times m)^(<=r)$ under its subspace topology. So, its complement $M_(n times m)^(<=r) \\ M_(n times m)^(<=(r-1)) = M_(n times m)^(r)$ must be open in $M_(n times m)^(<=r)$. Notice that all open subsets under Zariski Topology of $AA^l$ (where $k$ is algebraically closed) has all open subsets being dense, hence we get that, the closure of any open subset is the whole space. 
+
+  Hence, the closure of $M_(n times m)^r$ under subspace topology of $M_(n times m)^(<=r)$, is the same as taking the closure of $M_(n times m)^r$ in $AA^(n m)$, then intersect with $M_(n times m)^(<= r)$, which implies $overline(M_(n times m)^r) = M_(n times m)^(<= r)$. Then, since $M_(n times m)^r$ is proven to be irreducible above, its closure $M_(n times m)^(<= r)$ is also irreducible.
+
+
+  \ 
+
+  (Note: Recall that given $B subset.eq A$ in a topological space $X$, then $overline(B)_A = overline(B) sect A$, where the left side is the closure under subspace topology of $A$, and the right side is the closure in the original space $X$).
 ]
 #pagebreak()
 
@@ -63,13 +92,13 @@
   + 
     (i) $==>$ (ii): Suppose $X$ is Noetherian, then every descending chain of closed subsets stabilizes (i.e. collection of closed subsets satisfying D.C.C.). Now, let $Sigma$ be a nonempty family of closed subsets together with $subset.eq$ being its partial order. 
   
-    For any chain $C subset.eq Sigma$, we claim that there exists closed set $V_C in C$ that serves as an lower bound of $C$: Suppose the contrary, that for some chain $C$, every closed subset $V in C$ is not a lowe bound of $C$. Then, first pick random $V_0 in C$, there exists $V_1 in C$ such that $V_0 supset.neq V_1$ (since $V_0$ is not a lower bound of $C$). Then, recursively every $k in NN$ one can find $V_k in C$, such that $V_(k-1) supset.neq V_k$. So, we eventually form a strict descending chain $V_0 supset.neq V_1 supset.neq ... supset.neq V_k supset.neq ...$, yet this contradicts the Noetherian Condition of $X$. So, given any chain $C subset.eq Sigma$, one must find some $V_C in C$, that serves as a lower bound of $C$.
+    For any chain $C subset.eq Sigma$, we claim that there exists closed set $V_C in C$ that serves as an lower bound of $C$: Suppose the contrary, that for some chain $C$, every closed subset $V in C$ is not a lower bound of $C$. Then, first pick random $V_0 in C$, there exists $V_1 in C$ such that $V_0 supset.neq V_1$ (since $V_0$ is not a lower bound of $C$). Then, recursively every $k in NN$ one can find $V_k in C$, such that $V_(k-1) supset.neq V_k$. So, we eventually form a strict descending chain $V_0 supset.neq V_1 supset.neq ... supset.neq V_k supset.neq ...$, yet this contradicts the Noetherian Condition of $X$. So, given any chain $C subset.eq Sigma$, one must find some $V_C in C$, that serves as a lower bound of $C$.
     
     Then, since all chain $C subset.eq Sigma$ has a lower bound, by Zorn's Lemma $Sigma$ has a Minimal Element.
 
     \ 
 
-    (i) $==>$ (iii): Suppose all nonempty family of closed subsets in $X$ has a minimal element. Let $U_1 subset.eq ... subset.eq U_n subset.eq ...$ be an arbitrary ascending chain of open sets in $X$. 
+    (ii) $==>$ (iii): Suppose all nonempty family of closed subsets in $X$ has a minimal element. Let $U_1 subset.eq ... subset.eq U_n subset.eq ...$ be an arbitrary ascending chain of open sets in $X$. 
     
     Then, let $V_n=X\\U_n$ be the closed sets for all $n in NN$, one generates $V_1 supset.eq ... supset.eq V_n supset.eq ...$, a descending chain of closed sets. Hence by assumption of (ii), there is a minimal element, say $V_m$ for some $m in NN$. Then, for all index $n>=m$, we have $V_m supset.eq V_n$ by descending chain's property, then by minimality of $V_m$ in the chain, it enforces $V_m=V_n$. Hence, it implies $U_1 subset.eq ... subset.eq U_n subset.eq ...$ also stabilizes for $n>= m$ (since for $n>=m$, one has $X\\U_n = V_n=V_m= X\\U_m$, so $U_n=U_m$). 
     
@@ -104,7 +133,7 @@
     Notice that one can choose $C_n$ specifically to form a descending chain in $X$: Let $C'_n:=sect.big_(i=1)^n C_i$ for all $n in NN$ (where $C'_n$ as an intersection of closed sets, is closed), the base case $n=1$ satisfies $A sect C'_1=A sect C_1=V_1$. Now, suppose given $n in NN$, it satisfies $A sect C'_n=V_n$, then for the case $(n+1)$, we have the following:
     $ A sect C'_(n+1)=A sect (sect.big_(i=1)^(n+1) C_i) = (A sect (sect.big_(i=1)^n C_i))sect(A sect C_(n+1)) $
     $ = (A sect C'_n) sect V_(n+1) = V_n sect V_(n+1)=V_(n+1) $
-    Hence by induction, all $n in NN$ satisfies $A sect C'_n=V_n$. Noice that by definition, each $C'_(n)=sect.big_(i=1)^(n)C_i supset.eq sect.big_(i=1)^n C_i= C'_(n+1)$, hence $C'_1 supset.eq ... supset.eq C'_n supset.eq ...$ forms a descending chain of closed subsets in $X$, which stabilizes for some $k in NN$. Then, for all $n>=k$, since $C'_n=C'_k$, it satisfies $V_n=A sect C'_n=A sect C'_k=V_k$, showing the descending chain of closed subsets $V_1 supset.eq ... supset.eq V_n supset.eq ...$ stabilizes past $k in NN$.
+    Hence by induction, all $n in NN$ satisfies $A sect C'_n=V_n$. Noice that by definition, each $C'_(n)=sect.big_(i=1)^(n)C_i supset.eq sect.big_(i=1)^(n+1) C_i= C'_(n+1)$, hence $C'_1 supset.eq ... supset.eq C'_n supset.eq ...$ forms a descending chain of closed subsets in $X$, which stabilizes for some $k in NN$. Then, for all $n>=k$, since $C'_n=C'_k$, it satisfies $V_n=A sect C'_n=A sect C'_k=V_k$, showing the descending chain of closed subsets $V_1 supset.eq ... supset.eq V_n supset.eq ...$ stabilizes past $k$.
 
     This concludes that all descending chain of closed subsets in $A$ (under subspace topology) stabilizes, hence $A$ under subspace topology satisfies D.C.C. for its closed subsets, showing $A$ is a Noetherian subspace.
 
@@ -144,7 +173,7 @@
 
 #pagebreak()
 
-= (a) ND//3
+= D//3
 #problem[
   Hartshorne 3.2:
 
@@ -155,11 +184,11 @@
 ][
   #set enum(numbering: "(a)")
 
-  + First to verify $phi$ is bijective, for all $(x,y)$ on the curve $y^2=x^3$, if $(x,y)=(0,0)$ the $phi(0)=(0^2,0^3)$ does the job. Else if $x!=0$ or $y!=0$ (which since     $x^2=y^3$ and $k$ is a field, the two must happen together), let $t=y/x$, it satisfies:
+  + First to verify $phi$ is surjective, for all $(x,y)$ on the curve $y^2=x^3$, if $(x,y)=(0,0)$ the $phi(0)=(0^2,0^3)$ does the job. Else if $x!=0$ or $y!=0$ (which since     $x^2=y^3$ and $k$ is a field, the two must happen together), let $t=y/x$, it satisfies:
     $ phi(t)=(t^2,t^3)=(y^2/x^2,y^3/x^3)=(x^3/x^2,y^3/y^2)=(x,y) $
-    This proves that $y$ is surjective. 
+    This proves that $phi$ is surjective. 
 
-    To show injectivity, if $t,t'$ both gets map to $(0,0)$, then it's clear that $t^2,t'^2=0$, hence $t=t'=0$. Else, if $t,t'$ gets mapped to $(x,y)!=(0,0)$, as said before $x,y!=0$, hence they satisfy $t^2=t'^2=x$ and $t^3=t'^3=y$. Hence, $t = t^3/t^2=y/x=t'^3/t'^2=t'$, showing $phi$ is injective everywhere.
+    To show injectivity, if $t,t'$ both gets map to $(0,0)$, then it's clear that $t^2,t'^2=0$, hence $t=t'=0$. Else, if $t,t'$ gets mapped to $(x,y)!=(0,0)$, as said before $x,y!=0$, hence they satisfy $t^2=t'^2=x$ and $t^3=t'^3=y$. Therefore, $t = t^3/t^2=y/x=t'^3/t'^2=t'$, showing $phi$ is injective everywhere.
 
     To show bicontinuity, it suffices to show that $phi$ is both a closed map (or the inverse is continuous) and itself is continuous. Let $V subset.eq AA^1$ be closed, which if $V=emptyset $ or $V=AA^1$ the image under $phi$ is $emptyset$ or the whole curve $y^2=x^3$, hence closed; else if $V!=emptyset, AA^1$, then $V$ must be a finite set, hence $phi(V)$ is also a finite set, which is again closed. So, $phi$ is a closed map.
 
@@ -167,7 +196,11 @@
 
     \ 
 
-    However, even if $phi$ is bijective and bicontinuous, it's not an isomorphism, and it can be seen from the induced morphism between coordinate ring: Let $Y$ represents the curve $y^2=x^3$, then $Y=Z(y^2-x^3)$. We'll first claim that $I(Y)=(y^2-x^3)$, which suffices to claim that $y^2-x^3$ is irreducible (or its principal ideal is prime). Suppose the contrary that it is reducible, then it can either be reduced in the form of $(y-f_1(x))(y-f_2(x))$
+    However, even if $phi$ is bijective and bicontinuous, it's not an isomorphism: Suppose the contrary that it's indeed an isomorphism, then there exists $g:Y arrow.r AA^1$ (where $Y$ is the algebraic curve $x^3=y^2$), that serves as an inverse of $f$.
+    
+    Then, $g$ can be represented as some polynomial in $k[x,y]$ (denoted as $g(x,y)$), such that $g compose f(t) = g(t^2,t^3) = t$ for all $t in AA^1=k$. However, notice that $g(t^2,t^3)$ is a polynomial with indeterminates represented by $t^2$ and $t^3$, in particular it can never be a polynomial of degree 1, hence it's not possible that $g(t^2,t^3)=t$, which is a contradiction.
+
+    Therefore, the assumption is false, $f$ cannot be an isomorphism here.
 
     \ 
 
@@ -184,7 +217,7 @@
 
 #pagebreak()
 
-= ND //4
+= D //4
 #problem[
   Hartshorne 3.15 (a)(b):
 
@@ -193,7 +226,42 @@
   #set enum(numbering: "(a)")
   + Show that $X times Y subset.eq AA^(n+m)$ with its induced topology is irreducible.
   + Show that $k[X times Y] tilde.equiv k[X] times.circle_k k[Y]$.
-][]
+][
+  + Let $Z_1, Z_2$ be closed sets that satisfy $Z_1 union Z_2 = X times Y$. Notice that for all $x in X$, the set ${x} times Y$ is closed (since it's $({x} times AA^m) sect (X times Y)$), and as an algebraic set ${x} times Y tilde.equiv Y$, which is an affine variety. Hence, ${x} times Y$ is also an affine variety, which is irreducible. Since $({x} times Y sect Z_1), ({x} times Y sect Z_2)$ are two closed sets that union to be ${x} times Y$, then one of them must be ${x} times Y$ by the set's irreducibility. Hence, ${x} times Y subset.eq Z_i$ for one of the index $i$.
+  
+    Now, let $X_i = {x in X | {x} times Y subset.eq Z_i}$. Notice that $X_1 union X_2 = X$. Since $X$ is irreducible, our goal is to show either $X_1=X$ or $X_2=X$, which based on the irreducibility of $X$, it suffices to show each $X_i$ are closed (so $X_1 union X_2=X$ by irreducibility implies $X=X_i$ for one of the index $i$). 
+
+    For definiteness, we'll prove the closeness for $X_1$ (since $X_2$ follows the same proof): Given each $y in Y$, let $X_y := {x in X | (x,y) in Z_1}$, which $X_y$ is closed, since it is isomorphic to $X_y times {y} = (X times {y}) sect Z_1$, a closed set (since it's an intersection of closed sets). Now, notice that $X_1 = sect.big_(y in Y) X_y$ (since for all $x in X_1$, it satisfies $(x,y) in Z_1$ for all $y in Y$, hence $x in X_y$ for all $y$; conversely, if $x in sect.big_(y in Y)X_y$, then $(x,y) in Z_1$ for all $y in Y$, hence ${x} times Y subset.eq Z_1$, showing $x in X_1$). Hence, since each $X_y$ is closed, $X_1$ as an arbitrary intersection of them is also closed.
+
+    Hence, as a consequence we deduced that $X=X_1$ or $X=X_2$ (based on the previous claim), WLOG assume $X=X_1$, then we get $X times Y = X_1 times Y subset.eq Z_1$ (while $Z_1 subset.eq X times Y$ by definition), hence $X times Y = Z_1$. This concludes that $X times Y$ is also irreducible, hence an affine variety.
+
+    \ 
+
+  + To prove this, we'll recall some categorical statements:
+    #set enum(numbering:"1.")
+    1. The functor $X mapsto k[X]$ induces an equivalence of categorory of Affine Varieties over $k$, and the opposite category of finitely generated integral domains over $k$ (all finitely generated $k$-algebra that's also an integral domain). This statement is #text(weight: "bold")[Corollary 3.8] in Hartshorne.
+
+    2. In the category of commutative $k$-algebras, the tensor product over the field $k$ serves as a coproduct.
+
+    3. An equivalence of categories preserves limit, and a limit of an opposite category is isomorphic to a colimit in the category.
+
+    4. Over an algebraically closed field $k$, tensor products of two integral domains over $k$, is still an integral domain.
+
+    With these statements, it suffices to show that product of affine varieties indeed serve as a product in the category of affine varieties:
+    #lemma[In the category of Affine Varieties, given $X subset.eq AA^n$ and $Y subset.eq AA^m$, $X times Y in AA^(n+m)$ together with natural projections $pi_x,pi_y$ onto $X$ and $Y$ respectively is a product of $X$ and $Y$.][
+      For every affine variety $Z$, if $f = (f_1,...,f_n):Z arrow.r X$ and $g = (g_1,...,g_m):Z arrow.r Y$ are two morphisms, the product map as sets $f times g = (f_1,...,f_n,g_1,...,g_m): Z arrow.r X times Y$ is a well-defined morphism that satisfies $pi_x compose (f times g) = f$, and $pi_y compose (f times g)=g$ (simply just because these projection maps are also the projection maps corresponding to the product maps #emph[as sets], while the product map is also the product of $f,g$ as set functions).
+
+      The reason why $f times g$ must be unique, is because given $h:Z arrow X times Y$ a morphism that satisfies $pi_x compose h=f$ and $pi_y compose h=g$, then for all $z in Z$, it satisfies $pi_x (h(z)) = f(z) in X$, and $pi_y (h(z))=g(z) in Y$, hence $h(z) = (f(z),g(z)) = (f_1(z),...,f_n (z), g_1(z),...,g_n (z)) = f times g(z) $. This shows that as morphisms, $h$ and $f times g$ agrees on $Z$, hence $h=f times g$, showing the uniqueness.
+
+      So, $(X times Y, pi_x, pi_y)$ is indeed a product inside the category of affine variety.
+    ]
+
+    Now, since $X times Y$ is a product of $X$ and $Y$ inside the category of affine variety, then its coordinate ring $k[X times Y]$ serves as a product of of $k[X]$ and $k[Y]$ in the opposite category of #emph[Finitely Generated Integral Domain over $k$] (because equivalence of categories preserve limit), which $k[X times Y]$ is a coproduct of $k[X]$ and $k[Y]$ in the category of Finitely Generated Integral Domain over $k$.
+
+    Finally, since over commutative $k$-algebra, $k[X] times.circle_k k[Y]$ serves as a coproduct of $k[X]$ and $k[Y]$ (two finitely generated integral domains over $k$), while $k$ is algebraically closed, hence the tensor product $k[X] times.circle_k k[Y]$ is also an integral domain that's finitely generated over $k$. Which, $k[X] times.circle_k k[Y]$ and $k[X times Y]$ are in the same category, that both serve as coproducts of $k[X]$ and $k[Y]$, so the two are isomorphic as $k$-algebra.
+
+    As a conclusion, $k[X times Y] times.circle k[X] times.circle_k k[Y]$.
+]
 
 #pagebreak()
 
