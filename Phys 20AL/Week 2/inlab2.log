@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  7 OCT 2025 17:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  7 OCT 2025 18:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -787,29 +787,52 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+<setup_sketch.jpg, id=87, 1664.2175pt x 1191.45125pt>
+File: setup_sketch.jpg Graphic file (type jpg)
+<use setup_sketch.jpg>
+Package pdftex.def Info: setup_sketch.jpg  used on input line 26.
+(pdftex.def)             Requested size: 284.52756pt x 203.68938pt.
+ [1
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./inlab2.aux)
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./setup_sketch.jpg>] [2]
+<static_surface_data.png, id=106, 819.06pt x 154.5775pt>
+File: static_surface_data.png Graphic file (type png)
+<use static_surface_data.png>
+Package pdftex.def Info: static_surface_data.png  used on input line 82.
+(pdftex.def)             Requested size: 426.79134pt x 80.54822pt.
+ [3 <./static_surface_data.png>]
+<static_mass_data.png, id=114, 819.06pt x 154.5775pt>
+File: static_mass_data.png Graphic file (type png)
+<use static_mass_data.png>
+Package pdftex.def Info: static_mass_data.png  used on input line 91.
+(pdftex.def)             Requested size: 426.79134pt x 80.54822pt.
+<kinetic_data.png, id=115, 638.385pt x 175.65625pt>
+File: kinetic_data.png Graphic file (type png)
+<use kinetic_data.png>
+Package pdftex.def Info: kinetic_data.png  used on input line 99.
+(pdftex.def)             Requested size: 426.79134pt x 117.43443pt.
+ [4 <./static_mass_data.png> <./kinetic_data.png>] (./inlab2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `inlab2.out' has not changed.
-(rerunfilecheck)             Checksum: BAAC5B6390D63D6C5A372E97F27B07F4;436.
+(rerunfilecheck)             Checksum: 2956B4FA58E29814E5C06C44456088E7;1831.
  ) 
 Here is how much of TeX's memory you used:
- 30868 strings out of 474116
- 628189 string characters out of 5743681
- 1938187 words of memory out of 5000000
- 52729 multiletter control sequences out of 15000+600000
- 565663 words of font info for 66 fonts, out of 8000000 for 9000
+ 30929 strings out of 474116
+ 629424 string characters out of 5743681
+ 1936187 words of memory out of 5000000
+ 52775 multiletter control sequences out of 15000+600000
+ 566278 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,6n,113p,589b,507s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on inlab2.pdf (2 pages, 70608 bytes).
+ 108i,7n,113p,679b,494s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on inlab2.pdf (4 pages, 375844 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
- 55 compressed objects within 1 object stream
- 6 named destinations out of 1000 (max. 500000)
- 181 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 166 PDF objects out of 1000 (max. 8388607)
+ 111 compressed objects within 2 object streams
+ 20 named destinations out of 1000 (max. 500000)
+ 265 words of extra memory for PDF output out of 10000 (max. 10000000)
 
