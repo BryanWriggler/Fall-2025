@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{../../Self_Style}
 
-\title{Latex Template}
+\title{Math CS 121 HW 2}
 \author{Zih-Yu Hsieh}
 \date{\today}
 
@@ -9,11 +9,211 @@
 \maketitle
 
 \begin{ques}\label{q1}
+    2.3.11 (pg. 51):
+
+    Six fair dice are tossed. What is the probability that at least two of them show the same face?
 \end{ques}
 
 \begin{proof}
+    Here it'll be easire to consider the complement. Let $A$ denote event with at least two of the dice show the same face, while $A^c$ represents all outcomes with all dice showing distinct face.
+
+    If do consider the order of the dice, there are total of $6^6$ total outcomes (since each dice has $6$ possible faces, each face are equally probable to occur, while there are $6$ dices). Then, for an event of $A^c$ to happen, the dices need to show $6$ distinct numbers, while there are total of $6$ numbers the dices can show. Hence, They need to pick (or permute) $6$ numbers out of total of $6$ numbers, hence providing $6P6 = 6!$ ways for the dices to show distinct faces (if considering order).
+
+    Hence, $\PP(A^c) = \frac{6!}{6^6} = \frac{5}{324}$, showing that $\PP(A)=1-\PP(A^c)=\frac{319}{324}$. So, the probability that at least two of the dice show the same face, is $\frac{319}{324}$.
+\end{proof}
+
+\hfil
+
+\begin{ques}\label{q2}
+    2.3.19 (pg. 52):
+
+    One of the five elevators in a building starts with seven passengers and stops at nine floors. Assuming that it is equally likely that a passenger gets off at any of these nine floors, find the probability that at least two of these passengers will get off at the same floor.
+\end{ques}
+
+\begin{proof}
+    Again it'll be easier to consider the complement. Let $B$ denoes the event with at least two passengers getting off at the same floor, while $B^c$ represents all outcomes with all passengers get off at distinct floors.
+
+    If do consider the order of them dropping off, there are total of $9^7$ total ooutcomes (since each person has $9$ possible floors to get dropped off, while there are $7$ people). Then, for an event of $B^c$ to happen, the people need to be dropped off at $7$ distinct floors, while there are total of $9$ floors. Since it's equally probable that a passenger gets off at any of the floor, then it suffices to count total number of outcomes where all people get off at distinct floors. Which, it essentially picks (or permutes) $7$ floors out of the $9$ floors, hence providing $9P7 = \frac{9!}{2!}$ ways for the passengers to get off at distinct floors (of consider order).
+
+    Hence, $\PP(B^c)=\frac{9!/2!}{9^7}=\frac{2240}{59049}$, so $\PP(B)=1-\PP(B^c)=\frac{56809}{59049}$. This is the probability that at least two passengers get off at the same floor.
 \end{proof}
 
 \newpage
+
+\begin{ques}\label{q3}
+    2.3.24 (pg. 52):
+
+    Let $S$ and $T$ be finite sets with $n$ and $m$ elements, respectively.
+    \begin{itemize}
+        \item[(a)] How many functions $f:S \rightarrow T$ can be defined?
+        \item[(b)] If $m\geq n$, how many injective (one-to-one) functions $f:S \rightarrow T$ can be defined?
+        \item[(c)] If $m=n$, how many surjective (onto) functions $f:S \rightarrow T$ can be defined?  
+    \end{itemize}
+\end{ques}
+
+\begin{proof}
+
+    \hfil
+
+    \begin{itemize}
+        \item[(a)] Since each element $s \in S$ can be sent to any element in $T$, hence there are total of $|T|=m$ choices where $s$ can be sent to. And, there are total of $|S| = n$ elements, each endow with such $m$ choices. Hence, there ar total of $m^n$ distinct ways of defining functions $f:S \rightarrow T$.
+        \item[(b)] Given $m\geq n$, for a function to be injective, all $s \in S$ must be mapped to a distinct elements. Hence, since $|S|=n$, one needs to pick out $n$ distinct elements in $T$ for the elements in $S$ to get mapped to. Hence, there are total of $mPn = \frac{m!}{(m-n)!}$ ways of mapping each element in $S$ to a distinct element in $T$, which generates $\frac{m!}{(n-m)!}$ distinct injective functions $f:S\rightarrow T$.
+        \item[(c)] Given $m=n$, since $|S|=|T|$, then $f:S \rightarrow T$ is surjective $\iff$ it is injective. Hence, apply part (b), there are total of $\frac{m!}{(n-m)!}=\frac{m!}{0!}=m!$ surjective functions $f:S\rightarrow T$.   
+    \end{itemize}
+\end{proof}
+
+\hfil
+
+\section*{4 (b) Not done}
+\begin{ques}\label{q4}
+    2.4.31 (pg. 67):
+
+    According to the 1998 edition of \emph{Encyclopedia Britannica}, "there are at least 15,000 to as many as 35,000 species of orchids." These species have been found naturally and are distinc from each other. Suppose that hybrids can be created by crossing any two existing species. Furthermore, suppose that hybrids themselves can be continued to be hybridized with each other or with an original species. Orchid lovers develop thousands and thousands of hybrids for use as garden or greenhouse ornamental and for the commercial flower trade. Suppose that all species are crossed, two at a time, to create the first generations of hybrids. Then the first generation of hybrids are crossed with each other and with the original species, two at a time, to develop the second generation of hybrids. The second generation of hybrids are crossed with each other, with the first generation hybrids, and with the original species, two at a time, to generate the third generation of hybrids, and so on. Let $n$ be the total number of original species of orchids. Let $n_k$ be the number of hybrids in the $k^\textmd{th}$ generation.
+    \begin{itemize}
+        \item[(a)] Find $n_k$ in terms of $n,n_1,...,n_{k-1}$.
+        \item[(b)] Fo $n=25,000$, find the largest possible total number of all hybrids in the first four generations. 
+    \end{itemize}
+\end{ques}
+
+\begin{proof}
+    
+    \hfil
+
+    \begin{itemize}
+        \item[(a)] For $n_1$, since they're produced by pairing up $2$ distinct species from the zeroth generation (total of $n$ generations), then every distinct hybrid in the first generation is through choosing $2$ distinct species from total of $n$ species, which there are $n_1 = nC2 = \begin{pmatrix}n\\2\end{pmatrix}$ first generation hybrids.
+        
+        Now, inductively, for $k>1$, since each $k^\textmd{th}$ generation hybrid is produced by crossing the $(k-1)^\textmd{th}$ generation with one of the $l\leq (k-1)$ generation, two at a time. Since crossing with each distinct generation is disjoint from each other (each generation is disjoint from each other), the amount of $k^\textmd{th}$ generation can be computed by summing up the total number of crossings between the $k^\textmd{th}$ generation, with any $l\leq (k-1)$ generation (where $l=0$ is assumed to be the original generation, say $n_0=n$).
+
+        For the crossings within the $(k-1)^\textmd{th}$ generation is $n_{k-1}C2 = \begin{pmatrix}n_{k-1}\\2\end{pmatrix}$, and for the crossings of the $(k-1)^\textmd{th}$ generation with any$l<(k-1)$ generation, is given by $n_l\cdot n_{k-1}$ (for each $l^\textmd{th}$ generation species, there are $n_{k-1}$ distinct ways of crossing with a $(k-1)^\textmd{th}$ generation species, and there are total of $n_l$ distinct $l^\textmd{th}$ generation species). Hence, the total is given by:
+        \begin{align}
+            n_k=\begin{pmatrix}n_{k-1}\\2\end{pmatrix} + \sum_{l=0}^{k-2}n_l\cdot n_{k-1}
+        \end{align}
+        \item[(b)] Given $n=25,000$, the first four generations are given as follow:
+        \begin{itemize}
+            \item $n_1=\begin{pmatrix}25,000\\2\end{pmatrix}$
+            \item $n_2= + n_1 \cdot n$.
+            \item 
+        \end{itemize}
+    \end{itemize}
+\end{proof}
+
+\hfil
+
+\begin{ques}\label{q5}
+    2.4.34 (pg. 67):
+
+    In a closet there are $10$ pairs of shoes. If six shoes are selected at random, what is the probability of (a) no complete pairs; (b) exactly one complete pair; (c) exactly two complete pairs; (d) exactly three complete pairs?
+\end{ques}
+
+\begin{proof}
+    
+    Recall tat there are $10$ pairs of shoes, hence $20$ distinct shoes. Choosing $6$ shoes at random, there are total of $20 C 6=\begin{pmatrix}20\\6\end{pmatrix}$ ways of doing so.
+
+    \begin{itemize}
+        \item[(a)] Here, we'll view each pair of shoes as a whole first. To ensure there's no complete pairs, each of the $6$ shoe must be coming from a distinct pair, hence providing $\begin{pmatrix}10\\6\end{pmatrix}$ ways of choosing distinct pairs. And, after distinguishing the $6$ distinct pairs, since one can freely choose one out of the two shoes in a pair, there are total of $2^6$ ways of doing so. Hence, there are $2^6\cdot \begin{pmatrix}10\\6\end{pmatrix}$ ways of having $6$ shoes with no complete pair, which induces the following probability:
+        \begin{align}
+            \PP(\textmd{No complete pairs})=\frac{2^6\cdot \begin{pmatrix}10\\6\end{pmatrix}}{\begin{pmatrix}20\\6\end{pmatrix}}
+        \end{align}
+        \item[(b)] For exactly one complete pairs, one must first fix the complete pair, where there are $10$ distinct ways of doing so. Then, after distinguishing the complete pair ($2$ shoes), the rest of the $4$ shoes must all be from distinct pairs of shoes (out of the remaining $9$ pairs). Hence, there are $\begin{pmatrix}9\\4\end{pmatrix}$ ways of choosing distinct pairs out of the remaining pairs. Again, after distinguishing teh $4$ distinct pairs, one can freely choose one of the two shoes in each pair, creating total of $2^4$ ways of doing so. Hence, there are $10\cdot 2^6\cdot \begin{pmatrix}9\\4\end{pmatrix}$ ways of having $6$ shoes with exactly one complete pair, this induces the following probability:
+        \begin{align}
+            \PP(\textmd{Exactly one complete pair})=\frac{10\cdot 2^6\cdot \begin{pmatrix}9\\4\end{pmatrix}}{\begin{pmatrix}20\\6\end{pmatrix}}
+        \end{align}
+        \item[(c)] To have exactly two complete pairs, one must first fix the two pairs, where there are $\begin{pmatrix}10\\2\end{pmatrix}$ ways of doing so. Then, after distinguishing the two complete pairs (4 shoes), the rest of the $2$ shoes must be from distinct pairs, out of the remaining $8$ pairs. Hence, there are $\begin{pmatrix}8\\2\end{pmatrix}$. ways of choosing $2$ distinct pairs out of the remaing $8$ pairs. Again, after distinguishing the $2$ pairs, one can freely choose one of the two shoes in each pair, creating a total of $2^2$ ways of doing so. Hence, there are $\begin{pmatrix}10\\2\end{pmatrix}\cdot 2^2\cdot \begin{pmatrix}8\\2\end{pmatrix}$ ways of having $6$ shoes with exactly two complete pairs, inducign the following probability:
+        \begin{align}
+            \PP(\textmd{Exactly two complete pairs})=\frac{\begin{pmatrix}10\\2\end{pmatrix}\cdot 2^2\cdot \begin{pmatrix}8\\2\end{pmatrix}}{\begin{pmatrix}20\\6\end{pmatrix}}
+        \end{align}
+        \item[(d)] To have exactly three complete pairs, one must fix $3$ pairs of shoes out of the $10$ pairs. Hence, providing a total of $\begin{pmatrix}10\\3\end{pmatrix}$ ways of doing so. Which, it induces the following probability:
+        \begin{align}
+            \PP(\text{Exactly three complete pairs})=\frac{\begin{pmatrix}10\\3\end{pmatrix}}{\begin{pmatrix}20\\6\end{pmatrix}}
+        \end{align}
+    \end{itemize}
+\end{proof}
+
+\newpage
+
+\section*{6,7,10 Not done}
+\begin{ques}\label{q6}
+    2.4.44 (pg. 68):
+
+    A lake has $N$ trout, and $t$ of them are caught at random, tagged, and returned. We catch $n$ trought at a later time randomly and observe that $m$ of them are tagged.
+    \begin{itemize}
+        \item[(a)] Find $P_N$, the probability of what we observed actually happen.
+        \item[(b)] To estimate the number of trout in the lake, statisticians find the value of $N$ that maximizes $P_N$. Such a value is called the \textbf{maximum likelihood estimator} of $N$. Show that the maximum of $P_N$ is $[nt/m]$, where by $[nt/m]$ we mean the greatest integer is less than or equal to $nt/m$. That is, prove that the maximum likelihood estimator of the number of trout in the lake is $[nt/m]$. 
+    \end{itemize}
+
+    (Hint: INvestigate for what values of $N$ the probability $P_N$ is increasing and what values it is decreasing).
+\end{ques}
+
+\begin{proof}
+    
+\end{proof}
+
+\hfil
+
+\begin{ques}\label{q7}
+    2.4.51 (pg. 70):
+
+    A fair coin is tossed $n$ times. Calculate the probability of getting no successive heads.
+
+    (Hint: Let $x_i$ be the number of sequences of H's and T's of length $i$ with no successive H's. Show that $x_i$ satisfies $x_i=x_{i-1}+x_{i-2}$, $i\geq 2$, where $x_0=1$ and $x_1=2$. The answer is $x_n/2^n$. Note that $\{x_i\}_{i=1}^\infty$ is a Fibonacci-type sequence).
+\end{ques}
+
+\begin{proof}
+    Based on the hint, if tossed $i=0$ times of a fair coin, there is total of $1$ outcome (namely no tosses), which vacuously satisfies the condition of no successive H's, hence $x_0=1$. For $i=1$ toss of a fair coin, there is total of $2$ outcomes (H or T), which again vacuously satisfies the condition of no successive H's. Hence $x_1=2$.
+
+    Now, for $i\geq 2$, 
+\end{proof}
+
+\hfil
+
+\begin{ques}\label{q8}
+    Review 2.R.10 (pg. 72):
+
+    In how many arrangements of the letters BERKELEY are all three E's adjacent?
+\end{ques}
+
+\begin{proof}
+    Since there are $8$ letters total, if view each $E$ as distinct initially, there are total of $8!$ ways of arranging these letters. Yet, since we're identifying the $E$'s as identical, out of the $3$ positions the $E$'s acquired, there are total of $3!=6$ ways of arranging them (that are considered the same). Hence, there are total of $\frac{8!}{3!}$ ways of arranging the letters BERKELEY, without identifying each $E$ as distinct.
+
+    \hfil
+
+    Now, if all three $E$'s are adjacent, one can consider them as a single letter, hence remaining with total of $6$ letters: B, EEE, R, K, L, Y. Which, there are total of $6!$ ways of arranging these $6$ new letters. Hence, the probability of having all three $E$'s being adjacent is as follow:
+    \begin{align}
+        \PP(\textmd{All three E's are adjacent})= \frac{6!}{8!/3!} = \frac{6}{56}
+    \end{align}
+\end{proof}
+
+\hfil
+
+\begin{ques}\label{q9}
+    Review 2.R.16 (pg. 73):
+
+    Suppose that four women and two men enter a restaurant and sit at random around a table that has four chairs on one side and another four on the other side. What is the probability that the men are not all sitting on one side?
+\end{ques}
+
+\begin{proof}
+    Since there are $6$ people and $8$ chairs, there are total of $8P6 = \frac{8!}{(8-6)!}$ ways of picking seats for people to sit down (when viewing each person as distinct appearance). However here if people are identified only with the specified genders (namely men and women here), there are $4!$ ways of letting $4$ women sitting in specified $4$ chairs, while $2!$ ways of letting $2$ men sitting in specified $2$ chairs. Hence, the total ways of letting them sit down (without identifying people with information besides gender) is $\frac{8!}{(8-6)!\cdot 4!\cdot 2!}$.
+
+    \hfil
+
+    Now, let $A$ denote the event that the men are not sitting on one side, we'll first distinguish the position the men are sitting. Since each side of the table has $4$ chairs, there are $4 \cdot 4=16$ ways of choosing one chair on each side for the two men to not sit on the same side.
+
+    For the remaining $6$ chairs and $4$ women, there are $\begin{pmatrix}6\\4\end{pmatrix}$ ways of identifying $4$ distinct chairs for the women. This results in $16\cdot \begin{pmatrix}6\\4\end{pmatrix} = \frac{16\cdot 6!}{2!\cdot 4!}$ ways of having the men not sitting on the same side.
+
+    \hfil
+
+    Finally, this provides the following probability:
+    \begin{align}
+        \PP(\textmd{Men are not on the same side}) = \frac{16\cdot 6!/(2!\cdot 4!)}{8!/((8-6)!\cdot 4!\cdot 2!)} = \frac{16\cdot 6!}{2!\cdot 4!}\cdot \frac{2!\cdot 4!\cdot 2!}{8!} = \frac{4}{7}
+    \end{align}
+\end{proof}
+
+\hfil
+
+\begin{ques}\label{q10}
+    From the set of integers $\{1,2,3,...,100000\}$ a number is selected at random. What is the probability that the sum of its digits is $8$?
+    
+    Hint: Establish a one-to-one correspondence between the set of integers from $\{1,2,...,100000\}$ the sum of whose digits is $8$, and the set of possible ways $8$ identical objects can be placed into $5$ distinguishable cells. Then use Example 2.22.  
+\end{ques}
 
 \end{document}
