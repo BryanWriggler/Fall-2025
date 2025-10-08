@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  7 OCT 2025 18:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  7 OCT 2025 18:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -795,24 +795,40 @@ Package pdftex.def Info: setup_sketch.jpg  used on input line 26.
 (pdftex.def)             Requested size: 284.52756pt x 203.68938pt.
  [1
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./setup_sketch.jpg>] [2]
-<static_surface_data.png, id=106, 819.06pt x 154.5775pt>
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./setup_sketch.jpg>] [2] [3]
+<static_surface_data.png, id=110, 819.06pt x 154.5775pt>
 File: static_surface_data.png Graphic file (type png)
 <use static_surface_data.png>
-Package pdftex.def Info: static_surface_data.png  used on input line 82.
+Package pdftex.def Info: static_surface_data.png  used on input line 84.
 (pdftex.def)             Requested size: 426.79134pt x 80.54822pt.
- [3 <./static_surface_data.png>]
-<static_mass_data.png, id=114, 819.06pt x 154.5775pt>
+<static_surface.jpg, id=112, 1395.2125pt x 1230.5975pt>
+File: static_surface.jpg Graphic file (type jpg)
+<use static_surface.jpg>
+Package pdftex.def Info: static_surface.jpg  used on input line 88.
+(pdftex.def)             Requested size: 284.52756pt x 250.9597pt.
+ [4 <./static_surface_data.png> <./static_surface.jpg>]
+<static_mass_data.png, id=119, 819.06pt x 154.5775pt>
 File: static_mass_data.png Graphic file (type png)
 <use static_mass_data.png>
-Package pdftex.def Info: static_mass_data.png  used on input line 91.
+Package pdftex.def Info: static_mass_data.png  used on input line 104.
 (pdftex.def)             Requested size: 426.79134pt x 80.54822pt.
-<kinetic_data.png, id=115, 638.385pt x 175.65625pt>
+<static_mass.jpg, id=120, 1738.495pt x 1228.59pt>
+File: static_mass.jpg Graphic file (type jpg)
+<use static_mass.jpg>
+Package pdftex.def Info: static_mass.jpg  used on input line 108.
+(pdftex.def)             Requested size: 284.52756pt x 201.05888pt.
+ [5 <./static_mass_data.png> <./static_mass.jpg>]
+<kinetic_data.png, id=127, 638.385pt x 175.65625pt>
 File: kinetic_data.png Graphic file (type png)
 <use kinetic_data.png>
-Package pdftex.def Info: kinetic_data.png  used on input line 99.
+Package pdftex.def Info: kinetic_data.png  used on input line 122.
 (pdftex.def)             Requested size: 426.79134pt x 117.43443pt.
- [4 <./static_mass_data.png> <./kinetic_data.png>] (./inlab2.aux)
+<kinetic.jpg, id=128, 1722.435pt x 1215.54124pt>
+File: kinetic.jpg Graphic file (type jpg)
+<use kinetic.jpg>
+Package pdftex.def Info: kinetic.jpg  used on input line 126.
+(pdftex.def)             Requested size: 284.52756pt x 200.79677pt.
+ [6 <./kinetic_data.png> <./kinetic.jpg>] (./inlab2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -821,18 +837,18 @@ Package rerunfilecheck Info: File `inlab2.out' has not changed.
 (rerunfilecheck)             Checksum: 2956B4FA58E29814E5C06C44456088E7;1831.
  ) 
 Here is how much of TeX's memory you used:
- 30929 strings out of 474116
- 629424 string characters out of 5743681
+ 30952 strings out of 474116
+ 629888 string characters out of 5743681
  1936187 words of memory out of 5000000
- 52775 multiletter control sequences out of 15000+600000
+ 52796 multiletter control sequences out of 15000+600000
  566278 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,7n,113p,679b,494s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on inlab2.pdf (4 pages, 375844 bytes).
+Output written on inlab2.pdf (6 pages, 828992 bytes).
 PDF statistics:
- 166 PDF objects out of 1000 (max. 8388607)
- 111 compressed objects within 2 object streams
- 20 named destinations out of 1000 (max. 500000)
- 265 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 177 PDF objects out of 1000 (max. 8388607)
+ 117 compressed objects within 2 object streams
+ 22 named destinations out of 1000 (max. 500000)
+ 280 words of extra memory for PDF output out of 10000 (max. 10000000)
 
