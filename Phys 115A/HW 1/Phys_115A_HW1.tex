@@ -123,17 +123,21 @@ $\langle p\rangle$, $\langle p^2\rangle$, and $\sigma_p$. Test the uncertainty p
 
         To find $\left<x\right>$ and $\left<x^2\right>$, consider the following integrals:
         \begin{align}
-            \left<x\right>&=\int_{-\infty}^{\infty}x\rho(x)dx = \int_{-\infty}^{\infty}x \cdot Axe^{-(\sqrt{\lambda}(x-\mu))^2}dx = \frac{A}{\lambda^\frac{3}{2}}\left(-\frac{1}{2}ue^{-u^2}\bigg|_{-\infty}^{\infty}+\frac{1}{2}\int_{-\infty}^{\infty}e^{-u^2}du\right) + \mu^2\\
-            &= \sqrt{\frac{\lambda}{\pi \mu^2}}\cdot\frac{1}{\lambda^\frac{3}{2}}\cdot\frac{\sqrt{\pi}}{2}+\mu^2=\frac{1}{2\mu\lambda}+\mu^2
+            \left<x\right>&=\int_{-\infty}^{\infty}x\rho(x)dx = \int_{-\infty}^{\infty}x \cdot Axe^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &= \frac{1}{\lambda}\int_{-\infty}^{\infty}A(\sqrt{\lambda}(x-\mu))^2e^{-(\sqrt{\lambda}(x-\mu))^2}dx + \int_{-\infty}^{\infty}2\mu x\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx - \int_{-\infty}^{\infty}\mu^2\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &= \frac{A}{\lambda\sqrt{\lambda}}\int_{-\infty}^{\infty}u^2e^{-u^2}du + \frac{1}{\sqrt{\lambda}}\int_{-\infty}^{\infty}2\mu(\sqrt{\lambda}(x-\mu))Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx + \int_{-\infty}^{\infty}\mu^2\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &= \frac{A}{2\lambda}\sqrt{\frac{\pi}{\lambda}}+\mu^2A\cdot\sqrt{\frac{\pi}{\lambda}} = \sqrt{\frac{\pi}{\lambda}}\left(\frac{1}{2\lambda}+\mu^2\right)\cdot\frac{1}{\mu}\sqrt{\frac{\lambda}{\pi}} = \mu+\frac{1}{2\mu\lambda}
         \end{align}
-        (\textbf{Note:} The above integral is the same form of $\left<x^2\right>$ in part (a), except $A$ is different, so we can continue from Equation (13)).
+
+        \hfil
+
         \begin{align}
             \left<x^2\right>&=\int_{-\infty}^{\infty}x^2\rho(x)dx = \int_{-\infty}^{\infty}x^2 \cdot Axe^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
             &= \frac{1}{\sqrt{\lambda}^3}\int_{-\infty}^{\infty}(\sqrt{\lambda}(x-\mu))^3\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx+\int_{-\infty}^{\infty}3\mu x^2\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\ &- \int_{-\infty}^{\infty}3\mu^2 x\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx +\int_{-\infty}^{\infty}\mu^3\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
             &=\frac{A}{\lambda^2}\int_{-\infty}^{\infty}u^3e^{-u^2}du + 3\mu\left<x\right> - 3\mu^2\int_{-\infty}^{\infty}\rho(x)dx + \frac{\mu^3A}{\sqrt{\lambda}}\int_{-\infty}^{\infty}e^{-u^2}du\\
-            &= \frac{3}{2\lambda}+3\mu^3-3\mu^2+\mu^3 A\sqrt{\frac{\pi}{\lambda}} = \frac{3}{2\lambda}+3\mu^3-2\mu^2
+            &= 3\mu^2+\frac{3}{2\lambda} - 3\mu^2 + \mu^3\cdot \frac{1}{\mu}\sqrt{\frac{\lambda}{\pi}}\cdot\sqrt{\frac{\pi}{\lambda}}=\mu^2+\frac{3}{2\lambda}
         \end{align}
-        With the above equations, we get $\sigma=\sqrt{\left<x^2\right>-\left<x\right>^2} = \sqrt{\frac{3}{2\lambda}+3\mu^3-2\mu^2 - \frac{1}{4\mu^2\lambda^2}-\frac{\mu}{\lambda}-\mu^4}$. And, here is a sketch of $\rho(x)$:
+        With the above equations, we get $\sigma=\sqrt{\left<x^2\right>-\left<x\right>^2} = \sqrt{\mu^2+\frac{3}{2\lambda}-\mu^2-\frac{1}{\lambda}-\frac{1}{4\mu^2\lambda^2}} = \sqrt{\frac{1}{2\lambda}-\frac{1}{4\mu^2\lambda^2}}$, and here is a sketch of $\rho(x)$:
 
         \textbf{insert image}
 
@@ -141,7 +145,32 @@ $\langle p\rangle$, $\langle p^2\rangle$, and $\sigma_p$. Test the uncertainty p
 
         \item[(c)] If consider $\rho(x)=Ax^2e^{-\lambda(x-\mu)^2}$, for normalization, consider the following:
         \begin{align}
-            \int_{-\infty}^{\infty}\rho(x)dx = \int_{-\infty}^{\infty}Ax^2e^{-(\sqrt{\lambda}(x-\mu))^2}dx
+            \int_{-\infty}^{\infty}\rho(x)dx &= \int_{-\infty}^{\infty}Ax^2e^{-(\sqrt{\lambda}(x-\mu))^2}dx\\&= \frac{1}{\lambda}\int_{-\infty}^{\infty}A(\sqrt{\lambda}(x-\mu))^2e^{-(\sqrt{\lambda}(x-\mu))^2}dx + \int_{-\infty}^{\infty}2\mu x\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx-\int_{-\infty}^{\infty}A\mu^2e^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &= \frac{A}{\lambda\sqrt{\lambda}}\int_{-\infty}^{\infty}u^2e^{-u^2}du + \int_{-\infty}^{\infty}2\mu(\sqrt{\lambda}(x-\mu))\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx+\int_{-\infty}^{\infty}A\mu^2e^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &= \frac{A}{2\lambda}\sqrt{\frac{\pi}{\lambda}}+A\mu^2\sqrt{\frac{\pi}{\lambda}} = A\sqrt{\frac{\pi}{\lambda}}\left(\mu^2+\frac{1}{2\lambda}\right)
+        \end{align}
+        As a consequence of normalization, $A=\frac{2\lambda}{2\lambda\mu^2+1}\cdot\sqrt{\frac{\lambda}{\pi}}$.
+
+        \hfil
+
+        Now, $\left<x\right>,\left<x^2\right>$ are given as follow:
+        \begin{align}
+            \left<x\right>&=\int_{-\infty}^{\infty}Ax^3e^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &= \frac{1}{\lambda\sqrt{\lambda}}(\sqrt{\lambda}(x-\mu))^3 Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx + \frac{1}{\lambda}\int_{-\infty}^{\infty}3\mu(\sqrt{\lambda}(x-\mu))^2 Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &+ \frac{1}{\sqrt{\lambda}}\int_{-\infty}^{\infty}3\mu^2(\sqrt{\lambda}(x-\mu))Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx + \int_{-\infty}^{\infty}\mu^3 Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &= \frac{3\mu A}{\lambda\sqrt{\lambda}}\int_{-\infty}^{\infty}u^2e^{-u^2}du + \mu^3 A\sqrt{\frac{\pi}{\lambda}} = \frac{3\mu A}{\lambda}\sqrt{\frac{\pi}{\lambda}}+\mu^3 A\sqrt{\frac{\pi}{\lambda}}\\
+            &= \frac{3\mu+\lambda\mu^3}{\lambda}\cdot \frac{2\lambda}{2\lambda\mu^2+1} = \frac{6\mu+2\lambda\mu^3}{2\lambda\mu^2+1}
+        \end{align}
+
+        \hfil
+
+        \begin{align}
+            \left<x^2\right>&=\int_{-\infty}^{\infty}x^4\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &= \frac{1}{\lambda^2}\int_{-\infty}^{\infty}(\sqrt{\lambda}(x-\mu))^4 Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx+\frac{1}{\lambda\sqrt{\lambda}}\int_{-\infty}^{\infty}4\mu(\sqrt{\lambda}(x-\mu))^3 Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &+ \frac{1}{\lambda}\int_{-\infty}^{\infty}6\mu^2(\sqrt{\lambda}(x-\mu))^2 Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx+\frac{1}{\sqrt{\lambda}}\int_{-\infty}^{\infty}4\mu^3(\sqrt{\lambda}(x-\mu))Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &+ \int_{-\infty}^{\infty}\mu^4Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
+            &= \frac{A}{\lambda^2\sqrt{\lambda}}\int_{-\infty}^{\infty}u^4e^{-u^2}du+\frac{6\mu^2A}{\lambda\sqrt{\lambda}}\int_{-\infty}^{\infty}u^2e^{-u^2}du + \frac{\mu^4A}{\sqrt{\lambda}}\int_{-\infty}^{\infty}e^{-u^2}du\\
+            &= \frac{3A}{2\lambda^2}\sqrt{\frac{\pi}{\lambda}} + \frac{6\mu^2A}{\lambda}\sqrt{\frac{\pi}{\lambda}}+\mu^4A\sqrt{\frac{\pi}{\lambda}} = \frac{3+12\mu^2\lambda+2\mu^4\lambda^2}{2\lambda^2}\cdot \frac{2\lambda}{2\lambda\mu^2+1}=\frac{3+12\mu^2\lambda+2\mu^4\lambda^2}{2\lambda^2\mu^2+\lambda}
         \end{align}
 
         \item[(d)] Given $\Psi(x)=Ae^{-(x/b)^2}$, for normalization, we get the following integral:
@@ -164,6 +193,22 @@ $\langle p\rangle$, $\langle p^2\rangle$, and $\sigma_p$. Test the uncertainty p
             &= \frac{b^3}{2\sqrt{2}}A^2\cdot\left(-\frac{1}{2}\right)u\cdot e^{-u^2}\bigg|_{-\infty}^{\infty}+\frac{b^3}{4\sqrt{2}}A^2\int_{-\infty}^{\infty}e^{-u^2}du\\
             &= \frac{b^3}{4}A^2\cdot\sqrt{\frac{\pi}{2}}=\frac{b^3}{4}\cdot\sqrt{\frac{2}{b^2\pi}}\cdot\sqrt{\frac{\pi}{2}}=\frac{b^2}{4}
         \end{align}
+        So, the uncertainty $\sigma_x=\sqrt{\left<x^2\right>-\left<x\right>^2}=\frac{b}{2}$.
+
+        \hfil
+
+        Then, to calclate the uncertainty in momentum, we get:
+        \begin{align}
+            \left<p\right>=\int_{-\infty}^{\infty}\Psi^*\cdot \frac{\hbar}{i}\frac{\partial}{\partial x}(\Psi) dx = -\frac{2\hbar}{ib^2}\int_{-\infty}^{\infty}A^2e^{-2x^2/b^2}\cdot x dx = 0
+        \end{align}
+        (Note: the above is again property of odd functions).
+        \begin{align}
+            \left<p^2\right>&=\int_{-\infty}^{\infty}\Psi^*\cdot(-\hbar^2)\frac{\partial^2}{\partial x^2}(\Psi)dx = \frac{2\hbar^2}{b^2}\int_{-\infty}^{\infty}A^2e^{-2x^2/b^2}dx - \frac{4\hbar^2}{b^4}\int_{-\infty}^{\infty}A^2x^2e^{-2x^2/b^2}dx\\
+            &= \frac{2\hbar^2}{b^2}\int_{-\infty}^{\infty}|\Psi|^2dx - \frac{4\hbar^2}{b^4}\left<x^2\right>. = \frac{2\hbar^2}{b^2}-\frac{4\hbar^2}{b^4}\cdot \frac{b^2}{4} = \frac{\hbar^2}{b^2}
+        \end{align}
+        Hence, the uncertainty $\sigma_p=\sqrt{\left<p^2\right>-\left<p\right>^2} = \frac{\hbar}{b}$.
+
+        Which, $\sigma_x\sigma_p = \frac{b}{2}\cdot\frac{\hbar}{b} = \frac{\hbar}{2}\geq \frac{\hbar}{2}$, so the uncertainty principle holds.
     \end{itemize}
 \end{proof}
 
