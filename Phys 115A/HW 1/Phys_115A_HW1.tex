@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{../../Self_Style}
 
-\title{Physics 115A -- Homework 1}
+\title{Phys 115A HW 1}
 \author{Zih-Yu Hsieh}
 \date{\today}
 
@@ -56,7 +56,6 @@ Eq. 1.11 (i.e., $\sigma^2 = \langle (\Delta j)^2\rangle$).
 
 \hfil
 
-\section{Insert Image, (c) (d) not done}
 \begin{ques}[Fun with gaussians]\label{q2}
 We’ll encounter physical situations involving gaussian probability densities repeatedly through-
 out the course, so now’s a good time to get comfortable with them. If you’re finding yourself
@@ -110,7 +109,12 @@ $\langle p\rangle$, $\langle p^2\rangle$, and $\sigma_p$. Test the uncertainty p
 
         And, the following is a sketch of $\rho(x)$:
 
-        \textbf{insert image}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=150mm]{q2_a.png}
+        \end{figure}
+
+        \hfil
 
         \item[(b)] If now consider the function $\rho(x)=A xe^{-\lambda(x-\mu)^2}$, where $\rho(x)$ is normalized. To get the constant $A$, consider the following integral (with the same substitution as part (a)):
         \begin{align}
@@ -139,9 +143,14 @@ $\langle p\rangle$, $\langle p^2\rangle$, and $\sigma_p$. Test the uncertainty p
         \end{align}
         With the above equations, we get $\sigma=\sqrt{\left<x^2\right>-\left<x\right>^2} = \sqrt{\mu^2+\frac{3}{2\lambda}-\mu^2-\frac{1}{\lambda}-\frac{1}{4\mu^2\lambda^2}} = \sqrt{\frac{1}{2\lambda}-\frac{1}{4\mu^2\lambda^2}}$, and here is a sketch of $\rho(x)$:
 
-        \textbf{insert image}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=150mm]{q2_b.png}
+        \end{figure}
 
         Overall, even though $\rho(x)$ is normalizable, the reason why $\rho(x)$ is not a probability density function, is because it yields negative values for $x<0$, which is not allowed for general probability density functions.
+
+        \hfil
 
         \item[(c)] If consider $\rho(x)=Ax^2e^{-\lambda(x-\mu)^2}$, for normalization, consider the following:
         \begin{align}
@@ -170,8 +179,16 @@ $\langle p\rangle$, $\langle p^2\rangle$, and $\sigma_p$. Test the uncertainty p
             &+ \frac{1}{\lambda}\int_{-\infty}^{\infty}6\mu^2(\sqrt{\lambda}(x-\mu))^2 Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx+\frac{1}{\sqrt{\lambda}}\int_{-\infty}^{\infty}4\mu^3(\sqrt{\lambda}(x-\mu))Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
             &+ \int_{-\infty}^{\infty}\mu^4Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
             &= \frac{A}{\lambda^2\sqrt{\lambda}}\int_{-\infty}^{\infty}u^4e^{-u^2}du+\frac{6\mu^2A}{\lambda\sqrt{\lambda}}\int_{-\infty}^{\infty}u^2e^{-u^2}du + \frac{\mu^4A}{\sqrt{\lambda}}\int_{-\infty}^{\infty}e^{-u^2}du\\
-            &= \frac{3A}{2\lambda^2}\sqrt{\frac{\pi}{\lambda}} + \frac{6\mu^2A}{\lambda}\sqrt{\frac{\pi}{\lambda}}+\mu^4A\sqrt{\frac{\pi}{\lambda}} = \frac{3+12\mu^2\lambda+2\mu^4\lambda^2}{2\lambda^2}\cdot \frac{2\lambda}{2\lambda\mu^2+1}=\frac{3+12\mu^2\lambda+2\mu^4\lambda^2}{2\lambda^2\mu^2+\lambda}
+            &= \frac{3A}{4\lambda^2}\sqrt{\frac{\pi}{\lambda}} + \frac{3\mu^2A}{\lambda}\sqrt{\frac{\pi}{\lambda}}+\mu^4A\sqrt{\frac{\pi}{\lambda}} = \frac{3+12\mu^2\lambda+4\mu^4\lambda^2}{4\lambda^2}\cdot \frac{2\lambda}{2\lambda\mu^2+1} = \frac{3+12\mu^2\lambda+4\mu^4\lambda^2}{4\lambda^2\mu^2+2\lambda}
         \end{align}
+        Hence, the standard deviation $\sigma_x=\sqrt{\left<x^2\right>-\left<x\right>^2}=\sqrt{\frac{3+12\mu^2\lambda+4\mu^4\lambda^2}{4\lambda^2\mu^2+2\lambda}-\left(\frac{6\mu+2\lambda\mu^3}{2\lambda\mu^2+1}\right)^2}$. Which, we have the following sketch:
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=150mm]{q2_c.png}
+        \end{figure}
+
+        \hfil
 
         \item[(d)] Given $\Psi(x)=Ae^{-(x/b)^2}$, for normalization, we get the following integral:
         \begin{align}
@@ -384,6 +401,10 @@ and check that it is correctly normalized.
         \begin{align}
             \rho(x)=\frac{1}{v(x)T} = \frac{1}{2\sqrt{m/k}\arcsin\left(\sqrt{\frac{k}{2E}}b\right)}\cdot\sqrt{\frac{m}{2E-kx^2}} = \frac{1}{2\arcsin\left(\sqrt{\frac{k}{2E}}b\right)}\cdot\sqrt{\frac{k}{2E-kx^2}}
         \end{align}
+        Also, given that at $x=b$, $V(b)=E$ (the criterion for turning point), then $kb^2/2=E$, or $b=\sqrt{\frac{2E}{k}}$. Which, $\rho(x)$ simplifies to:
+        \begin{align}
+            \rho(x)=\frac{1}{2\arcsin(1)}\sqrt{\frac{k}{2E-kx^2}}=\frac{1}{\pi}\sqrt{\frac{k}{2E-kx^2}}
+        \end{align}
         To check that $\rho(x)$ is normalized, consider its integral on $(-b,b)$ (the open interval between the two turning points), based on assumption one has $V(x)=kx^2/2< E$ for all $x \in (-b,b)$, hence  $2E-kx^2> 0$ on this interval. Perform the integral, one gets:
         \begin{align}
             \int_{-b}^{b}\rho(x)dx &= \frac{1}{2\arcsin\left(\sqrt{\frac{k}{2E}}b\right)}\int_{-b}^{b}\sqrt{\frac{k}{2E-kx^2}}dx=\frac{1}{2\arcsin\left(\sqrt{\frac{k}{2E}}b\right)}\int_{-b}^{b}\frac{\sqrt{k}}{\sqrt{2E}\cdot\sqrt{1-\left(\sqrt{\frac{k}{2E}}x\right)^2}}dx\\
@@ -397,7 +418,7 @@ and check that it is correctly normalized.
             \centering
             \includegraphics[width=150mm]{q6_graph.png}
         \end{figure}
-        \item[(c)] To find $\left<x\right>,\left<x^2\right>$, consider the following integrals (also note that at $b$, $V(b)=kb^2/2=E$, so $b=\sqrt{\frac{2E}{k}}$):
+        \item[(c)] To find $\left<x\right>,\left<x^2\right>$, consider the following integrals:
         \begin{align}
             \left<x\right>&= \int_{-b}^{b}x\rho(x)dx = \int_{-b}^{b}x\sqrt{\frac{k}{2E-kx^2}}dx = 0
         \end{align}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  10 OCT 2025 10:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  10 OCT 2025 10:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -790,29 +790,47 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Overfull \hbox (1.10933pt too wide) detected at line 119
+<q2_a.png, id=76, 1453.43pt x 332.24126pt>
+File: q2_a.png Graphic file (type png)
+<use q2_a.png>
+Package pdftex.def Info: q2_a.png  used on input line 114.
+(pdftex.def)             Requested size: 426.79134pt x 97.55911pt.
+
+Overfull \hbox (1.10933pt too wide) detected at line 123
 []
  []
 
 
-Overfull \hbox (1.68333pt too wide) detected at line 130
+Overfull \hbox (1.68333pt too wide) detected at line 134
 []
  []
 
-[3]
-Overfull \hbox (32.49596pt too wide) detected at line 151
+[3 <./q2_a.png>]
+<q2_b.png, id=94, 1456.44125pt x 647.41875pt>
+File: q2_b.png Graphic file (type png)
+<use q2_b.png>
+Package pdftex.def Info: q2_b.png  used on input line 148.
+(pdftex.def)             Requested size: 426.79134pt x 189.71251pt.
+
+Overfull \hbox (32.49596pt too wide) detected at line 160
 []
  []
 
-[4] [5] [6] [7] [8] [9]
-Overfull \hbox (17.27037pt too wide) detected at line 392
+[4 <./q2_b.png>]
+<q2_c.png, id=110, 1448.41125pt x 446.66875pt>
+File: q2_c.png Graphic file (type png)
+<use q2_c.png>
+Package pdftex.def Info: q2_c.png  used on input line 188.
+(pdftex.def)             Requested size: 426.79134pt x 131.61618pt.
+ [5 <./q2_c.png>] [6] [7] [8] [9]
+Overfull \hbox (17.27037pt too wide) detected at line 413
 []
  []
 
-<q6_graph.png, id=168, 1413.28pt x 809.0225pt>
+<q6_graph.png, id=173, 1413.28pt x 809.0225pt>
 File: q6_graph.png Graphic file (type png)
 <use q6_graph.png>
-Package pdftex.def Info: q6_graph.png  used on input line 398.
+Package pdftex.def Info: q6_graph.png  used on input line 419.
 (pdftex.def)             Requested size: 426.79134pt x 244.31343pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -823,21 +841,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `Phys_115A_HW1.out' has not changed.
-(rerunfilecheck)             Checksum: ABB4AAD742A23E95E5BF6D962E078797;220.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 31076 strings out of 474116
- 632015 string characters out of 5743681
- 1959187 words of memory out of 5000000
- 52843 multiletter control sequences out of 15000+600000
- 566669 words of font info for 69 fonts, out of 8000000 for 9000
+ 31095 strings out of 474116
+ 632327 string characters out of 5743681
+ 1954187 words of memory out of 5000000
+ 52860 multiletter control sequences out of 15000+600000
+ 566064 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,13n,113p,594b,1022s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Phys_115A_HW1.pdf (12 pages, 417836 bytes).
+ 108i,13n,113p,594b,1021s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on Phys_115A_HW1.pdf (12 pages, 800005 bytes).
 PDF statistics:
  302 PDF objects out of 1000 (max. 8388607)
- 223 compressed objects within 3 object streams
- 98 named destinations out of 1000 (max. 500000)
- 170 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 219 compressed objects within 3 object streams
+ 101 named destinations out of 1000 (max. 500000)
+ 177 words of extra memory for PDF output out of 10000 (max. 10000000)
 
