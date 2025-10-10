@@ -88,7 +88,7 @@ $\langle p\rangle$, $\langle p^2\rangle$, and $\sigma_p$. Test the uncertainty p
     \begin{itemize}
         \item[(a)] First, $\rho(x)=A e^{-\lambda(x-\mu)^2} = A e^{-(\sqrt{\lambda}(x-\mu))^2}$. Hence, if perform the integration, doing substitution $u=\sqrt{\lambda}(x-\mu)$ and $du = \sqrt{\lambda} dx$, we get:
         \begin{align}
-            \int_{-\infty}^{\infty}\rho(x)dx = \int_{-\infty}^{\infty}A e^{-(\sqrt{\lambda}(x-\mu))^2}dx = \frac{A}{\sqrt{\lambda}}\int_{-\infty}^{\infty}e^{-u^2}dx = A\sqrt{\frac{\pi}{\lambda}}
+            \int_{-\infty}^{\infty}\rho(x)dx = \int_{-\infty}^{\infty}A e^{-(\sqrt{\lambda}(x-\mu))^2}dx = \frac{A}{\sqrt{\lambda}}\int_{-\infty}^{\infty}e^{-u^2}du = A\sqrt{\frac{\pi}{\lambda}}
         \end{align}
         Hence, for the normalization to happen (or the above integral being $1$), we need $A=\sqrt{\frac{\lambda}{\pi}}$.
 
@@ -98,7 +98,7 @@ $\langle p\rangle$, $\langle p^2\rangle$, and $\sigma_p$. Test the uncertainty p
         \begin{align}
             \left<x\right> &= \int_{-\infty}^{\infty}x\rho(x)dx = \int_{-\infty}^{\infty}x \cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
             &= \frac{1}{\sqrt{\lambda}}\int_{-\infty}^{\infty}\sqrt{\lambda}(x-\mu)Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx+\mu\int_{-\infty}^{\infty}A e^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
-            &= \frac{A}{\lambda}\int_{-\infty}^{\infty}ue^{-u^2}du + \mu = -\frac{A}{2\lambda}e^{-u^2}\bigg|_{-\infty}^{^\infty}+\mu = \mu
+            &= \frac{A}{\lambda}\int_{-\infty}^{\infty}ue^{-u^2}du + \mu = \mu
         \end{align}
         \begin{align}
             \left<x^2\right>&= \int_{-\infty}^{\infty}x^2\rho(x)dx=\int_{-\infty}^{\infty}x^2\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\ 
@@ -115,7 +115,7 @@ $\langle p\rangle$, $\langle p^2\rangle$, and $\sigma_p$. Test the uncertainty p
         \item[(b)] If now consider the function $\rho(x)=A xe^{-\lambda(x-\mu)^2}$, where $\rho(x)$ is normalized. To get the constant $A$, consider the following integral (with the same substitution as part (a)):
         \begin{align}
             \int_{-\infty}^{\infty}\rho(x)dx &= \int_{-\infty}^{\infty}A xe^{-(\sqrt{\lambda}(x-\mu))^2}dx = \frac{A}{\sqrt{\lambda}}\int_{-\infty}^{\infty}\sqrt{\lambda}(x-\mu)e^{-(\sqrt{\lambda}(x-\mu))^2}dx + A\mu\int_{-\infty}^{\infty}e^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
-            &= \frac{A}{\lambda}\int_{-\infty}^{\infty}ue^{-u^2}du + \frac{A\mu}{\sqrt{\lambda}}\int_{-\infty}^{\infty}e^{-u^2}du = -\frac{A}{2\lambda}e^{-u^2}\bigg|_{-\infty}^{\infty} + A\mu\sqrt{\frac{\pi}{\lambda}} = A\mu\sqrt{\frac{\pi}{\lambda}}
+            &= \frac{A}{\lambda}\int_{-\infty}^{\infty}ue^{-u^2}du + \frac{A\mu}{\sqrt{\lambda}}\int_{-\infty}^{\infty}e^{-u^2}du = A\mu\sqrt{\frac{\pi}{\lambda}}
         \end{align}
         Hence, for normalization to happen (or the above integral is $1$), we need $A=\sqrt{\frac{\lambda}{\pi \mu^2}}$.
 
@@ -131,19 +131,36 @@ $\langle p\rangle$, $\langle p^2\rangle$, and $\sigma_p$. Test the uncertainty p
             \left<x^2\right>&=\int_{-\infty}^{\infty}x^2\rho(x)dx = \int_{-\infty}^{\infty}x^2 \cdot Axe^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
             &= \frac{1}{\sqrt{\lambda}^3}\int_{-\infty}^{\infty}(\sqrt{\lambda}(x-\mu))^3\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx+\int_{-\infty}^{\infty}3\mu x^2\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\ &- \int_{-\infty}^{\infty}3\mu^2 x\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx +\int_{-\infty}^{\infty}\mu^3\cdot Ae^{-(\sqrt{\lambda}(x-\mu))^2}dx\\
             &=\frac{A}{\lambda^2}\int_{-\infty}^{\infty}u^3e^{-u^2}du + 3\mu\left<x\right> - 3\mu^2\int_{-\infty}^{\infty}\rho(x)dx + \frac{\mu^3A}{\sqrt{\lambda}}\int_{-\infty}^{\infty}e^{-u^2}du\\
-            &= \frac{A}{\lambda^2}\left(-\frac{1}{2}u^2e^{-u^2}\bigg|_{-\infty}^{\infty}+\int_{-\infty}^{\infty}ue^{-u^2}du\right)+\frac{3}{2\lambda}+\mu^3-3\mu^2+\mu^3 A\sqrt{\frac{\pi}{\lambda}}\\
-            &= \frac{A}{\lambda^2}\left(-\frac{1}{2}e^{-u^2}\bigg|_{-\infty}^{\infty}\right)+\frac{3}{2\lambda}+\mu^3-3\mu^2+\mu^3 \cdot\sqrt{\frac{\lambda}{\pi \mu^2}}\sqrt{\frac{\pi}{\lambda}}\\
-            &= \frac{3}{2\lambda}+\mu^3-2\mu^2
+            &= \frac{3}{2\lambda}+3\mu^3-3\mu^2+\mu^3 A\sqrt{\frac{\pi}{\lambda}} = \frac{3}{2\lambda}+3\mu^3-2\mu^2
         \end{align}
-        With the above equations, we get $\sigma=\sqrt{\left<x^2\right>-\left<x\right>^2} = \sqrt{\frac{3}{2\lambda}-\frac{1}{2\mu\lambda}+\mu^3-3\mu^2}$. And, here is a sketch of $\rho(x)$:
+        With the above equations, we get $\sigma=\sqrt{\left<x^2\right>-\left<x\right>^2} = \sqrt{\frac{3}{2\lambda}+3\mu^3-2\mu^2 - \frac{1}{4\mu^2\lambda^2}-\frac{\mu}{\lambda}-\mu^4}$. And, here is a sketch of $\rho(x)$:
 
         \textbf{insert image}
 
-        Overall, even though $\rho(x)$ is normalizable, the reason why $\rho(x)$ is not a probability density function, is because it yields negative values for $x<0$.
+        Overall, even though $\rho(x)$ is normalizable, the reason why $\rho(x)$ is not a probability density function, is because it yields negative values for $x<0$, which is not allowed for general probability density functions.
 
         \item[(c)] If consider $\rho(x)=Ax^2e^{-\lambda(x-\mu)^2}$, for normalization, consider the following:
         \begin{align}
             \int_{-\infty}^{\infty}\rho(x)dx = \int_{-\infty}^{\infty}Ax^2e^{-(\sqrt{\lambda}(x-\mu))^2}dx
+        \end{align}
+
+        \item[(d)] Given $\Psi(x)=Ae^{-(x/b)^2}$, for normalization, we get the following integral:
+        \begin{align}
+            1=\int_{-\infty}^{\infty}|\Psi|^2dx = \int_{-\infty}^{\infty}A^2e^{-(\sqrt{2}x/b)^2}dx = \frac{bA^2}{\sqrt{2}}\int_{-\infty}^{\infty}e^{-u^2}du = A^2\cdot \sqrt{\frac{b^2\pi}{2}}
+        \end{align}
+        Hence, $A=\left(\frac{2}{b^2\pi}\right)^\frac{1}{4}$.
+
+        \hfil
+
+        Given the normalization, $\left<x\right>$ and $\left<x^2\right>$ are given as:
+        \begin{align}
+            \left<x\right>&=\int_{-\infty}^{\infty}x|\Psi|^2dx = \int_{-\infty}^{\infty}xA^2e^{-2(x/b)^2}dx = 0
+        \end{align}
+        (The above is the property of odd functions).
+
+        \begin{align}
+            \left<x^2\right>&=\int_{-\infty}^{\infty}x^2|\Psi|^2dx = \frac{b^2}{2}\int_{-\infty}^{\infty}A^2\left(\frac{\sqrt{2}x}{b}\right)^2e^{-(\sqrt{2}x/b)^2}dx\\
+            &= \frac{b^3}{2\sqrt{2}}\int_{-\infty}^{\infty}A^2 u^2e^{-u^2}du
         \end{align}
     \end{itemize}
 \end{proof}
@@ -170,6 +187,9 @@ unity. Don’t forget that we’re in three spatial dimensions.
 (c) Determine $\langle r\rangle$, the average radial position of the particle.
 \end{ques}
 \begin{proof}
+
+    \hfil
+
     \begin{itemize}
         \item[(a)] Since $dP=4\pi \rho(r)r^2 dr$ represents the probability of finding a partical in a concentric spherical shell of thickness $dr$ and radius $r$, then the total integral of the probability is given by the following (which runs through all radius $r\geq 0$):
         \begin{align}
@@ -245,7 +265,6 @@ for this wavefunction.
 
 \newpage
 
-\section{5 Not done}
 \begin{ques}[More intuition about probability currents]\label{q5}
 The wave function of a beam of free particles traveling in one dimension with velocity $v$ is
 \[
@@ -264,10 +283,17 @@ J(x) = v \times \text{density of particles}.
     \begin{align}
         J(x,t)=-\frac{i\hbar}{2m}\left(Ae^{-ikx}\cdot Aike^{ikx}+Aike^{-ikx}\cdot Ae^{ikx}\right) = \frac{\hbar}{m}\cdot A^2k=A^2\frac{\hbar}{m}\cdot \frac{mv}{\hbar} = vA^2
     \end{align}
+    Now, given that $\int_{a}^{b}|\Psi|^2dx$ is the probability of finding particles in the range of $[a,b]$ (assume $a<b$), we yield the following (recall that $|e^{ikx}|=1$):
+    \begin{align}
+        \int_{a}^{b}|\Psi|^2 dx=\int_{a}^{b}A^2 dx = A^2\cdot (b-a)
+    \end{align}
+    Which, classically given a beam of a particle, the probability of finding a particle in the range of $[a,b]$ can be thought of as the density $\lambda \cdot (b-a)$ (which denotes the amount of particles within a certain range). Hence, here if $A^2\cdot (b-a)$ serves the purpose for arbitrary interval $[a,b]$ (with $a<b$), then $A^2$ must serve as the density of the bea of free particles.
+
+    Hence, $J = vA^2$ is in terms of $v \times $ density of the particles.
 
 \end{proof}
 
-\newpage
+\hfil
 
 \begin{ques}[Classical Particle in a Well (Griffiths Problem 1.11)]\label{q6}
 Imagine a particle of mass $m$ and energy $E$ in a potential well $V (x)$, sliding frictionlessly
@@ -300,7 +326,44 @@ and check that it is correctly normalized.
 
     \begin{itemize}
         \item[(a)] Assume the conservation of energy, the particle has mass $m$, total energy $E$, and the potential is recorded by $V(x)$. Then, the kinetic energy of the particle is $K=\frac{1}{2}mv(x)^2=E-V(x)$, hence $v(x)=\sqrt{\frac{2(E-V(x))}{m}}$.
-        \item[(b)] Given $V(x)=\frac{kx^2}{2}$,  
+        \item[(b)] Given $V(x)=\frac{kx^2}{2}$,  then based on formula in part (a), $v(x)=\sqrt{\frac{2E-kx^2}{m}}$, hence the time $T$ is:
+        \begin{align}
+            T&=\int_{a}^{b}\frac{1}{v(x)}dx = \int_{a}^{b}\frac{\sqrt{m}}{\sqrt{2E}\cdot \sqrt{1-\left(\sqrt{\frac{k}{2E}}x\right)^2}}dx = \sqrt{\frac{m}{2E}}\cdot\sqrt{\frac{2E}{k}}\int_{\sqrt{\frac{k}{2E}}a}^{\sqrt{\frac{k}{2E}}b}\frac{1}{\sqrt{1-u^2}}du\\
+            &= \sqrt{\frac{m}{k}}\arcsin(u)\bigg|_{\sqrt{\frac{k}{2E}}a}^{\sqrt{\frac{k}{2E}}b}
+        \end{align}
+        Given that $V(x)=kx^2/2$, then the turning point (if assume $a<b$) satisfies $a=-b$ (since the turning points must have the same potential, so $ka^2/2=kb^2/2$, or $a=\pm b$; with $a<b$, we have $a=-b$, if assuming $b>0$). Hence, the above equation provides $T=2\sqrt{\frac{m}{k}}\arcsin\left(\sqrt{\frac{k}{2E}}b\right)$.
+
+        Using this information, we have: 
+        \begin{align}
+            \rho(x)=\frac{1}{v(x)T} = \frac{1}{2\sqrt{m/k}\arcsin\left(\sqrt{\frac{k}{2E}}b\right)}\cdot\sqrt{\frac{m}{2E-kx^2}} = \frac{1}{2\arcsin\left(\sqrt{\frac{k}{2E}}b\right)}\cdot\sqrt{\frac{k}{2E-kx^2}}
+        \end{align}
+        To check that $\rho(x)$ is normalized, consider its integral on $(-b,b)$ (the open interval between the two turning points), based on assumption one has $V(x)=kx^2/2< E$ for all $x \in (-b,b)$, hence  $2E-kx^2> 0$ on this interval. Perform the integral, one gets:
+        \begin{align}
+            \int_{-b}^{b}\rho(x)dx &= \frac{1}{2\arcsin\left(\sqrt{\frac{k}{2E}}b\right)}\int_{-b}^{b}\sqrt{\frac{k}{2E-kx^2}}dx=\frac{1}{2\arcsin\left(\sqrt{\frac{k}{2E}}b\right)}\int_{-b}^{b}\frac{\sqrt{k}}{\sqrt{2E}\cdot\sqrt{1-\left(\sqrt{\frac{k}{2E}}x\right)^2}}dx\\
+            &= \frac{1}{2\arcsin\left(\sqrt{\frac{k}{2E}}b\right)}\cdot\sqrt{\frac{k}{2E}}\cdot \sqrt{\frac{2E}{k}}\int_{-\sqrt{\frac{k}{2E}}b}^{\sqrt{\frac{k}{2E}}b}\frac{1}{\sqrt{1-u^2}}du = \frac{1}{2\arcsin\left(\sqrt{\frac{k}{2E}}b\right)}\cdot\arcsin(u)\bigg|_{-\sqrt{\frac{k}{2E}}b}^{\sqrt{\frac{k}{2E}}b}\\
+            &= \frac{1}{2\arcsin\left(\sqrt{\frac{k}{2E}}b\right)}\cdot 2\arcsin\left(\sqrt{\frac{k}{2E}}b\right)=1
+        \end{align}
+        Hence, $\rho(x)$ is perfectly normalized.
+
+        Finally, here is a graph of $\rho(x)$, with the constant given on the side:
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=150mm]{q6_graph.png}
+        \end{figure}
+        \item[(c)] To find $\left<x\right>,\left<x^2\right>$, consider the following integrals (also note that at $b$, $V(b)=kb^2/2=E$, so $b=\sqrt{\frac{2E}{k}}$):
+        \begin{align}
+            \left<x\right>&= \int_{-b}^{b}x\rho(x)dx = \int_{-b}^{b}x\sqrt{\frac{k}{2E-kx^2}}dx = 0
+        \end{align}
+        (The above integral is $0$ since eventually it's an integral of odd function with integration bounds of opposite signs).
+
+        \begin{align}
+            \left<x^2\right>&=\int_{-b}^{b}x^2\rho(x)dx = -\frac{1}{2k}\int_{-b}^{b}x\cdot (-2kx)\sqrt{\frac{k}{2E-kx^2}}dx\\
+            &= -\frac{1}{2k}x\cdot2\sqrt{k}\cdot \sqrt{2E-kx^2}\bigg|_{-b}^{b} + \frac{1}{2k}\int_{-b}^{b}2\sqrt{k}\cdot\sqrt{2E-kx^2}dx\\
+            &= -\frac{2}{\sqrt{k}}b\cdot \sqrt{2E-kb^2} + \sqrt{\frac{2E}{k}}\int_{-b}^{b}\sqrt{1-\left(\sqrt{\frac{k}{2E}}x\right)^2}dx\\
+            &= -\frac{2b}{\sqrt{k}}\sqrt{2E - k\cdot \left(\sqrt{\frac{2E}{k}}\right)^2}+\frac{2E}{k}\int_{-\sqrt{\frac{k}{2E}}b}^{\sqrt{\frac{k}{2E}}b}\sqrt{1-u^2}du\\
+            &= 0+\frac{2E}{k}\int_{-1}^{1}\sqrt{1-u^2}du = \frac{2E}{k}\cdot\frac{\pi}{2}=\frac{E\pi}{k}
+        \end{align}
+        With this value, then the final one $\sigma_x=\sqrt{\left<x^2\right>-\left<x\right>^2} = \sqrt{\frac{E\pi}{k}}$.
     \end{itemize}
 \end{proof}
 
@@ -331,5 +394,27 @@ $\tfrac{d}{dt}\int_{-\infty}^\infty |\Psi(x, t)|^2dx = 0$) we now get
 
 (b) Solve for $P(t)$, and find the lifetime of the particle in terms of $\Gamma$.
 \end{ques}
+
+\begin{proof}
+
+    \hfil
+
+    \begin{itemize}
+        \item[(a)] Given that $|\Psi(x,t)|^2=\Psi(x,t)\cdot \Psi^*(x,t)$, and $\frac{d}{dt}\int_{-\infty}^{\infty}|\Psi(x,t)|^2dx = \int_{-\infty}^{\infty}\frac{\partial}{\partial t}|\Psi(x,t)|^2 dx$ (i.e. Leibniz Rule applies), together with the Schrodinger's Equation $i\hbar \frac{\partial \Psi}{\partial t}=-\frac{\hbar^2}{2m}\frac{\partial^2\Psi}{\partial x^2}+V\Psi$, we get the following:
+        \begin{align}
+            \frac{\partial}{\partial t}\left(|\Psi(x,t)|^2\right) &= \frac{\partial }{\partial t}\left(\Psi \Psi^*\right) = \Psi^*\frac{\partial\Psi}{\partial t}+\Psi\frac{\partial \Psi^*}{\partial t}\\
+            &= \Psi^*\left(\frac{i\hbar}{2m}\frac{\partial^2\Psi}{\partial x^2}-\frac{i}{\hbar}V\Psi\right)+ \Psi\left(-\frac{i\hbar}{2m}\frac{\partial^2\Psi}{\partial x^2}+\frac{i}{\hbar}V^*\Psi^*\right)\\
+            &=\frac{i\hbar}{2m}\left(\Psi^*\frac{\partial^2\Psi}{\partial x^2}-\Psi\frac{\partial^2\Psi^*}{\partial x^2}\right)-\frac{i}{\hbar}\left((V_0-i\Gamma)-(V_0+i\Gamma)\right)|\Psi|^2\\
+            &= \frac{i\hbar}{2m}\frac{\partial}{\partial x}\left(\Psi^*\frac{\partial\Psi}{\partial x}-\Psi\frac{\partial\Psi^*}{\partial x}\right)- \frac{2\Gamma}{\hbar}|\Psi|^2
+        \end{align}
+        Perform integration, we get:
+        \begin{align}
+            \frac{dP}{dt}&=\frac{d}{dt}\int_{-\infty}^{\infty}|\Psi|^2dx = \int_{-\infty}^{\infty}\frac{\partial}{\partial t}|\Psi|^2 dx = \int_{-\infty}^{\infty}\frac{i\hbar}{2m}\left(\Psi^*\frac{\partial\Psi}{\partial x}-\Psi\frac{\partial\Psi^*}{\partial x}\right)dx- \frac{2\Gamma}{\hbar}\int_{-\infty}^{\infty}|\Psi|^2dx\\
+            &= -\frac{2\Gamma}{\hbar}P
+        \end{align}
+        The first integral is $0$ because of the boundary condition of probability current, while the second integral (up to some constant) yields $P$.
+        \item[(b)] To solve for $P(t)$, since $\frac{dP}{dt}=-\frac{2\Gamma}{\hbar}P$, we get $P(t)=Ke^{-2\Gamma t/\hbar}$ for some undetermined coefficient $K$. Which, if the lifetime $\tau$ of the particle is given as $P(t)=Ke^{-t/\tau}$, then here $\tau=\frac{\hbar}{2\Gamma}$.
+    \end{itemize}
+\end{proof}
 
 \end{document}
