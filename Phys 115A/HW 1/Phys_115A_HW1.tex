@@ -160,7 +160,9 @@ $\langle p\rangle$, $\langle p^2\rangle$, and $\sigma_p$. Test the uncertainty p
 
         \begin{align}
             \left<x^2\right>&=\int_{-\infty}^{\infty}x^2|\Psi|^2dx = \frac{b^2}{2}\int_{-\infty}^{\infty}A^2\left(\frac{\sqrt{2}x}{b}\right)^2e^{-(\sqrt{2}x/b)^2}dx\\
-            &= \frac{b^3}{2\sqrt{2}}\int_{-\infty}^{\infty}A^2 u^2e^{-u^2}du
+            &= \frac{b^3}{2\sqrt{2}}\int_{-\infty}^{\infty}A^2 u^2e^{-u^2}du\\\
+            &= \frac{b^3}{2\sqrt{2}}A^2\cdot\left(-\frac{1}{2}\right)u\cdot e^{-u^2}\bigg|_{-\infty}^{\infty}+\frac{b^3}{4\sqrt{2}}A^2\int_{-\infty}^{\infty}e^{-u^2}du\\
+            &= \frac{b^3}{4}A^2\cdot\sqrt{\frac{\pi}{2}}=\frac{b^3}{4}\cdot\sqrt{\frac{2}{b^2\pi}}\cdot\sqrt{\frac{\pi}{2}}=\frac{b^2}{4}
         \end{align}
     \end{itemize}
 \end{proof}
