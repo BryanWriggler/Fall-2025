@@ -29,7 +29,7 @@
 #let Orb = math.upright[Orb] //orbit in group theory
 
 //category theory
-#let cat(name) = math.sans[name] //general category font command
+#let cat(name) = math.sans[#name] //general category font command
 #let Grp = math.sans[Grp] //cat of group
 #let Ab = math.sans[Ab] //cat of abel group
 #let Ring = math.sans[Ring] //cat of rings
