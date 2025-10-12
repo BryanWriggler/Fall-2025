@@ -83,14 +83,28 @@
 
 #pagebreak()
 
-= ND//3
+= D//3
 #problem[
   Lazarsfeld Problem Set 3 (4):
 
   Given an algebraic set $X subset.eq PP^n$, show that $X$ can be cut out by homogeneous polynomials all having the same degree, say $d$. (Note that we do not assert that these polynomials actually generate the full homogeneous ideal of $X$).
 ][
+  WLOG, say $X!=emptyset$ (since if $X$ is empty, then $(x_0,...,x_n)$ is an ideal corresponding to $X$, showing that $X$ can be trivially cut out by $x_0,...,x_n$, which all have degree $1$). 
+  
+  Let $I(X) = frak(a) = (f_1,...,f_k)$ be the homogeneous ideal corresponding to $X$ (where each generator $f_i$ can be chosen specifically as homogeneous polynomials, and with $deg(f_i)>0$ due to the fact that $X!=emptyset$, hence $I(X)!=S$, showing $frak(a)$ can't contain any nonzero constan polynomial, since they're units). Now, we claim that one can increase the "degree" of each $f_i$ in a specific way without increasing the zeros.
 
+  \ 
+
+  Notice that given any positive integers $q_1,...,q_k$, $[p] in X$ iff each $f_i^(q_i)([p])=0$: It is clear that powers of homogeneous polynomial is still homogeneous, hence each $f_i^(q_i)$ is still a homogeneous polynomial.
+
+  If $[p] in X$, since each $f_i([p])=0$, then $f_i^(q_i)([p])=0$; conversely, if $f_i^(q_i)([p])=0$ for all index $i$, then each $f_i([p])=0$ (since $f_i(p)!=0$ implies $f_i^(q_i)(p)!=0$), showing that $[p] in X$ (since $[p]$ is a zero of generators of $I(X)$).
+
+  \ 
+
+  With this in mind, let $d_1,...,d_k$ be the degrees of $f_1,...,f_k$ respectively. Let $l=lcm(d_1,...,d_k)$, and define $q_i:= l/d_i in NN$. Then, since $deg(f_i)=d_i$, one has $deg(f_i^(q_i)) = deg(f_i) dot q_i = d_i dot l/d_i = l$. Hence, if taken the zero set of ${f_1^(q_1),...,f_k^(q_k)}$, since the previous statement guarantees that $[p] in X$ iff $f_i^(q_i)([p])=0$, then $Z_(PP^n)({f_1^(q_1),...,f_k^(q_k)})=X$, showing that $X$ can be cut out by homogeneous polynomials all with same degree.
 ]
+
+#pagebreak()
 
 = D//4
 #problem[
