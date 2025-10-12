@@ -9,6 +9,6 @@
 \contentsline {subsection}{\numberline {4.1}Experiment for Static Friction with Varying Surface}{6}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Experiment for Static Friction with Varying Mass}{7}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Experiment for Kinetic Friction}{8}{subsection.4.3}%
-\contentsline {section}{\numberline {5}Data Analysis}{8}{section.5}%
-\contentsline {section}{\numberline {6}Error Analysis}{8}{section.6}%
-\contentsline {section}{\numberline {7}Conclusion}{8}{section.7}%
+\contentsline {section}{\numberline {5}Data Analysis}{9}{section.5}%
+\contentsline {section}{\numberline {6}Error Analysis}{9}{section.6}%
+\contentsline {section}{\numberline {7}Conclusion}{9}{section.7}%

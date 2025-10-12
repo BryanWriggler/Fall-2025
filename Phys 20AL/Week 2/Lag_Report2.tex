@@ -26,8 +26,11 @@ Given a ramp with angle $\theta$, an object with mass $m$, and the coefficient o
     \centering
     \includegraphics[width=100mm]{friction_explain.jpg}
     \caption{The Diagram of Friction of an Object on a Ramp}
+    \label{graph:friction-diagram}
 \end{figure}
-Which, with the object stays in stationary, $F_f=F_x$ in terms of their magnitude, showing that the coefficient of static friction $\mu = \frac{mg\sin(\theta)}{mg\cos(\theta)} = \tan(\theta)$.
+Which, with the object stays in stationary, $F_f=F_x$ in terms of their magnitude, showing that the coefficient of static friction $\mu = \frac{F_f}{N}=\frac{mg\sin(\theta)}{mg\cos(\theta)} = \tan(\theta)$.
+
+For kinetic energy, it's instead calculating the friction force $F_f$ as a whole, and calculate the coefficient of kinetic friction as $\mu=\frac{F_f}{N}$.
 
 \hfil
 
@@ -165,7 +168,10 @@ Here, the mass of the cart is fixed as $0.292$ kg.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=100mm]{Static, Material.png}
+    \label{graph:static-material}
 \end{figure}
+
+The collected data (and the graph) in general fits the expectation, since when varying the surface materials, the corresponding friction would also change accordingly, causing the critical angle (indicating the gravitational force's forward component matches the static friction) to vary based on materials.
 
 \pagebreak
 
@@ -197,7 +203,10 @@ Here, the surface of the ramp is fixed as Paper.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=100mm]{Static, Mass.png}
+    \label{graph:static-mass}
 \end{figure}
+
+The collected data and the graph in general are as expected, since when scaling the mass accordingly, the porportionality between the normal force and the gravitational force's forward component stay the same (or, their ratio, which is proportional to the coefficient of static friction, is independent from mass). Then, the critical angle (indicating that grivational force's forward component and the static friction is equal), is also expected to be independent from mass, due to the same proportionality between friction and normal force, or it's not expected to see explicit change of critical angle when varying mass.
 
 \pagebreak
 
@@ -230,9 +239,15 @@ Here, the surface of the ramp is fixed as Paper, and the mass of the cart is fix
 \begin{figure}[h!]
     \centering
     \includegraphics[width=100mm]{Kinetic, Angle.png}
+    \label{graph:kinetic}
 \end{figure}
 
+The collected data and the graph in general are as expected, since when increasing the angle of the ramp, the gravitational force has a larger forward component. Also, since kinetic friction is only proportional to the normal force, while normal force decreases when ramp angle increases. Then, the total acceleration directed forward is expected to increase when ramp angle increases, which corresponds to a shorter traveling time for a fixed distance.
+
+\hfil
+
 \section{Data Analysis}
+
 
 \section{Error Analysis}
 
