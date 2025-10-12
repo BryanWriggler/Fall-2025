@@ -164,6 +164,7 @@ Here, the mass of the cart is fixed as $0.292$ kg.
 \bottomrule
 \end{tabular}
 \caption{Critical Angle of  for Different Surface (Unit: Degree $ ^\circ$)}
+\label{tab:static-material}
 \end{table}
 \begin{figure}[h!]
     \centering
@@ -199,6 +200,7 @@ Here, the surface of the ramp is fixed as Paper.
 \bottomrule
 \end{tabular}
 \caption{Critical Angle for Different Masses (Unit: Degree $ ^\circ$)}
+\label{tab:static-mass}
 \end{table}
 \begin{figure}[h!]
     \centering
@@ -235,6 +237,7 @@ Here, the surface of the ramp is fixed as Paper, and the mass of the cart is fix
 \bottomrule
 \end{tabular}
 \caption{Object's Traveling Time for Different Angles (Unit: Second s)}
+\label{tab:kinetic}
 \end{table}
 \begin{figure}[h!]
     \centering
@@ -244,10 +247,23 @@ Here, the surface of the ramp is fixed as Paper, and the mass of the cart is fix
 
 The collected data and the graph in general are as expected, since when increasing the angle of the ramp, the gravitational force has a larger forward component. Also, since kinetic friction is only proportional to the normal force, while normal force decreases when ramp angle increases. Then, the total acceleration directed forward is expected to increase when ramp angle increases, which corresponds to a shorter traveling time for a fixed distance.
 
-\hfil
+\pagebreak
 
 \section{Data Analysis}
+For this section, we'll need propogation of uncertainty through functions: Given a differentiable function $f:U \rightarrow \RR$ where $U subset.eq \RR^n$ with coordinates $(x_1,...,x_n)$, with a finite set of data labeled as $J$, then the Propogation of Uncertainty through $f$ is provided as:
+\begin{align}
+    \sigma_f := \sqrt{\sum_{i=1}^n \left(\frac{\partial f}{\partial x_i}\sigma_(x_i)\right)^2}
+\end{align}
 
+Then, for each of the section below, we'll calculate the corresponding coefficient of friction, and analyze its uncertainty using equation (1).
+
+\subsection{Experiment for Static Friction with Varying Surface}
+Recall from \textbf{Section 1} that for static friction, the coefficient of static friction $\mu_s =\tan(\theta)$ when given the critical angle $\theta$. Hence, based on data in Table \ref{tab:static-material}, the coefficients are provided as follow:
+
+
+\subsection{Experiment for Static Friction with Varying Mass}
+
+\subsection{Experiment for Kinetic Friction}
 
 \section{Error Analysis}
 

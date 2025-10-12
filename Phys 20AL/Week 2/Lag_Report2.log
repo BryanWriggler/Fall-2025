@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  11 OCT 2025 22:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  11 OCT 2025 23:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -794,34 +794,34 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<friction_explain.jpg, id=124, 1503.6175pt x 973.6375pt>
+<friction_explain.jpg, id=139, 1503.6175pt x 973.6375pt>
 File: friction_explain.jpg Graphic file (type jpg)
 <use friction_explain.jpg>
 Package pdftex.def Info: friction_explain.jpg  used on input line 27.
 (pdftex.def)             Requested size: 284.52756pt x 184.23537pt.
  [2{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./friction_explain.jpg>]
-<setup_sketch.jpg, id=136, 1664.2175pt x 1191.45125pt>
+<setup_sketch.jpg, id=151, 1664.2175pt x 1191.45125pt>
 File: setup_sketch.jpg Graphic file (type jpg)
 <use setup_sketch.jpg>
 Package pdftex.def Info: setup_sketch.jpg  used on input line 61.
 (pdftex.def)             Requested size: 284.52756pt x 203.68938pt.
  [3 <./setup_sketch.jpg>] [4] [5]
-<Static, Material.png, id=151, 462.528pt x 346.896pt>
+<Static, Material.png, id=166, 462.528pt x 346.896pt>
 File: Static, Material.png Graphic file (type png)
 <use Static, Material.png>
-Package pdftex.def Info: Static, Material.png  used on input line 170.
+Package pdftex.def Info: Static, Material.png  used on input line 171.
 (pdftex.def)             Requested size: 284.52756pt x 213.40593pt.
  [6 <./Static, Material.png>]
-<Static, Mass.png, id=160, 462.528pt x 346.896pt>
+<Static, Mass.png, id=175, 462.528pt x 346.896pt>
 File: Static, Mass.png Graphic file (type png)
 <use Static, Mass.png>
-Package pdftex.def Info: Static, Mass.png  used on input line 205.
+Package pdftex.def Info: Static, Mass.png  used on input line 207.
 (pdftex.def)             Requested size: 284.52756pt x 213.40593pt.
  [7 <./Static, Mass.png>]
-<Kinetic, Angle.png, id=169, 462.528pt x 346.896pt>
+<Kinetic, Angle.png, id=185, 462.528pt x 346.896pt>
 File: Kinetic, Angle.png Graphic file (type png)
 <use Kinetic, Angle.png>
-Package pdftex.def Info: Kinetic, Angle.png  used on input line 241.
+Package pdftex.def Info: Kinetic, Angle.png  used on input line 244.
 (pdftex.def)             Requested size: 284.52756pt x 213.40593pt.
  [8 <./Kinetic, Angle.png>] [9] (./Lag_Report2.aux)
  ***********
@@ -829,21 +829,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `Lag_Report2.out' has not changed.
-(rerunfilecheck)             Checksum: 1CDB4413B1575F5F7E6E7AC7C396DF3A;2709.
+(rerunfilecheck)             Checksum: C91CB179FD028D51C18BF5BAF4FA6ECA;3578.
  ) 
 Here is how much of TeX's memory you used:
- 30980 strings out of 474116
- 630351 string characters out of 5743681
- 1936187 words of memory out of 5000000
- 52807 multiletter control sequences out of 15000+600000
+ 30992 strings out of 474116
+ 630558 string characters out of 5743681
+ 1938187 words of memory out of 5000000
+ 52815 multiletter control sequences out of 15000+600000
  566953 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,17n,113p,755b,442s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Lag_Report2.pdf (9 pages, 592331 bytes).
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on Lag_Report2.pdf (9 pages, 617774 bytes).
 PDF statistics:
- 248 PDF objects out of 1000 (max. 8388607)
- 177 compressed objects within 2 object streams
- 33 named destinations out of 1000 (max. 500000)
- 294 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 284 PDF objects out of 1000 (max. 8388607)
+ 206 compressed objects within 3 object streams
+ 37 named destinations out of 1000 (max. 500000)
+ 318 words of extra memory for PDF output out of 10000 (max. 10000000)
 
