@@ -157,7 +157,7 @@ Here, the mass of the cart is fixed as $0.292$ kg.
 4 & 12.000   & 21.000  & 16.500 \\
 \hline
 5 & 11.500 & 17.500 & 15.500 \\
-\hline
+\midrule
 \textbf{Average} & 12.400 & 18.800 & 15.900\\
 \hline
 \textbf{SD} & 0.822 & 1.351 & 0.822\\
@@ -193,7 +193,7 @@ Here, the surface of the ramp is fixed as Paper.
 4 & 10.500 & 10.500 & 11.000   \\
 \hline
 5 & 10.500 & 10.000   & 11.000   \\
-\hline
+\midrule
 \textbf{Average} & 10.900 & 10.500 & 10.600\\
 \hline
 \textbf{SD} & 0.418 & 0.354 & 0.418\\
@@ -230,7 +230,7 @@ Here, the surface of the ramp is fixed as Paper, and the mass of the cart is fix
 4 & 1.040 & 0.840 & 0.780 \\
 \hline
 5 & 0.990 & 0.830 & 0.630 \\
-\hline
+\midrule
 \textbf{Average} & 1.006 & 0.816 & 0.688\\
 \hline
 \textbf{SD} & 0.042 & 0.024 & 0.059\\
@@ -250,24 +250,124 @@ The collected data and the graph in general are as expected, since when increasi
 \pagebreak
 
 \section{Data Analysis}
-For this section, we'll need propogation of uncertainty through functions: Given a differentiable function $f:U \rightarrow \RR$ where $U subset.eq \RR^n$ with coordinates $(x_1,...,x_n)$, with a finite set of data labeled as $J$, then the Propogation of Uncertainty through $f$ is provided as:
+For this section, we'll need propogation of uncertainty through functions: Given a differentiable function $f:U \rightarrow \RR$ where $U \subseteq \RR^n$ with coordinates $(x_1,...,x_n)$, with a finite set of data labeled as $J$, then the Propogation of Uncertainty through $f$ is provided as:
 \begin{align}
-    \sigma_f := \sqrt{\sum_{i=1}^n \left(\frac{\partial f}{\partial x_i}\sigma_(x_i)\right)^2}
+    \sigma_f := \sqrt{\sum_{i=1}^n \left(\frac{\partial f}{\partial x_i}\sigma_{x_i}\right)^2}
 \end{align}
 
 Then, for each of the section below, we'll calculate the corresponding coefficient of friction, and analyze its uncertainty using equation (1).
 
 \subsection{Experiment for Static Friction with Varying Surface}
-Recall from \textbf{Section 1} that for static friction, the coefficient of static friction $\mu_s =\tan(\theta)$ when given the critical angle $\theta$. Hence, based on data in Table \ref{tab:static-material}, the coefficients are provided as follow:
+Recall from \textbf{Section 1} that for static friction, the coefficient of static friction $\mu_s =\tan(\theta)$ when given the critical angle $\theta$, which $\frac{d\mu_s}{d\theta}=\sec^2(\theta)$. Hence, based on data in Table \ref{tab:static-material}, the coefficients are provided as follow:
 
+\begin{table}[h!]
+\centering
+\begin{tabular}{c|| c|c |c}
+\toprule
+\diagbox[width=3cm,height=1cm]{\textbf{Trial}}{\textbf{Surface}} & \textbf{Black Paper} & \textbf{Wood} & \textbf{Plastic} \\
+\midrule
+1 & 0.231 & 0.325 & 0.306 \\
+\hline
+2 & 0.240 & 0.344& 0.2678 \\
+\hline
+3 & 0.213 & 0.335 & 0.277 \\
+\hline
+4 & 0.213 & 0.384 & 0.296 \\
+\hline
+5 & 0.203 & 0.315 & 0.277 \\
+\midrule
+\textbf{Average} & 0.220 & 0.341 & 0.285\\
+\hline
+\textbf{Propogation of Uncertainty} & 0.862 & 1.507 & 0.888\\
+\bottomrule
+\end{tabular}
+\caption{Coefficient of Static Friction for different Surfaces}
+\label{tab:static-material-coe}
+\end{table}
+Using Propogation of Uncertainty in comparison to Standard Deviation (regular uncertainty), the uncertainty for the coefficient of static friction is relatively high compared to its average, indicating the collected data is not as valid (when using Propogation of Uncertainty as indicator of variance in the data). Nevetheless, one can still observe that the coefficient of static friction varies when changing the surface material of the ramp, one can still conclude that such coefficient has a decent confidence of being dependent to the surface of the ramp (if considering only the data).
+
+\pagebreak
 
 \subsection{Experiment for Static Friction with Varying Mass}
+In this section, the calculation of coefficient of static friction $\mu_s$ is the same from the previoius section. Which, based on data in Table \ref{tab:static-mass}, the coefficients are provided as follow:
+\begin{table}[h!]
+\centering
+\begin{tabular}{c ||c |c |c}
+\toprule
+\diagbox[width=3cm,height=1cm]{\textbf{Trial}}{\textbf{Mass (kg)}} & \textbf{ 0.292} & \textbf{0.493} & \textbf{0.577} \\
+\midrule
+1 & 0.194 & 0.185 & 0.185 \\
+\hline
+2 & 0.203 & 0.194 & 0.185 \\
+\hline
+3 & 0.194 & 0.185 & 0.176 \\
+\hline
+4 & 0.185 & 0.185 & 0.194 \\
+\hline
+5 & 0.185 & 0.176 & 0.194 \\
+\midrule
+\textbf{Average} & 0.193 & 0.185 & 0187\\
+\hline
+\textbf{Propogation of Uncertainty} & 0.434 & 0.366 & 0.433\\
+\bottomrule
+\end{tabular}
+\caption{Coefficient of Static Friction for different Masses}
+\label{tab:static-mass-coe}
+\end{table}
+
+In comparison to the previous experiment, in this section every collection of data of a manipulated variable corresponds to a relatively low Propogation of Uncertainty, yet such uncertainty is still relatively high compared to the calculated average, showing that this experiment still is not as valid for representing the coefficient of the model (when using Propogation of Uncertainty as indicator). Yet, based on the observation on the calculated data, one can still observe that the derived coefficients for each variable still has similar average value, which there is still a decent confidence to believe that mass change is not providing significant effect on the coefficient of static friction, in comparison to the surface material of the ramp (since in this experiment the surface is fixed).
+
+\hfil
 
 \subsection{Experiment for Kinetic Friction}
+For kinetic friction, recall from kinematics that when starting at rest and under constant acceleration, the traveling distance $l=\frac{1}{2}at^2$, where $a$ is the total acceleration forward and $t$ is the traveling time. Hence, under the assumption of constant acceleration, total acceleration $a=\frac{2l}{t^2}$.
+
+Also, with fixed ramp angle $\theta$, the forward acceleration caused by gravitational force is $g \sin(\theta)$, if let $a_f$ be the acceleration caused by friction (in backward direction), then $a = g\sin(\theta)-a_f$, hence $a_f = g\sin(\theta)-a=g\sin(\theta)-\frac{2l}{t^2}$. So, with mass $m$ the kinetic friction is $F_f=m a_f$.
+
+Finally, given normal force $N=mg\cos(\theta)$, the coefficient of kinetic friction is given by $\mu_k=\frac{F_f}{N} = \frac{a_f}{g\cos(\theta)}=\tan(\theta)-\frac{2l}{g\cos(\theta)t^2}$. With time being the variable, $\frac{d\mu_k}{dt} = \frac{4l}{g\cos(\theta)t^3}$.
+
+In this experiment, $l=0.275$ m, while $\theta=15^\circ, 17.5^\circ, 20^\circ$, based on the data in Table \ref{tab:kinetic}, the coefficients are provided as follow:
+
+\pagebreak
+\begin{table}[h!]
+\centering
+\caption{Calculated Values for Different Angles (Rounded to 3 Decimal Places)}
+\begin{tabular}{c|| c| c| c}
+\toprule
+\diagbox[width=3cm,height=1cm]{\textbf{Trial}}{\textbf{Angle ($ ^\circ$)}} & \textbf{15} & \textbf{17.5} & \textbf{20} \\
+\midrule
+1 & 0.205 & 0.221 & 0.246 \\
+\hline
+2 & 0.207 & 0.230 & 0.227 \\
+\hline
+3 & 0.216 & 0.221 & 0.227 \\
+\hline
+4 & 0.214 & 0.232 & 0.266 \\
+\hline
+5 & 0.209 & 0.230 & 0.214 \\
+\midrule
+\textbf{Average} & 0.210 & 0.227 & 0.236 \\
+\hline
+\textbf{Propagation of Uncertainty} & 0.005 & 0.005 & 0.022 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The Uncertainty of Propogation in this section are all small in comparison to the average coefficient of kinetic friction, showing there is a high validity the average can represent the actual coefficient for this experiment. One can observe that the average value of coefficient doesn't have siginicant changes when varying the ramp angle. And, from Table \ref{tab:static-mass}, one can conclude that the angle used in the experiment has a high confidence being higher than the calculated critical angle, which has average of $10.900, 10.500, 10.600$ degree (when fixing the surface material as paper). Hence, one can conclude that when the ramp angle is higher than the critical angle (when the gravitational force's forward component dominates the motion), coefficient of kinetic energy has a high confidence of beinng independent from the ramp angle.
+
+\hfil
 
 \section{Error Analysis}
+Some potential error in this experiment (besides human mistakes and uncertainty caused by human's measurement limit) include:
+\begin{itemize}
+    \item The Effect of air resistance (which potentially provides unexpected external force in the experiment).
+    \item The surface material having inconsistent property (causing coefficient of friction to vary across the surface).
+\end{itemize}
 
 \section{Conclusion}
+In this experiment, when performing the two experiments for static friction, there are relatively low validity that the coefficients derived from the collected data can represent the actual coefficient of static friction due to a relatively high Propogation of Uncertainty. From the data itself however there is a certain confidence one can conclude that surface material is highly affecting the coefficient of static friction, while mass provides low effect on the coefficient.
+
+For the experiment of kinetic friction, there is a relatively high validity that the coefficients derived from the collected data can represent the actual coefficient of kinetic friction, due to a relatively low Propogation of Uncertainty. And, since the average coefficient of kinetic friction across the three different ramp angle are close to each other, hence one can conclude that coefficient of kinetic friction has a high confidence of being independent from the ramp angle.
 
 \newpage
 
