@@ -1,0 +1,14 @@
+\contentsline {section}{\numberline {1}Introduction and Goal of the Experiment}{2}{section.1}%
+\contentsline {section}{\numberline {2}Experimental Setup}{3}{section.2}%
+\contentsline {section}{\numberline {3}Procedure and Methods of Measurement}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Static Friction}{4}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Procedure for Varying Surface}{4}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Procedure for Varying Mass}{4}{subsubsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.2}Kinetic Friction}{5}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Experimental Data and Tables}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Experiment for Static Friction with Varying Surface}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Experiment for Static Friction with Varying Mass}{6}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Experiment for Kinetic Friction}{6}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Data Analysis}{7}{section.5}%
+\contentsline {section}{\numberline {6}Error Analysis}{7}{section.6}%
+\contentsline {section}{\numberline {7}Conclusion}{7}{section.7}%

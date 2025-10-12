@@ -1,0 +1,211 @@
+\documentclass{article}
+\usepackage{../../Self_Style}
+
+\title{Phys 20AL Lab Report Week 2: Friction}
+\author{Zih-Yu Hsieh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\pagebreak 
+
+\section{Introduction and Goal of the Experiment}
+Friction is an observed action between two objects when their surfaces have nontrivial collision, which provides a force in the opposite direction of each object's traveling direction.
+
+Physicists have observed that when an object is static on a surface, the force required to set the object in motion in most cases are explicitly larger compared to the force required to keep an object in motion, which indicates that the friction under static and moving scenrios could be different.
+
+Another observation that has been made is the proportionality of friction together with the normal force of the surface: Given the force applied by the surface on the object, that is orthogonal to the given surface, the normal force measured friction fore are proportional, which the constant of proportionality is named as \emph{Coefficient of Static / Kinetic Friction} depending on the scenarios.
+
+\hfil
+
+Given a ramp with angle $\theta$, an object with mass $m$, and the coefficient of friction (depending on the scenario), the current model for friction provides the friction force $F_f$ on the object as follow (in the diagram below):
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=100mm]{friction_explain.jpg}
+    \caption{The Diagram of Friction of an Object on a Ramp}
+\end{figure}
+
+\hfil
+
+With such model and some basics of friction in mind, the aim of this experiment includes:
+\begin{itemize}
+    \item Observe the relationship between the material of the surface and mass of the object with static friction, and calculate the coefficient of static friction.
+    \item Calculate the coefficient of kinetic friction when fixing surface material and mass of the object.
+    \item Check the uncertainty of the observed friction from the model's prediction.
+\end{itemize}
+
+\pagebreak
+
+\section{Experimental Setup}
+The equipments for this experiment include: meter stick, tape, masses, mass scale, stand, wooden ramp, clamp, different surface materials for the ramp (this experiment specifically uses paper and plastic board), protractor, and a cart.
+
+\hfil
+
+The setup of the experiment goes as follow:
+\begin{itemize}
+    \item[1.] Fix the stand next to the table.
+    \item[2.] Fix the clip onto the wooden ramp, clamp the clip onto the stand, and let one side of the wooden ramp lay on the table. This is used for adjusting the angle of the ramp.
+    \item[3.] Fix the protractor's center at the edge of the wooden ramp that's touching the table, which is used to measure the angle.
+    \item[4.] Tape the (desired) surface for the experiment (ex: plastic board, paper, etc.) onto the wooden ramp.
+\end{itemize}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=100mm]{setup_sketch.jpg}
+    \caption{Sketch of the Experimental Setup}
+    \label{fig:sketch_setup}
+\end{figure}
+
+%resolve this issue with the other computer
+\begin{comment} 
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+        \centering
+        \includegraphics[width=100mm]{setup_sketch.jpg}
+        \caption{Sketch of the Experimental Setup}
+        \label{fig:sketch_setup}
+    \end{subfigure}%
+    \hfil 
+    \begin{subfigure}[t]{0.2\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{lab_setup2.jpg}
+        \caption{Photo of the Equipment Setup}
+        \label{fig:physical_setup}
+    \end{subfigure}
+\end{figure}
+\end{comment}
+
+\pagebreak
+
+\section{Procedure and Methods of Measurement}
+For each pair of manipulated variables, we'll perform $5$ trials of measurement. The following provides the goal of each sub-experiment, quantity that will be measured in each part, and the procedure for each part.
+
+\subsection{Static Friction}
+For static friction, the aim is to find the ``Cricial Angle'' when the object starts sliding (or the angle such that gravitational force surpasses static friction).  This experiment uses the protractor to measure the angle.
+
+To test out the coefficient of static friction for different surfaces (while having the cart sliding on it), the experiment fixes the mass on the cart (including the cart itself) as $292.1$ g (or $0.2921$ kg), while varying the material of the surface. In this lab, the materials of the surface include: Wood, Plastic board, and Paper.
+
+Then, to test out the effect of varying mass of the cart on static friction, the experiment fixes the material of the surface of the ramp (fix as paper), while varying the mass of the cart. Here, the tested masses include: $292.1, 492.5,$ and $576.8$ g. (Or, using kg as standard mass unit, $0.2921, 0.4925,$ and $0.5768$ kg).
+
+\hfil
+
+\subsubsection{Procedure for Varying Surface}
+For this section, we'll follow the below procedure:
+\begin{itemize}
+    \item[1.] Measure a fixed mass of the cart placed on the ramp, and fix a material for the surface of the ramp.
+    \item[2.] Put the cart on the flattened ramp, and start slowly increasing the angle of the ramp, by adjusting the position of the clip on the stand.
+    \item[3.] When the cart starts to travel (i.e. no longer static), stop increasing the angle of the ramp, and record the angle using the protractor (called \emph{cricial angle}).
+    \item[4.] Repeat Step 2 and 3 for five times.
+    \item[5.] Keep the mass of the cart fixed, change the material of the surface of the ramp, and redo Step 2 to 4 for each desired material. 
+\end{itemize}
+
+\hfil
+
+\subsubsection{Procedure for Varying Mass}
+For this section, we'll follow the below procedure:
+\begin{itemize}
+    \item[1.] sFix a material of the surface of the ramp, measure the mass of the cart.
+    \item[2.] Put the cart on the flattened ramp, and start slowly increasing the angle of the ramp. 
+    \item[3.] When the cart starts to travel, stop increasing the angle of the ramp, and record the angle using the protractor.
+    \item[4.] Repeat Step 2 and 3 for five times.
+    \item[5.] Keep the material of the surface of the ramp fixed, change the mass of the cart to other values awaited to be tested, and redo Step 2 to 4 for each desired mass.  
+\end{itemize}
+
+\hfil
+
+\subsection{Kinetic Friction}
+For kinetic friction, the aim is to find the total time it takes for the object to travel a fixed distance, which it uses the timer to measure the elapsed time. If choosing an angle that's strictly greater than the critical angle, ``ideally'' one can assume the kinetic friction is fixed as constant, and as the angle is fixed, the gravitational force also remains constant, hence acceleration on the object can be assumed as constant. Which, to retrieve the acceleration caused by friction, it suffices to know the total acceleration (since other components of accelerations, namely gravitational force, is determined by the mass of the object and the angle of the ramp). 
+
+To test out the coefficient of static friction for a fixed mass and surface, the experiment fixes the mass as $292.1$ g ($0.2921$ kg), and fix the traveling distance to $27.5$ cm (or $0.275$ m). Also, to observe different accelerations, it varies the ramp's angle between $15^\circ$, $17.5^\circ$, and $20^\circ$.
+
+\hfil
+
+For this section, we'll follow the below procedure:
+\begin{itemize}
+    \item[1.] Fix the material of the surface of the ramp, measure the fixed mass of the cart, and fix a length on the ramp that the cart would travel each time.
+    \item[2.] Set the angle of the ramp to a desired value (where the angle should be larger than the angles found in the section of Static Friction).
+    \item[3.] Put the cart on the ramp, and record the time the cart takes to travel the fixed length mentioned in Step 1 (using a timer).
+    \item[4.] Repeat Step 2 and 3 for five times.
+    \item[5.] Keep the mass of the cart and the material of the surface of teh ramp fixed, change the angle of the ramp to other values awaited to be tested, and redo Step 2 to 4 for each desired angle. 
+\end{itemize}
+
+\pagebreak
+
+\section{Experimental Data and Tables}
+\subsection{Experiment for Static Friction with Varying Surface}
+Here, the mass of the cart is fixed as $0.292$ kg.
+\begin{table}[h!]
+\centering
+\begin{tabular}{c || c | c | c}
+\toprule
+\diagbox[width=3cm,height=1cm]{\textbf{Trial}}{\textbf{Material}} & \textbf{Black Paper} & \textbf{Wood} & \textbf{Plastic} \\
+\midrule
+1 & 13.000   & 18.000   & 17.000   \\
+\hline
+2 & 13.500 & 19.000   & 15.000   \\
+\hline
+3 & 12.000   & 18.500 & 15.500 \\
+\hline
+4 & 12.000   & 21.000  & 16.500 \\
+\hline
+5 & 11.500 & 17.500 & 15.500 \\
+\bottomrule
+\end{tabular}
+\caption{Critical Angle of  for Different Surface (Unit: Degree $ ^\circ$)}
+\end{table}
+
+\subsection{Experiment for Static Friction with Varying Mass}
+Here, the surface of the ramp is fixed as Paper.
+\begin{table}[h!]
+\centering
+\begin{tabular}{c||c|c|c}
+\toprule
+\diagbox[width=3cm,height=1cm]{\textbf{Trial}}{\textbf{Mass (kg)}} & \textbf{0.292} & \textbf{0.493} & \textbf{0.577} \\
+\midrule
+1 & 11.000   & 10.500 & 10.500 \\
+\hline
+2 & 11.500 & 11.000   & 10.500 \\
+\hline
+3 & 11.000   & 10.500 & 10.000   \\
+\hline
+4 & 10.500 & 10.500 & 11.000   \\
+\hline
+5 & 10.500 & 10.000   & 11.000   \\
+\hline
+\end{tabular}
+\caption{Critical Angle for Different Masses (Unit: Degree $ ^\circ$)}
+\end{table}
+
+\subsection{Experiment for Kinetic Friction}
+Here, the surface of the ramp is fixed as Paper, and the mass of the cart is fixed as $0.292$ kg. Which, the cart always travel a distance of $0.275$ m.
+\begin{table}[h!]
+\centering
+
+\begin{tabular}{c|| c| c| c}
+\toprule
+\diagbox[width=3cm,height=1cm]{\textbf{Trial}}{\textbf{Angle ($ ^\circ$)}} & \textbf{15°} & \textbf{17.5°} & \textbf{20°} \\
+\midrule
+1 & 0.960 & 0.790 & 0.710 \\
+2 & 0.980 & 0.830 & 0.660 \\
+3 & 1.060 & 0.790 & 0.660 \\
+4 & 1.040 & 0.840 & 0.780 \\
+5 & 0.990 & 0.830 & 0.630 \\
+\bottomrule
+\end{tabular}
+\caption{Object's Traveling Time for Different Angles (Unit: Second s)}
+\end{table}
+
+\section{Data Analysis}
+
+\section{Error Analysis}
+
+\section{Conclusion}
+
+\newpage
+
+\end{document}
