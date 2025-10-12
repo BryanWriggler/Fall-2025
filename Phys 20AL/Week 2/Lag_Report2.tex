@@ -21,13 +21,13 @@ Another observation that has been made is the proportionality of friction togeth
 
 \hfil
 
-Given a ramp with angle $\theta$, an object with mass $m$, and the coefficient of friction (depending on the scenario), the current model for friction provides the friction force $F_f$ on the object as follow (in the diagram below):
-
+Given a ramp with angle $\theta$, an object with mass $m$, and the coefficient of friction (depending on the scenario), the current model for friction provides the static friction $F_f$ as follow:
 \begin{figure}[h!]
     \centering
     \includegraphics[width=100mm]{friction_explain.jpg}
     \caption{The Diagram of Friction of an Object on a Ramp}
 \end{figure}
+Which, with the object stays in stationary, $F_f=F_x$ in terms of their magnitude, showing that the coefficient of static friction $\mu = \frac{mg\sin(\theta)}{mg\cos(\theta)} = \tan(\theta)$.
 
 \hfil
 
@@ -143,7 +143,7 @@ Here, the mass of the cart is fixed as $0.292$ kg.
 \centering
 \begin{tabular}{c || c | c | c}
 \toprule
-\diagbox[width=3cm,height=1cm]{\textbf{Trial}}{\textbf{Material}} & \textbf{Black Paper} & \textbf{Wood} & \textbf{Plastic} \\
+\diagbox[width=3cm,height=1cm]{\textbf{Trial}}{\textbf{Material}} & \textbf{Paper} & \textbf{Wood} & \textbf{Plastic} \\
 \midrule
 1 & 13.000   & 18.000   & 17.000   \\
 \hline
@@ -154,10 +154,20 @@ Here, the mass of the cart is fixed as $0.292$ kg.
 4 & 12.000   & 21.000  & 16.500 \\
 \hline
 5 & 11.500 & 17.500 & 15.500 \\
+\hline
+\textbf{Average} & 12.400 & 18.800 & 15.900\\
+\hline
+\textbf{SD} & 0.822 & 1.351 & 0.822\\
 \bottomrule
 \end{tabular}
 \caption{Critical Angle of  for Different Surface (Unit: Degree $ ^\circ$)}
 \end{table}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=100mm]{Static, Material.png}
+\end{figure}
+
+\pagebreak
 
 \subsection{Experiment for Static Friction with Varying Mass}
 Here, the surface of the ramp is fixed as Paper.
@@ -177,9 +187,19 @@ Here, the surface of the ramp is fixed as Paper.
 \hline
 5 & 10.500 & 10.000   & 11.000   \\
 \hline
+\textbf{Average} & 10.900 & 10.500 & 10.600\\
+\hline
+\textbf{SD} & 0.418 & 0.354 & 0.418\\
+\bottomrule
 \end{tabular}
 \caption{Critical Angle for Different Masses (Unit: Degree $ ^\circ$)}
 \end{table}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=100mm]{Static, Mass.png}
+\end{figure}
+
+\pagebreak
 
 \subsection{Experiment for Kinetic Friction}
 Here, the surface of the ramp is fixed as Paper, and the mass of the cart is fixed as $0.292$ kg. Which, the cart always travel a distance of $0.275$ m.
@@ -191,14 +211,26 @@ Here, the surface of the ramp is fixed as Paper, and the mass of the cart is fix
 \diagbox[width=3cm,height=1cm]{\textbf{Trial}}{\textbf{Angle ($ ^\circ$)}} & \textbf{15°} & \textbf{17.5°} & \textbf{20°} \\
 \midrule
 1 & 0.960 & 0.790 & 0.710 \\
+\hline
 2 & 0.980 & 0.830 & 0.660 \\
+\hline
 3 & 1.060 & 0.790 & 0.660 \\
+\hline
 4 & 1.040 & 0.840 & 0.780 \\
+\hline
 5 & 0.990 & 0.830 & 0.630 \\
+\hline
+\textbf{Average} & 1.006 & 0.816 & 0.688\\
+\hline
+\textbf{SD} & 0.042 & 0.024 & 0.059\\
 \bottomrule
 \end{tabular}
 \caption{Object's Traveling Time for Different Angles (Unit: Second s)}
 \end{table}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=100mm]{Kinetic, Angle.png}
+\end{figure}
 
 \section{Data Analysis}
 
