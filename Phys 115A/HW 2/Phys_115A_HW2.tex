@@ -1,0 +1,199 @@
+\documentclass{article}
+\usepackage{../../Self_Style}
+
+\title{Phys 115A HW 2}
+\author{Zih-Yu Hsieh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{ques}\label{q1}
+To build a little more experience with separation of variables, consider the heat equation
+in one spatial dimension:
+\[
+\frac{1}{k}\frac{\partial u(x, t)}{\partial t} = \frac{\partial^2 u(x, t)}{\partial x^2}
+\]
+where $u(x, t)$ corresponds to the temperature of an object with thermal conductivity $k$.
+
+1. Using separation of variables, $u(x, t) = u_x(x)u_t(t)$, and separation constant $-\alpha^2$, separate the heat equation into ordinary differential equations for $u_t$ and $u_x$.
+
+2. Find the general solution to the differential equation satisfied by $u_x(x)$.
+
+3. Find the general solution to the differential equation satisfied by $u_t(t)$.
+
+4. Write down the general solution $u(x, t)$ to the heat equation.
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\begin{ques}\label{q2}
+Prove the following three theorems:
+
+1. For normalizable solutions, the separation constant $E$ must be real. Hint: Write $E$
+(in Griffiths eq. 2.7, i.e. $\Psi(x, t) = \psi(x)e^{-iEt/\hbar}$) as $E_0 + i\Gamma$, with $E_0$ and $\Gamma$ real, and
+show that $\Gamma$ must be zero if Griffiths eq. 1.20 (i.e.
+\[
+\int_{-\infty}^{\infty} |\Psi(x, t)|^2 dx = 1
+\]
+is to hold for all $t$.
+
+2. The time-independent wavefunction $\psi(x)$ can always be taken to be real (unlike
+$\Psi(x, t)$, which is necessarily complex). This doesn’t mean that every solution to the
+time-independent Schrödinger equation is real; what it says is that if you’ve got one
+that is not, it can always be expressed as a linear combination of solutions (with the
+same energy) that are. So you might as well stick to $\psi$’s that are real. Hint: if $\psi(x)$
+satisfies Griffiths eq. 2.5 (i.e.
+\[
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V\psi = E\psi
+\]
+for a given $E$, so too does its complex conjugate, and hence also the real linear combinations
+$\psi+\psi^*$ and $i(\psi-\psi^*)$.
+
+3. If $V(x)$ is an even function (that is, $V(-x) = V(x)$) then $\psi(x)$ can also be taken to
+be either even or odd. Hint: If $\psi(x)$ satisfies Griffiths eq. 2.5, for a given $E$, then so
+too does $\psi(-x)$, and hence also the even and odd linear combinations $\psi(x)\pm\psi(-x)$.
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\begin{ques}\label{q3}
+Show that $E$ must exceed the minimum value of $V(x)$, for every normalizable solution to
+the time-independent Schrödinger equation. What is the classical analog to this statement?
+
+Hint: Rewrite Griffiths eq. 2.5 (i.e.
+\[
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V\psi = E\psi
+\]
+in the form
+\[
+\frac{d^2\psi}{dx^2} = \frac{2m}{\hbar^2}[V(x) - E]\psi;
+\]
+if $E < V_{\min}$, then $\psi$ and its second derivative always have the same sign – argue that such
+a function cannot be normalized.
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\begin{ques}\label{q4}
+You prepare a particle in the infinite square well (with walls at $x = 0, a$) in an initial state
+described by a linear combination of two stationary states,
+\[
+\Psi(x, 0) = A[\psi_2(x) + \psi_3(x)]
+\]
+where $\psi_2, \psi_3$ are given by Griffiths eq. 2.31 (i.e. $\psi_n(x) = \sqrt{\frac{2}{a}}\sin\left(\frac{n\pi x}{a}\right)$) with $n = 2, 3$
+respectively.
+
+(a) Normalize $\Psi(x, 0)$, i.e., find $A$.
+
+(b) Find $\Psi(x, t)$ and $|\Psi(x, t)|^2$. Express the latter as a sinusoidal function of time in
+terms of the variable $\omega = \pi^2\hbar / 2ma^2$.
+
+(c) Compute $\langle x \rangle$. Is this an interesting function of time? Note: the integral is painful,
+but please work your way through it by hand and show your work. Integration by
+parts and trigonometric identities (including one that Griffiths uses while proving
+orthogonality of the stationary states) are both your friends!
+
+(d) Compute $\langle p \rangle$.
+
+(e) If you measured the energy of the particle, what values might you get, and what is
+the probability of getting them? What is the expectation value of $H$, and how does
+this relate to the energies $E_2$ and $E_3$ of $\psi_2$ and $\psi_3$?
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\begin{ques}\label{q5}
+We have emphasized that overall phases of the wave function are irrelevant, since they
+cancel out of physical quantities. But the relative phase matters! Imagine we change the
+phase in the previous problem so that our initial state is
+\[
+\Psi(x, 0) = A[\psi_2(x) + e^{i\phi}\psi_3(x)]
+\]
+for some real constant $\phi$.
+
+(a) Find $\Psi(x, t)$ and $|\Psi(x, t)|^2$.
+
+(b) Find $\langle x \rangle$.
+
+(c) Find $\langle p \rangle$.
+
+(d) Discuss how these results differ from the case of $\phi = 0$. Consider especially the cases
+$\phi = \pi/2$ and $\phi = \pi$.
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\begin{ques}\label{q6}
+Solve the time-independent Schrödinger equation with appropriate boundary conditions
+for the “symmetric” infinite square well with
+\[
+V(x) =
+\begin{cases}
+0 & -\frac{a}{2} \le x \le \frac{a}{2} \\
+\infty & \text{otherwise}
+\end{cases}
+\]
+Determine the wavefunctions $\psi_n$ and their energies by computing the solutions in each
+region and matching at the boundaries. What coordinate change can you do to bring your
+solutions for the $\psi_n$ into the same form as the ones we found in lecture for the infinite
+square well with walls at $x = 0, a$?
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\begin{ques}\label{q7}
+Consider again the “symmetric” infinite square well from the previous problem. Suppose
+we measure the energy of a particle in this box, and we find the ground-state energy
+\[
+E_1 = \frac{\hbar^2\pi^2}{2ma^2}.
+\]
+We then know the particle is in the ground state with wavefunction $\psi_1(x)$,
+which is the $n = 1$ wavefunction you found in the previous problem. Then we suddenly
+pull the walls of the well out rapidly so that they are at $x = \pm 2a$ instead of $x = \pm a/2$; we do
+it so rapidly that the state of the particle doesn’t change at that moment. Now, of course,
+the particle is no longer in a state of definite energy in the new well; its wavefunction is no
+longer a single separable solution of the Schrödinger equation with the larger box.
+
+(a) Find the solutions to the time-independent Schrödinger equation (the $\psi_n$ and $E_n$) in
+the new well with walls at $x = \pm 2a$.
+
+(b) We measure the energy of the particle right after pulling the walls out to $x = \pm 2a$.
+What is the most probable result of this measurement? What is the probability of
+this result?
+
+(c) What is the next-most probable result, and the probability of this result?
+
+(d) What is the expectation value of the energy? Why should you have expected this
+answer?
+
+You probably think this is a crazy example, but it is a good analogy for what happens to
+the potential experienced by the electron in tritium (an isotope of hydrogen whose nucleus
+consists of one proton and two neutrons) when nuclear reactions convert the tritium into
+${}^3$He (whose nucleus consists of two protons and one neutron).
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\end{document}
