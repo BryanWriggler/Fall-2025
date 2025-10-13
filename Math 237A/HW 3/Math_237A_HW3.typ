@@ -56,7 +56,7 @@
   Now, let $phi:AA^(n^2-1)arrow.r.dashed X$ be defined on $U$, as $phi(P) = overline(P)$, where $overline(P)$ has entries $p_(i j)$ (where $(i,j)!=(1,1)$) provided by $P$, and $p_(11) = 1/(det(P_(11)))sum_(j=2)^n (-1)^j p_(1 j)det(P_(1 j))$. Then, for all $A in M_(n times n)^(<=n-1) sect U'$, one has $phi compose pi(P')=P'$ for all $P'$ in the intersection (since $p_(11)$ is purely determined the same way), while $pi compose phi(P) = P$ for all $P in U$. Hence, this forms a birational equivalence (on the restricted open dense subsets of $M_(n times n)^(<=n-1)$ and $U subset.eq AA^(n^2-1)$).
 ]
 
-= ND//2
+= D//2
 #problem[
   Lazarsfeld Problem Set 3 (2):
 
@@ -68,17 +68,36 @@
 
   Fit $U_X$, with $X!=0$, then define variable $y:=Y/X$ and $z:= Z/X$, take $f_x(y,z) := f(1,y,z)$ in $k[y,z]$, $f_x(y,z)=y^2z-1-z$. Which, given its slice in $RR^2 subset.eq CC^2$, with horizontal and vertical axis being $y$ and $z$ respectively, we have the following graph:
 
-  #text(weight: "bold")[insert graph for y,z]
+  #figure(
+  image("q2_yz.png", width: 68%),
+  caption: [
+    Section of the curve in $RR^2$ with variable $y,z$.
+  ]
+)
 
   Similarly, fit $U_Y$, with $Y!=0$, define variable $x:=X/Y$ and $z:=Z/Y$, take $f_y(x,z) = f(x,1,z)$ in $k[x,z]$, $f_y(x,z)=z-x^3-x^2z$. Then, the slice in $RR^2$ with horizontal and vertical axis being $x$ and $z$ respectively, we have the following graph:
 
-  #text(weight: "bold")[insert graph for x,z]
+  #figure(
+  image("q2_xz.png", width: 68%),
+  caption: [
+    Section of the curve in $RR^2$ with variable $x,z$.
+  ]
+)
 
   Then, fit $U_Z$, with $Z!=0$, define variable $x:=X/Z$ and $y:=Y/Z$, take $f_z(x,y):= f(x,y,1)$ in $k[x,y]$, $f_z(x,y)=y^2-x^3-x^2$. Then, the slice in $RR^2$ with horizontal and vertical axis being $x$ and $y$ respectively, we have the following graph:
 
-  #text(weight: "bold")[insert graph for x,y]
+  #figure(
+  image("q2_xy.png", width: 68%),
+  caption: [
+    Section of the curve in $RR^2$ with variable $x,y$.
+  ]
+)
 
-  To interpret the asymptotic behavior, first as $Z$ diverges, 
+  To interpret the asymptotic behavior, first as $Z$ diverges, the first and second graph both observe that the other variable ($y = Y/X$ and $x = X/Y$ respectively) are both aproaching $1$ or $-1$ (giving some extra condition), showing that when $Z$ goes unbounded, $X$ and $Y$ must obtain the same growth order (when at least one of them is nonzero).
+
+  Then, as $Y$ diverges, for the first graph one can observe that $z=Z/X$ converges toward $0$, while the third graph $x=X/Z$ diverges. So, when $Y$ goes unbounded, $X$ in fact has growth order larger than $Z$.
+
+  Finally, as $X$ diverges, in the second graph one observes that $z=Z/Y$ diverges, while in the third graph $y=Y/Z$ also diverges, showing that the two still obtains similar growth order (when one of the other is fixed as $1$ or some nonzero constant, since that's the condition of forming the section in $RR^2$ given above).
 ]
 
 #pagebreak()
