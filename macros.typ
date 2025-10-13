@@ -51,10 +51,12 @@
 #let U = math.upright[U] //unitary
 #let SO = math.upright[SO] //special orthogonal
 #let SU = math.upright[SU] //special unitary
+#let Sp=math.upright[Sp] //symplectic
 #let gl = math.frak[gl] 
 #let sl = math.frak[sl]
 #let so = math.frak[so]
 #let su = math.frak[su]
+#let sp = math.frak[sp]
 
 //analysis
 #let Vol = math.upright[Vol] //volume, in the sense of Riemann / Jordan measure
