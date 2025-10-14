@@ -26,7 +26,7 @@
   date: datetime.today().display("[month repr:long] [day], [year]"),
 )
 
-= ND//1
+= D//1
 #problem[
   Etingof Problem Set 2.11:
 
@@ -72,6 +72,7 @@
 
   Using Gram-Schmidt orthogonalization process, show that $GL(n,RR)\/O(n,RR)$ is diffeomorphic to the space of upper-triangular matrices with positive entries on the diagonal. Deduce from this that $GL(n,RR)$ is homotopic (as a topological space) to $O(n,RR)$.
 ][
+  #text(weight: "bold")[1. Diffeomorphism between $GL(n,RR)\/O(n,RR)$ and $"UT"_+(n,RR)$:]
   Here we'll utilize QR-Factorization: Given $A in GL(n,KK)$ where $KK=CC$ or $RR$, then there exists unique matrices $Q$ and $R$ (with $Q$ being unitary and $R$ being upper-triangular with positive entries on the diagonal), such that $A=Q R$. 
   
   For the case $KK=RR$, since the unitary matrices are precisely collected by $O(n,RR)$, then with $"UT"_+(n,RR)$ denoting groups of upper triangular matrices with positive enries on the diagonal, if identify $GL(n,RR)\/O(n,RR)$ with the right cosets (instead of the left cosets), then for all matrix $A=Q R in GL(n,RR)$ (using QR-Factorization), we have $overline(A)=overline(R)$. THis shows the set function $"UT"_+(n,RR) arrow.r GL(n,RR)\/O(n,RR)$ by $R mapsto overline(R)$ is surjective.
@@ -82,7 +83,15 @@
 
   \ 
 
-  Notice that such identification automatically defines a faithful and transitive right action of $"UT"_+(n,RR)$: Since for all right coset $overline(A)$ in $GL(n,RR)\/O(n,RR)$ there exists a unique $R in "UT"_+(n,RR)$ such that $overline(R)=overline(A)$, 
+  Since for all right coset $overline(A)$ in $GL(n,RR)\/O(n,RR)$ there exists a unique $R in "UT"_+(n,RR)$ such that $overline(R)=overline(A)$. Then, define a right action of $"UT"_+(n,RR) arrow.cw.half GL(n,RR)\/O(n,RR)$ by $overline(R) dot T := overline(R T)$. It is transitive since any coset $overline(R) = overline(id_n) dot R$. Also, notice that the stabilizer for any element is trivial: Given any $R in "UT"_+(n,RR)$, suppose $R' in "UT"_+(n,RR)$ satisfies $overline(R) dot R' = overline(R R')=overline(R)$, then since $R R' in "UT"_+(n,RR)$, so the one-to-one correspondance between $GL(n,RR)\/O(n,RR)$ and $"UT"_+(n,RR)$ indicates that $R=R R'$, hence $R'=id_n$.
+
+  Hence, if consider $GL(n,RR)\/O(n,RR)$ as a manifold and fix $overline(id_n)$ as an element, since $Orb(overline(id_n)) = GL(n,RR)\/O(n,RR)$ and $G_(overline(id_n)) = {id_n}$ under the action of $"UT"_+(n,RR)$, then we have $"UT"_+(n,RR) tilde.equiv "UT"_+(n,RR)\/{id_n} tilde.equiv Orb(overline(id_n)) = GL(n,RR)\/O(n,RR)$ (by #text(weight: "bold")[Corollary 4.13] in Etingof's notes). 
+
+  (#text(weight: "bold")[Rmk:] Here the reason why the action is smooth, is because the action corresponds to a natural right action on $GL(n,RR)$, say $a:GL(n,RR) times "UT"_+(n,RR) arrow.r GL(n,RR)$ by $a(A,R)=A R$. Then, the action on $GL(n,RR)\/O(n,RR)$ can be obtained through $pi compose a$, where $pi:GL(n,RR) arrow.r GL(n,RR)\/O(n,RR)$ is the projection).
+
+  \ 
+
+  #text(weight: "bold")[2. Homotopy between $GL(n,RR)$ and $O(n,RR)$:] Here, notice that $"UT"_+(n,RR) tilde.equiv (0,infinity)^n times RR^(n(n-1)/2)$ (since )
 ]
 
 = ND//3
@@ -100,7 +109,7 @@
   Etingof Problem Set 2.16:
 
   + Show that $Sp(1) tilde.equiv SU(2) tilde.equiv S^3$.
-  + Using the previous exercise, show that we have a natural transitive action of $Sp(n)$ on the sphere $S^(4n-1)$ and a stabilizer of a point is isomorphic to $Sp(n-1)$.
+  + Using the previous exercise (2.15), show that we have a natural transitive action of $Sp(n)$ on the sphere $S^(4n-1)$ and a stabilizer of a point is isomorphic to $Sp(n-1)$.
   + Deduce that $pi_1(Sp(n+1))=pi_1(Sp(n))$, $pi_0(Sp(n+1))=pi_0(Sp(n))$.
 ][
   
