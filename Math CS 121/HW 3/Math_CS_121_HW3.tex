@@ -1,0 +1,108 @@
+\documentclass{article}
+\usepackage{../../Self_Style}
+
+\title{Math CS 121 HW 3}
+\author{Zih-Yu Hsieh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{1}
+\begin{ques}\label{q1}
+    3.3.18:
+
+    Suppose that $10$ good and $3$ dead batteries are mixed up. Jack tests them one by one, at random and without replacement. But before testing the fifth battery he realizes that he does not remember whether the first one tested is good or is dead. All he remembers is that the last three that were tested were all good. What is the probability that the first one is also good?
+\end{ques}
+
+\begin{proof}
+    Let $A$ denotes the event of the first battery being good, while $B$ denotes the event of the $2^\textmd{nd}$ to $4^\textmd{th}$ ones being good. Then, the scenario described has event $B$ being true, which serves as the condition. 
+
+    Notice that $A \cap B$ denotes the event that the first four tested batteries are all good, which since there are total of $13$ batteries with $10$ being good (and $3$ being bad), $\PP(A\cap B) = \frac{\begin{pmatrix}10\\4\end{pmatrix}}{\begin{pmatrix}13\\4\end{pmatrix}}=\frac{42}{143}$ (since we need to choose $4$ good batteries out of the total of $10$ good ones, while there are toal of $13$ choose $4$ ways of doing so).
+
+    Similarly, the probability of $B$ happening is given as follow (where we care about the second to the fourth ones):
+    \begin{align}
+        \PP(B)&=\PP(\textmd{First one being good}) \cdot \PP(\textmd{Next 2 to 4 being good})+\PP(\textmd{First one being bad})\cdot \PP(\textmd{Next 2 to 4 being good})\\
+        &= \frac{10}{13}\cdot \frac{\begin{pmatrix}9\\3\end{pmatrix}}{\begin{pmatrix}12\\3\end{pmatrix} }+\frac{3}{13}\cdot\frac{\begin{pmatrix}10\\3\end{pmatrix} }{\begin{pmatrix}12\\3\end{pmatrix}} = \frac{60}{143}
+    \end{align}
+    (Note: After taking out the first battery without replacement, there are $12$ batteries left in each case. If the first one is good, only $9$ goods are left, while if the first one is bad, $10$ goods are left instead, that's why it's in the above form).
+
+    Hence, the conditional probability $\PP(A|B)=\frac{\PP(A\cap B)}{\PP(B)}=\frac{42}{60}=\frac{7}{10}$.
+\end{proof}
+
+\newpage
+
+\section*{2}
+\begin{ques}\label{q2}
+    3.3.19:
+
+    A box contains $18$ tennis balls, of which eight are new. Suppose that three balls are selected randomly, played with, and after play are returned to the box. If other three balls are selected for play a second time, what is the probability that they are all new?
+\end{ques}
+
+\begin{proof}
+    Given three balls are selected randomly initially, then there are four disjoint events: either all three are old (denoted as $A_0$), one is new and two are old (denoted as $A_1$), two are new and one is old (denoted as $A_2$), or all three are new (denoted as $A_3$). If we calculated their probability, we get (Note: there are initially $8$ new balls and $10$ old balls, total of $18$ balls. And here, we're choosing the balls without order):
+    \begin{align}
+        \PP(A_0)=\frac{\begin{pmatrix}10\\3\end{pmatrix}}{\begin{pmatrix}18\\3\end{pmatrix}}=\frac{5}{34}, \quad \PP(A_1)=\frac{\begin{pmatrix}10\\2\end{pmatrix}\begin{pmatrix}8\\1\end{pmatrix}}{\begin{pmatrix}18\\3\end{pmatrix}}=\frac{15}{34}, \quad \PP(A_2)=\frac{\begin{pmatrix}10\\1\end{pmatrix}\begin{pmatrix}8\\2\end{pmatrix}}{\begin{pmatrix}18\\3\end{pmatrix}}=\frac{35}{102}, \quad \PP(A_3)=\frac{\begin{pmatrix}8\\3\end{pmatrix}}{\begin{pmatrix}18\\3\end{pmatrix}}=\frac{7}{102}
+    \end{align}
+    Then, if $A_0$ happens, there are still $8$ new balls (since no new balls are selected); if $A_1$ happens, there are $7$ new balls left (since one new ball is selected and became an old one); if $A_2$ happens, there are $6$ new balls left (since two new balls are selected); similarly, if $A_3$ happens, there are only $5$ new balls left.
+
+    So, let $W$ denotes the event that during the second selection, all three balls newly selected are new, then it's probability is given as follow:
+    \begin{align}
+        \PP(W)&=\PP(W|A_0)\cdot \PP(A_0)+\PP(W|A_1)\cdot \PP(A_1)+\PP(W|A_2)\cdot \PP(A_2)+\PP(W|A_3)\cdot \PP(A_3)\\
+        &= \frac{\begin{pmatrix}8\\3\end{pmatrix}}{\begin{pmatrix}18\\3\end{pmatrix}}\cdot \frac{5}{34}+\frac{\begin{pmatrix}7\\3\end{pmatrix}}{\begin{pmatrix}18\\3\end{pmatrix}}\cdot \frac{15}{34}+\frac{\begin{pmatrix}6\\3\end{pmatrix}}{\begin{pmatrix}18\\3\end{pmatrix}}\cdot\frac{35}{102}+\frac{\begin{pmatrix}5\\3\end{pmatrix}}{\begin{pmatrix}18\\3\end{pmatrix}}\cdot\frac{7}{102} = \frac{3185}{83232}\approx 0.0383
+    \end{align}
+    (Note: The conditional probability is calculated based on the ``updated scenario'' and the corresponding number of new balls).
+\end{proof}
+
+\newpage
+\section*{3}
+\begin{ques}\label{q3}
+    3.4.8:
+
+    
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+\section*{4}
+\begin{ques}\label{q4}
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+\section*{5}
+\begin{ques}\label{q5}
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+\section*{6}
+\begin{ques}\label{q6}
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+\section*{7}
+\begin{ques}\label{q7}
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+\section*{8}
+\begin{ques}\label{q8}
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\end{document}
