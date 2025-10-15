@@ -147,8 +147,8 @@
     Now, notice that using similar logic, $A\setminus B=A\setminus (A\cap B)$, so $\PP(A\setminus B)=\PP(A\setminus (A\cap B))=\PP(A)-\PP(A\cap B)=\PP(A)-\PP(A)\PP(B)=\PP(A)(1-PP(B))$, then the above equality tells that $\PP((A\setminus B)\cap C)=\PP(A\setminus B)\PP(C)$, which $A\setminus B$ and $C$ are independent.
 \end{proof}
 
-\newpage
-\section*{6 (ND)}
+\hfil
+\section*{6}
 \begin{ques}\label{q6}
     3.5.38:
 
@@ -156,7 +156,31 @@
 \end{ques}
 
 \begin{proof}
+    Here, let $R_1$ denotes removing red ball from urn 1, $R_1^c$ indicates an event of removing blue ball from urn 1, $R_2$ denotes removing red ball from urn 2, and $R_2^c$ denotes removing blue ball from urn $2$. Then, $\PP(R_1)=\frac{9}{10}$, $\PP(R_1^c)=1-\frac{9}{10}=\frac{1}{10}$, $\PP(R_2)=\frac{1}{6}$, and $\PP(R_2^c)=1-\frac{1}{6}=\frac{5}{6}$.
 
+    Which, since the ball removing event is guaranteed to happen, then after the balls are removed, the scenario splits into four cases: $R_1\cap R_2$ (removing red ball from both urns), $R_1\cap R_2^c$ (removing red ball from urn 1, blue ball from urn 2), $R_1^c\cap R_2$ (removing blue ball from urn 1, red ball from urn 2), and $R_1^c\cap R_2^c$ (removing blue balls from both urns).
+
+    Notice that the ball picking event for urn 1 and urn 2 are in fact independent (i.e. removing ball from one of the urns doesn't affect the removal of balls from the other urn), which implies that $\PP(R_1\cap R_2)=\PP(R_1)\PP(R_2)=\frac{3}{20}$, $\PP(R_1\cap R_2^c)=\PP(R_1)\PP(R_2^c)=\frac{3}{4}$, $\PP(R_1^c\cap R_2)=\PP(R_1^c)\PP(R_2)=\frac{1}{60}$, and $\PP(R_1^c\cap R_2^c)=\PP(R_1^c)\PP(R_2^c)=\frac{1}{12}$.
+
+    \hfil
+
+    Now, since after removing balls from both urns we mix them together to get a new pile, the remaining balls have the following data:
+    \begin{itemize}
+        \item If $R_1\cap R_2$ happens, there are total of $8$ red and $6$ blue balls left (removing 2 red balls in total).
+        \item If $R_1\cap R_2^c$ or $R_1^\cap R_2$ happens, there are total of $9$ red and $5$ blue balls left (removing 1 red and 1 blue ball in total).
+        \item Else if $R_1^c\cap R_2^c$ happens, there are total of $10$ red and $4$ blue balls left (removing 2 blue balls in total).
+    \end{itemize}
+    Let $T$ denotes the event of drawing 1 red and 1 blue ball out of the new pile, then its probability of happening (given the four disjoint cases of the first removal) is given as follow:
+    \begin{itemize}
+        \item $\PP(T|R_1\cap R_2)=\frac{\begin{pmatrix}8\\1\end{pmatrix}\begin{pmatrix}6\\1\end{pmatrix}}{\begin{pmatrix}14\\2\end{pmatrix}}=\frac{48}{91}$ (Choose 1 red out of 8 reds, 1 blue out of 6 blues, and total of $14C2$ ways of choosing two balls).
+        \item $\PP(T|R_1\cap R_2^c)=\PP(T|R_1^c\cap R_2)=\frac{\begin{pmatrix}9\\1\end{pmatrix}\begin{pmatrix}5\\1\end{pmatrix}}{\begin{pmatrix}14\\2\end{pmatrix}}=\frac{45}{91}$ (Choose 1 red out of 9 reds, 1 blue out of 5 blues).
+        \item $\PP(T|R_1^c\cap R_2^c)=\frac{\begin{pmatrix}10\\1\end{pmatrix}\begin{pmatrix}4\\1\end{pmatrix}}{\begin{pmatrix}14\\2\end{pmatrix}}=\frac{40}{91}$ (Choose 1 red out of 10 reds, 1 blue out of 4 blues).
+    \end{itemize}
+    Hence, the total probability that $T$ happens is:
+    \begin{align}
+        \PP(T)&=\PP(T|R_1\cap R_2)\PP(R_1\cap R_2)+\PP(T|R_1\cap R_2^c)\PP(R_1\cap R_2^c)+\PP(T|R_1^2\cap R_2)\PP(R_1^c\cap R_2)+\PP(T|R_1^c\cap R_2^c)\PP(R_1^c\cap R_2^c)\\
+        &= \frac{3}{20}\cdot\frac{48}{91}+\left(\frac{3}{4}+\frac{1}{60}\right)\cdot\frac{45}{91}+\frac{1}{12}\cdot\frac{40}{91} = \frac{193}{390}\approx 0.4949
+    \end{align}
 \end{proof}
 
 \newpage
@@ -164,18 +188,84 @@
 \begin{ques}\label{q7}
     3.Rev.5:
 
-    
+    Professor Stern has three cars. The probability that on a given day car $1$ is operative is $0.95$, that car $2$ is operative is $0.97$, and that car $3$ is operative is $0.85$. If Professor Stern's cars operate independently, find the probability that on next Thanksgiving day (a) all three of his cars are operative; (b) at least one of his cars is operative; (c) at most two of his cars are operative; (d) none of his cars is operative.
 \end{ques}
 
 \begin{proof}
+
+    Let $A$ denotes car $1$ is operative, $B$ denotes car $2$ is operative, while $C$ denotes car $3$ is operative. So, $\PP(A)=0.95,\PP(B)=0.97$, and $\PP(C)=0.85$, while the events $A,B,C$ are independent.
+
+    \begin{itemize}
+        \item[(a)] The event that all three of the cras are operative is $A \cap B\cap C$. Which, by independence its probability is $\PP(A\cap B\cap C)=\PP(A)\PP(B)\PP(C)=\frac{31331}{40000}\approx 0.7833$.
+        \item[(b)] At least one of the cars are operative is actually denoted as $A \cup B\cup C$ (since at least one of the car is operative, so one of $A,B,C$ must happen). Then, its probability is given as follow:
+        \begin{align}
+            \PP(A\cup B\cup C)&=\PP(A)+\PP(B)+\PP(C) - \PP(A\cap B)-\PP(A\cap C) -\PP(B\cap C)+\PP(A\cap B\cap C)\\
+            &= \PP(A)+\PP(B)+\PP(C)-\PP(A)\PP(B)-\PP(A)\PP(C)-\PP(B)\PP(C) + \PP(A)\PP(B)\PP(C)\\
+            &= \frac{39991}{40000}\approx 0.9998
+        \end{align}
+        \item[(c)] Let $D$ denotes the event that at most two of the cars are operative, $D$ has a complement being ``more than two cares are operative'', hence its complement is the event that all three cars are operative, which is given by part (a). So, since $D^c=A\cap B\cap C$, we have $\PP(D)=1-\P(D^c)=1-\PP(A\cap B\cap C)=\frac{8669}{40000}\approx 0.2167$.
+        \item[(d)] If $E$ denotes the event that none of the cars are operative, since $E^c$ denotes the event that at least some cars are operative (more precisely, at least one of the car is operating), so $E^c=A\cup B\cup C$ (which has probability given in part (b)). Hence, $\PP(E)=1-\PP(E^c)=1-\PP(A\cup B\cup C)=\frac{9}{40000}\approx 0.0002$.
+    \end{itemize}
 \end{proof}
 
-\newpage
+\hfil
+
 \section*{8}
 \begin{ques}\label{q8}
+    3.Rev.19:
+
+    A student at a certain university wilil pass the oral Ph.D. qualifying examination if at least two of the three examiners pass her or him. Past experience shows that 
+    
+    (a) $15\%$ of the studentst who take the qualifying exam are not prepared, and
+
+    (b) each examiner will independently pass $85\%$ of the prepared and $20\%$ of the unprepared students.
+
+    Kevin took his Ph.D. qualifying exam with Professors Smith, Brown, and Rose. What is the probability that Professor Rose has passed Kevin if we know that neither Professor Brown nor Professor Smith has passed him? Let $S,B$, and $R$ be the respective events that Professors Smith, Brown, and Rose have passed Kevin. Are these three events independent? Are they conditionally independent given that Kevin is prepared?
+
+    \begin{defn}
+        With three events $A,B,C$, the two events $B,C$ are conditionally independent given $A$, if $\PP(B\cap C | A)=\PP(B|A)\PP(C|A)$.
+    \end{defn}
 \end{ques}
 
 \begin{proof}
+
+    \hfil
+
+    \textbf{1. Kevin passing with Professor Rose, given he's failed by Professor Brown and Smith:}
+
+    There are two cases to consider: Either Kevin prepared for his quals (denoted as $A$), or Kevin didn't prepare for his quals (given by $A^c$). Where, $\PP(A^c)=0.15$ (since $15\%$ of the students are not prepared), while $\PP(A)=1-\PP(A^c)=0.85$.
+
+    Then, given that the professors pass the students independently, given that Professors Broan and Smith had not passed Kevin, it doesn't affect the probability of Keving being passed by Professor Rose. Which, the probability is solely dependent on Kevin's preparation. So, it's given as follow:
+    \begin{align}
+        \PP(R|S\cap B)=\PP(R)=\PP(R|A)\PP(A) + \PP(R|A^c)\PP(A^c)
+    \end{align}
+    And, since the professors has probability of $85\%$ passing a prepared students, and $20\%$ passing an unprepared students, $\PP(R|A)=0.85$, while $\PP(R|A^c)=0.2$. So, the above becomes $\PP(R|S\cap B)=0.85\cdot 0.85+0.2\cdot 0.15 = 0.7525$.
+    
+    \hfil
+
+    \textbf{2. Independence of the Professors passing Kevin:}
+
+    Since by description the probability of each professor's decision on passing the dtudents are independent, then givn the passing status from the other profesors, the same professor still has the sam probability of passing. Hence, we get:
+    \begin{align}
+        \PP(R|S) = \PP(R)\implies \PP(R\cap S)=\PP(R|S)\PP(S)=\PP(R)\PP(S)\\
+        \PP(B|S) = \PP(B)\implies \PP(B\cap S)=\PP(B|S)\PP(S)=\PP(B)\PP(S)\\
+        \PP(R|B) = \PP(R)\implies \PP(R\cap B)=\PP(R|B)\PP(B)=\PP(R)\PP(B)
+    \end{align}
+    This first concludes the pairwise independence. Also, follow from the logic in the previous part, we deduce the following:
+    \begin{align}
+        \PP(R|S\cap B)=\PP(R)\implies \PP(R\cap (S\cap B))=\PP(R|S\cap B)\PP(S\cap B)= \PP(R)\PP(S)\PP(B)
+    \end{align}
+    This finishes the last proof of the three events $S,B,R$ being independent.
+
+    \hfil
+
+    \textbf{3. Independence (or not) given that Kevin is Prepared:}
+
+    Here, given that Kevin is prepared (which is event $A$), each professor then would have the same probability of $85\%$ passing Kevin (since $85\%$ chance the prepared ones will get passed). So, $\PP(S|A)=\PP(R|A)=\PP(B|A)=0.85$.
+
+    Now, notice that if considering $\PP(R\cap S|A) = \frac{\PP(R\cap S\cap A)}{\PP(A)}$, since $\PP(A)=0.85$, while $R$ and $S$ would happen independently with probability of $85\%$ after event $A$ happens (since professors have $85\%$ chance of passing a prepared students), showing that $(R\cap A)$ and $(S\cap A)$ are independent. Then we get that $\PP(R\cap S\cap A)=\PP((R\cap A)\cap (S\cap A))=\PP(R\cap A)\PP(S\cap A) = 0.85\cdot \PP(A)\cdot 0.85\cdot \PP(A) = 0.85^4$. THis shows that $\PP(R\cap S|A)=\frac{\PP(R\cap S\cap A)}{\PP(A)}=\frac{0.85^4}{0.85}=0.85^3$.
+
+    Yet, if consider the fact that $\PP(R|A)=\PP(S|A)=0.85$, we have $\PP(R|A)\PP(S|A)=0.85^2$, showing that $\PP(R\cap S|A) = 0.85^3\neq 0.85^2=\PP(R|A)\PP(S|A)$, so the three events $R,S,B$ are not conditionally independent given $A$ happens (or given that Kevin has prepared).
 \end{proof}
 
 \end{document}
