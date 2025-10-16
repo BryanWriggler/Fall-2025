@@ -8,6 +8,7 @@
 \begin{document}
 \maketitle
 
+\section*{1 (4 ND)}
 \begin{ques}\label{q1}
 To build a little more experience with separation of variables, consider the heat equation
 in one spatial dimension:
@@ -26,10 +27,45 @@ where $u(x, t)$ corresponds to the temperature of an object with thermal conduct
 \end{ques}
 
 \begin{proof}
+
+    \hfil
+
+    \begin{enumerate}
+        \item Given the separation of variables $u(x,t)=u_x(x)u_t(t)$, plug into the formula we get the following:
+        \begin{align}
+            \frac{1}{k}\frac{\partial}{\partial t}(u_x(x)u_t(t))=\frac{\partial^2}{\partial x^2}(u_x(x)u_t(t))&\implies \frac{1}{k}\frac{d u_t}{dt}u_x(x)=\frac{d^2u_x}{dx^2}u_t(t)\\
+            &\implies \frac{1}{k}\cdot \frac{1}{u_t(t)}\frac{du_t}{dt}=\frac{1}{u_x(x)}\frac{d^2u_x}{dx^2}
+        \end{align}
+        Notice that the line aboe have the left side being dependent only on $t$, while the right side is solely dependent on $x$, hence the whole equation must be constant. With the separation constant given by $-\alpha^2$, we get the following two ordinary differential equations:
+        \begin{align}
+            &\frac{1}{k}\cdot \frac{1}{u_t(t)}\frac{du_t}{dt}=\frac{1}{u_x(x)}\frac{d^2u_x}{dx^2}=-\alpha^2\\
+            &\implies \begin{cases}
+                \frac{du_t}{dt}=-k\alpha^2 u_t(t)\\
+                \frac{d^2u_x}{dx^2}=-\alpha^2u_x(x)
+            \end{cases}
+        \end{align}
+
+        \hfil
+
+        \item For $u_x(x)$, since it satisfies $\frac{d^2u_x}{dx^2}+\alpha^2u_x(x)=0$ (or can rewrite as $\frac{d^2 u_x}{dx^2}-(i\alpha)^2 u_x(x)=0$), then the general solution of this is given by $Ae^{i\alpha x}+Be^{-i\alpha x}$, where $A,B\in\CC$ are arbitrary constants (depending on the initial condition).
+        
+        (Note: If want real solution instead, it depends on the constant $\alpha$, so here we'll provide the most general form).
+
+        \hfil
+        
+        \item For $u_t(t)$, since it satisfies $\frac{du_t}{dt}=-k\alpha^2 u_t(t)$, then the general solution  $u_t(t)=Ke^{-k\alpha^2 t}$, where $K\in\CC$ is an arbitrary constant (depending on the initial condition).
+        
+        (Note: If want real solution just take the arbitrary constants in $\RR$ instead).
+
+        \hfil
+        
+        \item If plug
+    \end{enumerate}
 \end{proof}
 
 \newpage
 
+\section*{2}
 \begin{ques}\label{q2}
 Prove the following three theorems:
 
@@ -59,6 +95,39 @@ too does $\psi(-x)$, and hence also the even and odd linear combinations $\psi(x
 \end{ques}
 
 \begin{proof}
+
+    \hfil
+
+    \begin{enumerate}
+        \item Suppose $\Psi(x,t)$ is a separable solution to the Schrödinger equation that is a scaled version of a wave function (so it's normalizable), then since $\Psi(x,t)=\psi(x)e^{-iE t/\hbar}$ for some constant $E\in\CC$, then $E=E_0+i\Gamma$ for some $E_0,\Gamma\in\RR$. Now, suppose the solution $\Psi$ itself is normalized, we have the following:
+        \begin{align}
+            1&=\int_{-\infty}^{\infty}|\Psi(x,t)|^2 dx=\int_{-\infty}^{\infty}\left(\psi(x)e^{-i(E_0+i\Gamma)t/\hbar}\right)\left(\psi^*(x)\left(e^{-i(E_0+i\Gamma)t/\hbar}\right)^*\right)dx\\
+            &= \int_{-\infty}^{\infty}|\psi(x)|^2\cdot e^{2\Gamma t/\hbar}dx = e^{2\Gamma t/\hbar}\int_{-\infty}^{\infty}|\psi(x)|^2 dx
+        \end{align}
+        Since $\int_{-\infty}^{\infty}|\psi(x)|^2 dx$ must stay as constant for all $t\in\RR$, for the whole expression to be $1$ for all $t\in\RR$, one must have $e^{2\Gamma t/\hbar}$ being a constant also. Hence we must have $\Gamma=0$, showing that $E=E_0+i\Gamma=E_0\in\RR$.
+
+        \hfil
+
+        \item Suppose $\psi(x)$ satisfies the time independent Schrödinger equation, we have the following:
+        \begin{align}
+            -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}+V\psi=E\psi
+        \end{align}
+        Where both $V,E\in\RR$. Hence, if taken the complex conjugation, we get:
+        \begin{align}
+            \left(-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}\right)^*+(V\psi)^*=(E\psi)^*\implies -\frac{\hbar^2}{2m}\frac{d^2\psi^*}{dx^2}+V\psi^*=E\psi^*
+        \end{align}
+        Hence, $\psi^*$ is also a solution to the Time-independent Schrödinger equation. As a result, since $\psi(x)=\Real(\psi)(x)+i \Imag(\psi)(x)$, where $\Real(\psi)(x)=\frac{1}{2}(\psi(x)+\psi^*(x))$, and $\Imag(\psi)(x)=\frac{1}{2i}(\psi(x)-\psi^*(x))$, then since linear combinations of solutions to a differential equation is still a solution (and the fact that $\psi:\RR\rightarrow \CC\cong \RR^2$ is differentiable, one must have both its real and imaginary parts being differentiable also), then $\Real(\psi)(x),\Imag(\psi)(x)$ are both solutions to the Time-Independent Schrödinger equation. Hence, with these two components being real, $\psi(x)$ can be written as linear combinations of real solutions.
+
+        \hfil
+
+        \item Given that $V(x)$ is even, then $V(x)=V(-x)$. Now, if we consider $\psi(-x)$ instead, then we have $\frac{d}{dx}\psi(-x)=-\psi'(-x)$, and $\frac{d^2}{dx^2}\psi(-x)=\frac{d}{dx}\left(-\psi'(-x)\right) = \psi''(-x)$. Hence, since $\psi(x)$ is a solution to the Time-Independent Schrödinger equation by assumption, we have $-\frac{\hbar^2}{2m}\psi''(x)+V(x)\psi(x)=E\psi(x)$, then plug in $u=-x$ instead, we get $-\frac{\hbar^2}{2m}\psi''(-x)+V(-x)\psi(-x)=E\psi(-x)$, which implies the following:
+        \begin{align}
+            -\frac{\hbar^2}{2m}\frac{d^2}{dx^2}(\psi(-x))+V(x)\psi(-x)=E\psi(-x)
+        \end{align}
+        Hence, $\psi(-x)$ is also a solution. 
+
+        Then, å
+    \end{enumerate}
 \end{proof}
 
 \newpage
