@@ -8,7 +8,7 @@
 \begin{document}
 \maketitle
 
-\section*{1 (4 ND)}
+\section*{1}
 \begin{ques}\label{q1}
 To build a little more experience with separation of variables, consider the heat equation
 in one spatial dimension:
@@ -49,7 +49,7 @@ where $u(x, t)$ corresponds to the temperature of an object with thermal conduct
 
         \item For $u_x(x)$, since it satisfies $\frac{d^2u_x}{dx^2}+\alpha^2u_x(x)=0$ (or can rewrite as $\frac{d^2 u_x}{dx^2}-(i\alpha)^2 u_x(x)=0$), then the general solution of this is given by $Ae^{i\alpha x}+Be^{-i\alpha x}$, where $A,B\in\CC$ are arbitrary constants (depending on the initial condition).
         
-        (Note: If want real solution instead, it depends on the constant $\alpha$, so here we'll provide the most general form).
+        (Note: If want real solution instead, it depends on the constant $\alpha$, so here we'll provide the most general form since $\alpha$ is not specified).
 
         \hfil
         
@@ -59,11 +59,16 @@ where $u(x, t)$ corresponds to the temperature of an object with thermal conduct
 
         \hfil
         
-        \item If plug
+        \item If plug back all the information in part 2 and 3, we get that $u(x,t) = u_x(x)u_t(t)=A'e^{-k\alpha^2t + i\alpha x}+B'e^{-k\alpha^2t - i\alpha x}$, for a separable solution with separation constant $-\alpha^2$.
+        
+        Which in general, any arbitrary (at most countable, and converging) linear combination of these solutions (each with distinct $\alpha$) still serve as a solution to the given heat equation. But, since the use of Fourier series could describe most of the common solutions, then suppose the domain of the function $u(x,t)$ is limited to $[-\pi,\pi]$ (and given specific boundary condition, like the function at $t=0$), one can specifically choose $\alpha = n\in\ZZ$ as coefficients, and yield the following expression by Fourier Series:
+        \begin{align}
+            u(x,t)=\sum_{n=-\infty}^{\infty}c_n Ce^{-kn^2t+inx},\quad c_n :=\int_{-\pi}^{\pi}u(x,0)e^{-inx}dx
+        \end{align}
     \end{enumerate}
 \end{proof}
 
-\newpage
+\hfil
 
 \section*{2}
 \begin{ques}\label{q2}
@@ -154,10 +159,36 @@ a function cannot be normalized.
     \begin{align}
         \frac{d^2\psi}{dx^2} = \frac{2m}{\hbar^2}(V(x) - E)\psi
     \end{align}
-    Where, since $E<V_{\min}$, then let $\epsilon=V_{min}-E>0$, we have 
+    Where, since $E<V_{\min}$, then let $\epsilon=V_{min}-E>0$, there are several cases to consider (which we can assume both $\psi,\psi',\psi''$ and $V$ are all continuous):
+    \begin{itemize}
+        \item[1)] If at some point $x_0\in\RR$, one have $\psi(x_0)>0$ and $\psi'(x_0)\geq 0$, then we have $\psi''(x_0) =\frac{2m}{\hbar^2}(V(x_0)-E)\psi(x_0)\geq \frac{2m}{\hbar^2}(V_{\min}-E)\psi(x_0)=\frac{2m\epsilon}{\hbar^2}\psi(x_0)>0$. Then, by continuity of $\psi''$, there exists some radius $r>0$, such that within $(x_0-r,x_0+r)$ we have $\psi''(x)>0$ (and by decreasing the radius and taking the closed interval instead, WLOG can assume $\psi''(x)>0$ on some closed interval $[x_0-r,x_0+r]$). Then, we get that $\psi'(x_0+\delta) = \int_{x_0}^{x_0+\delta}\psi''(x)dx + \psi'(x_0) > \psi'(x_0)\geq 0$ for all $0\leq \delta\leq r$, showing that $\psi(x_0+\delta)=\int_{x_0}^{x_0+\delta}\psi'(x)dx+\psi(x_0)>\psi(x_0)>0$ for $0\leq \delta\leq r$, therefore $\psi(x)$ is increasing on the closed interval $[x_0,x_0+r]$.
+        
+        Now, plug in $x_0+r$ instead of $x_0$ into the system, we again reach the same argument, hence one can inductively push the interval to be larger (say $\psi(x)$ is still increasing on $[x_0+nr, x_0+(n+1)r]$ for any $n \in\NN$), and show that $\psi(x)$ is always increasing for $x\geq x_0$. However, with $\psi(x_0)>0$, this shows that $\lim_{x\rightarrow\infty}\psi(x)$ is not converging to $0$, which violates the normalization condition (since in case for $\int_{-\infty}^{\infty}|\psi|^2dx=1$, $\psi(x)$ must converge to $0$ as $x\rightarrow\infty$).
+
+        \item[2)] If at some point $x_0\in\RR$, one have $\psi(x_0),\psi'(x_0)<0$ instead, then we have $\psi''(x_0)=\frac{2m}{\hbar}(V(x)-E)\psi(x_0)\leq \frac{2m}{\hbar}(V_{\min}-E)\psi(x_0)=\frac{2m\epsilon}{\hbar}\psi(x_0)<0$. Then, by continuity of $|psi''$, again there exists some radius $r>0$, such that within $[x_0-r,x_0+r]$ we have $\psi''(x)<0$. So, $\psi'(x_0+\delta)=\int_{x_0}^{x_0+\delta}\psi''(x)dx+\psi'(x_0)<\psi'(x_0)<0$ for all $0\leq \delta\leq r$, showing that $\psi(x_0+\delta)=\int_{x_0}^{x_0+\delta}\psi'(x)dx+\psi(x_0)<\psi(x_0)<0$ for $0\leq \delta\leq r$, therefore $\psi(x)$ is decreasing on the closed interval $[x_0,x_0+r]$.
+        
+        Again using induction one can push the interval indefinitely, showing that $\psi(x)$ is decreasing for $x\geq x_0$, but since $\psi(x_0)<0$, this shows that $\lim_{x\rightarrow\infty}\psi(x)$ is again not converging to $0$, which violates the normalization condition.
+
+        \item[3)] If the reference point $x_0\in\RR$ satisfies either $\psi(x_0)>0,\psi'(x_0)<0$ (or the other case $\psi(x_0)<0$ and $\psi'(x_0)\geq 0$), we claim that it reduces to the previous two cases: For definiteness we'll demonstrate the case $\psi(x_0)>0$ and $\psi'(x_0)<0$ (since the other case is done by reversing the inequality). 
+        
+        In this case $\psi''(x_0)>0$ (since $\psi'',\psi$ have the same sign based on the differential equation), hence we derive that $\psi'(x)$ is increasing within some small interval containing $x_0$ (but maintaining negative), while in this region $\psi(x)$ is constantly decreasing.
+
+        If after some position $x_0+r$ (when $\psi(x_0+r)> 0$) we have $\psi'(x_0+r)\geq 0$, then it reduces to case 1).
+        
+        Else (the other case), it implies whenever $\psi(x_0+r)>0$ we have $\psi'(x_0+r)<0$, showing that $\psi$ is constantly decrasing on some interval. If $\psi(x_0+\delta)>0$ for all $x_0+\delta\in[x_0,x_0+r]$, then $\psi$ must crossover to be negative at some point $x_0+r$ (or $\psi(x_0+r)<0$), which reduces to case 2).
+
+        (\textbf{Rmk:} Notice that it's not possible to have $\psi(x)=\psi'(x)=0$, since with $V(x)$ being continuous, the given Schrödinger equation in fact has a unique solution; then, with $\psi(x)=0$ trivially satisfy the given equation and this specific initial condition, we have $\psi(x)=0$, yet this contradicts the normalization condition.)
+    \end{itemize}
+    Hence, in either case one must have $\lim_{x\rightarrow\infty}\psi(x)\neq 0$ (either diverges or converges to some other nonzero real numbers), but this violates the normalization condition, so it reaches a contradiction.
+
+    Hence, we must have $E\geq V_{\min}$.
+
+    \hfil
+    
+    Finally,  as a classical analogy to it, it's with the object (or the mass) must have its energy being at least the minimum of the potential energy in the position (since the kinetic energy $K$ in classical mechanics cannot be lower than $0$, with total energy $E=K+V(x)$, then $K=E-V\geq 0$, showing that $E\geq V(x)$ at the given position, hence within the mass's movable range, $E\geq V(x)$, showing $E\geq V_{\min}$).
 \end{proof}
 
-\newpage
+\hfil
 
 \section*{4}
 \begin{ques}\label{q4}
@@ -277,7 +308,7 @@ this relate to the energies $E_2$ and $E_3$ of $\psi_2$ and $\psi_3$?
     \end{itemize}
 \end{proof}
 
-\newpage
+\hfil
 
 \section*{5}
 \begin{ques}\label{q5}
@@ -300,6 +331,58 @@ $\phi = \pi/2$ and $\phi = \pi$.
 \end{ques}
 
 \begin{proof}
+    First, given $\Psi(x,0)=A\sqrt{\frac{2}{a}}(\sin(\frac{2\pi x}{a})+e^{i\phi}\sin(\frac{3\pi x}{a}))$, to normalize this expression, we aim for $\int_{-\infty}^{\infty}|\Psi(x,t)|^2dx =1$ (and notice that outside of $[0,a]$, $\Psi(x,0)=0$, hence only need to consider a limited range). Which, we get:
+    \begin{align}
+        1&= \int_{0}^{a}\Psi^*(x,0)\Psi(x,0)dx=\frac{2|A|^2}{a}\int_{0}^{a}\left(\sin\left(\frac{2\pi x}{a}\right)+e^{i\phi}\sin\left(\frac{3\pi x}{a}\right)\right)^*\left(\sin\left(\frac{2\pi x}{a}\right)+e^{i\phi}\sin\left(\frac{3\pi x}{a}\right)\right)dx\\
+        &= \frac{2|A|^2}{a}\left(\int_{0}^{a}\left(\sin^2\left(\frac{2\pi x}{a}\right)+\sin^2\left(\frac{3\pi x}{a}\right)\right)dx+2\cos(\phi)\int_{0}^{a}\sin\left(\frac{2\pi x}{a}\right)\sin\left(\frac{3\pi x}{a}\right)dx\right)\\
+        &= \frac{2|A|^2}{a}\cdot a = 2|A|^2
+    \end{align}
+    As a result, $2|A|^2=1$, so $|A|=\frac{1}{\sqrt{2}}$. (Note: Here we're using some calculation in \textbf{Question \ref{q4}} for simplicity).
+
+    \begin{itemize}
+        \item[(a)] Given $\Psi(x,0)$ with constant $A=\frac{1}{\sqrt{2}}$, and each $\psi_n(x,t)$ has time dependence of a factor $e^{-iE_nt/\hbar}$, with $E_n = \frac{n^2\hbar^2\pi^2}{2ma^2}$, hence it has timde dependence of factor $e^{-in^2\frac{\hbar\pi^2}{2ma^2}t}$. Let $w:=\frac{\hbar\pi^2}{2ma^2}$ be the ``frequency'' for simplicity, we get each state $\psi_n(x,t)=\sqrt{\frac{2}{a}}\sin(\frac{n\pi x}{a})e^{-i\cdot n^2 wt}$. So, $\Psi(x,t)=A(\psi_2(x,t)+e^{i\phi}\psi_3(x,t))$ is as follow (for values within $[0,a]$; outside of this domain it's $0$ by the property of infinite square well):
+        \begin{align}
+            \Psi(x,t)=\frac{1}{\sqrt{a}}\left(\sin\left(\frac{2\pi x}{a}\right)e^{-i\cdot 4wt}+\sin\left(\frac{3\pi x}{a}\right)e^{-i\cdot (9wt-\phi)}\right)
+        \end{align}
+        Which, the corresponding $|\Psi(x,t)|^2=\Psi^*\Psi$ is given as follow (with the same limitation of infinite square welll from above):
+        \begin{align}
+            |\Psi(x,t)|^2&=\frac{1}{a}\left(\sin\left(\frac{2\pi x}{a}\right)e^{-i\cdot 4wt}+\sin\left(\frac{3\pi x}{a}\right)e^{-i\cdot (9wt-\phi)}\right)^*\left(\sin\left(\frac{2\pi x}{a}\right)e^{-i\cdot 4wt}+\sin\left(\frac{3\pi x}{a}\right)e^{-i\cdot (9wt-\phi)}\right)\\
+            &= \frac{1}{a}\left(\sin\left(\frac{2\pi x}{a}\right)e^{i\cdot 4wt}+\sin\left(\frac{3\pi x}{a}\right)e^{i\cdot (9wt-\phi)}\right)\left(\sin\left(\frac{2\pi x}{a}\right)e^{-i\cdot 4wt}+\sin\left(\frac{3\pi x}{a}\right)e^{-i\cdot (9wt-\phi)}\right)\\
+            &= \frac{1}{a}\left(\sin^2\left(\frac{2\pi x}{a}\right) + \sin^2\left(\frac{3\pi x}{a}\right) + \sin\left(\frac{2\pi x}{a}\right)\sin\left(\frac{3\pi x}{a}\right)\left(e^{i(5wt-\phi)}+e^{-i(5wt-\phi)}\right)\right)\\
+            &= \frac{1}{a}\left(\sin^2\left(\frac{2\pi x}{a}\right) + \sin^2\left(\frac{3\pi x}{a}\right) + 2\sin\left(\frac{2\pi x}{a}\right)\sin\left(\frac{3\pi x}{a}\right)\cos(5wt-\phi)\right)
+        \end{align}
+
+        \hfil
+
+        \item[(b)] To calculate $\left<x\right>$, consider the following integral (again, we'll consider only the range $[0,a]$ due to infinite square well's restriction):
+        \begin{align}
+            \left<x\right>&=\int_{0}^{a}x|\Psi(x,t)|^2dx\\
+            &= \frac{1}{a}\left(\int_{0}^{a}x\sin^2\left(\frac{2\pi x}{a}\right)dx+\int_{0}^{a}x\sin^2\left(\frac{3\pi x}{a}\right)dx + \cos(5wt-\phi)\int_{0}^{a}x\sin\left(\frac{2\pi x}{a}\right)\sin\left(\frac{3\pi x}{a}\right)dx\right)\\
+            &= \frac{1}{a}\left(\frac{a^2}{4}+\frac{a^2}{4}-\frac{48a^2}{25\pi^2}\cos(5wt-\phi)\right) = \frac{a}{2}-\frac{48a}{25\pi^2}\cos(5wt-\phi)
+        \end{align}
+        (Note: Here uses the calculation in \textbf{Question \ref{q4} part (c)}).
+
+        
+        \item[(c)] To calculate $\left<p\right>$, consider the following integral:
+        \begin{align}
+            \left<p\right>&=\frac{\hbar}{ia}\int_{0}^{a}\left(\sin\left(\frac{2\pi x}{a}\right)e^{-4iwt}+\sin\left(\frac{3\pi x}{a}\right)e^{-i(9wt-\phi)}\right)^*\frac{\partial}{\partial x}\left(\left(\sin\left(\frac{2\pi x}{a}\right)e^{-4iwt}+\sin\left(\frac{3\pi x}{a}\right)e^{-i(9wt-\phi)}\right) \right) dx\\ %1
+            &= \frac{\hbar}{ia}\int_{0}^{a}\left(\sin\left(\frac{2\pi x}{a}\right)e^{4iwt}+\sin\left(\frac{3\pi x}{a}\right)e^{i(9wt-\phi)}\right)\left(\frac{2\pi}{a}\cos\left(\frac{2\pi x}{a}\right)e^{-4iwt}+\frac{3\pi}{a}\cos\left(\frac{3\pi x}{a}\right)e^{-i(9wt-\phi)}\right)dx\\ %2
+            &=\frac{\hbar}{ia}(\frac{2\pi}{a}\int_{0}^{a}\sin\left(\frac{2\pi x}{a}\right)\cos\left(\frac{2\pi x}{a}\right)dx + \frac{3\pi}{a}\int_{0}^{a}\sin\left(\frac{3\pi x}{a}\right)\cos\left(\frac{3\pi x}{a}\right)dx\\ %3 
+            &+\frac{2\pi}{a}\int_{0}^{a}\sin\left(\frac{3\pi x}{a}\right)\cos\left(\frac{2\pi x}{a}\right)e^{i(5wt-\phi)}dx+\frac{3\pi}{a}\int_{0}^{a}\sin\left(\frac{2\pi x}{a}\right)\cos\left(\frac{3\pi x}{a}\right)e^{-i(5wt-\phi)}dx\\ %4
+            &= \frac{\hbar}{ia}(\frac{\pi}{a}\int_{0}^{a}\sin\left(\frac{4\pi x}{a}\right)dx + \frac{3\pi}{2a}\int_{0}^{a}\sin\left(\frac{6\pi x}{a}\right)dx +\frac{\pi}{a}e^{i(5wt-\phi)}\int_{0}^{a}\left(\sin\left(\frac{5\pi x}{a}\right)+\sin\left(\frac{\pi x}{a}\right)\right)dx\\ %5
+            & + \frac{3\pi}{2a}e^{-i(5wt-\phi)}\int_{0}^{a}\left(\sin\left(\frac{5\pi x}{a}\right)-\sin\left(\frac{\pi x}{a}\right)\right)dx)\\ %6
+            &= \frac{\hbar}{ia}\left(0+0+\frac{\pi}{a}e^{i(5wt-\phi)}\left(\frac{2a}{5\pi}+\frac{2a}{\pi}\right) + \frac{3\pi}{2a}e^{-i(5wt-\phi)}\left(\frac{2a}{5\pi}-\frac{2a}{\pi}\right)\right)\\%7
+            &= \frac{\hbar}{ia}\left(\frac{\pi}{a}\cdot\frac{12a}{5\pi}e^{i(5wt-\phi)}-\frac{3\pi}{2a}\cdot\frac{8a}{5\pi}e^{-i(5wt-\phi)}\right) = \frac{\hbar}{ia}\cdot \frac{12}{5}\cdot 2i \sin(5wt-\phi) = \frac{24\hbar}{5a}\sin(5wt-\phi)
+        \end{align}
+
+        \hfil
+
+        \item[(d)] In comparison to the answer in \textbf{Question \ref{q4}}, both $\left<x\right>,\left<p\right>$ now have an extra phase factor of $\phi$ in the time dependence (specificaly, the oscillation term), so for $\phi$ not being integer multiples of $2\pi$, the solution in \text{Question \ref{q4}} and here would be out of phase. 
+        
+        For $\phi=\frac{\pi}{2}$, we have $\left<x\right>=\frac{a}{2}-\frac{48a}{25\pi^2}\cos(5wt-\frac{\pi}{2})=\frac{a}{2}-\frac{48a}{25\pi^2}\sin(5wt)$, while $\left<p\right> = \frac{24\hbar}{5a}\sin(5wt-\frac{\pi}{2})=-\frac{24\hbar}{5a}\cos(5wt)$, so compared to \text{Question \ref{q4}} both expressions differ by a phase of $\frac{\pi}{2}$ (or swapping from $\sin$ to $\cos$).
+
+        For $|phi=\pi$, we have $\left<x\right>=\frac{a}{2}-\frac{48a}{25\pi^2}\cos(5wt-\pi) - \frac{a}{2}+\frac{48a}{25\pi^2}\cos(5wt)$, and $\left<p\right>=\frac{24\hbar}{5a}\sin(5wt-\pi)=-\frac{24\hbar}{5a}\sin(5wt)$, so compared to \text{Question \ref{q4}} both expressions differ by a phase of $\pi$, which adds an extra negative sign in front of the time dependence (indicating that their expectation value having opposite dynamics).
+    \end{itemize}
 \end{proof}
 
 \newpage
