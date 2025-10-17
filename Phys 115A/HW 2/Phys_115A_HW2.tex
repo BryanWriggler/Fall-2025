@@ -187,10 +187,99 @@ this relate to the energies $E_2$ and $E_3$ of $\psi_2$ and $\psi_3$?
 \end{ques}
 
 \begin{proof}
+
+    \hfil
+
+    \begin{itemize}
+        \item[(a)]Given $\Psi(x,0)=A\sqrt{\frac{2}{a}}\left(\sin(\frac{2\pi x}{a})+\sin(\frac{3\pi x}{a})\right)$ on the well's domain $[0,a]$ (while $0$ everywhere else). For it to satisfy normalization condition, we aim to find $A$ so that $\int_{-\infty}^{\infty}|\Psi(x,0)|^2 dx=1$. Which, we get the below formula (since outside of $[0,a]$ it's $0$ constantly, we can ignore them):
+        \begin{align}
+            &1=\frac{2|A|^2}{a}\int_{0}^{a}\left(\sin^2\left(\frac{2\pi x}{a}\right)+\sin^2\left(\frac{3\pi x}{a}\right)+2\sin\left(\frac{2\pi x}{a}\right)\sin\left(\frac{3\pi x}{a}\right)\right)dx\\
+            &\implies \frac{a}{2|A|^2}= \int_{0}^{a}\frac{1-\cos(\frac{4\pi x}{a})}{2}dx + \int_{0}^{a}\frac{1-\cos(\frac{6\pi x}{a})}{2}dx + \int_{0}^{a}\left(\cos\left(\frac{\pi x}{a}\right)-\cos\left(\frac{5\pi x}{a}\right)\right)dx\\
+            &\implies \frac{a}{2|A|^2} = \frac{a}{2}+\frac{a}{2}+0 = a \implies |A|^2=\frac{1}{2}\implies |A|=\frac{1}{\sqrt{2}}
+        \end{align}
+
+        \hfil
+
+        \item[(b)] Recall that for the time dependence, each separable solution $\Psi_n(x,t)=\sqrt{\frac{2}{a}}\sin(\frac{n\pi x}{a})e^{-iE_n t/\hbar}$, where $E_n=\frac{1}{2m}\left(\frac{\hbar n\pi}{a}\right)^2$. Hence, the full general form of $\Psi(x,t)=A(\psi_2(x)+\psi_3(x))$ is given as follow (given that $w:=\frac{\pi^2\hbar}{2ma^2}$):
+        \begin{align}
+            \Psi(x,t)&=\frac{1}{\sqrt{2}}\cdot\sqrt{\frac{2}{a}}\left(\sin\left(\frac{2\pi x}{a}\right)\exp\left(-4i\frac{\pi^2 \hbar}{2ma^2}t\right)+\sin\left(\frac{3\pi x}{a}\right)\exp\left(-9i\frac{\pi^2 \hbar}{2ma^2}t\right)\right)\\
+            &= \frac{1}{\sqrt{a}}\left(\sin\left(\frac{2\pi x}{a}\right)e^{-4iwt}+\sin\left(\frac{3\pi x}{a}\right)e^{-9iwt}\right)
+        \end{align}
+        Which, $|\Psi(x,t)|^2 = \Psi(x,t)\cdot \Psi^*(x,t)$ is given as follow:
+        \begin{align}
+            |\Psi(x,t)|^2 &= \frac{1}{a}\left(\sin\left(\frac{2\pi x}{a}\right)e^{-4iwt}+\sin\left(\frac{3\pi x}{a}\right)e^{-9iwt}\right)\left(\sin\left(\frac{2\pi x}{a}\right)e^{-4iwt}+\sin\left(\frac{3\pi x}{a}\right)e^{-9iwt}\right)^*\\
+            &= \frac{1}{a}\left(\sin^2\left(\frac{2\pi x}{a}\right)+\sin^2\left(\frac{3\pi x}{a}\right)+\sin\left(\frac{2\pi x}{a}\right)\sin\left(\frac{3\pi x}{a}\right)\left(e^{5iwt}+e^{-5iwt}\right)\right)\\
+            &= \frac{1}{a}\left(\sin^2\left(\frac{2\pi x}{a}\right)+\sin^2\left(\frac{3\pi x}{a}\right)+2\sin\left(\frac{2\pi x}{a}\right)\sin\left(\frac{3\pi x}{a}\right)\cos(5wt)\right)
+        \end{align}
+        As a remark, both $\Psi(x,t)$ and $|\Psi(x,t)|^2$ are $0$ when $x\notin [0,a]$ based on the property of infinite square well.
+
+        \hfil
+
+        \item[(c)] Here to compute $\left<x\right>$, since outside of the well's domain $[0,a]$ we have $|\Psi(x,t)|^2=0$ (since $\Psi(x,t)=0$ whene $x\notin [0,a]$ due to the infinite square well property). Then, the expectation value is given as:
+        \begin{align}
+            \left<x\right> = \int_{0}^{a}x|\Psi(x,t)|^2dx= \int_{0}^{a}\frac{x}{a}\left(\sin^2\left(\frac{2\pi x}{a}\right)+\sin^2\left(\frac{3\pi x}{a}\right)+2\sin\left(\frac{2\pi x}{a}\right)\sin\left(\frac{3\pi x}{a}\right)\cos(5wt)\right)dx
+        \end{align}
+        We'll compute each integral individually. Each result as the following:
+        \begin{align}
+            A&:=\int_{0}^{a}x\sin^2\left(\frac{2\pi x}{a}\right)dx = \int_{0}^{a}x\cdot \frac{1-\cos(\frac{4\pi x}{a})}{2}dx = \frac{1}{4}x^2\bigg|_{0}^{a}-\frac{1}{2}\int_{0}^{a}x\cos\left(\frac{4\pi x}{a}\right)dx\\
+            &= \frac{a^2}{4} - \frac{a}{8\pi}x\sin\left(\frac{4\pi x}{a}\right)\bigg|_{0}^{a}+\frac{a}{8\pi}\int_{0}^{a}\sin\left(\frac{4\pi x}{a}\right)dx = \frac{a^2}{4}
+        \end{align}
+
+        \begin{align}
+            B&:=\int_{0}^{a}x\sin^2\left(\frac{3\pi x}{a}\right)dx = \int_{0}^{a}x\cdot\frac{1-\cos(\frac{6\pi x}{a})}{2}dx = \frac{1}{4}x^2\bigg|_{0}^{a}-\frac{1}{2}\int_{0}^{a}x\cos\left(\frac{6\pi x}{a}\right)dx\\
+            &= \frac{a^2}{4}-\frac{a}{12\pi}x\sin\left(\frac{6\pi x}{a}\right)\bigg|_{0}^{a}+\frac{a}{12\pi}\int_{0}^{a}\sin\left(\frac{4\pi x}{a}\right)dx = \frac{a^2}{4}
+        \end{align}
+
+        \begin{align}
+            C&:= \int_{0}^{a}x\cdot 2\sin\left(\frac{2\pi x}{a}\right)\sin\left(\frac{3\pi x}{a}\right)dx=\int_{0}^{a}x\left(\cos\left(\frac{\pi x}{a}\right)-\cos\left(\frac{5\pi x}{a}\right)\right)dx\\
+            &= \left(\frac{a}{\pi}x\sin\left(\frac{\pi x}{a}\right)\bigg|_{0}^{a}-\int_{0}^{a}\frac{a}{\pi}\sin\left(\frac{\pi x}{a}\right)dx\right)-\left(\frac{a}{5\pi}x\sin\left(\frac{5\pi x}{a}\right)\bigg|_{0}^{a}-\int_{0}^{a}\frac{a}{5\pi}\sin\left(\frac{5\pi x}{a}\right)dx\right)\\
+            &= \frac{a^2}{\pi^2}\cos\left(\frac{\pi x}{a}\right)\bigg|_{0}^{a}-\frac{a^2}{25\pi^2}\cos\left(\frac{5\pi x}{a}\right)\bigg|_{0}^{a} = \frac{2a^2}{25\pi^2}-\frac{2a^2}{\pi^2} = \frac{-48a^2}{25\pi^2}
+        \end{align}
+        (Note: In $A,B$ it uses the fact that $\sin^2(x)=\frac{1-\cos(2x)}{2}$, integration by parts, and integrating $\sin,\cos$ over their period / multiple of their periods are $0$; While in part $C$ it uses the trigonometric identity that $2\sin(a)\sin(b)=\cos(a-b)-\cos(a+b)$, and integration by parts).
+
+        Which, with these pices, we get the following for expectation value:
+        \begin{align}
+            \left<x\right>= \frac{1}{a}\left(A+B+C\cos(5wt)\right) = \frac{a}{2}-\frac{48a}{25\pi^2}\cos(5wt)
+        \end{align}
+        Which, the expected position of the particle is in fact oscillating.
+
+        \hfil
+
+        \item[(d)] To compute $\left<p\right>=\int_{-\infty}^{\infty}\Psi^*(x,t) \cdot \frac{\hbar}{i}\frac{\partial}{\partial x}(\Psi(x,t))dx$, we get the following equation (Note: since $\Psi^*(x,t)$ is also only possibly nonzero on $x\in [0,a]$, we'll ignore other parts of the integration):
+        \begin{align}
+            \left<p\right>&=\frac{\hbar}{i}\int_{0}^{a}\frac{1}{\sqrt{a}}\left(\sin\left(\frac{2\pi x}{a}\right)e^{-4iwt}+\sin\left(\frac{3\pi x}{a}\right)e^{-9iwt}\right)^*\cdot \frac{\partial}{\partial x}\left(\frac{1}{\sqrt{a}}\left(\sin\left(\frac{2\pi x}{a}\right)e^{-4iwt}+\sin\left(\frac{3\pi x}{a}\right)e^{-9iwt}\right) \right) dx\\
+            &= \frac{\hbar}{ia}\int_{0}^{a}\left(\sin\left(\frac{2\pi x}{a}\right)e^{4iwt}+\sin\left(\frac{3\pi x}{a}\right)e^{9iwt}\right)\left(\frac{2\pi}{a}\cos\left(\frac{2\pi x}{a}\right)e^{-4iwt}+\frac{3\pi}{a}\cos\left(\frac{3\pi x}{a}\right)e^{-9iwt}\right)dx\\
+            &=\frac{\hbar}{ia}(\frac{2\pi}{a}\int_{0}^{a}\sin\left(\frac{2\pi x}{a}\right)\cos\left(\frac{2\pi x}{a}\right)dx + \frac{3\pi}{a}\int_{0}^{a}\sin\left(\frac{3\pi x}{a}\right)\cos\left(\frac{3\pi x}{a}\right)dx\\ 
+            &+\frac{2\pi}{a}\int_{0}^{a}\sin\left(\frac{3\pi x}{a}\right)\cos\left(\frac{2\pi x}{a}\right)e^{5iwt}dx+\frac{3\pi}{a}\int_{0}^{a}\sin\left(\frac{2\pi x}{a}\right)\cos\left(\frac{3\pi x}{a}\right)e^{-5iwt}dx\\
+            &= \frac{\hbar}{ia}(\frac{\pi}{a}\int_{0}^{a}\sin\left(\frac{4\pi x}{a}\right)dx + \frac{3\pi}{2a}\int_{0}^{a}\sin\left(\frac{6\pi x}{a}\right)dx +\frac{\pi}{a}e^{5iwt}\int_{0}^{a}\left(\sin\left(\frac{5\pi x}{a}\right)+\sin\left(\frac{\pi x}{a}\right)\right)dx\\
+            & + \frac{3\pi}{2a}e^{-5iwt}\int_{0}^{a}\left(\sin\left(\frac{5\pi x}{a}\right)-\sin\left(\frac{\pi x}{a}\right)\right)dx)\\
+            &= \frac{\hbar}{ia}\left(0+0+\frac{\pi}{a}e^{5iwt}\left(\frac{2a}{5\pi}+\frac{2a}{\pi}\right) + \frac{3\pi}{2a}e^{-5iwt}\left(\frac{2a}{5\pi}-\frac{2a}{\pi}\right)\right)\\
+            &= \frac{\hbar}{ia}\left(\frac{\pi}{a}\cdot\frac{12a}{5\pi}e^{5iwt}-\frac{3\pi}{2a}\cdot\frac{8a}{5\pi}e^{-5iwt}\right) = \frac{\hbar}{ia}\cdot \frac{12}{5}\cdot 2i \sin(5wt) = \frac{24\hbar}{5a}\sin(5wt)
+        \end{align}
+
+        \hfil
+
+        \item[(e)] Since $\Psi(x,0) = A(\psi_2(x)+\psi_3(x))$ with $A=\frac{1}{\sqrt{2}}$ in part (a), then in general $\Psi(x,t)=A(\psi_2(x,t)+\psi_3(x,t))$, where the two are the eigenfunctions corresponding to the Hamiltonian Operator $H$ with eigenvalue being $E_2$ and $E_3$.
+        
+        Recall that an energy of the infinite square well is discrete and must be an energy level corresponding to one of the eigenfunctions (i.e. being their eigenvalue), then the possible measurement of energy must be one of the $E_n$, $n\in\NN$. And, the general decomposition $\Psi(x,t)=\sum_{n=1}^{\infty}c_n \psi_n(x,t)$ satisfies $\PP(E_n)=|c_n|^2$, or the coefficient's norm square is the corresponding probability of measuring that energy state. 
+
+        Hence, given $\Psi(x,t)= \frac{1}{\sqrt{2}}\psi_2(x,t)+\frac{1}{\sqrt{2}}\psi_3(x,t)$, since any $n\neq 2,3$ have coefficient $0$, there are $0$ probability of measuring them (more specifically, since they are not part of the wavefunction, then it's not expected to measure them). So, the only possible energy that can get measured are $E_2$ and $E_3$, and each with probability $\frac{1}{2}$ (since both have coefficient $c_2=c_3=\frac{1}{\sqrt{2}}$, so probability $|c_2|^2=|c_3|^2=\frac{1}{2}$).
+
+        Now, to consider the expectation value of energy (or operator $H$), we get the following general form (recall that each $\psi_n(x,t)$ is an eigenfunction of $H$ with eigenvalue $E_n$, so $\hat{H}(\psi_k(x,t))=E_k \psi_k(x,t)$):
+        \begin{align}
+            \left<H\right> &= \int_{-\infty}^{\infty}\Psi^*(x,t)\cdot \hat{H}(\Psi(x,t))dx=\int_{-\infty}^{\infty}\left(\sum_{n=1}^{\infty}c_n \psi_n(x,t)\right)^*\cdot\hat{H}\left(\sum_{k=1}^{\infty}c_k \psi_k(x,t)\right)dx\\
+            &= \int_{-\infty}^{\infty}\left(\sum_{n=1}^{\infty}c_n^* \psi_n^*(x,t)\right)\left(\sum_{k=1}^{\infty}c_k E_k \cdot \psi_k(x,t)\right)dx = \sum_{(n,k)\in\NN^2}c_n^* c_k E_k\int_{-\infty}^{\infty}\psi_n^*(x,t)\psi_k(x,t)dt\\
+            &= \sum_{n=1}^{\infty}|c_n|^2E_n 
+        \end{align}
+        Where te last part uses the fact that the $\psi_n(x,t)$ form an orthonormal list, hence their integral inner product is $0$ unless $n,k$ matches (while in that case by normalization condition the integral yields $1$).
+
+        Hence, for this specific $\Psi(x,t)=\frac{1}{\sqrt{2}}\psi_2(x,t)+\frac{1}{\sqrt{2}}\psi_3(x,t)$, we have $\left<H\right>=\frac{1}{2}\cdot E_2+\frac{1}{2}\cdot E_3 = \frac{4\hbar^2\pi^2}{4ma^2}+\frac{9\hbar^2\pi^2}{4ma^2} = \frac{13\hbar^2\pi^2}{4ma^2}$.
+    \end{itemize}
 \end{proof}
 
 \newpage
 
+\section*{5}
 \begin{ques}\label{q5}
 We have emphasized that overall phases of the wave function are irrelevant, since they
 cancel out of physical quantities. But the relative phase matters! Imagine we change the
@@ -215,6 +304,7 @@ $\phi = \pi/2$ and $\phi = \pi$.
 
 \newpage
 
+\section*{6}
 \begin{ques}\label{q6}
 Solve the time-independent Schrödinger equation with appropriate boundary conditions
 for the “symmetric” infinite square well with
@@ -232,10 +322,70 @@ square well with walls at $x = 0, a$?
 \end{ques}
 
 \begin{proof}
+    Given this solution, we'll again asume that for $x\notin [-\frac{a}{2},\frac{a}{2}]$, we have $\psi(x)=0$ (due to the fact that outside of the well, with infinite potential it's impossible for a particle to exist), and for $\psi(x)$ to be continuous, we also need $\psi(\frac{a}{2})=\psi(-\frac{a}{2})=0$ as boundary conditions.
+
+    \hfil
+
+    Which, inside the interval $[-\frac{a}{2},\frac{a}{2}]$ we have $\psi(x)$ satisfies the Time-independent Schrödinger equation, which is characterized as follow (with $V(x)=0$ in this interval):
+    \begin{align}
+        -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2}+V\psi=E\psi\implies \frac{d^2\psi}{dx^2}+\frac{2mE}{\hbar^2}\psi=0
+    \end{align} 
+    We can assume that $E$ is real (by \textbf{Question \ref{q2} part 1}). Which, let $-\alpha^2=\frac{2mE}{\hbar^2}$ (or $\alpha=\pm\frac{i\sqrt{2mE}}{\hbar}$), the above equation bevomes $\frac{d^2\psi}{dx^2}-\alpha^2\psi=0$, hence has a general solution of $\psi(x)=Ae^{\alpha x}+Be^{-\alpha x}$.
+
+    \hfil
+
+    Now, there are three cases to consider:
+    \begin{itemize}
+        \item First, if $E<0$, then $\alpha$ can only be chosen as real number (since $-\alpha^2=\frac{2mE}{\hbar^2}<0$ due to the fact that $2,m,\hbar>0$, so $\alpha^2>0$). Hence the solution $\psi(x)=Ae^{\alpha x}+Be^{-\alpha x}$ are with real coefficients. Then, with the boundary condition, we have:
+        \begin{align}
+            \psi\left(\frac{a}{2}\right)=Ae^{\frac{a\alpha}{2}}+Be^{-\frac{a\alpha}{2}}=0\implies B=-Ae^{a\alpha}\\
+            \psi\left(-\frac{a}{2}\right)=Ae^{-\frac{a\alpha}{2}}+Be^{\frac{a\alpha}{2}}=0\implies B=-Ae^{-a\alpha}
+        \end{align}
+        Hence, we get that $B=-Ae^{a\alpha}=-Ae^{-a\alpha}$, showing that $A(e^{a\alpha}-e^{-a\alpha})=0$. However, for the scenario to be nontrivial, we must have $a\neq 0$; and, since in this situation we derived $\alpha^2>0$, we also have $\alpha\neq 0$, hence $a\alpha\neq 0$. This shows that $e^{a\alpha}\neq e^0=1$, or $e^{a\alpha}-e^{-a\alpha}\neq 0$. Hence, for the equation to be true, one must have $A=0$. 
+
+        Yet, this implies that $B=-Ae^{a\alpha}=0$ also, showing that $\psi(x)=0$, which is a contradiction to the interpretation that $|\psi(x)|^2$ is a probability distribution (since we derived $|\psi(x)|^2=0$), so this is not a valid case.
+
+        \hfil
+
+        \item Else if $E=0$, since the differential equation reduces to $\frac{d^2\psi}{dx^2}=0$, hence we get $\psi(x)=cx+d$ for some $c,d\in\CC$. Yet, for it to satisfy boundary conditions, we need $\psi(-\frac{a}{2})=-\frac{ac}{2}+d=0$ (or $d=\frac{ac}{2}$) and $\psi(\frac{a}{2})=\frac{ac}{2}+d=0$ (or $d=-\frac{ac}{2}$), hence $d=-d$, showing that $d=0$. Yet, we results in $\psi(x)=cx$, which in case for $\psi(\frac{a}{2})=\frac{ac}{2}=0$ (where $\frac{a}{2}\neq 0$ can be assumed for nontrivial scenario), then $c=0$, showing $\psi(x)=0$. Yet, this violates the fact that $|\psi(x)|^2$ is a probability distribution (since then $|\psi(x)|^2=0$), so this is again not a valid case.
+        
+        \hfil
+
+        \item Finally, if $E> 0$, we have $\alpha$ being purely imaginary, then $\psi(x)$ can be further decomposed using Euler's Formula. Let $w = \frac{\sqrt{2mE}}{\hbar}> 0$, we have $\alpha=\pm iw$, so we get $\psi(x)=Ae^{iw x}+Be^{-iw x} = C \cos(wx+\phi)$ for some unknown $C\in\CC$ and $\psi\in\RR$. Then, based on the boundary condition, we get:
+        \begin{align}
+            0=\psi\left(-\frac{a}{2}\right)=C\cos\left(-w\frac{a}{2}+\phi\right),\quad 0=\psi\left(\frac{a}{2}\right)=C\cos\left(w\frac{a}{2}+\phi\right)
+        \end{align}
+        Hence, we get that $C\cos\left(w\frac{a}{2}+\phi\right)=C\cos\left(-w\frac{a}{2}+\phi+wa\right)=0$, showing that $wa = k\pi$ for some $k\in\NN$ (due to the assumption that $a,w>0$, so $aw>0$, hence $k>0$), which enforces the following case to be true for the energy:
+        \begin{align}
+            wa = a\frac{\sqrt{2mE}}{\hbar}=k\pi\implies E=\frac{1}{2m}\left(\frac{\hbar k\pi}{a}\right)^2
+        \end{align}
+        Hence, we again get that there are discrete.
+
+        Finally, since we have the condition $wa=k\pi$ for some $k\in\NN$, then $\frac{wa}{2}=\frac{k}{2}\pi$. Then, since $C\cos(w\frac{a}{2}+\phi)=C\cos(\frac{k}{2}\pi+\phi)=0$ (together with the requirement that $\psi(x)\neq 0$, which implies $C\neq 0$), then we must have $\cos(\frac{k}{2}\pi+\phi)=0$, showing that $\phi+\frac{k}{2}\pi = +\frac{2\ell+1}{2}\pi$ for some $\ell\in\ZZ$, showing that $\phi = \frac{(2\ell+1)-k}{2}\pi$.
+
+        Which, we ran into another two classifications:
+        \begin{itemize}
+            \item[1)] If $k$ is odd (or $k=2l+1$ for some $l\in\NN$), then WLOG one can choose $\ell:=l$, and use $\phi=0$ as solution. In this case we get the solution $\psi_k(x)=C\cos(w_kx)$, where $w_k=\frac{\sqrt{2mE_k}}{\hbar}$ and $E_k=\frac{1}{2m}\left(\frac{\hbar k\pi}{a}\right)^2$.
+            \item[2)] Else if $k$ is even (or $k=2l$ for some $l\in\NN$), WLOG choose $\ell:=l$ again, we get $\phi=\frac{2l+1-2l}{2}\pi=\frac{\pi}{2}$. Then, the solution becomes $\psi_k(x)=C\cos(w_kx+\frac{\pi}{2})=-C\sin(w_kx) = C'\sin(w_kx)$, where $w_k$ and $E_k$ have the same definition as the previous case.
+        \end{itemize}
+    \end{itemize}
+    So, under infinite square well scenario, we have an extra restriction that the separation constant $E>0$, and is restricted to discrete level $E_n=\frac{1}{2m}\left(\frac{\hbar n\pi}{a}\right)^2$. Given the ``frequency'' $w_n:=\frac{\sqrt{2mE_n}}{\hbar}=\frac{n\pi}{a}$, the general separable solution $\psi_n(x)$ of this Time-Independent Schrödinger equation (after normalization, with coefficient $\sqrt{\frac{2}{a}}$) is given as follow on the region $[-\frac{a}{2},\frac{a}{2}]$ (while outside of this interval is $0$):
+    \begin{align}
+        \psi_n(x)=\begin{cases}
+            \sqrt{\frac{2}{a}}\cos\left(\frac{n\pi}{a}x\right) & n \textmd{ is odd}\\
+            \sqrt{\frac{2}{a}}\sin\left(\frac{n\pi}{a}x\right) & n \textmd{ is even}
+        \end{cases}
+    \end{align}
+
+
+    \hfil
+
+    For coordinate change into the infinite square well with walls at $x=0,a$, one can simply perform a coordinate transformation and obtain $\psi_n(x-\frac{a}{2})$, then any $x_0\in [0,a]$ would have $x_0-\frac{a}{2}\in [-\frac{a}{2},\frac{a}{2}]$, which matches the domain of this symmetric square well.
 \end{proof}
 
 \newpage
 
+\section*{7}
 \begin{ques}\label{q7}
 Consider again the “symmetric” infinite square well from the previous problem. Suppose
 we measure the energy of a particle in this box, and we find the ground-state energy
@@ -268,6 +418,56 @@ ${}^3$He (whose nucleus consists of two protons and one neutron).
 \end{ques}
 
 \begin{proof}
+
+    \hfil
+
+    \begin{itemize}
+        \item[(a)] Here, if we define $a':=4a$, then then the square well with domain $[-2a,2a]$ becomes $[-\frac{a'}{2},\frac{a'}{2}]$. Hence, adapt the solution from \textbf{Question \ref{q6}}, we get that $E_n=\frac{1}{2m}\left(\frac{\hbar n\pi}{a'}\right)^2 = \frac{1}{32m}\left(\frac{\hbar n\pi}{a}\right)^2$, while the frequency $w_n=\frac{\sqrt{2m E_n}}{\hbar} = \frac{n\pi}{a'}=\frac{n\pi}{4a}$, and the general solution (with normalization constant $\sqrt{\frac{2}{a'}}=\frac{1}{\sqrt{2a}}$) of the new well is given by the follow in $[-2a,2a]$ (and $0$ everywhere else):
+        \begin{align}
+            \psi_n(x)=\begin{cases}
+                \frac{1}{\sqrt{2a}}\cos\left(\frac{n\pi}{4a}x\right) & n \textmd{ is odd}\\
+                \frac{1}{\sqrt{2a}}\sin\left(\frac{n\pi}{4a}x\right) & n \textmd{ is even}
+            \end{cases}
+        \end{align}
+
+        \item[(b)] When the well instantly changes, we have the wave function still stays the same as the original constant $E_1=\frac{\hbar^2\pi^2}{2ma^2}$, which is with frequency $\frac{\sqrt{2m E_1}}{\hbar}=\frac{\pi}{a}$. Or, the ``new'' wave function of the particle is given by $\psi(x)=\sqrt{\frac{2}{a}}\cos\left(\frac{\pi}{a}x\right)$ on the interval $[-\frac{a}{2},\frac{a}{2}]$ and $0$ everywhere else, using the formula in \textbf{Question \ref{q6}} (with $n=1$, like the energy level).
+        
+        Which, using the new set of $\psi_n(x)$ given in part (a) (which in fact forms an orthonormal list, based on the properties of Fourier Series), then we get the following:
+        \begin{align}
+            \psi(x)=\sum_{n=1}^{\infty}c_n \psi_n(x),\quad \forall n\in\NN,\ c_n:=\int_{-2a}^{2a}\psi(x)\psi_n(x)^* dx
+        \end{align}
+        Doing the calculation, every $n\in\NN$ corresponds to the following constants. Which we'll use the substitution $u=\frac{\pi}{4a}x$, with differential $du=\frac{\pi}{4a}dx$ (Note: for $x\notin [-\frac{a}{2},\frac{a}{2}]$, $\psi(x)=0$, so we don't include it):
+        \begin{align}
+            n\textmd{ is odd:}\quad c_n &= \int_{-\frac{a}{2}}^{\frac{a}{2}}\sqrt{\frac{2}{a}}\cos\left(\frac{\pi}{a}x\right)\cdot \frac{1}{\sqrt{2a}} \cos\left(\frac{n\pi}{4a}x\right) dx = \frac{4}{\pi}\int_{-\frac{\pi}{8}}^{\frac{\pi}{8}}\cos\left(4u\right)\cos\left(n u\right)du\\
+            &= \frac{2}{\pi}\int_{-\frac{\pi}{8}}^{\frac{\pi}{8}}\left(\cos((4+n)u)+\cos((4-n)u)\right)du \\
+            &= \left(\frac{2}{(4+n)\pi}\sin((4+n)u)+\frac{2}{(4-n)\pi}\sin((4-n)u)\right)\bigg|_{-\frac{\pi}{8}}^{\frac{\pi}{8}}\\
+            &= \left(\frac{4}{(4+n)\pi}+\frac{4}{(4-n)\pi}\right)\cos\left(\frac{n\pi}{8}\right) = -\frac{32}{\pi(n^2-16)}\cos\left(\frac{n\pi}{8}\right)
+        \end{align}
+        \begin{align}
+            n\textmd{ is even:}\ c_n&=\int_{-\frac{a}{2}}^{\frac{a}{2}}\sqrt{\frac{2}{a}}\cos\left(\frac{\pi}{a}x\right)\frac{1}{\sqrt{2a}}\sin\left(\frac{n\pi}{4a}x\right) dx = 0
+        \end{align}
+        (Note: the second is $0$ due to the fact that $\sin$ is an odd function).
+
+        Hence, we get the following decomposition of $\psi(x)$:
+        \begin{align}
+            \psi(x)&=\sum_{n=1}^{\infty}c_n\psi_n(x)=\sum_{k=0}^{\infty}c_{2k+1}\psi_{2k+1}(x) = \frac{-32}{\pi\sqrt{2a}}\sum_{k=0}^{\infty}\frac{\cos\left(\frac{(2k+1)\pi}{8}\right)}{(2k+1)^2-16}\cos\left(\frac{(2k+1)\pi}{4a}x\right)
+        \end{align}
+        Which, since each state $\psi_n(x)$ (specifically, their corresponding energy $E_n$) has a probability of being measured stated as $|c_n|^2$, to find the most probable energy state, we need to maximize $|c_n|^2$. For $n$ even, since $c_n=0$, it's trivial; for $n$ odd instead, since $|c_n|^2=\cos^2(\frac{n\pi}{8})\cdot\frac{1}{(n^2-16)^2}\cdot \left(\frac{32}{\pi}\right)^2$, it suffices to maximize $\frac{\cos^2(n\pi/8)}{(n^2-16)^2}$.
+
+        Use the function $\frac{\cos^2(\pi x/8)}{(x^2-16)^2}$, numerically the function is constantly increasing for $x<0$ and constantly decreasing for $x>0$, hence the positive integer with the largest such value would be $n=x=1$. 
+
+        Hence, after measuring the most probable result of this measureemnt still turns out to be the ``new'' first energy state $E_1=\frac{1}{32m}\left(\frac{\hbar\pi}{a}\right)^2$ (using the new energy provided in part (a)), and the corresponding probability of measuring energy $E_1$ is $\PP(E_1)=|c_1|^2 = \cos^2(\pi/8)\cdot\frac{1}{225}\cdot\left(\frac{32}{\pi}\right)^2 \approx 0.3936$.
+
+        \hfil
+
+        \item[(c)] Based on the result in part (b), since the ``corresponding function'' of probability $|c_n|^2$ of odd $n$ (after swapping $n$ with $x$) is constantly decreasing for $x>0$, then the next most probable result would be $n=3$ (the next odd positive integer after $1$). Which, the next most probable result of energy measurement is $E_3 = \frac{1}{32m}\left(\frac{\hbar 3\pi}{a}\right)^2$, and the corresponding probability of measuring energy $E_3$ is $\PP(E_3)=|c_3|^2=\cos^2(3\pi/8)\cdot\frac{1}{49}\cdot\left(\frac{32}{\pi}\right)^2\approx 0.3101$.
+        
+        \hfil
+
+        \item[(d)] The expectation value of energy, $\left<\hat{H}\right> = \sum_{n=1}^{\infty}|c_n|^2 E_n = \left(\frac{32}{\pi}\right)^2\sum_{k=0}^{\infty}\frac{\cos^2(n\pi/8)}{(n^2-16)^2}\cdot \frac{1}{32m}\left(\frac{\hbar n\pi}{a}\right)^2 = \frac{32\hbar^2}{ma^2}\sum_{k=0}^{\infty}\frac{n^2\cos^2(n\pi/8)}{(n^2-16)^2}$, where $n=(2k+1)$ in each summand. Numerically, the infinite series in the term $\sum_{k=0}^{\infty}\frac{(2k+1)^2\cos^2((2k+1)\pi/8)}{((2k+1)^2-16)^2} = \frac{\pi^2}{64}$, which eventually have the expectation value of energy $\left<\hat{H}\right> = \frac{32\hbar^2}{ma^2}\cdot \frac{\pi^2}{64}=\frac{\hbar^2\pi^2}{2ma^2}$, which is the initial energy after the measurement of the particle's energy (which happened before the well is changed).
+        
+        This value is expected, since the particle constantly stays in a potential well without any other interaction, so there are no external interaction (or external energy being added to the system). Even after changing the width of the potential well, the particle still doesn't interact with the external environment, hence we're not expecting any external energy to be added to the system. Hence, the expected energy value should still stay the same.
+   \end{itemize}
 \end{proof}
 
 \newpage
