@@ -239,33 +239,25 @@
     \begin{align}
         \PP(R|S\cap B)=\PP(R)=\PP(R|A)\PP(A) + \PP(R|A^c)\PP(A^c)
     \end{align}
-    And, since the professors has probability of $85\%$ passing a prepared students, and $20\%$ passing an unprepared students, $\PP(R|A)=0.85$, while $\PP(R|A^c)=0.2$. So, the above becomes $\PP(R|S\cap B)=0.85\cdot 0.85+0.2\cdot 0.15 = 0.7525$.
+    And, since the professors has probability of $85\%$ passing a prepared students, and $20\%$ passing an unprepared students, $\PP(R|A)=0.85$, while $\PP(R|A^c)=0.2$. So, the above becomes $\PP(R|S\cap B)=0.85\cdot 0.85+0.2\cdot 0.15 = 0.7425$.
     
     \hfil
 
-    \textbf{2. Independence of the Professors passing Kevin:}
+    \textbf{2. Non-Independence of the Professors passing Kevin:}
 
-    Since by description the probability of each professor's decision on passing the dtudents are independent, then givn the passing status from the other profesors, the same professor still has the sam probability of passing. Hence, we get:
+    If we calculate $\PP(R\cap S)$, we need to break down the case for if Kevin studies or not (either $A$ or $A^c$ happens beforehand). Then, since after $A$ happens, there's independently $85\%$ chance of $R$ and $S$ to happen, while if $A^c$ happens, there's independently $20\%$ chance of $R$ and $S$ to happen. Then:
     \begin{align}
-        \PP(R|S) = \PP(R)\implies \PP(R\cap S)=\PP(R|S)\PP(S)=\PP(R)\PP(S)\\
-        \PP(B|S) = \PP(B)\implies \PP(B\cap S)=\PP(B|S)\PP(S)=\PP(B)\PP(S)\\
-        \PP(R|B) = \PP(R)\implies \PP(R\cap B)=\PP(R|B)\PP(B)=\PP(R)\PP(B)
+        \PP(R\cap S)=\PP(R\cap S|A)\PP(A)+\PP(R\cap S|A^c)\PP(A^c) = 0.85^2\cdot 0.85+0.2^2\cdot 0.15 = 0.62015
     \end{align}
-    This first concludes the pairwise independence. Also, follow from the logic in the previous part, we deduce the following:
-    \begin{align}
-        \PP(R|S\cap B)=\PP(R)\implies \PP(R\cap (S\cap B))=\PP(R|S\cap B)\PP(S\cap B)= \PP(R)\PP(S)\PP(B)
-    \end{align}
-    This finishes the last proof of the three events $S,B,R$ being independent.
+    But if consider $\PP(R)\PP(S)$, with $\PP(R)=\PP(S)=\PP(S|A)\PP(A)+\PP(S|A^c)\PP(A^c)=0.85^2+0.2\cdot 0.15=0.7425$, then $\PP(R)\PP(S)\approx 0.5513 \neq \PP(R\cap S)$, so $R,S$ are not independent, hence $R,S,B$ are not independent.
 
     \hfil
 
-    \textbf{3. Non-Independence given that Kevin is Prepared:}
+    \textbf{3. Independence given that Kevin is Prepared:}
 
-    Here, given that Kevin is prepared (which is event $A$), each professor then would have the same probability of $85\%$ passing Kevin (since $85\%$ chance the prepared ones will get passed). So, $\PP(S|A)=\PP(R|A)=\PP(B|A)=0.85$.
+    If Kevin is prepared, then all the professors would have $85\%$ chance of passing Keving, and by assumption independently. So, we have $\PP(R\cap S|A)=\PP(R|A)\PP(S|A)$ (since given $A$ happens, $R$ and $S$ happens independently with probability $0.85$, while each $\PP(R|A)=\PP(S|A)=0.85$ by assumption).
 
-    Now, notice that if considering $\PP(R\cap S|A) = \frac{\PP(R\cap S\cap A)}{\PP(A)}$, since $\PP(A)=0.85$, while $R$ and $S$ would happen independently with probability of $85\%$ after event $A$ happens (since professors have $85\%$ chance of passing a prepared students), showing that $(R\cap A)$ and $(S\cap A)$ are independent. Then we get that $\PP(R\cap S\cap A)=\PP((R\cap A)\cap (S\cap A))=\PP(R\cap A)\PP(S\cap A) = 0.85\cdot \PP(A)\cdot 0.85\cdot \PP(A) = 0.85^4$. THis shows that $\PP(R\cap S|A)=\frac{\PP(R\cap S\cap A)}{\PP(A)}=\frac{0.85^4}{0.85}=0.85^3$.
-
-    Yet, if consider the fact that $\PP(R|A)=\PP(S|A)=0.85$, we have $\PP(R|A)\PP(S|A)=0.85^2$, showing that $\PP(R\cap S|A) = 0.85^3\neq 0.85^2=\PP(R|A)\PP(S|A)$, so the three events $R,S,B$ are not conditionally independent given $A$ happens (or given that Kevin has prepared).
+    Similarly, if consider the triple intersection, we still have $\PP(R\cap S\cap B|A)=\PP(R|A)\PP(S|A)\PP(B|A)$ based on similar notion, showing that $R,S,B$ are actually conditionally independent given $A$ (that Kevin is prepared).
 \end{proof}
 
 \end{document}
