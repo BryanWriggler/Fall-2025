@@ -10,36 +10,103 @@
 
 \tableofcontents
 
-\pagebreak
+\newpage
 
 \section{Introduction}
-As a recall, when calculating the motion of a simple pendulum with arm length $l$, the 
+As a recall, when calculating the motion of a simple pendulum with arm length $l$, the differential equation describing its motion is $\frac{d^2\theta}{dt^2}=\frac{g}{l}\sin(\theta)$, where $\theta$ denotes the angle of the pendulum. However, this differential equation doesn't have a solution consisting of finite combination / composition of elementary functions (for instance, polynomials, trigonometric functions, exponentials, etc.), which the simpler way of calculating the motion is through approximation.
+
+One common approximation is Small Angle Approximation - which assumes $|\theta|<\epsilon$ for some small enough $\epsilon>0$, so that $\sin(\theta) = \theta+o(\epsilon)$, where $\lim_{\theta\rightarrow 0}\frac{o(\theta)}{\theta}=0$. Then, the differential equation can be approximated as $\frac{d^2\theta}{dt^2}= \frac{g}{l}\theta$, which has a general solution of $\theta(t)=A\cos(\sqrt{\frac{g}{l}}t+\phi)$ for some phase $\phi\in\RR$, and provides the period $\tau = 2\pi\sqrt{\frac{l}{g}}$.
+
+However, such method loses its advantage once the angle of motion becomes large and some nontrivial effect of the pendulum's maximum angle on the period would occur. Hence, the goal of the experiment is to observe such nontrivial effect when angle is no longer considered small.
+
+Beside making the observation, well also verify the validity of the period formula for the non-simplified version (which will be taken up to the degree 4 term):
+\begin{align}
+    T =2\pi\sqrt{\frac{l}{g}}\left(1+\frac{1}{16}\theta_0^2 + \frac{11}{3072}\theta_0^4.+ ...\right)
+\end{align}\label{eq:nontriv}
+Here, $\theta_0$ denotes the maximum angle of the pendulum in motion.
+
+\hfil
 
 \section{Experimental Setup}
 \subsection{Setup with Electronic Detector}
+The equipments include: Stand, Clamp, string, spherical mass, protractor, meter stick , detector, and computer.
+
+The following is the steps for setup:
+\begin{itemize}
+    \item[1.] Setup the stand at the edge of the table.
+    \item[2.] Tie one end of the string onto the clamp, pass the other end through the hole at the top of the stand, and clip the clamp onto the stand (to fix the length of the string as pendulum's arm).
+    \item[3.] Fix the center of the protractor at the top of the stand at where the pivot of the pendulum is at.
+    \item[4.] Fix the spherical mass at the free end of the string (treated as mass of the simple pendulum).
+    \item[5.] Fix the detector at the bottom of the stand (the location slightly lower than the spherical mass's position) for ease to detect the period of the spherical mass.
+    \item[6.] Connect the detector into the computer for data collection.
+\end{itemize}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=80mm]{sketch_detector.jpg}
+\end{figure}
+
+\newpage
 
 \subsection{Setup without Electronic Detector}
+Equipments include: Stand, Clamp, string, spherical mass, protractor, meter stick , timer, phone (use as camera).
 
-\section{Procedure and Methods of Measurement}
-\subsection{Procedure with Electronic Detector}
+The setup is nearly identical with the description in \textbf{2.1}, except for not fixing a detector on the stand.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=80mm]{sketch_no_detector.jpg}
+\end{figure}
 
-\subsection{Procedure without Electronic Detector}
+\newpage
 
+
+\section{Methods of Measurement and Procedure}
+\subsection{Quantity aim to Measure, and Measurement Method}
+For each fixed manipulated variable, we'll measure total of $5$ trials.
+
+For both experiment, the manipulated variables are the maximum angle of the pendulum (recorded in degrees $ ^\circ$, and measured using protractor). Both experiments used angles $\theta=10^\circ, 20^\circ, 30^\circ, 40^\circ$, and $50^\circ$. Also, the length of the pendulum will be measured using meter stick, where for the setup with Detector, the fixed length is $65.5$ cm (or $0.655$ m), while the fixed length for the setup without Detector is $75.5$ cm (or $0.755$ m).
+
+The responding/dependent variable on the other hand, is the time period of the pendulum under the given angle. In the two setups, the measurements are done differently:
+\begin{itemize}
+    \item \textbf{Setup with Detector:} The detector records the time when the pendulum passes through the lowest point, which serves as a recording of time period.
+    \item \textbf{Setup without Detector:} It involves fixing the timer in the background environment of the pendulum, let the timer runs normally, and use the phone camera to record the whole pendulum motion. Afterward, we'll check individual frames of the recording fo get a more precise measurement of the time period.
+\end{itemize}
+
+\subsection{Procedure}
+\subsubsection{Setup with Electronic Detector}
+We followed the procedure below:
+\begin{enumerate}
+    \item Turn on the electronic detector and computer for measurement.
+    \item Fix an angle to be experimented with, and raise the pendulum to the fixed angle.
+    \item Release the pendulum, and let it swing for ten cycles.
+    \item Repeat Steps 2 to 3 for total of five trials.
+    \item Now, change the angle to other desired values, and repeat Steps 2 to 4 for every desired angle.
+\end{enumerate}
+
+\subsubsection{Setup without Electronic Detector}
+We followed the procedure below:
+\begin{enumerate}
+    \item Fix the timer in the background environment (behind the pendulum specifically), and fix the phone / camera in front of the pendulum and the timer (\textbf{Rmk}: Need to ensure the phone can clearly capture the timer value and the motion of the pendulum).
+    \item Fix an angle to be experimented with, and raise the pendulum to the fixed angle.
+    \item Release the pendulum, and let it swing for five cycles.
+    \item Repeat Steps 2 to 3 for total of five trials.
+    \item Now, change the angle to other desired values, and repeat Steps 2 to 4 for every desired angle.
+\end{enumerate}
+
+\newpage
 
 \section{Experimental Data and Tables}
-\subsection{Experiment with Electronic Detector}
+For the collected data, instead of calculating period of each individual cycle, here it's simplified to an average period of all cycles when the pendulum is in motion.
+\subsection{Data with Electronic Detector}
 
-\subsection{Experiment without Electronic Detector}
+\subsection{Data without Electronic Detector}
 
 \section{Data Analysis}
-\subsection{Experiment with Eletronic Detector}
+\subsection{Analysis with Eletronic Detector}
 
-\subsection{Experiment without Electronic Detector}
+\subsection{Analysis without Electronic Detector}
 
 \section{Error Analysis}
 
 \section{Conclusion}
-
-\newpage
 
 \end{document}
