@@ -23,7 +23,7 @@ Beside making the observation, well also verify the validity of the period formu
 \begin{align}
     T =2\pi\sqrt{\frac{l}{g}}\left(1+\frac{1}{16}\theta_0^2 + \frac{11}{3072}\theta_0^4.+ ...\right)
 \end{align}\label{eq:nontriv}
-Here, $\theta_0$ denotes the maximum angle of the pendulum in motion (unit: radians).
+Here, $T$ is in unit of seconds (s), $g=9.807$ m/s$ ^2$, $l$ is in unit of meters (m), and $\theta_0$ denotes the maximum angle of the pendulum in motion with unit of radians.
 
 \hfil
 
@@ -129,6 +129,10 @@ Here, the length of the pendulum is $0.655$ m, for each trial recorded over $10$
     \includegraphics[width=100mm]{1.png}
 \end{figure}
 
+The presented data and graph is as expected, since based on the provided formula of (maximum angle dependent) pendulum period in \ref{eq:nontriv}, the the period of the pendulum is increasing when the maximum angle increases, and this is demonstrated in the above graph.
+
+\newpage
+
 \subsection{Data without Electronic Detector}
 Here, the length of the pendulum is $0.755$ m, for each trial recorded over $5$ pendulum cycles.
 \begin{table}[h!]
@@ -151,15 +155,89 @@ Here, the length of the pendulum is $0.755$ m, for each trial recorded over $5$ 
 \caption{Average period (unit: s) of Pendulum under Various Maximum Angle (No Detector)}
 \label{tab:data_no_elect}
 \end{table}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=100mm]{2.png}
+\end{figure}
 
+The presented data and graph are mostly as expected, except for some parts with larger uncertainty. The trend of the data based on the graph above still demonstrates an increase in pendulum period (in general) when the maximum angle increases. However, for angle of $40$° it is with an unexpectedly high uncertainty, which is not an expected part.
+
+\hfil
+
+\newpage
 
 \section{Data Analysis}
+From the data demonstrated in \textbf{Table \ref{tab:data_elect}} and \textbf{\ref{tab:data_no_elect}}, since both set of datas have low uncertainties in comparisan to the mean of the average period (in general, all Standard Deviation is below $0.107$). Hence, it implies the mean of the average pendulum period can serve as a valid representative of the pendulum's period within the experiment.
+
+Here, the \textbf{Expected Period} of the pendulum will be calculated through Formula \ref{eq:nontriv}, while truncating the infinite series to a degree $4$ polynomial.
+
 \subsection{Analysis with Eletronic Detector}
+\begin{table}[h!]
+\centering
+\begin{tabular}{c||c|c|c|c|c}
+\toprule
+\textbf{Angle (radians)} & 0.028 & 0.029 & 0.029 & 0.029 & 0.030 \\
+\hline
+\textbf{Mean Average Period (s)} & 1.633 & 1.639 & 1.653 & 1.676 & 1.696 \\
+\hline
+\textbf{Expected Period (s)} & 1.639 & 1.649 & 1.664 & 1.686 & 1.714 \\
+\hline
+\textbf{Percent Error (\%)} & 0.384 & 0.587 & 0.679 & 0.604 & 1.083 \\
+\bottomrule
+\end{tabular}
+\caption{Comparison of Mean Average Period (unit: s) and the Expected Period (With Detector)}
+\label{tab:compare_elect}
+\end{table}
+
+Using the period equation in \ref{eq:nontriv}, the expected pendulum periods are calculated for each angle (in terms of radians). Which, compare the calculation with the mean of Average Period for each angle, each angle yields an extremely low percent error, with the minimum of $0.384\%$ and the maximum of $1.083\%$, showing the collected datas are pretty similar to the expected period calculated by the formula. Hence, the formula in fact has a high validity of representing the relation between maximum angle and the period of a pendulum, in this experiment with Electronic Detector.
+
+\hfil
 
 \subsection{Analysis without Electronic Detector}
+\begin{table}[h!]
+\centering
+\begin{tabular}{c||c|c|c|c|c}
+\toprule
+\textbf{Angle (radians)} & 0.031 & 0.031 & 0.031 & 0.032 & 0.032 \\
+\hline
+\textbf{Mean Average Period (s)} & 1.762 & 1.787 & 1.793 & 1.770 & 1.809 \\
+\hline
+\textbf{Expected Period (s)} & 1.747 & 1.757 & 1.774 & 1.798 & 1.830 \\
+\hline
+\textbf{Percent Error (\%)} & 0.870 & 1.676 & 1.095 & 1.579 & 1.139 \\
+\bottomrule
+\end{tabular}
+\caption{Comparison of Mean Average Period (unit: s) and the Expected Period (No Detector)}
+\label{tab:compare_noelect}
+\end{table}
+
+Again, using the period equation in \ref{eq:nontriv}, comparing the calculated expected period with the mean of Average Period for each angle, each angle yields an extremely low percent error, with the minimum of $0.870\%$ and the maximum of $1.676\%$, showing the collected datas are still similar to the expected period calculated by the formula. Hence, the formula still maintains a high validity of representing the relation between maximum angle and the period of a pendulum, in this experiment without Electronic Detector.
+
+\newpage
 
 \section{Error Analysis}
+\subsection{Setup with Electronic Detector}
+In this experiment, since the time measurement is using electronic detector instead of human perception and timer, some of the potential human measurement mistakes are prevented. The only potential source of human mistake is the maximum angle measurement, which is still relying on human eyes.
+
+Besides the human error, the potential sources of error include:
+\begin{itemize}
+    \item Air Resistance and Friction, which potentially add in external forces that couldn't be directly observed, dissipating the energy of the system, and decrease the maximum angle at each cycle in between the experiment. 
+    \item Electronic Detector's measurement error, which the uncertainty within the electronic detector's measurement couldn't be directly observed by human, and also extremely difficult to verify with the other equipments provided.
+\end{itemize}
+
+\hfil
+
+\subsection{Setup without Electronic Detector}
+In this experiment, although the time measurement is made (and recorded) by timer and phone camera, but the actual time collection (into the data sheet) are still made by human, through looking at the phone's recording. Which, this provides an extra potential source of human mistake (since checking the video file still relies on human perception about when the pendulum starts and end).
+
+Besides the human mistakes, the potential source of error are identical to the first source of error (about air resistance and friction) described in \textbf{6.2}.
+
+\hfil
 
 \section{Conclusion}
+In this lab, the experimental data suggested that there is a high confidence that the pendulum period is provided by $T=2\pi\sqrt{\frac{l}{g}}\left(1+\frac{1}{16}\theta_0^2+\frac{11}{3702}\theta_0^4+..\right)$ (in the Data Analysis it is truncated to a formula with degree $4$), where $\theta_0$ is the pendulum's maximum angle (unit: radians).
+
+The potential sources of error (besides human measurement mistakes) include air resistance and friction, while for the experiment with Electronic Detector, there is an extra potential source of error coming from the detecting device itself.
+
 
 \end{document}
