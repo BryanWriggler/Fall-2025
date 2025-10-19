@@ -15,8 +15,8 @@ for i in range(1,3): #1 to 4 inclusive
     #plot the data in box value
     data.plot.box()
 
-    plt.ylabel("Angle (°)")
-    plt.xlabel("Pendulum Period (s)")
+    plt.xlabel("Angle (°)")
+    plt.ylabel("Pendulum Period (s)")
 
     #plot name
     name = ""

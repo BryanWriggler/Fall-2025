@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  18 OCT 2025 22:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  18 OCT 2025 22:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -809,27 +809,37 @@ File: sketch_no_detector.jpg Graphic file (type jpg)
 <use sketch_no_detector.jpg>
 Package pdftex.def Info: sketch_no_detector.jpg  used on input line 56.
 (pdftex.def)             Requested size: 227.62204pt x 199.49028pt.
- [3 <./sketch_detector.jpg> <./sketch_no_detector.jpg>] [4{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [5] (./Lab_Report3.aux)
+ [3 <./sketch_detector.jpg> <./sketch_no_detector.jpg>] [4{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+<1.png, id=175, 462.528pt x 346.896pt>
+File: 1.png Graphic file (type png)
+<use 1.png>
+Package pdftex.def Info: 1.png  used on input line 129.
+(pdftex.def)             Requested size: 284.52756pt x 213.40593pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5 <./1.png>] [6] (./Lab_Report3.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `Lab_Report3.out' has not changed.
-(rerunfilecheck)             Checksum: F46605536D24740131B55B9666A19958;3229.
+(rerunfilecheck)             Checksum: 5BE2D4A02ABC46B83CFF8BA0470508FA;3253.
  ) 
 Here is how much of TeX's memory you used:
- 30965 strings out of 474116
- 629906 string characters out of 5743681
- 1941187 words of memory out of 5000000
- 52787 multiletter control sequences out of 15000+600000
+ 30974 strings out of 474116
+ 630011 string characters out of 5743681
+ 1939187 words of memory out of 5000000
+ 52794 multiletter control sequences out of 15000+600000
  566607 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,17n,113p,595b,444s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Lab_Report3.pdf (5 pages, 425095 bytes).
+Output written on Lab_Report3.pdf (6 pages, 443178 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
- 193 compressed objects within 2 object streams
- 39 named destinations out of 1000 (max. 500000)
- 303 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 266 PDF objects out of 1000 (max. 8388607)
+ 198 compressed objects within 2 object streams
+ 41 named destinations out of 1000 (max. 500000)
+ 308 words of extra memory for PDF output out of 10000 (max. 10000000)
 
