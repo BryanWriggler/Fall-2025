@@ -12,6 +12,7 @@
 )
 
 //common syntaxes needed
+#let eval(sizes) = $lr(|, size: #sizes)$ //when performing evaluation
 
 //algebra
 #let Gal = math.upright[Gal] //galois
@@ -37,7 +38,7 @@
 #let Fld = math.sans[Fld] //cat of field
 #let RMod = math.sans[R-Mod] //cat of R-Mod
 #let RAlg = math.sans[R-Alg] //cat of R-Alg
-#let Vect(k) = $sans(Vect_#k)$ //cat of k-vector space (not sure if this works though)
+#let Vect(k) = $#k -sans("Vect")$ //cat of k-vector space (not sure if this works though)
 #let Top = math.sans[Top] //cat of topological spaces
 #let hTop = math.sans[hTop] //cat of topological spaces, with homotopic classes of continuous maps
 #let Sets = math.sans[Set] //cat of sets
@@ -57,6 +58,9 @@
 #let so = math.frak[so]
 #let su = math.frak[su]
 #let sp = math.frak[sp]
+#let Der = math.upright[Der] //stands for spaes of derivation as linear operator
+#let Ad = math.upright[Ad] //the Adjoint action of Lie group on itself
+#let ad = math.upright[ad] //the adjoint action of Lie algebra on itself
 
 //analysis
 #let Vol = math.upright[Vol] //volume, in the sense of Riemann / Jordan measure
