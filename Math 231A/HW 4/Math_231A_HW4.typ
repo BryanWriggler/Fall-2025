@@ -216,7 +216,7 @@
     Hence, this verifies that $[f, ad x] = ad f(x)$, showing that $ad(frak(g)) subset.eq Der(frak(g))$ is an ideal (since given any $f in Der(frak(g))$ and $ad x in ad(frak(g))$, it follows that $[f,ad x]=ad f(x) in ad(frak(g))$).
 ]
 
-#pagebreak()
+\ 
 
 = D//5
 #problem[
