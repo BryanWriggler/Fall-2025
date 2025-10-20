@@ -1,0 +1,103 @@
+\documentclass{article}
+\usepackage{../../Self_Style}
+
+\title{Math CS 121 HW 4}
+\author{Zih-Yu Hsieh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{1 (ND)}
+\begin{ques}\label{q1}
+    4.3.15:
+
+    A fair die is tossed successively. Let $X$ denote the number of tosses until each of the six possible outcomes occurs at least once. Find the probability mass function of $X$.
+
+    Hint: For $1\leq i\leq 6$, let $E_i$ be the event that the outcome $i$ does not occur during the first $n$ tosses of the die. First calculate $\PP(X>n)$ by writing the event $X>n$ in terms of $E_1,...,E_6$.
+\end{ques}
+\begin{proof}
+    For each $n\in\NN$, let $E_i$ be the event that the number $i$ doesn't occur during the first $n$ tosses of the die. Since each toss of the die is independent, then for number $i$ to not occur during the first $n$ tosses, each toss must be the other $5$ numbers, which has probability $\frac{5}{6}$ of happening for each toss. So, $\PP(E_i) = (\frac{5}{6})^n$ (since each toss must be out of the $5$ numbers, while every toss is independent).
+
+    Now, if consider the probability $\PP(X>n)$, 
+\end{proof}
+
+\newpage
+
+\section*{2}
+\begin{ques}\label{q2}
+    The demand of a certain weekly magazine at a newsstand is a random variable with probability mass function $p(i)=(10-i)/18$, $i=4,5,6,7$. If the magazine sells for \$a and costs \$2a/3 to the owner, and the unsold magazines cannot be returned, how many magazines should be ordered evrey week to maximize the profit in the long run?
+\end{ques}
+\begin{proof}
+    Since $p(i):=\PP(X= i)$ (while $i=4,5,6,7$), with $i$ denotes the number of demand of the magazine, and each magazine sells for \$a and costs \$2a/3. Which, let $k$ denotes the total number of magazines ordered. If selling out total of $i$ magazines, the profit $Z_i = i a-\frac{2k}{3}a = \left(i-\frac{2k}{3}\right)a$. So, if fixing $k>0$, together with the provided probability mass function, the expectation value of the profit is:
+    \begin{align}
+        \EE[Z] &= \sum_{i=4}^7 p(i)Z_i = \frac{1}{3}\cdot \left(4-\frac{2k}{3}\right)a+\frac{5}{18}\left(5-\frac{2k}{3}\right)a+\frac{2}{9}\left(6-\frac{2k}{3}\right)a+\frac{1}{6}\left(7-\frac{2k}{3}\right)a\\
+        &= a\left(\frac{47}{9}-\frac{2k}{3}\right)
+    \end{align}
+\end{proof}
+
+\newpage
+
+\section*{3}
+\begin{ques}\label{q3}
+\end{ques}
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\section*{4}
+\begin{ques}\label{q4}
+\end{ques}
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\section*{5}
+\begin{ques}\label{q5}
+\end{ques}
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\section*{6}
+\begin{ques}\label{q6}
+\end{ques}
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\section*{7}
+\begin{ques}\label{q7}
+\end{ques}
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\section*{8}
+\begin{ques}\label{q8}
+\end{ques}
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\section*{9}
+\begin{ques}\label{q9}
+\end{ques}
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\section*{10}
+\begin{ques}\label{q10}
+\end{ques}
+\begin{proof}
+\end{proof}
+
+\end{document}
