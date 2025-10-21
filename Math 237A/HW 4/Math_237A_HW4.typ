@@ -141,25 +141,50 @@
 
     \ 
 
-  + Based on part (a), there are two casees one can consider:
-    - First, if consider the open set $U_0={x!=0}$ (where $U_0 tilde.equiv AA^3$), then WLOG one can identify $U_0 sect Q$ as the points $[1,y,z,w]$ (after normalizing with $x$) that satisfies $y-z w=0$. Now, let $t:=z$ be arbitrary, then each $t$ identifies a linear variety $y - t w=0$. So, let $L_t:={y-t w=0} subset.eq U_0 tilde.equiv AA^3$ be the linear variety corresponding to $t$, we get that $U_0 sect Q = union.big_(t in k)L_t$. And, given $t,u in k$ satisfying $t!=u$, we have $L_t sect L_u=emptyset$ (since if $y,w in k$ satisfies $y-t w = 0 = y-u w$, )
+  + 
 ]
 
-= ND//5
+#pagebreak()
+
+= ND (a)//5
 #problem[
   Hartshorne 2.16:
 
-  + The intersection of two varieties need not be a variety. For example, let $Q_1$ and $Q_2$ be the quadric surfaces in $PP^3$ GIVEN BY THE EQUATIONS $X^2-Y W=0$ AND $X Y-Z W=0$, respectively. Show that $Q_1 sect Q_2$ is the union of a twisted cubic curve and a line.
-  + Even if the intersection of two varieties is a variety, the ideal of the intersection may not be the sum of the ideals. For exxample, let $C$ be the conic in $PP^2$ given by the equation $X^2-Y Z=0$. Let $L$ be the line givenn by $Y=0$. Show that $C sect L$ consists of one point $P$, but that $I(C)+I(L)!= I(P)$.
+  + The intersection of two varieties need not be a variety. For example, let $Q_1$ and $Q_2$ be the quadric surfaces in $PP^3$ given by the equations $X^2-Y W=0$ and $X Y-Z W=0$, respectively. Show that $Q_1 sect Q_2$ is the union of a twisted cubic curve and a line.
+  + Even if the intersection of two varieties is a variety, the ideal of the intersection may not be the sum of the ideals. For example, let $C$ be the conic in $PP^2$ given by the equation $X^2-Y Z=0$. Let $L$ be the line given by $Y=0$. Show that $C sect L$ consists of one point $P$, but that $I(C)+I(L)!= I(P)$.
 ][
-  
+  + Consider the open set $U_Z := {Z!=0}$ (which $U_Z tilde.equiv AA^3$ with coordinates $(x,y,w)=(X/Z,Y/Z,W/Z)$). Then, the described two equations in this open set can be characterized as $x^2-y w=0$ and $x y-w=0$ (by dividing $Z^2$ on both equations). Notice that this makes the intersection $U_Z sect (Q_1 sect Q_2)$ to be the twisted cubic curve:
+
+  + Notice that both equations $X^2-Y Z, Y in k[X,Y,Z]$ are both with degree $1$ in variable $Y$, showing that they're both irreducible. Hence, since $C:= Z_(PP^2)(X^2-Y Z)$, we have $I_(PP^n)(C) = I_(PP^2)(Z_(PP^2)(X^2-Y Z)) = sqrt((X^2-Y Z))=(X^2-Y Z)$ (since the equation is irreducible, its ideal is prime). Similarly, since $L:= Z_(PP^2)(Y)$, we also have $I_(PP^2)(L)=I_(PP^2)(Z_(PP^2)(Y))=sqrt((Y))=(Y)$ by the same reasoning about irreducibility.
+
+    Now, consider $C sect L$, since any $[X,Y,Z] in C sect L$ must satisfy $Y=0$, we're left with $[X,0,Z]$; also, it needs to satisfy $X^2-Y Z=0$, hence $X^2 = 0$ (since $Y=0$), showing that $X=0$. So, for $[X,Y,Z]=[0,0,Z] in PP^2$, we must have $Z!=0$, hence it is classfied as the point $[0,0,1] in PP^2$. So, $C sect L = {[0,0,1]}$ (denote $P:= [0,0,1]$).
+
+    If consider $I_(PP^2)(P)$, notice that it is cut out by the equations $X=0$ and $Y=0$ (since $[X,Y,Z]$ satisfies $X=Y=0$ iff it is given by $[0,0,Z]$ for $Z!=0$, which is equivalent to $P=[0,0,1]$). So, we get that $I_(PP^2)(P) = sqrt((X,Y)) = (X,Y)$ (since given that $k[X,Y,Z]\/(X,Y) tilde.equiv k[Z]$, it is an integral domain, hence $(X,Y)$ is prime).
+
+    However, notice that now $I_(PP^2)(C)+I_(PP^2)(L) != I_(PP^2)(P)$: Given $(X^2-Y Z)+(Y)$, to show that it's not the same as $(X,Y)$, we'll prove that the element $X in.not (X^2-Y Z)+(Y)$. Suppose the contrary that $X in (X^2-Y Z)+(Y)$, for some $f,g in k[X,Y,Z]$, one has $X = f dot (X^2-Y Z)+g dot Y$. However, notice that if plug in $Y=0$, we get that $X = f(X,0,Z) dot X^2$. Since the left hand side is nonzero, we must have $f(X,0,Z)!=0$; yet, if we classify the degree in terms of $X$, the left hand side has degree $1$, while the right hand side has degree $>=2$ (since there is a factor of $X^2$), which reaches a contradiction. Therefore, $X in.not (X^2-Y Z)+(Y)$, showing that $(X^2-Y Z)+(Y) subset.neq (X,Y)$.
+
+    Hence, we concluded that $I(C)+I(L)!= I(P)$, even though $C sect L=P$.
 ]
+
+#pagebreak()
 
 = ND//6
 #problem[
   Hartshorne 3.8:
 
-  Let $H_i$ and $H_j$ be the hyperplanes in $PP^n$ defined by $x_i=0$ and $x_j=0$, with $i!=j$. Show that any regular function on $PP^n\\(H_i sect H_j)$ is constant. ()
+  Let $H_i$ and $H_j$ be the hyperplanes in $PP^n$ defined by $x_i=0$ and $x_j=0$, with $i!=j$. Show that any regular function on $PP^n\\(H_i sect H_j)$ is constant.
 ][
-  
+  First, recall that $PP^n$ under Zariski Topology is a Noetherian Space, hence any open subset is compact. Given that $H_i, H_j$ are both closed sets, then so is $H_i sect H_j$, hence $PP^n \\ (H^i sect H_j)$ is open, which is compact. Also, recall the fact that within Zariski Topology, any open set is dense, and if two continuous functions agree on a dense subset, they must be the same.
+
+  \ 
+
+  Now, let $f:PP^n\\(H_i sect H_j) arrow.r k$ be a regular function. This implies that at any $[x]=[x_0,x_1,...,x_i,...,x_j,...,x_n] in PP^n\\(H_i sect H_j)$ (where either $x_i!=0$ or $x_j!=0$, given by the condition of excluding $H_i sect H_j$), there exists open neighborhood $U_([x]) subset.eq PP^n\\(H_i sect H_j)$ containing $[x]$, and homogeneous polynomials $p_([x]),q_([x])$ of the same degree (that are also coprime), such that $f = p_([x])/q_([x]):U_([x]) arrow.r k$.
+
+  Notice that if we take the collection ${U_([x])}_([x] in PP^n\\(H_i sect H_j))$, it forms an open cover of $PP^n\\(H_i sect H_j)$ (since every $[x]$ is necessarily contained in $U_([x])$), hence with compactness there exists $[x]_1,..., [x]_k in PP^n\\(H_i sect H_j)$ such that their corresponding open neighborhoods cover $PP^n \\ (H_i sect H_j)$.
+
+  Since each open subsets $U_([x]_l)$ is open in $PP^n\\(H_i sect H_j)$, an open set of $PP^n$, then $U_([x]_l)$ is also open in $PP^n$, hence every $1<=l,m<=k$ must have $U_([x]_l) sect U_([x]_m)!= emptyset$ (since in Zariski Topology every nonempty open sets must necessarily intersect), and each of such intersection is still dense in $PP^n$ (since the intersection is still an open set in $PP^n$ under Zariski Topology).
+
+  \ 
+
+  Which, given ay $1<=l,m<=k$, since we have $f=p_([x]_l)/q_([x]_l)$ on $U_([x]_l)$, and $f=p_([x]_m)/q_([x]_m)$ on $U_([x]_m)$, then we must have $p_([x]_l)/q_([x]_l)=p_([x]_m)/q_([x]_m)$ on $U_([x]_l) sect U_([x]_m)$, or $p_([x]_l) q_([x]_m)=p_([x]_m)q_([x]_l)$ as regular functions (polynomials) $U_([x]_l) sect U_([x]_m) arrow.r k$. However, since such polynomial is a well-defined 
 ]
