@@ -142,6 +142,8 @@
     \ 
 
   + 
+
+  + Try $[x,y] mapsto$ where $([x,y],[x,y])$ gets mapped to by $psi$.
 ]
 
 #pagebreak()
@@ -154,6 +156,8 @@
   + Even if the intersection of two varieties is a variety, the ideal of the intersection may not be the sum of the ideals. For example, let $C$ be the conic in $PP^2$ given by the equation $X^2-Y Z=0$. Let $L$ be the line given by $Y=0$. Show that $C sect L$ consists of one point $P$, but that $I(C)+I(L)!= I(P)$.
 ][
   + Consider the open set $U_Z := {Z!=0}$ (which $U_Z tilde.equiv AA^3$ with coordinates $(x,y,w)=(X/Z,Y/Z,W/Z)$). Then, the described two equations in this open set can be characterized as $x^2-y w=0$ and $x y-w=0$ (by dividing $Z^2$ on both equations). Notice that this makes the intersection $U_Z sect (Q_1 sect Q_2)$ to be the twisted cubic curve:
+
+    (Try and add an )
 
   + Notice that both equations $X^2-Y Z, Y in k[X,Y,Z]$ are both with degree $1$ in variable $Y$, showing that they're both irreducible. Hence, since $C:= Z_(PP^2)(X^2-Y Z)$, we have $I_(PP^n)(C) = I_(PP^2)(Z_(PP^2)(X^2-Y Z)) = sqrt((X^2-Y Z))=(X^2-Y Z)$ (since the equation is irreducible, its ideal is prime). Similarly, since $L:= Z_(PP^2)(Y)$, we also have $I_(PP^2)(L)=I_(PP^2)(Z_(PP^2)(Y))=sqrt((Y))=(Y)$ by the same reasoning about irreducibility.
 
