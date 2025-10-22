@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  21 OCT 2025 22:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  21 OCT 2025 22:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -842,48 +842,39 @@ Overfull \hbox (13.94145pt too wide) in paragraph at lines 108--109
  [][] 
  []
 
-<Average Stretch of the Spring with respect to Mass.png, id=134, 602.25pt x 372.39125pt>
-File: Average Stretch of the Spring with respect to Mass.png Graphic file (type png)
-<use Average Stretch of the Spring with respect to Mass.png>
-Package pdftex.def Info: Average Stretch of the Spring with respect to Mass.png  used on input line 112.
-(pdftex.def)             Requested size: 284.52756pt x 175.93874pt.
-[4 <./static_dataa.png> <./Average Stretch of the Spring with respect to Mass.png>]
-<dynamic_1.png, id=143, 717.68124pt x 169.63374pt>
+[4 <./static_dataa.png>]
+<dynamic_1.png, id=140, 717.68124pt x 169.63374pt>
 File: dynamic_1.png Graphic file (type png)
 <use dynamic_1.png>
-Package pdftex.def Info: dynamic_1.png  used on input line 123.
-(pdftex.def)             Requested size: 375.80574pt x 88.82867pt.
-<dynamic_2.png, id=144, 717.68124pt x 169.63374pt>
+Package pdftex.def Info: dynamic_1.png  used on input line 119.
+(pdftex.def)             Requested size: 469.75539pt x 111.03455pt.
+<dynamic_2.png, id=141, 717.68124pt x 169.63374pt>
 File: dynamic_2.png Graphic file (type png)
 <use dynamic_2.png>
-Package pdftex.def Info: dynamic_2.png  used on input line 131.
-(pdftex.def)             Requested size: 375.80574pt x 88.82867pt.
-<dynamic_3.png, id=145, 536.0025pt x 173.64874pt>
+Package pdftex.def Info: dynamic_2.png  used on input line 127.
+(pdftex.def)             Requested size: 469.75539pt x 111.03455pt.
+<dynamic_3.png, id=142, 536.0025pt x 173.64874pt>
 File: dynamic_3.png Graphic file (type png)
 <use dynamic_3.png>
-Package pdftex.def Info: dynamic_3.png  used on input line 139.
-(pdftex.def)             Requested size: 375.80574pt x 121.74936pt.
+Package pdftex.def Info: dynamic_3.png  used on input line 135.
+(pdftex.def)             Requested size: 469.75539pt x 152.18604pt.
  [5 <./dynamic_1.png> <./dynamic_2.png> <./dynamic_3.png>]
-<dynamic_d1.png, id=154, 822.07124pt x 473.77pt>
+<dynamic_d1.png, id=151, 822.07124pt x 473.77pt>
 File: dynamic_d1.png Graphic file (type png)
 <use dynamic_d1.png>
-Package pdftex.def Info: dynamic_d1.png  used on input line 152.
-(pdftex.def)             Requested size: 469.75539pt x 270.72401pt.
-<dynamic_d2.png, id=155, 825.0825pt x 492.84125pt>
+Package pdftex.def Info: dynamic_d1.png  used on input line 148.
+(pdftex.def)             Requested size: 281.8561pt x 162.43152pt.
+<dynamic_d2.png, id=152, 825.0825pt x 492.84125pt>
 File: dynamic_d2.png Graphic file (type png)
 <use dynamic_d2.png>
-Package pdftex.def Info: dynamic_d2.png  used on input line 160.
-(pdftex.def)             Requested size: 469.75539pt x 280.59904pt.
-<dynamic_d3.png, id=156, 821.0675pt x 536.0025pt>
+Package pdftex.def Info: dynamic_d2.png  used on input line 156.
+(pdftex.def)             Requested size: 281.8561pt x 168.36093pt.
+<dynamic_d3.png, id=153, 821.0675pt x 536.0025pt>
 File: dynamic_d3.png Graphic file (type png)
 <use dynamic_d3.png>
-Package pdftex.def Info: dynamic_d3.png  used on input line 168.
-(pdftex.def)             Requested size: 469.75539pt x 306.66144pt.
-
-
-LaTeX Warning: Float too large for page by 272.75404pt on input line 171.
-
-[6] [7 <./dynamic_d1.png> <./dynamic_d2.png> <./dynamic_d3.png>] (./inlab4.aux)
+Package pdftex.def Info: dynamic_d3.png  used on input line 164.
+(pdftex.def)             Requested size: 281.8561pt x 183.99686pt.
+ [6 <./dynamic_d1.png> <./dynamic_d2.png> <./dynamic_d3.png>] (./inlab4.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -896,18 +887,18 @@ Package rerunfilecheck Info: File `inlab4.out' has not changed.
 (rerunfilecheck)             Checksum: CE39B29E3DFB658C62B1B411BB162408;2846.
  ) 
 Here is how much of TeX's memory you used:
- 31003 strings out of 474116
- 631081 string characters out of 5743681
+ 30994 strings out of 474116
+ 630633 string characters out of 5743681
  1938187 words of memory out of 5000000
- 52838 multiletter control sequences out of 15000+600000
+ 52831 multiletter control sequences out of 15000+600000
  566267 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,8n,113p,589b,510s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on inlab4.pdf (7 pages, 720400 bytes).
+Output written on inlab4.pdf (6 pages, 705940 bytes).
 PDF statistics:
- 215 PDF objects out of 1000 (max. 8388607)
- 146 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 335 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 206 PDF objects out of 1000 (max. 8388607)
+ 140 compressed objects within 2 object streams
+ 28 named destinations out of 1000 (max. 500000)
+ 330 words of extra memory for PDF output out of 10000 (max. 10000000)
 
