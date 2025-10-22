@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  21 OCT 2025 19:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  21 OCT 2025 22:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -695,7 +695,26 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 39.
 File: l3backend-pdftex.def 2024-02-20 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count346
 \l__pdf_internal_box=\box85
-) (./inlab4.aux)
+) (./inlab4.aux
+
+LaTeX Warning: Label `fig:graph_m1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:graph_m1' multiply defined.
+
+
+LaTeX Warning: Label `fig:graph_m2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:graph_m2' multiply defined.
+
+
+LaTeX Warning: Label `fig:graph_m3' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:graph_m3' multiply defined.
+
+)
 \openout1 = `inlab4.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
@@ -788,7 +807,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<setup_sketch_manual.jpg, id=91, 791.95876pt x 1046.91125pt>
+<setup_sketch_manual.jpg, id=107, 791.95876pt x 1046.91125pt>
 File: setup_sketch_manual.jpg Graphic file (type jpg)
 <use setup_sketch_manual.jpg>
 Package pdftex.def Info: setup_sketch_manual.jpg  used on input line 30.
@@ -797,7 +816,7 @@ Package pdftex.def Info: setup_sketch_manual.jpg  used on input line 30.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<setup_sketch_detector.jpg, id=92, 796.9775pt x 1016.79875pt>
+<setup_sketch_detector.jpg, id=108, 796.9775pt x 1016.79875pt>
 File: setup_sketch_detector.jpg Graphic file (type jpg)
 <use setup_sketch_detector.jpg>
 Package pdftex.def Info: setup_sketch_detector.jpg  used on input line 42.
@@ -812,34 +831,83 @@ Overfull \hbox (0.68979pt too wide) in paragraph at lines 70--71
 []\OT1/cmr/m/n/10 For the ex-per-i-ment mea-sur-ing time man-u-ally, the mass will be $100\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 200\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 300$ g re-spec-tively (or $0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 3$
  []
 
-[3{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [4] (./inlab4.aux)
+[3{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+<static_dataa.png, id=132, 1429.34pt x 130.4875pt>
+File: static_dataa.png Graphic file (type png)
+<use static_dataa.png>
+Package pdftex.def Info: static_dataa.png  used on input line 108.
+(pdftex.def)             Requested size: 483.69684pt x 44.15808pt.
+
+Overfull \hbox (13.94145pt too wide) in paragraph at lines 108--109
+ [][] 
+ []
+
+<Average Stretch of the Spring with respect to Mass.png, id=134, 602.25pt x 372.39125pt>
+File: Average Stretch of the Spring with respect to Mass.png Graphic file (type png)
+<use Average Stretch of the Spring with respect to Mass.png>
+Package pdftex.def Info: Average Stretch of the Spring with respect to Mass.png  used on input line 112.
+(pdftex.def)             Requested size: 284.52756pt x 175.93874pt.
+[4 <./static_dataa.png> <./Average Stretch of the Spring with respect to Mass.png>]
+<dynamic_1.png, id=143, 717.68124pt x 169.63374pt>
+File: dynamic_1.png Graphic file (type png)
+<use dynamic_1.png>
+Package pdftex.def Info: dynamic_1.png  used on input line 123.
+(pdftex.def)             Requested size: 375.80574pt x 88.82867pt.
+<dynamic_2.png, id=144, 717.68124pt x 169.63374pt>
+File: dynamic_2.png Graphic file (type png)
+<use dynamic_2.png>
+Package pdftex.def Info: dynamic_2.png  used on input line 131.
+(pdftex.def)             Requested size: 375.80574pt x 88.82867pt.
+<dynamic_3.png, id=145, 536.0025pt x 173.64874pt>
+File: dynamic_3.png Graphic file (type png)
+<use dynamic_3.png>
+Package pdftex.def Info: dynamic_3.png  used on input line 139.
+(pdftex.def)             Requested size: 375.80574pt x 121.74936pt.
+ [5 <./dynamic_1.png> <./dynamic_2.png> <./dynamic_3.png>]
+<dynamic_d1.png, id=154, 822.07124pt x 473.77pt>
+File: dynamic_d1.png Graphic file (type png)
+<use dynamic_d1.png>
+Package pdftex.def Info: dynamic_d1.png  used on input line 152.
+(pdftex.def)             Requested size: 469.75539pt x 270.72401pt.
+<dynamic_d2.png, id=155, 825.0825pt x 492.84125pt>
+File: dynamic_d2.png Graphic file (type png)
+<use dynamic_d2.png>
+Package pdftex.def Info: dynamic_d2.png  used on input line 160.
+(pdftex.def)             Requested size: 469.75539pt x 280.59904pt.
+<dynamic_d3.png, id=156, 821.0675pt x 536.0025pt>
+File: dynamic_d3.png Graphic file (type png)
+<use dynamic_d3.png>
+Package pdftex.def Info: dynamic_d3.png  used on input line 168.
+(pdftex.def)             Requested size: 469.75539pt x 306.66144pt.
+
+
+LaTeX Warning: Float too large for page by 272.75404pt on input line 171.
+
+[6] [7 <./dynamic_d1.png> <./dynamic_d2.png> <./dynamic_d3.png>] (./inlab4.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 
 
-Package rerunfilecheck Warning: File `inlab4.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: Checksums for `inlab4.out':
-(rerunfilecheck)             Before: 37528426353F5272EE7CE7A241448DA9;2103
-(rerunfilecheck)             After:  710A0A0DA9036EC4B2A151BDFFD10798;2235.
+Package rerunfilecheck Info: File `inlab4.out' has not changed.
+(rerunfilecheck)             Checksum: CE39B29E3DFB658C62B1B411BB162408;2846.
  ) 
 Here is how much of TeX's memory you used:
- 30920 strings out of 474116
- 629192 string characters out of 5743681
+ 31003 strings out of 474116
+ 631081 string characters out of 5743681
  1938187 words of memory out of 5000000
- 52765 multiletter control sequences out of 15000+600000
+ 52838 multiletter control sequences out of 15000+600000
  566267 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,7n,113p,589b,510s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,8n,113p,589b,510s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on inlab4.pdf (4 pages, 302111 bytes).
+Output written on inlab4.pdf (7 pages, 720400 bytes).
 PDF statistics:
- 164 PDF objects out of 1000 (max. 8388607)
- 114 compressed objects within 2 object streams
- 20 named destinations out of 1000 (max. 500000)
- 263 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 215 PDF objects out of 1000 (max. 8388607)
+ 146 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
+ 335 words of extra memory for PDF output out of 10000 (max. 10000000)
 
