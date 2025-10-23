@@ -2,7 +2,7 @@
 
 //setup basics
 #import "@preview/rubber-article:0.4.1": *
-#import "@preview/ergo:0.1.0": *
+#import "@preview/ergo:0.2.0": *
 #import "@preview/fletcher:0.5.5" as fletcher: *
 
 //basic template setup
@@ -13,9 +13,9 @@
   margins: 1.0in,
 )
 #show: ergo-init.with(
-    colors: "bootstrap",  
-    headers: "classic", //"tab" for upper bar, classic for the one I used, sidebar for the emphasis on the left
-    all-breakable: true,
+    colors: ergo-colors.penumbra-light,  
+    styles: ergo-styles.classic, 
+    breakable: true,
     inline-qed: true
 )
 
@@ -28,18 +28,28 @@
 
 #set  enum(numbering: "(a)")
 
-= ND//1
+= D//1
 #problem[
   Lazarsfeld Problem Set 4 (1):
 
   Let $X subset.eq PP^n$ be a hypersurface of degree $d$ (i.e. $X={F_d=0}$ for some homogeneous polynomial of degree $d$). Show that $PP^n\\X$ is (isomorphic to) an affine variety.
 ][
-  
+  Consider the Veronese Embedding $v_(n,d):PP^n arrow.r PP^N$ (where $N=mat(n+d;n)-1$), this is an isomorphism between $PP^n$ and the image. Now, notice that $F_d$ can be expressed as linear combinations of some degree $d$ monomials, hence this map again extends to a map $tilde(v)_(n,d):PP^n arrow.r PP^(N+1)$ by $tilde(v)_(n,d)([x]) = [F_d([x]), v_(n,d)[x]]$ (where the second term is the coordinates in $PP^N$). Notice that such map still forms an isomorphism from $PP^n$ to its image (since we can project $PP^(N+1)$ onto $PP^N$ by $[F_d([x]), v_(n,d)([x])] mapsto v_(n,d)([x])$, then use the inverse of Veronese Embedding), hence we naturally get that $PP^n tilde.equiv im(tilde(v)_(n,d)) subset.eq PP^(N+1)$, which is an algebraic set.
+
+  \ 
+
+  Now, let $H_0:= {[y] in PP^(N+1) | y_0=0}$ be the closed set, $PP^(N+1)\\H_0$ is an open subset of $PP^(N+1)$ that is isomorphic to $AA^(N+1)$. Notice that for any $[x] in PP^n$, we have $tilde(v)_(n,d)([x]) in PP^(N+1)\\H_0$ iff its first coordinate (which is given by $F_d([x])$) is nonzero, which is equivalent of saying that $F_d([x])!=0$, or $[x] in PP^n\\X$. Hence, we can conclude that $tilde(v)_(n,d)(PP^n\\X) = im(tilde(v)_(n,d)) sect (PP^(N+1)\\H_0)$. 
+
+  Notice that $im(tilde(v)_(n,d)) subset.eq PP^(N+1)$ is an algebraic set (which is closed), hence $tilde(v)_(n,d)(PP^n\\X) = im(tilde(v)_(n,d)) sect (PP^(N+1)\\H_0)$ is closed under subspace topology of $PP^(N+1)\\H_0 tilde.equiv AA^(N+1)$, hence $PP^n\\X tilde.equiv tilde(v)_(n,d)(PP^n\\X)$ can be viewed as a closed set in $AA^(N+1)$, which is an affine algebraic set.
+
+  \ 
+
+  Lastly, recall that continuous functions send irreducible sets to irreducible sets, with $PP^n\\X subset.eq PP^n$ being open under Zariski Topology, it is irreducible. Hence, $tilde(v)_(n,d)(PP^n\\X) tilde.equiv PP^n\\X$ is also irreducible as an affine algebraic set, showing that $PP^n\\X$ is isomorphic to an affine variety. 
 ]
 
-#pagebreak()
+\ 
 
-= ND (c)//2
+= D//2
 #problem[
   Lazarsfeld Problem Set 4 (3):
 
@@ -89,12 +99,18 @@
 
     \ 
 
-  + Rough: Consider $X!=0$ and $Y!=0$ separately, then we form either equations in $x=X/Y$ or equations in $x=Y/X$. Having point $s$ such that there are common zeros for both equations, it reduces to the statements above.
+  + First, consider $AA^1 := PP^1\\H_1$ (the open set with the second coordinate being nonzero, namely $Y!=0$), then define $x:=X/Y$, the two given polynomial can be reduced to:
+    $ f_t(x)=a_0(t) x^d + ... + a_d(t), quad g_t(x)=b_0(t) x^e + ... + b_e(t) $
+    Then, if fixing a $t in AA^1$, to say that there exists $[X,Y] in PP^1\\H_1$ that serves as a common zero of both polynomials (or $x:=X/Y$ is a solution to the polynomials), then based on the previous parts, it's equivalent to say that $Res(f_t,g_t)=0$, where here $Res(f_t,g_t)$ defined as determinant of a matrix (with entries $a_i (t), b_j (t)$ for $0<= i<= d$, $0<= j<= e$). Hence, since now $Res(f_t,g_t)$ is a polynomial in terms of $t$, then there are only finite points such that $Res(f_t,g_t)=0$, say $t_1,...,t_k in AA^1$.
+
+    Then, for each $t_i in AA^1$ (where $1<= i<= k$), with $Res(f_(t_i), g_(t_i))=0$, the polynomials $f_(t_i)(x)=a_0(t_i)x^d + ... + a_d (t_i)$ and $g_(t_i)(x)=b_0(t_i)x^e+...+b_e (t_i)$ only has finitely many common solutions, say $x_(i,1),...,x_(i,l_i) in AA^1$. Then, the collection ${[x_(i,j),1]}_(1<=i<=k\ 1<=j<=l_i) subset PP^1\\H_1 tilde.equiv AA^1$ are precisely the points, such that there exists $t in AA^1$ to let $(t, [x_(i,j),1]) in AA^1 times PP^1$ be a solution of the given two polynomials, which such collection is precisely $"pr"_2(Z)$ (projection onto the second coordinate, and contained in $AA^1 = PP^1\\H_1$).
+
+    (Note: If redo the similar process for $PP^1\\H_0$, where the first coordinate is nonzero, then we get another collection of solutions for another copy of $AA^1 subset PP^1$).
 ]
 
 #pagebreak()
 
-= ND (b)//3
+= D//3
 #problem[
   Hartshorne 2.9:
 
@@ -110,13 +126,17 @@
 
     \ 
 
-  + Recall from #text(weight: "bold")[Homework 1], the twisted cubic curve $Y = {(t,t^2,^3) in AA^3|t in k} subset.eq AA^3$ is an affine variety with $I_(AA^3)(Y) = (y-x^2, z-x^3)$ (given that the polynomial ring of $AA^3$ is in terms of $k[x,y,z]$).
+  + Recall from #text(weight: "bold")[Homework 1], the twisted cubic curve $Y = {(t,t^2,t^3) in AA^3|t in k} subset.eq AA^3$ is an affine variety with $I_(AA^3)(Y) = (y-x^2, z-x^3)$ (given that the polynomial ring of $AA^3$ is in terms of $k[x,y,z]$). Which, based on part (a) we knwo $I_(PP^n)(overline(Y))$ is generated by $beta(I_(AA^n)(Y))$ (the homogenized version of all polynomials in $I_(AA^n)(Y)$). Here, notice that the equation $z^2-y^3$ evaluates to be $0$ for all $(x,y,z) = (t,t^2,t^3) in Y$, hence $z^2-y^3 in I_(AA^3)(Y)$.
+
+    If we homogenize the generators of $I_(AA^3)(Y)$, say $y-x^2$ and $z-x^3$, it corresponds to $Y W-X^2, Z W^2-X^3 in k[X,Y,Z,W]$. Also, given that $z^2-y^3 in I_(AA^3)(Y)$ has homogenized version being $Z^2 W-Y^3 in I_(PP^n)(overline(Y))$. 
+    
+    Yet, we claim that the homogeneous polynomials $Y W-X^2, Z W^2-X^3$ does not generate $I_(PP^n)(overline(Y))$: Suppose the contrary that they generate the ideal, then $Z^2W-Y^3 = f dot (Y W-X^2)+g dot (Z W^2-X^3)$ for some $f,g in k[X,Y,Z,W]$. Yet, if plugin $[0,1,0,0]$, we have $Z^2W-Y^3 = -1$, but $Y W-X^2 = Z W^2-X^3=0$, which is a contradiction. Hence, $Z^2W-Y^3 in.not (Y W-X^2, Z W^2-X^3)$, showing that even though $y-x^2,z-x^3$ generates $I_(AA^2)(Y)$, the homogenized version $Y W-X^2, Z W^2-X^3$ don't generate $I_(PP^2)(overline(Y))$.
     
 ]
 
 #pagebreak()
 
-= ND//4
+= D//4
 #problem[
   Hartshorne 2.15:
 
@@ -141,23 +161,66 @@
 
     \ 
 
-  + 
+  + For any $t=[t_1,t_2] in PP^1$, consider the curve $L_t:= {psi([t_1,t_2],[x,y]) | [x,y] in PP^1}$, and $M_t:={psi([x,y],[t_1,t_2])|[x,y] in PP^1}$.
 
-  + Try $[x,y] mapsto$ where $([x,y],[x,y])$ gets mapped to by $psi$.
+    \ 
+
+    First, recall that Segre Embedding is injective: Given the pairs $([a_0,a_1],[b_0,b_1])$ and $([c_0,c_1],[d_0,d_1])$ that gets send to the same image through $psi$, we have $[a_0b_0,a_1b_1,a_0b_1,a_1b_0]=[c_0d_0,c_1d_1,c_0d_1,c_1d_0]$. Since one of the coordinate is nonzero (for definiteness, say $a_0b_0, c_0d_0!=0$), then $a_0,b_0,c_0,d_0!=0$. Hence, the image can be rewrite as follow:
+    $ [1, a_1/a_0 b_1/b_0, b_1/b_0, a_1/a_0]=[1,c_1/c_0 d_1/d_0,d_1/d_0, c_1/c_0] $
+    Hence, we must have $a_1/a_0=c_1/c_0$ and $b_1/b_0=d_1/d_0$. This shows that the pair $([a_0,a_1],[b_0,b_1])=([1,a_1/a_0],[1,b_1/b_0])=([1,c_1/c_0],[1,d_1/d_0])=([c_0,c_1],[d_0,d_1])$, so the Segre Embedding $psi$ is injective.
+
+    \ 
+
+    Such fact shows that each $L_t$ and $M_t$ are in fact set isomorphic to $PP^1$ (since $psi$ is injective, then fixing $t=[t_1,t_2]$ for one of the inputs, it becomes an injective function with domain $PP^1$). To prove that they're isomorphic to $PP^1$, let's consider an inverse: For definiteness we'll choose to demonstrate the case for $L_t$ (since for $M_t$ it follows the similar logic by swapping the coordinates). Each $[x,y] in PP^1$ is corresponding to $psi([t_1,t_2],[x,y])=[t_1x,t_2y, t_1y, t_2x] in L_t$, there are two cases to consider: If $t_1!=0$, then the "projection" $L_t arrow.r PP^1$ by $[t_1x,t_2y,t_1y,t_2x] mapsto [t_1x,t_1y] = [x,y]$ is a well-defined two-sided inverse. Else, if $t_1=0$, then since $t_2!=0$ by definition of $PP^1$, the other projection $L_t arrow.r PP^1$ by $[t_1x,t_2y,t_1y,t_2x] mapsto [t_2x,t_2y] = [x,y]$ is again a well-defined two-sided inverse. Hence in both case $L_t tilde.equiv PP^1$.
+
+    \ 
+
+    Now, because of the injectivity of Segre Embedding $psi$ it's obvious that given any $u=[u_1,u_2],t=[t_1,t_2] in PP^1$ with $u!=t$, we have $L_u sect L_t=emptyset$ and $M_u sect M_t=emptyset$ (since any point in $L_u$ is in the form $psi([u_1,u_2], [x,y])$, while any point in $L_t$ is of the form $psi([t_1,t_2],[x',y'])$. With first coordinate being different, $psi([u_1,u_2],[x,y])!=psi([t_1,t_2],[x',y'])$ in all case, showing that $L_u sect L_t=emptyset$. Same logic applies to $M_u$ and $M_t$, just swap it to the second coordinate).
+
+    Also, given any $u,t in PP^1$, we have $L_u sect M_t$ being a single point, since if $P in L_u sect M_t$, we must have $P=psi([u_1,u_2],[x,y]) = psi([x',y'],[t_1,t_2])$ by the definition of $L_u$ and $M_t$. Which, by injectivity of $psi$, $[x,y]=[t_1,t_2]$ and $[x',y']=[u_1,u_2]$, showing that $P=psi([u_1,u_2],[t_1,t_2]) = psi(u,t)$.
+
+    Hence, the family ${L_t}_(t in PP^1)$ and ${M_t}_(t in PP^1)$ satisfies $t!=u$ implies $L_t sect L_u, M_t sect M_u=emptyset$, and $L_u sect M_t = P$ a single point.
+
+    \
+
+  + Consider the "curve" given as $overline(psi):PP^1 arrow.r Q$, which is defined by $overline(psi)([x,y]) = psi([x,y],[x,y]) = [x^2,y^2, x y, y x]$. Given that $Delta = {([x,y],[x,y]) in PP^1 times PP^1}$ has $Delta tilde.equiv PP^1$, we can prove that $im(overline(psi)) tilde.equiv PP^1$: Since $psi$ is injective we have $psi(Delta) $ being set isomorphic to $im(overline(psi))$, and we can construct an inverse around any point: Because any $[x,y] in PP^1$ has either $x!=0$ or $y!=0$, then any $[x^2,y^2, x y,y x] in im(overline(psi))$ has either $x^2!=0$ or $y^2!=0$, so $im(overline(psi)) subset.eq U_x union U_y$ (where $U_i$ representes the open set $i!=0$ where $i in {x,y,z,w}$ for coordinate $[x,y,z,w] in PP^3$).
+
+    Consider the function $f:im(overline(psi)) arrow.r PP^1$ by the following:
+    $ f([x^2,y^2, x y, y x]) := cases(
+      [x^2,x y] quad x^2!=0 \
+      [y x, y^2] quad y^2!=0
+    )  $
+    This function is well-defined, since if both $x^2,y^2!=0$, one has $[x^2,x y] = [x, y] = [y x, y^2]$, which $f$ maps the same point to a unique point in $PP^1$. Also, given any $[x,y] in PP^1$, if $x!=0$ one has $f compose overline(psi)([x,y])=f([x^2,y^2,x y,y x])=[x^2,x y]=[x,y]$, and if $y!=0$ one has $f compose overline(psi)([x,y])=f([x^2,y^2,x y,y x])=[y x,y^2]=[x,y]$, while $overline(psi) compose f = id_(im(overline(psi)))$ by definition. So, $f$ is a two-sided inverse of $overline(psi)$, showing that $im(overline(psi)) tilde.equiv PP^1$, which $im(overline(psi)) subset.eq Q$ is a curve.
+
+    \ 
+
+    However, notice that $im(overline(psi))!= L_t, M_t$ for any $t in PP^1$ (given the definition in part (b) above). By injectivity of $psi$, since every point $P in im(overline(psi))$ is of the form $overline(psi)([x,y])=psi([x,y],[x,y])$, then any $P in im(overline(psi)) sect L_t$ must have $P=psi([x,y],[x,y])=psi([t_1,t_2],[x',y'])$, by injectivity we must have $[x,y]=[t_1,t_2]$, or $P=psi([t_1,t_2],[t_1,t_2])$, showing that $im(overline(psi))$ is intersecting $L_t$ at exactly one point (similarly, it also intersect $M_t$ at only one point). So, this is a curve that doesn't belong to the family of curves ${L_t}_(t in PP^1), {M_t}_(t in PP^1)$.
+
+    \ 
+
+    Finally, this shows that $Q$ under Zariski Topology is not homeomorphic to product topology of $PP^1 times PP^1$, since in $PP^1 times PP^1$ under product topology (each $PP^1$ equips with Zariski Topology), the only closed sets are finite union or arbitrary intersection of products of closed sets in $PP^1$. Then, since closed sets in $PP^1$ are $emptyset, PP^1$, and finite points, then the the closed set of the form ${P} times PP^1$ and $PP^1 times {Q}$ in fact generates all the closed sets in $PP^1 times PP^1$, showing that the closed sets (other than $PP^1$ and $emptyset$) must be either finite union of lines (each line is fixing one coordinate), or intersection of arbitrary amount of lines (which can only be finite points).
+
+    However, if take the embedding $psi:PP^1 times PP^1 arrow.r Q$, the lines ${L_t}+(t in PP^1), {M_t}_(t in PP^1)$ constructed in part (b) represents all the proper nonempty closed sets that generate closed sets in $PP^1 times PP^1$. Since there are closed sets (specifically a curve which is infinite) that don't belong to any of these, meaning it cannot be created by finite unions of lines $L_t, M_u$, showing that it is not closed if $Q$ is the same as product topology on $PP^1 times PP^1$. So, $Q$ can't be homeomorphic to $PP^1 times PP^1$ under product topology.
 ]
 
-#pagebreak()
+\ 
 
-= ND (a)//5
+= D//5
 #problem[
   Hartshorne 2.16:
 
   + The intersection of two varieties need not be a variety. For example, let $Q_1$ and $Q_2$ be the quadric surfaces in $PP^3$ given by the equations $X^2-Y W=0$ and $X Y-Z W=0$, respectively. Show that $Q_1 sect Q_2$ is the union of a twisted cubic curve and a line.
   + Even if the intersection of two varieties is a variety, the ideal of the intersection may not be the sum of the ideals. For example, let $C$ be the conic in $PP^2$ given by the equation $X^2-Y Z=0$. Let $L$ be the line given by $Y=0$. Show that $C sect L$ consists of one point $P$, but that $I(C)+I(L)!= I(P)$.
 ][
-  + Consider the open set $U_Z := {Z!=0}$ (which $U_Z tilde.equiv AA^3$ with coordinates $(x,y,w)=(X/Z,Y/Z,W/Z)$). Then, the described two equations in this open set can be characterized as $x^2-y w=0$ and $x y-w=0$ (by dividing $Z^2$ on both equations). Notice that this makes the intersection $U_Z sect (Q_1 sect Q_2)$ to be the twisted cubic curve:
+  + Recall from #text(weight: "bold")[Problem 3] that the twisted cubic curve $overline(Y) subset.eq PP^3$ (instead of the affine case $Y in AA^3$ in #text(weight: "bold")[Problem 3], it's the closure here), we have homogeneous polynomials $Y W-X^2, Z W^2-X^3, Z^2W-Y^3 in I_(PP^3)(Y)$. Notice that given any $(t,t^2,t^3) in AA^3$ that's contained in the twisted cubic curve, the equations $x^2-y, x y-z$ are both satisfied, showing that $x^2-y, x y-z in I_(AA^3)(Y)$, hence their homogenized version $X^2- Y W, X Y -Z W in I_(PP^3)(overline(Y))$, which shows that $overline(Y)$ is contained in the projective algebraic set formed by $X^2-Y W, X Y-Z W$.
 
-    (Try and add an )
+    Also, notice that if we consider the curve carved out by $X=0$ and $W=0$, then the equation turns into the line ${[0,Y,Z,0]} tilde.equiv PP^1$. This is also in the algebraic set produced by the equations $X^2-Y W$ and $X Y-Z W$ (since $X=W=0$ automatically satisfies both equations).
+
+    Now, we claim that the algebraic set is precisely ${[0,Y,Z,0]} union overline(Y)$ (a line and the twisted cubic curve). Given any $[X,Y,Z,W]$ in the algebraic set, suppose first $W=0$, then the equation shows that $X^2-Y W=X^2=0$, hence $X=0$. So, $[X,Y,Z,W] in {[0,Y,Z,W]}$ which belongs to the line. Else, if $W!=0$, then one can rescale everything by $W$. Define $x:=X/W$, $y:=Y/W$ and $z:= Z/W$, we get that $X^2-Y W=0 ==> x^2-y=0$, so $y=x^2$; and $X Y-Z W=0 ==> x y-z = 0$, so $z = x y=x^3$. This shows that $[X,Y,Z,W]=[x,y,z,1] = [x,x^2,x^3,1]$. Hence, $[X,Y,Z,W]=[x,x^2,x^3,1] in Y$ the original twisted cubic curve (recall that $Y=overline(Y) sect (PP^3\\H_W)$, the part where $W!=0$).
+
+    Hence, the lagebraic set carved out by $X^2-Y W$ and $X Y-Z W$ is precisely the union of the twisted cubic curve and the line given by $X=W=0$.
+
+    \ 
 
   + Notice that both equations $X^2-Y Z, Y in k[X,Y,Z]$ are both with degree $1$ in variable $Y$, showing that they're both irreducible. Hence, since $C:= Z_(PP^2)(X^2-Y Z)$, we have $I_(PP^n)(C) = I_(PP^2)(Z_(PP^2)(X^2-Y Z)) = sqrt((X^2-Y Z))=(X^2-Y Z)$ (since the equation is irreducible, its ideal is prime). Similarly, since $L:= Z_(PP^2)(Y)$, we also have $I_(PP^2)(L)=I_(PP^2)(Z_(PP^2)(Y))=sqrt((Y))=(Y)$ by the same reasoning about irreducibility.
 
@@ -172,23 +235,28 @@
 
 #pagebreak()
 
-= ND//6
+= D//6
 #problem[
   Hartshorne 3.8:
 
   Let $H_i$ and $H_j$ be the hyperplanes in $PP^n$ defined by $x_i=0$ and $x_j=0$, with $i!=j$. Show that any regular function on $PP^n\\(H_i sect H_j)$ is constant.
 ][
-  First, recall that $PP^n$ under Zariski Topology is a Noetherian Space, hence any open subset is compact. Given that $H_i, H_j$ are both closed sets, then so is $H_i sect H_j$, hence $PP^n \\ (H^i sect H_j)$ is open, which is compact. Also, recall the fact that within Zariski Topology, any open set is dense, and if two continuous functions agree on a dense subset, they must be the same.
+  For definiteness, say $i,j=0,1$ respectively (for ease of demonstration, and the rest follows by swapping coordinates).Given any two points $[x]=[x_0,x_1,...,x_n], [y]=[y_0,y_1,...,y_n] in PP^n\\(H_i sect H_j)$, we claim that they can be connected using two lines isomorphic to $PP^1$.
+
+  Since one of $x_0,x_1$ is nonzero (similarly, one of $y_0,y_1$ is nonzero by definition of $PP^n\\(H_0 sect H_1)$).  WLOG, say $y_1$ is nonzero (since we can swap the coordinates for every operation to get the case for $y_0!=0$). Then, there are two cases to consider:
+  - First, suppose $x_1!=0$, take the line $PP^1 arrow.r PP^n$ by $[s,t] mapsto [s x_0+t y_0, x_1, s x_2+t y_2,...,s x_n+t y_n]$ (which the image is homeomorphic to $PP^1$ since it's essentially a quotient of a linear transformation that's injective from $AA^2 arrow.r AA^(n+1)$). Since $x_1!=0$, then the image of this line is lying in $PP^1\\(H_0 sect H_1)$. And, notice that for $[1,0], [0,1] in PP^1$ respectively, the corresponding points are $[x_0, x_1, x_2,...,x_n]$ and $[y_0, x_1, y_2,...,y_n]$.
+
+    Then again, consider the line $PP^1 arrow.r PP^n$ by $[s',t'] mapsto [y_0, s x_1+y t_1, y_2,...,y_n]$, since $y_0!=0$ then the image of such curve is also lying in $PP^n \\ (H_0 sect H_1)$, while the points $[0,1],[1,0]$ corresponds to $[y_0, x_1, y_2,...,y_n]$ and $[y_0,y_1,y_2,...,y_n]$ respectively.
+
+    So, these two lines in $PP^n \\ (H_0 sect H_1)$ in fact connects $[x_0,x_1,x_2,...,x_n]$ to $[y_0,y_1,y_2,...,y_n]$ (since they meet at a common point).
+
+  - Else if $x_1=0$ (which implies $x_0!=0$ based on the definition of $PP^n\\(H_0 sect H_1)$), consider the line $PP^1 arrow.r PP^n$ by $[s,t] mapsto [s x_0+t y_0, t, s x_2+t y_2,...,s x_n+t y_n]$Then, notice that the image of the line is lying in $PP^n\\(H_0 sect H_1)$ (since if it's not, we must have $t=0$, but this enforces $s!=0$, which the first coordinate $s x_0+t y_0 = s x_0!=0$, so it still stays in $PP^n\\(H_0 sect H_1)$). At $[1,0],[0,1] in PP^1$, they have the point corresponding to $[x_0,0,x_2,...,x_n] = [x_0,x_1,x_2,...,x_n]$ and $[y_0,1,y_2,...,y_n]$ respectively.
+
+    Then, consider the line $PP^1 arrow.r PP^n$ by $[s',t'] mapsto [y_0, s'+t' y_1, y_2,...,y_n]$. Since $y_0!=0$ by default, this line has image lying in $PP^n\\(H_0 sect H_1)$ also. At $[1,0],[0,1] in PP^1$ respectively, it correspond to the points $[y_0,1,y_2,...,y_n]$ and $[y_0,y_1,y_2,...,y_n]$ respectively.
+
+  Hence, in both cases we can connect any two points in $PP^n\\(H_0 sect H_1)$ using two copies of $PP^1$ (as lines in $PP^n$).
 
   \ 
 
-  Now, let $f:PP^n\\(H_i sect H_j) arrow.r k$ be a regular function. This implies that at any $[x]=[x_0,x_1,...,x_i,...,x_j,...,x_n] in PP^n\\(H_i sect H_j)$ (where either $x_i!=0$ or $x_j!=0$, given by the condition of excluding $H_i sect H_j$), there exists open neighborhood $U_([x]) subset.eq PP^n\\(H_i sect H_j)$ containing $[x]$, and homogeneous polynomials $p_([x]),q_([x])$ of the same degree (that are also coprime), such that $f = p_([x])/q_([x]):U_([x]) arrow.r k$.
-
-  Notice that if we take the collection ${U_([x])}_([x] in PP^n\\(H_i sect H_j))$, it forms an open cover of $PP^n\\(H_i sect H_j)$ (since every $[x]$ is necessarily contained in $U_([x])$), hence with compactness there exists $[x]_1,..., [x]_k in PP^n\\(H_i sect H_j)$ such that their corresponding open neighborhoods cover $PP^n \\ (H_i sect H_j)$.
-
-  Since each open subsets $U_([x]_l)$ is open in $PP^n\\(H_i sect H_j)$, an open set of $PP^n$, then $U_([x]_l)$ is also open in $PP^n$, hence every $1<=l,m<=k$ must have $U_([x]_l) sect U_([x]_m)!= emptyset$ (since in Zariski Topology every nonempty open sets must necessarily intersect), and each of such intersection is still dense in $PP^n$ (since the intersection is still an open set in $PP^n$ under Zariski Topology).
-
-  \ 
-
-  Which, given ay $1<=l,m<=k$, since we have $f=p_([x]_l)/q_([x]_l)$ on $U_([x]_l)$, and $f=p_([x]_m)/q_([x]_m)$ on $U_([x]_m)$, then we must have $p_([x]_l)/q_([x]_l)=p_([x]_m)/q_([x]_m)$ on $U_([x]_l) sect U_([x]_m)$, or $p_([x]_l) q_([x]_m)=p_([x]_m)q_([x]_l)$ as regular functions (polynomials) $U_([x]_l) sect U_([x]_m) arrow.r k$. However, since such polynomial is a well-defined 
+  Finally, recall that regular functions on any $PP^k$ is constant. So, given any regular function $f:PP^n\\(H_0 sect H_1) arrow.r k$, restricting to any lines isomorphic to $PP^1$ it must be constant. However, since any two points in $PP^n\\(H_0 sect H_1)$ can be conncted using two copies of $PP^1$ (that joins at some point), $f$ must be constant on these two copies of $PP^1$, showing that $f$ must evaluated to be the same value on both points. So, with the two points being arbitrary, $f$ must be constant on $PP^n\\(H_0 sect H_1)$.
 ]
