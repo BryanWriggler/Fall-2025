@@ -29,7 +29,7 @@
     \begin{align}
         f(n) &= \PP(X=n) = \PP(\{X>(n-1)\}\setminus \{x>n\}) = \PP(X>n-1)-\PP(X>n) \\
         &= \sum_{k=1}^{6}(-1)^{k+1}\begin{pmatrix}6\\k\end{pmatrix}\left(\frac{6-k}{6}\right)^{n-1}-\sum_{k=1}^{6}(-1)^{k+1}\begin{pmatrix}6\\k\end{pmatrix}\left(\frac{6-k}{6}\right)^n\\
-        &= \sum_{k=1}^{6}(-1)^{k+1}\begin{pmatrix}6\\k\end{pmatrix}k\left(\frac{6-k}{6}\right)^{n-1}
+        &= \sum_{k=1}^{6}(-1)^{k+1}\begin{pmatrix}6\\k\end{pmatrix}\frac{k}{6}\left(\frac{6-k}{6}\right)^{n-1} = \sum_{k=1}^{5}(-1)^{k+1}\begin{pmatrix}6\\k\end{pmatrix}\frac{k}{6}\left(\frac{6-k}{6}\right)^{n-1}
     \end{align}
 \end{proof}
 
