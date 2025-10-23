@@ -158,7 +158,7 @@
 
 #pagebreak()
 
-= HD (lie group hom in (1))//4
+= D//4
 #problem[
   Etingof Problem Set 3.9:
 
@@ -168,7 +168,9 @@
 ][
   + First, given the map $G arrow.r Aut(frak(g))$ by $g mapsto Ad g$ (where $Ad g in Aut(frak(g))$ is formally defined as $Ad(g)_*:frak(g) arrow.r frak(g)$, where $frak(g)=T_1 G$, the tangent space at identity). Which, since given any $g,h,k in G$, we have the following formula:
     $ Ad(g h)(k) = (g h)k(g h)^(-1) = (g h)k(h^(-1) g^(-1)) = Ad(g)(h k h^(-1)) = Ad(g)(Ad(h)(k)) $
-    Then, we get that $Ad(g h)=Ad(g) compose Ad(h)$, which implies that $Ad(g h)_* = Ad(g)_* compose Ad(h)_*$ (since here everything is evaluated at $1 in G$, which is invariant under any adjoint action on the Lie group itself). So, we conclude that $g h mapsto Ad g compose Ad h in Aut(frak(g))$, showing that it's indeed a group homomorphism. Together with the fact that the two Lie groups $G$ and $Aut(frak(g))$ in some sense has compatible structure, it's a Lie group homorphism.
+    Then, we get that $Ad(g h)=Ad(g) compose Ad(h)$, which implies that $Ad(g h)_* = Ad(g)_* compose Ad(h)_*$ (since here everything is evaluated at $1 in G$, which is invariant under any adjoint action on the Lie group itself). So, we conclude that $g h mapsto Ad g compose Ad h in Aut(frak(g))$, showing that it's indeed a group homomorphism. 
+    
+    The reason why this is a Lie group homomorphism, is because as $g in G$ varies smoothly, defining a local chart near $1$ realizes a basis on $frak(g) = T_1 G$, which then identifies $GL(frak(g))$ as $GL_n(RR)$ (so it has a natural smooth manifold structure). Then, with $g$ varies smoothly, the corresponding differential $Ad(g)_*$ written in terms of the basis of $frak(g)$, also has entries that variy smoothly, hence $Ad:G arrow.r GL(frak(g))$ is smooth.
 
     \ 
 
