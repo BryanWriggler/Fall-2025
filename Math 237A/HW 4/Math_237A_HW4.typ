@@ -38,7 +38,7 @@
 
   \ 
 
-  Now, let $H_0:= {[y] in PP^(N+1) | y_0=0}$ be the closed set, $PP^(N+1)\\H_0$ is an open subset of $PP^(N+1)$ that is isomorphic to $AA^(N+1)$. Notice that for any $[x] in PP^n$, we have $tilde(v)_(n,d)([x]) in PP^(N+1)\\H_0$ iff its first coordinate (which is given by $F_d([x])$) is nonzero, which is equivalent of saying that $F_d([x])!=0$, or $[x] in PP^n\\X$. Hence, we can conclude that $tilde(v)_(n,d)(PP^n\\X) = im(tilde(v)_(n,d)) sect (PP^(N+1)\\H_0)$. 
+  Now, let $H_0:= {[y] in PP^(N+1) | y_0=0}$ be the closed set, $PP^(N+1)\\H_0$ is an open subset of $PP^(N+1)$ that is isomorphic to $AA^(N+1)$. Notice that for any $[x] in PP^n$, we have $tilde(v)_(n,d)([x]) in PP^(N+1)\\H_0$ iff its first coordinate (which is given by $F_d ([x])$) is nonzero, which is equivalent of saying that $F_d ([x])!=0$, or $[x] in PP^n\\X$. Hence, we can conclude that $tilde(v)_(n,d)(PP^n\\X) = im(tilde(v)_(n,d)) sect (PP^(N+1)\\H_0)$. 
 
   Notice that $im(tilde(v)_(n,d)) subset.eq PP^(N+1)$ is an algebraic set (which is closed), hence $tilde(v)_(n,d)(PP^n\\X) = im(tilde(v)_(n,d)) sect (PP^(N+1)\\H_0)$ is closed under subspace topology of $PP^(N+1)\\H_0 tilde.equiv AA^(N+1)$, hence $PP^n\\X tilde.equiv tilde(v)_(n,d)(PP^n\\X)$ can be viewed as a closed set in $AA^(N+1)$, which is an affine algebraic set.
 
@@ -198,9 +198,9 @@
 
     \ 
 
-    Finally, this shows that $Q$ under Zariski Topology is not homeomorphic to product topology of $PP^1 times PP^1$, since in $PP^1 times PP^1$ under product topology (each $PP^1$ equips with Zariski Topology), the only closed sets are finite union or arbitrary intersection of products of closed sets in $PP^1$. Then, since closed sets in $PP^1$ are $emptyset, PP^1$, and finite points, then the the closed set of the form ${P} times PP^1$ and $PP^1 times {Q}$ in fact generates all the closed sets in $PP^1 times PP^1$, showing that the closed sets (other than $PP^1$ and $emptyset$) must be either finite union of lines (each line is fixing one coordinate), or intersection of arbitrary amount of lines (which can only be finite points).
+    Finally, this shows that $Q$ under Zariski Topology is not homeomorphic to product topology of $PP^1 times PP^1$, since in $PP^1 times PP^1$ under product topology (each $PP^1$ equips with Zariski Topology), the only closed sets are finite union or arbitrary intersection of products of closed sets in $PP^1$. Then, since closed sets in $PP^1$ are $emptyset, PP^1$, and finite points, then the the closed set of the form ${p} times PP^1$ and $PP^1 times {q}$ in fact generates all the closed sets in $PP^1 times PP^1$, showing that the closed sets (other than $PP^1$ and $emptyset$) must be either finite union of lines (each line is fixing one coordinate), or intersection of arbitrary amount of lines (which can only be finite points).
 
-    However, if take the embedding $psi:PP^1 times PP^1 arrow.r Q$, the lines ${L_t}+(t in PP^1), {M_t}_(t in PP^1)$ constructed in part (b) represents all the proper nonempty closed sets that generate closed sets in $PP^1 times PP^1$. Since there are closed sets (specifically a curve which is infinite) that don't belong to any of these, meaning it cannot be created by finite unions of lines $L_t, M_u$, showing that it is not closed if $Q$ is the same as product topology on $PP^1 times PP^1$. So, $Q$ can't be homeomorphic to $PP^1 times PP^1$ under product topology.
+    However, if take the embedding $psi:PP^1 times PP^1 arrow.r Q$, the lines ${L_t}_(t in PP^1), {M_t}_(t in PP^1)$ constructed in part (b) represents all the proper nonempty closed sets that generate closed sets in $PP^1 times PP^1$. Since there are closed sets (specifically a curve which is infinite) that don't belong to any of these, meaning it cannot be created by finite unions of lines $L_t, M_u$, showing that it is not closed if $Q$ is the same as product topology on $PP^1 times PP^1$. So, $Q$ can't be homeomorphic to $PP^1 times PP^1$ under product topology.
 ]
 
 \ 
@@ -248,11 +248,13 @@
 
     Then again, consider the line $PP^1 arrow.r PP^n$ by $[s',t'] mapsto [y_0, s x_1+y t_1, y_2,...,y_n]$, since $y_0!=0$ then the image of such curve is also lying in $PP^n \\ (H_0 sect H_1)$, while the points $[0,1],[1,0]$ corresponds to $[y_0, x_1, y_2,...,y_n]$ and $[y_0,y_1,y_2,...,y_n]$ respectively.
 
-    So, these two lines in $PP^n \\ (H_0 sect H_1)$ in fact connects $[x_0,x_1,x_2,...,x_n]$ to $[y_0,y_1,y_2,...,y_n]$ (since they meet at a common point).
+    So, these two lines in $PP^n \\ (H_0 sect H_1)$ in fact connects $[x_0,x_1,x_2,...,x_n]$ to $[y_0,y_1,y_2,...,y_n]$ (since they meet at a common point, namely $[y_0,x_1,y_2,...,y_n]$).
 
-  - Else if $x_1=0$ (which implies $x_0!=0$ based on the definition of $PP^n\\(H_0 sect H_1)$), consider the line $PP^1 arrow.r PP^n$ by $[s,t] mapsto [s x_0+t y_0, t, s x_2+t y_2,...,s x_n+t y_n]$Then, notice that the image of the line is lying in $PP^n\\(H_0 sect H_1)$ (since if it's not, we must have $t=0$, but this enforces $s!=0$, which the first coordinate $s x_0+t y_0 = s x_0!=0$, so it still stays in $PP^n\\(H_0 sect H_1)$). At $[1,0],[0,1] in PP^1$, they have the point corresponding to $[x_0,0,x_2,...,x_n] = [x_0,x_1,x_2,...,x_n]$ and $[y_0,1,y_2,...,y_n]$ respectively.
+  - Else if $x_1=0$ (which implies $x_0!=0$ based on the definition of $PP^n\\(H_0 sect H_1)$), consider the line $PP^1 arrow.r PP^n$ by $[s,t] mapsto [s x_0+t y_0, t, s x_2+t y_2,...,s x_n+t y_n]$. Then, notice that the image of the line is lying in $PP^n\\(H_0 sect H_1)$ (since if it's not, we must have $t=0$, but this enforces $s!=0$, which the first coordinate $s x_0+t y_0 = s x_0!=0$, so it still stays in $PP^n\\(H_0 sect H_1)$). At $[1,0],[0,1] in PP^1$, they have the point corresponding to $[x_0,0,x_2,...,x_n] = [x_0,x_1,x_2,...,x_n]$ and $[y_0,1,y_2,...,y_n]$ respectively.
 
-    Then, consider the line $PP^1 arrow.r PP^n$ by $[s',t'] mapsto [y_0, s'+t' y_1, y_2,...,y_n]$. Since $y_0!=0$ by default, this line has image lying in $PP^n\\(H_0 sect H_1)$ also. At $[1,0],[0,1] in PP^1$ respectively, it correspond to the points $[y_0,1,y_2,...,y_n]$ and $[y_0,y_1,y_2,...,y_n]$ respectively.
+    Then, consider the line $PP^1 arrow.r PP^n$ by $[s',t'] mapsto [y_0, s'+t' y_1, y_2,...,y_n]$. Since $y_0!=0$ by default, this line has image lying in $PP^n\\(H_0 sect H_1)$ also. At $[1,0],[0,1] in PP^1$ respectively, it correspond to the points $[y_0,1,y_2,...,y_n]$ and $[y_0,y_1,y_2,...,y_n]$ respectively. 
+    
+    Which, the two lines intersect at $[y_0,1,y_2,...,y_n]$.
 
   Hence, in both cases we can connect any two points in $PP^n\\(H_0 sect H_1)$ using two copies of $PP^1$ (as lines in $PP^n$).
 
