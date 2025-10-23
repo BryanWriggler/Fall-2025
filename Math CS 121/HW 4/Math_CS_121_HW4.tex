@@ -17,24 +17,58 @@
     Hint: For $1\leq i\leq 6$, let $E_i$ be the event that the outcome $i$ does not occur during the first $n$ tosses of the die. First calculate $\PP(X>n)$ by writing the event $X>n$ in terms of $E_1,...,E_6$.
 \end{ques}
 \begin{proof}
-    
+    Given a fair die and fix $n\geq 1$ tosses, let $E_i$ denotes the event that number $i$ doesn't occur during the first $n$ tosses of the die. To calculate $\PP(X>n)$, notice that it corresponds to the event $\bigcup_{i=1}^6 E_i$ (since at least one of the die's outcome doesn't occur during the first $n$ tosses, in case for the random variable to be greater than $n$). Hence, by inclusion-exclusion principle, we have the following:
+    \begin{align}
+        \PP(X>n) = \PP\left(\bigcup_{i=1}^{6}E_i\right) = \sum_{k=1}^{6}(-1)^{k+1}\left(\sum_{1\leq i_1 < i_2 < ... < i_k \leq 6}\PP\left(\bigcap_{j=1}^{k}E_{i_k}\right)\right)
+    \end{align}
+    Now, given any $1\leq k\leq 6$, $\PP\left(\bigcap_{j=1}^{k}E_{i_k}\right)$ (where each $i_j$ is distinct) indicates the probability that outcome $i_1,...,i_k$ never occurs in the first $n$ tosses, hence each toss is only allowed to be one of the remaining $6-k$ outcomes. Therefore, the probability is $\PP\left(\bigcap_{j=1}^{k}E_{i_k}\right) = \left(\frac{6-k}{6}\right)^n$. Also, there areo $\begin{pmatrix}6\\k\end{pmatrix}$ ways of having distinct pairs of $(i_1,...,i_k)$ from the $6$ outcomes, hence the whole probability above becomes:
+    \begin{align}
+        \PP(X>n) = \sum_{k=1}^{6}(-1)^{k+1}\left(\sum_{1\leq i_1 < i_2 < ... < i_k \leq 6}\PP\left(\bigcap_{j=1}^{k}E_{i_k}\right)\right) = \sum_{k=1}^{6}(-1)^{k+1}\begin{pmatrix}6\\k\end{pmatrix}\left(\frac{6-k}{6}\right)^n
+    \end{align}
+    Then, the probability mass function of $X$ is given by:
+    \begin{align}
+        f(n) &= \PP(X=n) = \PP(\{X>(n-1)\}\setminus \{x>n\}) = \PP(X>n-1)-\PP(X>n) \\
+        &= \sum_{k=1}^{6}(-1)^{k+1}\begin{pmatrix}6\\k\end{pmatrix}\left(\frac{6-k}{6}\right)^{n-1}-\sum_{k=1}^{6}(-1)^{k+1}\begin{pmatrix}6\\k\end{pmatrix}\left(\frac{6-k}{6}\right)^n\\
+        &= \sum_{k=1}^{6}(-1)^{k+1}\begin{pmatrix}6\\k\end{pmatrix}k\left(\frac{6-k}{6}\right)^{n-1}
+    \end{align}
 \end{proof}
 
 \newpage
 
-\section*{2 (ND)}
+\section*{2}
 \begin{ques}\label{q2}
     4.4.7:
 
     The demand of a certain weekly magazine at a newsstand is a random variable with probability mass function $p(i)=(10-i)/18$, $i=4,5,6,7$. If the magazine sells for \$a and costs \$2a/3 to the owner, and the unsold magazines cannot be returned, how many magazines should be ordered evrey week to maximize the profit in the long run?
 \end{ques}
 \begin{proof}
-    Since $p(i):=\PP(X= i)$ (while $i=4,5,6,7$), with $i$ denotes the number of demand of the magazine, and each magazine sells for \$a and costs \$2a/3. Let $Z$ be the random variable of the number of magazines sold in a week, and let $k$ be the number of magazines that's actually ordered. Then, the cost of ordering $k$ magazein is always $\frac{2a}{3}k$.
+    Since $p(i):=\PP(X= i)$ (while $i=4,5,6,7$), with $i$ denotes the number of demand of the magazine, and each magazine sells for \$a and costs \$2a/3. Let $Z$ be the random variable of the number of magazines sold in a week, and let $k$ be the number of magazines that's actually ordered. Then, the cost of ordering $k$ magazine is always $\frac{2a}{3}k$.
 
-    Meanwhile, since each sold magazine has a revenue of $a$, then the random variable associated to the revenue is $aZ$ (since $Z$ represents the number of magazines sold in a week). So, the expected revenue is given by the following:
+    Now, given that the number of order is always at least $4$, then for $k\leq 4$, it enforces $Z=k$ (since the demand is higher than the provided order), so the expeted revenue is given by $ak$.
+
+    For $k=5$, the only  case with $Z<k$ is $Z=4$, 'while the other cases all have more demands than the order. Hence, the expected revenue is given by:
     \begin{align}
-        \EE[aZ]=\sum_{i=4}^{7}a i\cdot \PP(Z=i) = a\sum_{i=4}^{7}i\cdot\frac{(10-i)}{18} = \frac{47a}{9}
+        4a\cdot \frac{10-4}{18} + 5a \cdot \frac{12}{18} = \frac{14a}{3}
     \end{align}
+    (since there's a probability of $\frac{10-4}{18}$ to have $4$ people buying, while $1-\frac{10-4}{18}=\frac{12}{18}$ to have at least $5$ people buying).
+
+    Apply the same logic for $k=6$, the cases with $Z<k$ is $Z=4,5$, while the remaining order all have demands at least the same with the order. Hence, the expected revenue is given by:
+    \begin{align}
+        4a\cdot \frac{10-4}{18} + 5a\cdot \frac{10-5}{18} + 6a \cdot \frac{7}{18} = \frac{91a}{18}
+    \end{align}
+
+    For $k=7$, the order is always at least the same as the demand. Hence, the expected revenue is given by:
+    \begin{align}
+        \sum_{i=4}^{7}ai \cdot \frac{10-i}{18}=\frac{47a}{9}
+    \end{align}
+    Hence, the profit under each choice is given by:
+    \begin{itemize}
+        \item If $k\leq 4$, the expected profit is $ak-\frac{2a}{3}k = \frac{ak}{3}\leq \frac{4a}{3}$. (In particular, $k=4$ provides $\frac{4a}{3}$).
+        \item If $k=5$, the expected profit is $\frac{14a}{3}-\frac{2a}{3}\cdot 5 = \frac{4a}{3}$.
+        \item If $k=6$, the expected profit is $\frac{91a}{18}-\frac{2a}{3}\cdot 6=\frac{19a}{18}$.
+        \item If $k=7$, the expected profit is $\frac{47a}{19}-\frac{2a}{3}\cdot 7=\frac{5a}{9}$.
+    \end{itemize}
+    Hence, to maximize the profit in the long term, it's better to order $4$ or $5$ magazines per week (since the expected profit are the highest).
 \end{proof}
 
 \newpage
@@ -82,7 +116,7 @@
     \end{align}
 \end{proof}
 
-\newpage
+\hfil
 
 \section*{5}
 \begin{ques}\label{q5}
