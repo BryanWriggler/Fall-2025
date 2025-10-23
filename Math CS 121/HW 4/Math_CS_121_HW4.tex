@@ -17,22 +17,23 @@
     Hint: For $1\leq i\leq 6$, let $E_i$ be the event that the outcome $i$ does not occur during the first $n$ tosses of the die. First calculate $\PP(X>n)$ by writing the event $X>n$ in terms of $E_1,...,E_6$.
 \end{ques}
 \begin{proof}
-    For each $n\in\NN$, let $E_i$ be the event that the number $i$ doesn't occur during the first $n$ tosses of the die. Since each toss of the die is independent, then for number $i$ to not occur during the first $n$ tosses, each toss must be the other $5$ numbers, which has probability $\frac{5}{6}$ of happening for each toss. So, $\PP(E_i) = (\frac{5}{6})^n$ (since each toss must be out of the $5$ numbers, while every toss is independent).
-
-    Now, if consider the probability $\PP(X>n)$, 
+    
 \end{proof}
 
 \newpage
 
-\section*{2}
+\section*{2 (ND)}
 \begin{ques}\label{q2}
+    4.4.7:
+
     The demand of a certain weekly magazine at a newsstand is a random variable with probability mass function $p(i)=(10-i)/18$, $i=4,5,6,7$. If the magazine sells for \$a and costs \$2a/3 to the owner, and the unsold magazines cannot be returned, how many magazines should be ordered evrey week to maximize the profit in the long run?
 \end{ques}
 \begin{proof}
-    Since $p(i):=\PP(X= i)$ (while $i=4,5,6,7$), with $i$ denotes the number of demand of the magazine, and each magazine sells for \$a and costs \$2a/3. Which, let $k$ denotes the total number of magazines ordered. If selling out total of $i$ magazines, the profit $Z_i = i a-\frac{2k}{3}a = \left(i-\frac{2k}{3}\right)a$. So, if fixing $k>0$, together with the provided probability mass function, the expectation value of the profit is:
+    Since $p(i):=\PP(X= i)$ (while $i=4,5,6,7$), with $i$ denotes the number of demand of the magazine, and each magazine sells for \$a and costs \$2a/3. Let $Z$ be the random variable of the number of magazines sold in a week, and let $k$ be the number of magazines that's actually ordered. Then, the cost of ordering $k$ magazein is always $\frac{2a}{3}k$.
+
+    Meanwhile, since each sold magazine has a revenue of $a$, then the random variable associated to the revenue is $aZ$ (since $Z$ represents the number of magazines sold in a week). So, the expected revenue is given by the following:
     \begin{align}
-        \EE[Z] &= \sum_{i=4}^7 p(i)Z_i = \frac{1}{3}\cdot \left(4-\frac{2k}{3}\right)a+\frac{5}{18}\left(5-\frac{2k}{3}\right)a+\frac{2}{9}\left(6-\frac{2k}{3}\right)a+\frac{1}{6}\left(7-\frac{2k}{3}\right)a\\
-        &= a\left(\frac{47}{9}-\frac{2k}{3}\right)
+        \EE[aZ]=\sum_{i=4}^{7}a i\cdot \PP(Z=i) = a\sum_{i=4}^{7}i\cdot\frac{(10-i)}{18} = \frac{47a}{9}
     \end{align}
 \end{proof}
 
@@ -40,64 +41,253 @@
 
 \section*{3}
 \begin{ques}\label{q3}
+    4.4.13:
+
+    Let $X$ be the number of different birthdays among four persons selected randomly. Find $\EE[X]$.
 \end{ques}
 \begin{proof}
+    Since there must  have at least one birthday and at most $4$ birthdays (since it's limited to only $4$ people), the $X \in \{1,2,3,4\}$. 
+
+    First, for $X=1$, since everyone must have the same birthday, assume every person must have the same birthday, so the probability is given as $\PP(X=1)=\frac{1}{(365)^4}\cdot 365 = \frac{1}{(365)^3}$ (the first $(365)^{-4}$ indicates after fixing a birthday, the probability that everyone gets that birthday; and since there are $365$ days that can be birthday, then there are $365$ such cases).
+
+    Then, for $X=2$, either one person is having distinct birthday from the other three, or two of the people have the same birthday (while the other two have the same birthday as well). In the first case, the probability is given by $\frac{1}{365}\cdot 365 \cdot \frac{1}{365^3}\cdot 364$ (where the first $\frac{1}{365}\cdot 365$ indicates what the distinct person can be, which is basicaly free; the $\frac{1}{365^3}\cdot 364$ indicates the probability of all the other three people having same birthday, while they have $364$ remaining choices for birthday). For the second case, apply similar idea, and we et probability $\frac{1}{(365)^2}\cdot 365 \cdot \frac{1}{(365)^2}\cdot 364 \cdot \begin{pmatrix}4\\2\end{pmatrix}$ (here $\begin{pmatrix}4\\2\end{pmatrix}$ indicates the number of ways for such $2$ people group to form out of $4$). Hence, the total probability is $\PP(X=2)=\frac{364}{365^3}\cdot 7$ (where $7 = 1+\begin{pmatrix}4\\2\end{pmatrix}$).
+
+    For $X=3$, we must have two people, each with distinct birthday, and the last two people share the same birthday. So, the probability is $\begin{pmatrix}4\\2\end{pmatrix}\frac{365}{365}\frac{1}{365}\cdot \frac{364}{365}\cdot\frac{363}{365}$ (since there are $\begin{pmatrix}4\\2\end{pmatrix}$ distinct ways of having $2$ people with the same birthday, which each has probability givn by $\frac{1}{365}$; then the other two people must choose distinct birthdays from the remaining $364$ and $363$ day respectively, based on the choice order).
+
+    Finally, for $X=4$, everyone must have distinct birthday, so the probability is given by $\frac{365}{365}\cdot\frac{364}{365}\cdot \frac{363}{365}\cdot\frac{362}{365}$.
+
+    Hence, the expected value is given by the summation of $i\cdot \PP(X=i)$ (where $1\leq i\leq 4$), which is calculated as:
+    \begin{align}
+        \EE[X] &= 1\cdot\frac{1}{365^3}+2\cdot\frac{364}{365^3}\cdot 7+3\cdot\begin{pmatrix}4\\2\end{pmatrix}\frac{365}{365}\frac{1}{365}\cdot \frac{364}{365}\cdot\frac{363}{365} + 4\cdot\frac{365}{365}\cdot\frac{364}{365}\cdot \frac{363}{365}\cdot\frac{362}{365}\\
+        &\approx 3.9836
+    \end{align}
 \end{proof}
 
 \newpage
 
 \section*{4}
 \begin{ques}\label{q4}
+    4.4.15:
+
+    Suppose that there exist $N$ families on the earth and that the maximum number of children a family has is $c$. For $j=0,1,2,...,c,$ let $\alpha_j$ be the fraction of families with $j$ children ($\sum_{j=0}^c \alpha_j=1$). A \emph{child} is selected at random from the set of all children in the world. Let this childe be the $K$th born of his or her family; then $K$ is a random variable. Find $\EE[K]$.
 \end{ques}
 \begin{proof}
+    Since $\alpha_j$ is the fraction of the families with $j$ children ($1\leq j\leq c$), then there are $N\cdot \alpha_j$ families with $j$ children, which also indicates there are this amount of children having a $j$th born children. 
+
+    Also, this indicates that there are $j\cdot N\cdot \alpha_j$ children among the families with $j$ children, hence the total number of children is given by $\sum_{j=1}^{c}j\cdot N\cdot \alpha_j$ (since $1\leq j\leq c$).
+
+    Therefore, the probability for selecting a children that is a $k$th born child is given by $\PP(K=k) = \frac{k\cdot N\cdot \alpha_k}{\sum_{j=1}^{c}j\cdot N\cdot \alpha_j}$. Hence, the expected value is given as follow:
+    \begin{align}
+        \EE[K]=\sum_{k=1}^{c}\PP(K=k)\cdot k = \frac{\sum_{k=1}^{n}k^2\cdot N\cdot \alpha_k}{\sum_{j=1}^{c}j\cdot N\cdot \alpha_j}
+    \end{align}
 \end{proof}
 
 \newpage
 
 \section*{5}
 \begin{ques}\label{q5}
+    4.4.16:
+
+    An ordinary deck of $52$ cards is well-shuffled, and then the cards are turned face up one by one until an ace appears. Find the expected number of cards that are face up.
 \end{ques}
 \begin{proof}
+    First, notice that regardless of the case, the number of cards that get turned face up must be at most 49 (since under the most extreme case the last four cards are aces, then the $49$th card must be ace).
+
+    Let $B_i$ denotes the event that there are $i$ cards facing up, where $1\leq i\leq 49$ (which, $B_i \cap B_j=\emptyset$ if $i\neq j$). Which, in case for $B_i$ to happen, we must have the first $(i-1)$ cards all being picked from $52-4=48$ cards (that are not aces), and the $i$th card being picked from $4$ aces (since order does matter here it's permutation, not combination), while the remaining $52-i$ cards can be arbitrarily permuted. So, the probability of that is given by:
+    \begin{align}
+        \PP(B_i)=\frac{48!/(49-i)!}{52!}\cdot 4\cdot (52-i)! = \frac{(52-i)!}{13\cdot 51\cdot 50\cdot 49\cdot (49-i)!}
+    \end{align}
+    (Note: the first part is the number of ways of picking $(i-1)$ items in order out of $48$ items, over the total ways of shuffling the cards. The eventual $4$ indicates there are $4$ ways of choosing the $i$th card, which is supposed to be an ace. Finally, the $(52-i)!$ indicates the number of ways one can order the remaining $52-i$ cards, after fixing the first $i$ ones using the previous logic).
+
+    Hence, let $X$ denote the random variable of having $i$ cards facing up (where $\PP(X=i) = \PP(B_i)$ based on the previous construction), we have the following:
+    \begin{align}
+        \EE[X] = \sum_{i=1}^{49}i \cdot \PP(X=i) = \frac{1}{13\cdot 51\cdot 50\cdot 49}\sum_{i=1}^{49}\frac{i(52-i)!}{(49-i)!} = 10.6
+    \end{align}
+
+
 \end{proof}
 
-\newpage
+\hfil
+
+\hfil
 
 \section*{6}
 \begin{ques}\label{q6}
+    4.5.10:
+
+    A drunken man has $n$ keys, one of which opens the door to his office. He tries the keys at random, one by one, and independently. Compute the mean and the variance of the number of trials required to open the door if the wrong keys (a) are not eliminated; (b) are eliminated.
 \end{ques}
 \begin{proof}
+
+    \hfil
+
+    \begin{itemize}
+        \item[(a)] If the wrong keys are not eliminated, since each time there is a probability of $\frac{1}{n}$ getting the right key (while $\frac{n-1}{n}$ getting the wrong key), the probability of getting it on the $k$th trial is $\left(\frac{n-1}{n}\right)^{k-1}\frac{1}{n}$ (failed the first $n-1$ trial, and get it right on the $k$th trial). Hence, let $X$ be the random variable of the number of trials needed to openn the door, the expected value is:
+        \begin{align}
+            \EE[X]&=\sum_{k=1}^{\infty}k\cdot \left(\frac{n-1}{n}\right)^{k-1}\frac{1}{n} = \frac{1}{n}\sum_{k=0}^{\infty}(k+1)\left(\frac{n-1}{n}\right)^{k} = \frac{1}{n}\sum_{j=0}^{\infty}\sum_{k=j}^{\infty}\left(\frac{n-1}{n}\right)^k\\
+            &= \frac{1}{n}\sum_{j=0}^{\infty}\left(\frac{n-1}{n}\right)^j\sum_{k=0}^{\infty}\left(\frac{n-1}{n}\right)^k = \frac{1}{n}\sum_{j=0}^{\infty}\left(\frac{n-1}{n}\right)^j \cdot n = \sum_{j=0}^{\infty}\left(\frac{n-1}{n}\right)^j = n
+        \end{align}
+        Where, the secomd moment is given as follow instead:
+        \begin{align}
+            \EE[X^2]&=\sum_{k=1}^{\infty}k^2\cdot \left(\frac{n-1}{n}\right)^{k-1}\frac{1}{n} = \frac{1}{n}\sum_{k=0}^{\infty}(k+1)^2\left(\frac{n-1}{n}\right)^k = \frac{1}{n}\sum_{j=0}^{\infty}(2j+1)\sum_{k=j}^{\infty}\left(\frac{n-1}{n}\right)^k\\
+            &= \frac{1}{n}\sum_{j=0}^{\infty}(2j+1)\left(\frac{n-1}{n}\right)^j\sum_{k=0}^{\infty}\left(\frac{n-1}{n}\right)^k = \frac{1}{n}\sum_{j=0}^{\infty}(2j+1)\left(\frac{n-1}{n}\right)^j\cdot n\\
+            &= \sum_{j=0}^{\infty}(2j+1)\left(\frac{n-1}{n}\right)^j = n + 2\sum_{j=0}^{\infty}j\left(\frac{n-1}{n}\right)^j = n+2\sum_{l=1}^{\infty}\sum_{j=l}^{\infty}\left(\frac{n-1}{n}\right)^j\\
+            &= n+2\sum_{l=1}^{\infty}\left(\frac{n-1}{n}\right)^l\sum_{j=0}^{\infty}\left(\frac{n-1}{n}\right)^j = n+2n\sum_{l=1}^{\infty}\left(\frac{n-1}{n}\right)^l = n+2n(n-1) = n(2n+1)
+        \end{align}
+        So, the variance is given by $\textmd{Var}(X)=\EE[X^2]-(\EE[x])^2 = n(2n+1)-n^2 = n(n+1)$.
+
+        \item[(b)] If the wrong keys are eliminated, then the probability of getting the right key on the $k$th trial is given by $\frac{\begin{pmatrix}n-1\\k-1\end{pmatrix}}{\begin{pmatrix}n\\k-1\end{pmatrix}}\cdot \frac{1}{n-k+1}$ (since it needs to choose $k-1$ out of the $n-1$ wrong keys to fail first, then get the right key on the $k$th trial, which has total of $n-k+1$ keys ramain). Hence, let $Y$ be the random variable of the number of trials needed to open the door, the expected value is:
+        \begin{align}
+            \EE[Y]&=\sum_{k=1}^{n}k\cdot \frac{\begin{pmatrix}n-1\\k-1\end{pmatrix}}{\begin{pmatrix}n\\k-1\end{pmatrix}}\cdot \frac{1}{n-k+1} = \sum_{k=1}^{n}k\cdot \frac{(n-1)!}{(k-1)!((n-1)-(k-1))!}\cdot \frac{(k-1)!(n-k+1)!}{n!}\cdot \frac{1}{n-k+1}\\
+            &=\sum_{k=1}^{n}\frac{k}{n} = \frac{n(n+1)}{2n} = \frac{n+1}{2}
+        \end{align}
+        Meanwhile, the second moment is given by:
+        \begin{align}
+            \EE[Y^2]=\sum_{k=1}^{n}k^2\cdot \frac{\begin{pmatrix}n-1\\k-1\end{pmatrix}}{\begin{pmatrix}n\\k-1\end{pmatrix}}\cdot \frac{1}{n-k+1} = \sum_{k=1}^{n}\frac{k^2}{n} = \frac{n(n+1)(2n+1)}{6n} = \frac{(n+1)(2n+1)}{6}
+        \end{align}
+        Hence, the variance is givenn by $\textmd{Var}(Y)=\EE[Y^2]-(\EE[Y])^2 = \frac{(n+1)(2n+1)}{6}-\frac{(n+1)^2}{4} = \frac{(n+1)(4n+2)-(n+1)(3n+3)}{12} = \frac{(n+1)(n-1)}{12} = \frac{n^2-1}{12}$.
+    \end{itemize}
 \end{proof}
 
 \newpage
 
 \section*{7}
 \begin{ques}\label{q7}
+    4.5.14:
+
+    Let $X$ and $Y$ be two discrete random variables with the identical set of possible values $A={a_1,a_2,...,a_n}$, where $a_1,a_2,...,a_n$ are $n$ \emph{different} real numbers. Show that if 
+    $$\EE[X^r]=\EE[Y^r], \quad r=1,2,...,n-1$$
+    Then $X$ and $Y$ are identically distributed. That is,
+    $$\PP(X=t)=\PP(Y=t),\quad t=a_1,a_2,...,a_n$$
 \end{ques}
 \begin{proof}
+    Consider the linear operator $V:\RR^n \rightarrow \RR^n$, given by the following:
+    \begin{align}
+        V(x_1,...,x_n) = \begin{pmatrix}
+            1 & 1 & 1 & ... & 1\\
+            a_1 & a_2 & a_3& ... & a_n\\
+            a_1^2 & a_2^2 & a_3^2 & ... & a_n^2\\
+            \vdots & \vdots & \vdots & \ddots & \vdots\\
+            a_1^{n-1} & a_2^{n-1} & a_3^{n-1} & ... & a_n^{n-1}
+        \end{pmatrix}\begin{pmatrix}
+            x_1\\x_2\\x_3\\...\\x_n
+        \end{pmatrix}
+    \end{align}
+    This is the famous Vandermond Transformation (or Vandermond Matrix). Since the list $a_1,...,a_n$ is distinct, then such matrix / operator is invertible, hence bijective. Which, notice that given the vector $p_X = (x_1,...,x_n)$, where each $x_i= \PP(X=a_i)$, then we have the following:
+    \begin{align}
+        V(p_X) = \begin{pmatrix}
+            1 & 1 & 1 & ... & 1\\
+            a_1 & a_2 & a_3& ... & a_n\\
+            a_1^2 & a_2^2 & a_3^2 & ... & a_n^2\\
+            \vdots & \vdots & \vdots & \ddots & \vdots\\
+            a_1^{n-1} & a_2^{n-1} & a_3^{n-1} & \vdots & a_n^{n-1}
+        \end{pmatrix}\begin{pmatrix}
+            \PP(X=a_1)\\\PP(X=a_2)\\\PP(X=a_3)\\\vdots \\\PP(X=a_n)
+        \end{pmatrix} = \begin{pmatrix}
+            \sum_{i=1}^{n}\PP(X=a_i)\\\sum_{i=1}^{n}a_i\PP(X=a_i)\\\sum_{i=1}^{n}a_i^2\PP(X=a_i)\\\vdots\\\sum_{i=1}^{n}a_i^{n-1}\PP(X=a_i)
+        \end{pmatrix} = \begin{pmatrix}
+            1\\\EE[X^1]\\\EE[X^2]\\\vdots \\\EE[X^{n-1}]
+        \end{pmatrix}
+    \end{align}
+
+    Define $p_Y=(y_1,...,y_n)$ to be similar vector, but instead each $y_i=\PP(Y=a_i)$. Then, we also get the following:
+    \begin{align}
+        V(p_Y)= \begin{pmatrix}
+            1\\\EE[Y^1]\\\EE[Y^2]\\\vdots \\\EE[Y^{n-1}]
+        \end{pmatrix}
+    \end{align}
+    Which, if assume that $\EE[X^r]=\EE[Y^r]$ for all $r=1,...,(n-1)$, then we concluded that $V(p_X)=V(p_Y)$ (since all their entries match up). Hence, with $V$ being invertible, it implies $p_X=p_Y$. Therefore, we must have $\PP(X=a_i)=\PP(Y=a_i)$ for each index $i$, showing $X,Y$ have identical distribution. 
+
+    (I love this question, Vandermond Matrix is so elegent).
 \end{proof}
 
 \newpage
 
 \section*{8}
 \begin{ques}\label{q8}
+    5.1.26:
+
+    Suppose that an aircraft engine will fail in flight with probability $1-p$ independently of the plane's other engines. Also suppose that a plane can complete the journey successfully if at least half of its engines do not fail.
+
+    \begin{itemize}
+        \item[(a)] Is it true that a four-engine plane is always preferable to a two-engine plane? Explain.
+        \item[(b)] Is it true that a five-engine plane is always preferable to a three-engine plane? Explain.
+    \end{itemize}
 \end{ques}
 \begin{proof}
+    For this problem, we'll assume that a plane is preferable compared to the other, meaning it has a higher probability of complete the journey successfully.Since failure of an engine is independent with each other, then engines not failing (with probability $p$) is still independent from other engines also.
+
+    \begin{itemize}
+        \item[(a)] For a four-engine plane, it can complete the journey if either $2,3$ or $4$ engines don't fail. Which, let $X$ be the random variable of the number of engines that don't fail, the probability is given by:
+        \begin{align}
+            \PP(X\geq 2) &= 1-\PP(X<2) = 1-\PP(X\leq 1) = 1- \PP(X=0) - \PP(X=1)\\
+            &= 1 - \begin{pmatrix}4\\0\end{pmatrix}p^0\cdot (1-p)^4 - \begin{pmatrix}4\\1\end{pmatrix}p^1\cdot (1-p)^3 = 1-(1-p)^4 - 4p(1-p)^3
+        \end{align}
+
+        For a two-engine plane, it can complete the journey if at least $1$ of its engine dont fail. Which, the probability is given by:
+        \begin{align}
+            \PP(X\geq 1)&= 1-\PP(X<1) = 1-\PP(X=0) = 1-\begin{pmatrix}2\\0\end{pmatrix}p^0\cdot (1-p)^2 = 1-(1-p)^2
+        \end{align}
+        Notice that if taken $p=\frac{1}{4}$ for instance, the four-engine plane has a probability of completing the journey being $\frac{67}{256}$, while the two-engine plane has the probability being $\frac{112}{256}$, showing it's more probable for the two-engine plane to complete the journey successfully. Hence' it's not true that a four-engine plane is always more preferable than a two-engine plane.
+
+        \item[(b)] Using the same logic adapted from part (a), since a five-engine plane can complete the journey if at least $3$ engines don't fail, then the probability is given by:
+        \begin{align}
+            \PP(X\geq 3) = \PP(X=3)+\PP(X=4)+\PP(X=5) = \begin{pmatrix}5\\3\end{pmatrix}p^3(1-p)^2 + \begin{pmatrix}5\\4\end{pmatrix}p^4(1-p)^1 + \begin{pmatrix}5\\5\end{pmatrix}p^5(1-p)^0
+        \end{align}
+        Similarly, a three-engine plane can complete the journey if at least $2$ engines don't fail, so the probability is given by:
+        \begin{align}
+            \PP(X\geq 2)=\PP(X=2)+\PP(X=3)= \begin{pmatrix}3\\2\end{pmatrix}p^2(1-p)^1 + \begin{pmatrix}3\\3\end{pmatrix}p^3(1-p)^0
+        \end{align}
+        Again, choose $p=\frac{1}{4}$, the five-engine plane has probability of completing the journey being $\frac{53}{512}$, while the three-engine plane has probability being $\frac{80}{512}$, showing it's more probable for a three-engine plane to complete the journey successufully in this probability. Hence, it's not always true that five-engine plane is more preferable to a three-engine plane.
+    \end{itemize}
 \end{proof}
 
 \newpage
 
 \section*{9}
 \begin{ques}\label{q9}
+    5.1.33:
+
+    An urn contains $n$ balls whose colors, red or blue, are equally probable. (For example, the probability that all the balls are red is $(1/2)^n$), If in drawing $k$ balls from the urn, successively with replacement and randomly, no red balls appear, what is the probability that the urn contains no red balls?
+
+    Hint: Use Bayes' Theorem.
 \end{ques}
 \begin{proof}
+    Let $K$ denotes the event of drawing $k$ balls from the urn such that no red balls appear (randomly, and successively with replacement), while $N$ denotes the event that the urn contains no red balls. Based on the description, the goal is to find $\PP(N|K)$. Which, by Bayes's Theorm $\PP(K|N)=\frac{\PP(K|N)\PP(N)}{\PP(K)}$.
+
+    \hfil
+
+    First, given that $N$ happens (i.e. all the balls are not red), then drawing $k$ balls from the urn every ball must be not red, hence $K$ must always happen, showing that $\PP(K|N)=1$.
+
+    Then, since each ball is equally probable of being red or blue, then for $N$ to happen (none of the balls are red, or all balls are blue), we must have $\PP(N)=\frac{1}{2^n}$.
+
+    Finally, for $\PP(K)$, it needs to be discussed in all possible cases of balls in the urn: Let $B_{l}$ denotes the event that out of $n$ balls there are $l$ balls being not red (or blue), then $\PP(B_l)=\frac{1}{2^n}\cdot\begin{pmatrix}n\\l\end{pmatrix}$ (since there are $nCl$ ways of have $l$ of them being blue, while each possible case has a probability of $\frac{1}{2^n}$ by default). Which, if the event $B_l$ happens, then the probability of drawing a non-red ball (or a blue ball) is $\frac{l}{n}$ (since there are $l$ balls being blue). Since the drawing situation is with replacement and at random, the previous draw wouldn't affect the future draw, hence the probability of drawing $k$ balls (all being non-red) is $\left(\frac{l}{n}\right)^k$, or $\PP(K|B_l)=\left(\frac{l}{n}\right)^k$. Hence, with $B_l \cap B_q=\emptyset$ (if $l!=\neq q$), probability of $K$ is expressed as:
+    \begin{align}
+        \PP(K)=\sum_{l=0}^{n}\PP(K|B_l)\PP(B_l) = \sum_{l=0}^{n}\left(\frac{l}{n}\right)^k\cdot\begin{pmatrix}n\\l\end{pmatrix}\cdot\frac{1}{2^n}
+    \end{align}
+    Plug all the values back, we get the following:
+    \begin{align}
+        \PP(N|K) =\frac{\PP(K|N)\PP(N)}{\PP(K)}= \frac{1\cdot 1/2^n}{\sum_{l=0}^{n}\left(\frac{l}{n}\right)^k\cdot\begin{pmatrix}n\\l\end{pmatrix}\cdot\frac{1}{2^n}} = \frac{n^k}{\sum_{l=0}^{n}l^k\begin{pmatrix}n\\l\end{pmatrix}}
+    \end{align}
 \end{proof}
 
 \newpage
 
 \section*{10}
 \begin{ques}\label{q10}
+    From a set of $n$ elements, a nonempty subset is chosen at random (i.e. all of the nonempty subsets are equally likely to be selected). Find the expected number of elements in the chosen subset.
 \end{ques}
 \begin{proof}
+    Given an $n$-element set, then the number of $k$-element subsets are precisely given by $\begin{pmatrix}n\\k\end{pmatrix}$ (since we need all distinct ways of choosing $k$ elements from $n$ elements to form a subset).
+
+    Hence, let $X$ be the random variable denoting the number of element in a nonempty subset (so $X\geq 1$ for every subsets), then $\PP(X=k)=\frac{\begin{pmatrix}n\\k\end{pmatrix}}{2^n-1}$ (where $2^n$ denotes the total number of subsets, subtracting 1 because $\emptyset$ needs to be eliminated based on the setup). 
+
+    So, the expected number of elements if random nonempty subset is chosen, is given by follow:
+    \begin{align}
+        \EE[X]&=\sum_{k=1}^{n} k\cdot \PP(X=k) = \frac{1}{2^n-1}\sum_{k=1}^{n}k\begin{pmatrix}n\\k\end{pmatrix} = \frac{1}{2^n-1}\sum_{k=1}^{n}\frac{n!}{(k-1)!(n-k)!}\\ 
+        &= \frac{n}{2^n-1}\sum_{k=1}^{n}\frac{(n-1)!}{(k-1)!((n-1)-(k-1))!} = \frac{n}{2^n-1}\sum_{k=0}^{n-1}\frac{(n-1)!}{k!((n-1)-k)!}\\
+        &= \frac{n}{2^n-1}\sum_{k=0}^{n-1}\begin{pmatrix}n-1\\k\end{pmatrix} = \frac{n}{2^n-1}\cdot 2^{n-1}
+    \end{align}
 \end{proof}
 
 \end{document}
