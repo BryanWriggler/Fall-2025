@@ -1,21 +1,16 @@
 \documentclass{article}
 \usepackage{../../Self_Style}
 
-\title{Latex Template}
+\title{Phys 115A}
 \author{Zih-Yu Hsieh}
 \date{\today}
 
 \begin{document}
 \maketitle
 
+\section*{1}
 \begin{ques}\label{q1}
-Physics 115A, Problem Set 3
-
-Due Wednesday 2/7 @ 9pm on Gradescope
-
-Suggested reading: Griffiths 2.3.
-
-\textbf{1 Clever Commutation}
+\textbf{Clever Commutation}
 
 Suppose I give you a quantum system that can be described with a raising operator $a^+$ and
 a lowering operator $a^-$ that satisfy the commutation relation $[a^-, a^+] = 1$ (it doesn’t have
@@ -39,6 +34,28 @@ $\Psi$ is properly normalized.
 \end{ques}
 
 \begin{proof}
+    \begin{itemize}
+
+        \hfil
+
+        \item[(a)] Given that $[a^-, a^+]=1$ (or identity operator), we have $a^-a^+=1+a^+a^-$, so the relation $a^-a^+\psi=\psi+a^+a^-\psi = \psi$, hence $\psi$ is an eigenvector of the linear operator $a^-a^+$ with eigenvalue $1$. Which, if consider the vector $a^+\psi$, we get the following:
+        \begin{align}
+            a^-a^+(a^+\psi) &= a^+\psi+a^+(a^-a^+\psi) = a^+\psi + a^+\psi=2(a^+\psi)
+        \end{align}
+        Hence, $a^+\psi$ is an eigenvector of $a^-a^+$ with eigenvalue $2$. Inductively, suppose given $n\in\NN$ one has $(a^+)^n\psi$ being an eigenvector of $a^-a^+$ with eigenvalue $(n+1)$, then for the case of $(n+1)$, the following is true:
+        \begin{align}
+            a^-a^+((a^+)^{n+1}\psi) &= (a^+)^{n+1}\psi+a^+(a^-(a^+)^{n+1}\psi)=(a^+)^{n+1}\psi+a^+((a^-a^+)(a^+)^{n}\psi)\\
+            &= (a^+)^{n+1}\psi+(n+1) a^+(a^+)^{n}\psi = (n+2)(a^+)^{n+1}\psi
+        \end{align}
+        Hence, by induction, all $n\in\NN$ satisfies $(a^+)^n\psi$ being an eigenvector of $a^-a^+$ with eigenvalue $(n+1)$.
+
+        With some simplification, another round of induction can be done on the vector of the form $\Psi=(a^-)^n(a^+)^n\psi$: For $n=2$, one has $(a^-)(a^-a^+)(a^+\psi) = 2a^-a^+\psi = 2\psi$. Which, inductively suppose given $n\in\NN$ one has $(a^-)^n(a^+)^n\psi=n!\psi$, then for the case of $(n+1)$, the following is true:
+        \begin{align}
+            (a^-)^{n+1}(a^+)^{n+1}\psi &= (a^-)^n (a^-a^+)(a^+)^n\psi = (n+1)(a^-)^n(a^+)^n \psi = (n+1)!\psi
+        \end{align}
+        Hence, by induction, all $n\in\NN$ satisfies $(a^-)^n(a^+)^n\psi = n!\psi$. So, with $\Psi = c(a^-)^4(a^+)^4\psi$, one has $\Psi = c\cdot 4!\psi$, hence with $c!=0$, $\Psi$ (viewed as a state) is normalizable. With $\psi$ being normalized, it requires $c=\frac{1}{4!}$ for $\Psi$ to be properly normalized.
+    \end{itemize}
+
 \end{proof}
 
 \newpage
