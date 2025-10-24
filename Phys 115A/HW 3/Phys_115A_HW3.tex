@@ -1,0 +1,173 @@
+\documentclass{article}
+\usepackage{../../Self_Style}
+
+\title{Latex Template}
+\author{Zih-Yu Hsieh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{ques}\label{q1}
+Physics 115A, Problem Set 3
+
+Due Wednesday 2/7 @ 9pm on Gradescope
+
+Suggested reading: Griffiths 2.3.
+
+\textbf{1 Clever Commutation}
+
+Suppose I give you a quantum system that can be described with a raising operator $a^+$ and
+a lowering operator $a^-$ that satisfy the commutation relation $[a^-, a^+] = 1$ (it doesn’t have
+to be the quantum harmonic oscillator, specifically). You know that there is a properly-
+normalized state $\psi$ that is annihilated by $a^-$, i.e., you know that $a^- \psi = 0$, but I don’t tell
+you how $a^+$ acts on $\psi$.
+
+(a) I prepare for you a state
+\[
+\Psi = c\times (a^-a^-a^-a^-a^+a^+a^+a^+\psi)
+\]
+where $c$ is a real constant. Is $\Psi$ a normalizable state? If so, find $c$ such that $\Psi$ is
+properly normalized. What is the relation between $\Psi$ and $\psi$?
+
+(b) I prepare for you a different state
+\[
+\Psi = c\times (a^-a^-a^-a^-a^+a^+ \psi)
+\]
+where $c$ is a real constant. Is this new $\Psi$ a normalizable state? If so, find $c$ such that
+$\Psi$ is properly normalized.
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\begin{ques}\label{q2}
+\textbf{2 Constructing States (modified Griffiths 2.10 and 2.14)}
+
+Given the explicit solution for the ground state of the harmonic oscillator,
+\[
+\psi_0(x) = \left(\frac{m\omega}{\pi \hbar}\right)^{1/4} e^{- \frac{m\omega}{2\hbar}x^2}
+\]
+
+(a) Construct $\psi_2(x)$ explicitly using the algebra formalism. (Hint: $\psi_1(x)$ is constructed
+this way in Griffiths Example 2.4.)
+
+(b) Check the orthogonality of $\psi_0$, $\psi_1$, and $\psi_2$ by explicit integration. Hint: If you exploit
+the evenness and oddness of the functions, there is really only one integral left to
+do.
+
+(c) Find the classical turning points for $\psi_0$, $\psi_1$, and $\psi_2$ (i.e., the values of $x$ where the
+kinetic energy goes to zero for a classical harmonic oscillator of known total energy).
+
+(d) Sketch $\psi_0$, $\psi_1$, $\psi_2$, $\psi_3$. For each state, mark the classical turning point. How does the
+classical turning point relate to the form of the wavefunction?
+
+(e) For $\psi_0$, what is the probability (correct to three significant digits) of finding the
+particle outside the classically allowed region, meaning outside the classical turning
+points? You can use a math table under “Normal Distribution” or Mathematica or
+any other tool you wish to numerically evaluate the relevant integral.
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\begin{ques}\label{q3}
+\textbf{3 Uncertainty Principle for the nth state (modified Griffiths 2.12)}
+
+Consider the $n$th stationary state of the harmonic oscillator.
+
+(a) Find $\langle x \rangle$, $\langle p \rangle$, $\langle x^2 \rangle$ and $\langle p^2 \rangle$ for this state, following the method of Example 2.5.
+
+(b) Find the expectation value of the kinetic energy, $\langle T \rangle$, and the expectation value of
+the potential energy, $\langle V \rangle$, for this state.
+
+(c) Compute $\sigma_x \sigma_p$ for this state, and check that the uncertainty principle is satisfied.
+Under what circumstances is it saturated (i.e., is $\sigma_x \sigma_p = \hbar/2$)?
+
+Hint: For this problem, do not explicitly integrate the wavefunction, which has a terrible
+form for arbitrary $n$. Instead, notice that you can write $x$ and $p$ in terms of raising and
+lowering operators,
+\[
+x = \sqrt{\frac{\hbar}{2m\omega}} (a^+ + a^-), \quad
+p = i\sqrt{\frac{\hbar m\omega}{2}} (a^+ - a^-).
+\]
+Then to compute the expectation values you just have to act on $\psi_n$ with raising and
+lowering operators, which you know how to do.
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\begin{ques}\label{q4}
+\textbf{4 Back of the envelope}
+
+Using the symmetry of the potential, come up with an expression for the zero-point energy
+of a harmonic oscillator on the assumption that it is the minimum energy required by the
+uncertainty principle.
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\begin{ques}\label{q5}
+\textbf{5 Coherent states}
+
+In problem 3, you found that most of the stationary states of the harmonic oscillator satisfy,
+but do not saturate, the uncertainty principle. Now let us consider a special superposition of
+these stationary states called a coherent state, which has some fairly interesting properties.
+We call such a state an eigenfunction of the lowering operator. It just means the coherent
+state $S_\alpha(x)$ satisfies $a^- S_\alpha(x) = \alpha S_\alpha(x)$ where $\alpha$ is a complex number.
+Note that there are no normalizable eigenfunctions of the raising operator.
+
+(a) Calculate $\langle x \rangle$ and $\langle p \rangle$ for the state $S_\alpha(x)$. Does this remind you of anything from
+previous problems in this set? Hint: Since you know how $a^-$ acts on $S_\alpha(x)$, use the
+fact that
+\[
+\int_{-\infty}^{\infty} f^*(x)(a^\pm g(x))\,dx
+= \int_{-\infty}^{\infty} (a^\mp f(x))^* g(x)\,dx.
+\]
+Also, keep in mind that $\alpha$ is in general complex.
+
+(b) Calculate $\langle x^2 \rangle$ and $\langle p^2 \rangle$ for the state $S_\alpha(x)$.
+
+(c) Show that $S_\alpha$ saturates the uncertainty principle.
+
+(d) We can express $S_\alpha(x)$ at $t = 0$ explicitly in terms of the stationary states $\psi_n$,
+\[
+S_\alpha(x) = \sum_{n=0}^{\infty} c_n \psi_n(x)
+\]
+Show that $c_n = \frac{\alpha^n}{\sqrt{n!}} c_0$. Hint: Keep using the earlier hint!
+
+(e) Fix $c_0$ by normalizing $S_\alpha(x)$.
+
+(f) Now consider $S_\alpha(x, t)$,
+\[
+S_\alpha(x, t) = \sum_{n=0}^{\infty} c_n \psi_n(x)e^{-iE_n t/\hbar}.
+\]
+Show that $S_\alpha(x, t)$ remains an eigenfunction of $a^-$ but that $\alpha$ now evolves in time.
+That is, show that $a^- S_\alpha(x, t) = \alpha(t) S_\alpha(x, t)$, where $\alpha(t) = e^{-i\omega t}\alpha$.
+Argue that this means coherent states stay coherent in time, and continue to saturate the
+uncertainty principle.
+
+(g) Can we think of the ground state $\psi_0$ as a coherent state? What is $\alpha$ in this case?
+
+These states are profoundly interesting in quantum optics, since they provide an accurate
+quantum description of laser light. Roy Glauber was awarded half of the Nobel Prize in
+Physics in 2005 for his 1963 work on understanding the properties of coherent states in
+quantum optics.
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\end{document}
