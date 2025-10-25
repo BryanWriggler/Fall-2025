@@ -96,7 +96,65 @@ any other tool you wish to numerically evaluate the relevant integral.
     For this question, recall the definition of the operators: $a_\pm = \frac{1}{\sqrt{2\hbar mw}}(mw\hat{x} \mp i\hat{p})$, $\hat{x}$ is the operator simply by multiplying $x$, and $\hat{p}=\frac{\hbar}{i}\frac{\partial}{\partial x}$. So, $a_\pm = \frac{1}{\sqrt{2\hbar mw}}(mwx \mp \hbar\frac{\partial}{\partial x})$.
 
     \begin{itemize}
-        \item[(a)] Recall that $\psi_n(x) = \frac{1}{\sqrt{n!}}(a_+)^n \psi_0(x)$. So, for $n=2$, one 
+        \item[(a)] Recall that $\psi_n(x) = \frac{1}{\sqrt{n!}}(a_+)^n \psi_0(x)$. So, for $n=2$,  one derives the following:
+        \begin{align}
+            a_+ \psi_0(x)&=\frac{1}{\sqrt{2\hbar mw}}\left(mwx - \hbar\frac{\partial}{\partial x}\right)\left(
+            \left(\frac{mw}{\pi \hbar}\right)^\frac{1}{4}e^{-\frac{mw}{2\hbar}x^2}\right) \\
+            &= \sqrt{\frac{mw}{2\hbar}}\left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}xe^{-\frac{mw}{2\hbar}x^2} + \sqrt{\frac{\hbar}{2mw}}\left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}\frac{mw}{\hbar}xe^{-\frac{mw}{2\hbar}x^2}\\
+            &= 2\sqrt{\frac{mw}{2\hbar}}\left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}xe^{-\frac{mw}{2\hbar}x^2} = \sqrt{\frac{2mw}{\hbar}}\left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}xe^{-\frac{mw}{2\hbar}x^2}
+        \end{align}
+        \begin{align}
+            (a_+)^2\psi_0(x)& = \frac{1}{\sqrt{2\hbar mw}}\left(mwx - \hbar\frac{\partial}{\partial x}\right)\left(\sqrt{\frac{2mw}{\hbar}}\left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}xe^{-\frac{mw}{2\hbar}x^2}\right)\\
+            &= \frac{mw}{\hbar}\left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}x^2e^{-\frac{mw}{2\hbar}x^2} - \left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}e^{-\frac{mw}{2\hbar}x^2} + \left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}\cdot \frac{mw}{\hbar}x^2e^{-\frac{mw}{2\hbar}x^2}\\
+            &= \frac{2mw}{\hbar}\left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}x^2e^{-\frac{mw}{2\hbar}x^2} - \left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}e^{-\frac{mw}{2\hbar}x^2}
+        \end{align}
+        So, we get that $\psi_2(x)=\frac{1}{\sqrt{2}}(a_+)^2\psi_0(x) = \frac{\sqrt{2}mw}{\hbar}\left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}x^2e^{-\frac{mw}{2\hbar}x^2} - \frac{1}{\sqrt{2}}\left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}e^{-\frac{mw}{2\hbar}x^2}$.
+
+        \hfill
+
+        \item[(b)] It suffices to check orthogonality for $\psi_0, (a_+)\psi_0, (a_+)^2\psi_0$ (since scaling doesn't affect orthogonality). 
+
+        For $\psi_0, (a_+)\psi_0$, the integration provides the following:
+        \begin{align}
+            \int_{-\infty}^{\infty}((a_+)\psi_0(x))^* \psi_0(x)dx= \int_{-\infty}^{\infty}\sqrt{\frac{2mw}{\hbar}}\left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}xe^{-\frac{mw}{2\hbar}x^2}\cdot \left(\frac{m\omega}{\pi \hbar}\right)^{1/4} e^{- \frac{m\omega}{2\hbar}x^2}dx=0
+        \end{align}
+        (Note: The above is an integration of an odd function that converges, hence provides $0$). Hence, $\psi_0, (a_+)\psi_0$ are orthogonal under integration of inner product.
+
+        For $(a_+)\psi_0, (a_+)^2\psi_0$, the integration provides the following:
+        \begin{align}
+            &\int_{-\infty}^{\infty}((a_+)\psi_0(x))^* ((a_+)^2\psi_0(x))dx\\
+            &= \int_{-\infty}^{\infty}\sqrt{\frac{2mw}{\hbar}}\left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}xe^{-\frac{mw}{2\hbar}x^2}\cdot \left(\frac{2mw}{\hbar}\left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}x^2e^{-\frac{mw}{2\hbar}x^2} - \left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}e^{-\frac{mw}{2\hbar}x^2}\right)dx\\
+            &= K\int_{-\infty}^{\infty}x^3e^{-\frac{mw}{\hbar}x^2}dx + L\int_{-\infty}^{\infty}xe^{-\frac{mw}{\hbar}x^2}dx = 0
+        \end{align}
+        (Note: Above are two odd function that has converging integrals, which with domain being symmetric it converges to $0$. $K,L$ are proper substitutions of the constants).
+        Hence, $(a_+)\psi_0, (a_+)^2 \psi_0$ are also orthogonal under integration inner product.
+
+        Finally, for $\psi_0, (a_+)^2\psi_0$, the integration provides the following:
+        \begin{align}
+            \int_{-\infty}^{\infty}(\psi_0(x))^*((a_+)^2\psi_0(x))dx = \int_{-\infty}^{\infty}
+        \end{align}
+
+        \hfill
+
+        \item[(c)]
+
+        \hfill
+
+        \item[(d)] Here are some graphs of the first four states (starting from ground states):
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=150mm]{oscillator_sketch.png}
+        \end{figure}
+        Here, $\psi_0(x)$ is in purple, $\psi_1(x)$ is in black, $\psi_2(x)$ is in red, and $\psi_3(x)$ is in blue.
+
+        Based on calculation from the previous part, graphically it is verified that for all states (besides $psi_0$) above, the classical turning points correspond to the farthest local extrema of the functions (which are the local min / max that are the farthest away from the origin). As interpretation, since $|\psi|^2$ represents the probability of appearing at the point as position, and classically the turning points are where the particles are ``most probable'' to appear, which these farthest extremas are also global extrema, hence corresponds to the most probable position for the particle to appear.
+
+        For $\psi_0$ instead, the classical turning point instead reflects the variance - which are the uncertainties of the particle's position away from the origina (which is the mean, or the average position of the particle).
+
+        \hfil
+
+        \item[(e)]
+        
     \end{itemize}
 \end{proof}
 
