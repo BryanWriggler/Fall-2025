@@ -34,10 +34,10 @@ $\Psi$ is properly normalized.
 \end{ques}
 
 \begin{proof}
+
+    \hfil
+
     \begin{itemize}
-
-        \hfil
-
         \item[(a)] Given that $[a^-, a^+]=1$ (or identity operator), we have $a^-a^+=1+a^+a^-$, so the relation $a^-a^+\psi=\psi+a^+a^-\psi = \psi$, hence $\psi$ is an eigenvector of the linear operator $a^-a^+$ with eigenvalue $1$. Which, if consider the vector $a^+\psi$, we get the following:
         \begin{align}
             a^-a^+(a^+\psi) &= a^+\psi+a^+(a^-a^+\psi) = a^+\psi + a^+\psi=2(a^+\psi)
@@ -54,14 +54,19 @@ $\Psi$ is properly normalized.
             (a^-)^{n+1}(a^+)^{n+1}\psi &= (a^-)^n (a^-a^+)(a^+)^n\psi = (n+1)(a^-)^n(a^+)^n \psi = (n+1)!\psi
         \end{align}
         Hence, by induction, all $n\in\NN$ satisfies $(a^-)^n(a^+)^n\psi = n!\psi$. So, with $\Psi = c(a^-)^4(a^+)^4\psi$, one has $\Psi = c\cdot 4!\psi$, hence with $c!=0$, $\Psi$ (viewed as a state) is normalizable. With $\psi$ being normalized, it requires $c=\frac{1}{4!}$ for $\Psi$ to be properly normalized.
+
+        \hfil
+
+        \item[(b)] Adapt the machinery built in part (a), given $\Psi=c(a^-)^4(a^+)^2\psi = c(a^-)^2((a^-)^2(a^+)^2\psi)$, it reduces to $\Psi = c(a^-)^2(2!\psi) = 0$ (since $a^-\psi=0$). Hence, $\Psi$ is the zero-vector, which is not normalizable.
     \end{itemize}
 
 \end{proof}
 
-\newpage
+\hfil
 
+\section*{2}
 \begin{ques}\label{q2}
-\textbf{2 Constructing States (modified Griffiths 2.10 and 2.14)}
+\textbf{Constructing States (modified Griffiths 2.10 and 2.14)}
 
 Given the explicit solution for the ground state of the harmonic oscillator,
 \[
@@ -88,10 +93,16 @@ any other tool you wish to numerically evaluate the relevant integral.
 \end{ques}
 
 \begin{proof}
+    For this question, recall the definition of the operators: $a_\pm = \frac{1}{\sqrt{2\hbar mw}}(mw\hat{x} \mp i\hat{p})$, $\hat{x}$ is the operator simply by multiplying $x$, and $\hat{p}=\frac{\hbar}{i}\frac{\partial}{\partial x}$. So, $a_\pm = \frac{1}{\sqrt{2\hbar mw}}(mwx \mp \hbar\frac{\partial}{\partial x})$.
+
+    \begin{itemize}
+        \item[(a)] Recall that $\psi_n(x) = \frac{1}{\sqrt{n!}}(a_+)^n \psi_0(x)$. So, for $n=2$, one 
+    \end{itemize}
 \end{proof}
 
 \newpage
 
+\section*{3}
 \begin{ques}\label{q3}
 \textbf{3 Uncertainty Principle for the nth state (modified Griffiths 2.12)}
 
