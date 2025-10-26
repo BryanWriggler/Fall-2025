@@ -10,6 +10,8 @@
 
 \tableofcontents
 
+\newpage
+
 \section{Introduction}
 For a simple/ideal spring, the  magnitude of the force it applies when being stretched is observed to be proportional to the stretched distance , and with direction opposite from the direction it is being pulled. Which, let proportionality constant be denoted as $k>0$, the associated differential equation is given as $F = m \ddot x = -k x$, which represents an equation for a Simple Harmonic Oscillator (SHO). As a result, the idealized spring as an SHO would have its period provided as $\tau=2\pi\sqrt{\frac{m}{k}}$ after solving the differential equation.
 
@@ -17,7 +19,9 @@ For a simple/ideal spring, the  magnitude of the force it applies when being str
 
 The experiment is to measure the spring constant of a spring provided in the lab. In addition, it'll also be focusing on the static relation between the mass and the spring stretch of a spring, together with how variation of mass and maximum amplitude would affect the time period of a spring's dynamic motion.
 
-\newpage
+\hfill
+
+\hfill
 
 \section{Experimental Setup}
 Here there are three different sets of experiments: Two of the experiments - one measures the static scenario, the other measures the dynamic of the spring - record data manually, whil the third one (which is also measuring the dynamic of a spring) has an associated electronic detector. The details are described as below.
@@ -45,7 +49,7 @@ The following is the steps for setup:
     \begin{subfigure}[t]{0.25\textwidth}
         \centering
         \includegraphics[width=\linewidth]{setup_manual.png}
-        \caption{Photo of the Equipment Setup}
+        \caption{Photo of the Equipment Setup (without Detector)}
         \label{fig:setup_manual}
     \end{subfigure}
 \end{figure}
@@ -61,20 +65,84 @@ The setup steps mostly follow from the one in \textbf{Section 2.1}, just in addi
     \begin{subfigure}[t]{0.4\textwidth}
         \centering
         \includegraphics[width=40mm]{setup_sketch_detector.jpg}
-        \caption{Sketch of the Setup with Manual Data Recording}
+        \caption{Sketch of the Setup with Detector}
         \label{fig:setup_sketch_detector}
     \end{subfigure}%
     \hfil 
     \begin{subfigure}[t]{0.25\textwidth}
         \centering
         \includegraphics[width=\linewidth]{setup_detector.png}
-        \caption{Photo of the Equipment Setup}
+        \caption{Photo of the Equipment Setup (with Detector)}
         \label{fig:setup_detector}
     \end{subfigure}
 \end{figure}
 
+\hfill
 
-\section{Methods of Measurement and Procedure}
+\hfill
+
+\section{Methods of Measurement and Quantities to Measure}
+In all the experiments, for any pairs of manipulated variables, a total of $3$ trials were implemented. Following subsections characterize what is measured in each type of the experiment (either the static or the dynamic approach).
+\subsection{Static Approach}
+For the static approach, the aim is to measure the change in the stretch distance of the spring, in response to the change of the mass on the spring.
+
+Here, the mass will be measured using a mass scale (unit: kg), and the stretch of the spring will be measured through the meter stick (unit: m). Which, the massess being tested are given by $n \cdot 50$ g (where integer $n$ satisfies $1\leq n\leq 10$). In terms of kg, it's given by $n \cdot 0.05$ kg, for every integer $n$ satisfying $1\leq n\leq 10$.
+
+\subsection{Dynamic Approach}
+For the dynamic approach, the aim is to measure the time period for the spring (a SHO) to complete a cycle, and to observe the change in the oscillator's period when varying the mass 
+
+The mass measurement would again be done by a mass scale (unit: kg), and the maximum amplitude of the oscillation will be measured through the meter stick (unit: m). The time period measurement then differ depending on the experiment:
+\begin{itemize}
+    \item For the experiment recording data manually, a timer is used to measure the time period (unit: s).
+    \item For the experiment recording data with detector, the detector served as a timer for measurement.
+\end{itemize}
+In both experiments about the spring's dynamical system, the spring oscillated in total of $5$ times, and record the total time elapsed for the five cycles to get the averge time period for the spring.
+
+Also, for both experiments, the proposed maximum amplitudes are $2,4,6$ cm respectively (or $0.02,0.04,0.06$ m).
+
+For the masses that are used, the list differed by the experiments:
+\begin{itemize}
+    \item For the experiment measuring time manually, the masses are $100,200,300$ g respectively (or $0.1,0.2,0.3$ kg respectively).
+    \item For the experiment measuring time with detector, the masses are $100,150,200$ g respectively (or $0.1,0.15,0.2$ kg).
+\end{itemize}
+
+\hfill
+
+\hfill
+
+\section{Experimental Procedure}
+\subsection{Static Approach}
+The Static Approach followed the procedure below:
+\begin{itemize}
+    \item[1.] Measure the initial static equilibrium point of the spring's free end using the meter stick (where meter stick should be fixed at the same height across the whole experiment).
+    \item[2.] Fix a mass that's going to be tested, put the mass on the hook, and hang the hook on the free end of the spring.
+    \item[3.] Wait till the spring system be at static equilibrium, then measure the new static equilibrium point of the spring's free end.
+    \item[4.] Record the difference of this new position away from the initial position recorded in Step 1. 
+    \item[5.] Repeat Step 2 to 4 in total of three trials.
+    \item[6.] Change the mass to other ones awaited to be tested, and repeat Step 2 to 5 for each mass.  
+\end{itemize}
+\textbf{Remark:} any mass with the form $n\cdot 50$ g (where integer $1\leq n\leq 10$) can be formed using two $50$ g, two $100$ g, and one $200$ g, so the provided masses can complete the experiment.
+
+\subsection{Dynamic Approach}
+\subsubsection{Experiment without Detector}
+The Dynamic Approach (without detector) followed the procedure below:
+\begin{itemize}
+    \item[1.] Fix a mass that is being used, put the mass onto the hook, and hang it onto the spring until it reaches sattic equilibrium.
+    \item[2.] Fix a maximum amplitude that is being used (say $l$), pull the spring down until it is distance $l$ away from the equilibrium point.
+    \item[3.] Release the spring, and start the timer simulteneously. Wait until the spring oscillates total of $5$ cycles and record the time it takes to complete it.
+    \item[4.] Repeat Step 2 to 3 for a total of three trials. 
+    \item[5.] Change the maximum amplitude to other values await to be tested, and repeat Step 2 to 4 for each desired maximum amplitude.
+    \item[6.] Change the mass to other values await to be tested, and repeat Step 2 to 5 for each mass.   
+\end{itemize}
+
+\subsubsection{Experiment with Detector}
+For the case with detector, it merely follows the procedure used in \textbf{Section 4.2.2}, except the timer's measurement is swapped using the detector.
+
+\textbf{Remark:} When measuring using the detector, need to make sure when starting the measurement, the detector is right on the equilibrium point. Since when the mass varies, the equilibrium point of the spring would change accordingly, need to adjust the height of the detector through fixing the clamp at the corresponding height.
+
+\hfill
+
+\hfill
 
 \section{Experimental Data and Tables}
 
