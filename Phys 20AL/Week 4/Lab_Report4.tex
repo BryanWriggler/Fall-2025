@@ -371,10 +371,10 @@ Recall that for the spring to be at equilibrium, the spring force needs to cance
 
 Similarly, since the period of the ideal spring (as SHO) is given by $\tau=2\pi\sqrt{\frac{m}{k}}$, hence $k = \frac{4\pi^2 m}{\tau^2}$ (unit: N/m).
 
-In all cases of the experiment, calclation of Spring Constant $k$ will be displayed using log-log plot, and the propogation of error will be given by first calculating the RMSD value of the collected $k$ (denoted as $\delta k$), and use the formula $\delta log(k)=\frac{1}{k \ln(10)}\delta k$ for the propogation of uncertainty in the log-log plot.
+In all cases of the experiment, the Spring Constant $k$ will be displayed using log-log plot, and the propogation of error will be given by first calculating the RMSD value of the collected $k$ (denoted as $\delta k$), and use the formula $\delta \log(k)=\frac{1}{k \ln(10)}\delta k$ for the propogation of uncertainty in the log-log plot.
 
 \subsection{Static Approach} 
-Based on the data given in Table \ref{tab:data_static}, since the data has extremely small RMSD value, there is a high confidence that the data can represent the physical scenario happened in the experiment. Which, the calculated constant form the following table and log-log graph:
+Based on the data given in Table \ref{tab:data_static}, since the data has extremely small RMSD value, there is a high confidence that the average stretch can represent the physical scenario happened in the experiment. Which, the calculated constant form the following table and log-log plot:
 \begin{table}[h!]
 \centering
 \caption{Calculated spring constants $k$ (unit: N/m) with respect to Mass (kg) and Stretch (m)}
@@ -382,9 +382,9 @@ Based on the data given in Table \ref{tab:data_static}, since the data has extre
 \toprule
 \textbf{Mass (kg)} & 0.050 & 0.100 & 0.150 & 0.200 & 0.250 & 0.300 & 0.350 & 0.400 & 0.450 & 0.500 \\ 
 \hline
-\textbf{Average Stretch (m)} & 0.046 & 0.096 & 0.148 & 0.197 & 0.246 & 0.296 & 0.347 & 0.397 & 0.448 & 0.498 \\ 
+\textbf{Log Mass (kg)} & -1.301 & -1.000 & -0.824 & -0.699 & -0.602 & -0.523 & -0.456 & -0.398 & -0.347 & -0.301\\
 \hline
-\textbf{Log Average Stretch (m)} & -1.337 & -1.018 & -0.831 & -0.706 & -0.609 & -0.529 & -0.460 & -0.401 & -0.349 & -0.303 \\ 
+\textbf{Average Stretch (m)} & 0.046 & 0.096 & 0.148 & 0.197 & 0.246 & 0.296 & 0.347 & 0.397 & 0.448 & 0.498 \\ 
 \midrule
 \midrule
 \textbf{k (N/m)} & 10.660 & 10.216 & 9.962 & 9.956 & 9.966 & 9.940 & 9.892 & 9.873 & 9.858 & 9.846 \\ 
@@ -394,6 +394,20 @@ Based on the data given in Table \ref{tab:data_static}, since the data has extre
 \end{tabular}
 \label{tab:static_k}
 \end{table}
+
+\hfill
+
+\begin{figure}[h!]
+    \centering
+    \caption{The log-log plot of Mass (unit: kg) and Spring Constant $k$ (unit: N/m)}
+    \includegraphics[width=90mm]{static_k.png}
+    \label{fig:static_k}
+\end{figure}
+The calculated average Spring Constant $k_\textmd{ave} = 10.017$ N/m, with RMSD value $\delta k=0.249$ N/m. Hence, the Propogation of Uncertainty under the log-log graph is given by $\delta \log(k)=\frac{\delta k}{k_\textmd{ave}\ln(10)} = 0.249$, which the Propogation of Uncertainty is medium low compared to the standard scale $1$ here. This shows that there is a decent confidence that the average Spring Constant $k_\textmd{ave}$ can represent the calculated value. 
+
+Also, from the log-log graph, one can observe that with respect to the Log Mass, Spring Constant $k$ has a trendline that is nearly horizontal. Which, together with the medium low propogated uncertainty, there is also a decent confidence one can claim that the spring constant $k$ is independent from the mass (since the slope $b$ of the trendline correlates the power relation $k \sim m^b$, where $b=0$ indicates $k$ is independent from mass $m$).
+
+
 
 
 
