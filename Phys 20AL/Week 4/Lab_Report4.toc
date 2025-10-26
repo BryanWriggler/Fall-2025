@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {section}{\numberline {2}Experimental Setup}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Experiments Recording data Manually}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Experiment Recording data with Detector}{2}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Methods of Measurement and Procedure}{3}{section.3}%
+\contentsline {section}{\numberline {4}Experimental Data and Tables}{3}{section.4}%
+\contentsline {section}{\numberline {5}Data Analysis}{3}{section.5}%
+\contentsline {section}{\numberline {6}Error Analysis}{3}{section.6}%
+\contentsline {section}{\numberline {7}Conclusion (Includes Experimental Improvement)}{3}{section.7}%
