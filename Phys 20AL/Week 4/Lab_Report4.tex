@@ -144,7 +144,7 @@ For the case with detector, it merely follows the procedure used in \textbf{Sect
 
 \newpage
 
-\section{Experimental Data and Analysis}
+\section{Experimental Data and Data Analysis (add log-log plot for each)}
 \subsection{Static Approach Data}
 \begin{table}[h!]
 \centering
@@ -366,51 +366,100 @@ The data is somewhat as expected. Even though the RMSD for each data set is quit
 
 \hfill
 
-\section{Data Analysis: Calculation of Spring Constant $k$}
-Recall that for the spring to be at equilibrium, the spring force needs to cancel out the gravitational force, hence the two in theory have the same magnitude. Hence, let $F_s$ denotes the spring force, $F_s = mg$; moreover, with the model that an ideal spring has the spring force being linearly proportional to the stretch length, $F_s = k x$, where $k$ is the spring constant. Hence, $k x = mg$, which implies $k = \frac{mg}{x}$ (unit: N/m).
+\section{Calculation of Spring Constant $k$}
+Recall that for the spring to be at equilibrium, the spring force needs to cancel out the gravitational force, hence the two in theory have the same magnitude. Hence, let $F_s$ denotes the spring force, $F_s = mg$; moreover, with the model that an ideal spring has the spring force being linearly proportional to the stretch length, $F_s = k x$, where $k$ is the spring constant. Hence, $k x = mg$, which implies $k = \frac{mg}{x}$ (unit: N/m). 
 
 Similarly, since the period of the ideal spring (as SHO) is given by $\tau=2\pi\sqrt{\frac{m}{k}}$, hence $k = \frac{4\pi^2 m}{\tau^2}$ (unit: N/m).
 
-In all cases of the experiment, the Spring Constant $k$ will be displayed using log-log plot, and the propogation of error will be given by first calculating the RMSD value of the collected $k$ (denoted as $\delta k$), and use the formula $\delta \log(k)=\frac{1}{k \ln(10)}\delta k$ for the propogation of uncertainty in the log-log plot.
+%In all cases of the experiment, the Spring Constant $k$ will be displayed using log-log plot, and the propogation of error will be given by first calculating the RMSD value of the collected $k$ (denoted as $\delta k$), and use the formula $\delta \log(k)=\frac{1}{k \ln(10)}\delta k$ for the propogation of uncertainty in the log-log plot.
 
 \subsection{Static Approach} 
-Based on the data given in Table \ref{tab:data_static}, since the data has extremely small RMSD value, there is a high confidence that the average stretch can represent the physical scenario happened in the experiment. Which, the calculated constant form the following table and log-log plot:
+Based on the data given in Table \ref{tab:data_static}, since the data has extremely small RMSD value, there is a high confidence that the average stretch can represent the physical scenario happened in the experiment. Which, the calculated constant form the following table:
 \begin{table}[h!]
 \centering
 \caption{Calculated spring constants $k$ (unit: N/m) with respect to Mass (kg) and Stretch (m)}
 \begin{tabular}{l||c|c|c|c|c|c|c|c|c|c}
 \toprule
 \textbf{Mass (kg)} & 0.050 & 0.100 & 0.150 & 0.200 & 0.250 & 0.300 & 0.350 & 0.400 & 0.450 & 0.500 \\ 
-\hline
-\textbf{Log Mass (kg)} & -1.301 & -1.000 & -0.824 & -0.699 & -0.602 & -0.523 & -0.456 & -0.398 & -0.347 & -0.301\\
+%\hline
+%\textbf{Log Mass (kg)} & -1.301 & -1.000 & -0.824 & -0.699 & -0.602 & -0.523 & -0.456 & -0.398 & -0.347 & -0.301\\
 \hline
 \textbf{Average Stretch (m)} & 0.046 & 0.096 & 0.148 & 0.197 & 0.246 & 0.296 & 0.347 & 0.397 & 0.448 & 0.498 \\ 
 \midrule
 \midrule
 \textbf{k (N/m)} & 10.660 & 10.216 & 9.962 & 9.956 & 9.966 & 9.940 & 9.892 & 9.873 & 9.858 & 9.846 \\ 
-\hline
-\textbf{Log k (N/m)} & 1.028 & 1.009 & 0.998 & 0.998 & 0.999 & 0.997 & 0.995 & 0.994 & 0.994 & 0.993 \\ 
+%\hline
+%\textbf{Log k (N/m)} & 1.028 & 1.009 & 0.998 & 0.998 & 0.999 & 0.997 & 0.995 & 0.994 & 0.994 & 0.993 \\ 
 \bottomrule
 \end{tabular}
 \label{tab:static_k}
 \end{table}
 
-\hfill
+The calculated average Spring Constant $k_\textmd{ave} = 10.017$ N/m, with RMSD value $\delta k=0.249$ N/m. Since the RMSD value of $k$ is relatively small compared to the scale of the average spring constant $k_\textmd{ave}$, the average of $k$ still has a high validity of representing the data.
 
-\begin{figure}[h!]
-    \centering
-    \caption{The log-log plot of Mass (unit: kg) and Spring Constant $k$ (unit: N/m)}
-    \includegraphics[width=90mm]{static_k.png}
-    \label{fig:static_k}
-\end{figure}
-The calculated average Spring Constant $k_\textmd{ave} = 10.017$ N/m, with RMSD value $\delta k=0.249$ N/m. Hence, the Propogation of Uncertainty under the log-log graph is given by $\delta \log(k)=\frac{\delta k}{k_\textmd{ave}\ln(10)} = 0.249$, which the Propogation of Uncertainty is medium low compared to the standard scale $1$ here. This shows that there is a decent confidence that the average Spring Constant $k_\textmd{ave}$ can represent the calculated value. 
+\hfil
 
-Also, from the log-log graph, one can observe that with respect to the Log Mass, Spring Constant $k$ has a trendline that is nearly horizontal. Which, together with the medium low propogated uncertainty, there is also a decent confidence one can claim that the spring constant $k$ is independent from the mass (since the slope $b$ of the trendline correlates the power relation $k \sim m^b$, where $b=0$ indicates $k$ is independent from mass $m$).
+\subsection{Dynamic Approach}
+\subsubsection{Experiment without Detector}
+Since in the Tables \ref{tab:data_dyn_nodet_1},\ref{tab:data_dyn_nodet_2},\ref{tab:data_dyn_nodet_3} have demonstrated a relatively low RMSD value for the period, then the average period has a high validity of representing the actual data.
 
+\hfil
 
+Using the period formula for the spring (as SHO), together with Tables \ref{tab:data_dyn_nodet_1},\ref{tab:data_dyn_nodet_2},\ref{tab:data_dyn_nodet_3}, the following tables about the calculated Spring Constant $k$ calculated using the average periods can be displayed:
+\begin{table}[h!]
+\centering
+\caption{Spring Constant $k$ (unit: N/m) for Different Masses (kg) and Amplitudes (m), based on the Period (unit: s)}
+\begin{tabular}{c||c|c|c}
+\toprule
+\diagbox[width=7cm,height=1cm]{\textbf{Max Amplitude (m)}}{\textbf{Mass (kg)}} & \textbf{0.1} & \textbf{0.2} & \textbf{0.3} \\
+\midrule
+0.02 & 6.717 & 7.885 & 8.420 \\
+\hline
+0.04 & 6.553 & 7.970 & 8.554 \\
+\hline
+0.06 & 6.401 & 7.771 & 8.382 \\
+\midrule
+\midrule
+\textbf{Average k over Amplitude (N/m)} & \textbf{6.557} & \textbf{7.875} & \textbf{8.452} \\
+\bottomrule
+\end{tabular}
+\end{table}
+Unfortunately, the calculated value of spring constant $k$ varies explicitly under different masses being tested, which differentiates from the prediction that $k$ should maintain constant  (since the oscillation period $\tau = 2\pi\sqrt{\frac{m}{k}}$, hence $\tau^2$ is proportional to $m$; with $k = \frac{4\pi^2 m}{\tau^2}$, it should maintain constant under the model provided by the formula).
 
+So, for this section of the experiment, the prediction on the value of $k$ disagrees with the experimental data. Which, there's no significant meaning of comparing the calculated constant $k$ with the ones got in \textbf{Section 6.1} (since it's already not as predicted).
 
+\hfil
 
+\subsubsection{Experiment with Detector}
+Now, using the Tables \ref{tab:data_dyn_detect_1},\ref{tab:data_dyn_detect_2},\ref{tab:data_dyn_detect_3}, under the data for each mass and their corresponding trials, the corresponding Spring Constant $k$ is demonstrated in the following table:
+\begin{table}[h!]
+\centering
+\caption{Calculated Spring Constant $k$ (unit: N/m) for Different Masses (m) and Trials, based on the Period (unit: s)}
+\begin{tabular}{c||c|c|c}
+\toprule
+\textbf{Trial $\backslash$ Mass (kg)} & \textbf{0.1} & \textbf{0.15} & \textbf{0.2} \\
+\midrule
+1 & 5.124 & 8.839 & 7.752 \\
+\hline
+2 & 6.394 & 7.403 & 7.805 \\
+\hline
+3 & 6.402 & 7.267 & 7.771 \\
+\midrule
+\midrule
+\textbf{Average $k$ over Trials (N/m)} & \textbf{5.973} & \textbf{7.836} & \textbf{7.776} \\
+\hline
+\textbf{RMSD of Average $k$ (N/m)} & \textbf{0.736} & \textbf{0.871} & \textbf{0.027} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+In comparison, the mass for $0.1$ kg has a significantly lower average Spring Constant $k$, in comparison to the ones derived for mass $0.15, 0.2$ kg. So, this set of data in general still disagree with the prediction that Spring Constant $k$ should remain constant as mass varies.
+
+\hfil
+
+\hfil
 
 \section{Error Analysis and Potential Improvement}
 
