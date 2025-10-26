@@ -54,6 +54,8 @@ The following is the steps for setup:
     \end{subfigure}
 \end{figure}
 
+\newpage
+
 \subsection{Experiment Recording data with Detector}
 For this setup, there is only one experiment, which is using the electronic detector to record the dynamic motion of the simple harmonic oscillator.
 
@@ -77,9 +79,7 @@ The setup steps mostly follow from the one in \textbf{Section 2.1}, just in addi
     \end{subfigure}
 \end{figure}
 
-\hfill
-
-\hfill
+\newpage
 
 \section{Methods of Measurement and Quantities to Measure}
 In all the experiments, for any pairs of manipulated variables, a total of $3$ trials were implemented. Following subsections characterize what is measured in each type of the experiment (either the static or the dynamic approach).
@@ -98,7 +98,11 @@ The mass measurement would again be done by a mass scale (unit: kg), and the max
 \end{itemize}
 In both experiments about the spring's dynamical system, the spring oscillated in total of $5$ times, and record the total time elapsed for the five cycles to get the averge time period for the spring.
 
-Also, for both experiments, the proposed maximum amplitudes are $2,4,6$ cm respectively (or $0.02,0.04,0.06$ m).
+However, the amplitudes used differ by experiments: 
+\begin{itemize}
+    \item For the experiment recording data manually, the proposed maximum amplitudes are $2,4,6$ cm respectively (or $0.02,0.04,0.06$ m).
+    \item For the experiment recording data with detector, the maxium amplitude is fixed as $2$ cm ($0.02$ m).
+\end{itemize}
 
 For the masses that are used, the list differed by the experiments:
 \begin{itemize}
@@ -106,9 +110,7 @@ For the masses that are used, the list differed by the experiments:
     \item For the experiment measuring time with detector, the masses are $100,150,200$ g respectively (or $0.1,0.15,0.2$ kg).
 \end{itemize}
 
-\hfill
-
-\hfill
+\newpage
 
 \section{Experimental Procedure}
 \subsection{Static Approach}
@@ -140,11 +142,162 @@ For the case with detector, it merely follows the procedure used in \textbf{Sect
 
 \textbf{Remark:} When measuring using the detector, need to make sure when starting the measurement, the detector is right on the equilibrium point. Since when the mass varies, the equilibrium point of the spring would change accordingly, need to adjust the height of the detector through fixing the clamp at the corresponding height.
 
-\hfill
-
-\hfill
+\newpage
 
 \section{Experimental Data and Tables}
+\subsection{Static Approach Data}
+\begin{table}[h!]
+\centering
+\caption{Stretch Length of a Spring (unit: m) under various Spring Mass (unit: kg)}
+\begin{tabular}{c||c|c|c|c|c|c|c|c|c|c}
+\toprule
+\diagbox[width=3cm,height=1cm]{\textbf{Trial}}{\textbf{Mass (kg)}} & 0.050 & 0.100 & 0.150 & 0.200 & 0.250 & 0.300 & 0.350 & 0.400 & 0.450 & 0.500 \\ 
+\midrule
+1 & 0.045 & 0.095 & 0.148 & 0.196 & 0.246 & 0.296 & 0.346 & 0.397 & 0.447 & 0.498 \\ 
+\hline
+2 & 0.046 & 0.097 & 0.147 & 0.197 & 0.245 & 0.297 & 0.348 & 0.397 & 0.448 & 0.499 \\ 
+\hline
+3 & 0.047 & 0.096 & 0.148 & 0.198 & 0.247 & 0.295 & 0.347 & 0.398 & 0.448 & 0.497 \\ 
+\midrule
+\midrule
+\textbf{Average (m)} & 0.046 & 0.096 & 0.148 & 0.197 & 0.246 & 0.296 & 0.347 & 0.397 & 0.448 & 0.498 \\ 
+\hline
+\textbf{RMSD (m)} & 0.001 & 0.001 & 0.001 & 0.001 & 0.001 & 0.001 & 0.001 & 0.001 & 0.001 & 0.001 \\ 
+\bottomrule
+\end{tabular}
+\label{tab:data_static}
+\end{table}
+
+\subsection{Dynamic Approach Data}
+\subsubsection{Experiment without Detector}
+\begin{table}[h!]
+\centering
+\caption{Oscillation period (unit: s) under Various Amplitudes (unit: m), with mass $0.100$ kg}
+\begin{tabular}{c||c|c|c}
+\toprule
+\diagbox[width=7cm,height=1cm]{\textbf{Trial}}{\textbf{Max Amplitude (m)}} & 0.020 & 0.040 & 0.060 \\ 
+\midrule
+1 & 3.910 & 3.810 & 3.930 \\ 
+\hline
+2 & 3.780 & 3.890 & 3.920 \\ 
+\hline
+3 & 3.810 & 3.960 & 3.930 \\ 
+\midrule
+\midrule
+\textbf{Average (s)} & 3.833 & 3.887 & 3.927 \\ 
+\hline
+\textbf{RMSD (s)} & 0.068 & 0.075 & 0.006 \\ 
+\bottomrule
+\end{tabular}
+\label{tab:data_dyn_nodet_1}
+\end{table}
+
+\hfill
+
+\begin{table}[h!]
+\centering
+\caption{Oscillation period (unit: s) under Various Amplitudes (unit: m), with mass $0.200$ kg}
+\begin{tabular}{c||c|c|c}
+\toprule
+\diagbox[width=7cm,height=1cm]{\textbf{Trial}}{\textbf{Max Amplitude (m)}}  & 0.020 & 0.040 & 0.060 \\ 
+\midrule
+1 & 4.980 & 4.930 & 5.020 \\ 
+\hline
+2 & 5.000 & 5.000 & 5.070 \\ 
+\hline
+3 & 5.030 & 5.000 & 5.030 \\ 
+\midrule
+\midrule
+\textbf{Average (s)} & 5.003 & 4.977 & 5.040 \\ 
+\hline
+\textbf{RMSD (s)} & 0.025 & 0.040 & 0.026 \\ 
+\bottomrule
+\end{tabular}
+\label{tab:data_dyn_nodet_2}
+\end{table}
+
+\hfill
+
+\begin{table}[h!]
+\centering
+\caption{Oscillation period (unit: s) under Various Amplitudes (unit: m), with mass $0.300$ kg}
+\begin{tabular}{c||c|c|c}
+\toprule
+\diagbox[width=7cm,height=1cm]{\textbf{Trial}}{\textbf{Max Amplitude (m)}} & 0.020 & 0.040 & 0.060 \\ 
+\midrule
+1 & 5.870 & 5.920 & 5.940 \\ 
+\hline
+2 & 5.930 & 5.890 & 5.940 \\ 
+\hline
+3 & 5.990 & 5.840 & 5.950 \\ 
+\midrule
+\midrule
+\textbf{Average (s)} & 5.930 & 5.883 & 5.943 \\ 
+\hline
+\textbf{RMSD (s)} & 0.060 & 0.040 & 0.006 \\ 
+\bottomrule
+\end{tabular}
+\label{tab:data_dyn_nodet_3}
+\end{table}
+
+\hfill
+
+\subsubsection{Experiment with Detector}
+\begin{table}[h!]
+\centering
+\caption{Total Time/Average Period (unit: s), under Amplitude $0.020$ m and mass $0.100$ kg}
+\begin{tabular}{l||c|c|c}
+\toprule
+\textbf{Trial} & 1 & 2 & 3 \\ 
+\midrule
+\midrule
+\textbf{Total Time (s)} & 4.389 & 3.929 & 3.926 \\
+\hline 
+\textbf{Average Period (s)} & 0.878 & 0.786 & 0.785 \\ 
+\bottomrule
+\end{tabular}
+\label{tab:data_dyn_detect_1}
+\end{table}
+For Table \ref{tab:data_dyn_detect_1}, the RMSD is given by $0.266$ s.
+
+\hfill
+
+\begin{table}[h!]
+\centering
+\caption{Total Time/Average Period (unit: s), under Amplitude $0.020$ m and mass $0.150$ kg}
+\begin{tabular}{l||c|c|c}
+\toprule
+\textbf{Trial} & 1 & 2 & 3 \\ 
+\midrule
+\midrule
+\textbf{Total Time (s)} & 4.093 & 4.472 & 4.514 \\ 
+\hline
+\textbf{Average Period (s)} & 0.819 & 0.894 & 0.903 \\ 
+\bottomrule
+\end{tabular}
+\label{tab:data_dyn_detect_2}
+\end{table}
+For Table \ref{tab:data_dyn_detect_2}, the RMSD is given by $0.232$ s.
+
+
+\hfill
+
+\begin{table}[h!]
+\centering
+\caption{Total Time/Average Period (unit: s), under Amplitude $0.020$ m and mass $0.200$ kg}
+\begin{tabular}{l||c|c|c}
+\toprule
+\textbf{Trial} & 1 & 2 & 3 \\ 
+\midrule
+\midrule
+\textbf{Total Time (s)} & 5.046 & 5.029 & 5.040 \\ 
+\hline
+\textbf{Average Period (s)} & 1.009 & 1.006 & 1.008 \\ 
+\bottomrule
+\end{tabular}
+\label{tab:data_dyn_detect_3}
+\end{table}
+For Table \ref{tab:data_dyn_detect_3}, the RMSD is given by $0.009$ s.
 
 \section{Data Analysis}
 
