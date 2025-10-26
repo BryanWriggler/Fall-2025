@@ -172,8 +172,8 @@ For the case with detector, it merely follows the procedure used in \textbf{Sect
 
 \begin{figure}[h!]
     \centering
-    \caption{Graph of Average Spring Stretch (unit: m) under Varying Mass (unit: kg)}
-    \includegraphics[width=100mm]{static.png}
+    \caption{Graph of Average Spring Stretch (unit: m) with respect to Mass (unit: kg)}
+    \includegraphics[width=90mm]{static.png}
     \label{fig:data_static}
 \end{figure}
 
@@ -183,7 +183,7 @@ For the case with detector, it merely follows the procedure used in \textbf{Sect
 
 Here, the data and graph under static approach is as expected: It reflects a highly precise linearity between the mass (which is proportioanl to the gravitational force), and the spring's stretch. 
 
-Since when the spring is at equilibrium after putting the mass on, the spring force should cancel the gravitational force, hence the spring force has the same magnitude as the gravitational force, which is proportional to mass. And, it is expected that the spring stretch length is proportional to the spring force, which it's also expected that the stretch length has a linear relationship with the mass. Here, the data has a high confidence of relfecting such property.
+Since when the spring is at equilibrium after putting the mass on, the spring force should cancel the gravitational force, hence the spring force has the same magnitude as the gravitational force, which is proportional to mass. And, it is expected that the spring stretch length is proportional to the spring force, which it's also expected that the stretch length has a linear relationship with the mass. Here, the data has a high confidence of relfecting such property, due to the RMSD value being all $0.001$ (after rounding to $3$ significant figures).
 
 \newpage
 
@@ -213,10 +213,12 @@ Since when the spring is at equilibrium after putting the mass on, the spring fo
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=100mm]{dynamic_nodetect_1.png}
+    \caption{Graph of Oscillation Period (unit: s) with respect to Amplitude (unit: m), mass $0.100$ kg}
+    \includegraphics[width=90mm]{dynamic_nodetect_1.png}
+    \label{fig:data_dyn_nodet_1}
 \end{figure}
 
-\hfill
+\vspace{1.5em}
 
 \begin{table}[h!]
 \centering
@@ -242,7 +244,9 @@ Since when the spring is at equilibrium after putting the mass on, the spring fo
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=100mm]{dynamic_nodetect_2.png}
+    \caption{Graph of Oscillation Period (unit: s) with respect to Amplitude (unit: m), mass $0.200$ kg}
+    \includegraphics[width=90mm]{dynamic_nodetect_2.png}
+    \label{fig:data_dyn_nodet_2}
 \end{figure}
 
 \hfill
@@ -271,8 +275,20 @@ Since when the spring is at equilibrium after putting the mass on, the spring fo
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=100mm]{dynamic_nodetect_3.png}
+    \caption{Graph of Oscillation Period (unit: s) with respect to Amplitude (unit: m), mass $0.300$ kg}
+    \includegraphics[width=90mm]{dynamic_nodetect_3.png}
+    \label{fig:data_dyn_nodet_3}
 \end{figure}
+
+\newpage
+
+\newpage
+
+For all the collected data above (under the Dynamic Approach without Detector), the data and graphs in general are as expected: 
+
+Based on the formula derived in the \textbf{Introduction}, since ideal spring is a Simple Harmonic Oscillator, it is expected that its oscillation should be independent from the amplitude of the oscillation. Here, it is clear that in all Graphs \ref{fig:data_dyn_nodet_1},\ref{fig:data_dyn_nodet_2},\ref{fig:data_dyn_nodet_3} above, as amplitudes are varying, the oscillation period of the spring is nearly constant, which has a high confidence of reflecting the mathematical model that period is independent from the amplitude.
+
+Also, again based on the period formula, it is expected that the period increases as mass increases. Which, by comparing Graphs \ref{fig:data_dyn_nodet_1},\ref{fig:data_dyn_nodet_2},\ref{fig:data_dyn_nodet_3} (which represents the periods data under mass $0.100,0.200,0.300$ kg respectively), the overall trend of period is increasing as the mass increases. With the separation being explicit, there is also a high confidence one can claim that the oscillation period is increasing when mass increases.
 
 \hfill
 
@@ -292,7 +308,7 @@ Since when the spring is at equilibrium after putting the mass on, the spring fo
 \end{tabular}
 \label{tab:data_dyn_detect_1}
 \end{table}
-For Table \ref{tab:data_dyn_detect_1}, the RMSD is given by $0.266$ s.
+For Table \ref{tab:data_dyn_detect_1}, the Mean of Average Period is $0.816$ s, and RMSD is $0.266$ s.
 
 \hfill
 
@@ -311,7 +327,7 @@ For Table \ref{tab:data_dyn_detect_1}, the RMSD is given by $0.266$ s.
 \end{tabular}
 \label{tab:data_dyn_detect_2}
 \end{table}
-For Table \ref{tab:data_dyn_detect_2}, the RMSD is given by $0.232$ s.
+For Table \ref{tab:data_dyn_detect_2}, the Mean of Average Period is $0.872$ s, and the RMSD is $0.232$ s.
 
 
 \hfill
@@ -331,9 +347,13 @@ For Table \ref{tab:data_dyn_detect_2}, the RMSD is given by $0.232$ s.
 \end{tabular}
 \label{tab:data_dyn_detect_3}
 \end{table}
-For Table \ref{tab:data_dyn_detect_3}, the RMSD is given by $0.009$ s.
+For Table \ref{tab:data_dyn_detect_3}, the Mean of Average Period is $1.008$ s, and the RMSD is $0.009$ s.
 
-\section{Data Analysis}
+\hfill
+
+
+
+\section{Data Analysis: Calculation of Spring Constant $k$}
 
 \section{Error Analysis}
 
