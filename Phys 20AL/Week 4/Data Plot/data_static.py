@@ -15,6 +15,8 @@ plt.plot(mass, length)
 plt.errorbar(mass, length,
              yerr = 0.001,
              fmt ='o')
+plt.xlabel("Mass (kg)")
+plt.ylabel("Spring Stretch (m)")
 
 #plot the formula predicted values
 #l1 = np.arange(0.3,0.6,0.01)
