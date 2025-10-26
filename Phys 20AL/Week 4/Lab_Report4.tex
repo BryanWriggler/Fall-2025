@@ -201,7 +201,6 @@ Which, at each of the data point, since the original uncertainty $\delta l \appr
 \begin{tabular}{l||c|c|c|c|c|c|c|c|c|c}
 \hline
 % \textbf{Average Stretch (m)} & 0.046 & 0.096 & 0.148 & 0.197 & 0.246 & 0.296 & 0.347 & 0.397 & 0.448 & 0.498 \\  
-\hline
 \textbf{Log Average Stretch (m)} & -1.337 & -1.018 & -0.830 & -0.706 & -0.609 & -0.529 & -0.460 & -0.401 & -0.349 & -0.303 \\
 \hline
 \textbf{Propagation of Uncertainty} & 0.022 & 0.010 & 0.004 & 0.005 & 0.004 & 0.003 & 0.003 & 0.001 & 0.001 & 0.002 \\ 
@@ -361,12 +360,53 @@ If compile all the collected average period above, their corresponding RMSD, and
 Which, they generate the following log-log plot:
 \begin{figure}
     \centering
-    \includegraphics[width=90mm]{Log-Log Plot o Average Period (m) with respect to Mass (kg).png}
+    \includegraphics[width=90mm]{Log-Log Plot of Average Period (s) with respect to Mass (kg).png}
 \end{figure}
 
 \newpage
 
+Here, if assume the period $\tau=A m^b$ (where $A,b\in\RR$ are yet to be determined), $\log(\tau) = \log(A)_b\log(m)$, then the slope of the log-log plot indicates the value $b$. So, based on the trendline in the above graph, $b \approx 0.384$, which indicates that in the data, the period $\tau$ is approximately proportional to $m^{0.384}$. However, this is somewhat off from the period formula's prediction of $\tau = A\sqrt{m}$ (which $b=\frac{1}{2}$), so the more precise relation between period and mass is not agreeing with the formula's prediction in this data set.
 
+In terms of the Propogation of Uncertainty, with $\delta \tau$ denotes the original uncertainty of the period, the $\delta \log(\tau)=\frac{\delta \tau}{\tau \ln(10)}$. Which, it demonstrates the following table:
+\begin{table}[h!]
+\centering
+\begin{subtable}[t]{0.48\textwidth}
+\centering
+\caption{Log Period (unit: s) corresponding to each Mass (kg) and Max Amplitude (m)}
+\begin{tabular}{l||c|c|c}
+\toprule
+\diagbox[width=7cm,height=1cm]{\textbf{Mass (kg)}}{\textbf{Max Amplitude (m)}} & 0.020 & 0.040 & 0.060 \\ 
+\midrule
+0.100 & -0.115 & -0.110 & -0.105 \\ 
+\hline
+0.200 & 0.000  & -0.002 & 0.003  \\ 
+\hline
+0.300 & 0.074  & 0.073  & 0.075  \\ 
+\bottomrule
+\end{tabular}
+\end{subtable}
+
+\hfill
+
+\begin{subtable}[t]{0.48\textwidth}
+\centering
+\caption{Propogation of Uncertainty of the above Data}
+\begin{tabular}{l||c|c|c}
+\toprule
+\diagbox[width=7cm,height=1cm]{\textbf{Mass (kg)}}{\textbf{Max Amplitude (m)}} & 0.020 & 0.040 & 0.060 \\ 
+\midrule
+0.100 & 0.018 & 0.019 & 0.001 \\ 
+\hline
+0.200 & 0.005 & 0.008 & 0.005 \\ 
+\hline
+0.300 & 0.010 & 0.007 & 0.001 \\ 
+\bottomrule
+\end{tabular}
+\end{subtable}
+
+\end{table}
+
+As a result, most of the Propogation of Uncertainty is relatively low with respect to the standard scale of $1$, so there is a decent confidence that one can say the corresponding data is representing the actual situation happened in the lab.
 
 \newpage
 
@@ -429,6 +469,10 @@ For Table \ref{tab:data_dyn_detect_3}, the Mean of Average Period is $1.008$ s, 
 
 \hfill
 
+From the above three sets of data, the general RMSD of the average period is quite large compared to the time scale of $1$ s, so the distribution of the period (when fixing mass) are somewhat spreaded instead of concentrating around the average. Nonetheless, the general difference between each trial's period to the average period (when fixing mass) is in general less than $0.06$ s, so based on human observation, the data are not as spread out away from the mean of average period in all the above tables. Hence, there is still a decent confidence one can conclude that when fixing mass, the period of the spring is somewhat stable and should maintain constant.
+
+\hfill
+
 Compile the data about mass and Mean of Average Period, the following graph is made:
 
 \begin{figure}[h!]
@@ -436,11 +480,59 @@ Compile the data about mass and Mean of Average Period, the following graph is m
     \caption{Graph of Mean Oscillation Period (unit: s) with respect to Mass (unit: m)}
     \includegraphics[width=90mm]{dynamic_detect.png}
 \end{figure}
+
+\newpage
+
 The data is somewhat as expected. Even though the RMSD for each data set is quite large (the highest RMSD value is $0.266$ s, which is relatively high for the time scale of $1$ s), which potentially lowers the validity of the data's ability of representing the actual situation. Yet, from the data one can still observe the trend of the oscillation period increasing as the mass increases, which the rough trend fits with the period formula's prediction, that the period increases when the mass increases.
 
 \hfill
 
-\hfill
+To derive a more precise relation between oscillation period $\tau$ and the mass $m$, the above three tables can be collected and made into a log-log plot. Which, the data points (after taking the average over each trial, and fixing mass) is collected into the following table:
+\begin{table}[h!]
+    \centering
+    \caption{Hello world}
+    \begin{tabular}{l||c|c|c}
+        \toprule
+        \textbf{Mass (kg)} & 0.100 & 0.150 & 0.200 \\
+        \hline
+        \textbf{Mean of Average Period (s)} & 0.816 & 0.872 & 1.008 \\
+        \hline
+        \textbf{RMSD (s)} & 0.266 & 0.232 & 0.009 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Which turns into the following log-log plot in between mass and Mean of Average Period:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=90mm]{Log-Log Plot of Period (s) with respect to Mass (kg).png}
+\end{figure}
+
+Which, if assume the relation $\tau = A m^b$ for some $A,b \in\RR$, then $\log(\tau)=\log(A)+b\log(m)$, hence the slope of the trendline is $b\approx 0.293$, which has a high confidence showing that $\tau\approx A m^{0.293}$ within the data. Yet, this is not agreeing with the formula's prediction that the period $\tau = A \sqrt{m}$ (which has $b=\frac{1}{2}$ instead).
+
+If calculating the Propogation of Uncertainty, since $\delta \log(\tau)=\frac{\delta \tau}{\tau \ln(10)}$, the Propogation of Uncertainty is provided as follow:
+\begin{table}[h!]
+\centering
+\caption{Logarithmic data and propagation of uncertainty for mass and period}
+\begin{tabular}{l||c|c|c}
+\toprule
+\textbf{Quantity} & \textbf{0.1} & \textbf{0.15} & \textbf{0.2} \\
+\midrule
+Mass (kg) & 0.100 & 0.150 & 0.200 \\
+\hline
+Log Period (s) & -0.088 & -0.059 & 0.003 \\
+\midrule
+\midrule
+RMSD (s) & 0.266 & 0.232 & 0.009 \\
+\hline
+Propagation of Uncertainty & 0.326 & 0.266 & 0.009 \\
+\bottomrule
+\end{tabular}
+\label{tab:log_mass_period}
+\end{table}
+
+
+\newpage
 
 \section{Calculation of Spring Constant $k$}
 Recall that for the spring to be at equilibrium, the spring force needs to cancel out the gravitational force, hence the two in theory have the same magnitude. Hence, let $F_s$ denotes the spring force, $F_s = mg$; moreover, with the model that an ideal spring has the spring force being linearly proportional to the stretch length, $F_s = k x$, where $k$ is the spring constant. Hence, $k x = mg$, which implies $k = \frac{mg}{x}$ (unit: N/m). 
@@ -529,7 +621,7 @@ Now, using the Tables \ref{tab:data_dyn_detect_1},\ref{tab:data_dyn_detect_2},\r
 \end{tabular}
 \end{table}
 
-\newpage
+\hfill
 
 In comparison, the mass for $0.1$ kg has a significantly lower average Spring Constant $k$, in comparison to the ones derived for mass $0.15, 0.2$ kg. So, this set of data in general still disagree with the prediction that Spring Constant $k$ should remain constant as mass varies.
 

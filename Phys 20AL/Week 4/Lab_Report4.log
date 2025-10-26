@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  26 OCT 2025 13:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  26 OCT 2025 14:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -835,7 +835,7 @@ Package pdftex.def Info: Log-Log Plot of Average Length (m) with respect to Mass
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [6 <./static.png>]
-Overfull \hbox (68.22098pt too wide) in paragraph at lines 201--211
+Overfull \hbox (68.22098pt too wide) in paragraph at lines 201--210
  [][] 
  []
 
@@ -843,12 +843,12 @@ Overfull \hbox (68.22098pt too wide) in paragraph at lines 201--211
 <dynamic_nodetect_1.png, id=225, 462.528pt x 346.896pt>
 File: dynamic_nodetect_1.png Graphic file (type png)
 <use dynamic_nodetect_1.png>
-Package pdftex.def Info: dynamic_nodetect_1.png  used on input line 244.
+Package pdftex.def Info: dynamic_nodetect_1.png  used on input line 243.
 (pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
 <dynamic_nodetect_2.png, id=226, 462.528pt x 346.896pt>
 File: dynamic_nodetect_2.png Graphic file (type png)
 <use dynamic_nodetect_2.png>
-Package pdftex.def Info: dynamic_nodetect_2.png  used on input line 275.
+Package pdftex.def Info: dynamic_nodetect_2.png  used on input line 274.
 (pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
 
 
@@ -860,75 +860,87 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <dynamic_nodetect_3.png, id=227, 462.528pt x 346.896pt>
 File: dynamic_nodetect_3.png Graphic file (type png)
 <use dynamic_nodetect_3.png>
-Package pdftex.def Info: dynamic_nodetect_3.png  used on input line 306.
+Package pdftex.def Info: dynamic_nodetect_3.png  used on input line 305.
 (pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [8 <./dynamic_nodetect_1.png>] [9 <./dynamic_nodetect_2.png> <./dynamic_nodetect_3.png>]
-Overfull \hbox (81.62228pt too wide) in paragraph at lines 329--340
+Overfull \hbox (81.62228pt too wide) in paragraph at lines 328--339
  [][] 
  []
 
 
-Overfull \hbox (81.62228pt too wide) in paragraph at lines 347--358
+Overfull \hbox (81.62228pt too wide) in paragraph at lines 346--357
  [][] 
  []
 
-<Log-Log Plot o Average Period (m) with respect to Mass (kg).png, id=251, 602.25pt x 372.39125pt>
-File: Log-Log Plot o Average Period (m) with respect to Mass (kg).png Graphic file (type png)
-<use Log-Log Plot o Average Period (m) with respect to Mass (kg).png>
-Package pdftex.def Info: Log-Log Plot o Average Period (m) with respect to Mass (kg).png  used on input line 364.
+<Log-Log Plot of Average Period (s) with respect to Mass (kg).png, id=251, 602.25pt x 372.39125pt>
+File: Log-Log Plot of Average Period (s) with respect to Mass (kg).png Graphic file (type png)
+<use Log-Log Plot of Average Period (s) with respect to Mass (kg).png>
+Package pdftex.def Info: Log-Log Plot of Average Period (s) with respect to Mass (kg).png  used on input line 363.
 (pdftex.def)             Requested size: 256.0748pt x 158.34657pt.
 [10]
-<dynamic_detect.png, id=260, 462.528pt x 346.896pt>
+Overfull \hbox (91.62227pt too wide) in paragraph at lines 376--387
+ [][] 
+ []
+
+
+Overfull \hbox (81.62228pt too wide) in paragraph at lines 394--405
+ [][] 
+ []
+
+[11 <./Log-Log Plot of Average Period (s) with respect to Mass (kg).png>]
+<dynamic_detect.png, id=267, 462.528pt x 346.896pt>
 File: dynamic_detect.png Graphic file (type png)
 <use dynamic_detect.png>
-Package pdftex.def Info: dynamic_detect.png  used on input line 437.
+Package pdftex.def Info: dynamic_detect.png  used on input line 481.
 (pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[11 <./Log-Log Plot o Average Period (m) with respect to Mass (kg).png>]
+[12]
+<Log-Log Plot of Period (s) with respect to Mass (kg).png, id=275, 602.25pt x 372.39125pt>
+File: Log-Log Plot of Period (s) with respect to Mass (kg).png Graphic file (type png)
+<use Log-Log Plot of Period (s) with respect to Mass (kg).png>
+Package pdftex.def Info: Log-Log Plot of Period (s) with respect to Mass (kg).png  used on input line 508.
+(pdftex.def)             Requested size: 256.0748pt x 158.34657pt.
+ [13 <./dynamic_detect.png> <./Log-Log Plot of Period (s) with respect to Mass (kg).png>] [14]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 445.
+(hyperref)                removing `math shift' on input line 537.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 445.
+(hyperref)                removing `math shift' on input line 537.
 
 
-Overfull \hbox (10.20047pt too wide) in paragraph at lines 457--472
+Overfull \hbox (10.20047pt too wide) in paragraph at lines 549--564
  [][] 
  []
 
-[12 <./dynamic_detect.png>] [13] [14] (./Lab_Report4.aux)
+[15] [16] [17] (./Lab_Report4.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `Lab_Report4.out' has not changed.
 (rerunfilecheck)             Checksum: 1CF3EC3D7FFA213B5F56B34C7CB029D9;4368.
  ) 
 Here is how much of TeX's memory you used:
- 31091 strings out of 474116
- 633377 string characters out of 5743681
- 1942187 words of memory out of 5000000
- 52891 multiletter control sequences out of 15000+600000
+ 31106 strings out of 474116
+ 633931 string characters out of 5743681
+ 1943187 words of memory out of 5000000
+ 52899 multiletter control sequences out of 15000+600000
  567813 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,18n,113p,714b,562s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,19n,113p,747b,562s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Lab_Report4.pdf (14 pages, 30875359 bytes).
+Output written on Lab_Report4.pdf (17 pages, 30898808 bytes).
 PDF statistics:
- 385 PDF objects out of 1000 (max. 8388607)
- 292 compressed objects within 3 object streams
- 61 named destinations out of 1000 (max. 500000)
- 404 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 405 PDF objects out of 1000 (max. 8388607)
+ 306 compressed objects within 4 object streams
+ 68 named destinations out of 1000 (max. 500000)
+ 409 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -14,11 +14,11 @@
 \contentsline {subsection}{\numberline {5.1}Static Approach Data}{6}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Dynamic Approach Data}{8}{subsection.5.2}%
 \contentsline {subsubsection}{\numberline {5.2.1}Experiment without Detector}{8}{subsubsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2}Experiment with Detector}{11}{subsubsection.5.2.2}%
-\contentsline {section}{\numberline {6}Calculation of Spring Constant $k$}{12}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Static Approach}{12}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Dynamic Approach}{13}{subsection.6.2}%
-\contentsline {subsubsection}{\numberline {6.2.1}Experiment without Detector}{13}{subsubsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.2}Experiment with Detector}{13}{subsubsection.6.2.2}%
-\contentsline {section}{\numberline {7}Error Analysis and Potential Improvement}{14}{section.7}%
-\contentsline {section}{\numberline {8}Conclusion}{14}{section.8}%
+\contentsline {subsubsection}{\numberline {5.2.2}Experiment with Detector}{12}{subsubsection.5.2.2}%
+\contentsline {section}{\numberline {6}Calculation of Spring Constant $k$}{15}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Static Approach}{15}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Dynamic Approach}{15}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Experiment without Detector}{15}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Experiment with Detector}{16}{subsubsection.6.2.2}%
+\contentsline {section}{\numberline {7}Error Analysis and Potential Improvement}{16}{section.7}%
+\contentsline {section}{\numberline {8}Conclusion}{17}{section.8}%
