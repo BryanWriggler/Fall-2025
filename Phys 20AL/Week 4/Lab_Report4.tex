@@ -144,7 +144,7 @@ For the case with detector, it merely follows the procedure used in \textbf{Sect
 
 \newpage
 
-\section{Experimental Data and Data Analysis (add log-log plot for each)}
+\section{Experimental Data and Data Analysis}
 \subsection{Static Approach Data}
 \begin{table}[h!]
 \centering
@@ -184,6 +184,33 @@ For the case with detector, it merely follows the procedure used in \textbf{Sect
 Here, the data and graph under static approach is as expected: It reflects a highly precise linearity between the mass (which is proportioanl to the gravitational force), and the spring's stretch. 
 
 Since when the spring is at equilibrium after putting the mass on, the spring force should cancel the gravitational force, hence the spring force has the same magnitude as the gravitational force, which is proportional to mass. And, it is expected that the spring stretch length is proportional to the spring force, which it's also expected that the stretch length has a linear relationship with the mass. Here, the data has a high confidence of relfecting such property, due to the RMSD value being all $0.001$ (after rounding to $3$ significant figures).
+
+\hfill
+
+Now, to derive a more precise relation between the mass on the spring and the stretch length of the spring, using a log-log plot it becomes the following graph:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=90mm]{Log-Log Plot of Average Length (m) with respect to Mass (kg).png}
+\end{figure}
+Which, the slope of the trendline of the log-log plot is $1.03$. If given that stretch length $l = A m^b$ (where $A,b in \RR$ are constants yet to be determined), then $\log(l)=\log(A)+b\log(m)$, so the slope of the log-log plot represents the exponent $b$ in this case. Since $b \approx 1.03$, it indicates that the stretch length $l \approx A m^{1.03}$, showing the stretch length and mass has a high confidence of being in linear relation.
+
+Which, at each of the data point, since the original uncertainty $\delta l \approx 0.001$ (given in Table \ref{tab:data_static}), then the propogation of uncertainty on $log(l)$ is given by $\delta \log(l)=\frac{\partial log(l)}{\partial l}\delta l = \frac{\delta l}{l \cdot \ln(10)}$. So, each of the data point (from left to right respectively) have the following propogation of undertainty:
+\begin{table}[h!]
+\centering
+\caption{Propagation of uncertainty in $\log(l)$ for different masses}
+\begin{tabular}{l||c|c|c|c|c|c|c|c|c|c}
+\hline
+% \textbf{Average Stretch (m)} & 0.046 & 0.096 & 0.148 & 0.197 & 0.246 & 0.296 & 0.347 & 0.397 & 0.448 & 0.498 \\  
+\hline
+\textbf{Log Average Stretch (m)} & -1.337 & -1.018 & -0.830 & -0.706 & -0.609 & -0.529 & -0.460 & -0.401 & -0.349 & -0.303 \\
+\hline
+\textbf{Propagation of Uncertainty} & 0.022 & 0.010 & 0.004 & 0.005 & 0.004 & 0.003 & 0.003 & 0.001 & 0.001 & 0.002 \\ 
+\hline
+\end{tabular}
+\label{tab:log_uncert_static}
+\end{table}
+
+So, at every data point one can observe the Propogation of Uncertainty $\delta \log(l)$ has relatively low value compared to the data point, which implies there is a high validity this collection of data could represent the actual situation. Hence, there is a high confidence that the stretch length $l$ and mass $m$ on the spring is linearly proportional (based on the data).
 
 \newpage
 
@@ -292,7 +319,56 @@ Also, again based on the period formula, it is expected that the period increase
 
 \hfill
 
+If compile all the collected average period above, their corresponding RMSD, and the mass, they form the following tables:
+
+\begin{table}[h!]
+\centering
+\begin{subtable}[t]{0.48\textwidth}
+\centering
+\caption{Period (unit: s) corresponding to each Mass (kg) and Max Amplitude (m)}
+\begin{tabular}{l||c|c|c}
+\toprule
+\diagbox[width=7cm,height=1cm]{\textbf{Mass (kg)}}{\textbf{Max Amplitude (m)}} & 0.020 & 0.040 & 0.060 \\ 
+\midrule
+0.100 & 0.767 & 0.777 & 0.785 \\ 
+\hline
+0.200 & 1.001 & 0.995 & 1.008 \\ 
+\hline
+0.300 & 1.186 & 1.184 & 1.189 \\ 
+\bottomrule
+\end{tabular}
+\end{subtable}
+
 \hfill
+
+\begin{subtable}[t]{0.48\textwidth}
+\centering
+\caption{The corresponding RMSD (unit: s) of the Data Above}
+\begin{tabular}{l||c|c|c}
+\toprule
+\diagbox[width=7cm,height=1cm]{\textbf{Mass (kg)}}{\textbf{Max Amplitude (m)}} & 0.020 & 0.040 & 0.060 \\ 
+\midrule
+0.100 & 0.014 & 0.015 & 0.001 \\ 
+\hline
+0.200 & 0.005 & 0.008 & 0.005 \\ 
+\hline
+0.300 & 0.012 & 0.008 & 0.001 \\ 
+\bottomrule
+\end{tabular}
+\end{subtable}
+
+\end{table} 
+Which, they generate the following log-log plot:
+\begin{figure}
+    \centering
+    \includegraphics[width=90mm]{Log-Log Plot o Average Period (m) with respect to Mass (kg).png}
+\end{figure}
+
+\newpage
+
+
+
+\newpage
 
 \subsubsection{Experiment with Detector}
 \begin{table}[h!]
@@ -462,7 +538,20 @@ In comparison, the mass for $0.1$ kg has a significantly lower average Spring Co
 \hfil
 
 \section{Error Analysis and Potential Improvement}
+For all the experiments, disregarding the human mistakes or errors made during measurement (due to the limitation of human eyes / reaction time), here are some potential sources of errors in the experiment:
+\begin{itemize}
+    \item First, the Spring is not ideal: It has nontrivial mass that potentially affects the stretch of the spring.
+    \item Then, the spring's stretch is also affected after each trial: Every time the spring is being stretched, there is potentially some implicit change / damage in the structure of the spring that is not obvious. Such damage could potentially cause the spring constant to vary.
+    \item During the dynamic approach, friction and air resistance are some of the causes of the damping force on the spring, which the spring is not a perfect Simple Harmonic Oscillator. So, the measured period would be different from the theoretical calculation.
+    \item During the dynamic approach with detector, it is observed multiple times that the detector is not as consistent for the measurement, which there is a possibility that the recorded data includes some non-negligible errors.
+\end{itemize}
+In terms of improvement, some of the following can be made to the procedure or the actual implementation of the experiment:
+\begin{itemize}
+    \item To prevent the spring from having nontrivial change / damage to its structure, could consider put an upper bound on the masses that are being measured to decrease the force applied on the spring each time.
+    \item For the dynamic approach without detector, for a more accurate measurement, one can again consider using the camera to record the whole oscillation for a more precise time measurement.
+\end{itemize}
 
 \section{Conclusion}
+
 
 \end{document}
