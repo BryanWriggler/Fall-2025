@@ -74,13 +74,13 @@
     &= mat(0,0;-1,0) = -f $
     $ (Ad S)_*(f) &= d/(d t)eval(#300%)_(t=0) Ad S(exp(t f))=d/(d t)eval(#300%)_(t=0) mat(1,-t;0,1)\ 
     &= mat(0,-1;0,0)=-e $
-    So, writing in the ordered basis of $h,e,f$, the matrix is written as follow:
-    $ cal(M)((Ad S)_*) = mat(-1,0,0;0,0,-1;0,-1,0) $
+    So, writing in the ordered basis of $e,f, h$, the matrix is written as follow:
+    $ cal(M)((Ad S)_*) = mat(0,-1,0;-1,0,0;0,0,-1) $
 ] 
 
 #pagebreak()
 
-= ND//3
+= ND (part (1),(4))//3
 #problem[
   Etingof Problem Set 3.19:
 
@@ -90,5 +90,19 @@
   + Show that any connected compact complex group must be commutative.
   + Show that if $G$ is a connected complex compact group, then the exponential map gives an isomorphism of Lie groups $frak(g)\/L tilde.equiv G$ for some Lattice $L subset frak(g)$ (i.e. a free abelian group of rank equal to $2 dim(frak(g))$).
 ][
-  
+  + Assume this is true (fix this part later).
+
+    \ 
+
+  + Given that $G$ is compact (also connected complex Lie group by initial assumption), then the analytic map $Ad:G arrow.r gl(frak(g))$ must either be surjective or constant (by the maximum principle of complex manifold). However, since $gl(frak(g)) tilde.equiv M_n (CC)$ as manifold/vector space (given that $dim_CC (frak(g))=n$), $gl(frak(g))$ is not bounded with the natural euclidean norm, which is not compact. Then, $Ad:G arrow.r gl(frak(g))$ must not be surjective (if it's surjective, since $Ad(G) = gl(frak(g))$, then $Ad(G)$ is not compact; however $Ad$ as a continuous map must send compact sets to compact sets, so $Ad(G)$ is also compact. This is a contradiction). Hence, $Ad$ must be constant.
+
+    Finally, since $id_frak(g) in im(G)$ (since $1 in G$ satisfies $Ad(1)=id_G$, so its differential $Ad 1_* = id_frak(g)$), then with $Ad$ being constant, then one must have $Ad g = id_frak(g)$ for all $g in G$. Denote $1:=id_frak(g) in gl(frak(g))$, one yields $Ad g=1$ for all $g in G$.
+
+    \ 
+
+  + Based on part (2), every $g in G$ satisfies $Ad g=1 in gl(frak(g))$. However, recall that every Lie group homomorphism $phi:G arrow.r K$ is uniquely determined by $phi_*: frak(g) arrow.r frak(k)$ (where the mathfrak of the lowercase symbol represents the lie algebra of the corresponding Lie group). Then, with every $g in G$ (and the corresponding adjoint map $Ad g:G arrow.r G$) satisfies $Ad g_* = 1 in gl(frak(g))$, while $id_G$ also satisfies $(id_G)_* = 1 in gl(frak(g))$, by uniqueness of the Lie group homomorphism, $Ad g_* = (id_G)_*$ implies $Ad g=id_G$. Hence, $Ad g(h) = g h g^(-1) = h$ for all $g,h in G$, showing that $g h=h g$ for all $g,h in G$, or $G$ is commutative.
+
+    \ 
+
+  + 
 ]
