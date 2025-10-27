@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{../../Self_Style}
 
-\title{Phys 115A}
+\title{Phys 115A HW 3}
 \author{Zih-Yu Hsieh}
 \date{\today}
 
@@ -64,7 +64,7 @@ $\Psi$ is properly normalized.
 
 \hfil
 
-\section*{2}
+\section*{2 (ND, remark (d), calculate (e))}
 \begin{ques}\label{q2}
 \textbf{Constructing States (modified Griffiths 2.10 and 2.14)}
 
@@ -162,24 +162,20 @@ any other tool you wish to numerically evaluate the relevant integral.
             \includegraphics[width=150mm]{oscillator_sketch.png}
         \end{figure}
 
-        Here, $\psi_0(x)$ is in purple, $\psi_1(x)$ is in black, $\psi_2(x)$ is in red, and $\psi_3(x)$ is in blue.
-
-        Based on calculation from the previous part, graphically it is verified that for all states (besides $psi_0$) above, the classical turning points correspond to the farthest local extrema of the functions (which are the local min / max that are the farthest away from the origin). As interpretation, since $|\psi|^2$ represents the probability of appearing at the point as position, and classically the turning points are where the particles are ``most probable'' to appear, which these farthest extremas are also global extrema, hence corresponds to the most probable position for the particle to appear.
-
-        For $\psi_0$ instead, the classical turning point instead reflects the variance - which are the uncertainties of the particle's position away from the origina (which is the mean, or the average position of the particle).
+        Here, the classical turning point actually represents the farthest positions from the origin where the second derivative of the wavefunction is $0$ (or the farthest point the wave function changes its concavity).
 
         \hfil
 
-        \item[(e)]
+        \item[(e)] Recall that from part (d), the classical turning point
         
     \end{itemize}
 \end{proof}
 
 \newpage
 
-\section*{3}
+\section*{3 (ND, tweak constants in (a))}
 \begin{ques}\label{q3}
-\textbf{3 Uncertainty Principle for the nth state (modified Griffiths 2.12)}
+\textbf{Uncertainty Principle for the nth state (modified Griffiths 2.12)}
 
 Consider the $n$th stationary state of the harmonic oscillator.
 
@@ -203,12 +199,53 @@ lowering operators, which you know how to do.
 \end{ques}
 
 \begin{proof}
+
+    Here, we'll assume the fact that the list $\{\psi_n\}_{n\in\NN}$ forms an orthonormal list under integration inner product (so, for $n\neq m$, it satisfies $\int_{-\infty}^{\infty}\psi_n(x)^*\psi_m(x)dx=0$). Also, we'll utilize the fact that $a^+,a^-$ are Adjoint Operators/Hermition Conjugates of each other, which implies that $\int_{-\infty}^{\infty}\psi(x)^* (a^+\phi(x))dx=\int_{-\infty}^{\infty}(a^-\psi(x))^* \phi(x)dx$, and $\int_{-\infty}^{\infty}\psi(x)^* (a^-\phi(x))dx=\int_{-\infty}^{\infty}(a^+\psi(x))^* \phi(x)dx$.
+
+    Also, based on these rule, let $T^*$ denote the adjoint / Hermitian Conjugate of linear operator $T$, then we get that $\hat{p}^* = -i\sqrt{\frac{\hbar mw}{2}}((a^+)^*-(a^-)^*) = -i\sqrt{\frac{\hbar mw}{2}}(a^--a^+) = i\sqrt{\frac{\hbar m\omega}{2}} (a^+ - a^-) = \hat{p}$.
+
+    \begin{itemize}
+        \item[(a)] Given $\psi_n(x)=(a^+)^n\psi_0(x)$, using the expression that $\hat{x}=\sqrt{\frac{\hbar}{2mw}}(a^++a^-)$ as operator, we get the following (where below is up to some constant):
+        \begin{align}
+            \left<x\right>&=\int_{-\infty}^{\infty}\psi_n(x)^* (\hat{x}\psi_n(x))dx = \sqrt{\frac{\hbar}{2mw}}\int_{-\infty}^{\infty}((a^+)^n \psi_0(x))^*((a_+)^{n+1}\psi_0(x)+a^- (a^+)^n\psi_0(x))dx\\
+            &= \sqrt{\frac{\hbar}{2mw}}\int_{-\infty}^{\infty}\psi_n(x)^* \psi_{n+1}(x)dx + \sqrt{\frac{\hbar}{2mw}}\int_{-\infty}^{\infty}((a^+)^n\psi_0(x))^* a^-((a^+)^n\psi_0(x))dx\\
+            &= 0+\sqrt{\frac{\hbar}{2mw}}\int_{-\infty}^{\infty}((a^+)^{n+1}\psi_0(x))^* \psi_n(x)dx = \sqrt{\frac{\hbar}{2mw}}\int_{-\infty}^{\infty}\psi_{n+1}(x)^*\psi_n(x)dx = 0
+        \end{align}
+        \begin{align}
+            \left<p\right>&=\int_{-\infty}^{\infty}\psi_n(x)^*(\hat{p}\psi_n(x))dx = i\sqrt{\frac{\hbar mw}{2}}\int_{-\infty}^{\infty}((a^+)^n\psi_0(x))^*((a^+)^{n+1}\psi_0(x)-a^-(a^+)^{n}\psi_0(x))dx\\
+            &= i\sqrt{\frac{\hbar mw}{2}}\left(\int_{-\infty}^{\infty}\psi_n(x)^* \psi_{n+1}(x)dx - \int_{-\infty}^{\infty}((a^+)^{n+1}\psi_0(x))^*((a^+)^n \psi_0(x))dx\right)\\
+            &= 0-i\sqrt{\frac{\hbar mw}{2}}\int_{-\infty}^{\infty}\psi_{n+1}(x)^* \psi_n(x)dx = 0
+        \end{align}
+        \begin{align}
+            \left<x^2\right> &= \int_{-\infty}^{\infty}\psi_n(x)^2 x^2 \psi_n(x)dx = \int_{-\infty}^{\infty}(\hat{x}\psi_n(x))^*(\hat{x}\psi_n(x))dx\\
+            &= \frac{\hbar}{2mw}\int_{-\infty}^{\infty}((a^+)^{n+1}\psi_0(x) + a^-(a^+)^n\psi_0(x))^* ((a^+)^{n+1}\psi_0(x) + a^-(a^+)^n\psi_0(x))dx\\
+            &= \frac{\hbar}{2mw}\int_{-\infty}^{\infty}(\sqrt{(n+1)!}\psi_{n+1}(x)+\sqrt{n!}\psi_{n-1}(x))^*(\sqrt{(n+1)!}\psi_{n+1}(x)+\sqrt{n!}\psi_{n-1}(x))dx\\
+            &= \frac{\hbar}{2mw}((n+1)!+n!)
+        \end{align}
+        (Note: the last equality is using the fact that the integration represents the $\|\sqrt{(n+1)!}\psi_{n+1}(x)+\sqrt{n!}\psi_{n-1}(x)\|^2$, by orthonormality and Pythagoreus Theorem of inner product, such norm is the same as $\|\sqrt{(n+1)!}\|\psi_{n+1}(x)\|^2+\|\sqrt{n!}\psi_{n-1}(x)\|^2 = (n+1)!+n!$).
+        \begin{align}
+            \left<p^2\right> &= \int_{-\infty}^{\infty}\psi_n(x)^*(\hat{p}^2 \psi_n(x))dx = \int_{-\infty}^{\infty}(\hat{p}\psi_n(x))^*(\hat{p}\psi_n(x))dx\\
+            &= \frac{\hbar mw}{2}\int_{-\infty}^{\infty}(a^+\psi_n(x)-a^-\psi_n(x))^*(a^+\psi_n(x)-a^-\psi_n(x))dx\\
+            &= \frac{\hbar mw}{2}(2n+1)
+        \end{align} (check the precise statement about how $a^+,a^-$ acts on $\psi_n(x)$ with constant).
+
+        \hfil
+
+        \item[(b)]Kinetic energy $\hat{T}:=\frac{\hat{p}^2}{2m}$, hence $\left<T\right>=\int_{-\infty}^{\infty}\psi_n(x)^* (\frac{\hat{p}^2}{2m}\psi_n(x))dx = \frac{\left<p^2\right>}{2m}$.
+        
+        Similarly, given potential energy $V(x)=\frac{1}{2}mw^2 x^2$, then $\left<V\right>=\int_{-\infty}^{\infty}\psi_n(x)^* (\frac{1}{2}mw^2 x^2\psi_n(x))dx = \frac{1}{2}mw^2 \left<x^2\right>$.
+
+        \hfil
+
+        \item[(c)] Need to wait until the constants in (a) is checked.
+    \end{itemize}
 \end{proof}
 
 \newpage
 
+\section*{4 (ND)}
 \begin{ques}\label{q4}
-\textbf{4 Back of the envelope}
+\textbf{Back of the envelope}
 
 Using the symmetry of the potential, come up with an expression for the zero-point energy
 of a harmonic oscillator on the assumption that it is the minimum energy required by the
@@ -220,8 +257,9 @@ uncertainty principle.
 
 \newpage
 
+\section*{5 (ND)}
 \begin{ques}\label{q5}
-\textbf{5 Coherent states}
+\textbf{Coherent states}
 
 In problem 3, you found that most of the stationary states of the harmonic oscillator satisfy,
 but do not saturate, the uncertainty principle. Now let us consider a special superposition of
