@@ -70,13 +70,39 @@
   + Let $Y$ be the nodal cubic curve $y^2z=x^2(x+z)$ in $PP^2$. Show that the projection $phi$ from the point $P=(0,0,1)$ to the line $z=0$ (Ex. 3.14) induces a birational map from $Y$ to $PP^1$. Thus $Y$ is a rational curve.
 ][]
 
-= ND//4
+#pagebreak()
+
+= D//4
 #problem[
   Hartshorne 4.6:
 
-  #emph[Plane Cremona Transformations]. A birational map of $PP^2$ into itself is called a #emph[plane Cremona transformation]. We give an example, called a #emph[quadratic transformation]. It is the rational map $phi:PP^2 arrow.r PP^2$ given by $(a_0,a_1,a_2) arrow.r (a_1a_2,a_0 a_2,a_0 a_1)$ when no two of $a_0,a_1,a_2$ are $0$.
+  #emph[Plane Cremona Transformations]. A birational map of $PP^2$ into itself is called a #emph[plane Cremona transformation]. We give an example, called a #emph[quadratic transformation]. It is the rational map $phi:PP^2 arrow.r.dashed PP^2$ given by $(a_0,a_1,a_2) arrow.r (a_1a_2,a_0 a_2,a_0 a_1)$ when no two of $a_0,a_1,a_2$ are $0$.
 
   + Show that $phi$ is birational, and is its own inverse.
   + Find open sets $U,V subset.eq PP^2$, such that $phi:U arrow.r V$ is an isomorphism.
-  + Find the open sets where $phi$ and $phi^(-1)$ are defined, and describe the coresponding morphisms. See also (V, 4.2.3).
-][]
+  + Find the open sets where $phi$ and $phi^(-1)$ are defined, and describe the corresponding morphisms. See also (V, 4.2.3).
+][
+  + Let $[x_0,x_1,x_2]$ be the coordinates of $PP^2$, and let $H_i:={x_i=0}$ be the corresponding algebraic set of index $i=0,1,2$. Then, define $U_i:= PP^2\\H_i$, consider the open set $U:= U_0 sect U_1 sect U_2=` PP^2\\(H_0 union H_1 union H_2)$ (where every $[x_0,x_1,x_2] in U$ has $x_0,x_1,x_2!=0$). Then, if consider $phi$ when restricting onto $U$, we have $phi([x_0,x_1,x_2])=[x_1x_2,x_0x_2,x_0x_1] in U$ (since each of the component $x_i!=0$, then their finite product is still nonzero. Hence, each entry of the output is nonzero).
+
+    Now, notice that $[x_0,x_1,x_2] in U$ implies $phi([x_0,x_1,x_2]) = [x_1x_2,x_0x_2,x_0x_1] = [1/x_0,1/x_1,1/x_2]$ (since $x_0x_1x_2 !=0$, so divide every entry by it). Then, $phi^2:U arrow.r U$ satisfies $phi^2([x_0,x_1,x_2])=phi([1/x_0,1/x_1,1/x_2]) = [1/(1\/x_0), 1/(1\/x_1), 1/(1\/x_2)] = [x_0,x_1,x_2]$. Hence, when restrict onto the open subset $U$, $phi$ is its own mutual inverse, which is a birational equivalence.
+
+    \ 
+
+  + Based on the statement established in (a), choose $U = V=PP^2\\(H_0 union H_1 union H_2)$, then $phi:U arrow.r.tilde V$ is an isomorphism with itself being its own inverse (since it's well-defined on each point of $U=V$, while also having an inverse on this open set). 
+
+    \ 
+
+  + In case for $phi$ to be well-defined, then at least one of the entries in the output needs to be nonzero. For definiteness, say $phi([x_0,x_1,x_2])=[x_1x_2,x_0x_2,x_0x_1]$ has the first coordinate being nonzero, then $x_1x_2!=0$ implies $x_1,x_2!=0$. Apply similar logic to the other two coordinates, one can deduce that on the open set where $phi$ is well-defined, one must have at least two coordinates being nonzero. Also, conversely if two of the coordinates are nonzero (for definiteness, say $x_1,x_2!=0$), then $phi([x_0,x_1,x_2])=[x_1x_2,x_0x_2,x_0x_1]$ has the first coordinate being nonzero, which is well-defined.
+
+    So, $phi$ being well-defined at $[x_0,x_1,x_2] in PP^2$ iff two of its coordinates are nonzero. Hence, $phi([x_0,x_1,x_2])$ is well-defined iff $[x_0,x_1,x_2] in W = (U_0 sect U_1) union (U_0 sect U_2) union (U_1 sect U_2)$, where each open set $U_i := PP^2\\H_i = {x_i!=0}$. This will be the open set where $phi$ is well-defined.
+
+    \ 
+    
+    Besides the collection $U_0 sect U_1 sect U_2 = U$ (where $U$ defined in part (a) has $phi$ as a self-isomorphism on $U$), there are other sets (not necessarily open in $PP^2$) that is within the domain $W$. Given $W\\U$, it is the collection of points in $W$ (with at least 2 nozero coordinates) that're not in $U$ (not all 3 coordinates are nonzero), which there are exactly 2 coordinates being nonzero. So, $W\\U = union.big_(i=0)^2 W sect H_i$ (which each $W sect H_i$ is the set with $x_i=0$, and the other two cordinates being nonzero).
+
+    Given each $W sect H_i$ (for definiteness, we'll demonstrate $i=0$), since $x_0=0$ and $x_1,x_2!=0$, then one has $phi([0,x_1,x_2]) = [x_1x_2,0 dot x_2, 0 dot x_1] = [1,0,0] in PP^2$. Apply similar logic to other index $i$, one can deduce that any $W sect H_i$ has all its points being sent to the point where $x_i=1$, and other coordinates are $0$.
+
+    \
+
+    So as conclusion, $phi:W arrow.r PP^2$ has $phi:U arrow.r.tilde U$ given by $phi([x_0,x_1,x_2])=[1/x_0,1/x_1,1/x_2]$; also, $phi:W sect H_0 arrow.r PP^2$ is given by $phi([x_0,x_1,x_2]) = [1,0,0]$, $phi:W sect H_1 arrow.r PP^2$ by $phi([x_0,x_1,x_2]) = [0,1,0]$, and $phi:W sect H_2 arrow.r PP^2$ by $phi([x_0,x_1,x_2])=[0,0,1]$. 
+]
