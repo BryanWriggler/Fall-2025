@@ -36,7 +36,38 @@
 
   + Generalize the previous part to the Lie algebra $frak(g)=V plus.circle RR z$, where $V$ is a real vector space with non-degenerate skew-symmetric form $w$ and the commutation relations are given by $[v_1,v_2]=w(v_1,v_2)z, [z,v]=0$.
 ][
-  
+  Since both questions have nearly the same method, so we'll state and prove the generalized case in (2), then go back and prove (1).
+
+  #lemma([Part (2)])[
+    Given the Lie algebra $frak(g)=V plus.circle RR z$, where $V$ is a finite-dimensional real vector space with non-degenerate skew-symmetric form $w$.
+
+    Define the Lie Bracket $[dot, dot]:frak(g) times frak(g) arrow.r frak(g)$ by commutation relation $[v_1,v_2]=w(v_1,v_2)z$ and $[z,v]=0$ for all $v,v_1,v_2 in V$. Let $G$ be the simply-connected Lie Group corresponding to $frak(g)$, then the following formula always holds:
+    $ exp(v_1)exp(v_2) = exp(w(v_1,v_2)z) exp(v_2)exp(v_1) $
+  ][]
+
+  To prove the above statement, we'll approach using the following several statements:
+
+  \ 
+
+  #text(weight: "bold")[I. Center of $frak(g)$ is $RR z$:]
+
+    Given that $frak(g)=V plus.circle RR z$, then every $v in frak(g)$ can be uniquely expressed as $v_1+k z$, where $v_1 in V$ and $k in RR$. Which, given that $u=v_2 + k' z$ (with $v_2 in V$ and $k' in RR$) with $u in frak(z):= $ center of $frak(g)$, then we must have $[u, v]=0$ for all $v in frak(g)$. Hence, the following is true:
+    $ 0=[u,v]=[v_2+k' z, v_1+k z]=[v_2,v_1] + k [v_2,z]+k' [z,v_1]+k k'[z,z] = w(v_2,v_1)z $
+    This implies that $w(v_2,v_1)=0$ for every $v_1 in V$. However, with $w$ being a non-degenerate bilinear form, if $v_2!=0$, one must have some corresponding $v_2' in V$ such that $w(v_2,v_2')!=0$. Hence, this enforces $v_2=0$, so $u=k' z in RR z$. This shows that $frak(z) subset.eq RR z$.
+
+    Also, notice that given any $k in RR$, any $v=v_1+k' z in frak(g)$ (where $v_1 in V$ and $k' in RR$) satisfies the following:
+    $ [k z, v_1+k'z]=k[z,v_1]+k k'[z,z]=0 $
+    Hence, we also have $k z in frak(z)$, or $RR z subset.eq frak(z)$. Therefore, $frak(z)=RR z$, this is the center of the Lie algebra $frak(g)$.
+
+    \ 
+
+  #text(weight: "bold")[II. $RR z=frak(z)$ is the Derived Subalgebra $[frak(g),frak(g)]$:]
+
+    Given any $v,w in frak(g)$, since $v=v_1+k z$ and $w=v_2+k' z$ for some $v_1,v_2 in V$ and $k,k' in RR$, then one has the following:
+    $ [v,w]=[v_1+k z,v_2+k' z]=[v_1,v_2]+k'[v_1,z]+k[z,v_2]+k k'[z,z] = w(v_1,v_2)z $
+    Hence, the generators of $[frak(g),frak(g)]$ is contained in $RR z$, showing that $[frak(g),frak(g)] subset.eq RR z$.
+
+    Also, since $w$ is a non-degenerate bilinear form, every $v_1 in V$ has a corresponding $v_2 in V$ such that $w(v_1,v_2)!=0$ (WLOG by scaling with some scalar, one can say there $w(v_1,v_2)=1$). Hence, $z=w(v_1,v_2)z=[v_1,v_2] in [frak(g),frak(g)]$, showing that $RR z subset.eq [frak(g),frak(g)]$. Therefore, $RR z=[frak(g),frak(g)]$, showing that the derived subalgebra of $frak(g)$ is also the center of $frak(g)$.
 ]
 
 #pagebreak()
@@ -104,5 +135,9 @@
 
     \ 
 
-  + 
+  + Given that $G$ is a connected complex compact Lie group, then by part (3) we know $G$ is commutative. Hence, given any $x,y in frak(g)$ (its Lie algebra), one has $exp(x+y)=exp(x)exp(y)$ based on commutativity. Hence, $exp:frak(g) arrow.r G$ is in fact a group homomorphism.
+
+    Then, recall that there exists open neighborhood $U subset.eq frak(g)$ (where $0 in U$) and $tilde(U) subset.eq G$ (where $1 in tilde(U)$), such that $exp:U arrow.r.tilde tilde(U)$ is a diffeomorphism, while open neighborhood of $1 in G$ generates $G$ based on the connectedness of $G$. Hence, every $g in G$ can be expressed as products of finite $g_1,...,g_n in tilde(U)$, where each $g_i in tilde(U)$ can be expressed as $exp(x_i)$ for some $x_i in U$. Hence, we get that $g = product_(i=1)^n g_i = product_(i=1)^n exp(x_i) = exp(sum_(i=1)^n x_i) in im(exp)$, which shows that $exp$ is surjective.
+
+    Hence, by First Isomorphism Theorem 
 ]
