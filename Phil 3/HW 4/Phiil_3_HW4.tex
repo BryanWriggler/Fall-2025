@@ -1,0 +1,170 @@
+\documentclass{article}
+\usepackage{../../Self_Style}
+
+\title{Phil 3 HW 4}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{1}
+\begin{ques}\label{q1}
+Consider these sentence letters. M : Those creatures are men in suits. C: Those creatures are chimpanzees. G: Those creatures are gorillas. Express the form of each of the following English sentences in the language of propositional logic.
+
+a) Those creatures are not men in suits.
+
+b) Those creatures are men in suits, or they are not.
+
+c) Those creatures are either gorillas or chimpanzees.
+
+d) Those creatures are neither gorillas nor chimpanzees.
+
+e) If those creatures are chimpanzees, then they are neither gorillas nor men in suits.
+
+f) Those creatures are chimpanzees only if they’re not gorillas.
+
+g) If those creatures are not men in suits, then they’re either gorillas or they’re chimpanzees.
+
+h) Either those creatures are gorillas and not chimpanzees, or they are men in suits.
+
+i) Those creatures are gorillas if they are not men in suits.
+
+j) If they are not men in suits, then those creatures are gorillas.
+
+k) It is not the case that those creatures are gorillas or men in suits.
+
+l) Those creatures are gorillas or they are men in suits, but they are not both.
+\end{ques}
+
+\begin{proof}
+
+    \hfill
+
+    \begin{itemize}
+        \item[a)]$\sim M$.
+        \item[b)] $M \vee \sim M$.
+        \item[c)] $G \vee C$.
+        \item[d)] $\sim G\& \sim C$.
+        \item[e)] $C \implies (\sim G\& \sim M)$.
+        \item[f)] $C \implies \sim G$.
+        \item[g)] $\sim M \implies (G \vee C)$.
+        \item[h)] $(G \& \sim C)\vee M$.
+        \item[i)] $\sim M\implies G$.
+        \item[j)] $\sim M\implies G$.
+        \item[k)] $\sim (G\vee M)$.
+        \item[l)] $(G \vee M)\& \sim (G\& M)$.           
+    \end{itemize}
+\end{proof}
+
+\hfill
+
+\section*{2}
+\begin{ques}\label{q2}
+Consider these sentence letters: P : Pam is going. Q: Quincy is going. R: Richard is going. S: Sara is going. Translate each of the following arguments into the language of propositional logic. (In other words, put them into standard form and then translate their premises and conclusion into the language of propositional logic.)
+
+\begin{itemize}
+    \item[a)] Pam is going. 
+    
+    If Pam is going, then Quincy is going. 
+    
+    Quincy is going if and only if Richard is not going. 
+    
+    If Sara is going, then Richard is going. 
+    
+    $\therefore$ Sara is not going.
+    \item[b)] Either Quincy is going or Pam is going. 
+    
+    Pam is going only if Sara is going. 
+    
+    Sara is not going. 
+    
+    $\therefore$ Quincy is going.
+\end{itemize}
+In each case, say whether the argument is valid. (You do not need to use truth tables to do so, but you can if you want to. Try to reason through what they’re saying!) Explain why or why not.
+\end{ques}
+
+\begin{proof}
+    
+    \hfill
+
+    \begin{itemize}
+        \item[a)] In Propositional Logic, it's given as follow:
+        \begin{align}
+            &P\\
+            &P\implies Q\\
+            &Q\iff \sim R\\
+            &S\implies R\\
+            \therefore &\sim S
+        \end{align}
+        This argument is valid, since (1) and (2) implies $Q$, $Q$ and $\sim R$ are equivalent by (3), so $\sim R$ is true. Then, since (4) has $S\implies R$ (which is equivalent to $\sim R\implies \sim S$), then with $\sim R$ being true, $\sim S$ is true.
+
+        \hfill
+
+        \item[b)] In Propositional Logic, it's given as follow:
+        \begin{align}
+            &Q \vee P\\
+            & P\implies S\\
+            &\sim S\\
+            \therefore & Q
+        \end{align}
+        This argument is also valid, since (7) provides $P\implies S$, which is equivalent to $\sim S\implies \sim P$. So, since (8) provides $\sim S$ is true, then $\sim P$ is true. Finally, since (6) provides $Q\vee P$, either $Q$ or $P$ is true; however, with $\sim P$ is true (or $P$ is false), $Q$ must be true.
+    \end{itemize}
+\end{proof}
+
+\hfill
+
+\section*{3}
+\begin{ques}\label{q3}
+Consider the following argument form:
+
+P $\implies$ Q
+
+Q
+
+$\therefore$ P
+
+You have two tasks:
+\begin{itemize}
+    \item[a)]First, come up with sentences P and Q in English such that Q is true, P $\implies$ Q is true, but P is false.
+    \item[b)] Is the above argument form valid? How do you know?
+\end{itemize}
+\end{ques}
+
+\begin{proof}
+
+    \hfill
+
+    \begin{itemize}
+        \item[a)] Let $Q$ denotes "I need to drink water to survive", let $P$ denotes "I need to drink coffee to survive". $Q$ is true (at least for all the observable humans, so in common sense it's true), while $P$ is false since human theoretically don't need coffee in order to survive (despite the fact that I need coffee to stay awake this quarter...).
+        
+        Then, since $P$ is false, $P\implies Q$ (equivalent to $\sim P\vee Q$) is always true.
+
+        \hfill
+
+        \item[b)] The above argument form is not valid, since $P\implies Q$ is equivalent to $\sim P \vee Q$. So, since $Q$ is true, $P\implies Q$ is always true, despite the truthfulness of $P$. Hence, it doesn't imply that $P$ is true.
+    \end{itemize}
+\end{proof}
+
+\newpage
+
+\section*{4}
+\begin{ques}\label{q4}
+Sometimes statements in ordinary English have a very different logical structure than what they appear to have on the surface. In this exercise, you’ll think about two examples of this.
+
+\begin{itemize}
+    \item[a)]There is a famous sign that was put up in many businesses in the United States during the 50s and 60s, most likely to keep hippies out. It says: “No shirt, no shoes, no service.” Use the sentence letters P : You are wearing a shirt, Q: You are wearing shoes, and R: You will receive service. Translate what this sign is saying into the language of propositional logic. (Hint: You have to think about what someone putting up that sign means to say! It definitely has some logical connectives in it, even though none appear in the ordinary English statement.)
+    \item[b)] Imagine the following situation. The UCSB basketball team makes it to the final of the Big West Tournament. The winner of this game gets into the NCAA tournament (which is often called ‘March Madness’ — the national college basketball tournament that is held in March). Before the final the coach says to the players in a rousing motivational speech: “Win and we’re in.” Use the sentence letters P : We win the final, Q: We get into the NCAA tournament. Translate what the coach is saying into the language of propositional logic. (Hint: You have to think about what the coach really means to say! The surface grammar — in particular, the word “and” — is very misleading here.)
+\end{itemize}
+\end{ques}
+
+\begin{proof}
+
+    \hfill
+
+    \begin{itemize}
+        \item[a)] $(P\& Q)\implies R$. The sign is most likely stating "If the customers either have no shirts or no shoes, then the business won't provide serves".
+        \item[b)] $P\implies Q$. THe statement is most likely stating "If we win, then the team is in NCAA". 
+    \end{itemize}
+\end{proof}
+
+\end{document}
