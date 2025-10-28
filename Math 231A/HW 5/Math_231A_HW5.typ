@@ -68,6 +68,24 @@
     Hence, the generators of $[frak(g),frak(g)]$ is contained in $RR z$, showing that $[frak(g),frak(g)] subset.eq RR z$.
 
     Also, since $w$ is a non-degenerate bilinear form, every $v_1 in V$ has a corresponding $v_2 in V$ such that $w(v_1,v_2)!=0$ (WLOG by scaling with some scalar, one can say there $w(v_1,v_2)=1$). Hence, $z=w(v_1,v_2)z=[v_1,v_2] in [frak(g),frak(g)]$, showing that $RR z subset.eq [frak(g),frak(g)]$. Therefore, $RR z=[frak(g),frak(g)]$, showing that the derived subalgebra of $frak(g)$ is also the center of $frak(g)$.
+
+    \ 
+
+  #text(weight: "bold")[III. $[frak(g),frak(g)]$ is the Tangent Space of $[G,G]$, the Derived Subgroup of $G$:]
+
+    First, given any $x,y in frak(g)$, any $s,t in RR$ satisfies $exp(t x)exp(s y)exp(-t x)exp(-s y) in [G,G]$ by definition. Which, for small enough $s,t in RR$, one can have the expression being in the domain of the $log$ map. Then, we get the following:
+    $ [x,y]=lim_(s,t arrow.r 0)log(exp(t x)exp(s y)exp(-t x)exp(-s y))/(s t) in T_1([G,G]) $
+    Hence, since all generators of $[frak(g),frak(g)]$ (i.e. every vector of the form $[x,y]$ for some $x,y in frak(g)$) are contained in $T_1([G,G])$, it implies $[frak(g),frak(g)] subset.eq T_1([G,G])$.
+
+    On the other hand, let $U$ be the domain of the $log$ map, and consider $U sect [G,G]$ (which is an open neighborhood of $1 in [G,G]$, which generates $[G,G]$). 
+
+
+    ...
+
+    \ 
+
+  Finally, recall that $[frak(g),frak(g)]=RR z=frak(z) = T_1(Z(G))$ (where $Z(G)$ denotes the center of the Lie group $G$), hence for any $v_1,v_2 in V$, with suitable scaling so that $exp(v_1)exp(v_2)exp(-v_1)exp(-v_2) in [G,G]$ being in the domain of the $log$ map, we have the following for some $c in RR$:
+  $ log(exp(v_1)exp(v_2)exp(-v_1)exp(v_2))=c z in [frak(g),frak(g)] $
 ]
 
 #pagebreak()
