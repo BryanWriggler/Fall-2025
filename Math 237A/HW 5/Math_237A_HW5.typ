@@ -28,7 +28,7 @@
 
 #set enum(numbering: "(a)")
 
-= ND//1
+= D//1
 #problem[
   Hartshorne 3.14:
 
@@ -37,8 +37,42 @@
   + Show that $phi$ is a morphism.
   + Let $Y subset.eq PP^3$ be the twisted cubic curve which is the image of the $3$-tuple embedding of $PP^1$ (EX. 2.12). If $t,u$ are the homogeneous coordinates on $PP^1$, we say that $Y$ is the curve given #emph[parametrically] by $[x,y,z,w]=[t^3,t^2u,t u^2,u^3]$. Let $P=[0,0,1,0]$, and let $PP^2$ be the hyperplane $z=0$. Show that the projection of $Y$ from $P$ is a cuspidal cubic curve in the plane, and find its equation.
 ][
-  + 
+  + First, for any $Q in PP^(n+1)\\PP^n$, define the line $r_Q:PP^1 arrow.r PP^(n+1)$ by $r_Q ([s,t]) = s P+t Q = [s p_0+t q_0,s p_1+t q_1,...,s p_(n+1)+t q_(n+1)]$ as the line embedding. WLOG, define $PP^n := {[x_0,x_1,...,x_(n+1)] in PP^(n+1)|x_0=0}$, then the intersection of $PP^n$ with the line $phi_Q$ happens when $s p_0+t q_0=0$. Which, there are two cases:
+    - If $Q in PP^n$ (i.e. $q_0=0$), with $P in.not PP^n$, we have $p_0!=0$. Thn, $s p_0+t q_0=s p_0=0$ implies $s=0$. So, the corresponding point must have $t!=0$, showing that $[s,t]=[0,1] in PP^1$ is the only point satisfying $r_Q ([s,t]) in PP^n$.
+    - If $Q in.not PP^n$ (i.e. $q_0!=0$), then notice that the linear functional $k^2 arrow.r k$ by $(s,t) mapsto s p_0+t q_0$ is non-degenerate (ex: $(s,t)=(0,1)$ has output $q_0!=0$), hence this linear map has kernel being dimension $1$ (i.e. kernel is $span{u}$ for some nonzero $u in k^2$). So, given any $[s,t] in PP^1$ satisfying $s p_0+t q_0=0$, we must have $(s,t) in span{u}$, showing that $[s,t]=[u]$ when taking the quotient of $PP^1$ as rays of $k^2$ passing through $0$. So, $[u] in PP^1$ is the unique point where $r_Q ([u]) in PP^n$.
+
+    With the two cases established, each line passing through $P$ and $Q$ must have a unique intersection, so the map $phi(Q) = $ the intersection of the line $r_Q$ with $PP^n$ is well-defined.
+
+    \ 
+
+    To show it's in fact a morphism, notice that the solution to the above intersection (of the line through $P,Q$ and $PP^n$) is given by the solution to $s p_0+t q_0=0$. With $p_0!=0$ (using the assumption that $P in.not PP^n = {[x] in PP^(n+1)|x_0=0}$), we naturally have $s = -(t q_0)/p_0$. Which, we must have $t!=0$ (since if $t=0$, $s=0$, which $[s,t]$ is not well-defined in $PP^1$). Then, WLOG can treat $t=1$. Hence, we have $[s,t]=[-q_0/p_0, 1]$.
+
+    So, the map $phi:PP^(n+1) arrow.r PP^n$ is explicitly given as follow:
+    $ phi(Q) &= q_0/p_0 P+Q = [-p_0/p_0 q_0+q_0, -p_1/p_0 q_0+q_1,..., -p_(n+1)/p_0 q_0+q_n] \ 
+    &= [0, -p_1/p_0 q_0+q_1,..., -p_(n+1)/p_0 q_0+q_(n+1)] in PP^n $
+    Since in terms of the coordinate $[q_0,...,q_(n+1)]$ of $PP^(n+1)$ the above map has all the polynomials in each entry being the same degree, it is a rational map; furthermore, since it's well-defined on $PP^(n+1)\\{P}$, it's in fact a well-defined morphism.
+
+    \ 
+
+  + Given $P=[0,0,1,0]$ and the twisted cubic curve $[x,y,z,w]=[t^3,t^2u,t u^2,u^3]$ for all $[t,u] in PP^1$, and $PP^2:={[x,y,z,w] in PP^3|z=0}$. Then, for each $[t,u] in PP^1$, the corresponding line through $[t^3, t^2u, t u^2, u^3]$ and $P=[0,0,1,0]$ intersects $PP^2$ when $[a,b] in PP^1$ satisfies $a dot 1+b dot t u^2=0$, showing that the point $[a,b] = [-t u^2, 1]$ based on the logic from part (a) (where $b!=0$, so $b=1$ can be chosen).
+
+    Which, the intersection of the line through $P,Q$ and $PP^2$ is given by $a P + b Q$, and it's given as follow:
+    $ a P+b Q&=[-t u^2 dot 0+t^3, -t u^2 dot 0+t^2 u, -t u^2 dot 1+t u^2, -t u^2 dot 0+u^3]\ 
+    &= [t^3, t^2u, 0, u^3] $
+    Now, if consider the curve $[t^3, t^2 u, u^3] in PP^2$ (which is an analogy to the previous curve), using $[x,y,z]$ as coordinates of $PP^2$, every point on the curve satisfies the equation $x^2 z=y^3$ (since we have $(t^3)^2 u^3 = t^6 u^3=(t^2 u)^3 $). However, we can claim something even stronger, that every $[x,y,z]$ satisfying $x^2 z=y^3$ is contained in the curve ${[t^3,t^2u, u^3]}$: 
+    
+    If $z=0$, then since $y^3 = x^2 z=0$, hence $y=0$. So, for the point $[x,y,z]$ to be well-defined, $x!=0$, hence can choose $x=1$. So, the point is $[x,y,z]=[1,0,0]$, which belongs to the curve by choosint $[t,u]=[1,0]$ (so $[t^3.t^2u,u^3]=[1,0,0]$).
+
+    Else, if $z!=0$, there are two cases:
+    - If $x=0$, then one has $y^3=x^2z = 0$, hence $y=0$, showing that $[x,y,z]=[0,0,z]=[0,0,1]$. So, choose $[t,u]=[0,1]$ provides the corresponding point (since $[t^3,t^2u,u^3]=[0,0,1]$).
+    - Else if $x!=0$, the $y^3=x^2z!=0$, showing that $y!=0$. So, by scaling the point to get $[x,y,z]=[x/z,y/z,1]$, choose $[t,u] = [x/y,1]$, it satisfies the following:
+    $ [t^3,t^2u,u^3]=[x^3/y^3, x^2/y^2, 1]=[x^3,x^2y, y^3]=[x,y,y^3/x^2] = [x,y,z] $
+    (Note: recall that $x^2 z=y^3$, so with $x,y,z!=0$, $z=y^3/x^2$).
+
+    Hence, we concluded that $[x,y,z] in {[t^3,t^2u,u^2] in PP^2|[t,u]i PP^1}$ iff $x^2z=y$, this is the equation associated to the curve. And, notice that is the homogenization of the equation $x^2=y^3$ in $AA^2$, which generates the cuspidal cubic curve in $AA^2$, so the curve ${[t^3,t^2u,u^3]}$ in fact is the closure of the cuspidal cubic curve in $PP^2$.
 ]
+
+#pagebreak()
 
 = D//2
 #problem[
@@ -60,6 +94,8 @@
     Hence, if consider the rational map $phi: PP^2 arrow.r.dashed PP^1$ given by $[x_0,x_1,x_2] mapsto [x_0,x_1]$, it agrees with the previous rational map $f:PP^2 arrow.r.dashed AA^1 subset PP^1$, and its domain in fact enlarges to the open subset where $x_0!=0$ or $x_1!=0$ (where $[x_0,x_1] in PP^1$ is well-defined). Hence, the open subset $PP^2\\(H_0 sect H_1)$ (where the closed set $H_i :={[x_0,x_1,x_2] in PP^2|x_i=0}$ for index $i=0,1,2$), is the largest domain where $phi$ is well-defined morphism, and is a projection of open subsets of $PP^2$ onto $PP^1$.
 ]
 
+#pagebreak()
+
 = ND//3
 #problem[
   Hartshorne 4.4:
@@ -68,7 +104,10 @@
   + Any conic in $PP^2$ is a rational curve.
   + The cuspidal cubic $y^2=x^3$ is a rational curve.
   + Let $Y$ be the nodal cubic curve $y^2z=x^2(x+z)$ in $PP^2$. Show that the projection $phi$ from the point $P=(0,0,1)$ to the line $z=0$ (Ex. 3.14) induces a birational map from $Y$ to $PP^1$. Thus $Y$ is a rational curve.
-][]
+][
+  First, since here we're limited to $Y$ that's a variety, so every open subset of the given $Y$ is guaranteed to be dense and irreducible.
+  + Let $[x,y,z]$ be the coordinates of $PP^2$, for any conic in $PP^2$ (that's also a varety), it's the algebraic set of the form ${a x^2+b y^2+c z^2+d x y+e x z+f y z=0}$, where the polynomial $a x^2+b y^2+c z^2+d x y+e x z+f y z in k[x,y,z]$ is irreducible (so the corresponding ideal is prime). Then, let's say $y,z$ has nontrivial involvement in the polynomial
+]
 
 #pagebreak()
 
