@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  28 OCT 2025 22:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  28 OCT 2025 22:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -787,49 +787,62 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+<sketch_setup_manual.jpg, id=103, 1764.5925pt x 507.8975pt>
+File: sketch_setup_manual.jpg Graphic file (type jpg)
+<use sketch_setup_manual.jpg>
+Package pdftex.def Info: sketch_setup_manual.jpg  used on input line 28.
+(pdftex.def)             Requested size: 426.79134pt x 122.84337pt.
+ [1
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [3]
-<data_manual.png, id=124, 768.8725pt x 377.41pt>
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./sketch_setup_manual.jpg>]
+<sketch_setup_function.jpg, id=115, 1712.3975pt x 769.87625pt>
+File: sketch_setup_function.jpg Graphic file (type jpg)
+<use sketch_setup_function.jpg>
+Package pdftex.def Info: sketch_setup_function.jpg  used on input line 42.
+(pdftex.def)             Requested size: 426.79134pt x 191.88123pt.
+<lab_setup_function.png, id=116, 4047.12pt x 3035.34pt>
+File: lab_setup_function.png Graphic file (type png)
+<use lab_setup_function.png>
+Package pdftex.def Info: lab_setup_function.png  used on input line 46.
+(pdftex.def)             Requested size: 284.52756pt x 213.3755pt.
+ [2{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./sketch_setup_function.jpg> <./lab_setup_function.png>] [3] [4]
+<data_manual.png, id=134, 768.8725pt x 377.41pt>
 File: data_manual.png Graphic file (type png)
 <use data_manual.png>
-Package pdftex.def Info: data_manual.png  used on input line 116.
+Package pdftex.def Info: data_manual.png  used on input line 128.
 (pdftex.def)             Requested size: 426.79134pt x 209.49957pt.
-<data_device_1.png, id=126, 926.46124pt x 168.63pt>
+ [5 <./data_manual.png>]
+<data_device_1.png, id=142, 926.46124pt x 168.63pt>
 File: data_device_1.png Graphic file (type png)
 <use data_device_1.png>
-Package pdftex.def Info: data_device_1.png  used on input line 124.
+Package pdftex.def Info: data_device_1.png  used on input line 138.
 (pdftex.def)             Requested size: 426.79134pt x 77.68394pt.
-<Log-Log Plot of Average 1st Resonance Frequency (Hz) wrt Tension (N).png, id=127, 602.25pt x 446.66875pt>
+<Log-Log Plot of Average 1st Resonance Frequency (Hz) wrt Tension (N).png, id=143, 602.25pt x 446.66875pt>
 File: Log-Log Plot of Average 1st Resonance Frequency (Hz) wrt Tension (N).png Graphic file (type png)
 <use Log-Log Plot of Average 1st Resonance Frequency (Hz) wrt Tension (N).png>
-Package pdftex.def Info: Log-Log Plot of Average 1st Resonance Frequency (Hz) wrt Tension (N).png  used on input line 128.
+Package pdftex.def Info: Log-Log Plot of Average 1st Resonance Frequency (Hz) wrt Tension (N).png  used on input line 142.
 (pdftex.def)             Requested size: 284.52756pt x 211.03165pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[4 <./data_manual.png> <./data_device_1.png>]
-<data_device_2.png, id=136, 875.27pt x 241.90375pt>
+<data_device_2.png, id=144, 875.27pt x 241.90375pt>
 File: data_device_2.png Graphic file (type png)
 <use data_device_2.png>
-Package pdftex.def Info: data_device_2.png  used on input line 136.
+Package pdftex.def Info: data_device_2.png  used on input line 150.
 (pdftex.def)             Requested size: 426.79134pt x 117.95436pt.
-<The nth Resonance Frequency, with Tension 0.981 N, Length 0.865 m.png, id=137, 602.25pt x 372.39125pt>
+<The nth Resonance Frequency, with Tension 0.981 N, Length 0.865 m.png, id=145, 602.25pt x 372.39125pt>
 File: The nth Resonance Frequency, with Tension 0.981 N, Length 0.865 m.png Graphic file (type png)
 <use The nth Resonance Frequency, with Tension 0.981 N, Length 0.865 m.png>
-Package pdftex.def Info: The nth Resonance Frequency, with Tension 0.981 N, Length 0.865 m.png  used on input line 140.
+Package pdftex.def Info: The nth Resonance Frequency, with Tension 0.981 N, Length 0.865 m.png  used on input line 154.
 (pdftex.def)             Requested size: 284.52756pt x 175.93874pt.
-<The nth Resonance Frequency, with Tension 1.961 N, Length 0.865 m.png, id=138, 602.25pt x 372.39125pt>
+<The nth Resonance Frequency, with Tension 1.961 N, Length 0.865 m.png, id=146, 602.25pt x 372.39125pt>
 File: The nth Resonance Frequency, with Tension 1.961 N, Length 0.865 m.png Graphic file (type png)
 <use The nth Resonance Frequency, with Tension 1.961 N, Length 0.865 m.png>
-Package pdftex.def Info: The nth Resonance Frequency, with Tension 1.961 N, Length 0.865 m.png  used on input line 141.
+Package pdftex.def Info: The nth Resonance Frequency, with Tension 1.961 N, Length 0.865 m.png  used on input line 155.
 (pdftex.def)             Requested size: 284.52756pt x 175.93874pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[5 <./Log-Log Plot of Average 1st Resonance Frequency (Hz) wrt Tension (N).png> <./data_device_2.png>] [6 <./The nth Resonance Frequency, with Tension 0.981 N, Length 0.865 m.png> <./The nth Resonance Frequency, with Tension 1.961 N, Length 0.865 m.png>] (./inlab5.aux)
+[6 <./data_device_1.png> <./Log-Log Plot of Average 1st Resonance Frequency (Hz) wrt Tension (N).png> <./data_device_2.png>] [7 <./The nth Resonance Frequency, with Tension 0.981 N, Length 0.865 m.png> <./The nth Resonance Frequency, with Tension 1.961 N, Length 0.865 m.png>] (./inlab5.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -838,18 +851,18 @@ Package rerunfilecheck Info: File `inlab5.out' has not changed.
 (rerunfilecheck)             Checksum: F1193CE94A9EDD76B56947A8871F1353;3338.
  ) 
 Here is how much of TeX's memory you used:
- 30955 strings out of 474116
- 630956 string characters out of 5743681
- 1937187 words of memory out of 5000000
- 52793 multiletter control sequences out of 15000+600000
+ 30980 strings out of 474116
+ 631644 string characters out of 5743681
+ 1936187 words of memory out of 5000000
+ 52814 multiletter control sequences out of 15000+600000
  566267 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,6n,113p,589b,515s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,6n,113p,589b,509s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on inlab5.pdf (6 pages, 303588 bytes).
+Output written on inlab5.pdf (7 pages, 21849358 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
- 136 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
- 307 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 211 PDF objects out of 1000 (max. 8388607)
+ 145 compressed objects within 2 object streams
+ 31 named destinations out of 1000 (max. 500000)
+ 322 words of extra memory for PDF output out of 10000 (max. 10000000)
 
