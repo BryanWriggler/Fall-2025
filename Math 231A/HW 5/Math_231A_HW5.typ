@@ -28,7 +28,7 @@
 
 #set enum(numbering: "(1)")
 
-= ND//1
+= HD (Prove III)//1
 #problem[
   Etingof Problem Set 3.13:
 
@@ -53,7 +53,7 @@
 
     Given that $frak(g)=V plus.circle RR z$, then every $v in frak(g)$ can be uniquely expressed as $v_1+k z$, where $v_1 in V$ and $k in RR$. Which, given that $u=v_2 + k' z$ (with $v_2 in V$ and $k' in RR$) with $u in frak(z):= $ center of $frak(g)$, then we must have $[u, v]=0$ for all $v in frak(g)$. Hence, the following is true:
     $ 0=[u,v]=[v_2+k' z, v_1+k z]=[v_2,v_1] + k [v_2,z]+k' [z,v_1]+k k'[z,z] = w(v_2,v_1)z $
-    This implies that $w(v_2,v_1)=0$ for every $v_1 in V$. However, with $w$ being a non-degenerate bilinear form, if $v_2!=0$, one must have some corresponding $v_2' in V$ such that $w(v_2,v_2')!=0$. Hence, this enforces $v_2=0$, so $u=k' z in RR z$. This shows that $frak(z) subset.eq RR z$.
+    This implies that $w(v_2,v_1)=0$ for every $v_2 in V$. However, with $w$ being a non-degenerate bilinear form, if $v_2!=0$, one must have some corresponding $v_2' in V$ such that $w(v_2,v_2')!=0$. Hence, this enforces $v_2=0$, so $u=k' z in RR z$. This shows that $frak(z) subset.eq RR z$.
 
     Also, notice that given any $k in RR$, any $v=v_1+k' z in frak(g)$ (where $v_1 in V$ and $k' in RR$) satisfies the following:
     $ [k z, v_1+k'z]=k[z,v_1]+k k'[z,z]=0 $
@@ -71,21 +71,54 @@
 
     \ 
 
-  #text(weight: "bold")[III. $[frak(g),frak(g)]$ is the Tangent Space of $[G,G]$, the Derived Subgroup of $G$:]
+  #text(weight: "bold")[III. Element of the form $g h g^(-1) h^(-1)$ forms a Manifold, with Tangent Space contained in $[frak(g),frak(g)]$:]
 
-    First, given any $x,y in frak(g)$, any $s,t in RR$ satisfies $exp(t x)exp(s y)exp(-t x)exp(-s y) in [G,G]$ by definition. Which, for small enough $s,t in RR$, one can have the expression being in the domain of the $log$ map. Then, we get the following:
-    $ [x,y]=lim_(s,t arrow.r 0)log(exp(t x)exp(s y)exp(-t x)exp(-s y))/(s t) in T_1([G,G]) $
-    Hence, since all generators of $[frak(g),frak(g)]$ (i.e. every vector of the form $[x,y]$ for some $x,y in frak(g)$) are contained in $T_1([G,G])$, it implies $[frak(g),frak(g)] subset.eq T_1([G,G])$.
+    For this, consider the map $G times G arrow.r G times G times G times G arrow.r G times G arrow.r G$ by $(g,h) mapsto (g,h,g^(-1),h^(-1)) mapsto (g h,g^(-1),h^(-1)) mapsto (g h g^(-1) h^(-1))$. This map can be realized as certain product maps of identity, inverse, and multiplication map on $G$, hence is not only smooth, but also with constant rank (since all such maps are with constant rank). So, its image is in fact an immersed submanifold. 
 
-    On the other hand, let $U$ be the domain of the $log$ map, and consider $U sect [G,G]$ (which is an open neighborhood of $1 in [G,G]$, which generates $[G,G]$). 
-
-
-    ...
+    Also, for suitable $g,h$ that's small enough to be in the domain of $log$ function (which can be written as $g=exp(t v), h=exp(s u)$ for some $t,s in RR$, $v,u in frak(g)$), then one has 
 
     \ 
 
   Finally, recall that $[frak(g),frak(g)]=RR z=frak(z) = T_1(Z(G))$ (where $Z(G)$ denotes the center of the Lie group $G$), hence for any $v_1,v_2 in V$, with suitable scaling so that $exp(v_1)exp(v_2)exp(-v_1)exp(-v_2) in [G,G]$ being in the domain of the $log$ map, we have the following for some $c in RR$:
-  $ log(exp(v_1)exp(v_2)exp(-v_1)exp(v_2))=c z in [frak(g),frak(g)] $
+  $ log(exp(v_1)exp(v_2)exp(-v_1)exp(-v_2))=c z in [frak(g),frak(g)] = frak(z) $
+  Hence, $exp(v_1)exp(v_2)exp(-v_1)exp(-v_2) = exp(c z)$. To claim that $c=w(v_1,v_2)$, we'll consider a more general statement: Given any $t,t',s,s' in RR$, since now we've derived the fact that $exp((t+t')v_1)exp(s v_2)exp(-(t+t')v_1)exp(-s v_2) = exp(c' z) in Z(G)$ for suitable choice of $t,t',s,s'$. Which, notice that it satisfies the following:
+  $ &exp((t+t')v_1)exp(s v_2)exp(-(t+t')v_1)exp(-s v_2)\
+  &= exp(t v_1) exp(t' v_1)exp(s v_2)exp(-t' v_1) exp(-t v_1)exp(-s v_2)\
+  &= exp(t v_1)(exp(t'v_1)exp(s v_2)exp(-t'v_1)exp(-s v_2))exp(s v_2)exp(-t v_1)exp(-s v_2)\ 
+  &= exp(t v_1)exp(c''z)exp(s v_2)exp(-t v_1)exp(-s v_2)\ 
+  &= exp(c'' z)exp(t v_1)exp(s v_2)exp(-t v_1)exp(-s v_2)\ 
+  &= (exp(t' v_1)exp(s v_2)exp(-t' v_1)exp(-s v_2))(exp(t v_1)exp(s v_2)exp(-t v_1)exp(-s v_2)) $
+  Which, above is given by $exp(c''z)=exp(t' v_1)exp(s v_2)exp(-t' v_1)exp(-s v_2) in Z(G)$ (since $z in frak(z)=T_1(Z(G))$), which commutes with everything. So, we conclude that the map $phi:RR arrow.r G$ by $phi(t) = exp(t v_1)exp(s v_2)exp(-t v_1)exp(-s v_2)$ is in fact a Lie group homomorphism as intended. Applying similar logic to the map $psi:RR arrow.r G$ by $psi(s)=exp(t v_1)exp(s v_2)exp(-t v_1)exp(-s v_2)$, this is also a Lie group homomorphism.
+
+  Which, let $c:RR^2 arrow.r RR$ be a function that satisfies $exp(t v_1)exp(s v_2)exp(-t v_1)exp(-s v_2)=exp(c(t,s)z)$. Based on the claim that fixing either $t$ or $s$ makes the other component becoming a Lie group homomorphism implies that $c$ is bilinear (for instance, $exp(c(t+t',s)z) = exp(c(t,s)z)exp(c(t',s)z) = exp((c(t,s)+c(t',s))z)$ based on the fact that fixing $s$, this function is a Lie group homomorphism in $t$; $exp(c(k t,s)z)=exp(k c(t,s)z)$ follows by smoothness and the property of group homomorphism over $RR$). Which, if consider $c(1,1)$, we get the following using the limit definition of Lie bracket:
+  $ [v_1,v_2]=&lim_(t,s arrow.r 0)log(exp(t v_1)exp(s v_2)exp(-t v_1)exp(-s v_2))/(t s) = lim_(t,s arrow.r 0)log(exp(c(t,s)z))/(t s)\
+  &= lim_(t,s arrow.r 0)(t s c(1,1)z)/(t s)=c(1,1)z $
+  Which, with $[v_1,v_2]=w(v_1,v_2)z$, we must have $c(1,1)=w(v_1,v_2)$. Hence, the following is true:
+  $ exp(v_1)exp(v_2)exp(-v_1)exp(-v_2) = exp(c(1,1)z)=exp(w(v_1,v_2)z) $
+  And, this proves the desired statement.
+  
+  \ 
+
+  \ 
+
+  #text(weight: "bold")[Special Case in Part (1):]
+
+  Given $3$-dimensional real Lie algebra $frak(g)$ with basis $x,y,z$, consider $V=span{x,y}$, then $frak(g) = V plus.circle RR z$. On $V$, one can define a bilinear form $w:V times V arrow.r V$ by $w(x,x)=w(y,y)=0$, $w(x,y)=-w(y,x)=1$. Then, $w$ is in fact a non-degenerate skew-symmetric bilinear form on $V$ (since given any nonzero $a x+b y in V$, if $a!=0$, then $w(a x+b y, y)=a w(x,y)=a!=0$; similar for $b!=0$, then choose $x$ as a counterpart instead). 
+
+  Also, given any $a x+b y, c x+d y in V$, one has $w(a x+b y,c x+d y)=(a d-b c)w(x,y) = (a d-b c)$ Hence, we have the following on its Lie algebra structure:
+  $ [a x+b y,c x+d y]=(a c-b d)[x,y] = w(a x+b y,c x+d y)z $ 
+  $ [a x+b y,z]=0 $
+  Hence, the Heisenberg Algebra satisfies the given condition above, which its simply-connected Lie group $G$ automatically satisfies the condition $exp(t x)exp(s y)exp(-t x)exp(-s y)=exp(t s z)$ (with $x,y in V$), hence $exp(t x)exp(s y)=exp(t s z)exp(s y)exp(t x)$, which is the desired statement.
+
+  \ 
+
+  Now, for a concrete group, consider the group $H subset.eq GL_3(RR)$ collecting all matrices of the following:
+  $ H={mat(1,a,b;0,1,c;0,0,1) in GL_3(RR)eval(#300%)a,b,c in RR} $
+  Notice that as $RR$-vector space, $H tilde.equiv RR^3$ (since for any $a,b,c in RR$ such matrix is always invertible because of the diagonals all being $1$, and its uppertriangular), so $H$ is simply-connected. Also, taking the geometric tangent vector by taking differentiation, if fixing only one entry of $a,b,c$, one deduces that the corresponding Lie algebra $frak(h)$ is spanned by ${x:=mat(0,1,0;0,0,0;0,0,0),y:=mat(0,0,0;0,0,1;0,0,0), z:=mat(0,0,1;0,0,0;0,0,0)}$. Which, their matrix commutation is as follow:
+  $ [x,y]=mat(0,1,0;0,0,0;0,0,0)mat(0,0,0;0,0,1;0,0,0)-mat(0,0,0;0,0,1;0,0,0)mat(0,1,0;0,0,0;0,0,0)=mat(0,0,1;0,0,0;0,0,0)=z $
+  $ [x,z]=mat(0,1,0;0,0,0;0,0,0)mat(0,0,1;0,0,0;0,0,0)-mat(0,0,1;0,0,0;0,0,0)mat(0,1,0;0,0,0;0,0,0)=0 $
+  $ [y,z]= mat(0,0,0;0,0,1;0,0,0)mat(0,0,1;0,0,0;0,0,0)-mat(0,0,1;0,0,0;0,0,0)mat(0,0,0;0,0,1;0,0,0)=0 $
+  Hence, Lie group $H$ and its Lie algebra $frak(h)$ does satisfy the given condition in Part (1).
 ]
 
 #pagebreak()
