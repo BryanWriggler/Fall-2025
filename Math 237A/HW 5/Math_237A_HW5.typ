@@ -37,7 +37,7 @@
   + Show that $phi$ is a morphism.
   + Let $Y subset.eq PP^3$ be the twisted cubic curve which is the image of the $3$-tuple embedding of $PP^1$ (EX. 2.12). If $t,u$ are the homogeneous coordinates on $PP^1$, we say that $Y$ is the curve given #emph[parametrically] by $[x,y,z,w]=[t^3,t^2u,t u^2,u^3]$. Let $P=[0,0,1,0]$, and let $PP^2$ be the hyperplane $z=0$. Show that the projection of $Y$ from $P$ is a cuspidal cubic curve in the plane, and find its equation.
 ][
-  + First, for any $Q in PP^(n+1)\\PP^n$, define the line $r_Q:PP^1 arrow.r PP^(n+1)$ by $r_Q ([s,t]) = s P+t Q = [s p_0+t q_0,s p_1+t q_1,...,s p_(n+1)+t q_(n+1)]$ as the line embedding. WLOG, define $PP^n := {[x_0,x_1,...,x_(n+1)] in PP^(n+1)|x_0=0}$, then the intersection of $PP^n$ with the line $phi_Q$ happens when $s p_0+t q_0=0$. Which, there are two cases:
+  + First, for any $Q in PP^(n+1)\\PP^n$, define the line $r_Q:PP^1 arrow.r PP^(n+1)$ by $r_Q ([s,t]) = s P+t Q = [s p_0+t q_0,s p_1+t q_1,...,s p_(n+1)+t q_(n+1)]$ as the line embedding (Note: this is well-defined because $Q!=P$, so their representative in $AA^(n+2)$ are linearly independent, hence the only equation satisfying $s P+t Q=0$ is $s=t=0$, which is not allowed in $PP^1$). WLOG, define $PP^n := {[x_0,x_1,...,x_(n+1)] in PP^(n+1)|x_0=0}$, then the intersection of $PP^n$ with the line $phi_Q$ happens when $s p_0+t q_0=0$. Which, there are two cases:
     - If $Q in PP^n$ (i.e. $q_0=0$), with $P in.not PP^n$, we have $p_0!=0$. Thn, $s p_0+t q_0=s p_0=0$ implies $s=0$. So, the corresponding point must have $t!=0$, showing that $[s,t]=[0,1] in PP^1$ is the only point satisfying $r_Q ([s,t]) in PP^n$.
     - If $Q in.not PP^n$ (i.e. $q_0!=0$), then notice that the linear functional $k^2 arrow.r k$ by $(s,t) mapsto s p_0+t q_0$ is non-degenerate (ex: $(s,t)=(0,1)$ has output $q_0!=0$), hence this linear map has kernel being dimension $1$ (i.e. kernel is $span{u}$ for some nonzero $u in k^2$). So, given any $[s,t] in PP^1$ satisfying $s p_0+t q_0=0$, we must have $(s,t) in span{u}$, showing that $[s,t]=[u]$ when taking the quotient of $PP^1$ as rays of $k^2$ passing through $0$. So, $[u] in PP^1$ is the unique point where $r_Q ([u]) in PP^n$.
 
@@ -94,7 +94,7 @@
     Hence, if consider the rational map $phi: PP^2 arrow.r.dashed PP^1$ given by $[x_0,x_1,x_2] mapsto [x_0,x_1]$, it agrees with the previous rational map $f:PP^2 arrow.r.dashed AA^1 subset PP^1$, and its domain in fact enlarges to the open subset where $x_0!=0$ or $x_1!=0$ (where $[x_0,x_1] in PP^1$ is well-defined). Hence, the open subset $PP^2\\(H_0 sect H_1)$ (where the closed set $H_i :={[x_0,x_1,x_2] in PP^2|x_i=0}$ for index $i=0,1,2$), is the largest domain where $phi$ is well-defined morphism, and is a projection of open subsets of $PP^2$ onto $PP^1$.
 ]
 
-#pagebreak()
+\ 
 
 = ND//3
 #problem[
@@ -106,7 +106,50 @@
   + Let $Y$ be the nodal cubic curve $y^2z=x^2(x+z)$ in $PP^2$. Show that the projection $phi$ from the point $P=(0,0,1)$ to the line $z=0$ (Ex. 3.14) induces a birational map from $Y$ to $PP^1$. Thus $Y$ is a rational curve.
 ][
   First, since here we're limited to $Y$ that's a variety, so every open subset of the given $Y$ is guaranteed to be dense and irreducible.
-  + Let $[x,y,z]$ be the coordinates of $PP^2$, for any conic in $PP^2$ (that's also a varety), it's the algebraic set of the form ${a x^2+b y^2+c z^2+d x y+e x z+f y z=0}$, where the polynomial $a x^2+b y^2+c z^2+d x y+e x z+f y z in k[x,y,z]$ is irreducible (so the corresponding ideal is prime). Then, let's say $y,z$ has nontrivial involvement in the polynomial
+  + Let $[x,y,z]$ be the coordinates of $PP^2$, for any conic in $PP^2$ (that's also a varety), it's the algebraic set of the form $Y={a x^2+b y^2+c z^2+d x y+e x z+f y z=0}$, where the polynomial $a x^2+b y^2+c z^2+d x y+e x z+f y z in k[x,y,z]$ is irreducible (so the corresponding ideal is prime). Then, fix $P=[0,0,1] in PP^2$ and consider the projection defined in #text(weight: "bold")[Problem 1/Hartshorne 3.14] from $P$. Which, 
+
+    \
+
+  + Since the cuspidal cubic $y^2=x^3$ can be viewed as an affine variety in $AA^2$, it suffices to show that it's birationally equivalent to $AA^1 subset.eq PP^1$. Here, let $t$ be the coordinate of $AA^1$, and $(x,y)$ be the coordinates of $AA^2$.
+
+    Given any $t in AA^1$, the morphism $phi:AA^1 arrow.r AA^2$ by $phi(t)=(t^2,t^3)$ has the image satisfies the equation $y^2 = (t^3)^2=t^6=(t^2)^3=x^3$, hence belong to the cuspidal cubic.
+
+    Now, restrict the domain to open subsets $AA^1\\{0} subset AA^1$ and $Y\\{x=0} subset AA^2$ (where $Y={(x,y) in AA^2|y^2=x^3}$), notice the map becomes a rational isomorphism:
+    
+    The map $psi:AA^2 arrow.r.dashed AA^1$ given by $psi(x,y) = y/x$ is well-defined whenever $x!=0$. Hence, it is well-defined on $Y\\{x=0}$ (since all points with $x=0$ is removed). And, for any $t in AA^1\\{0}$ and $(x,y) in Y\\{x=0}$, the following two equations are true:
+    $ psi compose phi(t)=psi(t^2,t^3) = t^3/t^2=t $
+    $ phi compose psi(x,y)=phi(y/x) = (y^2/x^2, y^3/x^3) = (x^3/x^2, y^3/y^2)=(x,y) $
+    The last equality holds because of the equation of $Y$ given by $y^2=x^3$. Hence, we've shown that $Y subset AA^2$ the cuspidal cuvic is birationally equivalent to $AA^1\\{0}$.
+
+    Lastly, if consider $AA^1:= PP^1\\H_0$ (where $H_0:={[u,t] in PP^1|u=0} = {[0,1]}$). Since WLOG can assume $u=1$, each $[u,t] in PP^1\\H_0$ can be identified just by $t$; then, since $0 in AA^1$ is identified by the point $[1,0] in PP^1\\H_0$, the corresponding open set $AA^1\\{0} = (PP^1\\H_0)\\{[1,0]} = PP^1\\(H_0 union {[1,0]})$ is an open subset of $PP^1$. Hence, the cuspidal cubic $Y subset AA^2$ is birationally equivalent to $PP^1$.
+
+      \ 
+
+  + Given any $[x,y,z] in PP^2\\{P}$ where $P=[0,0,1]$, the projection onto $PP^1 := {[x,y,z] in PP^2|z=0}$ is given by a unique $[s,t] in PP^1$ satisfying $s dot 1+t z = 0$ (proved in #text(weight: "bold")[Problem 1, Hartshorne 3.14]). Which, it is given by $s=t z$, where $t$ can be chosen as $1$, so $[s,t]=[z,1] in PP^1$ is the point satisfying the property, which induces the projection of $[x,y,z]$ onto $s P+t [x,y,z] = [0+x,0+y,z-z]=[x,y,0] in PP^1$. So, let $Y={y^2z=x^2(x+z)}$ be the nodal cubic curve (#text(weight: "bold")[Rmk:]$P=[0,0,1] in Y$, but the projection is invalid at this point), then the previous projection when excluding $P$, has $pi:Y arrow.r.dashed PP^1$ by $pi([x,y,z]) = [x,y]$ being a well-defined rational map on $Y\\{P}$ (since the only point when it's not well-defined, is when both $x,y=0$, yet this enforces $[x,y,z]=[0,0,1]=P$, hence excluding $P$ makes $pi$ well-defined).
+
+    \ 
+
+    Now, to find a rational inverse, consider the open subset $PP^1\\{y^2-x^2=0}$ of $PP^1$, and consider the rational map $psi:PP^1 arrow.r.dashed Y$ by $psi([x,y]) = [x(y^2-x^2),y(y^2-x^2),x^3]$. First, on open subset $PP^1\\{y^2-x^2=0}$ this map is well-defined, since any point $[x,y] in PP^1\\{y^2-x^2=0}$ satisfies $y^2-x^2!=0$, and either $x!=0$ or $y!=0$, hence either $x(y^2-x^2)!=0$ or $y(y^2-x^2)!=0$, so $psi([x,y]) in PP^2$; also, since $y^2-x^2!=0$, the output satisfies the following:
+    $ psi([x,y])=[x(y^2-x^2),y(y^2-x^2),x^3]=[x,y,x^3/(y^2-x^2)] $
+    Which, such point satisfies:
+    $ y^2(x^3/(y^2-x^2)) = x^2(x(y^2)/(y^2-x^2)) = x^2((x(y^2-x^2)+x^3)/(y^2-x^2)) = x^2(x+x^3/(y^2-x^2)) $
+    So, let $z=x^3/(y^2-x^2)$, $psi([x,y])=[x,y,z]$ satisfies $y^2z=x^2(x+z)$, showing that $psi([x,y]) in Y$. So, $psi:PP^1 arrow.r.dashed Y$ is indeed a well-defined rational map on open subset $PP^1\\{y^2-x^2=0}$.
+
+    \ 
+
+    Finally, given $PP^1\\{y^2-x^2=0} subset PP^1$ as open subset, and $Y\\({P} union {y^2-x^2=0}) subset Y$ as another open subset, one can show $pi,psi$ are indeed mutual inverses: We've already shown that $pi:Y arrow.r.dashed PP^1$ is well-defined on $Y\\{P}$, hence also well-defined on $Y\\({P} union {y^2-x^2=0})$; also, $psi:PP^1 arrow.r.dashed Y$ is well-defined on $PP^1\\{y^2-x^2=0}$. 
+    
+    Then, given any $[x,y,z] in Y\\({P} union {y^2-x^2=0})$ (satisfying $x!=0$ or $y!=0$, with extra condition $y^2-x^2!=0$), it satisfies:
+    $ pi([x,y,z])=[x,y] in PP^1\\{y^2-x^2=0} $
+    $ psi compose pi([x,y,z])=psi([x,y])=[x,y,x^3/(y^2-x^2)] $
+    Since $y^2-x^2!=0$, then with the point satisfying $y^2z=x^2(x+z)$, we have $(y^2-x^2)z=x^3$, or $z=x^3/(y^2-x^2)$, showing that $psi compose pi([x,y,z])=[x,y,x^3/(y^2-x^2)]=[x,y,z]$, which $psi compose pi = id$ on $Y\\({P} union {y^2-x^2=0})$.
+
+    Similarly, any $[x,y] in PP^1\\{y^2-x^2=0}$ (with $x!=0$ or $y!=0$, together with $y^2-x^2!=0$), it satisfies:
+    $ psi([x,y])=[x,y,x^3/(y^2-x^2)] in Y\\({P} union {y^2-x^2=0}) $
+    $ pi compose psi([x,y]) = pi([x,y,x^3/(y^2-x^2)])=[x,y] $
+    Hence, $pi compose psi = id$ on $PP^1\\{y^2-x^2=0}$ also.
+    
+    This shows that $pi,psi$ are indeed mutual inverse on these restricted open subsets, hence $Y$ and $PP^1$ are indeed birationally equivalent, $Y$ is a rational curve.
 ]
 
 #pagebreak()
