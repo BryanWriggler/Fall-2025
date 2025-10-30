@@ -96,7 +96,7 @@
 
 \ 
 
-= ND//3
+= D//3
 #problem[
   Hartshorne 4.4:
 
@@ -106,7 +106,28 @@
   + Let $Y$ be the nodal cubic curve $y^2z=x^2(x+z)$ in $PP^2$. Show that the projection $phi$ from the point $P=(0,0,1)$ to the line $z=0$ (Ex. 3.14) induces a birational map from $Y$ to $PP^1$. Thus $Y$ is a rational curve.
 ][
   First, since here we're limited to $Y$ that's a variety, so every open subset of the given $Y$ is guaranteed to be dense and irreducible.
-  + Let $[x,y,z]$ be the coordinates of $PP^2$, for any conic in $PP^2$ (that's also a varety), it's the algebraic set of the form $Y={a x^2+b y^2+c z^2+d x y+e x z+f y z=0}$, where the polynomial $a x^2+b y^2+c z^2+d x y+e x z+f y z in k[x,y,z]$ is irreducible (so the corresponding ideal is prime). Then, fix $P=[0,0,1] in PP^2$ and consider the projection defined in #text(weight: "bold")[Problem 1/Hartshorne 3.14] from $P$. Which, 
+  + Let $[x,y,z]$ be the coordinates of $PP^2$, for any conic in $PP^2$ (that's also a varety), it's the variety of the form $Y={a x^2+b y^2+c z^2+d x y+e x z+f y z=0}$ (here can assume $Y$ itself is not a linea embedding of $PP^1$). Then, fix $P=[x_0,y_0,z_0] in Y$ and consider the projection defined in #text(weight: "bold")[Problem 1/Hartshorne 3.14] from $P$ (WLOG, say $x_0!=0$ so the projection is onto $PP^1:= {x=0}$). Which, for every $[x,y,z]$ the corresponding projection is done by $[s,t] in PP^1$ that satisfies $s x_0+t x=0$, so $s = (t x)/x_0$, which shows that $t!=0$, hence up to scalar $[s,t] = [x/x_0,1]$. Then, the projection point of $[x,y,z]$ onto $PP^1:={x=0}$ is given as:
+    $ s P+t [x,y,z]=[0,x/x_0 y_0+y, x/x_0 z_0+z]=[0, x y_0+y x_0, x z_0+z x_0] $
+    Notie that such projection is injective by irreducibibility of $Y$ (since there's no more than $2$ points on $Y$ can lie on the same linear embedding of $PP^1$), so it suffices to find an inverse on some open subset of $PP^1$.
+
+    \ 
+
+    Let $[p,q]$ be the coordinates of $PP^1$ (where in the above the image of the projection of $[x,y,z]$ is given by $p=x y_0+y x_0$ and $q=x z_0+z x_0$), we can use the same line of the above projection to find an inverse. Since for some $[s,t] in PP^1$ one has $s P+t[0,p,q] = [x,y,z]$ (where $[0,p,q]$ is the image of $[x,y,z]$ under projection, so the three lie on the same linear embedding of $PP^1$), and for the case that $[x,y,z]!=[0,p,q]$, one can enforce that $s!=0$ (since $s=0$ implies $t!=0$, hence $[0,p,q]=[x,y,z]$). So, on some subset one can assume $s!=0$, or $s=1$. Then, the point becomes the follow:
+    $ s P+t[0,p,q] = [x_0,y_0+t p,z_0+t q]=[x,y,z] in Y $
+    So, it must satisfy the conic equation:
+    $ &a x_0^2 + b (y_0+t p)^2+c(z_0+t q)^2+d x_0(y_0+t p)\ 
+    &+e x_0(z_0+t q)+f (y_0+t p)(z_0+t q)=0 $
+    Which, since $[x_0,y_0,z_0]$ satisfies the conic equation, so the above after expansion simplifies to follow:
+    $ (b p^2+c q^2+f p q)t^2 + (2 b y_0 p+2 c z_0 q + d x_0 p + e x_0 q + f  z_0 p+f y_0 q)t = 0 $
+    Hence, either $t=0$ (which corresponds to the point $P$, not what we want), or $t$ being the following expression:
+    $ t = -(2 b y_0 p+2 c z_0 q + d x_0 p + e x_0 q + f  z_0 p+f y_0 q)/(b p^2+c q^2+f p q) = F(p,q)/G(p,q) $
+    So, since we want $t!=0$ (to get back to $[x,y,z]$ instead of $P$ on the line where the projection is defined), then the only way such "reverse" projection makes sense is on the open subset ${F(p,q), G(p,q) != 0} subset PP^1$.
+
+    Finally, notice that such reverse projection $PP^1 arrow.r.dashed Y$ by $[0,p,q] mapsto [x_0,y_0+t p, z_0+t q]$, then with $t = F(p,q)/G(p,q)$ (where $F,G$ are homogeneous with degree $1$ and $2$ respectively), then the expression $y_0+t p = (y_0 G(p,q) + p F(p,q))/G(p,q)$, and $z_0+t q=(z_0 G(p,q)+q F(p,q))/G(p,q)$ having both the numerator and denominator being both homogeneous polynomials of degree $2$, hence it's a well-defined rational function.
+
+    Which, for all $[x,y,z] in Y\\{P}$, one can check that $[x,y,z] mapsto [0,x y_0+y x_0, x z_0+z x_0] = [0,p,q] in PP^1$ has reverse projection outputtig $[x,y,z]$ (if both $F(p,q), G(p,q)!=0$), and similarly any $[0,p,q]$ on the open subset ${F(p,q),G(p,q)!=0}$ has been checked that the reverse projection then the projection provides $[0,p,q]$. So, up to suitable restriction on some open subset of $Y$ and $PP^1$ respectively, one can say the projection and the reverse projection are mutual inverse, hence $Y$ is birationally equivalent to $PP^1$, which is a rational curve.
+
+    (Note: The computation listing here will be too long, including in here adds an extra $5$ to $6$ pages, which I'll temporarily skip unless it's required...then I'll add it back).
 
     \
 
