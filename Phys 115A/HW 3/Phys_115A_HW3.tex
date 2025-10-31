@@ -243,7 +243,7 @@ lowering operators, which you know how to do.
 
 \newpage
 
-\section*{4 (ND)}
+\section*{4}
 \begin{ques}\label{q4}
 \textbf{Back of the envelope}
 
@@ -253,11 +253,52 @@ uncertainty principle.
 \end{ques}
 
 \begin{proof}
+    Recall that Uncertainty Principle states that $\sigma_p \sigma_x \geq \frac{\hbar}{2}$, where $\sigma_j:= \sqrt{\left<j^2\right>-\left<j\right>^2}$ for operator $j=p,x$. Hence, it must satisfy the following equation by squaring these quantities:
+    \begin{align}
+        \left(\left<p^2\right>-\left<p\right>^2\right)\left(\left<x^2\right>-\left<x\right>^2\right)\geq \frac{\hbar^2}{4}
+    \end{align}
+    Now, assume that $\psi$ is a stationary state for Simple Harmonic Oscillator, which with potential $V(x)=\frac{1}{2}mw^2 x^2$, it satisfies the stationary Schr\"{o}dinger equation for energy $E\geq 0$ as follow:
+    \begin{align}
+        &-\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}+\frac{1}{2}mw^2 x^2\psi = E\psi\ \implies\  \frac{\hbar^2}{2m}\frac{\partial^2 \psi}{\partial x^2}=\left(\frac{1}{2}mw^2 x^2-E\right)\psi
+    \end{align}
+    Hence, we get the following for $\left<p^2\right>$ (recall that $\hat{p}:= \frac{\hbar}{i}\frac{\partial}{\partial x}$ and $\hat{x}:= x$ as operator):
+    \begin{align}
+        \left<p^2\right>&=\int_{-\infty}^{\infty}\psi^* \left(\hat{p}^2 \psi\right) dx=-\int_{-\infty}^{\infty}\psi^*\left(\hbar^2\frac{\partial^2\psi}{\partial x^2}\right)dx=-2m\int_{-\infty}^{\infty}\psi^*\left(\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}\right)dx\\
+        &= -2m\int_{-\infty}^{\infty}\psi^*\left(\frac{1}{2}mw^2x^2-E\right)\psi dx = 2mE\int_{-\infty}^{\infty}\psi^*\psi dx-m^2w^2\int_{-\infty}^{\infty}\psi^*\cdot (\hat{x}^2\psi)dx\\
+        &= 2mE - m^2w^2 \left<x^2\right>
+    \end{align}
+    Also, recall that the states $\psi$ can be chosen as even or odd, while each are chosen to have real values, based on what was proven in \textbf{HW 2}. Let $\psi_\text{odd},\psi_\text{even}:\RR\rightarrow\RR$ denote the even / odd case of the wave function respectively. Then, since derivative of odd/even function becomes even/odd function respectively, while $x$ is an odd function. Hence, $\psi_\text{odd}^* (\hat{p}\ \psi_\text{odd}) = \frac{\hbar}{i}\psi_\text{odd}\frac{\partial \psi_\text{odd}}{\partial x}$,\quad $\psi^*_\text{odd}(x \psi_\text{odd})$, \quad $\psi^*_\text{even}(\hat{p}\ \psi_\text{even})=\frac{\hbar}{i}\psi_\text{even}\frac{\partial\psi_\text{even}}{\partial x}$, and $\psi^*_\text{even}(x\psi_\text{even})$ are all odd functions. Hence, with $\psi$ chosen to be odd / even, we have  $\left<p\right>,\left<x\right>=0$ (since $\int_{-\infty}^{\infty}\psi^*(\hat{p}\psi)dx =0= \int_{-\infty}^{\infty}\psi^*(x\psi)dx$ due to the function always being odd, based on the choice).
+
+    \hfil
+
+    Now, let $y:= \left<x^2\right>$, with the above machinery and the first equation based on Uncertainty Principle, we derived the following:
+    \begin{align}
+        &\left(\left<p^2\right>-\left<p\right>^2\right)\left(\left<x^2\right>-\left<x\right>^2\right) = (2mE-m^2w^2 y)y\geq \frac{\hbar^2}{4}\\
+        &\implies m^2w^2\cdot y^2-2mE\cdot y + \frac{\hbar^2}{4}\leq 0
+    \end{align}
+    Since the leading coefficient $m^2w^2>0$ can be assumed, the above inequality is equivalent to having the above quadratic polynomial having at least $1$ real solution (intuitively/graphically, since it's concaving up, with some points $\leq 0$, it must passes through the horizontal axis at least once).
+
+    Hence, the discriminant $b^2-4ac\geq 0$, showing that $4m^2E^2 - m^2w^2\hbar^2 \geq 0$, or $E^2\geq \frac{w^2\hbar^2}{4}$; with $E\geq 0$, it must satisfy $E\geq \frac{w\hbar}{2}$. So, $E\geq \frac{w\hbar}{2}$ is the minimum energy required to satisfy Uncertainty Principle.
+    \begin{comment}
+    (\textbf{Rmk:} Here $\psi_\text{odd}=\frac{\psi(x)-\psi(-x)}{2}$ and $\psi_\text{even}=\frac{\psi(x)+\psi(-x)}{2}$).
+    
+    Then, recall that $x$ is an odd function, while $\frac{\partial f}{\partial x}$ always have different parity than $f$ (i.e. if $f$ is odd, its derivative is even; else if $f$ is even, its derivative is odd). Hence, $\left<p\right>, \left<x\right>$ are given as:
+    \begin{align}
+        \left<p\right>&=\int_{-\infty}^{\infty}\psi^*(\hat{p}\psi)dx = \frac{\hbar}{i}\int_{-\infty}^{\infty}\left(\psi_\textmd{odd}+\psi_\textmd{even}\right)\left(\frac{\partial \psi_\text{odd}}{\partial x}+\frac{\partial \psi_\text{even}}{\partial x}\right)dx\\
+        &= \frac{\hbar}{i}\left(\int_{-\infty}^{\infty}\psi_\text{odd}\frac{\partial \psi_\text{odd}}{\partial x}dx+\int_{-\infty}^{\infty}\left(\psi_\text{odd}\frac{\partial \psi_\text{even}}{\partial x}+\psi_\text{even}\frac{\partial \psi_\text{odd}}{\partial x}\right)dx+\int_{-\infty}^{\infty}\psi_\text{even}\frac{\partial \psi_\text{even}}{\partial x}dx \right)\\
+        &= 0+\psi_\text{odd}(x)\psi_\text{even}(x)\bigg|_{-\infty}^{\infty} + 0 = 0
+    \end{align} 
+    (\textbf{Rmk:} The first and third integral are integrals of product of odd and even function that both converges under integration, which are both integral of odd functions, hence becomes $0$; the second one uses product rule, while both $\psi_\text{odd},\psi_\text{even}$ converges to $0$ when approaching $\infty,-\infty$ by the fact that they're combinations of $\psi(x),\psi(-x)$, hence also becomes $0$).
+    \begin{align}
+        \left<x\right> &= \int_{-\infty}^{\infty}\psi^* (x \psi)dx =\int_{-\infty}^{\infty}x(\psi_\text{odd}+\psi_\text{even})^2  dx\\
+        &= 
+    \end{align}
+    \end{comment}
 \end{proof}
 
 \newpage
 
-\section*{5 (ND)}
+\section*{5}
 \begin{ques}\label{q5}
 \textbf{Coherent states}
 
@@ -307,6 +348,108 @@ quantum optics.
 \end{ques}
 
 \begin{proof}
+    
+    First, recall the following definition of $\hat{x},\hat{p}$ using ladder operators $a^+,a^-$, together with their commutation relation:
+    \begin{align}
+        \hat{x}=\sqrt{\frac{\hbar}{2mw}}(a^++a^-),\quad \hat{p}=i\sqrt{\frac{\hbar mw}{2}}(a^+-a^-),\quad [a^-,a^+]=a^-a^+-a^+a^- = \id
+    \end{align}
+    Which, $\hat{x}^2,\hat{p^2}$ respectively can also be expanded as follow:
+    \begin{align}
+        &\hat{x}^2 = \frac{\hbar}{2mw}((a^+)^2+a^+a^-+a^-a^++(a^-)^2) = \frac{\hbar}{2mw}((a^+)^2+\id+2a^+a^-+(a^-)^2)\\
+        &\hat{p}^2 = -\frac{\hbar mw}{2}((a^+)^2-a^+a^--a^-a^++(a^-)^2) = -\frac{\hbar mw}{2}((a^+)^2-\id-2a^+a^-+(a^-)^2)
+    \end{align}
+    Also, let $\alpha=u+iv$ as complex number (where $u=\Real(\alpha)$ and $v=\Imag(\alpha)$), we have $|\alpha|^2 = u^2+v^2$, and $\alpha^2=(u^2-v^2)+i(2uv)$, so $\Real(\alpha^2)=u^2-v^2$ and $\Imag(\alpha^2)=2uv$.
+
+    \textbf{Rmk: Before starting, we'll use standard inner product notation $\left<f,g\right>:= \int_{-\infty}^{\infty}(g(x))^* f(x)dx$ for easier notation. Hence, the operator $\hat{x},\hat{p}$ has the expectation values $\left<x\right>=\left<\hat{x}\psi,\psi\right>$ and $\left<\hat{p}\psi,\psi\right>$; also, with $a^-,a^+$ being adjoints / Hermitian Conjugates of each other, the inner product notation becomes: $\left<a^- f, g\right>=\left<f,a^+ g\right>$ and $\left<a^+f, g\right>=\left<f,a^-g\right>$.}
+
+    \begin{itemize}
+        \item[(a)] Given $a^-\ S_\alpha(x)=\alpha \cdot S_\alpha(x)$, the expectation values of $x,p$ are calculated as follow:
+        \begin{align}
+            \left<x\right>&=\left<xS_\alpha,S_\alpha\right>=\sqrt{\frac{\hbar}{2mw}}\left<(a^++a^-)S_\alpha,S_\alpha\right> = \sqrt{\frac{\hbar}{2mw}}(\left<a^+S_\alpha,S_\alpha\right>+\left<a^- S_\alpha,S_\alpha\right>)\\
+            &= \sqrt{\frac{\hbar}{2mw}}(\left<S_\alpha,a^-S_\alpha\right>+\left<\alpha S_\alpha,S_\alpha\right>) = \sqrt{\frac{\hbar}{2mw}}(\left<S_\alpha,\alpha S_\alpha\right>+\alpha) = \sqrt{\frac{\hbar}{2mw}}(\alpha^*+\alpha)\\
+            &=\sqrt{\frac{\hbar}{2mw}}\cdot 2\Real(\alpha)=\sqrt{\frac{\hbar}{2mw}}\cdot 2u
+        \end{align}
+        \begin{align}
+            \left<p\right>&=\left<\hat{p}S_\alpha,S_\alpha\right>=\sqrt{\frac{\hbar mw}{2}}\left<(a^+-a^-)S_\alpha,S_\alpha\right>=\sqrt{\frac{\hbar mw}{2}}(\left<a^+ S_\alpha,S_\alpha\right>-\left<a^-S_\alpha,S_\alpha\right>)\\
+            &= \sqrt{\frac{\hbar mw}{2}}(\left<S_\alpha,a^-S_\alpha\right>-\left<\alpha S_\alpha,S_\alpha\right>)=\sqrt{\frac{\hbar mw}{2}}(\left<S_\alpha,\alpha S_\alpha\right>-\alpha) = \sqrt{\frac{\hbar mw}{2}}(\alpha^*-\alpha)\\
+            &= -\sqrt{\frac{\hbar mw}{2}}\cdot 2\Imag(\alpha) = -\sqrt{\frac{\hbar mw}{2}}\cdot 2v
+        \end{align}
+
+        \hfil
+
+        \item[(b)] The expectation avlues of $x^2,p^2$ rae calculated as follow:
+        \begin{align}
+            \left<x^2\right>&=\left<\hat{x}^2S_\alpha,S_\alpha\right>=\frac{\hbar}{2mw}\left<((a^+)^2+\id+2a^+a^-+(a^-)^2)S_\alpha,S_\alpha\right>\\
+            &= \frac{\hbar}{2mw}(\left<(a^+)^2S_\alpha,S_\alpha\right>+\left<\id S_\alpha,S_\alpha\right>+2\left<a^+a^-S_\alpha,S_\alpha\right>+\left<(a^-)^2S_\alpha,S_\alpha\right>)\\
+            &= \frac{\hbar}{2mw}(\left<S_\alpha,(a^-)^2S_\alpha\right>+1+2\left<a^-S_\alpha,a^-S_\alpha\right>+\left<\alpha^2S_\alpha,S_\alpha\right>)\\
+            &= \frac{\hbar}{2mw}(\left<S_\alpha,\alpha^2S_\alpha\right>+1+2\left<\alpha S_\alpha,\alpha S_\alpha\right>+\alpha^2)\\
+            &= \frac{\hbar}{2mw}((\alpha^2)^*+1+2\alpha\alpha^*+\alpha^2) = \frac{\hbar}{2mw}(1+2|\alpha|^2+2\Real(\alpha^2))\\
+            &= \frac{\hbar}{2mw}(1+2u^2+2v^2+2(u^2-v^2)) = \frac{\hbar}{2mw}(1+4u^2)
+        \end{align}
+        \begin{align}
+            \left<p\right>&=\left<\hat{p}^2S_\alpha,S_\alpha\right>=-\frac{\hbar mw}{2}\left<((a^+)^2-\id-2a^+a^-+(a^-)^2)S_\alpha,S_\alpha\right>\\
+            &= -\frac{\hbar mw}{2}(\left<(a^+)^2S_\alpha,S_\alpha\right>-\left<\id S_\alpha,S_\alpha\right>-2\left<a^+a^-S_\alpha,S_\alpha\right>+\left<(a^-)^2S_\alpha,S_\alpha\right>)\\
+            &= -\frac{\hbar mw}{2}(\left<S_\alpha,(a^-)^2S_\alpha\right>-1-2\left<a^-S_\alpha,a^-S_\alpha\right>+\left<\alpha^2S_\alpha,S_\alpha\right>)\\
+            &= -\frac{\hbar mw}{2}(\left<S_\alpha,\alpha^2S_\alpha\right>-1-2\left<\alpha S_\alpha,\alpha S_\alpha\right>+\alpha^2)\\
+            &= -\frac{\hbar mw}{2}((\alpha^2)^*-1-2\alpha\alpha^*+\alpha^2) = -\frac{\hbar mw}{2}(2\Real(\alpha^2)-1-2|\alpha|^2)\\
+            &= -\frac{\hbar mw}{2}(2u^2-2v^2-1-2(u^2+v^2))=\frac{\hbar mw}{2}(1+4v^2)
+        \end{align}
+
+        \hfil
+
+        \item[(c)] Based on part (a) and (b), the product of uncertainty square is given as follow:
+        \begin{align}
+            \sigma_p^2\sigma_x^2&=(\left<p^2\right>-\left<p\right>^2)(\left<x^2\right>-\left<x\right>^2)\\
+            &= \left(\frac{\hbar mw}{2}(1+4v^2)-\left(-\sqrt{\frac{\hbar mw}{2}}\cdot 2v\right)^2\right)\left(\frac{\hbar}{2mw}(1+4u^2)-\left(\sqrt{\frac{\hbar}{2mw}}\cdot 2u\right)^2\right)\\
+            &= \frac{\hbar mw}{2}(1+4v^2-4v^2)\cdot\frac{\hbar}{2mw}(1+4u^2-vu^2)=\frac{\hbar^2}{4}
+        \end{align}
+        Hence, it shows that $\sigma_p\sigma_x = \sqrt{\frac{\hbar^2}{4}}=\frac{\hbar}{2}$, which Uncertainty Principle is saturated.
+
+        \hfil
+
+        \item[(d)] Express $S_\alpha(x)=\sum_{n=0}^{\infty}c_n\psi_n(x)$. Recall that $\alpha^- \psi_n(x)=\sqrt{n}\psi_{n-1}(x)$ and $a^-psi_0(x)=0$, hence acting this linear operator on both sides, it derives:
+        \begin{align}
+            \sum_{n=0}^{\infty}\alpha c_n\psi_n(x)&=\alpha S_\alpha(x)= a^-S_\alpha(x)=c_0 a^-\psi_0(x)+\sum_{n=1}^{\infty}c_n a^-\psi_n(x) = \sum_{n=1}^{\infty}c_n\sqrt{n}\psi_{n-1}(x)\\
+            &= \sum_{n=0}^{\infty}c_{n+1}\sqrt{n+1}\psi_n(x)
+        \end{align}
+        Hence, each coefficient must match, showing $\alpha c_n=c_{n+1}\sqrt{n+1}$ for all $n\in\NN$, or $c_{n+1}=\frac{\alpha}{\sqrt{n+1}}c_n$.
+
+        Using induction we'll prove that $c_n=\frac{\alpha^n}{\sqrt{n!}}c_0$: For base case $n=1$, one has $c_1=\frac{\alpha}{\sqrt{0+1}}c_0 = \frac{\alpha}{\sqrt{1!}}c_0$. Now, suppose for given $n\in\NN$ one has $c_n=\frac{\alpha^n}{\sqrt{n!}}c_0$, then for the case $(n+1)\in\NN$, one hase $c_{n+1}=\frac{\alpha}{\sqrt{n+1}}c_n = \frac{\alpha}{\sqrt{n+1}}\cdot\frac{\alpha^n}{\sqrt{n!}}c_0=\frac{\alpha^{n+1}}{\sqrt{(n+1)!}}c_0$, hence the induction is done, showing that $c_n=\frac{\alpha^n}{\sqrt{n!}}c_0$ for all $n\in\NN$.
+
+        \hfil
+
+        \item[(e)] For normalization condition, we have the following:
+        \begin{align}
+            1=\left<S_\alpha,S_\alpha\right>=\left<\sum_{n=0}^{\infty}c_n \psi_n, \sum_{m=0}^{\infty}c_m\psi_m\right> = \sum_{(n,m)\in\NN^2}c_n c_m^*\left<\psi_n,\psi_m\right>
+        \end{align}
+        Rcall that from orthonormality, one hast $\left<\psi_n,\psi_m\right>=\delta_{n m}$, which eliminates every pair of $(n,m)$ where $n\neq m$. Hence, it becomes the follow:
+        \begin{align}
+            1=\sum_{n=0}^{\infty}c_n c_n^*\left<\psi_n,\psi_n\right>=\sum_{n=0}^{\infty}|c_n|^2
+        \end{align}
+        Using the formula in the previous part, $c_0$ satisfies:
+        \begin{align}
+            1=\sum_{n=0}^{\infty}|c_n|^2 = \sum_{n=0}^{\infty}|c_0|^2 \frac{|\alpha|^{2n}}{n!} = |c_0|^2 e^{|\alpha|^2}\ \implies\ |c_0| = e^{-|\alpha|^2/2}
+        \end{align}
+        For easier interpretation, one can choose $c_0\in\RR$, hence $c_0=e^{-|\alpha|^2/2}$ satisfies the normalization condition.
+
+        \hfil
+
+        \item[(f)] If consider $S_\alpha(x,t)=\sum_{n=0}^{\infty}c_n \psi_n(x)e^{-i E_n t/\hbar}$, recall that for all $n\in\NN$, $E_n=\left(n+\frac{1}{2}\right)\hbar w$, hence $E_{n+1}=\left(n+1+\frac{1}{2}\right)\hbar w=E_n+\hbar w$. Hence, if acting $\alpha^-$ on $S_\alpha(x,t)$ (which is an operator involving only $x,\frac{\partial}{\partial x}$, hence has no effect on the time evolution), one gets:
+        \begin{align}
+            a^- S_\alpha(x,t)&=c_0(a^-\psi_0(x))e^{-i E_0t/\hbar}+\sum_{n=1}^{\infty}\frac{\alpha^n}{\sqrt{n!}}c_0 \cdot (a^-\psi_n(x))e^{-i E_n t/\hbar} = \sum_{n=1}^{\infty}\frac{\alpha^n}{\sqrt{n!}}c_0 \cdot \sqrt{n}\psi_{n-1}(x)e^{-i E_nt/\hbar}\\
+            &= \sum_{n=1}^{\infty}\frac{\alpha^n}{\sqrt{(n-1)!}}c_0\psi_{n-1}(x)e^{-i E_nt/\hbar}=\sum_{n=0}^{\infty}\frac{\alpha^{n+1}}{\sqrt{n!}}c_0\psi_n(x)e^{-i E_{n+1}t/\hbar}\\ 
+            &= \alpha\sum_{n=0}^{\infty}\frac{\alpha^n}{\sqrt{n!}}c_0\psi_n(x)e^{-i(E_n+\hbar w)t/\hbar}=\alpha e^{-iwt}\sum_{n=0}^{\infty}c_n \psi_n(x)e^{-i E_nt/\hbar} = \alpha e^{-iwt}\cdot S_\alpha(x,t)
+        \end{align}
+        Hence, with $\alpha(t):=\alpha e^{-iwt}$, one has $a^-S_\alpha(x,t)=\alpha(t) S_\alpha(x,t)$. 
+        
+        So, regardless of the time $t\in\RR$, since $\alpha(t)=\alpha e^{-iwt}$ is a nonzero complex number independent of $x$, it implies $S_\alpha(x,t)$ remains as an eigenvector of $a^-$, and at each time $t\in\RR$ with corresponding eigenvalue $\alpha e^{-iwt}$, so it stays coherent.
+        
+        Also, notice that the proof in part (a),(b),(c) only requires $\alpha$ to be a complex number (since regardless of $\alpha=u+iv$, the inequality in part (c) always holds, as long as $S_\alpha(x,t)\neq 0$), hence as long as $S_\alpha(x,t)$ itself is a normalizable state that's an eigenvector of $\alpha^-$, regardless of its eigenvalue $\alpha$ corresponding to $\alpha^-$, it still saturates Uncertainty Principle.
+
+        \hfil
+
+        \item[(g)] Finally, based on the above claim, since $\psi_0\neq 0$, while $a^-\psi_0 = 0\cdot\psi_0$, then set $\alpha=0$, $S_\alpha(x,t)=\psi_0(x,t)$ is a coherent state.
+    \end{itemize}
 \end{proof}
 
 \newpage
