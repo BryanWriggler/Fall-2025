@@ -155,12 +155,7 @@ any other tool you wish to numerically evaluate the relevant integral.
 
         \hfill
 
-        \item[(d)] Here are some graphs of the first four states (starting from ground states):
-        
-        \begin{figure}[th!]
-            \centering
-            \includegraphics[width=150mm]{oscillator_sketch.png}
-        \end{figure}
+        \item[(d)] Here are some graphs of the first four states' graph, with the classical turning point marked using vertical lines:
 
         Here, the classical turning point actually represents the farthest positions from the origin where the second derivative of the wavefunction is $0$ (or the farthest point the wave function changes its concavity).
 
@@ -173,7 +168,7 @@ any other tool you wish to numerically evaluate the relevant integral.
 
 \newpage
 
-\section*{3 (ND, tweak constants in (a))}
+\section*{3}
 \begin{ques}\label{q3}
 \textbf{Uncertainty Principle for the nth state (modified Griffiths 2.12)}
 
@@ -202,42 +197,47 @@ lowering operators, which you know how to do.
 
     Here, we'll assume the fact that the list $\{\psi_n\}_{n\in\NN}$ forms an orthonormal list under integration inner product (so, for $n\neq m$, it satisfies $\int_{-\infty}^{\infty}\psi_n(x)^*\psi_m(x)dx=0$). Also, we'll utilize the fact that $a^+,a^-$ are Adjoint Operators/Hermition Conjugates of each other, which implies that $\int_{-\infty}^{\infty}\psi(x)^* (a^+\phi(x))dx=\int_{-\infty}^{\infty}(a^-\psi(x))^* \phi(x)dx$, and $\int_{-\infty}^{\infty}\psi(x)^* (a^-\phi(x))dx=\int_{-\infty}^{\infty}(a^+\psi(x))^* \phi(x)dx$.
 
-    Also, based on these rule, let $T^*$ denote the adjoint / Hermitian Conjugate of linear operator $T$, then we get that $\hat{p}^* = -i\sqrt{\frac{\hbar mw}{2}}((a^+)^*-(a^-)^*) = -i\sqrt{\frac{\hbar mw}{2}}(a^--a^+) = i\sqrt{\frac{\hbar m\omega}{2}} (a^+ - a^-) = \hat{p}$.
+    Also, based on these rule, let $T^*$ denote the adjoint / Hermitian Conjugate of linear operator $T$, then we get that $\hat{p}^* = -i\sqrt{\frac{\hbar mw}{2}}((a^+)^*-(a^-)^*) = -i\sqrt{\frac{\hbar mw}{2}}(a^--a^+) = i\sqrt{\frac{\hbar m\omega}{2}} (a^+ - a^-) = \hat{p}$, so $\hat{p}$ is self-adjoint/Hermitian (while $\hat{x}:= x$ is of course self-adjoint/Hermitian).
 
     \begin{itemize}
-        \item[(a)] Given $\psi_n(x)=(a^+)^n\psi_0(x)$, using the expression that $\hat{x}=\sqrt{\frac{\hbar}{2mw}}(a^++a^-)$ as operator, we get the following (where below is up to some constant):
+        \item[(a)] Given $\psi_n(x)=(a^+)^n\psi_0(x)$, using the expression of $\hat{x},\hat{p}$ in terms of $a^+,a^-$, we get the following (where below is up to some constant):
         \begin{align}
-            \left<x\right>&=\int_{-\infty}^{\infty}\psi_n(x)^* (\hat{x}\psi_n(x))dx = \sqrt{\frac{\hbar}{2mw}}\int_{-\infty}^{\infty}((a^+)^n \psi_0(x))^*((a_+)^{n+1}\psi_0(x)+a^- (a^+)^n\psi_0(x))dx\\
-            &= \sqrt{\frac{\hbar}{2mw}}\int_{-\infty}^{\infty}\psi_n(x)^* \psi_{n+1}(x)dx + \sqrt{\frac{\hbar}{2mw}}\int_{-\infty}^{\infty}((a^+)^n\psi_0(x))^* a^-((a^+)^n\psi_0(x))dx\\
-            &= 0+\sqrt{\frac{\hbar}{2mw}}\int_{-\infty}^{\infty}((a^+)^{n+1}\psi_0(x))^* \psi_n(x)dx = \sqrt{\frac{\hbar}{2mw}}\int_{-\infty}^{\infty}\psi_{n+1}(x)^*\psi_n(x)dx = 0
+            \left<x\right>&=\int_{-\infty}^{\infty}\psi_n(x)^* (\hat{x}\psi_n(x))dx = \sqrt{\frac{\hbar}{2mw}}\int_{-\infty}^{\infty}(\psi_n(x))^*(a^+\psi_n(x)+a^-\psi_n(x))dx\\
+            &= \sqrt{\frac{\hbar}{2mw}}\left(\int_{-\infty}^{\infty}\psi_n(x)^* \cdot \sqrt{n+1}\psi_{n+1}(x)dx + \int_{-\infty}^{\infty}(\psi_n(x))^*\cdot \sqrt{n}\psi_{n-1}(x) dx\right)= 0
         \end{align}
         \begin{align}
-            \left<p\right>&=\int_{-\infty}^{\infty}\psi_n(x)^*(\hat{p}\psi_n(x))dx = i\sqrt{\frac{\hbar mw}{2}}\int_{-\infty}^{\infty}((a^+)^n\psi_0(x))^*((a^+)^{n+1}\psi_0(x)-a^-(a^+)^{n}\psi_0(x))dx\\
-            &= i\sqrt{\frac{\hbar mw}{2}}\left(\int_{-\infty}^{\infty}\psi_n(x)^* \psi_{n+1}(x)dx - \int_{-\infty}^{\infty}((a^+)^{n+1}\psi_0(x))^*((a^+)^n \psi_0(x))dx\right)\\
-            &= 0-i\sqrt{\frac{\hbar mw}{2}}\int_{-\infty}^{\infty}\psi_{n+1}(x)^* \psi_n(x)dx = 0
+            \left<p\right>&=\int_{-\infty}^{\infty}\psi_n(x)^*(\hat{p}\psi_n(x))dx = i\sqrt{\frac{\hbar mw}{2}}\int_{-\infty}^{\infty}(\psi_n(x))^*(a^+\psi_n(x)-a^-\psi_n(x))dx\\
+            &= i\sqrt{\frac{\hbar mw}{2}}\left(\int_{-\infty}^{\infty}\psi_n(x)^* \sqrt{n+1}\psi_{n+1}(x)dx - \int_{-\infty}^{\infty}\psi_n(x)^*\cdot \sqrt{n}\psi_{n-1}(x)dx\right)=0
         \end{align}
         \begin{align}
             \left<x^2\right> &= \int_{-\infty}^{\infty}\psi_n(x)^2 x^2 \psi_n(x)dx = \int_{-\infty}^{\infty}(\hat{x}\psi_n(x))^*(\hat{x}\psi_n(x))dx\\
-            &= \frac{\hbar}{2mw}\int_{-\infty}^{\infty}((a^+)^{n+1}\psi_0(x) + a^-(a^+)^n\psi_0(x))^* ((a^+)^{n+1}\psi_0(x) + a^-(a^+)^n\psi_0(x))dx\\
-            &= \frac{\hbar}{2mw}\int_{-\infty}^{\infty}(\sqrt{(n+1)!}\psi_{n+1}(x)+\sqrt{n!}\psi_{n-1}(x))^*(\sqrt{(n+1)!}\psi_{n+1}(x)+\sqrt{n!}\psi_{n-1}(x))dx\\
-            &= \frac{\hbar}{2mw}((n+1)!+n!)
+            &= \frac{\hbar}{2mw}\int_{-\infty}^{\infty}(a^+\psi_n(x)+a^-\psi_n(x))^*(a^+\psi_n(x)+a^-\psi_n(x))dx\\
+            &= \frac{\hbar}{2mw}\int_{-\infty}^{\infty}(\sqrt{n+1}\psi_{n+1}(x)+\sqrt{n}\psi_{n-1}(x))^*(\sqrt{n+1}\psi_{n+1}(x)+\sqrt{n}\psi_{n-1}(x)) dx\\
+            &= \frac{\hbar}{2mw}\|\sqrt{n+1}\psi_{n+1}(x)+\sqrt{n}\psi_{n-1}(x)\|^2=\frac{\hbar}{2mw}(\|\sqrt{n+1}\psi_{n+1}\|^2+\|\sqrt{n}\psi_{n-1}\|^2)\\
+            &= \frac{\hbar}{2mw}((n+1)+n)=\frac{\hbar}{2mw}(2n+1) 
         \end{align}
-        (Note: the last equality is using the fact that the integration represents the $\|\sqrt{(n+1)!}\psi_{n+1}(x)+\sqrt{n!}\psi_{n-1}(x)\|^2$, by orthonormality and Pythagoreus Theorem of inner product, such norm is the same as $\|\sqrt{(n+1)!}\|\psi_{n+1}(x)\|^2+\|\sqrt{n!}\psi_{n-1}(x)\|^2 = (n+1)!+n!$).
+        (Note: the last equality is using the fact that the integration as inner product represents the $\|\sqrt{(n+1)!}\psi_{n+1}(x)+\sqrt{n!}\psi_{n-1}(x)\|^2$, by orthonormality of $\psi_{n+1},\psi_{n-1}$ and Pythagoreus Theorem of inner product, such norm is the same as $\|\sqrt{(n+1)!}\|\psi_{n+1}(x)\|^2+\|\sqrt{n!}\psi_{n-1}(x)\|^2 = (n+1)!+n!$).
         \begin{align}
             \left<p^2\right> &= \int_{-\infty}^{\infty}\psi_n(x)^*(\hat{p}^2 \psi_n(x))dx = \int_{-\infty}^{\infty}(\hat{p}\psi_n(x))^*(\hat{p}\psi_n(x))dx\\
             &= \frac{\hbar mw}{2}\int_{-\infty}^{\infty}(a^+\psi_n(x)-a^-\psi_n(x))^*(a^+\psi_n(x)-a^-\psi_n(x))dx\\
-            &= \frac{\hbar mw}{2}(2n+1)
-        \end{align} (check the precise statement about how $a^+,a^-$ acts on $\psi_n(x)$ with constant).
+            &= \frac{\hbar mw}{2}\int_{-\infty}^{\infty}(\sqrt{n+1}\psi_{n+1}(x)-\sqrt{n}\psi_{n-1}(x))^*(\sqrt{n+1}\psi_{n+1}(x)-\sqrt{n}\psi_{n-1}(x))dx\\
+            &= \frac{\hbar mw}{2}\|\sqrt{n+1}\psi_{n+1}(x)-\sqrt{n}\psi_{n-1}(x)\|^2 = \frac{\hbar mw}{2}(\|\sqrt{n+1}\psi_{n+1}\|^2+\|\sqrt{n}\psi_{n-1}\|^2)\\
+            &= \frac{\hbar mw}{2}((n+1)+n)=\frac{\hbar mw}{2}(2n+1)
+        \end{align}
 
         \hfil
 
-        \item[(b)]Kinetic energy $\hat{T}:=\frac{\hat{p}^2}{2m}$, hence $\left<T\right>=\int_{-\infty}^{\infty}\psi_n(x)^* (\frac{\hat{p}^2}{2m}\psi_n(x))dx = \frac{\left<p^2\right>}{2m}$.
+        \item[(b)]Kinetic energy $\hat{T}:=\frac{\hat{p}^2}{2m}$, hence $\left<T\right>=\int_{-\infty}^{\infty}\psi_n(x)^* (\frac{\hat{p}^2}{2m}\psi_n(x))dx = \frac{\left<p^2\right>}{2m} = \frac{\hbar w}{4}(2n+1)$.
         
-        Similarly, given potential energy $V(x)=\frac{1}{2}mw^2 x^2$, then $\left<V\right>=\int_{-\infty}^{\infty}\psi_n(x)^* (\frac{1}{2}mw^2 x^2\psi_n(x))dx = \frac{1}{2}mw^2 \left<x^2\right>$.
+        Similarly, given potential energy $V(x)=\frac{1}{2}mw^2 x^2$, then $\left<V\right>=\int_{-\infty}^{\infty}\psi_n(x)^* (\frac{1}{2}mw^2 x^2\psi_n(x))dx = \frac{1}{2}mw^2 \left<x^2\right> = \frac{\hbar w}{4}(2n+1)$.
 
         \hfil
 
-        \item[(c)] Need to wait until the constants in (a) is checked.
+        \item[(c)] If consider $\sigma_x\sigma_p$ where each $\sigma_j=\sqrt{\left<j^2\right>-\left<j\right>^2}$ for $j=x,p$, then we get the following:
+        \begin{align}
+            \sigma_x^2\sigma_p^2=(\left<x^2\right>-\left<x\right>^2)(\left<p^2\right>-\left<p\right>^2) = \frac{\hbar}{2mw}(2n+1)\cdot\frac{\hbar mw}{2}(2n+1) = \left((2n+1)\frac{\hbar}{2}\right)^2
+        \end{align}
+        Hence, $\sigma_x\sigma_p = (2n+1)\frac{\hbar}{2}\geq \frac{\hbar}{2}$, showing Uncertainty Principle is satisfied.
     \end{itemize}
 \end{proof}
 

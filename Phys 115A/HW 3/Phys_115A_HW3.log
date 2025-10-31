@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  31 OCT 2025 08:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  31 OCT 2025 10:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -789,13 +789,12 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-<oscillator_sketch.png, id=98, 2762.82187pt x 1059.20718pt>
-File: oscillator_sketch.png Graphic file (type png)
-<use oscillator_sketch.png>
-Package pdftex.def Info: oscillator_sketch.png  used on input line 162.
-(pdftex.def)             Requested size: 426.79134pt x 163.60974pt.
- [4 <./oscillator_sketch.png>] [5] [6] [7] [8] [9]
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
+Overfull \hbox (38.96188pt too wide) in paragraph at lines 218--220
+\OT1/cmr/m/n/10 (Note: the last equal-ity is us-ing the fact that the in-te-gra-tion as in-ner prod-uct rep-re-sents the $\OMS/cmsy/m/n/10 k[]\OML/cmm/m/it/10  []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) +
+ []
+
+[5] [6] [7] [8] [9]
 Overfull \hbox (1.19978pt too wide) detected at line 442
 []
  []
@@ -809,18 +808,18 @@ Package rerunfilecheck Info: File `Phys_115A_HW3.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 31072 strings out of 474116
- 632058 string characters out of 5743681
+ 31061 strings out of 474116
+ 631763 string characters out of 5743681
  1964187 words of memory out of 5000000
- 52840 multiletter control sequences out of 15000+600000
+ 52828 multiletter control sequences out of 15000+600000
  566330 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,12n,113p,1097b,1004s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on Phys_115A_HW3.pdf (11 pages, 599239 bytes).
+Output written on Phys_115A_HW3.pdf (11 pages, 266148 bytes).
 PDF statistics:
- 294 PDF objects out of 1000 (max. 8388607)
+ 292 PDF objects out of 1000 (max. 8388607)
  216 compressed objects within 3 object streams
- 97 named destinations out of 1000 (max. 500000)
- 162 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 98 named destinations out of 1000 (max. 500000)
+ 157 words of extra memory for PDF output out of 10000 (max. 10000000)
 
