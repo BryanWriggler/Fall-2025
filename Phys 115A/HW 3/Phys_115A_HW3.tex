@@ -64,7 +64,7 @@ $\Psi$ is properly normalized.
 
 \hfil
 
-\section*{2 (ND, remark (d), calculate (e))}
+\section*{2}
 \begin{ques}\label{q2}
 \textbf{Constructing States (modified Griffiths 2.10 and 2.14)}
 
@@ -156,12 +156,35 @@ any other tool you wish to numerically evaluate the relevant integral.
         \hfill
 
         \item[(d)] Here are some graphs of the first four states' graph, with the classical turning point marked using vertical lines:
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=150mm]{p_0.png}
+            \caption{The Graph of $\psi_0(x)$}
+        \end{figure}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=150mm]{p_1.png}
+            \caption{The Graph of $\psi_1(x)$}
+        \end{figure}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=150mm]{p_2.png}
+            \caption{The Graph of $\psi_2(x)$}
+        \end{figure}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=150mm]{p_3.png}
+            \caption{The Graph of $\psi_3(x)$}
+        \end{figure}
 
-        Here, the classical turning point actually represents the farthest positions from the origin where the second derivative of the wavefunction is $0$ (or the farthest point the wave function changes its concavity).
+        Here, the classical turning point actually represents the farthest positions from the origin where the second derivative of the wavefunction is $0$ (or the farthest point from $0$ that the wave function changes its concavity, if viewing as a real function).
 
         \hfil
 
-        \item[(e)] Recall that from part (d), the classical turning point
+        \item[(e)] Given $\psi_0(x)=\left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}e^{-\frac{mw}{2\hbar}x^2}$ and classical turning points $\pm x_0$ (wehere $x_0=\sqrt{\frac{\hbar}{mw}}$), then since $|\psi_0(x)|^2 = \sqrt{\frac{mw}{\pi\hbar}}e^{-\frac{mw}{\hbar}x^2}$, then as a normal distribution with mean $\mu=0$ and standard deviation $\sigma>0$ has probability distribution function $\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{x^2}{2\sigma^2}}$, then one derives $\frac{1}{\sigma\sqrt{2}} = \sqrt{\frac{mw}{\hbar}} = +x_0$ for the probability distribution $|\psi_0(x)|^2$. Hence, the probability of being between $-x_0,x_0$ is given as:
+        \begin{align}
+            \PP(-x_0\leq x\leq x_0)= \int_{-\frac{1}{\sigma\sqrt{2}}}^{\frac{1}{\sigma\sqrt{2}}}\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{x^2}{2\sigma^2}}dx \approx 0.843
+        \end{align}
         
     \end{itemize}
 \end{proof}
