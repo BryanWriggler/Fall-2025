@@ -12,6 +12,7 @@ dv=[
     [0.033,0.032,0.032,0.032,0.032,0.033],
     [0.047,0.045,0.045,0.046,0.046,0.046]
 ]
+mass = [0.1,0.2]
 
 for i in range(0,2):
     #plot data
@@ -32,7 +33,7 @@ for i in range(0,2):
         plt.ylim(69,89)
 
     #labels
-    plt.title("Log-Log Plot of Wave Speed (m/s) wrt Tension (N)")
+    plt.title("Velocity v (m/s) wrt the nth Resonance, with Mass " + str(mass[i]) + " kg")
     plt.xlabel("Log(T) (N)")
     plt.ylabel("Log(v) (m/s)")
     plt.legend() #show labels for lines
