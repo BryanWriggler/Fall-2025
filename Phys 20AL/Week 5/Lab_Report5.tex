@@ -140,7 +140,7 @@ The following procedure is performed:
     \item[5.] Change the masses to other ones await to be measured, and repeat Step 2 to 4 for the desired mass.
 \end{itemize}
 
-\hfil
+\newpage
 
 \section{Experimental Data, Tables, and Observations (Need Propogation of Uncertainty)}
 \subsection{Experiment with Manual Setup}
@@ -166,17 +166,18 @@ The greatest problem about this experiment is the difficulty of recording the da
 
 \hfil
 
-\newpage
+\subsection{Experiments with Function Generator}
+\subsubsection{1st Resonance Frequency}
+First, recall that based on the claimed relation, velocity $v=\lambda f$, where $\lambda$ is the wavelength (unit: m) and $f$ is the frequency (unit: Hz). Here, the uncertainty of $f$, or $\delta f$ is calculated using RMSD. 
 
-\subsection{Experiment with Function Generator - 1st Resonance Frequency}
-First, recall that based on the claimed relation, velocity $v=\lambda f$, where $\lambda$ is the wavelength (unit: m) and $f$ is the frequency (unit: Hz). Since the string length in this case is $l=0.865$ m (with $\delta l=0.0005$ m, by the limitation of meter stick), then when reaching the first resonance frequency (where there are no fixed point, and only one peak / valley each time), then the string length represents $\frac{\lambda}{2}$, showing that $\lambda=2l=1.730$ m (with $\delta \lambda=\delta l\cdot \sqrt{(\frac{\partial \lambda}{\partial l})^2} = 2\delta l = 0.001$ m). 
+Since the string length in this case is $l=0.865$ m (with $\delta l=0.0005$ m, by the limitation of meter stick), then when reaching the first resonance frequency (where there are no fixed point, and only one peak / valley each time), then the string length represents $\frac{\lambda}{2}$, showing that $\lambda=2l=1.730$ m (with $\delta \lambda=\delta l\cdot \sqrt{(\frac{\partial \lambda}{\partial l})^2} = 2\delta l = 0.001$ m). 
 
 Hence, with $v=\lambda f$, the propogation of uncertainty of $v$ is given by the following:
 \begin{align}
     \delta v= \sqrt{\left(\frac{\partial v}{\partial \lambda}\right)^2(\delta\lambda)^2+\left(\frac{\partial v}{\partial f}\right)^2(\delta f)^2} = \sqrt{(\lambda\cdot \delta f)^2 + (f\cdot \delta\lambda)^2} 
 \end{align}
 
-Here are the corresponding resonance frequencies when fixing the hanged mass (unit: s), the average frequency $f$ under fixed masses with their uncertainty $\delta f$ as RSMD, the derived wave speed $v$, and propogation of uncertainty of $v$ in each case:
+Here are the corresponding resonance frequencies when fixing the hanged mass (unit: s), the average frequency $f$ under fixed masses with their RMSD $\delta f$, the derived wave speed $v$, and propogation of uncertainty of $v$ in each case:
 \begin{table}[h!]
 \centering
 \caption{Measured Frequencies (Hz) with respect to Mass (kg)}
@@ -194,7 +195,7 @@ Here are the corresponding resonance frequencies when fixing the hanged mass (un
 \midrule
 \textbf{Average $f$ (Hz)} & 28.597 & 33.350 & 40.213 & 46.677 & 51.690 & 57.460 \\
 \hline
-\textbf{RSMD of $f$ (Hz)} & 0.100 & 0.026 & 0.021 & 0.047 & 0.044 & 0.020\\
+\textbf{$\delta f$ (Hz)} & 0.100 & 0.026 & 0.021 & 0.047 & 0.044 & 0.020\\
 \midrule
 \midrule
 \textbf{$v$ (m/s)} & 49.472 & 57.696 & 69.569 & 80.751 & 89.424 & 99.406\\
@@ -221,13 +222,60 @@ Which, using the tension $T = mg$ (with $g=9.807$ m/s), and the uncertainty $\de
     \end{tabular}
     \label{tab:data_gen_1_derive}
 \end{table}
-Which, they generate the following log-log plot:
 
+Which, they generate the following log-log plot:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=100mm]{v_T_log.png}
+    \label{fig:v_T_log}
+\end{figure}
+
+\newpage
+
+\subsubsection{nth Resonance Frequency}
+Here, since each $n^\text{th}$ Resonance Frequency is only measured once, the uncertainty in frequency $\delta f=0.005$ Hz (the Function Generator's limitation). However, $\delta \lambda = 0.001$ m, $v=\lambda f$ (m/s), and $\delta v$ are all similar to the one given in Subsubsection \textbf{5.2.1}. Also, for the $n^\text{th}$ Resonance, there are $n$ total peak+ valley within the given length $l = 0.865$ m, hence $2l = 1.730$ m containes $n$ complete period of a wave, so the $n^\text{th}$ wavelength is given by $\lambda_n = \frac{2l}{n}$ (unit: m). 
+
+With all the measurements up to $6^\text{th}$ Resonance Frequency, for each provided mass, here are the tables of the Resonance Frequency $f$, wavelength $\lambda$, their corresponding wave speed $v$, and propogation of uncertainty of $v$ ($\delta v$):
+\begin{table}[h!]
+\centering
+\caption{Resonance Frequency $f$ (Hz), Wavelength $\lambda$ (m), and Wave Speed $v$ (m/s), with Mass $0.100$ kg}
+\begin{tabular}{c||cccccc}
+\toprule
+\textbf{Resonance (n)} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} \\
+\midrule
+\midrule
+\textbf{$f$ (Hz)}       & 32.260 & 64.150 & 96.380 & 128.700 & 161.600 & 195.900 \\
+\hline
+\textbf{$\lambda$ (m)}  & 1.730  & 0.865  & 0.577  & 0.433  & 0.346  & 0.288  \\
+\midrule
+\textbf{$v$ (m/s)}      & 55.810 & 55.490 & 55.579 & 55.663 & 55.914 & 56.485 \\
+\hline
+\textbf{$\delta v$ (m/s)} & 0.033 & 0.032 & 0.032 & 0.032 & 0.032 & 0.033 \\
+\bottomrule
+\end{tabular}
+\label{tab:data_gen_2_mass1}
+\end{table}
 
 \hfil
 
-\subsection{Experiment with Function Generator - nth Resonance Frequency}
-
+\begin{table}[h!]
+\centering
+\caption{Resonance Frequency $f$ (Hz), Wavelength $\lambda$ (m), and Wave Speed $v$ (m/s), with Mass $0.200$ kg}
+\begin{tabular}{l||cccccc}
+\toprule
+\textbf{Resonance (n)} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} \\
+\midrule
+\midrule
+\textbf{$f$ (Hz)}        & 46.030 & 90.450 & 135.400 & 182.900 & 228.500 & 275.000 \\
+\hline
+\textbf{$\lambda$ (m)}   & 1.730  & 0.865  & 0.577  & 0.433  & 0.346  & 0.288  \\
+\midrule
+\textbf{$v$ (m/s)}       & 79.632 & 78.239 & 78.081 & 79.104 & 79.061 & 79.292 \\
+\hline
+\textbf{$\delta v$ (m/s)}  & 0.047 & 0.045 & 0.045 & 0.046 & 0.046 & 0.046 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \newpage
 
