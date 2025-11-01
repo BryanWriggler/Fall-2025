@@ -205,6 +205,9 @@ Here are the corresponding resonance frequencies when fixing the hanged mass (un
 \end{tabular}
 \label{tab:data_gen_1}
 \end{table}
+
+\newpage
+ 
 Which, using the tension $T = mg$ (with $g=9.807$ m/s), and the uncertainty $\delta log(v)=\frac{\delta v}{v\cdot \ln(10)}$, the corresponding values are given as follow:
 \begin{table}[h!]
     \centering
@@ -223,7 +226,7 @@ Which, using the tension $T = mg$ (with $g=9.807$ m/s), and the uncertainty $\de
     \label{tab:data_gen_1_derive}
 \end{table}
 
-Which, they generate the following log-log plot:
+Eventually, they generate the following log-log plot:
 \begin{figure}[h!]
     \centering
     \includegraphics[width=100mm]{v_T_log.png}
@@ -235,7 +238,7 @@ Which, they generate the following log-log plot:
 \subsubsection{nth Resonance Frequency}
 Here, since each $n^\text{th}$ Resonance Frequency is only measured once, the uncertainty in frequency $\delta f=0.005$ Hz (the Function Generator's limitation). However, $\delta \lambda = 0.001$ m, $v=\lambda f$ (m/s), and $\delta v$ are all similar to the one given in Subsubsection \textbf{5.2.1}. Also, for the $n^\text{th}$ Resonance, there are $n$ total peak+ valley within the given length $l = 0.865$ m, hence $2l = 1.730$ m containes $n$ complete period of a wave, so the $n^\text{th}$ wavelength is given by $\lambda_n = \frac{2l}{n}$ (unit: m). 
 
-With all the measurements up to $6^\text{th}$ Resonance Frequency, for each provided mass, here are the tables of the Resonance Frequency $f$, wavelength $\lambda$, their corresponding wave speed $v$, and propogation of uncertainty of $v$ ($\delta v$):
+With all the measurements up to $6^\text{th}$ Resonance Frequency, here are the tables of the Resonance Frequency $f$, wavelength $\lambda$, their corresponding wave speed $v$, and propogation of uncertainty of $v$ ($\delta v$):
 \begin{table}[h!]
 \centering
 \caption{Resonance Frequency $f$ (Hz), Wavelength $\lambda$ (m), and Wave Speed $v$ (m/s), with Mass $0.100$ kg}
@@ -260,8 +263,12 @@ With all the measurements up to $6^\text{th}$ Resonance Frequency, for each prov
 
 \begin{figure}[h!]
     \centering
+    \caption{}
     \includegraphics[width=100mm]{v_n_plot1.png}
+    \label{fig:data_gen_2_mass11}
 \end{figure}
+
+\hfil
 
 \hfil
 
@@ -282,7 +289,31 @@ With all the measurements up to $6^\text{th}$ Resonance Frequency, for each prov
 \textbf{$\delta v$ (m/s)}  & 0.047 & 0.045 & 0.045 & 0.046 & 0.046 & 0.046 \\
 \bottomrule
 \end{tabular}
+\label{tab:data_gen_2_mass2}
 \end{table}
+
+\hfil
+
+\begin{figure}[h!]
+    \centering
+    \caption{}
+    \includegraphics[width=100mm]{v_n_plot2.png}
+    \label{fig:data_gen_2_mass22}
+\end{figure}
+
+\newpage
+
+Where, the first set (Table \ref{tab:data_gen_2_mass1}, Figure \ref{fig:data_gen_2_mass11}) corresponds to mass $m=0.100$ kg, and the second set (Table \ref{tab:data_gen_2_mass2}, Figure \ref{fig:data_gen_2_mass22}) corresponds to mass $m=0.200$ kg.
+
+\hfil
+
+\textbf{Observation for nth Resonance Frequency Experiment:} 
+\begin{itemize}
+    \item In general the lever arm of the string vibrator cannot serve that well as of a fixed point: The observed oscillation on the end of the lever arm is about $0.5-1$ cm (or $0.005-0.01$ m). Even though on a scale of meters it's considered small, but in comparison to the other end (which is on the pully, where it's almost not moving), such oscillation is still considered large. This would be a potential source of error.
+    \item About the mass hanging on the pully, if the pully can get to the natural resonance (where the fixed point is right on top of the pully), it is observed that the mass hardly moved / oscillated. 
+    
+    However, if it's some other frequency that's near, but not as near as desired, it is observed that the mass would oscillate / vibrate with a somewhat period motion: The sound of its vibration would also come in pulses (sometimes large, sometimes small) and endowed with a somewhat regular period. This situatio is quite similar to the case where when two sound with somewhat close (but not exact) frequencies are played simultaneously, then the constructive and destructive interference happened periodically, causing the sound to come in pulses when experienced by the observer.
+\end{itemize}
 
 \newpage
 
