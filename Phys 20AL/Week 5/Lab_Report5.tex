@@ -1,4 +1,4 @@
-\documentclass{article}
+   \documentclass{article}
 \usepackage{../../Self_Style}
 
 \title{Phys 20AL Week 5 Lab Report: Waves on a String}
@@ -166,9 +166,17 @@ The greatest problem about this experiment is the difficulty of recording the da
 
 \hfil
 
+\newpage
+
 \subsection{Experiment with Function Generator - 1st Resonance Frequency}
-First, recall that based on the claimed relation,
-Here are the corresponding resonance frequencies when fixing the hanged mass (unit: s) with uncertainty $\delta m=\pm 0.0005$ (due to the limitation of mass scale), their average, and propogation of uncertainty.
+First, recall that based on the claimed relation, velocity $v=\lambda f$, where $\lambda$ is the wavelength (unit: m) and $f$ is the frequency (unit: Hz). Since the string length in this case is $l=0.865$ m (with $\delta l=0.0005$ m, by the limitation of meter stick), then when reaching the first resonance frequency (where there are no fixed point, and only one peak / valley each time), then the string length represents $\frac{\lambda}{2}$, showing that $\lambda=2l=1.730$ m (with $\delta \lambda=\delta l\cdot \sqrt{(\frac{\partial \lambda}{\partial l})^2} = 2\delta l = 0.001$ m). 
+
+Hence, with the other claiemd relation $v=\sqrt{\frac{T}{\mu}}$ (where $T$ is tension (unit: N) and $\mu$ is mass per unit length (unit: kg/m)), then the frequency relation is given by $f = \frac{1}{\lambda}v=\frac{1}{\lambda}\sqrt{\frac{T}{\mu}}$. Which, with mass uncertainty $\delta m=\pm 0.0005$ (due to the limitation of mass scale) and the relation $T = mg$, the uncertainty $\delta T = \sqrt{(\frac{\partial T}{\partial m})^2}\delta m = g \delta m$; with $g= 9.807$m/s, then $\delta T \approx 0.005$ N. Hence, the propogation of uncertainty of $f$ is given by the following:
+\begin{align}
+    \delta f = \sqrt{\left(\frac{\partial f}{\partial \lambda}\right)^2 (\delta \lambda)^2+\left(\frac{\partial f}{\partial T}\right)^2(\delta T)^2} = \sqrt{\frac{1}{\lambda^4}\cdot\frac{T}{\mu}(\delta \lambda)^2 + \frac{1}{4\lambda^2 \mu T}(\delta T)^2} = \sqrt{\frac{1}{\lambda^2}\cdot f^2(\delta \lambda)^2 + \frac{1}{4\lambda^2 \mu T}(\delta T)^2}
+\end{align}
+
+Here are the corresponding resonance frequencies when fixing the hanged mass (unit: s), their average, and propogation of uncertainty.
 \begin{table}[h!]
 \centering
 \caption{Measured Values for Different Masses}
@@ -181,6 +189,7 @@ Here are the corresponding resonance frequencies when fixing the hanged mass (un
 3 & 28.560 & 33.370 & 40.220 & 46.640 & 51.720 & 57.460 \\
 \midrule
 \textbf{Average} & 28.597 & 33.350 & 40.213 & 46.677 & 51.690 & 57.460 \\
+\hline
 \bottomrule
 \end{tabular}
 \end{table}
