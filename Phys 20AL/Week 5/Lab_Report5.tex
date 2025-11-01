@@ -147,10 +147,10 @@ The following procedure is performed:
 Here are the starting time and ending time of the wave in the video, together with the calculated velocity (given the string's length as $6.000$ m):
 \begin{table}[h!]
 \centering
-\caption{Velocity Measurements}
+\caption{Wave Speed (m/s) under Manual Setup}
 \begin{tabular}{c|c|c|c|c}
 \toprule
-\textbf{Trial} & \textbf{Start (s)} & \textbf{End (s)} & \textbf{Time Elapsed (s)} & \textbf{Velocity (m/s)} \\
+\textbf{Trial} & \textbf{Start (s)} & \textbf{End (s)} & \textbf{Time Elapsed (s)} & \textbf{Speed (m/s)} \\
 \midrule
 \midrule
 1 & 4.76 & 5.42 & 0.66 & 18.1818 \\
@@ -171,28 +171,58 @@ The greatest problem about this experiment is the difficulty of recording the da
 \subsection{Experiment with Function Generator - 1st Resonance Frequency}
 First, recall that based on the claimed relation, velocity $v=\lambda f$, where $\lambda$ is the wavelength (unit: m) and $f$ is the frequency (unit: Hz). Since the string length in this case is $l=0.865$ m (with $\delta l=0.0005$ m, by the limitation of meter stick), then when reaching the first resonance frequency (where there are no fixed point, and only one peak / valley each time), then the string length represents $\frac{\lambda}{2}$, showing that $\lambda=2l=1.730$ m (with $\delta \lambda=\delta l\cdot \sqrt{(\frac{\partial \lambda}{\partial l})^2} = 2\delta l = 0.001$ m). 
 
-Hence, with the other claiemd relation $v=\sqrt{\frac{T}{\mu}}$ (where $T$ is tension (unit: N) and $\mu$ is mass per unit length (unit: kg/m)), then the frequency relation is given by $f = \frac{1}{\lambda}v=\frac{1}{\lambda}\sqrt{\frac{T}{\mu}}$. Which, with mass uncertainty $\delta m=\pm 0.0005$ (due to the limitation of mass scale) and the relation $T = mg$, the uncertainty $\delta T = \sqrt{(\frac{\partial T}{\partial m})^2}\delta m = g \delta m$; with $g= 9.807$m/s, then $\delta T \approx 0.005$ N. Hence, the propogation of uncertainty of $f$ is given by the following:
+Hence, with $v=\lambda f$, the propogation of uncertainty of $v$ is given by the following:
 \begin{align}
-    \delta f = \sqrt{\left(\frac{\partial f}{\partial \lambda}\right)^2 (\delta \lambda)^2+\left(\frac{\partial f}{\partial T}\right)^2(\delta T)^2} = \sqrt{\frac{1}{\lambda^4}\cdot\frac{T}{\mu}(\delta \lambda)^2 + \frac{1}{4\lambda^2 \mu T}(\delta T)^2} = \sqrt{\frac{1}{\lambda^2}\cdot f^2(\delta \lambda)^2 + \frac{1}{4\lambda^2 \mu T}(\delta T)^2}
+    \delta v= \sqrt{\left(\frac{\partial v}{\partial \lambda}\right)^2(\delta\lambda)^2+\left(\frac{\partial v}{\partial f}\right)^2(\delta f)^2} = \sqrt{(\lambda\cdot \delta f)^2 + (f\cdot \delta\lambda)^2} 
 \end{align}
 
-Here are the corresponding resonance frequencies when fixing the hanged mass (unit: s), their average, and propogation of uncertainty.
+Here are the corresponding resonance frequencies when fixing the hanged mass (unit: s), the average frequency $f$ under fixed masses with their uncertainty $\delta f$ as RSMD, the derived wave speed $v$, and propogation of uncertainty of $v$ in each case:
 \begin{table}[h!]
 \centering
-\caption{Measured Values for Different Masses}
+\caption{Measured Frequencies (Hz) with respect to Mass (kg)}
 \begin{tabular}{c||cccccc}
 \toprule
 \diagbox[width=3cm,height=1cm]{\textbf{Trial}}{\textbf{Mass (kg)}} & \textbf{0.055} & \textbf{0.105} & \textbf{0.160} & \textbf{0.205} & \textbf{0.255} & \textbf{0.306} \\
 \midrule
+\midrule
 1 & 28.710 & 33.360 & 40.190 & 46.730 & 51.710 & 57.480 \\
+\hline
 2 & 28.520 & 33.320 & 40.230 & 46.660 & 51.640 & 57.440 \\
+\hline
 3 & 28.560 & 33.370 & 40.220 & 46.640 & 51.720 & 57.460 \\
 \midrule
-\textbf{Average} & 28.597 & 33.350 & 40.213 & 46.677 & 51.690 & 57.460 \\
+\midrule
+\textbf{Average $f$ (Hz)} & 28.597 & 33.350 & 40.213 & 46.677 & 51.690 & 57.460 \\
 \hline
+\textbf{RSMD of $f$ (Hz)} & 0.100 & 0.026 & 0.021 & 0.047 & 0.044 & 0.020\\
+\midrule
+\midrule
+\textbf{$v$ (m/s)} & 49.472 & 57.696 & 69.569 & 80.751 & 89.424 & 99.406\\
+\hline
+\textbf{$\delta v$ (m/s)} & 0.176 & 0.057 & 0.054 & 0.094 & 0.091 & 0.067\\
 \bottomrule
 \end{tabular}
+\label{tab:data_gen_1}
 \end{table}
+Which, using the tension $T = mg$ (with $g=9.807$ m/s), and the uncertainty $\delta log(v)=\frac{\delta v}{v\cdot \ln(10)}$, the corresponding values are given as follow:
+\begin{table}[h!]
+    \centering
+    \caption{Corresponding Log Values of Table \ref{tab:data_gen_1}}
+    \begin{tabular}{c||cccccc}
+        \toprule
+        \textbf{Mass (kg)} & \textbf{0.055} & \textbf{0.105} & \textbf{0.160} & \textbf{0.205} & \textbf{0.255} & \textbf{0.306} \\
+        \midrule
+        \textbf{$\log(T)$ (N)} & -0.268 & 0.013 & 0.196 & 0.303 & 0.398 & 0.477\\
+        \hline
+        \textbf{$\log(v)$ (m/s)} & 1.694 & 1.761 & 1.842 & 1.907 & 1.9551 & 1.997\\
+        \hline
+        \textbf{$\delta \log(b)$ (m/s)} & 0.004 & 0.001 & 0.001 & 0.001 & 0.001 & 0.001\\
+        \bottomrule
+    \end{tabular}
+    \label{tab:data_gen_1_derive}
+\end{table}
+Which, they generate the following log-log plot:
+
 
 \hfil
 
