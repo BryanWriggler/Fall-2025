@@ -16,5 +16,7 @@
 \contentsline {subsubsection}{\numberline {5.2.1}1st Resonance Frequency}{7}{subsubsection.5.2.1}%
 \contentsline {subsubsection}{\numberline {5.2.2}nth Resonance Frequency}{9}{subsubsection.5.2.2}%
 \contentsline {section}{\numberline {6}Data Analysis}{11}{section.6}%
-\contentsline {section}{\numberline {7}Error Analysis}{11}{section.7}%
-\contentsline {section}{\numberline {8}Conclusion}{11}{section.8}%
+\contentsline {subsection}{\numberline {6.1}1st Resonance Frequency}{11}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}nth Resonance Frequency}{11}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Error Analysis}{12}{section.7}%
+\contentsline {section}{\numberline {8}Conclusion}{13}{section.8}%
