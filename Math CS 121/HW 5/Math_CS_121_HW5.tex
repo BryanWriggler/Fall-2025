@@ -60,7 +60,7 @@
 \end{proof}
 
 \newpage
-\section*{4 ND}
+\section*{4 }
 \begin{ques}\label{q4}
     5.Rev.24:
 
@@ -68,7 +68,15 @@
 \end{ques}
 
 \begin{proof}
+    First, fix any $n\in\NN$ that represents the number of seeds planted. Let $X_n$ be the random variable, representing the number of seeds germinating out of the $n$ planted seeds. Then, with each seed having a $p=0.75$ probability of germinating (and the germinating probability is supposedly independet for each seed), then $X_n \sim \Bin(n, p=0.75)$ (since each success probability is independent, and it's either being germinated or not).
+
+    Then, to find the minimum $n$ such that the probability of at least five of them germnating being more than $90\%$, the first requirement is $n\geq 5$ (since less than $5$ seeds being planted, it's impossible to have at least $5$ germinating). Which, notice that this is given by $\PP(X_n\geq 5)$, which the complement is given by $\PP(X_n<5) = \PP(X_n\leq 4)$. Which, the requirement that $\PP(X_n\geq 5) > 0.9$ (more than $90\%$ germinating), is equivalent to $\PP(X_n\leq 4) = 1-\PP(X_n\geq 5) < 0.1$. 
     
+    Now, for any $n\geq 5$, the probability $\PP(X_n\leq 4)$ is given by:
+    \begin{align}
+        \PP(X_n\leq 4) = \sum_{k=0}^{4}\PP(X_n=k) = \sum_{k=0}^{4}\begin{pmatrix}n\\k\end{pmatrix} \cdot p^k \cdot(1-p)^{n-k} = \sum_{k=0}^{4}\begin{pmatrix}n\\k\end{pmatrix} \cdot \left(\frac{3}{4}\right)^k \cdot\left(\frac{1}{4}\right)^{n-k} = \frac{1}{4^n}\sum_{k=0}^{4}\begin{pmatrix}n\\k\end{pmatrix} \cdot 3^k
+    \end{align}
+    Which, numerically we get that for $n=8$, $\PP(X_8\leq 4)\approx 0.1138 > 0.1$, while for $n=9$, $\PP(X_9\leq 4) \approx 0.0489 < 0.1$. Hence, $n=9$ is the smallest number of seeds to be planted to have $\PP(X_n\leq 4)<0.1$, which is also the smallest number of seeds to be planted so that $\PP(X_n\geq 5) = 1-\PP(X_n\leq 4)>0.9$.
 \end{proof}
 
 \newpage
@@ -102,7 +110,7 @@
     If the student guesses the multiple-choice test completely randomly, then each of the question's probability of getting right / wrong is independent from the other questions. Also, since each question is multiple choice (suppose there's only one right answer among the choices), if there are $N$ total choices, then the probability of getting the question right is $\frac{1}{N}$.
 
     \begin{itemize}
-        \item[a)]
+        \item[a)] If getting $50\%$ or more correct over $10$ questions, it's getting at least $5$ questions
     \end{itemize}
 \end{proof}
 
