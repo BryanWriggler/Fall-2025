@@ -1,0 +1,254 @@
+\documentclass{article}
+\usepackage{../../Self_Style}
+
+\title{Math CS 121 HW 5}
+\author{Zih-Yu Hsieh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{1}
+\begin{ques}\label{q1}
+    5.2.27:
+
+    Let $X$ be a Poisson random variable with parameter $\lambda$. Show that the maximum of $\PP(X=i)$ occurse at $[\lambda]$, where $[\lambda]$ is the greatest integer less than or equal to $\lambda$.
+
+    Hint: Let $p$ be the probability mass function of $X$. Prove that 
+    $$p(i)=\frac{\lambda}{i}p(i-1)$$ 
+    Use this to find the values of $i$ at which $p$ is increasing and the values of $i$ at which it is decreasing.
+\end{ques}
+
+\begin{proof}
+    Recall that for random variable $X\sim \Poi(\lambda)$ (where $\lambda>0$), then for each $i\in\NN$, one has $p(i)=e^{-\lambda}\cdot\frac{\lambda^i}{i!}$.  So, for any index $i>0$, the following relation is true:
+    \begin{align}
+        p(i) = e^{-\lambda}\cdot\frac{\lambda^i}{i!} = e^{-\lambda}\cdot\frac{\lambda^{i-1}}{(i-1)!}\cdot\frac{\lambda}{i} = p(i-1)\cdot\frac{\lambda}{i}
+    \end{align}
+    So, for all positive integer $i\leq \lambda$, since $\frac{\lambda}{i}\geq 1$, it satisfies $p(i) = p(i-1)\cdot\frac{\lambda}{i}\geq p(i-1)$; conversely, for $i>\lambda$, since $\frac{\lambda}{i}<1$, it satisfies $p(i)=p(i-1)\cdot\frac{\lambda}{i}<p(i-1)$.
+
+    \hfil
+
+    Now, consider integer $j=[\lambda]$ (the largest integer satisfying $k\leq \lambda$). To derive the maximality of $p(j)$, there are two cases:
+    \begin{itemize}
+        \item Since for any integer $i\leq j$, $\i\leq j\leq \lambda$, so $p(i)\geq p(i-1)$, hence inductively one can prove that $p(i)\leq p(j)$.
+        \item Similarly, for any integer $i>j$, since $j$ is the largest integer satisfying $k\leq \lambda$, then $i>j$ implies that $i>\lambda$, hence we have $p(i)<p(i-1)$ instead. So again, inductively one can also prove that $p(i)<p(j)$.
+    \end{itemize}
+
+    Since for all $i\in\NN$ one must have $p(i)\leq p(j)$ (from the two cases above), then one must have $p(j) = p([\lambda])$ being the maximum value of the prpobability mass function. Hence, $p$ has maximum occuring at $[\lambda]$.
+\end{proof}
+
+\newpage
+\section*{2 ND}
+\begin{ques}\label{q2}
+    5.3.24:
+
+    Twelve hundred eggs, of which 200 are rotten, are distributed randomly in 100 cartons, each containing a dowzen eggs. These cartons are then sold to a restaurant. How many cartons should we expect the chef of the restaurant to open before finding one without rotten eggs?
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+\section*{3 ND}
+\begin{ques}\label{q3}
+    5.Rev.14:
+    
+    Past experience shows that 30\% of the customers entering Harry's Clothing Store will make a purchase. Of the customers who make a purchase, 85\% use credit cards. Let $X$ be the number of the next six customers who enter the store, make a purchase, and use a credit card. Find the probability mass function, the expected value, and the variance of $X$.
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+\section*{4 ND}
+\begin{ques}\label{q4}
+    5.Rev.24:
+
+    Experience shows that 75\% of certain kinds of seeds germinate when planted under normal conditions. Determine the minimum number of seeds to be planted so that the chance of at least five of them germinating is more than 90\%.
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+\section*{5 ND}
+\begin{ques}\label{q5}
+    An urn contains $N$ green balls and $M$ red ones. Balls are taken out 1-by-1 and the procedure is stopped when a red ball first appears. Let $X$ be the number of green balls taken out. Determine analytically the expected value of $X$ if:
+    \begin{itemize}
+        \item[a)] Removed balls are returned back (sampling with replacement)
+        \item[b)] Removed balls are gone (sampling without replacement)
+    \end{itemize}
+    Provide the actual numerical solution when $N=7$, $M=5$.
+
+    Hint: One of the answers above is going to be ugly, that's just how it is...
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+\section*{6 ND}
+\begin{ques}\label{q6}
+    A student answers a multiple-choice test completely randomly. What is the probability he will pass (get 50\% or more correct) if:
+    \begin{itemize}
+        \item[a)] The test has 10 questions with 4 choices for each question.
+        \item[b)] Find the smallest number of questions with 4 choices for each such that the probability of passing through random guessing is less than 1\%.
+        \item[c)] The test has 10 questions with 4 choices each. There are 10 students in the class. Assuming each student guesses all the answers, what is the probability that all 10 students do not pass.  
+    \end{itemize}
+\end{ques}
+
+\begin{proof}
+    If the student guesses the multiple-choice test completely randomly, then each of the question's probability of getting right / wrong is independent from the other questions. Also, since each question is multiple choice (suppose there's only one right answer among the choices), if there are $N$ total choices, then the probability of getting the question right is $\frac{1}{N}$.
+
+    \begin{itemize}
+        \item[a)]
+    \end{itemize}
+\end{proof}
+
+\newpage
+\section*{7}
+\begin{ques}\label{q7}
+    6.3.9:
+
+    A right triangle has a hypotenuse of length $9$. If the probability density function of one side's length is given by:
+    $$f(x)=\begin{cases}
+        x/6 & \text{if } 2<x<4\\
+        0 & \text{otherwise}
+    \end{cases}$$ 
+    what is the expected value of the length of the other side?
+\end{ques}
+
+\begin{proof}
+    (\textbf{Rmk:} Since side length is only valid for positive number, we'll assume $x>0$ to be the case).
+
+
+    Given it's a right triangle with hypotenuse of length $9$. If one side length is given by variable $x\in(0,\infty)$, then the other side is given by $y = \sqrt{81-x^2}$. Which, $y$ is only well-defined if $81-x^2\geq 0$, or $x\in [-9,9]$. Let $Y$ denotes the random variable calculating the length of the other side $y$. 
+    
+    Then, based on the proobability density function, one can conclude the following expected value $\EE[Y]$ (which, for $y,x$ to both be valid, one must have $0<x\leq 9$):
+    \begin{align}
+        \EE[Y] = \int_{0}^{9}y f(x)dx = \int_{0}^{2}y \cdot 0 dx + \int_{2}^{4}y \cdot \frac{x}{6}dx + \int_{4}^{9}y\cdot 0 dx= \int_{2}^{4}\sqrt{81-x^2}\cdot\frac{x}{6}dx
+    \end{align}
+    Performing substitution $u=81-x^2$, then $du = -2x dx$; at $x=2$, $u=81-4 = 77$, and at $x=4$, $u=81-16 = 65$. So, the above integral becomes:
+    \begin{align}
+        \EE[Y] &= \int_{2}^{4}\sqrt{81-x^2}\cdot\frac{x}{6}dx = -\int_{2}^{4}\sqrt{81-x^2}\cdot\frac{1}{12}\cdot (-2x)dx = -\int_{77}^{65}\sqrt{u}\cdot\frac{1}{12}du\\
+        &= \frac{1}{12}\int_{65}^{77}\sqrt{u}du = \frac{1}{12}\cdot\frac{2}{3}u^\frac{3}{2}\bigg|_{65}^{77} = \frac{1}{18}\left((77)^\frac{3}{2}-(65)^\frac{3}{2}\right) \approx 8.4236
+    \end{align}
+    So, the expected value of the other side is $y \approx 8.4236$.
+\end{proof}
+
+\newpage
+\section*{8}
+\begin{ques}\label{q8}
+    6.3.10:
+
+    Let $X$ be a random variable with probability density function:
+    $$f(x)=\frac{1}{2}e^{-|x|}, \quad x \in\RR$$
+    Calculate $\Var(X)$.
+\end{ques}
+
+\begin{proof}
+    We'll first rewrite the function $f(x)$ as follow:
+    \begin{align}
+        f(x)=\begin{cases}
+            \frac{1}{2}e^{-x} & x\geq 0\\
+            \frac{1}{2}e^x & x<0
+        \end{cases}
+    \end{align}
+    Hence, with $\Var(X)=\EE[X^2]-\EE[X]^2$, it suffices to calculate the moments. The two moments involved are given as follow (Note: All the below integral converges since it's polynomial groth $\cdot$ exponential decay when $x\rightarrow \pm\infty$, so it's valid to perform a substitution $u = -x$, $du = -dx$ for one of the parts):
+    \begin{align}
+        \EE[X] &= \int_{-\infty}^{\infty}x f(x)dx = \int_{-\infty}^{0}x\cdot\frac{1}{2}e^x dx + \int_{0}^{\infty}x\cdot\frac{1}{2}e^{-x}dx\\
+        &= \int_{-\infty}^{0}\frac{1}{2}xe^{x}dx + \int_{0}^{-\infty}\frac{1}{2}(-u)e^u \cdot (-1)du\\
+        &= \int_{-\infty}^{0}\frac{1}{2}xe^{x}dx + \int_{0}^{-\infty}\frac{1}{2}ue^u du\\
+        &= \int_{-\infty}^{0}\frac{1}{2}xe^{x}dx-\int_{-\infty}^{0}\frac{1}{2}xe^{x}dx=0
+    \end{align}
+    \begin{align}
+        \EE[X^2] &= \int_{-\infty}^{\infty}x^2f(x)dx = \int_{-\infty}^{0}x^2\cdot\frac{1}{2}e^x dx + \int_{0}^{\infty}x^2\cdot\frac{1}{2}e^{-x}dx\\
+        &= \int_{-\infty}^{0}x^2\cdot\frac{1}{2}e^x dx + \int_{0}^{-\infty}u^2\cdot \frac{1}{2}e^u\cdot (-1)du\\
+        &= \int_{-\infty}^{0}x^2\cdot\frac{1}{2}e^x dx + \int_{-\infty}^{0}u^2\cdot\frac{1}{2}e^u du\\
+        &= \int_{-\infty}^{0}x^2e^x dx= x^2e^x - 2xe^2 + 2e^x\bigg|_{-\infty}^{0} = 2
+    \end{align}
+    Hence, the variance $\Var(X) = \EE[X^2]-\EE[X]^2 = 2-0^2=2$.
+\end{proof}
+
+\newpage
+\section*{9}
+\begin{ques}\label{q9}
+    6.3.16:
+
+    Let $X$ be a continuous random variable with probability density function $f(x)$. Determine the value of $y$ for which $\EE[|X-y|]$ is minimum.
+\end{ques}
+
+\begin{proof}
+    Let $y\in\RR$ be arbitrary. Then, the function $|x-y|$ is expressed as follow:
+    \begin{align}
+        |x-y|=\begin{cases}
+            x-y & x\geq y\\
+            y-x & x<y
+        \end{cases}
+    \end{align}
+    Hence, when calculating $\EE[|X-y|]$, it is given as follow:
+    \begin{align}
+        G(y):=\EE[|X-y|] &= \int_{-\infty}^{\infty}|x-y|f(x)dx = \int_{-\infty}^{y}(y-x)f(x)dx + \int_{y}^{\infty}(x-y)f(x)dx\\
+        &= y \int_{-\infty}^{y}f(x)dx  - \int_{-\infty}^{y}xf(x)dx + \int_{y}^{\infty}xf(x)dx - y\int_{y}^{\infty}f(x)dx
+    \end{align}
+    Notice that given $f(x)$ is continuous, the above integrals in terms of $y$ are also continuous, hence $G(y)$ is a continuous function.
+
+    Then, the minimum of $G(y)=\EE[|X-y|]$ must occure at a point where $G'(y)=0$. Then, taking differentiation (using Fundamental Theorem of Calculus, Product Rule, etc.), we get the following for $G'(y)$:
+    \begin{align}
+        G'(y) &= \int_{-\infty}^{y}f(x)dx + yf(y) - yf(y) - yf(y) - \int_{y}^{\infty}f(x)dx - y(-f(y))\\
+        &= \int_{-\infty}^{y}f(x)dx - \int_{y}^{\infty}f(x)dx = \PP(X\leq y) - \PP(X>y)
+    \end{align}
+    Hence, if $G'(y)=0$, one must have $\PP(X\leq y)-\PP(X>y)=0$, or $\PP(X\leq y)=\PP(X>y)$. However, recall that $1=\PP(X\in \RR)=\PP({X\leq y}\sqcup {X>y}) = \PP(X\leq y)+\PP(X>y)$. With the two being equal, one must have $\PP(X\leq y)=\PP(X>y)=\frac{1}{2}$. Hence, the only possible value where $\EE[|X-y|]$ is minimum, is when $\PP(X\leq y)=\frac{1}{2}$.
+
+
+    \hfil
+
+    Finally, to check that it's actually a minimum, we'll consider the second derivative of $G$:
+    \begin{align}
+        G''(y) = \frac{d}{dy}\left(\int_{-\infty}^{y}f(x)dx - \int_{y}^{\infty}f(x)dx \right) = f(y) - (-f(y)) = 2f(y)\geq 0
+    \end{align}
+    Which, for $y\in\RR$ to be a minimum of $G(y)$, one also needs $G''(y)>0$ to conclude it. Hence, if $y\in\RR$ satisfies $\PP(X\leq y)=\frac{1}{2}$ and $f(y)>0$, we can conclude that $\EE[|X-y|]$ is at its minimum.
+\end{proof}
+
+\newpage
+\section*{10}
+\begin{ques}\label{q10}
+    6.Rev.3:
+
+    Let $X$ be a continuous random variable with density function:
+    $$f(x)=6x(1-x), \quad 0<x<1$$
+    What is the probability that $X$ is within two standard deviations of the mean?
+\end{ques}
+
+\begin{proof}
+    First, recall that $\Var(X)=\EE[X^2]-\EE[x]^2$. Which, these two are given as follow respectively:
+    \begin{align}
+        \EE[X] = \int_{0}^{1}x f(x)dx = \int_{0}^{1}(6x^2-6x^3)dx = 2x^3-\frac{3}{2}x^4\bigg|_{0}^{1} = 2-\frac{3}{2}=\frac{1}{2}
+    \end{align}
+    \begin{align}
+        \EE[X^2] = \int_{0}^{1}x^2 f(x)dx = \int_{0}^{1}(6x^3-6x^4)dx = \frac{3}{2}x^4-\frac{6}{5}x^5\bigg|_{0}^{1} = \frac{3}{2}-\frac{6}{5}=\frac{3}{10}
+    \end{align}
+    Hence, $\Var(X)=\EE[X^2]-\EE[X]^2 = \frac{3}{10}-\frac{1}{4}=\frac{1}{20} = \frac{5}{100}$. Which, the standard deviation of $X$, $\sigma_X = \sqrt{\Var(X)} = \frac{\sqrt{5}}{10}$.
+
+    \hfil
+
+    Now, let $a = \EE[X]-2\sigma_X = \frac{1}{2}-\frac{\sqrt{5}}{5}$, and $b=\EE[X]+2\sigma_X = \frac{1}{2}+\frac{\sqrt{5}}{5}$ (which $a$ is $2$ standard deviation below the mean, while $b$ is $2$ standard deviation above the mean). As a side not, $a>0$ and $b<1$ (since $0<\frac{\sqrt{5}}{5}=\frac{1}{\sqrt{5}}<\frac{1}{2}$). Hence, the probability that $X$ is within two standard deviations of the mean, is given by $\PP(a\leq X\leq b)$, which has the following form of the probability:
+    \begin{align}
+        \PP(a\leq X\leq b)&=\int_{a}^{b}f(x)dx = \int_{a}^{b}(6x-6x^2)dx = 3x^2-2x^3\bigg|_{a}^{b} = 3(b^2-a^2) - 2(b^3-a^3)\\
+        &= 3(b-a)(b+a) - 2(b-a)(b^2+a^2+ba) = 3(b-a)(b+a)-2(b-a)((a+b)^2-ba)
+    \end{align}
+    Which, given the values of $a,b$ as above, here are the corresponding terms' values:
+    \begin{align}
+        &b-a = \left(\frac{1}{2}+\frac{\sqrt{5}}{5}\right)-\left(\frac{1}{2}-\frac{\sqrt{5}}{5}\right) = \frac{2\sqrt{5}}{5}\\
+        &b+a = \left(\frac{1}{2}+\frac{\sqrt{5}}{5}\right)+\left(\frac{1}{2}-\frac{\sqrt{5}}{5}\right) = 1\\
+        &ba = \left(\frac{1}{2}+\frac{\sqrt{5}}{5}\right)\left(\frac{1}{2}-\frac{\sqrt{5}}{5}\right) = \frac{1}{4}-\frac{5}{25} = \frac{1}{4}-\frac{1}{5}=\frac{1}{20}
+    \end{align}
+    Hence, the probability is given as:
+    \begin{align}
+        \PP(a\leq X\leq b)&=3\cdot \frac{2\sqrt{5}}{5}\cdot 1 - 2\cdot\frac{2\sqrt{5}}{5}\cdot\left(1^2 - \frac{1}{20}\right) = \frac{6\sqrt{5}}{5}-\frac{4\sqrt{5}}{5}\cdot\frac{19}{20}\\
+        &= \frac{\sqrt{5}}{5}\left(6-\frac{19}{5}\right) = \frac{\sqrt{5}}{5}\cdot\frac{11}{5} = \frac{11\sqrt{5}}{25}
+    \end{align}
+    So, the probability of being within 2 standard deviations of the mean, is $\frac{11\sqrt{5}}{25}\approx 0.9839$.
+\end{proof}
+
+\end{document}
