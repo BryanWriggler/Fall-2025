@@ -110,7 +110,17 @@
     If the student guesses the multiple-choice test completely randomly, then each of the question's probability of getting right / wrong is independent from the other questions. Also, since each question is multiple choice (suppose there's only one right answer among the choices), if there are $N$ total choices, then the probability of getting the question right is $\frac{1}{N}$.
 
     \begin{itemize}
-        \item[a)] If getting $50\%$ or more correct over $10$ questions, it's getting at least $5$ questions
+        \item[a)] For total of $10$ questions, with each question having $4$ choices. Then, since getting a question itself right has probability $p=\frac{1}{4}=0.25$, and there are total of $10$ questions, let $X$ being the random variable of the number of question this student got right out of $10$ questions, then $X \sim \Bin(10, p=0.25)$ (total of $10$ questions, each has an independent probability of $0.25$ of getting right).
+        
+        In case to pass, it needs the variable $X\geq 5$ (since we need at least $10 \cdot 0.5 = 5$ questions, or at least $50\%$ of the questions right to pass). So, we want to find $\PP(X\geq 5)$ (which has complement being $\PP(X<5) = \PP(X\leq 4)$). Based on binomial distribution, this is given by:
+        \begin{align}
+            \PP(X\leq 4)=\sum_{k=0}^{4}\begin{pmatrix}10\\k\end{pmatrix} \cdot p^k (1-p)^{10-k} = \sum_{k=0}^{4}\begin{pmatrix}10\\k\end{pmatrix} \cdot \frac{1}{4^k}\cdot \left(\frac{3}{4}\right)^{10-k} = \frac{1}{4^{10}}\sum_{k=0}^{4}\begin{pmatrix}10\\k\end{pmatrix} \cdot 3^{10-k}
+        \end{align}
+        Which, $\PP(X\leq 4)\approx 0.9219$, showing that the probability of getting at least $5$ right (or at least $50\%$ correct), is $\PP(X\geq 5) = 1-\PP(X\leq 4)=0.0781$.
+
+        \hfil
+
+        \item[b)]
     \end{itemize}
 \end{proof}
 
