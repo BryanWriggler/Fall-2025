@@ -153,7 +153,7 @@ So, for each part of the question, we'll most likely perform a change of basis f
 
 #pagebreak()
 
-= ND//2
+= D//2
 #problem[
   For any point $p in PP^3$, let $Sigma_p subset GG$ be the locus of lines in $PP^3$ passing through $p$; for any plane $H subset PP^3$, let $Sigma_H subset GG$ be the locus of lines in $PP^3$ lying in $H$. Show that under Pl$accent(u,dot.double)$cker Embedding, both $Sigma_p$ and $Sigma_H$ are carried into planes in $PP^5$, and that conversely any plane $Lambda tilde.equiv PP^2 subset GG subset PP^5$ is either equal to $Sigma_p$ for some $p$ or to $Sigma_H$ for some $H$.
 ][
@@ -210,16 +210,50 @@ So, for each part of the question, we'll most likely perform a change of basis f
 
   - Else, if every two subspaces have nontrivial intersection, then since $tilde(ell)_p sect tilde(ell)_q sect tilde(ell)_w=0$, then one gets nonzero vectors $x in tilde(ell)_p sect tilde(ell)_q$ (while $x in.not tilde(ell)_w$), $y in tilde(ell)_p sect tilde(ell)_w$ (while $y in.not tilde(ell)_q$), and $z in tilde(ell)_q sect tilde(ell)_w$ (while $z in.not tilde(ell)_p$). So, this enforces the list $x,y,z$ to be linearly independent, and   $tilde(ell)_p = span{x,y}$, $tilde(ell)_q = span{x,z}$, and $tilde(ell)_w = span{y,z}$. But now, notice that let $tilde(H) = span{x,y,z}$ be a $3$-dimensional subspace of $k^4$ (so $H subset PP^3$ is a corresponding plane), we have $tilde(ell)_p, tilde(ell)_q, tilde(ell)_w in Sigma_H$. If extend the basis to $a,x,y,z in k^4$, then under this basis, we get the following matrix representatives:
     $ ell_p = mat(0,1,0,0;0,0,1,0), quad ell_q = mat(0,1,0,0;0,0,0,1), quad ell_w = mat(0,0,1,0;0,0,0,1) $ 
-    Where, under this Pl$accent(u,dot.double)$cker Embedding, $p = P(ell_p) = [0,0,0,1,0,0]$, $q = P(ell_q) = [0,0,0,0,1,0]$, and $w = P(ell_w)=[0,0,0,0,0,1]$. Which, given plane embedding $phi:PP^2 arrow.r PP^5$ by $phi([s,t,r])=[0,0,0,s,t,r]$, this implies that $P(Sigma_H) subset.eq phi(PP^2)$. But, the converse is also true due to the proof of part #text(weight: "bold")[2] of this problem. Hence, we deduce that $phi(PP^2) = {[0,0,0,s,t,r] | [s,t,r] in PP^2} = {s p+t q+r w | [s,t,r] in PP^2} = Lambda$, is characterized by $P(Sigma_H)$. However, this again contradicts our initial assumption that $Lambda != Sigma_H$ for any plane $H subset PP^3$.
+    Where, under this Pl$accent(u,dot.double)$cker Embedding, $p = P(ell_p) = [0,0,0,1,0,0]$, $q = P(ell_q) = [0,0,0,0,1,0]$, and $w = P(ell_w)=[0,0,0,0,0,1]$. Which, given plane embedding $phi:PP^2 arrow.r PP^5$ by $phi([s,t,r])=[0,0,0,s,t,r]$, this implies that $P(Sigma_H) subset.eq phi(PP^2)$. But, the other containment $P(Sigma_H) supset.eq phi(PP^2)$ is also true due to the proof of part #text(weight: "bold")[2] of this problem. Hence, we deduce that $phi(PP^2) = {[0,0,0,s,t,r] | [s,t,r] in PP^2} = {s p+t q+r w | [s,t,r] in PP^2} = Lambda$, is characterized by embedding of $Sigma_H$. However, this again contradicts our initial assumption that $Lambda != Sigma_H$ for any plane $H subset PP^3$.
+
+  Since in both cases we get a contradiction, the assumption must be false, hence $tilde(ell)_p sect tilde(ell)_q sect tilde(ell)_w != 0$, showing there exists nonzero $x in tilde(ell)_p sect tilde(ell)_q sect tilde(ell)_w$. Which, this shows that $ell_p,ell_q,ell_w in Sigma_x$ (the lines passing through $x in PP^3$), which reduces to the case in part #text(weight: "bold")[1] of this problem, which shows that $Lambda = Sigma_x$. So, we conclude that if plane $Lambda subset GG$ has $Lambda tilde.equiv PP^2$, then it must be either $Sigma_H$ for some plane $H subset PP^3$, or $Sigma_p$ for some point $p in PP^3$.
 
 
 ]
 
 #pagebreak()
 
-= ND//3
+= D//3
 #problem[
-
+  Let $ell_1,ell_2 subset PP^3$ be disjoint lines. Show that the set $Q subset GG$ of lines in $PP^3$ meeting both is the intersection of $GG$ with a $3$-plane $PP^3 subset PP^5$, and so is a quadric surface. Deduce from this that $Q tilde.equiv PP^1 times PP^1$.
 ][
-  
+  Given that $ell_1 sect ell_2 = emptyset$, this implies that their corresponding $2$-dimensional subspace $tilde(ell)_1, tilde(ell_2) subset k^4$ has $tilde(ell)_1 sect tilde(ell)_2 = 0$, which further implies that $tilde(ell)_1 plus.circle tilde(ell)_2 = k^4$ (since again $dim_k (tilde(ell)_1 plus.circle tilde(ell)_2) = dim_k (tilde(ell)_1) + dim_k (tilde(ell)_2) = 4$). Which, choose basis $e_0,e_1 in tilde(ell)_1$ and $e_2,e_3 in tilde(ell)_2$, the list $e_0,e_1,e_2,e_3 in k^4$ forms a basis, which we'll use it for the corresponding Pl$accent(u,dot.double)$cker Embedding.
+
+  \ 
+
+  Now, given any line $ell in Q$, since $ell sect ell_1$ and $ell sect ell_2$ are both nontrivial, then its corresponding $2$-dimensional subsapce $tilde(ell) subset k^4$ satisfies $tilde(ell) sect tilde(ell)_1, tilde(ell) sect tilde(ell)_2 != 0$, hence one can choose nonzero vector $x in tilde(ell) sect tilde(ell)_1$ (where $x = x_0 e_0+x_1 e_1$), and $y in tilde(ell) sect tilde(ell)_2$ (where $y = y_2 e_2+y_3 e_3$). Under the ordered basis $e_0,e_1,e_2,e_3 in k^4$, $ell$ has the following matrix representative:
+  $ ell = mat(x_0,x_1,0,0;0,0,y_2,y_3) $
+  Hence, under the Pl$accent(u,dot.double)$cker Embedding, it yields the following:
+  $ P(ell) = [0,x_0 y_2, x_0 y_3, x_1 y_2, x_1 y_3, 0] $
+  Which, if consider the hyperplane embedding $phi:PP^3 arrow.r PP^5$ by $phi([s,t,r,w]) = [0,s,t,r,w,0]$, then the above implies that $P(Q) subset.eq phi(PP^3)$, or $P(Q) subset.eq GG sect phi(PP^3)$.
+
+  Also, to show that $GG sect phi(PP^3) = P(Q)$, if given any $[0,s,t,r,w,0] in GG sect phi(PP^3)$, there are two cases to consider:
+  - If $s!=0$ (WLOG, assume $s=1$), then if $ell in Q$ has $P(ell)=[0,s,t,r,w,0]$, one has  $x_0 y_2 = s=1$, so WLOG assume $x_0=y_2 = 1$ (since it's up to scalar multiplication of the vectors). Hence, we yield:
+    $ [0,s,t,r,w,0] = P(ell) = [0,1,y_3,x_1,x_1 y_3,0] $
+    However, recall that in lecture we've covered that image of Pl$accent(u,dot.double)$cker Embedding satisfies the equation $X_(0 1)X_(2 3)-X_(0 2)X_(1 3)+X_(0 3)X_(1 2)=0$ (#text(weight: "bold")[Rmk:] In the lecture it's using ${1,2,3,4}$ instead of ${0,1,2,3}$ as indices, I accidentally shifted the indices when starting this exam...). Here for point $[0,s,t,r,w,0] in GG$, $X_(0 1)=0, X_(0 2)=s, X_(0 3)=t, X_(1 2)=r, X_(1 3)=w, X_(2 3)=0$, hence we get $-s w+t r = 0$; and with assumption $s=1$, we yield $w = t r$. Hence, for $x_1 = r$ and $y_3 = t$ (also $x_0=y_2=1$), it satisfies $ell = mat(1,r,0,0;0,0,1,t)$ and $P(ell) = [0,1,t,r,t r,0] = [0,s,t,r,w,0]$, showing this point is contained in $P(Q)$.
+
+  - Else, if $s=0$, then if $ell in Q$ has $P(ell) = [0,s,t,r,w,0]$, one has $x_0 y_2 = s = 0$. This generates two extra cases:
+    - If $r=0$, choose $y_2=0$. Which, we yield:
+      $ [0,s,t,r,w,0]= P(ell) = [0,0,x_0 y_3, 0, x_1 y_3,0] $
+      Under this case, for $P(ell)$ to be well-defined, one must have either $x_0 y_3$ or $x_1 y_3!=0$, showing $y_3 !=0$ (if $y_3=0$, $x_0 y_3 = 0 = x_1 y_3$ violates the definition that $P(ell) in PP^5$). Hence, can assume $y_3 = 1$. Then, we yield that $x_0 = t$ and $x_1 = w$. Which, $ell = mat(t,w,0,0;0,0,0,1)$, or $P(ell) = [0,0,t,0,w,0] = [0,s,t,r,w,0]$.
+
+    - Else if $r!=0$, choose $x_0 = 0$ instead. Which, we yield:
+      $ [0,s,t,r,w,0] = P(ell) = [0,0,0,x_1 y_2,x_1 y_3,0] $
+      For the point $P(ell) in PP^5$, one must have one of $x_1 y_2$ or $x_1 y_3$ being nonzero, showing $x_1!=0$. Hence, can assume $x_1=1$. Then, we yield that $y_2=r$ and $y_3 = w$. Which, $ell = mat(0,1,0,0;0,0,r,w)$, or $P(ell) = [0,0,0,r,w,0] = [0,s,t,r,w,0]$ (#text(weight: "bold")[Rmk:] The equation for the image of $P$ shows that $X_(0 1)X_(2 3)-X_(0 2)X_(1 3)+X_(0 3)X_(1 2)=0$, so $-s w+t r=0$. With assumption $s=0$, then $t r=0$; and with assumption $r!=0$, we must have $t=0$).
+
+    Hence, in both casees for $s=0$, one still has $[0,s,t,r,w,0] in P(Q)$.
+
+  So, regardless of the case we always have $GG sect phi(PP^3) subset.eq P(Q)$, which shows that $P(Q) = GG sect phi(PP^3)$. Hence, $Q$ can be characterized as $GG$ intersecting $PP^3$, which is a quadric surface.
+
+  \ 
+
+  Finally, Since based on the basis we chose, we have every $ell in Q$ being characterized as $ell = mat(x_0,x_1,0,0;0,0,y_2,y_3)$ for some $[x_0,x_1], [y_2,y_3] in PP^1$ (since one needs $x = x_0 e_0+x_1 e_1, y = y_2 e_2+y_3 e_3$ to both be nonzero, in case for $tilde(ell) = span{x,y}$ being $2$-dimensional). Then, if consider the Segre Embedding $S:PP^1 times PP^1 arrow.r PP^3$ by $S([x_0,x_1],[x_2,x_3]) = [x_0y_2,x_0y_3,x_1y_2,x_1y_3]$, then its image under the embedding $phi:PP^3 arrow.r PP^5$ is given by:
+  $ phi compose S([x_0,x_1],[x_2,x_3]) = phi([x_0y_2,x_0y_3,x_1y_2,x_1y_3]) = [0,x_0y_2,x_0y_3,x_1y_2,x_1y_3,0] $
+  Which, it is precisely described by $P(ell)$, given that $ell = mat(x_0,x_1,0,0;0,0,y_2,y_3)$. This shows that $Q tilde.equiv PP^1 times PP^1$ (since $P(Q) = phi compose S(PP^1 times PP^1)$).
 ]
