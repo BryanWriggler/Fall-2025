@@ -116,7 +116,7 @@ So, for each part of the question, we'll most likely perform a change of basis f
 
   #text(weight: "bold")[Converse:]
 
-  To prove the converse, suppose a line $ell' tilde.equiv PP^1 subset P(GG) subset PP^5$ is parametrized by distinct $p,q in P(GG)$, and $ell' = {t p+r q in P(GG)|[t,r] in PP^1}$. Which, let $tilde(ell)_p, tilde(ell)_q subset k^4$ be distinct $2$-dimensional subspaces corresponding to points $p,q in ell'$ (so $p = P(ell_p)$ and $q = P(ell_q)$ under Pl$accent(u,dot.double)$cker Embedding), we claim that $tilde(ell)_p sect tilde(ell)_q != 0$:
+  To prove the converse, suppose a line $ell' tilde.equiv PP^1 subset P(GG) subset PP^5$ is parametrized by distinct $p,q in P(GG)$, and $ell' = {t p+r q | [t,r] in PP^1}$. Which, let $tilde(ell)_p, tilde(ell)_q subset k^4$ be distinct $2$-dimensional subspaces corresponding to points $p,q in ell'$ (so $p = P(ell_p)$ and $q = P(ell_q)$ under Pl$accent(u,dot.double)$cker Embedding), we claim that $tilde(ell)_p sect tilde(ell)_q != 0$:
 
   \ 
 
@@ -172,6 +172,8 @@ So, for each part of the question, we'll most likely perform a change of basis f
 
   \ 
 
+  \ 
+
   #text(weight: "bold")[2. Case of $Sigma_H$ for plane $H subset PP^3$:]
 
   Given $H subset PP^3$ as a plane, $tilde(H) subset k^4$ is a $3$-dimensional subspace. Fix basis $h_1,h_2,h_3 in tilde(H)$, and extend it to a basis $p,h_1,h_2,h_3 in k^4$, we'll use this basis for Pl$accent(u,dot.double)$cker Embedding. 
@@ -193,9 +195,22 @@ So, for each part of the question, we'll most likely perform a change of basis f
 
   \ 
 
+  \ 
+
   #text(weight: "bold")[3. Converse:]
 
+  Given a plane $Lambda tilde.equiv PP^2 subset GG subset PP^5$, to prove that $Lambda$ is either $Sigma_p$ or $Sigma_H$ for some $p in PP^3$, or plane $H subset PP^3$, suppose an easier case where $Lambda != Sigma_H$ for any plane $H subset PP^3$. 
 
+  Because $Lambda tilde.equiv PP^2$, there exists three distinct points $p,q,w in Lambda$, such that $Lambda = {s p+t q+r w | [s,t,r] in PP^2}$. Now, let $tilde(ell)_p,tilde(ell)_q,tilde(ell)_w subset k^4$ be the corresponding $2$-dimensional subspaces of $p,q,w$ as points in $GG$, we claim that $tilde(ell)_p sect tilde(ell)_q sect tilde(ell)_w!=0$:
+
+  \ 
+
+  Suppose the contrary that $tilde(ell)_p sect tilde(ell)_q sect tilde(ell)_w=0$, there are two cases to consider:
+  - If there exists two subspaces with trivial intersection (WLOG, say $tilde(ell)_p sect tilde(ell)_q = 0$), then notice that $tilde(ell)_p plus.circle tilde(ell)_q = k^4$ (which is the same as the prove of the #text(weight: "bold")[Converse] part of #text(weight: "bold")[Problem 1]), then notice in that prove, we've shown that it reaches a contradiction eventually if given that the line ${t p+r q | [t,r] in PP^1}$ is contained in $GG$; and since this line is also parametrized by ${s p+t q+0 w | [s,t,0] in PP^2} subset Lambda$, which is assumed to be contained in $GG$, then here it reaches a contradiction also.
+
+  - Else, if every two subspaces have nontrivial intersection, then since $tilde(ell)_p sect tilde(ell)_q sect tilde(ell)_w=0$, then one gets nonzero vectors $x in tilde(ell)_p sect tilde(ell)_q$ (while $x in.not tilde(ell)_w$), $y in tilde(ell)_p sect tilde(ell)_w$ (while $y in.not tilde(ell)_q$), and $z in tilde(ell)_q sect tilde(ell)_w$ (while $z in.not tilde(ell)_p$). So, this enforces the list $x,y,z$ to be linearly independent, and   $tilde(ell)_p = span{x,y}$, $tilde(ell)_q = span{x,z}$, and $tilde(ell)_w = span{y,z}$. But now, notice that let $tilde(H) = span{x,y,z}$ be a $3$-dimensional subspace of $k^4$ (so $H subset PP^3$ is a corresponding plane), we have $tilde(ell)_p, tilde(ell)_q, tilde(ell)_w in Sigma_H$. If extend the basis to $a,x,y,z in k^4$, then under this basis, we get the following matrix representatives:
+    $ ell_p = mat(0,1,0,0;0,0,1,0), quad ell_q = mat(0,1,0,0;0,0,0,1), quad ell_w = mat(0,0,1,0;0,0,0,1) $ 
+    Where, under this Pl$accent(u,dot.double)$cker Embedding, $p = P(ell_p) = [0,0,0,1,0,0]$, $q = P(ell_q) = [0,0,0,0,1,0]$, and $w = P(ell_w)=[0,0,0,0,0,1]$. Which, given plane embedding $phi:PP^2 arrow.r PP^5$ by $phi([s,t,r])=[0,0,0,s,t,r]$, this implies that $P(Sigma_H) subset.eq phi(PP^2)$. But, the converse is also true due to the proof of part #text(weight: "bold")[2] of this problem. Hence, we deduce that $phi(PP^2) = {[0,0,0,s,t,r] | [s,t,r] in PP^2} = {s p+t q+r w | [s,t,r] in PP^2} = Lambda$, is characterized by $P(Sigma_H)$. However, this again contradicts our initial assumption that $Lambda != Sigma_H$ for any plane $H subset PP^3$.
 
 
 ]
