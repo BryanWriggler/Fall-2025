@@ -49,7 +49,7 @@
 \end{proof}
 
 \newpage
-\section*{3 ND}
+\section*{3}
 \begin{ques}\label{q3}
     5.Rev.14:
     
@@ -57,6 +57,37 @@
 \end{ques}
 
 \begin{proof}
+    First, it's only possible to have $X\in\{0,1,2,3,4,5,6\}$ (since it represents the number of customers ``within'' the next $6$ customers, that make a purchase and using a credit card). 
+    
+    Let $Y$ denotes the random variable of the number of the next six customers who enter the store and make a purchase (similarly, $Y\in\{0,1,2,3,4,5,6\}$). Since there is a probability of $p=0.3$ that the entered customer will make a purchase, and each of the customer's probability of making a purchase should be independent of each other, hence $Y\sim \Bin(6, p=0.3)$. Which, for any $i\in\{0,1,2,3,4,5,6\}$, $\PP(Y=i) = \begin{pmatrix}6\\i\end{pmatrix}p^i \cdot (1-p)^{6-i} = \frac{1}{10^6}\begin{pmatrix}6\\i\end{pmatrix}3^i \cdot 7^{6-i}$. Also, given $i\neq j$, then the event ${Y=i}$ and ${Y=j}$ are disjoint.
+
+    \hfil
+
+    Now, if we fix the number of customers who purchased, say $Y=j$, then notice that for each customer in these $j$ customers who purchased, each independently has probabilty $q=0.85$ of using credit card to pay. Hence, the random variable $X_j$ (denoting random variable $X$ given that $Y=j$) has $X_j \sim \Bin(j, q=0.85)$, hence for any $i\leq j$, we have $\PP(X_j = i) = \PP(X=i|Y=j) = \begin{pmatrix}j\\i\end{pmatrix}q^i (1-q)^{j-i} = \frac{1}{100^j}\begin{pmatrix}j\\i\end{pmatrix}\cdot 85^i \cdot 15^{j-i}$. Also, for $i>j$, we have $\PP(X_j=i) = \PP(X=i|Y=j)=0$, since the number of people who purhcased and used credit card ($X=i$) must be at most the same as the number of people who made a purchase $Y=j$, so $i>j$ is impossible.
+
+    \hfil
+
+    With these information, given any number $i\in\{0,1,2,3,4,5,6\}$, we have $\PP(X=i)$ given as follow:
+    \begin{align}
+        \PP(X=i)=\sum_{j=0}^{6}\PP(X=i|Y=j)\cdot \PP(Y=j) = \sum_{j=0}^{6}\PP(X_j=i)\cdot\PP(Y=j) = \sum_{j=i}^{6}\PP(X_j=i)\cdot\PP(Y=j)
+    \end{align} 
+    (Note: the last part of the equality is due to the fact that $i>j$ implies $\PP(X_j=i)=0$). Which, the term further refines to:
+    \begin{align}
+        \PP(X=i) = \sum_{j=i}^{6}\PP(X_j=i)\cdot\PP(Y=j) = \sum_{j=i}^{6}\left(\frac{1}{100^j}\begin{pmatrix}j\\i\end{pmatrix}\cdot 85^i\cdot 15^{j-i}\right)\cdot \left(\frac{1}{10^6}\begin{pmatrix}6\\j\end{pmatrix}3^j\cdot 7^{6-j}\right)
+    \end{align}
+    calculate these terms numerically, we get the following as the Probability Mass Function:
+    \begin{align}
+        &\PP(X=0)\approx 0.1710,\quad \PP(X=1)\approx 0.3511,\quad \PP(X=2)\approx 0.3005,\quad \PP(X=3)\approx 0.1371\\
+        &\PP(X=4)\approx 0.0352,\quad \PP(X=5)\approx 0.0048,\quad \PP(X=6)\approx 0.0003
+    \end{align}
+
+    With the probability mass function, we can calculate the expected value $\EE[X]$ and variance $\Var(X)$ (which we'll use $\Var(X)=\EE[X^2]-\EE[X]^2$, and calculate $\EE[X^2]$ the second moment beforehand).
+
+    The First Moment/expected value $\EE[X]$, and Second Moment $\EE[X^2]$ are given as follow numerically:
+    \begin{align}
+        \EE[X]=\sum_{i=0}^{6}i\cdot\PP(X=i) = 1.53,\quad \EE[X^2]=\sum_{i=0}^{6}i^2\cdot \PP(X=i)=3.48075
+    \end{align}
+    Hence, we have expected value $\EE[X]=1.53$, while variance $\Var(X)=\EE[X^2]-\EE[X]^2=1.13985$.
 \end{proof}
 
 \newpage
@@ -93,10 +124,16 @@
 \end{ques}
 
 \begin{proof}
+
+    \hfil
+
+    \begin{itemize}
+        \item[a)]
+    \end{itemize}
 \end{proof}
 
 \newpage
-\section*{6 ND}
+\section*{6}
 \begin{ques}\label{q6}
     A student answers a multiple-choice test completely randomly. What is the probability he will pass (get 50\% or more correct) if:
     \begin{itemize}
@@ -112,19 +149,34 @@
     \begin{itemize}
         \item[a)] For total of $10$ questions, with each question having $4$ choices. Then, since getting a question itself right has probability $p=\frac{1}{4}=0.25$, and there are total of $10$ questions, let $X$ being the random variable of the number of question this student got right out of $10$ questions, then $X \sim \Bin(10, p=0.25)$ (total of $10$ questions, each has an independent probability of $0.25$ of getting right).
         
-        In case to pass, it needs the variable $X\geq 5$ (since we need at least $10 \cdot 0.5 = 5$ questions, or at least $50\%$ of the questions right to pass). So, we want to find $\PP(X\geq 5)$ (which has complement being $\PP(X<5) = \PP(X\leq 4)$). Based on binomial distribution, this is given by:
+        In case to pass, it needs the variable $X\geq 5$ (since we need at least $10 \cdot 0.5 = 5$ questions, or at least $50\%$ of the questions right to pass). So, we want to find $\PP(X\geq 5)$, it is given by:
         \begin{align}
-            \PP(X\leq 4)=\sum_{k=0}^{4}\begin{pmatrix}10\\k\end{pmatrix} \cdot p^k (1-p)^{10-k} = \sum_{k=0}^{4}\begin{pmatrix}10\\k\end{pmatrix} \cdot \frac{1}{4^k}\cdot \left(\frac{3}{4}\right)^{10-k} = \frac{1}{4^{10}}\sum_{k=0}^{4}\begin{pmatrix}10\\k\end{pmatrix} \cdot 3^{10-k}
+            \PP(X\leq 5) &= \sum_{k=5}^{10}\PP(X=k)=\sum_{k=5}^{10}\begin{pmatrix}10\\k\end{pmatrix} \cdot p^k (1-p)^{10-k}\\ 
+            &= \sum_{k=5}^{10}\begin{pmatrix}10\\k\end{pmatrix} \cdot \frac{1}{4^k}\cdot \left(\frac{3}{4}\right)^{10-k} = \frac{1}{4^{10}}\sum_{k=5}^{10}\begin{pmatrix}10\\k\end{pmatrix} \cdot 3^{10-k}
         \end{align}
-        Which, $\PP(X\leq 4)\approx 0.9219$, showing that the probability of getting at least $5$ right (or at least $50\%$ correct), is $\PP(X\geq 5) = 1-\PP(X\leq 4)=0.0781$.
+        Which, $\PP(X\geq 5) \approx 0.0781$, hence the probability of passing by random guessing is about $0.0781$.
 
         \hfil
 
-        \item[b)]
+        \item[b)] Here, if the total number of questions is labeled as $n\in\NN$, then let $X_n$ denotes the random variable of the number of questions this student got right out of $n$ questions, we have $X_n\sim \Bin(n, p=0.25)$ (since there are still 4 choices per question, so the probability $p$ of answering each question right stays the same). 
+        
+        Which, in case to pass the test, it requires more than $50\%$ of the questions to be right, therefore the student must have $X_n\geq \ceil*{\frac{n}{2}}$ (where $\ceil*{\frac{n}{2}}$ denotes the smallest number that's greater than or equal to $\frac{n}{2}$). So, the probability of passing the test is given by $\PP(X_n\geq \ceil*{\frac{n}{2}})$, which has its complement given by $\PP(X_n<\ceil*{\frac{n}{2}}) = \PP(X_n\leq \ceil*{\frac{n}{2}}-1)$. Again, using the probability of binomial distribution, , it is given by:
+        \begin{align}
+            \PP(X_n\geq \ceil*{\frac{n}{2}}) &= \sum_{k=\ceil*{\frac{n}{2}}}^{n}\PP(X_n=k) = \sum_{k=\ceil*{\frac{n}{2}}}^{n}\begin{pmatrix}n\\k\end{pmatrix} p^k (1-p)^{n-k}\\ 
+            &= \sum_{k=\ceil*{\frac{n}{2}}}^{n}\begin{pmatrix}n\\k\end{pmatrix} \frac{1}{4^k} \left(\frac{3}{4}\right)^{n-k} = \frac{1}{4^n}\sum_{k=\ceil*{\frac{n}{2}}}^{n} \begin{pmatrix}n\\k\end{pmatrix} 3^{n-k}
+        \end{align}
+        Which, as a numerical result, for $n=18$, $\PP(X_{18}\geq 9) \approx 0.0193> 0.01$, while for $n=19$, $\PP(X_{19}\geq 10) \approx 0.0089 < 0.01$. So, $n=19$ is the smallest number of questions, so that with $4$ choices for each question, the probability of passing by random guessing is less than $0.01$ (or $1\%$).
+        
+        \hfil
+
+        \item[c)] Here, can suppose all 10 students' score are independent of each other (since their guess theoretically shouldn't be affecting each other). Hence, the probability of all 10 students not passing, is the same as product of probability that each student doesn't pass. 
+        
+        Using information in part a), we know that given 10 questions and each with 4 choices, the probability that a student passes by randomly guessing is $p\approx 0.0781$, so the probability of not passing when just randomly guessing is $q = 1-p\approx 0.9219$. Hence, the probability that all 10 students don't pass is given by $q^{10} \approx 0.4434$.
     \end{itemize}
 \end{proof}
 
-\newpage
+\hfil
+
 \section*{7}
 \begin{ques}\label{q7}
     6.3.9:
