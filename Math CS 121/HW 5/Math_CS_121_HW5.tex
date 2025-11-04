@@ -91,7 +91,7 @@
 \end{proof}
 
 \newpage
-\section*{4 }
+\section*{4}
 \begin{ques}\label{q4}
     5.Rev.24:
 
@@ -110,8 +110,9 @@
     Which, numerically we get that for $n=8$, $\PP(X_8\leq 4)\approx 0.1138 > 0.1$, while for $n=9$, $\PP(X_9\leq 4) \approx 0.0489 < 0.1$. Hence, $n=9$ is the smallest number of seeds to be planted to have $\PP(X_n\leq 4)<0.1$, which is also the smallest number of seeds to be planted so that $\PP(X_n\geq 5) = 1-\PP(X_n\leq 4)>0.9$.
 \end{proof}
 
-\newpage
-\section*{5 ND}
+\hfil
+
+\section*{5}
 \begin{ques}\label{q5}
     An urn contains $N$ green balls and $M$ red ones. Balls are taken out 1-by-1 and the procedure is stopped when a red ball first appears. Let $X$ be the number of green balls taken out. Determine analytically the expected value of $X$ if:
     \begin{itemize}
@@ -128,7 +129,45 @@
     \hfil
 
     \begin{itemize}
-        \item[a)]
+        \item[a)] When the balls are returned each time, since there are total of $N+M$ balls, with $N$ being green balls, then the probability of getting green balls in each take is $p=\frac{N}{N+M}$, while getting red balls in each take is $q=\frac{M}{N+M}=1-p$.
+        
+        Given any $i\in\NN$, for the event $X=i$ to happen, we need to get $i$ green balls consecutively, while on the $(i+1)^\text{th}$ draw, we need to get red ball to end the process. Hence, $\PP(X=i) = p^i \cdot q^1 = \left(\frac{N}{N+M}\right)^i \cdot \frac{M}{N+M}$. So, the expected value of $X$, $\EE[X]$ is given as follow:
+        \begin{align}
+            \EE[X] &= \sum_{i=0}^{\infty}i\cdot \PP(X=i) = \sum_{i=0}^{\infty}\left(\frac{N}{N+M}\right)^i\cdot\frac{M}{N+M} = \frac{M}{N+M}\cdot\frac{1}{1-\frac{N}{N+M}} = \frac{M}{N+M}\cdot \frac{N+M}{M}=1
+        \end{align}
+        So, the expected number of green balls being drawn is $\EE[X]=1$.
+
+        \hfil
+
+        \item[b)] If the removed balls are not putting back to the urn, then people can draw at most $N$ green balls out of the urn, or $X\in\{0,1,...,N\}$. For any $i\in\{0,1,..,n\}$, in case for the event $X=i$ to happen, the person needs to consecutively draw $i$ green balls out of the urn, and on the $(i+1)^\text{th}$ move one needs to draw a red ball. 
+        
+        \vspace{0.7em}
+
+        Here, we'll consider the probability of drawing $0\leq i\leq N$ consecutive green balls (without considering how to end with red balls) using induction.
+        
+        For $i=1$, the probability of drawing out $i=1$ green ball is given by $\frac{N}{N+M}$. For $i=2$, the probability of drawing out 2 green balls consecutively is given by $\frac{N}{N+M}\cdot \frac{N-1}{N+M-1}$ (since the second green ball is picked from $N-1$ remaining green balls, while there are $N+M-1$ balls in total remaining). 
+        
+        Inductively, suppose for given integer $0\leq k<i$, the probability of drawing out $k$ green balls consecutively is given by $\frac{N!}{(N-k)!}\cdot \frac{(N+M-k)!}{(N+M)!}$, then for the case of $k=i$, since the probability of drawing the first $(i-1)$ green balls is given by $\frac{N!}{(N-(i-1))!}\cdot \frac{(N+M-(i-1))!}{(N+M)!}$, while there are $N-(i-1)$ green balls, and $N+M-(i-1)$ total balls remaining, hence drawing the $i^\text{th}$ green ball now has a probability of $\frac{N-(i-1)}{N+M-(i-1)}$. Hence, the probability of drawing $k=i$ consecutive green balls, is given by $\left(\frac{N!}{(N-(i-1))!}\cdot \frac{(N+M-(i-1))!}{(N+M)!}\right)\cdot \frac{N-(i-1)}{N+M-(i-1)} = \frac{N!}{(N-i)!}\cdot \frac{(N+M-i)!}{(N+M)!}$.
+
+        \vspace{0.7em}
+
+        Finally, if given integer $0\leq i\leq N$, we know the event $X=i$ happens if $i$ consecutive green balls are drawn (which has probability $\frac{N!}{(N-i)!}\cdot \frac{(N+M-i)!}{(N+M)!}$), while the $(i+1)^\text{th}$ balll drawn is red. Since after the first $i$ picks, there are $M$ red balls leftover, while only $N+M-i$ total balls remaining, the probability of drawing a red ball on the $(i+1)^\text{th}$ term is $\frac{M}{N+M-i}$. Hence, probability of $X=i$ is given by:
+        \begin{align}
+            \PP(X=i)=\frac{N!}{(N-i)!}\cdot\frac{(N+M-i)!}{(N+M)!}\cdot \frac{M}{N+M-i}
+        \end{align}
+        As a result, the corresponding expected value for $X$ is given as follow:
+        \begin{align}
+            \EE[X] = \sum_{i=0}^{N}i\cdot \PP(X=i) = \sum_{i=0}^{N}i\cdot \frac{N!}{(N-i)!}\cdot\frac{(N+M-i)!}{(N+M)!}\cdot \frac{M}{N+M-i}
+        \end{align}
+    \end{itemize}
+
+    After all the above calculation, here are the numerical result for $N=7$, $M=5$:
+    \begin{itemize}
+        \item[a)] If it's a sample with replacement, then $\EE[X] = 1$ without ambiguity.
+        \item[b)] If it's a sample without replacement, then $\EE[X]$ using the formula above, is given as follow:
+        \begin{align}
+            \EE[X]_{N=7, M=5} = \sum_{i=0}^{7}i\cdot \frac{7!}{(7-i)!}\cdot\frac{(12-i)!}{12!}\cdot\frac{5}{12-i} \approx 1.1667
+        \end{align}
     \end{itemize}
 \end{proof}
 
