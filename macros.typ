@@ -13,6 +13,8 @@
 
 //common syntaxes needed
 #let eval(sizes) = $lr(|, size: #sizes)$ //when performing evaluation
+#let pm = $plus.minus$ //short hand notation for plus minus sign
+#let mp = $minus.plus$ //short hand notation for minus plus sign
 
 //algebra
 #let Gal = math.upright[Gal] //galois
