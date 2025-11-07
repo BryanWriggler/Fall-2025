@@ -31,6 +31,7 @@
 #let coker = math.upright[coker] //cokernel
 #let span = math.upright[span] //span of vectors
 #let Orb = math.upright[Orb] //orbit in group theory
+#let Conj = math.upright[Conj] //denote the conjugation classes
 
 //category theory
 #let cat(name) = math.sans[#name] //general category font command
@@ -43,7 +44,7 @@
 #let Vect(k) = $#k -sans("Vect")$ //cat of k-vector space (not sure if this works though)
 #let Top = math.sans[Top] //cat of topological spaces
 #let hTop = math.sans[hTop] //cat of topological spaces, with homotopic classes of continuous maps
-#let Sets = math.sans[Set] //cat of sets
+#let Set = math.sans[Set] //cat of sets
 #let Ch(name) = math.sans[Ch(#name)] //cat of chain / cochaincomplex over an abelian category, sometimes also expressed as Kom
 #let D(name) = math.sans[D(#name)] //derived category 
 #let Met = math.sans[Met] //cat of metric spaces
