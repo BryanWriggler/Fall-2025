@@ -38,14 +38,49 @@
 \end{proof}
 
 \newpage
-\section*{2 ND}
+\section*{2}
 \begin{ques}\label{q2}
     5.3.24:
 
-    Twelve hundred eggs, of which 200 are rotten, are distributed randomly in 100 cartons, each containing a dowzen eggs. These cartons are then sold to a restaurant. How many cartons should we expect the chef of the restaurant to open before finding one without rotten eggs?
+    Twelve hundred eggs, of which 200 are rotten, are distributed randomly in 100 cartons, each containing a dozen eggs. These cartons are then sold to a restaurant. How many cartons should we expect the chef of the restaurant to open before finding one without rotten eggs?
 \end{ques}
 
 \begin{proof}
+
+    Let $X$ denotes the random variable about the number of cartons to open before finding one without rotten eggs, which $X \in\{0,1,...,100\}$ (since there are total of $100$ cartons). 
+
+    Notice that for most of them, the probability for a chosen carton to contain no rotten egg is given as $q=\frac{\begin{pmatrix}1000\\12\end{pmatrix}}{\begin{pmatrix}1200\\12\end{pmatrix}}\approx 0.1109$. Which, since the number of eggs are large enough, can treat the probability of each carton having no rotten eggs aproximately being $q$. In other words, the probability for one carton to contain some rotten eggs, is given by $p = 1-q \approx 0.8891$.
+
+    Hence, for each $i\in\{0,1,...,100\}$, the probability of opening up exactly $i$ cartons with rotten eggs, then the $(i+1)^\text{th}$ being non-rotten, is given as follow $\PP(X=i) = p^i \cdot (1-p)$. Hence, the expected value for the number of cartons to open before finding one without rotten eggs, is approximately given as follow:
+    \begin{align}
+        \EE[X] \approx \sum_{i=0}^{100}i \cdot \PP(X=i) = sum_{i=0}^{100}i\cdot p^i \cdot (1-p) \approx 8.0147
+    \end{align}
+
+    \begin{comment}
+    The goal is to calculate the probability that $\PP(X=i)$ (or number of cartons to open being $i$, before finding one without rotten eggs). Since for each event $I=j$ for distinct $j$ are disjoint, hence by law of total probability, we get:
+    \begin{align}
+        \PP(X= i) &= \sum_{j=0}^{100}\PP(X= i | I=j)\PP(I=j)
+    \end{align}
+    Given that there are $I=j$ cartons without rotten eggs, then the probability for the pick to be exactly $i$ before having one that's not rottened, is given by: 
+    \begin{align}
+        \PP(X=i|I=j) = \begin{cases}
+            0 & i > 100-j\\
+            \frac{\begin{pmatrix}100-j\\i\end{pmatrix}\begin{pmatrix}j\\1\end{pmatrix}}{\begin{pmatrix}100\\i+1\end{pmatrix}} & i\leq 100-j
+        \end{cases}
+    \end{align}
+    For $i>100-j$, since $100-j$ denotes the number of cartons with rotten eggs, it's impossible to pick out $i>100-j$ cartons with rotten eggs. For $i\leq 100-j$, it's choosing $i$ cartons out of the $100-j$ ones with rotten eggs, choose $1$ out of the $j$ cartons without rotten eggs, out of the general ways of taking $i+1$ cartons out of $100$ ones.
+
+    \hfil
+
+    Finally, for $\PP(I=j)$, we first need to pick out $12 j$ out of $1000$ not rottened eggs to put into these $j$ cartons (without rotten eggs), out of the ones in general where just randomly picking $12 j$ out of $1200$ eggs. Hence, it's with the following probability:
+    \begin{align}
+        \PP(I=j) = \frac{\begin{pmatrix}1000\\12j\end{pmatrix}}{\begin{pmatrix}1200\\12j\end{pmatrix}}
+    \end{align}
+    For this, we need $12j\leq 1000$, showing that $j\leq 83$. Hence, the expected value is given as follow:
+    \begin{align}
+        \EE[X] = \sum_{i=0}^{100}i \cdot \PP(X=i) = 
+    \end{align}
+    \end{comment}
 \end{proof}
 
 \newpage
