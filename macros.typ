@@ -48,6 +48,7 @@
 #let Ch(name) = math.sans[Ch(#name)] //cat of chain / cochaincomplex over an abelian category, sometimes also expressed as Kom
 #let D(name) = math.sans[D(#name)] //derived category 
 #let Met = math.sans[Met] //cat of metric spaces
+#let Ob = math.upright[Ob] //the object of a category
 
 //lie group/lie algebra
 #let GL = $"GL"$ //general linear
