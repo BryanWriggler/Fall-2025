@@ -296,7 +296,26 @@
   Show that, if $F:cat(C) arrow.r cat(D)$ is a natural equivalence between two categories $cat(C)$ and $cat(D)$, then it is both fully faithul and essentially surjective.
 ][]
 
-= ND//5
+#pagebreak()
+
+= ND (Split to Problem 5-12)//5
+#problem[
+  #definition(1)[
+    Let $R$ be a commutative ring. If $S$ is any set, we denote by $L_R(S)$ the set of all finite linear combinations of elements in $S$ over $R$ -- that is, the set of formal sums $sum_(i)a_i dot s_i$ where $a_i in R$ and $s_i in S$, and $i$ runs through a finite set.
+  ]
+  Define a suitable abelian group structure on $L_R(S)$ and scaling of $R$ on $L_R(S)$. Show that $L_R(S)$ is a module over $R$.
+][
+  For this purpose, the element $0 in L_R(S)$ needs to first be defined: regardless of the set ${s_1,...,s_n} subset S$, the sume $sum_(i=1)^n 0 dot s_i$ will be defined to be the same, namely the $0 in L_R(S)$. Which, given any list ${s_1,...,s_n} subset S$, if $s_(n+1) in.not {s_1,...,s_n}$, define the expression $sum_(i=1)^(n)a_i dot s_i + 0 dot s_(n+1) = sum_(i=1)^n a_i dot s_i$.
+
+  With the notion of $0$, given any two finite formal sums $sum_(i)a_i dot s_i, sum_(j) b_j dot s_j$, by adding suitable terms with coefficient $0$ to both expressions, WLOG one can say the two expressions are $sum_(i=1)^n a_i dot s_i$ and $sum_(i=1)^n b_i dot s_i$. Which, define the addition as follow:
+  $ sum_(i=1)^n a_i dot s_i + sum_(i=1)^n b_i dot s_i := sum_(i=1)^n (a_i+b_i) dot s_i $
+  where each $a_i+b_i in R$ uses the addition structure of $R$.
+
+  Finally, for scalar multiplication, given any $r in R$ and $sum_(i) a_i dot s_i in L_R(S)$, define scaling of $r$ as follow:
+  $ r dot (sum_(i)a_i dot s_i):= sum_i (r a_i) dot s_i $
+  
+]
+
 
 = ND//6
 #problem[
