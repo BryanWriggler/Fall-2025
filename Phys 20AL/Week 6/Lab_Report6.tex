@@ -10,14 +10,16 @@
 
 \tableofcontents
 
-\newpage
+\hfil
 
 \section{Introduction}
 When given a damped harmonic oscillator with natural frequency $w_0$ and damping constant $\gamma$, if it's driven by a force of the form $F_0 \cos(w t)$ (where $w$ is the driven frequency), then after a long time (with the system reaches steady state), the position is given with the following function:
 \begin{align}
     x\approx \frac{F_0/m}{\sqrt{(w_0^2-w^2)^2+4\gamma^2w^2}}\cos(wt-\delta),\quad A=\frac{F_0/m}{\sqrt{(w_0^2-w^2)^2+4\gamma^2w^2}}, \quad \delta =\arctan\left(\frac{2\gamma w}{w_0^2-w^2}\right)
 \end{align}
-Where $A$ denotes the maximum amplitude, and $\delta$ denotes the phase difference. The goal of this experiment is to observe if the experimental data fit with such theoretical prediction, and furthermore extract the damping constant $\gamma$ based on the collected data of amplitude, frequency, and phase difference.
+Where $A$ denotes the maximum amplitude, and $\delta$ denotes the phase difference. The goal of this experiment is to observe if the experimental data fit with such theoretical prediction, and furthermore extract the damping constant $\gamma$ based on the collected data of amplitude, frequency, and phase difference. %hello
+
+\newpage
 
 \section{Experimental Setup}
 The equipments included: A large stand (with multiple clamps provided), a heavy mass of $0.5$ kg (used as driven source of the harmonic oscillator), metal wire, multiple strings (total of 12), multiple light masses (total of 11, used as pendulums), scissors, tapes, two meter sticks, and phones.
@@ -37,12 +39,17 @@ The setup followed the steps below:
     \caption{The Lab Setup Picture}
 \end{figure}
 
-\newpage
+\hfil
 
 \section{Quantity to Measure and Method of Measurement}
 In this experiment, one recorded a total of three trials. It is aimed to measure two quantities: The amplitudes of all the pendulum, and the phase difference.
 
 For both amplitudes and phase difference, whole experimental process were recorded at stable state using camera. Then, the meter stick will serve as a metric to measure the amplitude of each pendulum; also, the time stamp of the video recording served as a source for measuring the time difference between the moment when each pendulum reaches maximum amplitude (vs. the moment when the driven pendulum reaches its maximum).
+
+Finally, as a preliminary, the used pendulum lengths (cm) are measured using meter sticks, and are given as the following (total of 11 lengths, from the least to the most):
+
+26.3 cm, 30.4 cm, 34.7 cm, 40.1 cm, 42.8 cm, 44.7 cm, 47.4 cm, 49.2 cm, 55.7 cm, 59.8 cm, 64.3 cm.
+
 
 \hfil
 
@@ -95,9 +102,9 @@ Here are the experimental data separated by trials. Here, the driven frequency i
 
 As a result, the calculated damping constant (using the provided program) is $\gamma_1 = 0.0351$ kg/s.
 
-This result (including the data and graphs) are mostly as expected, since the original driven frequency is given as $4.669$ rad/s, so the expected maximum of amplitude should be around this driven frequency. For the amplitude graph one can see the peak is around when $w_0$ is $4.6-4.7$ rad/s, which is as expected. Also, it demonstrated a rapid increase when $w_0$ is smaller than driven frequency, while rapidly decreasing for $w_0$ being greater than driven frequency, which is also as predicted by the formula.
-
 \hfil
+
+This result (including the data and graphs) are mostly as expected, since the original driven frequency is given as $4.669$ rad/s, so the expected maximum of amplitude should be around this driven frequency. For the amplitude graph one can see the peak is around when $w_0$ is $4.6-4.7$ rad/s, which is as expected. Also, it demonstrated a rapid increase when $w_0$ is smaller than driven frequency, while rapidly decreasing for $w_0$ being greater than driven frequency, which is also as predicted by the formula.
 
 Similarly, when looking at the phase graph, one can see that there is also a similar curve (nearly flat at the start, a rapid drop around driven frequency $4.669$ rad/s, then goes back to a flat curve). Notice that the two flat parts are about $3$apart, which is pretty similar to the predicted gap of $\pi\approx 3.14$; also, when $w_0$ is around $4.6-4.7$ rad/s, one can see the $\delta$ value is about $\frac{\pi}{2}$, this is also as predicted that around the driven frequency, the pendulum has a $\frac{\pi}{2}$ phase difference from the driven source.
 
@@ -109,7 +116,7 @@ However, here because of the way of calculating phase difference, the graph inst
 \begin{table}[h!]
 \centering
 \caption{Trial 2 Data}
-\begin{tabular}{c c c c c c}
+\begin{tabular}{c|| c c c c c}
 \hline
 \textbf{Length (cm)} & $\boldsymbol{\omega_0}$ & $\boldsymbol{x_{\max}}$ & $\boldsymbol{\delta}$ & $\boldsymbol{x_{\max,\ err}}$ & $\boldsymbol{\delta_{\mathrm{err}}}$ \\
 \hline
@@ -129,18 +136,22 @@ However, here because of the way of calculating phase difference, the graph inst
 \end{table}
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=100mm]{Amplitude 2.png}
+    \includegraphics[width=90mm]{Amplitude 2.png}
 \end{figure}
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=100mm]{Phase 2.png}
+    \includegraphics[width=90mm]{Phase 2.png}
 \end{figure}
 
 \newpage
 
+As a result, the calculated damping constant is $\gamma_2 = 0.0328$ kg/s.
+
 \hfil
 
-\newpage
+Here, similar to Trial 1, one can see that the graphs of amplitude and phase both have a similar shape to the predicted equation; furthermore, one can also see that when $w_0$ is about $4.6-4.7$ rad/s (when pretty close to the driven frequency), the graph of amplitude is at its maximum, while the graph of phasee difference is at about $1.5$ (which is close to $\frac{\pi}{2}$), showing that the resonance frequency is also close to the driven frequency $w=4.669$ rad/s, and it has a phase difference of approximately $\frac{\pi}{2}$, which is also fitting with the prediction.
+
+\hfil
 
 \subsection{Trial 3}
 \begin{table}[h!]
@@ -167,12 +178,44 @@ However, here because of the way of calculating phase difference, the graph inst
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=100mm]{Amplitude 3.png}
+    \includegraphics[width=90mm]{Amplitude 3.png}
 \end{figure}
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=100mm]{Phase 3.png}
+    \includegraphics[width=90mm]{Phase 3.png}
 \end{figure}
+
+\newpage
+
+As a result, the calculated damping constant is $\gamma_3=0.0138$.
+
+\hfil
+
+Here, similar to the previous Trials, both the amplitude and phase diagrams are similar to the predicted equation; and, when $w_0$ is about $4.6-4.7$ rad/s (when close th driven frequency), not only amplitude is at its maximum, and the phase difference is also about $1.5$ (which is approximately $\frac{\pi}{2}$), this again shows that the data is fitting the prediction in general.
+
+\newpage
+
+\section{Error Analysis}
+Besides human mistakes and the imprecision in measurement (due to human eyes' limitation), there are some potential sources of error:
+\begin{itemize}
+    \item First, the pendulum is not a simple harmonic oscillator. For the possibility of measuring the amplitude, the initial amplitude of the driving source (the pendulum with heavy weight) needs to be high enough in case to be observable. As a consequence, when different pendulums are at different maximum amplitude, the nontrivial effect of period (which is dependent to maximum amplitude) could occur.
+    \item Second, the driven force itself is also damped, so it cannot be perfectly modeled as $F_0 \cos(wt)$ (since the amplitude would also decrease over time). Such effect could also affect the collected data.
+    \item Finally, the frame of the camera is also essential: For the camera used in this experiment, it's only up to 10 ms (for ease of data extraction). If the frame is higher it could provide a more accurate data.
+\end{itemize}
+
+As of improvement, if time permited using a camera with higher frame per second could increase the accuracy of the data; also, if the driving source has an extra kicking mechanism (like the pendulum clock), this could also increase the precision of the experiment (since it could make the pendulum fitting more to a simple harmonic oscillator), but this again depends on the availability (since such mechanism is a somewhat nontrivial one to make in a 3-hour lab).
+
+\hfil
+
+\section{Conclusion}
+
+In the experiment, for all three trials one can observe that the experimental data in general have their pattern fit with the formula prediction, hence there is a decent confidence one can say that the formula is a good approximation of the scenario happened in the experiment.
+
+For the calculated damping constant (which is extracted in each trial, instead of separated for amplitude and phase) is given by $\gamma_1 = 0.0351, \gamma_2 = 0.0328$, and $\gamma_3 = 0.0138$ kg/s, which actually varies a bit. The calculated average damping constant is $\gamma_\text{ave} \approx 0.0272$ kg/s, with a Standard Deviation of $\sigma \approx 0.0117$ kg/s. So, because $\sigma$ is relatively large in comparison to the scale of the data (which is about $0.01$ kg/s as standard scale), this average has a relatively low validity of representing the actual damping constant of the system.
+
+\hfil
+
+Finally, some sources of error include: The pendulum is not a Simple Harmonic Oscillator (so the maximum amplitude in fact affects the period), the Drivign Source is also a damped oscillator itself (so the driving force also has decreasing amplitude), and possibly the lower frame of the camera used in this experiment.
 
 
 \end{document}
