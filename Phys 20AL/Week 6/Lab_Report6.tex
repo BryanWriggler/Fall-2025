@@ -55,63 +55,76 @@ The procedure is as below:
     \item[4.] Repeat Step 1 to 3 for a total of three trials. 
 \end{itemize}
 
-\newpage
+\hfil
 
-\section{Experimental Data}
-Here are the experimental data separated by trials.
+\section{Experimental Data and Data Analysis}
+Here are the experimental data separated by trials. Here, the driven frequency is fixed as $w=4.669$ rad/s. Also, $\omega_0$ denotes natural frequency (unit: rad/s), $x_{\max}$ (unit: cm) denotes maximum amplitude, and $\delta$ denotes average phase difference. Finally, Length here represents each pendulum's length (unit: cm).
 
 \subsection{Trial 1}
 \begin{table}[h!]
 \centering
 \caption{Trial 1 Data}
-\begin{tabular}{rrrrrr}
-\toprule
- omega &  omega\_0 &  x\_max &  delta &  x\_max\_error &  delta\_err \\
-\midrule
- 4.669 & 6.107 & 1.537 & 0.504 & 0.237 & 0.264 \\
- 4.669 & 5.681 & 1.174 & 0.298 & 0.308 & 0.084 \\
- 4.669 & 5.317 & 2.082 & 0.306 & 0.039 & 0.060 \\
- 4.669 & 4.946 & 2.102 & 0.260 & 1.101 & 0.098 \\
- 4.669 & 4.788 & 3.786 & 0.754 & 0.188 & 0.254 \\
- 4.669 & 4.685 & 6.486 & 0.398 & 0.572 & 0.144 \\
- 4.669 & 4.549 & 11.520 & 1.877 & 1.949 & 0.132 \\
- 4.669 & 4.465 & 7.851 & 3.103 & 0.614 & 0.080 \\
- 4.669 & 4.197 & 3.196 & 2.424 & 0.789 & 0.359 \\
- 4.669 & 4.050 & 1.000 & 3.422 & 0.423 & 0.203 \\
-\bottomrule
+\begin{tabular}{c|| c c c c c}
+\hline
+\textbf{Length (cm)} & $\boldsymbol{\omega_0}$ & $\boldsymbol{x_{\max}}$ & $\boldsymbol{\delta}$ & $\boldsymbol{x_{\max,\ err}}$ & $\boldsymbol{\delta_{\mathrm{err}}}$ \\
+\hline
+26.300 & 6.107 & 1.537 & 0.504 & 0.237 & 0.264 \\
+30.400 & 5.681 & 1.174 & 0.298 & 0.308 & 0.084 \\
+34.700 & 5.317 & 2.082 & 0.306 & 0.039 & 0.060 \\
+40.100 & 4.946 & 2.102 & 0.260 & 1.101 & 0.098 \\
+42.800 & 4.788 & 3.786 & 0.754 & 0.188 & 0.254 \\
+44.700 & 4.685 & 6.486 & 0.398 & 0.572 & 0.144 \\
+47.400 & 4.549 & 11.520 & 1.877 & 1.949 & 0.132 \\
+49.200 & 4.465 & 7.851 & 3.103 & 0.614 & 0.080 \\
+55.700 & 4.197 & 3.196 & 2.424 & 0.789 & 0.359 \\
+59.800 & 4.050 & 1.000 & 3.422 & 0.423 & 0.203 \\
+64.300 & 3.906 & 1.500 & 3.301 & 0.294 & 0.681 \\
+\hline
 \end{tabular}
 \end{table}
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=100mm]{Amplitude 1.png}
+    \includegraphics[width=90mm]{Amplitude 1.png}
 \end{figure}
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=100mm]{Phase 1.png}
+    \includegraphics[width=90mm]{Phase 1.png}
 \end{figure}
 
 \newpage
+
+As a result, the calculated damping constant (using the provided program) is $\gamma_1 = 0.0351$ kg/s.
+
+This result (including the data and graphs) are mostly as expected, since the original driven frequency is given as $4.669$ rad/s, so the expected maximum of amplitude should be around this driven frequency. For the amplitude graph one can see the peak is around when $w_0$ is $4.6-4.7$ rad/s, which is as expected. Also, it demonstrated a rapid increase when $w_0$ is smaller than driven frequency, while rapidly decreasing for $w_0$ being greater than driven frequency, which is also as predicted by the formula.
+
+\hfil
+
+Similarly, when looking at the phase graph, one can see that there is also a similar curve (nearly flat at the start, a rapid drop around driven frequency $4.669$ rad/s, then goes back to a flat curve). Notice that the two flat parts are about $3$apart, which is pretty similar to the predicted gap of $\pi\approx 3.14$; also, when $w_0$ is around $4.6-4.7$ rad/s, one can see the $\delta$ value is about $\frac{\pi}{2}$, this is also as predicted that around the driven frequency, the pendulum has a $\frac{\pi}{2}$ phase difference from the driven source.
+
+However, here because of the way of calculating phase difference, the graph instead of starting at $0$ near $w_0=0$ (as the predicted graph), it starts at $\approx 3$ near $w_0=0$. But since the pattern is mostly following the expectation, so one still has a high confidence of saying that after a shift, the data mostly fits with the predicted graph. 
+
+\hfil
 
 \subsection{Trial 2}
 \begin{table}[h!]
 \centering
 \caption{Trial 2 Data}
-\begin{tabular}{rrrrrr}
-\toprule
- omega &  omega\_0 &  x\_max &  delta &  x\_max\_error &  delta\_err \\
-\midrule
- 4.669 & 6.107 & 1.061 & 0.748 & 0.237 & 0.264 \\
-       & 5.681 & 1.122 & 0.284 & 0.308 & 0.084 \\
-       & 5.317 & 2.082 & 0.173 & 0.039 & 0.060 \\
-       & 4.946 & 1.012 & 0.334 & 1.101 & 0.098 \\
-       & 4.788 & 3.458 & 0.551 & 0.188 & 0.254 \\
-       & 4.685 & 7.326 & 0.141 & 0.572 & 0.144 \\
-       & 4.549 & 12.920 & 1.808 & 1.949 & 0.132 \\
-       & 4.465 & 9.088 & 2.947 & 0.614 & 0.080 \\
-       & 4.197 & 1.798 & 3.011 & 0.789 & 0.359 \\
-       & 4.050 & 0.500 & 3.412 & 0.423 & 0.203 \\
-       & 3.906 & 1.700 & 3.926 & 0.294 & 0.681 \\
-\bottomrule
+\begin{tabular}{c c c c c c}
+\hline
+\textbf{Length (cm)} & $\boldsymbol{\omega_0}$ & $\boldsymbol{x_{\max}}$ & $\boldsymbol{\delta}$ & $\boldsymbol{x_{\max,\ err}}$ & $\boldsymbol{\delta_{\mathrm{err}}}$ \\
+\hline
+26.3 & 6.107 & 1.061 & 0.748 & 0.237 & 0.264 \\
+30.4 & 5.681 & 1.122 & 0.284 & 0.308 & 0.084 \\
+34.7 & 5.317 & 2.082 & 0.173 & 0.039 & 0.060 \\
+40.1 & 4.946 & 1.012 & 0.334 & 1.101 & 0.098 \\
+42.8 & 4.788 & 3.458 & 0.551 & 0.188 & 0.254 \\
+44.7 & 4.685 & 7.326 & 0.141 & 0.572 & 0.144 \\
+47.4 & 4.549 & 12.920 & 1.808 & 1.949 & 0.132 \\
+49.2 & 4.465 & 9.088 & 2.947 & 0.614 & 0.080 \\
+55.7 & 4.197 & 1.798 & 3.011 & 0.789 & 0.359 \\
+59.8 & 4.050 & 0.500 & 3.412 & 0.423 & 0.203 \\
+64.3 & 3.906 & 1.700 & 3.926 & 0.294 & 0.681 \\
+\hline
 \end{tabular}
 \end{table}
 \begin{figure}[h!]
@@ -125,28 +138,33 @@ Here are the experimental data separated by trials.
 
 \newpage
 
+\hfil
+
+\newpage
+
 \subsection{Trial 3}
 \begin{table}[h!]
 \centering
-\caption{Trial 3 Data}
-\begin{tabular}{rrrrrr}
-\toprule
- omega &  omega\_0 &  x\_max &  delta &  x\_max\_error &  delta\_err \\
-\midrule
- 4.669 & 6.107 & 1.012 & 0.107 & 0.237 & 0.264 \\
-       & 5.681 & 1.800 & 0.114 & 0.308 & 0.084 \\
-       & 5.317 & 2.000 & 0.186 & 0.039 & 0.060 \\
-       & 4.946 & 3.693 & 0.099 & 1.101 & 0.098 \\
-       & 4.788 & 3.902 & 0.144 & 0.188 & 0.254 \\
-       & 4.685 & 5.935 & 0.059 & 0.572 & 0.144 \\
-       & 4.549 & 16.172 & 2.115 & 1.949 & 0.132 \\
-       & 4.465 & 7.727 & 3.126 & 0.614 & 0.080 \\
-       & 4.197 & 1.340 & 3.284 & 0.789 & 0.359 \\
-       & 4.050 & 1.536 & 2.987 & 0.423 & 0.203 \\
-       & 3.906 & 1.000 & 2.275 & 0.294 & 0.681 \\
-\bottomrule
+\caption{Experimental data for $\omega_0$, $x_{\max}$, and $\delta$ as a function of length.}
+\begin{tabular}{c c c c c c}
+\hline
+\textbf{Length (cm)} & $\boldsymbol{\omega_0}$ & $\boldsymbol{x_{\max}}$ & $\boldsymbol{\delta}$ & $\boldsymbol{x_{\max,\ err}}$ & $\boldsymbol{\delta_{\mathrm{err}}}$ \\
+\hline
+26.3 & 6.107 & 1.012 & 0.107 & 0.237 & 0.264 \\
+30.4 & 5.681 & 1.800 & 0.114 & 0.308 & 0.084 \\
+34.7 & 5.317 & 2.000 & 0.186 & 0.039 & 0.060 \\
+40.1 & 4.946 & 3.693 & 0.099 & 1.101 & 0.098 \\
+42.8 & 4.788 & 3.902 & 0.144 & 0.188 & 0.254 \\
+44.7 & 4.685 & 5.935 & 0.059 & 0.572 & 0.144 \\
+47.4 & 4.549 & 16.172 & 2.115 & 1.949 & 0.132 \\
+49.2 & 4.465 & 7.727 & 3.126 & 0.614 & 0.080 \\
+55.7 & 4.197 & 1.340 & 3.284 & 0.789 & 0.359 \\
+59.8 & 4.050 & 1.536 & 2.987 & 0.423 & 0.203 \\
+64.3 & 3.906 & 1.000 & 2.275 & 0.294 & 0.681 \\
+\hline
 \end{tabular}
 \end{table}
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width=100mm]{Amplitude 3.png}

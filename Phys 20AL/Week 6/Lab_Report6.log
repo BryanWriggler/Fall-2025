@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.6.12)  9 NOV 2025 05:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.6.12)  9 NOV 2025 10:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -799,79 +799,79 @@ File: lab_setup_6.png Graphic file (type png)
 <use lab_setup_6.png>
 Package pdftex.def Info: lab_setup_6.png  used on input line 36.
 (pdftex.def)             Requested size: 170.71652pt x 128.01604pt.
- [2 <./lab_setup_6.png>] [3]
-<Amplitude 1.png, id=108, 462.528pt x 346.896pt>
+ [2 <./lab_setup_6.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Amplitude 1.png, id=104, 462.528pt x 346.896pt>
 File: Amplitude 1.png Graphic file (type png)
 <use Amplitude 1.png>
-Package pdftex.def Info: Amplitude 1.png  used on input line 86.
-(pdftex.def)             Requested size: 284.52756pt x 213.40593pt.
-<Phase 1.png, id=110, 462.528pt x 346.896pt>
+Package pdftex.def Info: Amplitude 1.png  used on input line 87.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Phase 1.png, id=106, 462.528pt x 346.896pt>
 File: Phase 1.png Graphic file (type png)
 <use Phase 1.png>
-Package pdftex.def Info: Phase 1.png  used on input line 90.
-(pdftex.def)             Requested size: 284.52756pt x 213.40593pt.
-
+Package pdftex.def Info: Phase 1.png  used on input line 91.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4 <./Amplitude 1.png>]
-<Amplitude 2.png, id=118, 462.528pt x 346.896pt>
+[3] [4 <./Amplitude 1.png> <./Phase 1.png>]
+<Amplitude 2.png, id=123, 462.528pt x 346.896pt>
 File: Amplitude 2.png Graphic file (type png)
 <use Amplitude 2.png>
-Package pdftex.def Info: Amplitude 2.png  used on input line 119.
+Package pdftex.def Info: Amplitude 2.png  used on input line 132.
 (pdftex.def)             Requested size: 284.52756pt x 213.40593pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Phase 2.png, id=119, 462.528pt x 346.896pt>
+<Phase 2.png, id=124, 462.528pt x 346.896pt>
 File: Phase 2.png Graphic file (type png)
 <use Phase 2.png>
-Package pdftex.def Info: Phase 2.png  used on input line 123.
+Package pdftex.def Info: Phase 2.png  used on input line 136.
 (pdftex.def)             Requested size: 284.52756pt x 213.40593pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[5 <./Phase 1.png>]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Amplitude 3.png, id=127, 462.528pt x 346.896pt>
+[5] [6 <./Amplitude 2.png> <./Phase 2.png>]
+<Amplitude 3.png, id=139, 462.528pt x 346.896pt>
 File: Amplitude 3.png Graphic file (type png)
 <use Amplitude 3.png>
-Package pdftex.def Info: Amplitude 3.png  used on input line 152.
+Package pdftex.def Info: Amplitude 3.png  used on input line 170.
 (pdftex.def)             Requested size: 284.52756pt x 213.40593pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Phase 3.png, id=128, 462.528pt x 346.896pt>
+<Phase 3.png, id=140, 462.528pt x 346.896pt>
 File: Phase 3.png Graphic file (type png)
 <use Phase 3.png>
-Package pdftex.def Info: Phase 3.png  used on input line 156.
+Package pdftex.def Info: Phase 3.png  used on input line 174.
 (pdftex.def)             Requested size: 284.52756pt x 213.40593pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6 <./Amplitude 2.png> <./Phase 2.png>] [7 <./Amplitude 3.png>] [8 <./Phase 3.png>] (Lab_Report6.aux)
+[7 <./Amplitude 3.png>] [8 <./Phase 3.png>] (Lab_Report6.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `Lab_Report6.out' has not changed.
-(rerunfilecheck)             Checksum: 3C5F0D58B8A2B11EC218E76B7C23C0B1;1097.
+(rerunfilecheck)             Checksum: 902475AA1C3B2E90813A514E50E50047;1196.
  ) 
 Here is how much of TeX's memory you used:
- 31015 strings out of 474486
- 635162 string characters out of 5744227
- 1935542 words of memory out of 5000000
- 52772 multiletter control sequences out of 15000+600000
- 565932 words of font info for 67 fonts, out of 8000000 for 9000
+ 31030 strings out of 474486
+ 635306 string characters out of 5744227
+ 1939542 words of memory out of 5000000
+ 52779 multiletter control sequences out of 15000+600000
+ 568381 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,9n,113p,607b,446s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Lab_Report6.pdf (8 pages, 20409891 bytes).
+ 108i,15n,113p,653b,444s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Lab_Report6.pdf (8 pages, 20453030 bytes).
 PDF statistics:
- 197 PDF objects out of 1000 (max. 8388607)
+ 217 PDF objects out of 1000 (max. 8388607)
  29 named destinations out of 1000 (max. 500000)
  256 words of extra memory for PDF output out of 10000 (max. 10000000)
 
