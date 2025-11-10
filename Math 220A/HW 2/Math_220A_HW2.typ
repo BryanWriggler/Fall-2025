@@ -553,7 +553,7 @@
   - $k[x] times.circle_(k[x])k[y]$, where $k[x]$ is a $k[x]$-algebra via the identity map and $k[y]$ is viewed as a $k[x]$-algebra via the map $k[x] arrow.r k[y]$ sending $x mapsto y^2$.
   - $k[y] times.circle_(k[x]) k[y]$, where $k[y]$ is viewed as a $k[x]$-algebra via the map $k[x] arrow.r k[y]$ sending $x mapsto y^2$.
 ][
-  1. For any $k$-algebra $A$, given any two $k$-algebra homomorphism $f,g:k[x] arrow.r A$, since one must have $f(l) = l dot f(1)= l dot 1 in A$ (so is $g(l) = l dot g(1)= l dot 1 in A$) for all $l $
+  1. For any $k$-algebra $A$, given any two $k$-algebra homomorphism $f,g:k[x] arrow.r A$, since one must have $f(l) = l dot f(1)= l dot 1 in A$ (so is $g(l) = l dot g(1)= l dot 1 in A$) for all $l in k$. Hence, knowin $f(x)$ and $g(x)$ uniquely determines the whole m
 ]
 
 #pagebreak()
