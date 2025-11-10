@@ -503,7 +503,6 @@
   $ (1_A times.circle m_B (r)) dot (1_A times.circle m_B (r')) = phi(r) dot phi(r') = phi(r r')=1_A times.circle (m_B (r) dot m_B (r')) $
   Which, if put in products with more than $2$ elements (and arrange them in different entries of the tensor product), one of the most natural guess for multiplication is given by: 
   $ (a times.circle b) dot (a' times.circle b'):= (a a') times.circle (b b') $
-  hello
 ]
 
 \ 
@@ -553,7 +552,9 @@
   - $k[x] times.circle_(k[x]) k[x]$ where both $k[x]$ are biewed as $k[x]$-algebras via the identity map.
   - $k[x] times.circle_(k[x])k[y]$, where $k[x]$ is a $k[x]$-algebra via the identity map and $k[y]$ is viewed as a $k[x]$-algebra via the map $k[x] arrow.r k[y]$ sending $x mapsto y^2$.
   - $k[y] times.circle_(k[x]) k[y]$, where $k[y]$ is viewed as a $k[x]$-algebra via the map $k[x] arrow.r k[y]$ sending $x mapsto y^2$.
-][]
+][
+  1. For any $k$-algebra $A$, given any two $k$-algebra homomorphism $f,g:k[x] arrow.r A$, since one must have $f(l) = l dot f(1)= l dot 1 in A$ (so is $g(l) = l dot g(1)= l dot 1 in A$) for all $l $
+]
 
 #pagebreak()
 
