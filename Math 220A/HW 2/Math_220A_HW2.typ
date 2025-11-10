@@ -503,7 +503,7 @@
   $ (1_A times.circle m_B (r)) dot (1_A times.circle m_B (r')) = phi(r) dot phi(r') = phi(r r')=1_A times.circle (m_B (r) dot m_B (r')) $
   Which, if put in products with more than $2$ elements (and arrange them in different entries of the tensor product), one of the most natural guess for multiplication is given by: 
   $ (a times.circle b) dot (a' times.circle b'):= (a a') times.circle (b b') $
-
+  hello
 ]
 
 \ 
