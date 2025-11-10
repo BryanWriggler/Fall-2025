@@ -289,16 +289,51 @@
   Hence, given any pair $(A, {a_i:A arrow.r X_i}_(i in I))$ such that $f_i compose a_i=f_j compose a_j$ for all indices $i,j in I$, one must have a unique morphism $overline(a):A arrow.r E$, such that $a_i = (pi_i compose e) compose overline(a)$. This shows that $(E,{pi_i compose e:E arrow.r X_i}_(i in I))$ indeed satisfies the universal property of fibre product, which also proves that (small) fibre product exists if both products and equalizers exist.
 ]
 
-#pagebreak()
+\ 
 
-= ND//4
+= D//4
 #problem[
   Show that, if $F:cat(C) arrow.r cat(D)$ is a natural equivalence between two categories $cat(C)$ and $cat(D)$, then it is both fully faithul and essentially surjective.
-][]
+][
+
+  #text(weight: "bold")[I. Imlpication:]
+
+  First, suppose $F$ is a natural equivalence between two categories $cat(C)$ and $cat(D)$, then there exists another functor $G:cat(D) arrow.r cat(C)$, paired with two natural isomorphisms $eta:G compose F arrow.r.tilde Id_cat(C)$ and $epsilon:F compose G arrow.tilde Id_cat(D)$. 
+
+  \ 
+
+  To verify it's fully faithful, given any $X,Y in cat(C)$, consider the functor's associated set map $F_(X,Y):Hom_(cat(C))(X,Y) arrow.r Hom_(cat(D))(F(X),F(Y))$ by $F_(X,Y)(f) = F f$, the goal is to prove that this is bijective. 
+  
+  For injectivity, notice that we also have $G_(F(X),F(Y)):Hom_(cat(D))(F(X),F(Y)) arrow.r Hom_(cat(C))(G compose F(X), G compose F(Y))$. Which, given any $f in Hom_(cat(C))(X,Y)$ (where $G_(F(X),F(Y)) compose F_(X,Y)(f) = (G compose F)f$) satisfies the following diagram with $eta$:
+  #set align(center)
+  #diagram($
+             G compose F(X) edge(->, script((G compose F)f)) edge("d",->, script(eta_X)) & G compose F(Y) edge("d",->, script(eta_Y), #left)\ 
+             X edge(->, script(f), #right) & Y
+          $)
+  #set align(left)
+  Which, since $eta$ is a natural isomorphism, both $eta_X, eta_Y$ are invertible. Hence, the map $overline(eta)_(X,Y):Hom_(cat(C))(G compose F(X), G compose F(Y)) arrow Hom_(cat(C))(X,Y)$ by $(G compose F)f mapsto (eta_Y compose (G compose F)f compose eta_X) = f$ is actually an isomorphism. Combining all maps, we get the following $overline(eta)_(X,Y) compose G_(F(X),F(Y)) compose F_(X,Y):Hom_(cat(C))(X,Y) arrow.r Hom_(cat(C))(X,Y)$ satisfies the following:
+  $ overline(eta)_(X,Y) compose G_(F(X),F(Y)) compose F_(X,Y)(f) = overline(eta)_(X,Y)((G compose F)f) = f $
+  Hence, this map is precisely identity on $Hom_(cat(C))(X,Y)$, showing that it's in particular injective. So, $F_(X,Y)$ is injective.
+
+  For surjectivity instead, let $X'=F(X)$, $Y'=F(Y)$, then for any $f' in Hom_(cat(D))(X',Y')$ (which is the codomain of $F_(X,Y)$), based on the natural isomorphism $epsilon$, we also have the following:
+  #set align(center)
+  #diagram($
+             X' edge(->, script(f')) edge("d",<-, script((epsilon_(X'))^(-1)), #right) & Y' edge("d",<-, script((epsilon_(Y'))^(-1)), #left)\ 
+             F compose G(X') edge(->, script((F compose G)f'), #right) & F compose G(Y')
+          $)
+  #set align(left)
+  Hence, define $overline(epsilon)_(X',Y'):Hom_(cat(D))(F compose G(X'), F compose G(Y')) arrow.r Hom_(cat(D))(X',Y')$ by $(F compose G)f' mapsto (epsilon_(Y'))^(-1) compose ((F compose G)f') compose epsilon_(X') = f'$, it is an isomorphism. So, having the maps $G_(X',Y'):Hom_(cat(D))(X',Y') arrow.r Hom_(cat(C))(G(X'),G(Y'))$, $F_(G(X'),G(Y')):Hom_(cat(C))(G(X'),G(Y')) arrow.r Hom_(cat(D))(F compose G(X'), F compose G(Y'))$, the composition $overline(epsilon)_(X',Y') compose F_(G(X'),G(Y')) compose G_(X',Y'):Hom_(cat(D))(X',Y') arrow.r Hom_(cat(D))(X',Y')$ is in fact identity (since $f' mapsto overline(epsilon)(X', Y') ((F compose G)f') = f'$). So, with $overline(epsilon)_(X',Y')$ being an isomorphism, $F_(G(X'),G(Y')) compose G_(X',Y')$ is also an isomorphism, hence $F_(G(X'),G(Y'))$ is surjective.
+
+  Finally, since $Hom_(cat(C))(G(X'),G(Y')) = Hom_(cat(C))(G compose F(X), G compose F(Y))$ is naturally isomorphic to $Hom_(cat(C))(X,Y)$ (via $eta$), then so is $Hom_(cat(D))(F compose G(X'), F compose G(Y'))$ and $Hom_(cat(D))(F(X),F(Y))$ (via $F$ applies to $eta$, since functors preserve isomorphisms). Hence, if $F_(G(X'),G(Y'))$ is surjective (which has codomain $Hom_(cat(D))(F compose G(X'), F compose G(Y'))$), via the natural isomorphism of $eta$, one can also conclude that $F_(X,Y)$ is also surjective (with codomain $Hom_(cat(D))(F(X),F(Y))$).
+
+  \ 
+
+  The last piece is essentially surjective: Given any $Y in cat(D)$, since we have $F compose G(Y) tilde.equiv Y$ (due to the fact that $epsilon:F compose G arrow.tilde Id_(cat(D))$), showing it's essentially surjective.
+]
 
 #pagebreak()
 
-= ND (Split to Problem 6-12)//5
+= ND (Split to Problem 6-12) (10,12 not done)//5
 #problem[
   #definition(1)[
     Let $R$ be a commutative ring. If $S$ is any set, we denote by $L_R(S)$ the set of all finite linear combinations of elements in $S$ over $R$ -- that is, the set of formal sums $sum_(i)a_i dot s_i$ where $a_i in R$ and $s_i in S$, and $i$ runs through a finite set.
@@ -493,7 +528,21 @@
 
 #problem[
   Given $A,B$ two commutative rings with ring homomorphisms $R arrow.r A$ and $R arrow.r B$, this makes $A,B$ into $R$-modules. Let $A times.circle_R B$ denote the tensor product of $A$ and $B$ as $R$-modules.
+
+  In this setup, show that $A times.circle_R B$ is again a (commutative) $R$-algebra.
 ][
+  Here, assume we know that tensor product (of multiple $R$-modules) is associative (up to isomorphism), and the property that any multilinear map uniquely factors through tensor products. Then, since $A,B$ both have their own ring structure, then consider the following $R$-multilinear map $Q:A times B times A times B arrow.r A times.circle_R B$:
+  $ Q(a,b,a',b') = (a a') times.circle (b b') $
+  This is multilinear, because both ring multiplication and tensor products are bilinaer. Then, the property of tensor product implies that it unique factors through $(A times.circle_R B) times.circle_R (A times.circle_R B)$, say through an $R$-linear map $overline(Q):(A times.circle_R B) times.circle_R (A times.circle_R B) arrow.r A times.circle_R B$ as follow:
+  $ overline(Q)((a times.circle b) times.circle (a' times.circle b')) = (a a') times.circle (b b') $
+  Also, if we consider the bilinear projection $pi:(A times.circle_R B) times (A times.circle_R B) arrow.r (A times.circle_R B) times.circle_R (A times.circle_R B)$ by $pi(a times.circle b, a' times.circle b') = (a times.circle b) times.circle (a' times.circle b')$, then the bilinear map $M = overline(Q) compose pi: (A times.circle_R B) times (A times.circle_R B) arrow.r A times.circle_R B$ as follow:
+  $ M(a times.circle b, a' times.circle b') = overline(Q)((a times.circle b) times.circle (a' times.circle b')) = (a a') times.circle (b b') $
+  Which, $M$ (as an $R$-bilinear map) can also be viewed as a multiplication on $A times.circle_R B$, since it satisfies associativity as follow:
+  $ M(a times.circle b, M(a' times.circle b', a'' times.circle b'')) &= M(a times.circle b, (a' a'') times.circle (b' b'')) = (a (a' a'')) times.circle (b (b' b''))\ 
+  &= ((a a') a'') times.circle ((b b') b'') = M((a a') times.circle (b b'), a'' times.circle b'')\ 
+  &= M(M(a times.circle b, a' times.circle b'), a'' times.circle b'') $
+  Also, distributivity naturally follows from the fact that $M$ is bilinear. Hence, this makes $A times.circle_R B$ into an $R$-algebra, with multiplication $M$.
+  /*
   Let $m_A:R arrow.r A$ and $m_B:R arrow.r B$ be the two ring homomorphisms. Then, $A$ can be viewed as an $R$-module, such that for any $r in R$ and $a in A$, one has $r dot a := m_A (r) a$ (similar definition for making $B$ into an $R$-module). So, given any $r in R$, $a in A$ and $b in B$, the property is given as follow:
   $ (m_A (r) a) times.circle b = (r dot a) times.circle b = r dot (a times.circle b) = a times.circle (r dot b)=a times.circle (m_B (r) b) $
   Hence, if view $R$ itself as an $R$-module generated by $1 in R$, the map $phi:R arrow.r A times.circle_R B$ by $phi(1) = 1_A times.circle 1_B$ is a well-defined $R$-module homomorphism. As a result, for all $r, r' in R$, one has the following: 
@@ -503,6 +552,7 @@
   $ (1_A times.circle m_B (r)) dot (1_A times.circle m_B (r')) = phi(r) dot phi(r') = phi(r r')=1_A times.circle (m_B (r) dot m_B (r')) $
   Which, if put in products with more than $2$ elements (and arrange them in different entries of the tensor product), one of the most natural guess for multiplication is given by: 
   $ (a times.circle b) dot (a' times.circle b'):= (a a') times.circle (b b') $
+  */
 ]
 
 \ 
@@ -553,7 +603,99 @@
   - $k[x] times.circle_(k[x])k[y]$, where $k[x]$ is a $k[x]$-algebra via the identity map and $k[y]$ is viewed as a $k[x]$-algebra via the map $k[x] arrow.r k[y]$ sending $x mapsto y^2$.
   - $k[y] times.circle_(k[x]) k[y]$, where $k[y]$ is viewed as a $k[x]$-algebra via the map $k[x] arrow.r k[y]$ sending $x mapsto y^2$.
 ][
-  1. For any $k$-algebra $A$, given any two $k$-algebra homomorphism $f,g:k[x] arrow.r A$, since one must have $f(l) = l dot f(1)= l dot 1 in A$ (so is $g(l) = l dot g(1)= l dot 1 in A$) for all $l in k$. Hence, knowin $f(x)$ and $g(x)$ uniquely determines the whole m
+  1. For any $k$-algebra $A$, given any two $k$-algebra homomorphism $f,g:k[x] arrow.r A$, since one must have $f(l) = l dot f(1)= l dot 1 in A$ (so is $g(l) = l dot g(1)= l dot 1 in A$) for all $l in k$. Hence, knowing $f(x)$ and $g(x)$ uniquely determines the whole map $f,g$.
+
+    For simplicity, the second map we'll use $y$ instead of $x$, or $g:k[y] arrow.r A$ to prevent confusion. Then, notice that given the polynomial ring $k[x,y]$, $f$ and $g$ uniquely determins a ring homomorphism $h:k[x,y] arrow.r A$ by $h(x)=f(x)$ and $h(y)=g(y)$. Such map is well-defined, since $A$ is commutative, and the fact that $f(l) = g(l)$ for all $l in k$ (so for everything inside $k$, where $k[x]$ and $k[y]$ intersects, $h$ is a well-defined map). Also, $h$ is a ring homomorphism because $A$ is commutative, while $f,g$ are both ring homomorphism (so act on individual components of any polynomial in $k[x,y]$ makes sense).
+
+    Now, if consider the canonical inclusion $iota_x:k[x] arrow.r.hook k[x,y]$ and $iota_y:k[y] arrow.r.hook k[x,y]$, one has the following:
+    $ f(p(x)) = f(p(x)) dot g(1) = h(p(x) dot 1) = h(iota_x (p(x))) $
+    $ g(q(y)) = f(1) dot g(q(y)) = h(1 dot q(y)) = h(iota_y (q(y))) $
+    Hence, $f = h compose iota_x$ and $g = h compose iota_y$, so the following diagram commutes:
+    #set align(center)
+    #diagram($
+              k[x] edge(->, script(iota_x)) edge("dr", ->, script(f), #right) & k[x,y] edge("d", "->", script(h)) & k[y] edge("l", ->, script(iota_y)) edge("dl", ->, script(g), #left) \ 
+              & A
+            $)
+    #set align(left)
+    Also, notice the map $h$ is unique, since if $h':k[x,y] arrow.r A$ as a $k$-algebra homomorphism also satisfies the above properties, then $h'(x) = h' compose iota_x(x) = f(x)$ and $h'(y) = h' compose iota_y(y) = g(y)$. This shows that $h'(x)=h(x)$ and $h'(y)=h(y)$, hence $h'=h$ (since they're the same on the generators, while must agree on $k$ due to the property of $k$-algebra homomorphism). Hence, $k[x,y]$ with $iota_x, iota_y$ is indeed a coproduct of $k[x], k[y]$ in the category of commutative $k$-algebra, showing that $k[x,y] tilde.equiv k[x] times.circle_k k[y]$ (here, if view $y$ as $x$ again, it's $k[x] times.circle_k k[x]$).
+
+    \ 
+
+    \ 
+
+  2. For this, we'll prove a following lemma:
+    #lemma[
+      Given any commutative ring $R$, any $R$-module $M$ satisfies $M tilde.equiv R times.circle_R M$. This in particular is true for commutative $R$-algebra also.
+    ][
+      For any element in $R times.circle_R M$ is a finite linear combination of $r times.circle m$, where $r in R$ and $m in M$. Using the property of tensor product, $r times.circle m = 1 times.circle (r dot m)$. 
+      
+      Hence, define the $R$-module homomorphism $phi:M arrow.r R times.circle_R M$ by $phi(m) = 1 times.circle m$ (can also be thought of as the bilinear projection map $pi:R times M arrow.r R times.circle_R M$ by restricting the first entry to be $1$). On the other hand, if consider the scalar multiplication map $s:R times M arrow.r M$ by $s(r, m) = r dot m$, $s$ is also a bilinear map, hence it uniquely factors through the tensor product, say having $R$-module homomorphism $overline(s):R times.circle_R M arrow.r M$ by $s = overline(s) compose pi$ (so we have $overline(s)(r times.circle m) = overline(s) compose pi(r,m) = s(r,m) = r dot m$).
+
+      Notice that $phi$ and $overline(s)$ are mutual inverse: Given any $r in R$ and $m in M$, the following are true:
+      $ overline(s) compose phi(m) = overline(s)(1 times.circle m) = s(1, m) =1 dot m=m $
+      $ phi compose overline(s)(r times.circle m) = phi(r dot m) = 1 times.circle (r dot m) = r times.circle m $
+      Hence, this shows that $M tilde.equiv R times.circle_R M$ as $R$-modules.
+    ]
+    As a result of the lemma, since $k[x]$ is a $k[x]$-module (with natural left multiplication on itself), then $k[x] times.circle_(k[x]) k[x] tilde.equiv k[x]$ as $k[x]$-modules (via the map $overline(s):k[x] times.circle_(k[x]) k[x] arrow.r k[x]$ that's defined as $f(x) times.circle g(x) mapsto f(x) dot g(x)$).
+
+    However, notice that this is also multaplicative, since the following is true:
+    $ overline(s)((f(x) times.circle g(x)) dot (h(x) times.circle k(x))) &= overline(s)((f dot h)(x) times.circle (g dot k)(x))\ 
+    &= (f dot h dot g dot k)(x) = (f dot g)(x) dot (h dot k)(x)\ 
+    &= overline(s)(f(x) times.circle g(x)) dot overline(s)(h(x) times.circle k(x)) $
+    Hence, the two are actually isomorphic as rings, which is isomorphic as $k[x]$-algebras. 
+
+    So, $k[x] times.circle_(k[x]) k[x] tilde.equiv k[x]$. 
+
+    \ 
+
+    \ 
+
+  3. Similar in this case, using the previous lemma we know $k[x] times.circle_(k[x]) k[y] tilde.equiv k[y]$ via the map $overline(s)(f(x) times.circle g(y)) = f(x) dot g(y) = f(y^2) g(y)$ (Note: Since $k[y]$ is now a $k[x]$-algebra via the map $x mapsto y^2$, so $f(x) dot g(y) = f(y^2)g(y)$). This is also true on the level of $k[x]$-algebra homomorphism, since the following is true:
+    $ overline(s)((f(x) times.circle g(y)) dot (h(x) times.circle k(y))) &= overline(s)((f dot h)(x) times.circle (g dot k)(y))\ 
+    &= (f dot h)(y^2) (g dot k)(y) = (f(y^2) g(y)) dot (h(y^2) k(y))\ 
+    &= overline(s)(f(x) times.circle g(y)) dot overline(s)(h(x) times.circle k(y)) $
+    So, $k[x] times.circle_(k[x]) k[y] tilde.equiv k[y]$ as $k[x]$-algebra also. 
+    
+    Now, notice that if we consider the ring homomorphism $phi:k[x,y] arrow.r k[y]$ by $phi(f(x,y)) = f(y^2,y)$, this is surjective (since for any $f(y) in k[y] subset k[x,y]$, it has $phi(f)= f(y)$), so $k[y] tilde.equiv k[x,y]\/ker(phi)$. Which, given the polynomial $y^2-x$, we have $phi(y^2-x) = y^2-y^2=0$, so $y^2-x in ker(phi)$. 
+    
+    Also, if consider any $f(x,y) in ker(phi)$ (i.e. $f(y^2,y)=0$), to prove that $f(x,y) in (y^2-x)$, we'll induct on the degree of $x$:
+    - For $deg_(x)(f) = 1$, since $f(x,y) = f_1(y) dot x+f_0(y)$ for some $f_1,f_0 in k[y]$, then $0=phi(f) = f_1(y) dot y^2 + f_0(y)$. If $f_1(y)!=0$, then it has degree at least $2$, so in case for the whole thing to be $0$, $f_0(y)$ cannot have degree $0$ and degree $1$ terms (since these two terms only appear in $f_0(y)$). 
+    
+      Hence, $f_0(y) = y^2 dot g_0(y)$ for some $g_0 in k[y]$. So, $f_1(y) dot y^2+g_0(y) dot y^2 = f_1(y) dot y^2+f_0(y)=0$, showing that $y^2(f_1(y) + g_0(y))=0$. With $k[y]$ being an integral domain, $f_1(y)+g_0(y)=0$, so $f_1(y)=-g_0(y)$, showing the following:
+      $ f(x,y) = f_1(y) dot x+f_0(y) = -g_0(y) dot x + g_0(y) dot y^2 = g_0(y) dot (y^2-x) $
+      Hence, $f(x,y) in (y^2-x)$.
+
+    - Now, suppose for degree $deg_x (f)=k < n$, we always have $f(x,y) in ker(phi) ==> f(x,y) in (y^2-x)$. Then, if $deg_x (f) = n$, we again decompose $f(x,y) = f_1(x,y) dot x+f_0(y)$, where $deg_x (f_1) = n-1<n$. Then, do the following modification, we get:
+      $ f(x,y) = f_1(x,y) dot x+f_0(y) = f_1(x,y) dot (x-y^2) + f_1(x,y) dot y^2+f_0(y) $
+      Now, it's evident that $f_1(x,y) dot (x-y^2) in (y^2-x)$ (since it has a factor); also, if consider $g(x,y) = f_1(x,y) dot y^2+f_0(y)$, since $f_1(x,y)$ is the only component including $x$, then $deg_x (h) = deg_x (f_1) = n-1 < n$. Then, since $h in ker(phi)$ (since $h(x,y) = f(x,y) - f_1(x,y)(x-y^2)$, which are both in $ker(phi)$), and $deg_x (h)<n$, by induction hypothesis one must have $h in (y^2-x)$ also.
+
+      Hence, $f(x,y) = f_1(x,y)dot (x-y^2)+h(x,y) in (y^2-x)$. This completes the induction.
+
+    So, eventually we get that $f(x,y) in ker(phi) ==> f(x,y) in (y^2-x)$, showing $ker(phi) subset.eq (y^2-x)$. Hence, $ker(phi) = (y^2-x)$, which we concluded the following: 
+    $ k[x] times.circle_(k[x]) k[y] tilde.equiv k[y] tilde.equiv k[x,y]\/ker(phi) = k[x,y]\/(y^2-x) $
+
+    \ 
+
+    \ 
+
+  4. For $k[y] times.circle_(k[x]) k[y]$ (where $k[y]$ is given in the previous part), for less confusion the second one we'll denote as $k[z]$ as $k[x]$-algebra (by the map $k[x] arrow.r k[z]$ through $x mapsto z^2$). Since $k[x,y] := (k[x])[y]$ satisfies $(k[x])[y] times.circle_(k[x])(k[x])[z] tilde.equiv (k[x])[y,z]$ (based on part 1), in $k[x]$-algebra, we have the coproduct of $k[x,y]$ and $k[x,z]$ being $k[x,y,z]$. 
+  
+    Now, based on part 3, we know that $k[y] tilde.equiv k[x,y]\/(y^2-x)$ and $k[w]tilde.equiv k[x,w]\/(w^2-x)$. So, based on the property of tensor product (as coproduct in $k[x]$-algebra), with the following maps: 
+    - inclusion map $i_1:k[x,y] arrow.r.hook k[x,y,z]$, $i_2:k[x,z] arrow.r.hook k[x,y,z]$;
+    - quotient map $pi_1:k[x,y] arrow.r.twohead k[x,y]\/(y^2-x)$, $pi_2:k[x,z] arrow.r.twohead k[x,y]\/(z^2-x)$;
+    - injection to tensor product $iota_1:k[x,y]\/(y^2-x) arrow.r k[y] times.circle_(k[x])k[z]$ and $iota_2:k[x,z]\/(z^2-x) arrow.r k[y] times.circle_(k[x])k[z]$, 
+    
+    we get the following commutative diagram:
+    #set align(center)
+    #diagram($
+              k[x,y] edge(->, script(i_1)) edge("d", ->, script(pi_1), #right) & k[x,y,z] edge("dd", "..>", script(exists ! h)) & k[x,z] edge("l",->, script(i_2)) edge("d", ->, script(pi_2), #left)\ 
+              k[x,y]\/(y^2-x) edge("dr", ->, script(iota_1), #right) & & k[x,z]\/(z^2-x) edge("dl", ->, script(iota_2), #left)\ 
+              & k[y] times.circle_(k[x]) k[z]
+            $)
+    #set align(left)
+    Notice that $h$ is automatically surjective (since the generators of $k[y] times.circle_(k[x])k[z]$ are $f times.circle 1$ and $1 times.circle g$ in $k[y] times.circle_(k[x])k[z]$, and such surjectivity onto the generators are given by $pi_1$ and $pi_2$), hence we have $k[y] times.circle_(k[x]) k[z] tilde.equiv k[x,y,z]\/ker(h)$.
+
+    Now, notice that 
 ]
 
 #pagebreak()

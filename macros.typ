@@ -33,6 +33,7 @@
 #let Orb = math.upright[Orb] //orbit in group theory
 #let Conj = math.upright[Conj] //denote the conjugation classes
 #let Bil = math.upright[Bil] //module of bilinear maps
+#let Id = math.upright[Id] //normally, used for other types of identity (when there are small purpose, use id; if there are large purposes, use Id instead)
 
 //category theory
 #let cat(name) = math.sans[#name] //general category font command
