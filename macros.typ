@@ -32,6 +32,7 @@
 #let span = math.upright[span] //span of vectors
 #let Orb = math.upright[Orb] //orbit in group theory
 #let Conj = math.upright[Conj] //denote the conjugation classes
+#let Bil = math.upright[Bil] //module of bilinear maps
 
 //category theory
 #let cat(name) = math.sans[#name] //general category font command
@@ -40,6 +41,7 @@
 #let Ring = math.sans[Ring] //cat of rings
 #let Fld = math.sans[Fld] //cat of field
 #let RMod = math.sans[R-Mod] //cat of R-Mod
+#let Mod = math.sans[Mod] //cat of Mod in general
 #let RAlg = math.sans[R-Alg] //cat of R-Alg
 #let Vect(k) = $#k -sans("Vect")$ //cat of k-vector space (not sure if this works though)
 #let Top = math.sans[Top] //cat of topological spaces
