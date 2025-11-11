@@ -52,6 +52,9 @@
 #let D(name) = math.sans[D(#name)] //derived category 
 #let Met = math.sans[Met] //cat of metric spaces
 #let Ob = math.upright[Ob] //the object of a category
+#let op = math.upright[op] //used for opposite category
+#let Cone = math.upright[Cone] //used for cone functor
+#let Cocone = math.upright[Cocone] //used for cocone functor
 
 //lie group/lie algebra
 #let GL = $"GL"$ //general linear

@@ -144,7 +144,7 @@
   Hence, since $phi(rho) = rho_G (e)=g$ and $phi(eta) = eta_G (e) = h$, we have $phi(rho compose eta) = (rho compose eta)_G (e)=g h = phi(rho) phi(eta)$. So, $phi$ is indeed a group homomorphism, hence it's a group isomorphism between $Aut(F)$ and $G$. So, $Aut(F)$ and $G$ are indeed isomorphic.
 ]
 
-\ 
+#pagebreak()
 
 #problem[
   Lang Algebra Chapter 1 \#53:
@@ -240,7 +240,7 @@
   Also, the uniqueness of $overline(d)$  can be deduced from the uniqueness of $d$ (through the property of coproduct $G*G'$) and First Isomorphism Theorem (the property of quotient $G*G'\/(overline(A(S)))$). Hence, $G*G'\/(overline(A(S)))$ together with $pi compose i_f:G arrow.r G*G'\/(overline(A(S)))$ and $pi compose i_g:G' arrow.r G*G' \/ overline(A(S))$ is indeed a fibre coproduct of $f$ and $g$, showing the existence of "coproduct" between morphism $f,g$, if consider them as an object in the Coslice Category $Grp^H$.
 ]
 
-\ 
+#pagebreak()
 
 = D//3
 #problem[
@@ -289,15 +289,12 @@
   Hence, given any pair $(A, {a_i:A arrow.r X_i}_(i in I))$ such that $f_i compose a_i=f_j compose a_j$ for all indices $i,j in I$, one must have a unique morphism $overline(a):A arrow.r E$, such that $a_i = (pi_i compose e) compose overline(a)$. This shows that $(E,{pi_i compose e:E arrow.r X_i}_(i in I))$ indeed satisfies the universal property of fibre product, which also proves that (small) fibre product exists if both products and equalizers exist.
 ]
 
-\ 
+#pagebreak()
 
 = D//4
 #problem[
   Show that, if $F:cat(C) arrow.r cat(D)$ is a natural equivalence between two categories $cat(C)$ and $cat(D)$, then it is both fully faithul and essentially surjective.
 ][
-
-  #text(weight: "bold")[I. Imlpication:]
-
   First, suppose $F$ is a natural equivalence between two categories $cat(C)$ and $cat(D)$, then there exists another functor $G:cat(D) arrow.r cat(C)$, paired with two natural isomorphisms $eta:G compose F arrow.r.tilde Id_cat(C)$ and $epsilon:F compose G arrow.tilde Id_cat(D)$. 
 
   \ 
@@ -311,9 +308,9 @@
              X edge(->, script(f), #right) & Y
           $)
   #set align(left)
-  Which, since $eta$ is a natural isomorphism, both $eta_X, eta_Y$ are invertible. Hence, the map $overline(eta)_(X,Y):Hom_(cat(C))(G compose F(X), G compose F(Y)) arrow Hom_(cat(C))(X,Y)$ by $(G compose F)f mapsto (eta_Y compose (G compose F)f compose eta_X) = f$ is actually an isomorphism. Combining all maps, we get the following $overline(eta)_(X,Y) compose G_(F(X),F(Y)) compose F_(X,Y):Hom_(cat(C))(X,Y) arrow.r Hom_(cat(C))(X,Y)$ satisfies the following:
+  Which, since $eta$ is a natural isomorphism, both $eta_X, eta_Y$ are invertible. Hence, the map $overline(eta)_(X,Y):Hom_(cat(C))(G compose F(X), G compose F(Y)) arrow Hom_(cat(C))(X,Y)$ by $(G compose F)f mapsto (eta_Y compose (G compose F)f compose eta_X) = f$ is actually an isomorphism. Combining all maps, we get that $overline(eta)_(X,Y) compose G_(F(X),F(Y)) compose F_(X,Y):Hom_(cat(C))(X,Y) arrow.r Hom_(cat(C))(X,Y)$ satisfies the following:
   $ overline(eta)_(X,Y) compose G_(F(X),F(Y)) compose F_(X,Y)(f) = overline(eta)_(X,Y)((G compose F)f) = f $
-  Hence, this map is precisely identity on $Hom_(cat(C))(X,Y)$, showing that it's in particular injective. So, $F_(X,Y)$ is injective.
+  Hence, this map is $id$ on $Hom_(cat(C))(X,Y)$, showing that it's injective. So, $F_(X,Y)$ is injective.
 
   For surjectivity instead, let $X'=F(X)$, $Y'=F(Y)$, then for any $f' in Hom_(cat(D))(X',Y')$ (which is the codomain of $F_(X,Y)$), based on the natural isomorphism $epsilon$, we also have the following:
   #set align(center)
@@ -333,7 +330,7 @@
 
 #pagebreak()
 
-= ND (Split to Problem 6-12) (10,12 not done)//5
+= ND (Split to Problem 6-12) (12 not done)//5
 #problem[
   #definition(1)[
     Let $R$ be a commutative ring. If $S$ is any set, we denote by $L_R(S)$ the set of all finite linear combinations of elements in $S$ over $R$ -- that is, the set of formal sums $sum_(i)a_i dot s_i$ where $a_i in R$ and $s_i in S$, and $i$ runs through a finite set.
@@ -371,7 +368,7 @@
   Hence, $L_R(S)$ under such addition / multiplication structure forms a left $R$-module.
 ]
 
-\ 
+#pagebreak()
 
 #problem[
   Suppose that $R=RR$ is the ring/field of real numbers and let $S=NN$ denote the set of natural numbers, what is the $RR$-vector space $L_RR (NN)$? Can you find a better way to write this vector space?
@@ -390,7 +387,7 @@
   Hence, each $a_j=0$, showing that the list is linearly independent. This shows that ${e_n}_(n in NN)$ forms a basis of the vector space $F$ (which they're linearly independent, and their finite $RR$-linear combinations generate the whole $F$). So, this is another way of identifying $L_RR (NN)$.
 ]
 
-\ 
+#pagebreak()
 
 #problem[
   #definition(2)[
@@ -555,7 +552,7 @@
   */
 ]
 
-\ 
+#pagebreak()
 
 #problem[
   Prove that $A times.circle_R B$ is the pushout (coproduct) of $A$ and $B$ in the category $RAlg$ of $R$-algebras.
@@ -594,7 +591,7 @@
   So, $A times.circle_R B$ serves as a coproduct in $RAlg$, category of commutative $R$-algebra.
 ]
 
-\ 
+#pagebreak()
 
 #problem[
   Compute the following tensor products:
@@ -678,7 +675,10 @@
 
     \ 
 
-  4. For $k[y] times.circle_(k[x]) k[y]$ (where $k[y]$ is given in the previous part), for less confusion the second one we'll denote as $k[z]$ as $k[x]$-algebra (by the map $k[x] arrow.r k[z]$ through $x mapsto z^2$). Since $k[x,y] := (k[x])[y]$ satisfies $(k[x])[y] times.circle_(k[x])(k[x])[z] tilde.equiv (k[x])[y,z]$ (based on part 1), in $k[x]$-algebra, we have the coproduct of $k[x,y]$ and $k[x,z]$ being $k[x,y,z]$. 
+  4. 
+  
+  /*
+  For $k[y] times.circle_(k[x]) k[y]$ (where $k[y]$ is given in the previous part), for less confusion the second one we'll denote as $k[z]$ as $k[x]$-algebra (by the map $k[x] arrow.r k[z]$ through $x mapsto z^2$). Since $k[x,y] := (k[x])[y]$ satisfies $(k[x])[y] times.circle_(k[x])(k[x])[z] tilde.equiv (k[x])[y,z]$ (based on part 1), in $k[x]$-algebra, we have the coproduct of $k[x,y]$ and $k[x,z]$ being $k[x,y,z]$. 
   
     Now, based on part 3, we know that $k[y] tilde.equiv k[x,y]\/(y^2-x)$ and $k[w]tilde.equiv k[x,w]\/(w^2-x)$. So, based on the property of tensor product (as coproduct in $k[x]$-algebra), with the following maps: 
     - inclusion map $i_1:k[x,y] arrow.r.hook k[x,y,z]$, $i_2:k[x,z] arrow.r.hook k[x,y,z]$;
@@ -693,17 +693,55 @@
               & k[y] times.circle_(k[x]) k[z]
             $)
     #set align(left)
-    Notice that $h$ is automatically surjective (since the generators of $k[y] times.circle_(k[x])k[z]$ are $f times.circle 1$ and $1 times.circle g$ in $k[y] times.circle_(k[x])k[z]$, and such surjectivity onto the generators are given by $pi_1$ and $pi_2$), hence we have $k[y] times.circle_(k[x]) k[z] tilde.equiv k[x,y,z]\/ker(h)$.
-
-    Now, notice that 
+    Notice that $h$ is automatically surjective (since the generators of $k[y] times.circle_(k[x])k[z]$ are $f times.circle 1$ and $1 times.circle g$ in $k[y] times.circle_(k[x])k[z]$, and such surjectivity onto the generators are given by $pi_1$ and $pi_2$), hence we have $k[y] times.circle_(k[x]) k[z] tilde.equiv k[x,y,z]\/ker$.
+    */
 ]
 
 #pagebreak()
 
-= ND//6
+
+= D//6
 #problem[
   Prove that left adjoint preserves colimit. 
-][]
+][
+  Given a functor $F:cat(C) arrow.r cat(D)$, and say that $F$ is a left adjoint of functor $G:cat(D) arrow.r cat(C)$. Let's say a diagram $D:I arrow.r cat(C)$ (where $I$ is an indexed set) has colimit $K := lim_(i arrow I)D$ in $cat(C)$. We'll first establish some tools, and gather some statements before proving the main statement:
+
+  \ 
+
+  #text(weight: "bold")[I. Adjoint Properties on Homsets:]
+  
+  By adjoint property, there exists a natural isomorphism between the two functors $Hom_(cat(D))(F(\_),\_) tilde.equiv Hom_(cat(C))(\_,G(\_))$. That is, for any $X in cat(C)$ and $Y in cat(D)$, the natural isomorphism provides $Hom_(cat(D))(F(X),Y) tilde.equiv Hom_(cat(C))(X, G(Y))$.
+
+  \ 
+
+  #text(weight: "bold")[II. Cocone functor as Limit in Sets:]
+
+  Define the functor $Cocone(\_,D): cat(C) arrow.r Set$ as $Cocone(A,D) = {"Cocones of " D " with tip "A in cat(C)}$ (that is, a set collecting all pairs $(A, {mu_i:D(i) arrow.r A}_(i in I))$, such that any morphism $f:i arrow.r j$ in $I$, satisfies $mu_i = mu_j compose D f: D(i) arrow.r A$). Then, for any morphism $f:A arrow.r B$ in $cat(C)$, it defines a morphism $overline(f):Cocone(A,D) arrow.r Cocone(B,D)$ satisfying $(A, {mu_i:D(i) arrow.r A}_(i in I)) mapsto (B, {f compose mu_i:D(i) arrow.r B}_(i in I))$.
+
+  So, if we consider the functor $Hom_(cat(C))(D(\_), A):I^op arrow.r Set$, since in $Set$ all limit exists, in particular we can consider $lim_(arrow.l\ i in I)Hom_(cat(C))(D(i), A) = {(mu_i:D(i) arrow.r A)_(i in I) | forall f in Hom_(I)(i,j), quad mu_i = mu_j compose D f} = L$, where $L subset.eq product_(i in I)Hom_(cat(C))(D(i),A)$.
+
+  Notice that the set $L$ is precisely all collections of morphisms that's compatible with diagram $D$, and has target at $A$. So, $L = Cocone(A,D)$.
+
+  \ 
+
+  #text(weight: "bold")[III. $Hom_(cat(C))(\_, A)$ Sends Colimit to Limit:]
+
+  Given any diagram $D': J arrow.r cat(C)$ such that colimit exists, then let $K':= lim_(arrow.r \ j in J)D'(j)$ be the colimit (together with morphisms ${k_j:D'(j) arrow.r K'})_(j in J)$), the relation in #text(weight: "bold")[II] provides the following:
+  $ Hom_(cat(C))(K', A) tilde.equiv Cocone(A, D') tilde.equiv lim_(arrow.l \ j in J)Hom_(cat(C))(D'(j), A) $
+  This first set isomorphism is coming from the fact that for each cocone of $D'$, say $(A, {mu_j:D(j) arrow.r A}_(j in J))$ with tip $A$, there exists a unique morphism $f_(mu):K' arrow.r A$, such that each $mu_j = f_(mu) compose k_j$. So, there is a natural 1-1 correspondance between cocone with tip $A$, and the morphisms from $K'$ to $A$.
+
+  \ 
+
+  Finally, with the above tools, we can prove the statement: Given that $K$ is a colimit of diagram $D:I arrow.r cat(C)$, then we get the following for all $Y in cat(D)$, using the Hom functors:
+  $ Hom_(cat(D))(F(K), Y) tilde.equiv Hom_(cat(C))(K, G(Y)) tilde.equiv lim_(arrow.l\ i in I)Hom_(cat(C))(D(i), G(Y)) tilde.equiv lim_(arrow.l\ i in I)Hom_(cat(D))(F compose D(i), Y) $
+  Where the first isomorphism is using #text(weight: "bold")[I], the second isomorphism uses #text(weight: "bold")[III], and the third isomorphism uses #text(weight: "bold")[I] again.
+
+  The last step is that $lim_(arrow.l\ i in I)Hom_(cat(D))(F compose D(i),Y) tilde.equiv Cocone(Y, F compose D)$ based on #text(weight: "bold")[II]. Hence, for all $Y in cat(D)$, one has $Hom_(cat(D))(F(K),Y) tilde.equiv Cocone(Y, F compose D)$, which is precisely the characterization of a colimit of $F compose D:I arrow.r cat(D)$ (Since $F(K)$ is a colimit of $F compose D$ $<==>$ every cocone of $F compose D$ of tip $Y$ corresponds to a unique morphism $F(K) arrow.r Y$ $<==>$ $Hom_(cat(D))(F(K)) tilde.equiv Cocone(Y,D)$).
+
+  So, $F(K)$ is a colimit of $F compose D$, this shows that $F$ (as a left adjoint of $G$) preserves colimit.
+]
+
+#pagebreak()
 
 = D//7
 #problem[
@@ -713,7 +751,7 @@
 
   \ 
 
-  However, if consider the tensor product of the above ones with $ZZ$-module $ZZ\/2ZZ$, then the form the map $1 times.circle m:ZZ\/2ZZ times.circle ZZ arrow.r ZZ\/2ZZ times.circle ZZ$ by $(1 times.circle m)(a times.circle b)=a times.circle (2 b)$ for all $a in ZZ\/2ZZ$ and $b in ZZ$. Yet, notice that this map is a zero map, since $a times.circle (2 b) = (2 a) times.circle b = 0 times.circle b = 0$ (because $2 a =0 in ZZ\/2ZZ$, where $a$ is arbitrary). This shows that an injective module homomorphism after tensoring with some modules (and the corresponding identity map), it doesn't necessarily preserve injectivity (in this case, it turns $m$ an injective morphism to $1 times.circle m$, a zero map).
+  However, if consider the tensor product of the above ones with $ZZ$-module $ZZ\/2ZZ$, then the form the map $1 times.circle m:ZZ\/2ZZ times.circle ZZ arrow.r ZZ\/2ZZ times.circle ZZ$ by $(1 times.circle m)(a times.circle b)=a times.circle (2 b)$ for all $a in ZZ\/2ZZ$ and $b in ZZ$. Yet, notice that this map is a zero map, since $a times.circle (2 b) = (2 a) times.circle b = 0 times.circle b = 0$ (because $2 a =0 in ZZ\/2ZZ$, where $a$ is arbitrary). This shows that an injective module homomorphism after tensoring with some modules (and the corresponding identity map), it doesn't necessarily preserve injectivity (in this case, it turns $m$ an injective morphism to $1 times.circle m$, a zero map on nonzero module, since $ZZ\/2 ZZ times.circle ZZ tilde.equiv ZZ\/2ZZ$ when tensor as $ZZ$-modules).
 
   \ 
 
