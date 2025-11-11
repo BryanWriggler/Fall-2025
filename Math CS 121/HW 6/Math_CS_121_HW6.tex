@@ -1,0 +1,233 @@
+\documentclass{article}
+\usepackage{../../Self_Style}
+
+\title{Math CS 121 HW 6}
+\author{Zih-Yu Hsieh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{1}
+\begin{ques}\label{q1}
+    6 Rev. 6:
+
+    Let $X$ be the random variable with density function
+    $$f(x)=\begin{cases}
+        4x^3/15 & 1\leq x\leq 2\\
+        0 & \text{otherwise}
+    \end{cases}$$
+    Find the density function of $Y=e^X$, $Z=X^2$, and $W=(X-1)^2$.
+\end{ques}
+
+\begin{proof}
+
+    \hfil
+
+    \textbf{I. Density of $Y=e^X$:}
+
+    For $Y=e^X$, the cumulative distribution is $F_Y(t) = \PP(Y\leq t)=\PP(e^X\leq t) = \PP(X\leq \ln(t)) = \int_{-\infty}^{\ln(t)}f(x)dx$, which it requires $t>0$ (since $e^X>0$ regardless of $X \in\RR$).
+        
+    As a result, the density function $f_Y(t) = \frac{dF_Y}{dt} = \frac{d}{dt}\int_{-\infty}^{\ln(t)}f(x)dx = f(\ln(t))\frac{1}{t}$, for $t>0$.
+
+    If $1\leq \ln(t)\leq 2$ (or the region $e\leq \ln(t)\leq e^2$), we have $f(\ln(t)) = 4(\ln(t))^3/15$; for $t\notin [e,e^2]$ (or $\ln(t)\notin [1,2]$), we have $f(\ln(t))=0$. Hence, the density function of $Y$ is as follow:
+    \begin{align}
+        \forall t>0, \quad f_Y(t) = \begin{cases}
+            \frac{4(\ln(t))^3}{15t} & t \in[e,e^2]\\
+            0 & t>0, \text{otherwise}
+        \end{cases}
+    \end{align}
+
+    \hfil
+
+    \textbf{II. Density of $Z=X^2$:}
+
+    For $Z=X^2$, the cumulative distribution is $F_Z(t)=\PP(Z\leq t)=\PP(X^2\leq t)=\PP(-\sqrt{t}\leq X\leq \sqrt{t}) = \int_{-\sqrt{t}}^{\sqrt{t}}f(x)dx$, which it requires $t\geq 0$ (since $X^2\geq 0$ for all $X\in\RR$).
+
+    As a result, the density function $f_Z(t)=\frac{dF_Z}{dt}=\frac{d}{dt}\int_{-\sqrt{t}}^{\sqrt{t}}f(x)dx = \frac{f(\sqrt{t})}{2\sqrt{t}} - \frac{f(-\sqrt{t})}{-2\sqrt{t}} = \frac{f(\sqrt{t})+f(-\sqrt{t})}{2\sqrt{t}}$, which requires $t>0$.
+
+    Now, notice that on the domain of $f_Z(t)$ (where $t>0$), $\sqrt{t}>0$, hence $-\sqrt{t}<0$, indicating that $f(-\sqrt{t})=0$ (since $\sqrt{t}\notin [1,2]$), so $f_Y(t) = \frac{f(\sqrt{t})}{2\sqrt{t}}$.
+
+    Finally, for $1\leq \sqrt{t}\leq 2$ (or $1\leq t\leq 4$), one has $f(\sqrt{t})=4(\sqrt{t})^3/15 = 4t\sqrt{t}/15$; for $t\notin[1,4]$ (which $\sqrt{t}\notin [1,2]$), we have $f(\sqrt{t})=0$ instead. Hence, the density function of $Z$ is as follow:
+    \begin{align}
+        \forall t>0, \quad f_Z(t)=\begin{cases}
+            \frac{2t}{15} & t\in[1,4]\\
+            0 & \text{otherwise}
+        \end{cases}
+    \end{align}
+
+    \hfil
+
+    \textbf{III. Density of $W=(X-1)^2$:}
+
+    For $W=(X-1)^2$, the cumulative distribution is $F_W(t)=\PP(W\leq t)=\PP((X-1)^2\leq t) = \PP(-\sqrt{t}\leq (X-1)\leq \sqrt{t})=\PP(1-\sqrt{t}\leq X\leq 1+\sqrt{t}) = \int_{1-\sqrt{t}}^{1+\sqrt{t}}f(x)dx$, whith it requires $t\geq 0$ (since $(X-1)^2\geq 0$ for all $X\in\RR$).
+
+    As a result, the density function $f_W(t)=\frac{dF_W}{dt}=\frac{d}{dt}\int_{1-\sqrt{t}}^{1+\sqrt{t}}f(x)dx = \frac{f(1+\sqrt{t})}{2\sqrt{t}}-\frac{f(1-\sqrt{t})}{-2\sqrt{t}} = \frac{f(1+\sqrt{t})+f(1-\sqrt{t})}{2\sqrt{t}}$, which further requries $t>0$.
+
+    Now, notice that on the domain of $f_W(t)$ (where $t>0$), $\sqrt{t}>0$, hene $-\sqrt{t}<0$, implying $1-\sqrt{t}<1$. Hence, $f(1-\sqrt{t})=0$ (since $1-\sqrt{t}\notin [1,2]$), so $f_W(t)=\frac{f(1+\sqrt{t})}{2\sqrt{t}}$.
+
+    Finaly, for $1\leq 1+\sqrt{t}\leq 2$ (or $0\leq \sqrt{t}\leq 1$, requiring $0\leq t\leq 1$; including the domain of the function, it's on the region $0<t\leq 1$), one has $f(1+\sqrt{t}) = 4(1+\sqrt{t})^3/15$; otherwise for $t>1$ (which $1+\sqrt{t}\notin[1,2]$), we have $f(1+\sqrt{t})=0$ instead. Hence, the density function of $W$ is as follow:
+    \begin{align}
+        \forall t>0,\quad f_W(t)=\begin{cases}
+            \frac{2(1+\sqrt{t})^3}{15\sqrt{t}} & t\in(0,1]\\
+            0 & t>1
+        \end{cases}
+    \end{align}
+\end{proof}
+
+\hfil
+
+\section*{2}
+\begin{ques}\label{q2}
+    7.1.12:
+
+    Let $X$ be a random number from $(0,1)$. Find the density function of:
+    \begin{itemize}
+        \item[(a)] $Y=-\ln(1-X)$
+        \item[(b)] $Z=X^n$. 
+    \end{itemize}
+\end{ques}
+
+\begin{proof}
+
+    First, since $X$ is randomly chosen from the interval $(0,1)$, it can be expected that $X \sim \Unif(0,1)$. Hence, the density function is given as follow:
+    \begin{align}
+        f(x)=\begin{cases}
+            1 & x\in(0,1)\\
+            0 & \text{otherwise}
+        \end{cases}
+    \end{align} 
+
+    \begin{itemize}
+        \item[(a)] Given that $Y=-\ln(1-X)$, then the cummulative density $F_Y(t)=\PP(Y\leq t)=\PP(-\ln(1-X)\leq t)=\PP(\ln(1-X)\geq -t)=\PP(1-X\geq e^{-t}) = \PP(X\leq 1-e^{-t}) = \int_{-\infty}^{1-e^{-t}}f(x)dx$. Which, it is required that $1-e^{-t}\in (0,1)$, so $0<1-e^{-t}<1$, $0<e^{-t}<1$, $-t<0$, hence $t>0$.
+        
+        Which, if $t>0$, we have $1-e^{-t}\in (0,1)$, so $F_Y(t) = \int_{-\infty}^{1-e^{-t}}f(x)dx = \int_{0}^{1-e^{-t}}1\  dx = 1-e^{-t}$. Hence, the density function is $f_Y(t) = \frac{dF_Y}{dt} = e^{-t}$, for $t>0$.
+
+        \hfil
+
+        \item[(b)] Given $Z=X^n$, then $F_Z(t) = \PP(Z\leq t)=\PP(X^n\leq t)$. Since $X\in (0,1)$, then $X^n\in(0,1)$, so it requires $0<t<1$ to be well-defined.
+        
+        Which, $F_Z(t) = \PP(X^n\leq t) = \PP(X\leq t^{1/n}) = \int_{-\infty}^{t^{1/n}}f(x)dx = \int_{0}^{t^{1/n}}1 dx = t^{1/n}$. Hence, the density function is $f_Z(t) = \frac{dF_Z}{dt} = \frac{1}{n}t^{-\frac{(n-1)}{n}}$, for $t\in (0,1)$.
+    \end{itemize}
+\end{proof}
+
+\newpage
+
+\section*{3}
+\begin{ques}\label{q3}
+    7.1.17:
+
+    Let $Y$ be a random number from $(0,1)$. Let $X$ be the second digit of $\sqrt{Y}$. Prove that for $n=0,1,2,...,9$, $\PP(X=n)$ increases as $n$ increases. This is remarkable because it shows that $\PP(X=n)$, $n=1,2,3,...$ is not constant. That is, $Y$ is uniform but $X$ is not.
+\end{ques}
+
+\begin{proof}
+    Since $Y$ is a random number from $(0,1)$, it can be expected that $Y \sim \Unif(0,1)$. So, its density function is given as follow:
+    \begin{align}
+        f(x)=\begin{cases}
+            1 & x\in (0,1)\\
+            0 & \text{otherwise}
+        \end{cases}
+    \end{align}
+    Which, if $X$ represents the second digit of $\sqrt{Y}$, then $X \in \{0,1,...,9\}$.
+
+    For any $n \in \{0,1,...,9\}$, if $X=n$, it means we representing in decimals, $\sqrt{Y} = 0.n...$ (so the $10^\text{th}$ decimal digit is $n$). Hence, we get that $\frac{n}{10}\leq \sqrt{Y}<\frac{n+1}{10}$, showing that $\frac{n^2}{100}\leq y<\frac{(n+1)^2}{100}$. Hence, we get that $\PP(X=n) = \PP\left(\frac{n^2}{100}\leq Y<\frac{(n+1)^2}{100}\right)$. Since the possible $n$ satisfies $0leq n^2< 100$ and $0<(n+1)^2\leq 100$, so $0\leq \frac{n^2}{100}<1$ and $0<\frac{(n+1)^2}{100}\leq 1$. Hence, we get the following:
+    \begin{align}
+        \PP(X=n)=\PP\left(\frac{n^2}{100}\leq Y<\frac{(n+1)^2}{100}\right) = \int_{n^2/100}^{(n+1)^2/100}1 dx = \frac{(n+1)^2}{100}-\frac{n^2}{100} = \frac{2n+1}{100}
+    \end{align}
+    So, when $n$ increases, $\PP(X=n)$ also increases.
+\end{proof}
+
+\hfil
+
+\section*{4}
+\begin{ques}\label{q4}
+    7.2.34:
+
+    At an archaeological site $130$ skeletons are found and their heights are measured and found to be approximately normal with mean $172$ cm and variance $81$ cm$ ^2$. At a nearby site, five skeletons are discovered and it is found that the heights of exactly three of them are above $185$ centimeters. Based on this information is it reasonable to assume that the second group of skeletons belongs to the same family as the first group of skeletons?
+\end{ques}
+
+\begin{proof}
+    Given that the mean of the skeletons is $\mu=172$ cm and variance $\sigma^2 = 81$ cm$ ^2$ that's approximately a normal distribution (so $\sigma = 9$ cm). Let $X$ be the random variables of the skeletons' height, we have $X\sim \mathcal{N}(\mu=172,\sigma^2=81)$. Which, the density function to $X$ is $f(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-(\frac{x-\mu}{\sigma})^2/2} = \frac{1}{9\sqrt{2\pi}}e^{-(x-172)^2/162}$. Hence, let $p=\PP(X\leq 185)$ and $ q=\PP(X>185)$, we get the following values:
+    \begin{align}
+        p=\PP(X\leq 185) = \int_{-\infty}^{185}f(x)dx \approx 0.9257\\
+        q=\PP(X>185) = \int_{185}^\infty f(x)dx \approx 0.0743
+    \end{align}
+    Now, if we find $5$ skeletons that belongs to this site, then the probability that exactly $3$ skeletons are above $185$ cm, is given by $p^2 q^3 \cdot\begin{pmatrix}5\\3\end{pmatrix}$ (since it's choosing $3$ out of $5$ to have height $X>185$ cm, while the other two have height $X\leq 185$; WLOG, can assume their heights are all independent from each other, hene for $X\leq 185$ the probability is $q$, and $X>185$ the probability is $q$). So, the probability this event happens is $p^2 q^3\cdot\begin{pmatrix}5\\3\end{pmatrix}\approx 0.0035$. 
+    
+    So, if the five skeletons actually belong to the site, there is about $0.35\%$ chance that exactly three of them are above $185$ cm, which is pretty unlikely to happen. Hence, it's not reasonable to assume the second grouop of five skeletons belong to the same family as the first group (which follows the distribution $\mathcal{N}(\mu=172,\sigma^2=81)$).
+\end{proof}
+
+\hfil
+
+\section*{5}
+\begin{ques}\label{q5}
+    7.3.14:
+
+    Let $X$, the lifetime (in years) of a radio tube, be exponentially distributed with mean $\frac{1}{\lambda}$. Prove that $[X]$, the integer part of $X$, whih is complete number of years that the tube works, is a geometric random variable.
+\end{ques}
+
+\begin{proof}
+    Given that $X$ is a random variable that's exponentially distributed with mean $\frac{1}{\lambda}$, then $X\sim\Exp(\lambda)$ (since exponential distribution with rate $\lambda$ generates mean $\frac{1}{\lambda}$). Where, the density function is given by $f(x)=\lambda e^{-\lambda x}$ for $x\geq 0$.
+
+    Now, to calculate the probability of $[X]=n$, where $n\in\NN$, then this indicates that $n\leq X<(n+1)$, showing the following:
+    \begin{align}
+        \PP([X]=n)&=\PP(n\leq X<(n+1)) = \int_{n}^{n+1}f(x)dx=\int_{n}^{n+1}\lambda e^{-\lambda x}dx\\ 
+        &= -e^{-\lambda x}\bigg|_{n}^{n+1} = e^{-n\lambda}-e^{-(n+1)\lambda} = (e^{-\lambda})^n \cdot (1-e^{-\lambda})
+    \end{align}
+    Hence, this shows that $[X]$ is a geometric random variable, with $p=e^{-\lambda}$.
+    
+\end{proof}
+
+\hfil
+
+\section*{6}
+\begin{ques}\label{q6}
+    7.Rev.2:
+
+    It is known that the weight of a random woman from a community is normal with mean $130$ lbs and standard deviation $20$ lbs. Of the women in that community who weigh above $140$ lbs, what percent weigh over $170$ lbs?
+\end{ques}
+
+\begin{proof}
+    Let $X$ be the random variables of the weight of the people from the given community, it has mean $\mu=130$ lbs, and standard deviation $\sigma=20$ lbs. Which, with it being normal distribution, $X\sim\mathcal{N}(\mu=130, \sigma^2=400)$. Hence, the corresponding density function of $X$ is $f(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\left(\frac{x-\mu}{\sigma}\right)^2/2} = \frac{1}{20\sqrt{2\pi}}e^{-(x-130)^2/800}$.
+
+    Now, the probability $\PP(X>140), \PP(X>170)$ are given as follow respectively:
+    \begin{align}
+        \PP(X>140)=\int_{140}^{\infty}f(x) dx \approx 0.3085,\quad \PP(X>170)=\int_{170}^{\infty}f(x) dx\approx 0.0228
+    \end{align}
+    So, out of the people in the community that weigh above $140$ lbs, the percent weighing over $170$ lbs is given by the conditional probability $\PP(X>170 | X>140)$, which can be characterized as follow:
+    \begin{align}
+        \PP(X>170 | X>140)=\frac{\PP(\{X>170\}\cap \{X>140\})}{\PP(X>140)} = \frac{\PP(X>170)}{\PP(X>140)}\approx 0.0737
+    \end{align}
+    (Note: the set $\{X>170\}\subset \{X>140\}$).
+
+    Hence, within the people weighing above $140$ lbs, the percent weighing over $170$ lbs is about $7.37\%$.
+\end{proof}
+
+\hfil
+
+\section*{7}
+\begin{ques}\label{q7}
+    7.Rev.4:
+
+    Let $X$, the lifetime of a light bulb, be an exponential random variable with parameter $\lambda$. Is it possible that $X$ satisfies the following relation?
+    $$\PP(X\leq 2) = 2\PP(2<X\leq 3)$$
+    If so, for what value of $\lambda$?
+\end{ques}
+
+\begin{proof}
+    Suppose there exists such rate $\lambda$ so that the random variable $X\sim\Exp(\lambda)$ satisfies $\PP(X\leq 2)=2\PP(2<X\leq 3)$. Then, since the density function is given by $f(x)=\lambda e^{-\lambda x}$ for $x\geq 0$, then the two involved probability are given as follow:
+    \begin{align}
+        \PP(X\leq 2)=\int_{0}^{2}\lambda e^{-\lambda x}dx=-e^{-\lambda x}\bigg|_{0}^{2}=1-e^{-2\lambda},\quad \PP(2<X\leq 3)=\int_{2}^{3}\lambda e^{-\lambda x}dx = -e^{-\lambda x}\bigg|_{2}^{3}=e^{-2\lambda}-e^{-3\lambda}
+    \end{align}
+    As a result, if $\PP(X\leq 2)=2\PP(2<X\leq 3)$, then we must have $1-e^{-2\lambda}=2e^{-2\lambda}-2e^{-3\lambda}$. 
+    
+    Set $t=e^{-\lambda}$, the equation transfers to $1-t^2=2t^2-2t^3$, or $2t^3-3t^2+1=0$. One of the solutions can be see, as $t=1$ (since $2\cdot 1^3-3\cdot 1^2+1 = 2-3+1=0$). Which, this indicates that $2t^3-3t^2+1$ can be factored as $(t-1)(2t^2-t-1)$.
+
+    Now, for the component $2t^2-t-1$, the roots are given by $\frac{-(-1)\pm\sqrt{(-1)^2-4\cdot 2\cdot (-1)}}{2\cdot 2} = \frac{1\pm\sqrt{9}}{4} = 1, -\frac{1}{2}$. So, we get that $2t^3-3t^2+1 = 2(t-1)^2(t+\frac{1}{2})$.
+
+    This indicates that $e^{-\lambda}=t=1,-\frac{1}{2}$. Yet, for $\lambda\in\RR$, it's impossible that $e^{-\lambda}=-\frac{1}{2}$ (since $e^{x}>0$ for all $x\in\RR$); so, this must end with $e^{-\lambda}=1$, or $-\lambda=0$, hence $\lambda=0$. Yet, this doesn't define a probability distribution, hence we reach a contradiction.
+
+    So, there doesn't exist such rate $\lambda$, so that $X\sim\Exp(\lambda)$ satisfies $\PP(X\leq 2)=2\PP(2<X\leq 3)$.
+\end{proof}
+
+\end{document}
