@@ -330,7 +330,7 @@
 
 #pagebreak()
 
-= ND (Split to Problem 6-12) (12 not done)//5
+= D (Split to Problem 6-12)//5
 #problem[
   #definition(1)[
     Let $R$ be a commutative ring. If $S$ is any set, we denote by $L_R(S)$ the set of all finite linear combinations of elements in $S$ over $R$ -- that is, the set of formal sums $sum_(i)a_i dot s_i$ where $a_i in R$ and $s_i in S$, and $i$ runs through a finite set.
