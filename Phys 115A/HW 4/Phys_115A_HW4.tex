@@ -228,11 +228,40 @@ where $\beta \equiv \frac{m \alpha}{\hbar^2 k}$.
 \end{ques}
 
 \begin{proof}
+    We'll first compute two of the integrals for ease of computation:
+    \begin{align}
+        \int_{-\infty}^{0}e^{m\alpha x/\hbar^2}e^{ikx}dx = \frac{1}{m\alpha/\hbar^2 + ik}e^{m\alpha x/\hbar^2}e^{ikx}\bigg|_{-\infty}^{0}=\frac{\hbar^2}{m\alpha+ik\hbar^2}\\
+        \int_{-\infty}^{0}e^{m\alpha x/\hbar^2}e^{-ikx}dx = \frac{1}{m\alpha/\hbar^2-ik}e^{m\alpha x/\hbar^2}e^{-ikx}\bigg|_{-\infty}^{0}=\frac{\hbar^2}{m\alpha-ik\hbar^2}
+    \end{align}
+    Also, $\psi_b(x)$ is in fact given as follow:
+    \begin{align}
+        \psi_b(x)=\begin{cases}
+            \sqrt{\frac{m\alpha}{\hbar^2}}e^{-m\alpha x/\hbar} & x\geq 0\\
+            \sqrt{\frac{m\alpha}{\hbar^2}}e^{m\alpha x/\hbar} & x<0
+        \end{cases}
+    \end{align}
+    To show the orthogonality statement, the goal is showing $\int_{-\infty}^{\infty}\psi_b(x)^* \psi_k(x)dx = 0$. Which, it is given as follow:
+    \begin{align}
+        \int_{-\infty}^{\infty}\psi_b(x)^*\psi_k(x)dx =& \int_{-\infty}^{0}\sqrt{\frac{m\alpha}{\hbar}}e^{m\alpha x/\hbar^2} \cdot A \left( e^{i k x} + \frac{i \beta}{1 - i \beta} e^{-i k x} \right)dx + \int_{0}^{\infty}\sqrt{\frac{m\alpha}{\hbar}}e^{-m\alpha x/\hbar}\cdot A \frac{1}{1 - i \beta} e^{i k x} dx\\
+        =& A\sqrt{\frac{m\alpha}{\hbar}}\int_{-\infty}^{0}e^{m\alpha x/\hbar^2}e^{ikx}dx + A\sqrt{\frac{m\alpha}{\hbar}}\frac{i\beta}{1-i\beta}\int_{-\infty}^{0}e^{m\alpha x/\hbar^2}e^{-ikx}dx\\
+        &+ A\sqrt{\frac{m\alpha}{\hbar}}\frac{1}{1-i\beta}\int_{-\infty}^{0}e^{m\alpha u/\hbar^2}e^{-iku}du\\
+        =& A\sqrt{\frac{m\alpha}{\hbar}}\left(\frac{\hbar^2}{m\alpha+ik\hbar^2} + \frac{1+i\beta}{1-i\beta}\frac{\hbar^2}{m\alpha-ik\hbar^2}\right)
+    \end{align}
+    Which, with $\beta=\frac{m\alpha}{\hbar^2 k}$, and $\frac{1+i\beta}{1-i\beta}=\frac{(1+i\beta)^2}{1+\beta^2} = \frac{1-\beta^2+2i\beta}{1+\beta^2}$, we get the following:
+    \begin{align}
+        \frac{1+i\beta}{1-i\beta} = \frac{1-\left(\frac{m\alpha}{\hbar^2k}\right)^2 + 2i\frac{m\alpha}{\hbar^2k}}{1+\left(\frac{m\alpha}{\hbar^2k}\right)^2} = \frac{\hbar^4k^2 - m^2\alpha^2 + 2m\alpha\hbar^2k\cdot i}{\hbar^4k^2+m^2\alpha^2}
+    \end{align}
+    Hence, the term in the paranthesis in the second last equation becomes the follow:
+    \begin{align}
+        &\frac{\hbar^2}{m\alpha+ik\hbar^2} + \frac{1+i\beta}{1-i\beta}\frac{\hbar^2}{m\alpha-ik\hbar^2} = \frac{\hbar^2(m\alpha-ik\hbar^2)(\hbar^4k^2+m^2\alpha^2)}{(m^2\alpha^2+k^2\hbar^4)^2}+\frac{\hbar^4k^2 - m^2\alpha^2 + 2m\alpha\hbar^2k\cdot i}{\hbar^4k^2+m^2\alpha^2}\cdot \frac{\hbar^2(m\alpha+ik\hbar)}{m^2\alpha^2+k^2\hbar^4}\\
+        &= \frac{}{(\hbar^4k^2+m^2\alpha^2)^2}\\
+        &= 0
+    \end{align}
 \end{proof}
 
 \newpage
 
-\section*{7 (ND)}
+\section*{7}
 \begin{ques}\label{q7}
 Delta Transformation (Griffiths 2.26)
 
@@ -240,6 +269,14 @@ What is the Fourier transform of $\delta(x)$? Using Plancherel’s theorem, show
 \end{ques}
 
 \begin{proof}
+    Suppose $\delta(x)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\phi(k)e^{ikx}dk$, then using Inverse Fourier Transform, we get: 
+    \begin{align}
+        \phi(k)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\delta(x)e^{-ikx}dx = \frac{1}{\sqrt{2\pi}}
+    \end{align}
+    Hence, we get:
+    \begin{align}
+        \delta(x)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\phi(k)e^{ikx}dk = \frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ikx}dk
+    \end{align}
 \end{proof}
 
 \end{document}
