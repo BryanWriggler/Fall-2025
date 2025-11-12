@@ -208,9 +208,9 @@ Evaluate the following integrals:
     \end{enumerate}
 \end{proof}
 
-\newpage
+\hfil
 
-\section*{6 (ND)}
+\section*{6}
 \begin{ques}\label{q6}
 States of the Delta Well (Griffiths 2.25)
 
@@ -253,10 +253,15 @@ where $\beta \equiv \frac{m \alpha}{\hbar^2 k}$.
     \end{align}
     Hence, the term in the paranthesis in the second last equation becomes the follow:
     \begin{align}
-        &\frac{\hbar^2}{m\alpha+ik\hbar^2} + \frac{1+i\beta}{1-i\beta}\frac{\hbar^2}{m\alpha-ik\hbar^2} = \frac{\hbar^2(m\alpha-ik\hbar^2)(\hbar^4k^2+m^2\alpha^2)}{(m^2\alpha^2+k^2\hbar^4)^2}+\frac{\hbar^4k^2 - m^2\alpha^2 + 2m\alpha\hbar^2k\cdot i}{\hbar^4k^2+m^2\alpha^2}\cdot \frac{\hbar^2(m\alpha+ik\hbar)}{m^2\alpha^2+k^2\hbar^4}\\
-        &= \frac{}{(\hbar^4k^2+m^2\alpha^2)^2}\\
+        &\frac{\hbar^2}{m\alpha+ik\hbar^2} + \frac{1+i\beta}{1-i\beta}\frac{\hbar^2}{m\alpha-ik\hbar^2} = \frac{\hbar^2(m\alpha-ik\hbar^2)(\hbar^4k^2+m^2\alpha^2)}{(m^2\alpha^2+k^2\hbar^4)^2}+\frac{\hbar^4k^2 - m^2\alpha^2 + 2m\alpha\hbar^2k\cdot i}{\hbar^4k^2+m^2\alpha^2}\cdot \frac{\hbar^2(m\alpha+ik\hbar^2)}{m^2\alpha^2+k^2\hbar^4}\\
+        &= \frac{\hbar^6k^2m\alpha+\hbar^2m^3\alpha^3-i\hbar^8k^3-i\hbar^4km^2\alpha^2+\hbar^6k^2m\alpha+i\hbar^8k^3-\hbar^2m^3\alpha^3-i\hbar^4km^2\alpha^2+2i\hbar^4km^2\alpha^2-2\hbar^6k^2m\alpha}{(\hbar^4k^2+m^2\alpha^2)^2}\\
         &= 0
     \end{align}
+    Hence, as a result, we get:
+    \begin{align}
+        \int_{-\infty}^{\infty}\psi_b(x)^*\psi_k(x)dx = A\sqrt{\frac{m\alpha}{\hbar}}\left(\frac{\hbar^2}{m\alpha+ik\hbar^2}+\frac{1+i\beta}{1-i\beta}\frac{\hbar^2}{m\alpha-ik\hbar^2}\right) = 0
+    \end{align}
+    Which, this demonstrates the orthogonality.
 \end{proof}
 
 \newpage
