@@ -71,6 +71,7 @@
 #let Der = math.upright[Der] //stands for spaes of derivation as linear operator
 #let Ad = math.upright[Ad] //the Adjoint action of Lie group on itself
 #let ad = math.upright[ad] //the adjoint action of Lie algebra on itself
+#let Lie = math.upright[Lie] //functor from lie gp to lie alg
 
 //analysis
 #let Vol = math.upright[Vol] //volume, in the sense of Riemann / Jordan measure
