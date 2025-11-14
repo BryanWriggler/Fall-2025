@@ -174,7 +174,7 @@ Consider a free particle whose state at time $t = 0$ is given by a gaussian wave
     \hfil
 
     \begin{itemize}
-        \item[1.] To normalize $Psi(x,0)$, we want $\int_{-\infty}^{\infty}|\Psi|^2 dx=1$. Which, $|Psi(x,0)|^2 = A^2e^{-2a^2x^2}$ (since $A\in\RR$), hence using substitution $u=\sqrt{2}ax$, $du=\sqrt{2}adx$, we get:
+        \item[1.] To normalize $\Psi(x,0)$, we want $\int_{-\infty}^{\infty}|\Psi|^2 dx=1$. Which, $|\Psi(x,0)|^2 = A^2e^{-2a^2x^2}$ (since $A\in\RR$), hence using substitution $u=\sqrt{2}ax$, $du=\sqrt{2}adx$, we get:
         \begin{align}
             1&=\int_{-\infty}^{\infty}A^2e^{-2a^2x^2}dx = \frac{A^2}{\sqrt{2}a}\int_{-\infty}^{\infty}e^{-u^2}du = \frac{A^2}{a}\sqrt{\frac{\pi}{2}}
         \end{align}
@@ -182,7 +182,32 @@ Consider a free particle whose state at time $t = 0$ is given by a gaussian wave
 
         \hfil
 
-        \item[2.] If express $\Psi(x,0)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\phi(k)e^{ikx}dk$, then by Inverse Fourier Transform one has $\phi(k)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\Psi(x,0)e^{-ikx}dx = \frac{A}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-a^2x^2-ikx}dx$.
+        \item[2.] If express $\Psi(x,0)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\phi(k)e^{ikx}dk$, then by Inverse Fourier Transform one has the following for $\phi(k)$:
+        \begin{align}
+            \phi(k)&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\Psi(x,0)e^{-ikx}dx = \frac{1}{\sqrt{2\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\int_{-\infty}^{\infty}e^{-a^2x^2-ikx}dx\\
+            &= \frac{1}{\sqrt{2\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\int_{-\infty}^{\infty}e^{-(ax)^2 - 2ax\cdot\frac{ik}{2a} + \left(\frac{ik}{2a}\right)^2}e^{-k^2/(4a^2)}dx\\
+            &= \frac{1}{\sqrt{2\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}e^{-k^2/(4a^2)}\int_{-\infty}^{\infty}e^{-(ax-ik/(2a))^2}dx\\
+            &= \frac{1}{\sqrt{2\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}e^{-k^2/(4a^2)}\int_{-\infty-ik/(2a)}^{\infty-ik/(2a)}\frac{1}{a}e^{-u^2}du\\
+            &= \frac{1}{a\sqrt{2\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}e^{-k^2/(4a^2)}\int_{-\infty}^{\infty}e^{-u^2}du\\
+            &= \frac{1}{a\sqrt{2}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}e^{-k^2/(4a^2)}
+        \end{align}
+        As a result, the wavefunction is expressed as follow:
+        \begin{align}
+            \Psi(x,t)&= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\phi(k)e^{ikx - i\frac{\hbar k^2 t}{2m}}dk\\
+            &= \frac{1}{2a\sqrt{\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\int_{-\infty}^{\infty}\exp\left(-\left(\frac{1}{4a^2} - i\frac{\hbar t}{2m}\right)k^2 + ix k\right)dk
+        \end{align}
+        Let $c:=\frac{1}{4a^2}-i\frac{\hbar t}{2m} = \frac{m-i\hbar 2a^2t}{4ma^2}$, $d:= -ix$, then with the substitution $u=\sqrt{c}(k+d/(2c))$ ($du = \sqrt{c}dk$), $ck^2+dk = u^2 - d^2/(4c)$, hence the integral (with exponent $-ck^2 - dk$) becomes as follow:
+        \begin{align}
+            \frac{1}{2a\sqrt{\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\frac{1}{\sqrt{c}}\int_{-\sqrt{c}\infty}^{\sqrt{c}\infty}e^{-u^2}e^{d^2/(4c)}du = \frac{1}{2a\sqrt{c}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}e^{d^2/(4c)}
+        \end{align}
+        With $\frac{d^2}{4c}=\frac{-4ma^2x^2}{m-i\hbar 2a^2t}$, the solution becomes as follow:
+        \begin{align}
+            \Psi(x,t)=\frac{1}{2a}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\sqrt{\frac{4ma^2}{m-i\hbar 2a^2t}}\exp\left(\frac{-4ma^2 x^2}{m-i\hbar 2a^2t}\right)
+        \end{align}
+
+        \hfil
+
+        \item[3.]
     \end{itemize}
 \end{proof}
 
