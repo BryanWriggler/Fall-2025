@@ -170,6 +170,20 @@ Consider a free particle whose state at time $t = 0$ is given by a gaussian wave
 \end{ques}
 
 \begin{proof}
+
+    \hfil
+
+    \begin{itemize}
+        \item[1.] To normalize $Psi(x,0)$, we want $\int_{-\infty}^{\infty}|\Psi|^2 dx=1$. Which, $|Psi(x,0)|^2 = A^2e^{-2a^2x^2}$ (since $A\in\RR$), hence using substitution $u=\sqrt{2}ax$, $du=\sqrt{2}adx$, we get:
+        \begin{align}
+            1&=\int_{-\infty}^{\infty}A^2e^{-2a^2x^2}dx = \frac{A^2}{\sqrt{2}a}\int_{-\infty}^{\infty}e^{-u^2}du = \frac{A^2}{a}\sqrt{\frac{\pi}{2}}
+        \end{align}
+        Hence, $\frac{A^2}{a}\sqrt{\frac{\pi}{2}}=1$, so $A^2 = \sqrt{\frac{2a^2}{\pi}}$, or $A=\pm\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}$. For simplicity, can choose $A=\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}$.
+
+        \hfil
+
+        \item[2.] If express $\Psi(x,0)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\phi(k)e^{ikx}dk$, then by Inverse Fourier Transform one has $\phi(k)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\Psi(x,0)e^{-ikx}dx = \frac{A}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-a^2x^2-ikx}dx$.
+    \end{itemize}
 \end{proof}
 
 \newpage
