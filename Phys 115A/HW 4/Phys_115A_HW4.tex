@@ -185,29 +185,108 @@ Consider a free particle whose state at time $t = 0$ is given by a gaussian wave
         \item[2.] If express $\Psi(x,0)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\phi(k)e^{ikx}dk$, then by Inverse Fourier Transform one has the following for $\phi(k)$:
         \begin{align}
             \phi(k)&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\Psi(x,0)e^{-ikx}dx = \frac{1}{\sqrt{2\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\int_{-\infty}^{\infty}e^{-a^2x^2-ikx}dx\\
-            &= \frac{1}{\sqrt{2\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\int_{-\infty}^{\infty}e^{-(ax)^2 - 2ax\cdot\frac{ik}{2a} + \left(\frac{ik}{2a}\right)^2}e^{-k^2/(4a^2)}dx\\
-            &= \frac{1}{\sqrt{2\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}e^{-k^2/(4a^2)}\int_{-\infty}^{\infty}e^{-(ax-ik/(2a))^2}dx\\
-            &= \frac{1}{\sqrt{2\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}e^{-k^2/(4a^2)}\int_{-\infty-ik/(2a)}^{\infty-ik/(2a)}\frac{1}{a}e^{-u^2}du\\
+            &= \frac{1}{\sqrt{2\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\int_{-\infty}^{\infty}e^{-(ax)^2 - 2ax\cdot\frac{ik}{2a} - \left(\frac{ik}{2a}\right)^2}e^{-k^2/(4a^2)}dx\\
+            &= \frac{1}{\sqrt{2\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}e^{-k^2/(4a^2)}\int_{-\infty}^{\infty}e^{-(ax+ik/(2a))^2}dx\\
+            &= \frac{1}{\sqrt{2\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}e^{-k^2/(4a^2)}\int_{-\infty+ik/(2a)}^{\infty+ik/(2a)}\frac{1}{a}e^{-u^2}du\\
             &= \frac{1}{a\sqrt{2\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}e^{-k^2/(4a^2)}\int_{-\infty}^{\infty}e^{-u^2}du\\
             &= \frac{1}{a\sqrt{2}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}e^{-k^2/(4a^2)}
         \end{align}
         As a result, the wavefunction is expressed as follow:
         \begin{align}
             \Psi(x,t)&= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\phi(k)e^{ikx - i\frac{\hbar k^2 t}{2m}}dk\\
-            &= \frac{1}{2a\sqrt{\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\int_{-\infty}^{\infty}\exp\left(-\left(\frac{1}{4a^2} - i\frac{\hbar t}{2m}\right)k^2 + ix k\right)dk
+            &= \frac{1}{2a\sqrt{\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\int_{-\infty}^{\infty}\exp\left(-\left(\frac{1}{4a^2} + i\frac{\hbar t}{2m}\right)k^2 - (-ix) k\right)dk
         \end{align}
-        Let $c:=\frac{1}{4a^2}-i\frac{\hbar t}{2m} = \frac{m-i\hbar 2a^2t}{4ma^2}$, $d:= -ix$, then with the substitution $u=\sqrt{c}(k+d/(2c))$ ($du = \sqrt{c}dk$), $ck^2+dk = u^2 - d^2/(4c)$, hence the integral (with exponent $-ck^2 - dk$) becomes as follow:
+        Let $c:=\frac{1}{4a^2}+i\frac{\hbar t}{2m} = \frac{1}{4a^2}(1+i\frac{2\hbar a^2t}{m}) = \frac{1+\left(\frac{2\hbar a^2t}{m}\right)^2}{4a^2(1-i\frac{2\hbar a^2t}{m})}$, $d:= -ix$, then with the substitution $u=\sqrt{c}(k+d/(2c))$ ($du = \sqrt{c}dk$), $ck^2+dk = u^2 - d^2/(4c)$, hence the integral (with exponent $-ck^2 - dk$) becomes as follow:
         \begin{align}
-            \frac{1}{2a\sqrt{\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\frac{1}{\sqrt{c}}\int_{-\sqrt{c}\infty}^{\sqrt{c}\infty}e^{-u^2}e^{d^2/(4c)}du = \frac{1}{2a\sqrt{c}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}e^{d^2/(4c)}
+            \Psi(x,t)&=\frac{1}{2a\sqrt{\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\int_{-\infty}^{\infty}e^{-(ck^2+dk)}dk = \frac{1}{2a\sqrt{c}\sqrt{\pi}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\int_{-\infty}^{\infty}e^{-u^2}e^{\frac{d^2}{4c}}du\\
+            &= \frac{1}{2a\sqrt{c}}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}e^{\frac{d^2}{4c}}
         \end{align}
-        With $\frac{d^2}{4c}=\frac{-4ma^2x^2}{m-i\hbar 2a^2t}$, the solution becomes as follow:
+        Which, $\frac{d^2}{4c} = \frac{-a^2x^2(1-i\frac{2\hbar a^2t}{m})}{1+\left(\frac{2\hbar a^2t}{m}\right)^2}$, we eventually get the following:
         \begin{align}
-            \Psi(x,t)=\frac{1}{2a}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\sqrt{\frac{4ma^2}{m-i\hbar 2a^2t}}\exp\left(\frac{-4ma^2 x^2}{m-i\hbar 2a^2t}\right)
+            \Psi(x,t) &= \frac{1}{2a}\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\sqrt{\frac{4a^2\left(1-i\frac{2\hbar a^2t}{m}\right)}{1+\left(\frac{2\hbar a^2t}{m}\right)^2}}\exp\left(-\frac{a^2x^2}{1+\left(\frac{2\hbar a^2t}{m}\right)^2}\right)\exp\left(\frac{ia^2x^2\cdot \frac{2\hbar a^2t}{m}}{1+\left(\frac{2\hbar a^2t}{m}\right)^2}\right)\\
+            &= \left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\sqrt{\frac{1-i\frac{2\hbar a^2t}{m}}{1+\left(\frac{2\hbar a^2t}{m}\right)^2}}\exp\left(-\frac{a^2x^2}{1+\left(\frac{2\hbar a^2t}{m}\right)^2}\right)\exp\left(\frac{ia^2x^2\cdot \frac{2\hbar a^2t}{m}}{1+\left(\frac{2\hbar a^2t}{m}\right)^2}\right)
         \end{align}
 
         \hfil
 
-        \item[3.]
+        \item[3.] $|\Psi(x,t)|^2$ is given as follow:
+        \begin{align}
+            |\Psi(x,t)|^2 &= \sqrt{\frac{2a^2}{\pi}}\left|\frac{1-i\frac{2\hbar a^2t}{m}}{1+\left(\frac{2\hbar a^2t}{m}\right)^2}\right|\cdot\left|\exp\left(-\frac{2a^2x^2}{1+\left(\frac{2\hbar a^2t}{m}\right)^2}\right)\right|\cdot \left|\exp\left(\frac{2\cdot ia^2x^2\cdot \frac{2\hbar a^2t}{m}}{1+\left(\frac{2\hbar a^2t}{m}\right)^2}\right)\right|\\
+            &= \sqrt{\frac{2a^2}{\pi}}\frac{\sqrt{1+\left(\frac{2\hbar a^2t}{m}\right)^2}}{1+\left(\frac{2\hbar a^2t}{m}\right)^2}\exp\left(-\frac{2a^2x^2}{1+\left(\frac{2\hbar a^2t}{m}\right)^2}\right)
+        \end{align}
+        With the substitution $w :=a\sqrt{1+\left(\frac{2\hbar a^2t}{m}\right)^2}$ (or $\frac{w}{a}=\sqrt{1+\left(\frac{2\hbar a^2t}{m}\right)^2}$), we get:
+        \begin{align}
+            |\Psi(x,t)|^2 = \sqrt{\frac{2a^2}{\pi}}\frac{w/a}{w^2/a^2}e^{-2a^2x^2/(w^2/a^2)} = \sqrt{\frac{2}{\pi}}\frac{a^2}{w}e^{-2a^4x^2/w^2}
+        \end{align}
+        For time $t=0$, the graph $|\Psi(x,0)|^2$ is as follow:
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=150mm]{q4_3_t=0.png}
+        \end{figure}
+
+        \newpage
+
+        For some large time $t$, the graph $|\Psi(x,t)|^2$ is as follow instead:
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=150mm]{q4_3_t=2.png}
+        \end{figure}
+
+        Which, one can observe that the center stays the same at $0$, but the function $|\Psi|^2$ is more spread out. So, as time evolves, it is less probable to find it near the center.
+
+        \hfil
+
+        \item[4.] Given that $w$ has only $t$ dependence but not $x$ dependence, then the expectation values are given as follow:
+        \begin{align}
+            \left<x\right> &= \int_{-\infty}^{\infty}x|\Psi(x,t)|^2 dx = \sqrt{\frac{2}{\pi}}\frac{a^2}{w}\int_{-\infty}^{\infty}xe^{-2a^4x^2/w^2}dx = 0
+        \end{align}
+        (Note: The function is odd when fixing $w$).
+        \begin{align}
+            \left<p\right> &= m\frac{d\left<x\right>}{dt} = m \cdot 0=0
+        \end{align}
+        (Note: the initial definition of momentum expectation is as above).
+        \begin{align}
+            \left<x^2\right> &= \int_{-\infty}^{\infty}x^2|\Psi(x,t)|^2 dx=\sqrt{\frac{2}{\pi}}\frac{a^2}{w}\int_{-\infty}^{\infty}x^2e^{-\left(\frac{\sqrt{2}a^2}{w}x\right)^2}dx\\
+            &= \frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}x^2e^{-\left(\frac{\sqrt{2}a^2}{w}x\right)^2}\cdot \frac{\sqrt{2}a^2}{w}dx
+        \end{align}
+        With substitution $u=\frac{\sqrt{2}a^2}{w}x$ (or $du=\frac{\sqrt{2}a^2}{w}dx$), we have $x^2 = \frac{w^2}{2a^4}u^2$, hence it becomes:
+        \begin{align}
+            \left<x^2\right> = \frac{1}{\sqrt{\pi}}\int_{-\infty}^{\infty}\frac{w^2}{2a^4}u^2e^{-u^2}du = \frac{w^2}{2a^4}\cdot\frac{1}{\sqrt{\pi}}\cdot\frac{\sqrt{\pi}}{2} = \frac{w^2}{4a^4}
+        \end{align}
+
+        For the final one $\left<p^2\right>$, given $\Psi(x,t)$ in 2, and substitution $w=a\sqrt{1+\left(\frac{2\hbar a^2t}{m}\right)^2}$, we get:
+        \begin{align}
+            \Psi(x,t) &= \left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\frac{\sqrt{1-i\frac{2\hbar a^2t}{m}}}{w/a}\exp\left(-x^2\cdot a^2\left(\frac{1-i\frac{2\hbar a^2t}{m}}{w^2/a^2}\right)\right)
+        \end{align}
+        Let $\lambda:= a^2\left(\frac{1-i\frac{2\hbar a^2t}{m}}{w^2/a^2}\right)$, we have  $\Psi(x,t) = \left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\frac{\sqrt{\lambda}}{a}e^{-\lambda x^2}$. Then, with $\hat{p}=-\hbar^2\frac{\partial^2}{\partial x^2}$, and $\frac{d^2}{dx^2}e^{-\lambda x^2} = (4\lambda^2x^2 - 2\lambda)e^{-\lambda x^2}$, we get:
+        \begin{align}
+            \hat{p}^2 \Psi(x,t) &= -\hbar^2 \left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\frac{\sqrt{\lambda}}{a}\frac{\partial^2}{\partial x^2}e^{-\lambda x^2} = -\hbar^2(4\lambda^2x^2-2\lambda)\cdot\left(\frac{2a^2}{\pi}\right)^\frac{1}{4}\frac{\sqrt{\lambda}}{a}e^{-\lambda x^2}\\
+            &= -\hbar^2(4\lambda^2 x^2-2\lambda)\Psi(x,t)
+        \end{align}
+        So, the expectation value $\left<p^2\right>$ is as follow:
+        \begin{align}
+            \left<p^2\right>&= \int_{-\infty}^{\infty}\Psi^*(x,t)\left(\hat{p}^2\Psi(x,t)\right)dx = \int_{-\infty}^{\infty}-\hbar^2(4\lambda^2x^2 - 2\lambda)\Psi^*(x,t)\Psi(x,t)dx\\
+            &= -\hbar^24\lambda^2\left<x^2\right> + 2\hbar^2\lambda
+        \end{align}
+        With $\lambda$ defined above, and $\left<x^2\right> = \frac{w^2}{4a^4}$, we get:
+        \begin{align}
+            \left<p^2\right>&=-4\hbar^2\lambda^2\left<x^2\right> + 2\hbar^2\lambda\\
+            &= -4\hbar^2\cdot a^4\frac{1-\left(\frac{2\hbar a^2t}{m}\right)^2 - 2i\frac{2\hbar a^2t}{m}}{w^4/a^4}\cdot\frac{w^2}{4a^4} + 2\hbar^2 \cdot a^2\frac{1-i\frac{2\hbar a^2t}{m}}{w^2/a^2}\\
+            &= \frac{\hbar^2a^2}{w^2}\cdot a^2\left(1+\left(\frac{2\hbar a^2t}{m}\right)^2\right) = \frac{\hbar^2a^2}{w^2}\cdot a^2\cdot\frac{w^2}{a^2} = \hbar^2a^2
+        \end{align}
+        Finally, for $\sigma_x,\sigma_p$, we get:
+        \begin{align}
+            \sigma_x = \sqrt{\left<x^2\right>-\left<x\right>^2} = \sqrt{\frac{w^2}{4a^4}} = \frac{w}{2a^2}
+        \end{align}
+        \begin{align}
+            \sigma_p = \sqrt{\left<p^2\right>-\left<p\right>^2}=\sqrt{\hbar^2a^2} = \hbar a
+        \end{align}
+
+        \hfil
+
+        \item[5.] For uncertainty principle, we have $\sigma_x \sigma_p = \frac{\hbar w}{2a}$. Which, since $w = a\sqrt{1+\left(\frac{2\hbar a^2t}{m}\right)^2}$, for any $t\in\RR$, we have $w\geq a$, hence $\sigma_x\sigma_p = \frac{\hbar w}{2a}\geq \frac{\hbar}{2}$.
+        
+        Which, the state is closest to the saturated state (when $\sigma_x\sigma_p=\frac{\hbar}{2}$), when $\frac{w}{a}=1$. Which, $\frac{w}{a}=\sqrt{1+\left(\frac{2\hbar a^2t}{m}\right)^2}$ is closest to $1$ when $t=0$, since then $\frac{w\hbar a^2t}{m}=0$, so $\frac{w}{a}(t=0) = \sqrt{1+0^2}=1$. So, the initial time $t=0$ is when the state is closest to the saturated state. 
     \end{itemize}
 \end{proof}
 
