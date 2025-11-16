@@ -1,0 +1,214 @@
+\documentclass{article}
+\usepackage{../../Self_Style}
+
+\title{Phys 115A HW 5}
+\author{Zih-Yu Hsieh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{1}
+\begin{ques}
+Odd Wells (Griffiths 2.29)
+
+Let’s go back to the odd case of the finite square well:
+
+1. Write down the general form of the odd bound-state wavefunctions in the three regions $x < -a$, $-a \le x \le a$, and $x > a$.
+
+2. Find the transcendental equation for the allowed energies. Solve it graphically.
+
+3. What is the energy spectrum of bound states in the limiting cases of a wide, deep well and a shallow, narrow well (in the sense that Griffiths describes in Section 2.6 around Eq.\ $2.157$)? Do we always find an odd bound state?
+\end{ques}
+
+\newpage
+\section*{2}
+\begin{ques}
+Delta limit (Griffiths 2.31)
+
+As we discussed in class, a Dirac delta function can be thought of as a limiting case of a finite square well, with the added condition that the area is fixed to be $1$ as the height goes to infinity and the width goes to zero. Show that the delta function well is a ``weak'' potential in the sense that $z_0 \to 0$. Determine the bound state energy for the delta-function potential by treating it as the limit of the finite square well. Check that your answer is consistent with Eq.\ $2.132$. Also show that Eq.\ $2.172$ reduces to Eq.\ $2.144$ in the appropriate limit.
+\end{ques}
+
+\newpage
+\section*{3}
+\begin{ques}
+The Square Barrier (Griffiths 2.33)
+
+Let’s work out the transmission coefficient for a rectangular barrier defined by
+
+$V(x) = \{ V_0 \text{ for } -a \le x \le a,\; 0 \text{ for } |x| > a \}$
+
+for $V_0 > 0$. There are three possible cases of interest: $E < V_0$; $E = V_0$; and $E > V_0$, and the wavefunction inside the barrier is different in each case.
+
+1. Find $T^{-1}$ for $E < V_0$
+
+2. Find $T^{-1}$ for $E = V_0$
+
+3. Find $T^{-1}$ for $E > V_0$ (Hint: This one is easily related to the finite square well.)
+
+Partial answer: for $E < V_0$,  
+$T^{-1} = 1 + \frac{V_0^2}{4E(V_0 - E)} \sinh^2\left( \frac{2a}{\hbar} \sqrt{2m(V_0 - E)} \right)$
+\end{ques}
+
+\newpage
+\section*{4}
+\begin{ques}
+Mass on (circular) string (Griffiths 2.46)
+
+Imagine a bead of mass $m$ that slides frictionlessly around a circular wire ring of circumference $L$. (This is like a free particle except that $\psi(x+L) = \psi(x)$.) Find the stationary states (with appropriate normalization) and the corresponding allowed energies. Note that there are (with one exception) two independent solutions for each energy $E_n$—corresponding to clockwise and counter-clockwise circulation; call them $\psi_n^+(x)$ and $\psi_n^-(x)$. How do you account for this degeneracy, in view of the theorem of problem $2.44$ (why does the theorem fail in this case)? Hint: you worked through problem $2.44$ in discussion section.
+\end{ques}
+
+\newpage
+\section*{5}
+\begin{ques}
+The Transfer Matrix (Griffiths 2.54)
+
+The transfer matrix. The S-matrix (Problem $2.53$) tells you the outgoing amplitudes ($B$ and $F$) in terms of the incoming amplitudes ($A$ and $G$) – Equation $2.180$. For some purposes it is more convenient to work with the transfer matrix, $M$, which gives you the amplitudes to the right of the potential ($F$ and $G$) in terms of those to the left ($A$ and $B$):
+
+$(F, G)^T = \begin{pmatrix} M_{11} & M_{12} \\ M_{21} & M_{22} \end{pmatrix} (A, B)^T$
+
+a. Find the four elements of the $M$-matrix, in terms of the elements of the S-matrix, and vice versa. Express $R_l$, $T_l$, $R_r$, and $T_r$ (Equations $2.176$ and $2.177$) in terms of elements of the $M$-matrix.
+
+b. Suppose you have a potential consisting of two isolated pieces (Figure $2.23$). Show that the $M$-matrix for the combination is the product $M = M_2 M_1$.
+
+c. Construct the $M$-matrix for scattering from a single delta-function potential at point $a$:  
+$V(x) = -\alpha \delta(x-a)$
+
+d. By the method of part (b), find the $M$-matrix for scattering from the double delta function  
+$V(x) = -\alpha [\delta(x+a) + \delta(x-a)]$  
+What is the transmission coefficient for this potential?
+\end{ques}
+
+\newpage
+\section*{6}
+\begin{ques}
+Linear Algebra Bootcamp I: Vector spaces (modified Griffiths A.3)
+
+1. Prove that the components of a vector in a given basis are unique.
+
+2. Consider the set of all polynomials in $x$ of degree $\le N$ with complex coefficients. Does this set comprise a vector space, where the polynomials in $x$ are the ``vectors''? If so, suggest a convenient basis. What is the dimension of this basis? If not, where does it fall short?
+
+3. Does the set of odd polynomials in $x$ constitute a vector space? Why or why not?
+\end{ques}
+
+\newpage
+\section*{7}
+\begin{ques}
+Linear Algebra Bootcamp II: Inner products (Griffiths A.5)
+
+Prove the Schwartz inequality  
+$|\langle \alpha | \beta \rangle|^2 \le \langle \alpha | \alpha \rangle \langle \beta | \beta \rangle$.
+
+Hint: Let $|\delta\rangle = |\beta\rangle - \frac{\langle \alpha | \beta \rangle}{\langle \alpha | \alpha \rangle} |\alpha\rangle$ and use $\langle \delta | \delta \rangle \ge 0$.
+\end{ques}
+
+\newpage
+\section*{8}
+\begin{ques}
+Linear Algebra Bootcamp III: Matrices (modified Griffiths A.8)
+
+Given the matrices  
+$A = \begin{pmatrix} 1 & -1 & i \\ 3 & 0 & 2 \\ -2i & 2i & 2 \end{pmatrix}$,  
+$B = \begin{pmatrix} 3 & 0 & i \\ 0 & 1 & 0 \\ i & 2 & 1 \end{pmatrix}$
+
+compute the following:
+
+1. $A + B$
+
+2. $AB$
+
+3. $[A,B]$
+
+4. $A^T$
+
+5. $A^\ast$
+
+6. $A^\dagger$
+
+7. $\det(B)$
+\end{ques}
+
+\newpage
+\section*{9}
+\begin{ques}
+Linear Algebra Bootcamp IV: Eigenvectors \& Eigenvalues (modified A.19, A.22, A.23)
+
+1. Find the eigenvalues and eigenvectors of the matrix  
+$A = \begin{pmatrix} i & i \\ 0 & i \end{pmatrix}$  
+Can this matrix be diagonalized?
+
+2. Consider the matrix  
+$B = \begin{pmatrix} i & i \\ i & -1 \end{pmatrix}$  
+Is it normal? Is it diagonalizable?
+
+3. Show that if two matrices commute in one basis, they commute in any basis.
+\end{ques}
+\begin{proof}
+    
+    \hfil
+
+    \begin{itemize}
+        \item[1.] Given $A$ an upper-triangular matrix. By linear algebra theory, all its eigenvalues must appear on the diagonal (when it's in upper-triangular form), hence $A$ only has eigenvalue $i$. 
+        
+        Any of the eigenvector $v\in\CC^2$ of $A$ must satisfy $(A-i \cdot I)v=0$, which $v=(x,y)$ must satisfy the following:
+        \begin{align}
+            0=(A-i\cdot I)v = \left(\begin{pmatrix}
+                i & i\\0 & i
+            \end{pmatrix} - i\begin{pmatrix}
+                1&0\\0&1
+            \end{pmatrix}\right)\begin{pmatrix}
+                x\\y
+            \end{pmatrix} = \begin{pmatrix}
+                0&i\\0&0
+            \end{pmatrix}\begin{pmatrix}
+                x\\y
+            \end{pmatrix} = \begin{pmatrix}
+                i\cdot y\\0
+            \end{pmatrix}
+        \end{align}
+        Hence, $i\cdot y=0$, implying $y=0$. So, we must have $v=(x,0)$, showing the eivenvectors of eigenvalue $i$ are all of the form $v=(x,0)$ (where $x\in\CC\setminus\{0\} = \CC^\times$).
+
+        However, this matrix is not diagonalizable, since the only eigenspace of $A$ is $E(i) = \textmd{span}{(1,0)} \neq \CC^2$, so the eigenvectors don't span the whole $\CC^2$, showing $A$ is not diagonalizable.
+
+        \hfil
+
+        \item[2.] Given $B=\begin{pmatrix}
+            i&i\\i&-1
+        \end{pmatrix}$, its conjugate transpose (or adjoint operator / Hermitian conjugate under standard basis) is given by $B^* = \begin{pmatrix}
+            -i&-i\\-i&-1
+        \end{pmatrix}$. Which, they satisfy the following:
+        \begin{align}
+            BB^* = \begin{pmatrix}
+            i&i\\i&-1
+        \end{pmatrix}\begin{pmatrix}
+            -i&-i\\-i&-1
+        \end{pmatrix} = \begin{pmatrix}
+            2 & 1-i\\1+i & 2
+        \end{pmatrix},\quad B^*B= \begin{pmatrix}
+            -i&-i\\-i&-1
+        \end{pmatrix}\begin{pmatrix}
+            i&i\\i&-1
+        \end{pmatrix}= \begin{pmatrix}
+            2 & 1+i\\1-i&2
+        \end{pmatrix}
+        \end{align}
+        Since $BB^*\neq B^*B$, then $B$ is not normal.
+
+        However, if consider its characteristic polynomial, it's given as follow:
+        \begin{align}
+            \det(B-\lambda I) = \det\begin{pmatrix}
+                i-\lambda & i\\i & -1-\lambda
+            \end{pmatrix}=(i-\lambda)(-1-\lambda)-i^2 = \lambda^2+(1-i)\lambda+(1-i)
+        \end{align}
+        Which, if $\det(B-\lambda I)=0$, since the discriminant of the above quadratic polynomial is $\Delta = (1-i)^2 - 4(1-i) = (-3-i)(1-i) \neq 0$, this indicates that $\det(B-\lambda I)$ has two distinct roots, hence $B$ has two distinct eigenvalues. 
+
+        Since distinct eigenvalues must have linearly independent eigenvectors, with two distinct eigenvalues, the two corresponding eigenvectors must be linearly independent. And, with $\CC^2$ being $2$-dimension (over $\CC$), this shows that there exists a basis formed by the eigenvectors of $B$, hence $B$ is diagonalizable.
+
+        \hfil
+
+        \item[3.] Given 
+    \end{itemize}
+\end{proof}
+
+\end{document}
+
