@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}Aim of the Report}{2}{section.1}%
+\contentsline {section}{\numberline {2}Natural Frequency $w_0$:}{3}{section.2}%
+\contentsline {section}{\numberline {3}Initial Length $L_0$, and Initial Driving Frequency $w$:}{3}{section.3}%
+\contentsline {section}{\numberline {4}Prediction of Driven Frequency}{3}{section.4}%
+\contentsline {section}{\numberline {5}Collected Driven Frequency, and Comparison:}{4}{section.5}%
+\contentsline {section}{\numberline {6}Amplitude}{5}{section.6}%
+\contentsline {section}{\numberline {7}Phase}{6}{section.7}%
+\contentsline {section}{\numberline {8}Calculated Coefficients and Conclusion}{7}{section.8}%
