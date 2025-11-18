@@ -1,0 +1,309 @@
+\documentclass{article}
+\usepackage{../../Self_Style}
+
+\title{Math CS 121 HW 7}
+\author{Zih-Yu Hsieh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{1}
+\begin{ques}\label{q1}
+    8.1.6:
+
+    Two dice are rolled. The sum of the outcomes is denoted by $X$ and the absolute value of their difference by $Y$. Calculate the joint probability mass function of $X$ and $Y$ and the marginal probability mass functions of $X$ and $Y$.
+\end{ques}
+
+\begin{proof}
+    Let $i_1,i_2\in\{1,...,6\}$ represents the values of the two dice after getting rolled. Then $X = i_1+i_2\in\{2,...,12\}$ and $Y=|i_1-i_2|\in\{0,...,5\}$ (since $1\leq i_1,i_2\leq 6$, so $2\leq i_1+i_2\leq 12$ and $-5\leq i_1-i_2\leq 5$, so $0\leq |i_1-i_2|\leq 5$).
+
+    As a result, they form the following table:
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{c||c|c|c|c|c|c}
+            \diagbox[width=1.5cm,height=1cm]{$i_1$}{$i_2$} & 1&2&3&4&5&6\\
+            \hline
+            \hline
+            1&$X=2,Y=0$ & $X=3,Y=1$ & $X=4,Y=2$ & $X=5,Y=3$ & $X=6,Y=4$ & $X=7,Y=5$\\
+            \hline
+            2&$X=3,Y=1$ & $X=4,Y=0$ & $X=5,Y=1$ & $X=6,Y=2$ & $X=7,Y=3$ & $X=8,Y=4$\\
+            \hline
+            3&$X=4,Y=2$ & $X=5,Y=1$ & $X=6,Y=0$ & $X=7,Y=1$ & $X=8,Y=2$ & $X=9,Y=3$\\
+            \hline
+            4&$X=5,Y=3$ & $X=6,Y=2$ & $X=7,Y=1$ & $X=8,Y=0$ & $X=9,Y=1$ & $X=10,Y=2$\\
+            \hline
+            5&$X=6,Y=4$ & $X=7,Y=3$ & $X=8,Y=2$ & $X=9,Y=1$ & $X=10,Y=0$ & $X=11,Y=1$\\
+            \hline
+            6&$X=7,Y=5$ & $X=8,Y=4$ & $X=9,Y=3$ & $X=10,Y=2$ & $X=11,Y=1$ & $X=12,Y=0$\\
+        \end{tabular}
+    \end{table}
+    Since one can assume each value of the dice is equally likely to be rolled (and the two dice are independent of each other), then all the above cases are equally likely to happen (with total of $36$ possible cases). Hence, we get the following table for the probability mass function $P_(X,Y)(x,y) = \PP(X=x, Y=y)$:
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|c}
+            \diagbox[width=1.5cm,height=1cm]{$Y$}{$X$} & 2&3&4&5&6&7&8&9&10&11&12\\
+            \hline
+            \hline
+            0 & $1/36$ & $0$ & $1/36$ & $0$ & $1/36$ & $0$ & $1/36$ & $0$ & $1/36$ & 0 & $1/36$\\
+            \hline
+            1 & 0 & $2/36$ & 0 & $2/36$ & 0 & $2/36$ & 0 & $2/36$ & 0 & $2/36$ & 0\\
+            \hline
+            2 & 0&0& $2/36$ & 0 & $2/36$ & 0 & $2/36$ & 0 & $2/36$ & 0 & 0\\
+            \hline
+            3 & 0&0&0&$2/36$&0&$2/36$&0&$2/36$&0&0&0\\
+            \hline
+            4 & 0&0&0&0&$2/36$&0&$2/36$&0&0&0&0\\
+            \hline
+            5 & 0&0&0&0&0&$2/36$&0&0&0&0&0
+        \end{tabular}
+    \end{table}
+    Which, one can verify that summing up all the components indeed provide $1$, so the above is a joint probability mass function.
+
+    Alo, as a result we also have the following marginal probability mass functions for $X$ and $Y$:
+    \begin{align}
+        P_Y(t) = \begin{cases}
+            2/36 & t=5\\
+            4/36 & t=4\\
+            6/36 & t=0,t=3\\
+            8/36 & t=2\\
+            10/36 & t=1
+        \end{cases}, \quad P_X(t) = \begin{cases}
+            1/36 & t=2,=12\\
+            2/36 & t=3,t=11\\
+            3/36 & t=4,t=10\\
+            4/36 & t=5,t=9\\
+            5/36 & t=6,t=8\\
+            6/36 & t=7
+        \end{cases}
+    \end{align}
+\end{proof}
+
+\newpage
+
+\section*{2}
+\begin{ques}\label{q2}
+    8.1.10:
+
+    Let the joint probability density function of random variables $X$ and $Y$ be given by 
+    $$f(x,y) = \begin{cases}
+        8xy & 0\leq y\leq x\leq 1\\
+        0 & \text{otherwise}
+    \end{cases}$$
+    \begin{itemize}
+        \item[(a)] Calculate the marginal probability density functions of $X$ and $Y$, respectively.
+        \item[(b)] Calculate $\EE[X]$ and $\EE[Y]$. 
+    \end{itemize}
+\end{ques}
+
+\begin{proof}
+
+    \hfil
+
+    \begin{itemize}
+        \item[(a)] First, the marginal probability density functions of $X$ and $Y$ are given by $f_X(t) = \int_{-\infty}^{\infty}f(t,y)dy$, and $f_Y(t)=\int_{-\infty}^{\infty}f(x,t)dx$ respectively. 
+        
+        Which, in both cases if $t\notin [0,1]$, then we have $f(t,y)=f(x,t)=0$ for all $x,y\in\RR$ (since the input of $x$ or $y$ are not in the range of $[0,1]$). Also, given $t\in[0,1]$, we have the following classification of $f$:
+        \begin{align}
+            f(t,y)=\begin{cases}
+                8ty & y\in[0,t]\\
+                0 & y\notin [0,t]
+            \end{cases},\quad f(x,t)=\begin{cases}
+                0 & x\notin [t,1]\\
+                8xt & x\in[t,1]
+            \end{cases}
+        \end{align}
+        Hence, we get the following expression of the marginal probability density functions:
+        \begin{align}
+            f_X(t) = \int_{-\infty}^{\infty}f(t,y)dy = \begin{cases}
+                0 & t\notin [0,1]\\
+                \int_{0}^{t}8ty dy = 4t^3 & t\in[0,1]
+            \end{cases}
+        \end{align}
+        \begin{align}
+            f_Y(t) = \int_{-\infty}^{\infty}f(x,t)dx = \begin{cases}
+                0 & t\notin[0,1]\\
+                \int_t^1 8xt dx = 4t(1-t^2) & t\in[0,1]
+            \end{cases}
+        \end{align}
+
+        \hfil
+
+        \item[(b)] With the marginal probability density function from above, we get the following expected values:
+        \begin{align}
+            \EE[X] = \int_{-\infty}^{\infty}x\cdot f_X(x)dx = \int_{0}^{1}x \cdot 4x^3dx = \frac{4}{5}x^5\bigg|_{0}^{1}=\frac{4}{5}
+        \end{align}
+        \begin{align}
+            \EE[Y]=\int_{-\infty}^{\infty}y\cdot f_Y(y)dy = \int_{0}^{1}y\cdot 4y(1-y^2)dy = \frac{4}{3}y^3 - \frac{4}{5}y^5\bigg|_{0}^{1} = \frac{8}{15}
+        \end{align}
+    \end{itemize}
+\end{proof}
+
+\newpage
+
+\section*{3}
+\begin{ques}\label{q3}
+    8.2.25:
+
+    Suppose that $X$ and $Y$ are independent, identically distributed exponential random variables with mean $\frac{1}{\lambda}$. Prove that $X/(X+Y)$ is uniform over $(0,1)$.
+\end{ques}
+
+\begin{proof}
+    Given that $X,Y$ are exponential random variables with mean $\frac{1}{\lambda}$, we have $X,Y\sim \Exp(\lambda)$, showing that they both have probability density $f_X(t),f_Y(t)=\lambda e^{-\lambda t}$ for $t\in(0,\infty)$. 
+
+    Now, since $X,Y\in (0,\infty)$, then $0<X<X+Y$, showing that $0<\frac{X}{X+Y}<1$. Which, given any $a\in (0,1)$, the probability $\PP(\frac{X}{X+Y}\leq a) = \PP(X\leq aX+aY) = \PP((1-a)X\leq aY) = \PP(X\leq \frac{a}{1-a}Y)$. Using the joint probability density, it's provided as follow:
+    \begin{align}
+        \PP\left(\frac{X}{X+Y}\leq a\right)&= \PP\left(X\leq \frac{a}{1-a}Y\right) = \int_{0}^{\infty}\left(\int_{0}^{\frac{a}{1-a}y}f_X(x)dx\right)f_Y(y)dy\\
+        &= \int_{0}^{\infty}\lambda e^{-\lambda y}\left(\int_{0}^{\frac{a}{1-a}y}\lambda e^{-\lambda x}dx\right)dy = \int_{0}^{\infty}\lambda e^{-\lambda y}\left(-e^{-\lambda x}\bigg|_{0}^{\frac{a}{1-a}y}\right)dy\\
+        &= \int_{0}^{\infty}\lambda e^{-\lambda y}\left(1-e^{-\frac{\lambda a}{1-a}y}\right)dy = \int_{0}^{\infty}\lambda e^{-\lambda y}dy - \int_{0}^{\infty}\lambda e^{-\lambda y}e^{-\frac{\lambda a}{1-a}y}dy\\
+        &= 1-\left(\frac{-\lambda}{\lambda +\frac{\lambda a}{1-a}}e^{-(\lambda + \frac{\lambda a}{1-a})y}\bigg|_{0}^{\infty}\right) = 1-\frac{\lambda}{\lambda + \frac{\lambda a}{1-a}} = 1-\frac{1}{1+\frac{a}{1-a}}\\
+        &= 1-\frac{1-a}{1-a+a} = 1-(1-a) = a
+    \end{align}
+    Hence, let $Z=\frac{X}{X+Y}$, its probability density is given by $f_Z(a) = \frac{d}{da}\PP(\frac{X}{X+Y}\leq a)=\frac{d}{da}a = 1$ for $a\in(0,1)$, showing it's a uniform distribution.
+\end{proof}
+
+\newpage
+
+\section*{4}
+\begin{ques}\label{q4}
+    8.Rev.11:
+
+    Let the joint probability distribution function of the lifetimes of two brands of lightbulb be given by 
+    $$F(x,y)=\begin{cases}
+        (1-e^{-x^2})(1-e^{-y^2}) & x>0,\ y>0\\
+        0 & \text{otherwise}
+    \end{cases}$$
+    Find the probability that one lightbulb lasts more than twice as long as the other.
+\end{ques}
+
+\begin{proof}
+    First, to calculate the marginal probability density of $X$ and $Y$ (representing the two brands of lightbulbs), we have the following:
+    \begin{align}
+        \PP(X\leq t) = \lim_{y\rightarrow\infty}F(t,y) = \begin{cases}
+            0 & t\leq 0\\
+            1-e^{-t^2} & t>0
+        \end{cases},\quad \PP(Y\leq t)=\lim_{x\rightarrow \infty}F(x,t) = \begin{cases}
+            0 & t\leq 0\\
+            1-e^{-t^2} & t>0
+        \end{cases}
+    \end{align}
+    So, $\PP(X\leq t)=\PP(Y\leq t)$. Hence, the marginal probability density are given as follow, respectively:
+    \begin{align}
+        f_X(t) = \frac{d}{dt}\PP(X\leq t) = \begin{cases}
+            0 & t\leq 0\\
+            2te^{-t^2} & t>0
+        \end{cases},\quad f_Y(t) = \frac{d}{dt}\PP(Y\leq t) = \frac{d}{dt}\PP(X\leq t) = f_X(t)
+    \end{align}
+    Now, to calculate the probability that one lasts more than twice as long as the other, the event is given as either $2Y<X$, or $2X<Y$. Notice that the two are mutually exclusive (or else if not, then $2Y<x<\frac{1}{2}Y$ is a contradiction), hence we get the proability is provided as $\PP(\{2Y<X\}\sqcup \{2X<Y\}) = \PP(2Y<X)+\PP(2X<y)$. Which, they're given as follow, respectively:
+    \begin{align}
+        \PP(2Y<X) &= \PP\left(Y<\frac{1}{2}X\right) = \int_{-\infty}^{\infty}f_X(x) \left(\int_{\infty}^{\frac{1}{2}x}f_Y(y)dy\right)dx\\
+        &= \int_{0}^{\infty}2xe^{-x^2}\left(\int_{0}^{\frac{1}{2}x}2ye^{-y^2}dy\right)dx = \int_{0}^{\infty}2xe^{-x^2}\left(-e^{-y^2}\bigg|_{0}^{\frac{1}{2}x}\right)dx\\
+        &= \int_{0}^{\infty}2xe^{-x^2}(1-e^{-\frac{1}{4}x^2})dx = \int_{0}^{\infty}2xe^{-x^2}dx - \int_{0}^{\infty}2xe^{-\frac{5}{4}x^2}dx\\
+        &= \left(-e^{-x^2}\bigg|_{0}^{\infty}\right) - \int_{0}^{\infty}2xe^{-\left(\frac{\sqrt{5}}{2}x\right)^2}dx = 1-\int_{0}^{\infty}2\cdot \frac{2}{\sqrt{5}}ue^{-u^2}\frac{2}{\sqrt{5}}du\\
+        &= 1-\frac{4}{5}\left(-e^{-u^2}\bigg|_{0}^{\infty}\right) = 1-\frac{4}{5}=\frac{1}{5}
+    \end{align}
+    \begin{align}
+        \PP(2X<Y) &= \PP(X<\frac{1}{2}Y) = \int_{-\infty}^{\infty}f_Y(u)\left(\int_{-\infty}^{\frac{1}{2}u}f_X(v)dv\right) du\\
+        &= \int_{-\infty}^{\infty}f_X(u)\left(\int_{-\infty}^{\frac{1}{2}u}f_Y(v)dv\right) du = \int_{-\infty}^{\infty}f_X(x)\left(\int_{-\infty}^{\frac{1}{2}x}f_Y(y)dy\right) dx\\
+        &= \PP(2Y<X) = \frac{1}{5}
+    \end{align}
+    Hence, the probability that one lasts more than twice as long as the other lightbulb, is $\PP(2Y<X)+\PP(2X<Y)=\frac{2}{5}$.
+\end{proof}
+
+\newpage
+
+\section*{5}
+\begin{ques}\label{q5}
+    8.Rev.17:
+
+    Let $X$ and $Y$ be two independent uniformly distributed random variables over the intervals $(0,1)$ and $(0,2)$, respectively. Find the probability density function of $X/Y$.
+\end{ques}
+
+\begin{proof}
+    Given that $X,Y$ are independent uniform distribution over $(0,1)$ and $(0,2)$ respectively (or $X\sim \Unif(0,1)$ and $Y\sim \Unif(0,2)$). Then, their probability density is given as follow:
+    \begin{align}
+        f_X(t)=\begin{cases}
+            1 & t\in(0,1)\\
+            0 & \text{otherwise}
+        \end{cases},\quad f_Y(t) = \begin{cases}
+            \frac{1}{2} & t\in(0,2)\\
+            0 & \text{otherwise}
+        \end{cases}
+    \end{align}
+    Since $X\in (0,1)$ and $Y\in (0,2)$, we have $\frac{X}{Y}\in (0,\infty)$. Which, for all $a\in (0,\infty)$, we have $\PP(\frac{X}{Y}\leq a) = \PP(X\leq aY)$, which can be given as the following calculation:
+    \begin{align}
+        \PP(X\leq aY)&= \int_{0}^{2}f_Y(y)\left(\int_{0}^{ay}f_X(x)dx\right)dy
+    \end{align}
+    There are two cases one can consider:
+    \begin{itemize}
+        \item If $a\leq \frac{1}{2}$, since $y\in(0,2)$, then $0<ay<1$, so $f_X(x)=1$ for $0<x<ay$. Hence:
+        \begin{align}
+            \PP(X\leq aY)=\int_{0}^{2}\frac{1}{2}\left(\int_{0}^{ay}1 dx\right)dy = \int_{0}^{2}\frac{a}{2}ydy = \frac{a}{4}y^2\bigg|_{0}^{2}=a
+        \end{align}
+        \item Else, if $a>\frac{1}{2}$, since $0<\frac{1}{a}<2$, then for $y\geq \frac{1}{a}$, one has $ay \geq 1$, so $\int_{0}^{ay}f_X(x)dx = \int_{0}^{1}1 dx = 1$ for $y\geq \frac{1}{a}$; on the other hand, if $y< \frac{1}{a}$, then $ay<1$, where $f_X(x) = 1$ for $0<x<ay$ again. Hence, the probability is given as follow:
+        \begin{align}
+            \PP(X\leq aY)&=\int_{0}^{2}f_Y(y)\left(\int_{0}^{ay}f_X(x)dx\right)dy = \int_{0}^{\frac{1}{a}}\frac{1}{2}\left(\int_{0}^{ay}1 dx\right)dy+\int_{\frac{1}{a}}^{2}\frac{1}{2}\left(1\right)dy\\
+            &= \int_{0}^{\frac{1}{a}}\frac{a}{2}ydy + \left(1-\frac{1}{2a}\right) = \frac{a}{4}y^2\bigg|_{0}^{\frac{1}{a}}+1-\frac{1}{2a} = \frac{1}{4a}+1-\frac{1}{2a}=1-\frac{1}{4a}
+        \end{align}
+        Hence, the cumulative distribution is given as follow:
+        \begin{align}
+            \forall a\in(0,\infty),\quad \PP\left(\frac{X}{Y}\leq a\right)=\begin{cases}
+                a & a\leq \frac{1}{2}\\
+                1-\frac{1}{4a} & a>\frac{1}{2}
+            \end{cases}
+        \end{align}
+        So, given $Z=\frac{X}{Y}$, the probability density is given as follow:
+        \begin{align}
+            f_Z(a) = \frac{d}{da}\PP\left(\frac{X}{Y}\leq a\right) = \begin{cases}
+                1 & a<\frac{1}{2}\\
+                \frac{1}{4a^2} & a\geq\frac{1}{2}
+            \end{cases}
+        \end{align}
+    \end{itemize}
+\end{proof}
+
+\newpage
+
+\section*{6}
+\begin{ques}\label{q6}
+    Buses arrive at rate 3 per hour. Given that 2 buses came in the last 30 minutes, find the joint distribution of $(T_1,T_2)$, the arrival times of the first and the second bus.
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\section*{7}
+\begin{ques}\label{q7}
+    Suppose that the buses arrive at rate $3$ per hour and trains arrive at rate $2$ per hour, independently of buses. Find the distribution of $B_t+T_t$ where $B_t$ is the number of buses, and $T_t$ is the number of trains by time $t$. This shows that superposition of Poisson processes is Poisson.
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\section*{8}
+\begin{ques}\label{q8}
+    A stick of length $L$ is broken randomly into $2$ pieces. We then take the longer piece and break it again. What is the probability that the $3$ sticks can form a triangle? (You MUST start by deriving the joint density of two of the $3$ sticks).
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\section*{9}
+\begin{ques}\label{q9}
+    Two points are picked independently and at random on the perimeter of a rectangle with sides $a,b$. Find the expected squared distance between the points. 
+
+    Hint: condition on whether the points are on the same side, opposite sides, or adjacent. It turns out that the answer only depends on the sum $a+b$, but not on $a,b$ separately.
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\end{document}
