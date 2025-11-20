@@ -21,6 +21,58 @@ Let’s go back to the odd case of the finite square well:
 3. What is the energy spectrum of bound states in the limiting cases of a wide, deep well and a shallow, narrow well (in the sense that Griffiths describes in Section 2.6 around Eq.\ $2.157$)? Do we always find an odd bound state?
 \end{ques}
 
+\begin{proof}
+    Recall that the general solution to the bound-state wavefunction of the symmetric finite square well (given that the potential is $-V_0$ on $[-a,a]$ for some $V_0>0$, and $0$ elsewhere), is given as follow:
+    \begin{align}
+        \psi(x)=\begin{cases}
+            Ae^{kx} & x<-a\\
+            C\sin(\ell x)+D\cos(\ell x) & x\in[-a,a]\\
+            Be^{-kx} & x>a
+        \end{cases}
+    \end{align}
+    Where the coeffficient $k=\frac{\sqrt{-2mE}}{\hbar}$, and $\ell=\frac{\sqrt{2m(E+V_0)}}{\hbar}$.
+    \begin{enumerate}
+        \item The general form of the odd bound-state wavefunction is then given as follow:
+        \begin{align}
+            \psi_\text{odd}(x)=\begin{cases}
+                -Ae^{kx} & x<-a\\
+                C\sin(\ell x) & x\in[-a,a]\\
+                Ae^{-kx} & x>a
+            \end{cases}
+        \end{align}
+        Where the coefficient $k,\ell$ are listed above.
+
+        \hfil
+
+        \item Using continuity and differentiability, we get the following implication:
+        \begin{align}
+            \text{continuity} \implies -Ae^{k(-a)} = C\sin(\ell (-a))\implies Ae^{k(-a)} = C\sin(\ell a)\\
+            \text{differentiability}\implies -kAe^{k(-a)} = \ell C\cos(\ell(-a)) = \ell C\cos(\ell a)
+        \end{align}
+        Dividing the equations, we get that $-k =\ell\cot(\ell a)$. Which, plug in $k,\ell$ as their original expression, we get:
+        \begin{align}
+            -\frac{\sqrt{-2mE}}{\hbar}=\frac{\sqrt{2m(E+V_0)}}{\hbar}\cot\left(\frac{\sqrt{2m(E+V_0)}}{\hbar}a\right)
+        \end{align}
+        Fixing constant $V_0,a,m,\hbar>0$, we get the following graph:
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=150mm]{q1.png}
+        \end{figure}
+        Where, the intersection points are the $x$ (or $E$ in the previous equations) that provides the bound-state energy.
+
+        \hfil
+
+        \item If the well is wide and deep, then graphically it is verified that the energy spectrum will range widely, and becomes more dense; graphically, here is an example:
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=150mm]{q1_2.png}
+        \end{figure}
+        on the other hand, a shallow and narrow one (an example would be the first graph provided), has only few energy spectrum allowed (and are pretty limited).
+
+        In this case it's not guaranteed to find an odd bound state: Graphically when we plot $a=\frac{1}{V_0}$ for instance, after a certain value the two equations no longer intersect, indicating there's no allowed odd bound-state (since there is no corresponding energy allowed based on calculation).
+    \end{enumerate}
+\end{proof}
+
 \newpage
 \section*{2}
 \begin{ques}
@@ -28,9 +80,46 @@ Delta limit (Griffiths 2.31)
 
 As we discussed in class, a Dirac delta function can be thought of as a limiting case of a finite square well, with the added condition that the area is fixed to be $1$ as the height goes to infinity and the width goes to zero. Show that the delta function well is a ``weak'' potential in the sense that $z_0 \to 0$. Determine the bound state energy for the delta-function potential by treating it as the limit of the finite square well. Check that your answer is consistent with Eq.\ $2.132$. Also show that Eq.\ $2.172$ reduces to Eq.\ $2.144$ in the appropriate limit.
 \end{ques}
+\begin{proof}
+    Given the condition that the area of the well is fixed to $1$, then with the (symmetric) well of width $2a$ and depth $V_0$, we need $2aV_0=1$, so fixing $V_0$, we get $a=\frac{1}{2V_0}$. As a result, the equation $z_0 :=\frac{a}{\hbar}\sqrt{2mV_0}$ satisfies the following:
+    \begin{align}
+        \lim_{V_0\rightarrow \infty}z_0 = \lim_{V_0\rightarrow \infty}\frac{\sqrt{2m}}{2\hbar V_0}\cdot \sqrt{V_0} = \lim_{V_0\rightarrow \infty}\frac{\sqrt{2m}}{2\hbar \sqrt{V_0}} = 0
+    \end{align}
+    Since it's guaranteed that at least one of the bound-state is left behind in the well (regardless of the well's shape), and such left behind bound-state is always given by an even bound-state, which based on the even bound-state energy equation, we get the following:
+    \begin{align}
+        \frac{\sqrt{-2mE}}{\hbar} &=\frac{\sqrt{2m(E+V_0)}}{\hbar}\tan\left(\frac{\sqrt{2m(E+V_0)}}{\hbar}a\right)=\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar}\cdot\sqrt{V_0}\tan\left(\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar}\frac{\sqrt{V_0}}{2V_0}\right)\\
+        &= \frac{2m(\frac{E}{V_0}+1)}{\hbar^2}\frac{\tan\left(\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar}\frac{1}{2\sqrt{V_0}}\right)}{\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar}\frac{1}{2\sqrt{V_0}}} = \frac{2m(\frac{E}{V_0}+1)}{\hbar^2}\frac{\tan\left(\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar}\frac{1}{2\sqrt{V_0}}\right)}{\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar}\frac{1}{2\sqrt{V_0}}}
+    \end{align}
+    Which, let $y := \frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar}\frac{1}{2\sqrt{V_0}}$, we have $\lim_{V_0\rightarrow \infty}y = 0$. So, we get the following:
+    \begin{align}
+        \lim_{V_0\rightarrow\infty}\frac{\sqrt{2mE}}{\hbar}&=\lim_{V_0\rightarrow\infty}\frac{2m(\frac{E}{V_0}+1)}{2\hbar^2}\frac{\tan(y)}{y} = \frac{2m}{2\hbar^2} = \frac{m}{\hbar^2}
+    \end{align}
+    Hence, under the limit of delta square well, $\frac{\sqrt{-2mE}}{\hbar}=\frac{m}{\hbar^2}$, so $-2mE = \frac{m^2}{\hbar^2}$, showing $E = -\frac{m}{2\hbar^2}$. Which, given that the delta well has area $1$, then it's given by $V(x)= -\delta(x)$ (so the coefficient $\alpha = -1$), then Eq. 2.132 provides the energy $E = -\frac{m\alpha^2}{2\hbar^2} = -\frac{m}{2\hbar^2}$ agrees with the limit.
+
+    \hfil
+
+    Finally, given Eq. 2.172 as follow:
+    \begin{align}
+        T^{-1}=1+\frac{V_0^2}{4E(E+V_0)}\sin^2\left(\frac{2a}{\hbar}\sqrt{2m(E+V_0)}\right)
+    \end{align}
+    Also, Eq. 2.144 is as follow:
+    \begin{align}
+        T=\frac{1}{1+(m\alpha^2/2\hbar^2E)}
+    \end{align}
+    Which, according to Eq. 2.172, it can be rewritten as follow (based on the fact that $a=\frac{1}{2V_0}$ under our assumption):
+    \begin{align}
+        T^{-1} &= 1+\frac{V_0}{4E(\frac{E}{V_0}+1)}\sin^2\left(\frac{1}{\hbar V_0}\sqrt{2m\left(\frac{E}{V_0}+1\right)}\sqrt{V_0}\right) = 1+\frac{1}{4E}\left(\frac{\sin\left(\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar\sqrt{V_0}}\right)}{\sqrt{\frac{E}{V_0}+1}\frac{1}{\sqrt{V_0}}}\right)^2\\
+        &= 1+\frac{2m}{\hbar^24E}\left(\frac{\sin\left(\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar\sqrt{V_0}}\right)}{\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar\sqrt{V_0}}}\right)^2
+    \end{align}
+    Hence, we get the following limit, due to the fact that $\lim_{V_0\rightarrow\infty}\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar\sqrt{V_0}} = 0$:
+    \begin{align}
+        \lim_{V_0\rightarrow\infty}T^{-1}=\lim_{V_0\rightarrow\infty}1+\frac{2m}{\hbar^24E}\left(\frac{\sin\left(\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar\sqrt{V_0}}\right)}{\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar\sqrt{V_0}}}\right)^2 = 1+\frac{2m}{\hbar^24E}
+    \end{align}
+    Hence, under the limit, we have $T = \frac{1}{T^{-1}} = \frac{1}{1+2m/(\hbar^24E)} = \frac{1}{1+m/(2\hbar^2E)}$. Which, if cf. Eq. 2.144, with $\alpha=-1$ (based on what we previously get), $T=\frac{1}{1+m\alpha^2/(2\hbar^2E)} = \frac{1}{1+m/(2\hbar^2E)}$, which coincides with our limit.
+\end{proof}
 
 \newpage
-\section*{3}
+\section*{3 ND}
 \begin{ques}
 The Square Barrier (Griffiths 2.33)
 
@@ -51,7 +140,7 @@ $T^{-1} = 1 + \frac{V_0^2}{4E(V_0 - E)} \sinh^2\left( \frac{2a}{\hbar} \sqrt{2m(
 \end{ques}
 
 \newpage
-\section*{4}
+\section*{4 ND}
 \begin{ques}
 Mass on (circular) string (Griffiths 2.46)
 
@@ -59,7 +148,7 @@ Imagine a bead of mass $m$ that slides frictionlessly around a circular wire rin
 \end{ques}
 
 \newpage
-\section*{5}
+\section*{5 ND}
 \begin{ques}
 The Transfer Matrix (Griffiths 2.54)
 
