@@ -119,7 +119,7 @@ As we discussed in class, a Dirac delta function can be thought of as a limiting
 \end{proof}
 
 \newpage
-\section*{3 ND}
+\section*{3}
 \begin{ques}
 The Square Barrier (Griffiths 2.33)
 
@@ -151,7 +151,62 @@ $T^{-1} = 1 + \frac{V_0^2}{4E(V_0 - E)} \sinh^2\left( \frac{2a}{\hbar} \sqrt{2m(
         \end{cases}
     \end{align}
     \begin{enumerate}
-        \item d
+        \item If given that $E<V_0$, then on the region $(-a,a)$, the TISE becomes the following:
+        \begin{align}
+            E\psi=-\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}+V_0\psi \implies \frac{\partial^2\psi}{\partial x^2}-\frac{2m(V_0-E)}{\hbar^2}\psi=0
+        \end{align}
+        Which, with $w :=\frac{\sqrt{2m(V_0-E)}}{\hbar}$, on the region $(-a,a)$ the solution is $\psi(x)=Ce^{wx}+De^{-wx}$ for $C,D\in\CC$.
+
+        Which, using both continuity and differentiability at $\pm a$, we get the following four equations:
+        \begin{align}
+            \begin{cases}
+                Ae^{-ika}+Be^{ika}=Ce^{-wa}+De^{wa}\\
+                ikAe^{-ika}-ikBe^{ika}=wCe^{-wa}-wDe^{wa}\\
+                Ce^{wa}+De^{-wa}=Fe^{ika}\\
+                wCe^{wa}-wDe^{-wa}=ikFe^{ika}
+            \end{cases}
+        \end{align}
+        Using the first two equations, $C,D$ can be expressed using the following matrix equation:
+        \begin{align}
+            \begin{pmatrix}
+                e^{-wa}&e^{wa}\\we^{-wa} & -we^{wa}
+            \end{pmatrix}\begin{pmatrix}
+                C\\D
+            \end{pmatrix}=\begin{pmatrix}
+                Ae^{-ika}+Be^{ika}\\ikAe^{-ika}-ikBe^{ika}
+            \end{pmatrix}
+        \end{align}
+        Which, after solving the linear equations, we get the following:
+        \begin{align}
+            C=\frac{e^{wa}}{2}\left(\left(1+\frac{ik}{w}\right)Ae^{-ika}+\left(1-\frac{ik}{w}\right)Be^{ika}\right)\\
+            D=\frac{e^{-wa}}{2}\left(\left(1-\frac{ik}{w}\right)Ae^{-ika}+\left(1+\frac{ik}{w}\right)Be^{ika}\right)
+        \end{align}
+        Which, this implies the following:
+        \begin{align}
+            Ce^{wa}=\frac{e^{2wa}}{2}\left(\left(1+\frac{ik}{w}\right)Ae^{-ika}+\left(1-\frac{ik}{w}\right)Be^{ika}\right)\\
+            De^{-wa}=\frac{e^{-2wa}}{2}\left(\left(1-\frac{ik}{w}\right)Ae^{-ika}+\left(1+\frac{ik}{w}\right)Be^{ika}\right)
+        \end{align}
+        Now, the third and the fourth equation provides the following equality:
+        \begin{align}
+            Ce^{wa}+De^{-wa}=Fe^{ika}=-\frac{iw}{k}Ce^{wa}+\frac{iw}{k}De^{-wa}\implies \left(1+\frac{iw}{k}\right)Ce^{wa}+\left(1-\frac{iw}{k}\right)De^{-wa}=0
+        \end{align}
+        Plugin the previous equalities about $Ce^{wa}, De^{-wa}$ (with some simplification), we get:
+        \begin{align}
+            0=&\left(1+\frac{iw}{k}\right)\frac{e^{2wa}}{2}\left(\left(1+\frac{ik}{w}\right)Ae^{-ika}\left(1-\frac{ik}{w}\right)Be^{ika}\right)\\
+            &+\left(1-\frac{iw}{k}\right)\frac{e^{-2wa}}{2}\left(\left(1-\frac{ik}{w}\right)Ae^{-ka}+\left(1+\frac{ik}{w}\right)Be^{ika}\right)\\
+            &\implies A\left(\frac{w^2+k^2}{kw}\right)ie^{-ika}\sinh(2wa) = -Be^{ika}\left(2\cosh(2wa)+i\frac{w^2-k^2}{kw}\sinh(2wa)\right)\\
+            &\implies |A|^2\left(\frac{w^2+k^2}{wk}\right)^2\sinh^2(2wa) = |B|^2\left(4+\left(\frac{w^2+k^2}{wk}\right)^2\sinh^2(2wa)\right)\\
+            &\implies \frac{|B|^2}{|A|^2} = \frac{\left(\frac{w^2+k^2}{wk}\right)^2\sinh^2(2wa)}{4+\left(\frac{w^2+k^2}{wk}\right)^2\sinh^2(2wa)}
+        \end{align}
+        Which, the transmission rate $T=1-\frac{|B|^2}{|A|^2}$ can be given as below:
+        \begin{align}
+            &T=1-\frac{|B|^2}{|A|^2} = \frac{4}{4+\left(\frac{w^2+k^2}{wk}\right)^2\sinh^2(2wa)}\\
+            &\implies T^{-1} = 1+\frac{1}{4}\left(\frac{w^2+k^2}{wk}\right)^2\sinh^2(2wa)
+        \end{align}
+        Finally, recall that $w=\frac{\sqrt{2m(V_0-E)}}{\hbar}$ and $k=\frac{\sqrt{2mE}}{\hbar}$, so $w^2+k^2 = \frac{2m(V_0-E)}{\hbar^2}+\frac{2mE}{\hbar^2}=\frac{2mV_0}{\hbar^2}$, while $kw = \frac{2m\sqrt{E(V_0-E)}}{\hbar^2}$. This shows that $\left(\frac{w^2+k^2}{wk}\right)^2=\frac{V_0^2}{E(V_0-E)}$. Hence, $T^{-1}$ expands to be the following:
+        \begin{align}
+            T^{-1} = 1+\frac{1}{4}\cdot\frac{V_0^2}{E(V_0-E)}\sinh^2\left(2a\cdot\frac{\sqrt{2m(V_0-E)}}{\hbar}\right) = 1+\frac{V_0^2}{4E(V_0-E)}\sinh^2\left(\frac{2a}{\hbar}\sqrt{2m(V_0-E)}\right)
+        \end{align}
         
         \hfil
 
@@ -191,12 +246,28 @@ $T^{-1} = 1 + \frac{V_0^2}{4E(V_0 - E)} \sinh^2\left( \frac{2a}{\hbar} \sqrt{2m(
         \end{align}
         As a result, we get the reflection rate $R=\frac{|B|^2}{|A|^2} = \frac{(ka)^2}{1+(ka)^2}$, so the transmission rate $T=1-R = \frac{1}{1+(ka)^2}$. Hence, $T^{-1}$ can be expressed as follow, given $E=V_0$, and $k=\frac{\sqrt{2mE}}{\hbar}$:
         \begin{align}
-            E=V_0\implies T^{-1} = 1+(ka)^2 = 1+\frac{2mE}{a^2\hbar^2} = 1+\frac{2mV_0}{a^2\hbar^2}
+            E=V_0\implies T^{-1} = 1+(ka)^2 = 1+\frac{2mEa^2}{\hbar^2} = 1+\frac{2mV_0a^2}{\hbar^2}
         \end{align}
         
         \hfil
 
-        \item 
+        \item If given that $E>V_0$, then on the region $(-a,a)$, the TISE becomes the following:
+        \begin{align}
+            E\psi=-\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}+V_0\psi\implies \frac{\partial^2\psi}{\partial x^2}+\frac{2m(E-V_0)}{\hbar^2}\psi=0
+        \end{align}
+        Which, with $w:=\frac{\sqrt{2m(E-V_0)}}{\hbar}$, on the region $(-a,a)$ the solution is $\psi(x)=Ce^{iwx}+De^{-iwx}$ for $C,D\in\CC$.
+
+        Then, with both continuity and differentiability at $\pm a$, we get the following four equations:
+        \begin{align}
+            Ae^{-ika}+Be^{ika}=Ce^{-ika}+De^{ika}\\
+            ikAe^{-ika}-ikBe^{ika}=iwCe^{-ika}-iwDe^{iwa}\\
+            Ce^{iwa}+De^{-iwa}=Fe^{ika}\\
+            iwCe^{iwa}-iwDe^{-iwa}=ikFe^{ika}
+        \end{align}
+        Notice that this relation is similar to the finite square well (basically it's with the energy being $V_0$ instead of $-V_0$, since $E>V_0$, it's similar to the finite square well case where $E>-V_0$). Using the equation from finite square well, with the modification of $-V_0$ to $V_0$, we get:
+        \begin{align}
+            T^{-1} = 1+\frac{V_0^2}{4E(E-V_0)}\sin^2\left(\frac{2a}{\hbar}\sqrt{2m(E-V_0)}\right)
+        \end{align}
     \end{enumerate}
 \end{proof}
 
