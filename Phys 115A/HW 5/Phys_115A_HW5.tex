@@ -138,17 +138,112 @@ for $V_0 > 0$. There are three possible cases of interest: $E < V_0$; $E = V_0$;
 Partial answer: for $E < V_0$,  
 $T^{-1} = 1 + \frac{V_0^2}{4E(V_0 - E)} \sinh^2\left( \frac{2a}{\hbar} \sqrt{2m(V_0 - E)} \right)$
 \end{ques}
+\begin{proof}
+    (\textbf{Rmk:} The calculation is too tedious to include every detail, we'll just summarize when necessary).
+
+    \hfil
+
+    Regardless of the case, on the intervals $(-\infty,a)$ and $(a,\infty)$, since $V(x)=0$, the time-independent Schr\"odinger equation (TISE) is given by $E\psi=-\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}$, which let $k:=\frac{\sqrt{2mE}}{\hbar}$, the equation becomes $\frac{\partial^2\psi}{\partial x^2}+k^2\psi=0$, so $\psi(x)=Ae^{ikx}+Be^{-ikx}$. WLOG assume that the source of the particles are only from the left to the right, then on the two regions, we have the following solution for $A,B,F\in\CC$:
+    \begin{align}
+        \psi(x)=\begin{cases}
+            Ae^{ikx}+Be^{-ikx} &x\in(-\infty,-a)\\
+            Fe^{ikx} &x\in(a,\infty)
+        \end{cases}
+    \end{align}
+    \begin{enumerate}
+        \item d
+        
+        \hfil
+
+        \item If given that $E=V_0$, then on the region $(-a,a)$, the TISE becomes the following:
+        \begin{align}
+            V_0\psi = E\psi=-\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}+V_0\psi \implies \frac{\partial^2\psi}{\partial x^2}=0
+        \end{align}
+        Hence, on the region $(-a,a)$, the solution is $\psi(x)=Cx+D$ for $C,D\in\CC$.
+
+        Together with the solutions outside of this region, based on the continuity of both $\psi$ and $\frac{d\psi}{dx}$ at $-a$ and $a$, we get the following four equations:
+        \begin{align}
+            \begin{cases}
+                Ae^{-ika}+Be^{ika}=-Ca+D\\
+                ikAe^{-ika}-ikBe^{ika}=C\\
+                Ca+D = Fe^{ika}\\
+                C=ikFe^{ika}
+            \end{cases}
+        \end{align}
+        The first two equations can be collected into the following linear system:
+        \begin{align}
+            \begin{pmatrix}
+                e^{-ika}&e^{ika}\\ ike^{-ika}&-ike^{ika}
+            \end{pmatrix}\begin{pmatrix}
+                A\\B
+            \end{pmatrix}=\begin{pmatrix}
+                -Ca+D\\C
+            \end{pmatrix}
+        \end{align}
+        Which, after solving, we get that $A=De^{ika}$, and $B=-Cae^{-ika}$. Now, use $D=Ae^{-ika}$ and $Ca = -Be^{ika}$, plugin to the third and the fourth equation, we get:
+        \begin{align}
+            \begin{cases}
+                Fe^{ika} = -Be^{ika}+Ae^{-ika}\\
+                ikFe^{ika} = -\frac{Be^{ika}}{a}
+            \end{cases}&\implies Ae^{-ika}-Be^{ika} = -\frac{Be^{ika}}{ika}\\
+            &\implies Ae^{-ika} = Be^{ika}\left(1-\frac{1}{ika}\right)\\
+            &\implies |A|^2 = |B|^2\cdot\left|\frac{ika-1}{ika}\right|^2 = \frac{1+(ka)^2}{(ka)^2}
+        \end{align}
+        As a result, we get the reflection rate $R=\frac{|B|^2}{|A|^2} = \frac{(ka)^2}{1+(ka)^2}$, so the transmission rate $T=1-R = \frac{1}{1+(ka)^2}$. Hence, $T^{-1}$ can be expressed as follow, given $E=V_0$, and $k=\frac{\sqrt{2mE}}{\hbar}$:
+        \begin{align}
+            E=V_0\implies T^{-1} = 1+(ka)^2 = 1+\frac{2mE}{a^2\hbar^2} = 1+\frac{2mV_0}{a^2\hbar^2}
+        \end{align}
+        
+        \hfil
+
+        \item 
+    \end{enumerate}
+\end{proof}
 
 \newpage
-\section*{4 ND}
+\section*{4}
 \begin{ques}
 Mass on (circular) string (Griffiths 2.46)
 
 Imagine a bead of mass $m$ that slides frictionlessly around a circular wire ring of circumference $L$. (This is like a free particle except that $\psi(x+L) = \psi(x)$.) Find the stationary states (with appropriate normalization) and the corresponding allowed energies. Note that there are (with one exception) two independent solutions for each energy $E_n$—corresponding to clockwise and counter-clockwise circulation; call them $\psi_n^+(x)$ and $\psi_n^-(x)$. How do you account for this degeneracy, in view of the theorem of problem $2.44$ (why does the theorem fail in this case)? Hint: you worked through problem $2.44$ in discussion section.
 \end{ques}
+\begin{proof}
+    Given that $V(x)=0$ where $x \in \RR/(L \ZZ)$ (i.e. it's periodic with period $L$ position wise). Then, the Hamiltonian is given by $\hat{H}=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}$. So, the stationary state satisfies the following equation with some energy $E\geq 0$:
+    \begin{align}
+        E\psi = -\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}\implies \frac{\partial^2\psi}{\partial x^2} + \frac{2mE}{\hbar^2}\psi = 0\implies \psi(x)=Ae^{ikx}+Be^{-ikx},\quad k:= \frac{\sqrt{2mE}}{\hbar}
+    \end{align}
+    Which, using the periodicity, since $\psi(x+L) = \psi(x)$, one must have the following:
+    \begin{align}
+        Ae^{ikx}+Be^{-ikx}=\psi(x)=\psi(x+L)=Ae^{ik(x+L)}+Be^{-ik(x+L)} = (Ae^{ikL})e^{ikx}+(B^{-ikL})e^{-ikx}
+    \end{align}
+    Then, by linear independence of the two functions $e^{ikx},e^{-ikx}$ over $\CC$, it enforces $A=Ae^{ikL}$ and $B=Be^{-ikL}$ for all $A,B\in\CC$, showing $e^{ikL}=e^{-ikL}=1$, which $kL = 2n\pi$ for some $n\in\ZZ$, or $\frac{\sqrt{2mE}}{\hbar} = \frac{2n\pi}{L}$, showing that $E =\frac{1}{2m}\left(\frac{2n\pi\hbar}{L}\right)^2$ for some $n\in\NN$ (since it's squared).
 
-\newpage
-\section*{5 ND}
+    \hfil
+
+    Fix $n\in\NN$, define $E_n:=\frac{2n^2\pi^2\hbar^2}{mL^2}$, then $k_n:=\frac{\sqrt{2mE_n}}{\hbar}=\frac{2n\pi}{L}$. Let $\psi_n(x):=Ae^{ik_nx}+Be^{-ik_nx}$ be the corresponding $n^\text{th}$ stationary state. To normalize this, since it's restricted to $\RR/L\ZZ$, then the most fundamental domain is up to $[0,L)$. Then, to normalize the solution above, we get:
+    \begin{align}
+        1&=\int_{0}^{L}|\psi|^2dx = \int_{0}^{L}(Ae^{ik_nx}+Be^{-ik_nx})^*(Ae^{ik_nx}+Be^{-ik_nx})dx \\
+        &= \int_{0}^{L}\left(|A|^2+|B|^2 + A^*Be^{-i2k_nx}+AB^*e^{i2k_nx}\right)dx = L(|A|^2+|B|^2)
+    \end{align}
+    (Note: Here $e^{i2k_nx},e^{-i2k_nx}$ still have period multiples being $L$). 
+
+    Hence, one must have $|A|^2+|B|^2=\frac{1}{L}$. Hence, given any $0\leq D_1\leq\frac{1}{\sqrt{L}}$, with $D_2:=\sqrt{\frac{1}{L}-D_1^2}\geq 0$, given any $\theta_1,\theta_2\in[0,2\pi]$, the constants $A:=D_1e^{i\theta_1}$ and $B:=D_2e^{i\theta_2}$, they satisfy $|A|^2+|B|^2=|D_1|^2+|D_2|^2  = D_1^2+(\frac{1}{L}-D_1^2)=\frac{1}{L}$, which satisfies the given condition.
+
+    Which, incorporate for the time evolution (where fixing $n\in\NN$, we have $E_n=\frac{2n^2\pi^2\hbar^2}{mL}$, $k_n = \frac{\sqrt{2mE_n}}{\hbar}=\frac{2n\pi}{L}$, and $\frac{iE_nt}{\hbar} = \frac{i\cdot 2n^2\pi^2\hbar}{mL^2}$), we get the following:
+    \begin{align}
+        \psi_n(x,t) = A\exp\left(\frac{i2n\pi}{L}x - \frac{i2n^2\pi^2\hbar}{mL^2}t\right) + B\exp\left(-\frac{i2n\pi}{L}x - \frac{i2n^2\pi^2\hbar}{mL^2}t\right),\quad |A|^2+|B|^2=\frac{1}{L}
+    \end{align}
+
+    \hfil
+
+    If restrict to $B=0$ or $A=0$ respectively, one can get $A:=\frac{1}{\sqrt{L}}$ or $B:=\frac{1}{\sqrt{L}}$, and one can define $\psi_n^+(x):= \frac{1}{\sqrt{L}}e^{\frac{i2n\pi}{L}x}$ and $\psi_n^-(x):=\frac{1}{\sqrt{L}}e^{-\frac{i2n\pi}{L}x}$, which they form a $\CC$-linearly independent solutions, and form a basis for the stationary state for energy $E_n$.
+
+    The reason why theorem in Problem 2.44 fails here (where $\psi_n^+$ and $\psi_n^-$ are non-degenerate), is because the the domain is bounded - instead of on the whole real line $x\in\RR$, we have $x\in\RR/(L\ZZ)$ (which can essentially be described by $[0,L)$), since the domain is somewhat limited, it takes away extra restrictions (for instance $\lim_{x\rightarrow\infty}\psi(x)=0$ is no longer required), hence the solution space essentiallly gets enlarged, and causing such degeneracy to be possible (since the proof in Problem 2.44 usees the fact that $\psi(x)$ converges to $0$ when approaching $\pm\infty$).
+\end{proof}
+
+\hfil
+
+\section*{5}
 \begin{ques}
 The Transfer Matrix (Griffiths 2.54)
 
@@ -167,6 +262,167 @@ d. By the method of part (b), find the $M$-matrix for scattering from the double
 $V(x) = -\alpha [\delta(x+a) + \delta(x-a)]$  
 What is the transmission coefficient for this potential?
 \end{ques}
+\begin{proof}
+
+    \hfil
+
+    \begin{itemize}
+        \item[a.] Given the relation with the $S$-matrix as follow:
+    \begin{align}
+        \begin{pmatrix}
+            B\\F
+        \end{pmatrix}=\begin{pmatrix}
+            S_{11}&S_{12}\\S_{21}&S_{22}
+        \end{pmatrix}\begin{pmatrix}
+            A\\G
+        \end{pmatrix}= \begin{pmatrix}
+            AS_{11}+GS_{12}\\AS_{21}+GS_{22}
+        \end{pmatrix}
+    \end{align}
+    With the transfer matrix relation and the above $S$-matrix relation, we get:
+    \begin{align}
+        \begin{pmatrix}
+            AS_{21}+GS_{22}\\G
+        \end{pmatrix}=\begin{pmatrix}
+            F\\G
+        \end{pmatrix}=\begin{pmatrix}
+            M_{11}&M_{12}\\M_{21}&M_{22}
+        \end{pmatrix}\begin{pmatrix}
+            A\\B
+        \end{pmatrix}=\begin{pmatrix}
+            AM_{11}+BM_{12}\\AM_{21}+BM_{22}
+        \end{pmatrix} = \begin{pmatrix}
+            AM_{11}+AS_{11}M_{12}+GS_{12}M_{12}\\AM_{21}+AS_{11}M_{22}+GS_{12}M_{22}
+        \end{pmatrix}
+    \end{align}
+    If given that $A,G$ are arbitrary, , this enforce the coefficients of $A$ and $G$ on both sides to be identical, hence we have the following relation:
+    \begin{align}
+        \begin{cases}
+            S_{21}=M_{11}+S_{11}M_{12}\\
+            S_{22}=S_{12}M_{12}\\
+            0=M_{21}+S_{11}M_{22}\\
+            1=S_{12}M_{22}
+        \end{cases}\implies \begin{cases}
+            M_{12}=\frac{S_{22}}{S_{12}}\\
+            M_{22}=\frac{1}{S_{12}}
+        \end{cases}
+    \end{align}
+    The right hand relation is based on the second and the fourth relation Now, plugin to the first and the third relation, we get:
+    \begin{align}
+        \begin{cases}
+            M_{11} = S_{21}-S_{11}M_{12} = S_{21}-\frac{S_{11}S_{22}}{S_{12}}\\
+            M_{21} = -S_{11}M_{22}=-\frac{S_{11}}{S_{12}}
+        \end{cases}
+    \end{align}
+    Hence, the whole transfer matrix is as follow:
+    \begin{align}
+        \begin{pmatrix}
+            S_{21}-\frac{S_{11}S_{22}}{S_{12}} & \frac{S_{22}}{S_{12}}\\ -\frac{S_{11}}{S_{12}} & \frac{1}{S_{12}}
+        \end{pmatrix}
+    \end{align}
+    Conversely, the $S$-matrix in terms of the transfer matrix coefficients, we also have the following:
+    \begin{align}
+            M_{22}=\frac{1}{S_{12}}&\implies S_{12}=\frac{1}{M_{22}}\\
+            M_{21}=-\frac{S_{11}}{S_{12}} = -S_{11}M_{22}&\implies S_{11}=-\frac{M_{21}}{M_{22}}\\
+            M_{12}=\frac{S_{22}}{S_{12}}=S_{22}M_{22}&\implies S_{22}=\frac{M_{12}}{M_{22}}\\
+            M_{11}=S_{21}-\frac{S_{11}S_{22}}{S_{12}} = S_{21}+\frac{M_{21}M_{12}}{M_{22}}&\implies S_{21} = \frac{M_{11}M_{22}-M_{21}M_{12}}{M_{22}}
+    \end{align}
+
+    Now, given that $R_l=|S_{11}|^2, T_l=|S_{21}|^2, R_r=|S_{22}|^2, T_r=|S_{12}|^2$, we have the following:
+    \begin{align}
+        &R_r = |S_{22}|^2 = \frac{|M_{12}|^2}{|M_{22}|^2}\\
+        &T_l = |S_{21}|^2 = \frac{|M_{11}M_{22}-M_{21}M_{12}|^2}{|M_{22}|^2}\\
+        &T_r = |S_{12}|^2 = \frac{1}{|M_{22}|^2}\\
+        &R_l = |S_{11}|^2 = \frac{|M_{21}|^2}{|M_{22}|^2}
+    \end{align}
+
+    \hfil
+
+    \item[b.] Let region 1 has amplitudes $\begin{pmatrix}A\\B\end{pmatrix}$, region 2 has amplitudes $\begin{pmatrix}C\\D\end{pmatrix}$, and region 3 has amplitudes $\begin{pmatrix}F\\G\end{pmatrix}$. Also, let the first isolated piece (from region 1 to region 2) be described by transfer matrix $\mathcal{M}_1$, and the second isolated piece (from region 2 to region 3) be described by transfer matrix $\mathcal{M}_2$. 
+    
+    Then, the property of transfer matrices state the following:
+    \begin{align}
+        \begin{pmatrix}
+            C\\D
+        \end{pmatrix}=\mathcal{M}_1\begin{pmatrix}
+            A\\B
+        \end{pmatrix},\quad \begin{pmatrix}
+            F\\G
+        \end{pmatrix}=\mathcal{M}_2\begin{pmatrix}
+            C\\D
+        \end{pmatrix}
+    \end{align}
+    Hence, it implies $\begin{pmatrix}F\\G\end{pmatrix} = \mathcal{M}_2\mathcal{M}_1\begin{pmatrix}A\\B\end{pmatrix}$. So, the total transfer matrix $\mathcal{M}=\mathcal{M}_2\mathcal{M}_1$.
+
+    \hfil
+
+    \item[c.] Recall that for scattering states, the solution is given as follow:
+    \begin{align}
+        \psi(x)=\begin{cases}
+            Ae^{ikx}+Be^{-ikx} & x<0\\
+            Fe^{ikx}+Ge^{-ikx} & x>0
+        \end{cases},\quad \begin{cases}
+            F+G=A+B\\
+            F-G=A(1+2i\beta)-B(1-2i\beta)
+        \end{cases}
+    \end{align}
+    Where, $\beta=\frac{m\alpha}{\hbar^2k}$, andthe second relation is provided by the continuity of $\psi$, and potential $V(x)=-\alpha\delta(x)$.
+
+    So, written in matrix equation, we get (from the relation on the right hand side):
+    \begin{align}
+        &\begin{pmatrix}
+            1&1\\1&-1
+        \end{pmatrix}\begin{pmatrix}
+            F\\G
+        \end{pmatrix}=\begin{pmatrix}
+            1&1\\(1+2i\beta)&-(1-2i\beta)
+        \end{pmatrix}\begin{pmatrix}
+            A\\B
+        \end{pmatrix}\\
+        &\implies \begin{pmatrix}
+            F\\G
+        \end{pmatrix}=\frac{1}{2}\begin{pmatrix}
+            1&1\\1&-1
+        \end{pmatrix}\begin{pmatrix}
+            1&1\\(1+2i\beta)&-(1-2i\beta)
+        \end{pmatrix}\begin{pmatrix}
+            A\\B
+        \end{pmatrix} = \begin{pmatrix}
+            1+i\beta & i\beta\\-i\beta & 1-i\beta
+        \end{pmatrix}\begin{pmatrix}
+            A\\B
+        \end{pmatrix}
+    \end{align}
+    So, the transfer matrix is $\mathcal{M}=\begin{pmatrix}
+        1+i\beta & i\beta\\-i\beta & 1-i\beta
+    \end{pmatrix}$.
+
+    \hfil
+
+    \item[d.] Since there are two parts of the delta square well, both with coefficient $\alpha$ (where $V(x)=-\alpha\delta(x+k)$ for $k=\pm a$). Then, since up to a shift of domain, both potentials are identical, they have the same transfer matrix. Hence, let $\begin{pmatrix}
+        A\\B
+    \end{pmatrix}$ denotes the amplitudes on the left most region $x<-a$, and $\begin{pmatrix}
+        F\\G
+    \end{pmatrix}$ denotes the amplitudes on the right most region $x>a$, the the method in part b implies that $\begin{pmatrix}
+        F\\G
+    \end{pmatrix}=\mathcal{M}^2\begin{pmatrix}
+        A\\B
+    \end{pmatrix}$, where $\mathcal{M}$ is proided in part c. So, the transfer matrix is as follow:
+    \begin{align}
+        \mathcal{M}^2 = \begin{pmatrix}
+            1+2i\beta & 2i\beta\\-2i\beta & 1-2i\beta
+        \end{pmatrix}
+    \end{align}
+        Finally, using the transmission coefficients derived in part a, we get:
+        \begin{align}
+            &R_r = \frac{|M_{12}|^2}{|M_{22}|^2} = \frac{(2\beta)^2}{1+(2\beta)^2}\\
+            &T_l=\frac{|M_{11}M_{22}-M_{21}M_{12}|^2}{|M_{22}|^2} = \frac{1}{1+(2\beta)^2}\\
+            &T_r=\frac{1}{|M_{22}|^2}=\frac{1}{1+(2\beta)^2}\\
+            &R_l=\frac{|M_{21}|^2}{|M_{22}|^2}=\frac{(2\beta)^2}{1+(2\beta)^2}
+        \end{align}
+    \end{itemize}
+
+\end{proof}
 
 \newpage
 \section*{6}
