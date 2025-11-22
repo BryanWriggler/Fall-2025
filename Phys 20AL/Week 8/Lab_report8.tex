@@ -291,6 +291,12 @@ A picture and graph about this experimental data is provided as follow:
 
 Which, based on Pythagoras Theorem, one can derive the relation $L+\lambda = \sqrt{L^2+x^2}$, which $\lambda=\sqrt{L^2+x^2}-L \approx 5.631\cdot 10^{-7}$ m.
 
+Also, based on the equation, with $\frac{\partial\lambda}{\partial L}=\frac{L}{\sqrt{L^2+x^2}}-1\approx -1.015\cdot 10^{-7}$, and $\frac{\partial\lambda}{\partial x}=\frac{x}{\sqrt{L^2+x^2}}\approx  4.505\cdot 10^{-4}$, also with $\delta L=0.02$ m, and $\delta x=5\cdot 10^{-4}$ m, the propogation of uncertainty is given as follow:
+\begin{align}
+    \delta \lambda=\sqrt{\left(\frac{\partial \lambda}{\partial L}\delta L\right)^2+\left(\frac{\partial \lambda}{\partial x}\delta x\right)^2}\approx 2.261\cdot 10^{-7} \text{ m}
+\end{align}
+One can see that in comparison to $\lambda\approx 5.631\cdot 10^{-7}$ m, the uncertainty is still quite large (since they're both on the scale of $10^{-7}$ m), so this data doesn't have that high of a confidence to represent the model.
+
 \newpage
 
 \section{Error Analysis}
@@ -299,18 +305,30 @@ Within the experiment, both human limitation on measurements potentially played 
     \item When the lightsource is too dim to be observed, it's hard to measure the actual incident angle. This especially happened for blue light during the second experiment of dispersion.
     \item The width of the light source sometimes is too wide, so when measuring the incident angle it is confusing about which angle represents the actual incident angle of the light. This problem appears more often during the second experiment of disperson.
 \end{itemize}
-For potential improvement related to these two problems, a light source with stronger intensity and concentration could help (but also need to consider the budget for the experimental equipments). Also, based on the equation, with $\frac{\partial\lambda}{\partial L}=\frac{L}{\sqrt{L^2+x^2}}-1\approx -1.015\cdot 10^{-7}$, and $\frac{\partial\lambda}{\partial x}=\frac{x}{\sqrt{L^2+x^2}}\approx  4.505\cdot 10^{-4}$, also with $\delta L=0.02$ m, and $\delta x=5\cdot 10^{-4}$ m, the propogation of uncertainty is given as follow:
-\begin{align}
-    \delta \lambda=\sqrt{\left(\frac{\partial \lambda}{\partial L}\delta L\right)^2+\left(\frac{\partial \lambda}{\partial x}\delta x\right)^2}\approx 2.261\cdot 10^{-7} \text{ m}
-\end{align}
-One can see that in comparison to $\lambda\approx 5.631\cdot 10^{-7}$ m, the uncertainty is still quite large, so this data doesn't have that well of a confidence of representing the model provided.
+For potential improvement related to these two problems, a light source with stronger intensity and concentration could help (but also need to consider the budget for the experimental equipments). 
 
 \hfil
 
 Besides the human limitation, some potential sources of errors include:
 \begin{itemize}
-    \item The transparent materials (the half-cylinder, triangular prism, etc.) may have non-uniform density, potentially 
+    \item The transparent materials (the half-cylinder, triangular prism, etc.) may have non-uniform density, potentially causing unnecessary refraction (but this is hard to verify the extra effect).
+    \item Though air has experimental index of refraction being nearly $1$, but in comparison to the vacuum, the index of refraction is still nontrivial. This could potentially bring some extra error in the calculation.
 \end{itemize}
+
+\hfil
+
+\section{Conclusion}
+In this experiment, the section about Snell's Law has a decent experimental data, that mostly agree with Snell's Law - the index of refraction in general is pretty close to the expected value (in between $1.4-1.5$); even though the propogation of uncertainty is quite large, but the calculated index of refraction for the half-cylinder $n_\text{ave}=1.463$ has the predicted critical angle being $\theta_\text{crit} = 43.136^\circ$, which is about the same as the experimentally verified value. So, it's concluded that Snell's Law is a decent approximation to the refraction of light in the first experiment.
+
+\hfil
+
+For the second experiment about dispersion however, the experimental data calculated the index of refraction to vary a lot based on the input incident angle, which doesn't fit with the model. Eventually, even though the average index of refraction displays some dependency on the light source's frequency, because of the invalidity of the data based on the given model, there's a low confidence to conclude that the index of refraction actually depends on the light frequency. 
+
+About this experiment specifically there are some potential improvements that can be done for a more accurate measurement, including increase the light source's intensity, and also decrease the light beam's thickness, for an easier angle measurement.
+
+\hfil
+
+Finally, for the the Fresnel Poisson Arago Point experiment, given the distance away from the screen $L=5.55$ m, the distance between the peak of the interference pattern $x=2.5$ mm, the expected light wavelength is $\lambda \approx 5.631\cdot 10^{-7}$ m. In this case the propogation of uncertainty is $\delta\lambda\approx 2.261\cdot 10^{-7}$ m, which is about the same scale as the calculated wavelength, so this value also has a relatively low confidence of representing the wavelength of the light source.
 
 
 \end{document}

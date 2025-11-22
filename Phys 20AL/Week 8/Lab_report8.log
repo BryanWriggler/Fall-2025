@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  22 NOV 2025 09:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.22)  22 NOV 2025 10:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -799,29 +799,29 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [1
 
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<lat_setup8.png, id=112, 4047.12pt x 3035.34pt>
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+<lat_setup8.png, id=121, 4047.12pt x 3035.34pt>
 File: lat_setup8.png Graphic file (type png)
 <use lat_setup8.png>
 Package pdftex.def Info: lat_setup8.png  used on input line 28.
 (pdftex.def)             Requested size: 284.52756pt x 213.3755pt.
-<fresnel poisson aragon setup.jpg, id=113, 1499.6025pt x 500.87125pt>
+<fresnel poisson aragon setup.jpg, id=122, 1499.6025pt x 500.87125pt>
 File: fresnel poisson aragon setup.jpg Graphic file (type jpg)
 <use fresnel poisson aragon setup.jpg>
 Package pdftex.def Info: fresnel poisson aragon setup.jpg  used on input line 35.
 (pdftex.def)             Requested size: 284.52756pt x 95.02895pt.
- [2 <./lat_setup8.png> <./fresnel poisson aragon setup.jpg>] [3] [4]
-<freq_indep.png, id=140, 462.528pt x 346.896pt>
+ [3 <./lat_setup8.png> <./fresnel poisson aragon setup.jpg>] [4] [5]
+<freq_indep.png, id=149, 462.528pt x 346.896pt>
 File: freq_indep.png Graphic file (type png)
 <use freq_indep.png>
 Package pdftex.def Info: freq_indep.png  used on input line 110.
 (pdftex.def)             Requested size: 284.52756pt x 213.40593pt.
-<total_refl.png, id=142, 4047.12pt x 3035.34pt>
+<total_refl.png, id=151, 4047.12pt x 3035.34pt>
 File: total_refl.png Graphic file (type png)
 <use total_refl.png>
 Package pdftex.def Info: total_refl.png  used on input line 120.
 (pdftex.def)             Requested size: 284.52756pt x 213.3755pt.
- [5 <./freq_indep.png> <./total_refl.png>]
+ [6 <./freq_indep.png> <./total_refl.png>]
 Overfull \hbox (258.33171pt too wide) in paragraph at lines 135--146
  [][] 
  []
@@ -836,44 +836,44 @@ Overfull \hbox (258.33171pt too wide) in paragraph at lines 173--184
  [][] 
  []
 
-[6]
-<prism_rel.jpg, id=157, 1733.47626pt x 1053.9375pt>
+[7]
+<prism_rel.jpg, id=167, 1733.47626pt x 1053.9375pt>
 File: prism_rel.jpg Graphic file (type jpg)
 <use prism_rel.jpg>
 Package pdftex.def Info: prism_rel.jpg  used on input line 195.
 (pdftex.def)             Requested size: 341.43306pt x 207.5835pt.
- [7 <./prism_rel.jpg>]
-<n2 vs. Light Source Frequency.png, id=168, 602.25pt x 372.39125pt>
+ [8 <./prism_rel.jpg>]
+<n2 vs. Light Source Frequency.png, id=178, 602.25pt x 372.39125pt>
 File: n2 vs. Light Source Frequency.png Graphic file (type png)
 <use n2 vs. Light Source Frequency.png>
 Package pdftex.def Info: n2 vs. Light Source Frequency.png  used on input line 278.
 (pdftex.def)             Requested size: 227.62204pt x 140.74872pt.
-<fresnel poisson arago.png, id=169, 1151.30125pt x 332.24126pt>
+<fresnel poisson arago.png, id=179, 1151.30125pt x 332.24126pt>
 File: fresnel poisson arago.png Graphic file (type png)
 <use fresnel poisson arago.png>
 Package pdftex.def Info: fresnel poisson arago.png  used on input line 289.
 (pdftex.def)             Requested size: 426.79134pt x 123.16054pt.
- [8 <./n2 vs. Light Source Frequency.png> <./fresnel poisson arago.png>] [9{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./Lab_report8.aux)
+ [9 <./n2 vs. Light Source Frequency.png> <./fresnel poisson arago.png>] [10{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./Lab_report8.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `Lab_report8.out' has not changed.
-(rerunfilecheck)             Checksum: 8746FBB600612AB25E91B33E5C56FD1B;1886.
+(rerunfilecheck)             Checksum: 2244414950AF1CE3075F708295B164E7;1980.
  ) 
 Here is how much of TeX's memory you used:
- 31624 strings out of 474116
- 637841 string characters out of 5743681
+ 31627 strings out of 474116
+ 637868 string characters out of 5743681
  1947187 words of memory out of 5000000
- 53437 multiletter control sequences out of 15000+600000
+ 53438 multiletter control sequences out of 15000+600000
  566566 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,17n,113p,823b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Lab_report8.pdf (9 pages, 41646475 bytes).
+Output written on Lab_report8.pdf (10 pages, 41649209 bytes).
 PDF statistics:
- 265 PDF objects out of 1000 (max. 8388607)
- 186 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
- 280 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 275 PDF objects out of 1000 (max. 8388607)
+ 195 compressed objects within 2 object streams
+ 44 named destinations out of 1000 (max. 500000)
+ 288 words of extra memory for PDF output out of 10000 (max. 10000000)
 
