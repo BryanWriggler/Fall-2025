@@ -15,7 +15,7 @@ For the light's traveling path, intuition and some quite limited daytime observa
 
 Here, the simplest model to describe such change of path is through index of refraction - the ratio of speed of light (in vacuum) over the speed of light (in the medium). And, given the two mediums with index of refraction $n_,n_2$, as the light travels from medium 1 to 2, with incident angle away from the normal being $\theta_1,\theta_2$, then Snell's Law states the relation $n_1\sin(\theta_1)=n_2\sin(\theta_2)$.
 
-The aim for the experiment is to study the path that light travels: First it'll be focused on using Snell's Law to calculate a half-cylinder's index of refraction (that's independent of the frequency of the light). Later on it'll be focused on using the prism to get a frequency-dependent index of refraction for a prism instead (or testing the dispersion of light).
+The aim for the experiment is to study the path that light travels: First it'll be focused on using Snell's Law to calculate a half-cylinder's index of refraction (that's independent of the frequency of the light). Later on it'll be focused on using the prism to get a frequency-dependent index of refraction for a prism instead (or testing the dispersion of light). Finally, an observation about Fresnel Poisson Arago spot will be observed, and done some calculation about the experimntal data.
 
 \newpage
 
@@ -29,6 +29,15 @@ The equipment setup is also simple: setup the light so the path of the light pas
     \caption{The actual lab setup picture}
 \end{figure}
 
+About the Fresnel Poisson Arago Spot experiment, a setup includes a laser source, a small metal ball, a stand supporting both the laser and the ball, and a screen. Which, the laser will be blocked by the small metal ball, and observe the effect of the light pattern on the screen.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=100mm]{fresnel poisson aragon setup.jpg}
+    \caption{The Lab Setup sketch for Fresnel Poisson Arago Spot Experiment}
+\end{figure}
+
+\newpage
+
 \section{Quantity to Measure, and Method of Measure}
 For measuring the index of refraction through Snell's Law, the incident angle of the light away from the normal line of the surface well be measured (for both the input and output light), and it'll be measured through the protractor.
 
@@ -39,7 +48,7 @@ For each pair of manipulated variables, total of 3 trials fo measurement will be
 \hfil
 
 \section{Experimental Procedure}
-\subsection{Frequency Independent Experiment}
+\subsection{Snell's Law Experiment}
 It'll follow the procedure below:
 \begin{enumerate}
     \item Turn on the white light, and put the half-cylinder on the path of the light, with the flat side facing toward the light.
@@ -50,13 +59,13 @@ It'll follow the procedure below:
 \end{enumerate}
 Afterward, using the gathered data to calculate the index of refraction of the half-cylinder, use it to predict the critical angle, and test how well the prediction is experimentally.
 
-\subsection{Frequency Dependent Experiment}
+\subsection{dispersion Experiment}
 In this case, the experimental procedure is quite similar to \textbf{Subsection 4.1}, except now there are 3 different light sources - red, green, and blue. So, the experiment described above needs to be repeated for all types of light source, to get the index of refraction with respect to each frequency of light.
 
-\hfil
+\newpage
 
 \section{Experimental Data and Data Analysis}
-\subsection{Frequency Independent Experiment}
+\subsection{Snell's Law Experiment}
 Here are the experimental data:
 \begin{table}[h!]
 \centering
@@ -101,6 +110,7 @@ Which, they generate the following graph:
     \includegraphics[width=100mm]{freq_indep.png}
     \label{fig:freq_indep_graph}
 \end{figure}
+
 Even though the eventual calculated $n_2$ values are concentrated near $1.4-1.5$, but due to the high uncertainty value $\delta n_2$, this data has a relatively low confidence of representing the actual scenario in the experiment.
 
 Eventually, the average index of refraction $n_{2,\text{ave}} \approx 1.463$. According to this value, the critical angle $\theta_\text{crit}$ satisfies the relation $n_1\sin(\frac{\pi}{2}) = n_2\sin(\theta_\text{crit})$ (which, as the light travels from the given medium backk to the air, with input incident angle $\theta_\text{crit}$, the refracted angle is $90^\circ$, causing the total internal reflection to happen). With $n_1=\sin(\frac{\pi}{2})=1$, $\sin(\theta_\text{crit})=\frac{1}{n_2}$, or $\theta_\text{crit} = \sin\left(\frac{1}{n_{2,\text{ave}}}\right)\approx 43.136^\circ$ (the predicted critical angle). Experimentally, the following picture is taken:
@@ -112,14 +122,12 @@ Eventually, the average index of refraction $n_{2,\text{ave}} \approx 1.463$. Ac
     \label{fig:total_refl}
 \end{figure}
 
-\newpage
-
 Which, one can observe the total internal reflection starts happening when the angle is about $42^\circ$, in this case it's pretty close to the experimental prediction.
 
-\hfil
+\newpage
 
-\subsection{Frequency Dependent Experiment}
-Here are the experimental data:
+\subsection{dispersion Experiment}
+Here are the experimental data (on the next page):
 \begin{table}[h!]
 % ------------------ Red Light ------------------
 \begin{subtable}[t]{0.32\textwidth}
@@ -188,4 +196,121 @@ Which, Based on the geometry of the triangular prism, it generates the following
     \caption{Triangular Prism's Angle Relation}
     \label{fig:prism_rel}
 \end{figure}
+
+Where $\theta_1$ is the input angle, and $\theta_1'$ is the output angle measured above, and $n_1$ (in the notation) is $n_2$ the index of refraction.
+
+Solving for these relations, let $x:=\sin(\theta_2)$, the above becomes the following relations:
+
+\begin{align}
+    \begin{cases}
+        \theta_2'=45^\circ -\theta_2\implies \sin(\theta_2')=\sin(45^\circ)\cos(\theta_2)-\cos(45^\circ)\sin(\theta_2)=\frac{1}{\sqrt{2}}(\sqrt{1-x^2}-x)\\
+        n_2 = \frac{\sin(\theta_1)}{\sin(\theta_2)} = \frac{\sin(\theta_1')}{\sin(\theta_2')}
+    \end{cases}
+\end{align}
+
+So, the second equation after substituting the first equation, becomes $n_2=\frac{\sin(\theta_1)}{x}=\frac{\sqrt{2}\sin(\theta_1')}{\sqrt{1-x^2}-x}$. So, it generates the following relation:
+\begin{align}
+    s\in(\theta_1)(\sqrt{1-x^2}-x)=\sqrt{2}x\sin(\theta'_1)\implies \sqrt{1-x^2}=\frac{\sqrt{2}\sin(\theta_1')+\sin(\theta_1)}{\sin(\theta_1)}x
+\end{align}
+Define $K:= \frac{\sqrt{2}\sin(\theta'_1)+\sin(\theta_1)}{\sin(\theta_1)}$, it becomes $\sqrt{1-x^2}=Kx$, so $1-x^2=K^2x^2$, $1=(K^2+1)x^2$, or $x=\frac{1}{\sqrt{K^2+1}}$.
+
+So, as a result $n_2 = \frac{\sin(\theta_1)}{x} = \sqrt{K^2+1}\sin(\theta_1)$. Which, they generate the following table about $n_2$, with respect to the light source:
+\begin{table}[h!]
+\centering
+
+% ----------- Red Light -----------
+\begin{subtable}[t]{0.32\textwidth}
+\centering
+\begin{tabular}{c|| c}
+\hline
+\textbf{Input Angle ($^\circ$)} & \textbf{$n_2$} \\
+\hline
+10 & 0.695 \\
+20 & 1.251 \\
+30 & 1.658 \\
+40 & 1.955 \\
+50 & 2.221 \\
+\hline
+\end{tabular}
+\caption{Red Light}
+\end{subtable}
+\hfill
+\begin{subtable}[t]{0.32\textwidth}
+\centering
+\begin{tabular}{c ||c}
+\hline
+\textbf{Input Angle ($^\circ$)} & \textbf{$n_2$} \\
+\hline
+10 & 0.820 \\
+20 & 1.318 \\
+30 & 1.690 \\
+40 & 2.008 \\
+50 & 2.236 \\
+\hline
+\end{tabular}
+\caption{Green Light}
+\end{subtable}
+\hfill
+\begin{subtable}[t]{0.32\textwidth}
+\centering
+\begin{tabular}{c ||c}
+\hline
+\textbf{Input Angle ($^\circ$)} & \textbf{$n_2$} \\
+\hline
+10 & 0.812 \\
+20 & 1.309 \\
+30 & 1.695 \\
+40 & 2.017 \\
+50 & 2.242 \\
+\hline
+\end{tabular}
+\caption{Blue Light}
+\end{subtable}
+
+\caption{Index of Refraction $n_2$ vs. Input Angle, and Light Source}
+\end{table}
+
+Unfortunately, the calculated data is invalid under the model of index of refraction, since the restriction is $n\geq 1$, but here for input angle $=10^\circ$ the index of refraction is below $1$. Also, such value vary across different input angle, which is not supposed to happen assuming the material is uniform. So, the collected data in this case completely violates the model based on index of refraction.
+
+Nonetheless, gathering the average index of refraction, it becomes $n_\text{red}=1.556,n_\text{green}=1.614,n_\text{blue}=1.615$. Also, by taking the frequency $f_\text{red}=440$ THz, $f_\text{green}=565$ THz, and $f_\text{blue}=645$ THz, the following graph is derived:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=80mm]{n2 vs. Light Source Frequency.png}
+\end{figure}
+
+Which, some frequency dependence can be seen from the average collection, but this couldn't represent the dependency due to the invalidity of the collected data (under the given model of index of refraction).
+
+\hfil
+
+\subsection{Fresnel Poisson Arago Spot}
+A picture and graph about this experimental data is provided as follow:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=150mm]{fresnel poisson arago.png}
+\end{figure}
+
+Which, based on Pythagoras Theorem, one can derive the relation $L+\lambda = \sqrt{L^2+x^2}$, which $\lambda=\sqrt{L^2+x^2}-L \approx 5.631\cdot 10^{-7}$ m.
+
+\newpage
+
+\section{Error Analysis}
+Within the experiment, both human limitation on measurements potentially played a larger role:
+\begin{itemize}
+    \item When the lightsource is too dim to be observed, it's hard to measure the actual incident angle. This especially happened for blue light during the second experiment of dispersion.
+    \item The width of the light source sometimes is too wide, so when measuring the incident angle it is confusing about which angle represents the actual incident angle of the light. This problem appears more often during the second experiment of disperson.
+\end{itemize}
+For potential improvement related to these two problems, a light source with stronger intensity and concentration could help (but also need to consider the budget for the experimental equipments). Also, based on the equation, with $\frac{\partial\lambda}{\partial L}=\frac{L}{\sqrt{L^2+x^2}}-1\approx -1.015\cdot 10^{-7}$, and $\frac{\partial\lambda}{\partial x}=\frac{x}{\sqrt{L^2+x^2}}\approx  4.505\cdot 10^{-4}$, also with $\delta L=0.02$ m, and $\delta x=5\cdot 10^{-4}$ m, the propogation of uncertainty is given as follow:
+\begin{align}
+    \delta \lambda=\sqrt{\left(\frac{\partial \lambda}{\partial L}\delta L\right)^2+\left(\frac{\partial \lambda}{\partial x}\delta x\right)^2}\approx 2.261\cdot 10^{-7} \text{ m}
+\end{align}
+One can see that in comparison to $\lambda\approx 5.631\cdot 10^{-7}$ m, the uncertainty is still quite large, so this data doesn't have that well of a confidence of representing the model provided.
+
+\hfil
+
+Besides the human limitation, some potential sources of errors include:
+\begin{itemize}
+    \item The transparent materials (the half-cylinder, triangular prism, etc.) may have non-uniform density, potentially 
+\end{itemize}
+
+
 \end{document}
