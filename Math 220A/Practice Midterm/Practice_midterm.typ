@@ -126,11 +126,66 @@
 
 \ 
 
-= ND//3
+= ?D//3
 #problem[
-  Let $R$ be a ring and $S$ be an $R$-algebra. Show that the functor from the category of $R$-algebras to itself given by $tensor_R S$ is left adjoint to the $Hom_R(S,\_)$. Conclude that tensor product preserves surjections and the Hom functor preserves injections. Given an example when tensor fails to preserve injectivity.
+  Let $R$ be a ring and $S$ be an $R$-algebra. Show that the functor from the category of $R$-algebras to itself given by $tensor_R S$ is left adjoint to the $Hom_(R)(S,\_)$. Conclude that tensor product preserves surjections and the Hom functor preserves injections. Given an example when tensor fails to preserve injectivity.
 ][
+  /*
+  Given any $R$-algebra $T,L$ (assume commutative ones), let $Bil_(R)(T times S, L)$ denotes all the $R$-bilinear maps $T times S -> L$ such that it preserves the multiplication in pairs. So, given any $t,t' in T$ and $s,s' in S$, one has the following properties for all $B in Bil_(R)(T times S, L)$:
+  $ B(t dot t', s dot s') = B(t,s) dot B(t', s') $
+  For instance, given two $R$-algebra homomorphism $f:T->L$ and $g:S -> L$, then the map $B:T times S -> L$ by $B(t,s) = f(t) dot g(s)$ achieves this property.
 
+  Then, if take the bilinear projection $pi: T times S -> T tensor_R S$ by $pi(t,s) = t tensor s$, notice that it also preserves multiplication component wise:
+  $ pi(t dot t', s dot s')= (t dot t') tensor (s dot s') = (t tensor s) dot (t' tensor s') = pi(t,s) dot pi(t',s') $
+  Then, the property of tensor product provides a natural bijection between the two sets $Bil_(R)(T times S, L) arrow.tilde Hom_(R)(T tensor_(R) S,L)$, by $B mapsto overline(B)$, where $overline(B) compose pi = B$.
+  
+  This map is well defined, first because the universal property of tensor product guarantees the existence and uniqueness of $overline(B):T tensor_(R)S -> L$ as an $R$-linear map; it has multiplication structure preserved, since for all $t,t' in T$ and $s,s' in S$, it satisfies the following:
+  $ overline(B)((t tensor s) dot (t' tensor s'))&= overline(B)((t dot t') tensor (s dot s')) = B(t dot t', s dot s')\ 
+  &= B(t,s) dot B(t',s') = overline(B)(t tensor s) dot overline(B)(t' tensor s') $
+  Hence, $Bil_(R)(T times S, L) -> Hom_(R)(T tensor_(R)S, L)$ by $B mapsto overline(B)$, $overline(B) compose pi = B$ is well-defined map, while the map is a bijection based on the fact that any $B in Bil_(R)(T times S, L)$ corresponds to a unique $overline(B) in Hom_(R)(T tensor_R S,L)$, while every $overline(B)' in Hom_(R)(T tensor_R S, L)$ has $overline(B)' compose pi in Bil_(R)(T times S, L)$ (since both $overline(B)', pi$ preserves multiplication, and is bilinear).
+
+  \ 
+
+  Now, notice that there is also a natural bijection between $Bil_(R)(T times S,L)$ and $Hom_(R)(T, Hom_(R)(S,L))$: Given any $B in Bil_(R)(T times S,L)$, define the map $F_B in Hom_(R)(T, Hom_(R)(S,L))$ by $F_(B)(t) = B(t^2,\_):S -> L$. This is well-defined, since it's clearly $R$-linear (by the bilinearity of $B$), and also given $s,s' in S$, one has the following:
+  $ B(t^2) $
+  */
+
+  Note: Over $RMod$, this is true; but over $RAlg$, because $Hom_R (S,L)$ doesn't even have a well-defined addition structure, this category fails to be self-enriched.
+
+  The reason why $Hom_(R)(S,L)$ doesn't have a module structure in general, is because given $s,s' in S$ and $f,g in Hom_R (S,L)$, one has the following:
+  $ (f+g)(s dot s') = f(s dot s')+g(s dot s')=f(s) dot f(s') + g(s) dot g(s') $
+  But, if $f+g$ is also an $R$-algebra homomorphism, one must satisfy the following:
+  $ (f+g)(s dot s') &= (f+g)(s) dot (f+g)(s') = (f(s)+g(s)) dot (f(s')+g(s'))\ 
+  &= f(s) dot f(s')+f(s) dot g(s')+g(s) dot f(s')+g(s) dot g(s') $
+  So, the two are equal iff $f(s) dot g(s')+g(s) dot f(s')=0$, which is not true in general.
+
+  \ 
+
+  \ 
+
+  Here instead of working over $RAlg$, we'll provide a proof of $S in RMod$ case.
+
+  First, given any $T,L in RMod$, let $Bil(T times S, L)$ denote all $R$-bilinear maps $B:T times S arrow.r L$. Then, if consider the bilinear projection $pi:T times S -> T tensor_R S$, it provides a natural bijection between $Bil(T times S,L)arrow.tilde Hom_(R)(T tensor_R S,L)$, by $B mapsto overline(B)$, where it satisfies $overline(B) compose pi = B$. 
+  
+  The universality of tensor product guarantees the existence and uniqueness of $overline(B)$, hence the map is injective; moreover, any $overline(B)' in Hom_R (T tensor_R S, L)$ has $overline(B)' compose pi in Bil(T times S, L)$ due to the bilinearity of $pi$, hence the map is also surjective. Finally , this map is a $R$-linear map also, since given any $a,b in R$ and $B,B' in Bil(T times S, L)$, if $overline(B),overline(B') in Hom_R (T tensor_R S,L)$ satisfies $overline(B) compose pi=B, overline(B') compose pi=B'$, then $(a dot overline(B)+b dot overline(B')) compose pi = a dot B+b dot B'$, showing $overline((a dot B+b dot B')) = a dot overline(B)+b dot overline(B')$.
+
+  \ 
+
+  Now, we can also establish a bijection between $Bil(T times S,L)$ and $Hom_(R)(T, Hom_(R)(S,L))$, by mapping $B mapsto F_B$, where for all $t in T$, one has $F_(B)(t) = B(t,\_) in Hom_(R)(S,L)$ (since $B$ is bilinear, fixing an entry ensures it's a linear map). This map is injective, since if $B,B' in Bil(T times S,L)$ satisfies $F_B=F_(B')$, then for all $(t,s) in T times S$, one has $B'(t,s)=F_(B')(t)(s) =F_(B)(t)(s) = B(t,s)$, so $B=B'$; it's surjective, since given any $R$-linear map $F:T arrow.r Hom_R (S,L)$, one can define a bilinear map $B_F:T times S arrow.r L$ by $B_(F)(t,s):= F(t)(s)$ (where $F(t) in Hom_R (S,L)$). so, this establishes a bijection $Bil(T times S,L) arrow.tilde Hom_(R)(T,Hom_(R)(S,L))$ (which is also $R$-linear, since any $a,b in R$ and $B,B' in Bil(T times S, L)$ has $F_(a B+b B')(t) = (a B+b B')(t,\_) = a dot B(t,\_)+b dot B'(t,\_) = a dot F_(B)(t)+b dot F_(B')(t)$).
+
+  So, these two establishes the natural $R$-linear isomorphism $Hom_(R)(T tensor_R S, L) tilde.equiv Bil(T times S,L) tilde.equiv Hom_(R)(T, Hom_(R)(S,L))$, showing $\_ tensor_R S$ is left adjoint to $Hom_(R)(S,\_)$.
+
+  \ 
+
+  As a result, since left adjoint functors preserves colimit (for instance, cokernel in $RMod$), while right adjoint preserves limit (for instance, kernel in $RMod$), hence given a surjective map $f:M ->> N$, one has $f tensor id_S:M tensor_R S ->> N tensor_R S$ also being surjective (since cokernel of $f$ is $N -> 0$, so with tensor preserving cokernel, the cokernel of $f tensor id_S$ is $N tensor_R S -> 0 tensor_R S=0$, hence $f tensor id_S$ is surjective).
+
+  Similarly, given an injective map $g:P arrow.hook L$, one has $g compose \_:Hom_R (S,P) arrow.hook Hom_R (S,L)$ being injective (since the kernel of $g$ is $0->P$, then with $Hom_R (S,\_)$ preserving kernel, the kernel of $g compose \_$ is $0 = Hom_R (S,0) -> Hom_R (S,P)$, showing $g compose \_$ is injective).
+
+  \ 
+
+  \ 
+
+  Finally, the tensor functor is not left exact (or doesn't preserve injections) in general: Consider the inclusion map $iota:ZZ arrow.hook QQ$ (view both as abelian groups, or $ZZ$-modules), if tensor with $ZZ\/2ZZ$, one has $ZZ tensor_ZZ ZZ\/2ZZ tilde.equiv ZZ\/2ZZ$ (since as $ZZ$-modules, tensor with $ZZ$ doesn't change the structure); however $QQ tensor_ZZ ZZ\/2ZZ = 0$, since given any $q in QQ$ and $n in ZZ\/2ZZ$, one has $q tensor n = (2 dot q/2) tensor n = q/2 tensor (2 dot n) = q/2 tensor 0 = 0$ (since $2 dot n=0$ in $ZZ\/2ZZ$). So, the induced map $iota tensor id_2:ZZ tensor_ZZ ZZ\/2ZZ -> QQ tensor_ZZ ZZ\/2ZZ = 0$ is no longer injective (since it's a zero map from a nontrivial $ZZ$-module).
 ]
 
 \ 
@@ -214,7 +269,7 @@
 ]
 \ 
 
-= ND//6
+= D//6
 #problem[
   Let $V$ be a representation of $G$. Let $W subset V tensor V$ be the subspace of the tensor product $V tensor V$ generated by vectors of the form $x tensor y+y tensor x$.
   1. Show that $W$ is a subrepresentation.
@@ -235,7 +290,7 @@
     First, for all $x,y in V$, it can be uniquely written as $x=sum_(i=1)^n a_i v_i$ and $y=sum_(j=1)^n b_j v_j$, hence we have the following:
     $ x tensor y+y tensor x &= (sum_(i=1)^n a_i v_i) tensor (sum_(j=1)^n b_j v_j)=(sum_(j=1)^n b_j v_j) tensor (sum_(i=1)^n a_i v_i)\ 
     &= sum_(i=1)^n sum_(j=1)^n a_i b_j (v_i tensor v_j)+ sum_(i=1)^n sum_(j=1)^n a_i b_j (v_j tensor v_i)\ 
-    &= sum_(i=1)^n sum_(j=1)^n a_i b_j(v_i tensor v_j+v_j tensor v_i) $
+    &= sum_(i=1)^n sum_(j=1)^n a_i b_j (v_i tensor v_j+v_j tensor v_i) $
     If $i>j$, one can use $v_j tensor v_i + v_i tensor v_j$, then with $i'=j$ and $j'=i$, now the element becomes $v_(i') tensor v_(j')+v_(j') tensor v_(i')$, with $i'<j'$. Hence, this shows that $x tensor y+y tensor x in span{v_i tensor v_j + v_j tensor v_i}_(i<=j)$, or $W= span{v_i tensor v_j+v_j tensor v_i}_(i <=j)$.
 
     Then, to show linear independence, suppose $sum_(i<=j)a_(i j)(v_i tensor v_j+v_j tensor v_i)=0$, notice that if $i<=j$, the coefficient of $v_i tensor v_j$ is $a_(i j)$, while if $i>j$, the coefficient of $v_i tensor v_j$ is $a_(j i)$. Then, based on linear independence of the list ${v_i tensor v_j}_(1<=i,j<=n) subset V tensor V$, it enforces each $a_(i j), a_(j i)=0$. This shows the linear independence of the list.
@@ -246,10 +301,23 @@
 
   3. Let $chi$ denotes the character of $V$, then the character of $V tensor V$ is $chi^2$. Here, WLOG one can assume that $k=overline(k)$ (the reason is if we're simply computing the trace, one can embed $GL_(d)(k) arrow.hook GL_(d)(overline(k))$, which is possible to find an upper-triangular form in $GL_(d)(overline(k))$ and make our life easier for computation, but still leave the trace invariant after the embedding).
 
-    For each $g in G$, 
+    For each $g in G$, let $(a_(i j))_(1<=i,j<=d)$ denotes the matrix representation of $rho_(V)(g)$ under basis ${v_i}_(1<=i<=n)$ (in particular, choose the basis so $rho_(V)(g)$ is upper-triangular), then given basis ${v_j tensor v_l+v_l tensor v_j}_(j<=l) subset W$, one has $rho(g)$ action as follow:
+    $ rho(g)(v_j tensor v_l) &= (rho_(V)(g) dot v_j) tensor (rho_(V)(g) dot v_l) = (sum_(i=1)^n a_(i j)v_i) tensor (sum_(k=1)^n a_(k l)v_k)\ 
+    &= sum_(i=1)^n sum_(k=1)^n a_(i j)a_(k l)(v_i tensor v_k) = sum_(i=1)^j sum_(k=1)^l a_(i j)a_(k l)(v_i tensor v_k) $
+    (With the restriction of upper-triangular matrix). So, we get:
+    $ rho(g)(v_j tensor v_l+v_l tensor v_j)&=sum_(i=1)^j sum_(k=1)^l a_(i j)a_(k l)(v_i tensor v_k) + sum_(i'=1)^l sum_(k'=1)^j a_(i' l)a_(k' j)(v_(i') tensor v_(k')) $
+    This indicates that the $(v_j tensor v_l+v_l tensor v_j)$ component of $rho(g)(v_j tensor v_l + v_l tensor v_j)$ is given by $i=j, k=1$ in the first sum, and $i'=l,l'=j$ in the second sum, which provides the term $a_(j j)a_(l l)(v_j tensor v_l)+a_(l l)a_(j j)(v_l tensor v_j) = a_(j j)a_(l l)(v_j tensor v_l+v_l tensor v_j)$ (Note: since the restriction is $j<=l$, so there's no other components missing).
+
+    Hence, under this basis of $W$, we have the following:
+    $ tr eval(#200%)_W (rho(g)) &= sum_(j<=l) a_(j j)a_(l l) = 1/2 (2 dot sum_(j <= l)a_(j j)a_(l l)) = 1/2 (sum_(j,l)a_(j j)a_(l l)+sum_(j=l)a_(j j)a_(l l))\ 
+    &= 1/2 (sum_(j=1)^d sum_(l=1)^d a_(j j)a_(l l)+sum_(i=1)^d a_(i i)^2) = 1/2 ((sum_(j=1)^d a_(j j))(sum_(l=1)^d a_(l l))+sum_(i=1)^d a_(i i)^2) $
+    Now, notice that over $V$, one has $chi(g)=tr(rho_(V)(g)) = sum_(j=1)^d a_(j j)$, so $(sum_(j=1)^d a_(j j))(sum_(l=1)^d a_(l l)) = chi(g)^2$; also, since $rho_(V)(g)$ is constructed to be upper-triangular, then diagonals of $rho_(V)(g^2) = rho_(V)(g)^2$ are precisely given by $a_(i i)^2$. So, we have $chi(g^2) = tr(rho_(V)(g^2)) = sum_(i=1)^d a_(i i)^2$. So, we get the following:
+    $ tr eval(#200%)_W (rho(g)) = (chi(g)^2 + chi(g^2))/2 $
+
+
 ]
 
-\ 
+#pagebreak()
 
 = D//7
 #problem[
@@ -296,7 +364,7 @@
     $ &phi_(mp 1)(e)=phi_(mp 1)(sigma^2)=phi_(mp 1)(tau)=phi_(mp 1)(tau sigma^2)=1\ 
     &phi_(mp 1)(sigma)=phi_(mp 1)(sigma^3)=phi_(mp 1)(tau sigma)=phi_(mp 1)(tau sigma^3)=-1 $
     $ &phi_(-1)(e)=phi_(-1)(sigma^2)=phi_(-1)(tau sigma)=phi_(-1)(tau sigma^3)=1\ 
-    &= phi_(-1)(sigma)=phi_(-1)(sigma^3)=phi_(-1)(tau)=phi_(-1)(tau sigma^2)=-1 $
+    & phi_(-1)(sigma)=phi_(-1)(sigma^3)=phi_(-1)(tau)=phi_(-1)(tau sigma^2)=-1 $
     These are all distinct maps, and one can check that all of them are group homomorphisms $D_8 -> {pm 1} subset CC^times$, which forms all the $1$-dimensional group representations of $D_8$.
 
     \ 
