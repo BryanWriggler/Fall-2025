@@ -15,6 +15,9 @@
 #let eval(sizes) = $lr(|, size: #sizes)$ //when performing evaluation
 #let pm = $plus.minus$ //short hand notation for plus minus sign
 #let mp = $minus.plus$ //short hand notation for minus plus sign
+#let tensor = $times.circle$ //short hand notation for tensor
+#let langle = $angle.l$ //short hand notation for left angle
+#let rangle = $angle.r$ //short hand notation for right angle
 
 //algebra
 #let Gal = math.upright[Gal] //galois
@@ -34,6 +37,7 @@
 #let Conj = math.upright[Conj] //denote the conjugation classes
 #let Bil = math.upright[Bil] //module of bilinear maps
 #let Id = math.upright[Id] //normally, used for other types of identity (when there are small purpose, use id; if there are large purposes, use Id instead)
+#let sign = math.upright[sign] //used for sign of a permutation
 
 //category theory
 #let cat(name) = math.sans[#name] //general category font command
