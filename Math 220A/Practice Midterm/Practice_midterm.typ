@@ -194,7 +194,7 @@
 #problem[
   Let $V$ and $W$ be two (finite dimensional) representations of a finite group $G$ over $k$. Show that the representations $Hom_k(V,W)$ is isomorphic to the tensor representation $V^or tensor_k W$.
 ][
-  First, we'll show that they're isomorphic as vector spaces: Recall that $dim k = 1$ (as $k$-vector space), $dim V^or = dim V$ (under finite dimensional case), and $dim Hom_k(V,U) = (dim V) dot (dim U)$ for any finite dimensional $k$-vector space $V,U$. Then, using the natural isomorphism $Hom_(k)(V^or tensor_k W, k) tilde.equiv Hom_(k)(V^or, Hom_(k)(W,k))$ (based on the adjunction of $tensor_(k) W$ and $Hom_(k)(W,\_)$ functors), we have the following:
+  First, we'll show that they're isomorphic as vector spaces: Recall that $dim k = 1$ (as $k$-vector space), $dim V^or = dim V$ (under finite dimensional case), and $dim Hom_k (V,U) = (dim V) dot (dim U)$ for any finite dimensional $k$-vector space $V,U$. Then, using the natural isomorphism $Hom_(k)(V^or tensor_k W, k) tilde.equiv Hom_(k)(V^or, Hom_(k)(W,k))$ (based on the adjunction of $tensor_(k) W$ and $Hom_(k)(W,\_)$ functors), we have the following:
   $ dim V^or tensor_k W &= dim Hom_(k)(V^or tensor_(k)W, k)\ 
   &= dim Hom_(k)(V^or, Hom_(k)(W,k))\ 
   &= (dim V^or) dot (dim Hom_(k)(W,k))\ 
@@ -285,7 +285,7 @@
 
     \ 
 
-  2. (Here, we'll assume $Char(k)!=2$). Let $v_1,...,v_d in V$ be a basis of $V$. We'll claim that $dim W = d(d+1)/2$, by proving that the list ${v_i tensor v_j+v_j tensor v_i}_(1<=i<=j<=d) subset W$ form a basis of $W$ Z(Note: for all $j in {1,...,d}$, there are $j$ indices satisfy $i<=j$, which the length of the list is $sum_(j=1)^d j = d(d+1)/2$, which is the length of the list).
+  2. (Here, we'll assume $Char(k)!=2$). Let $v_1,...,v_d in V$ be a basis of $V$. We'll claim that $dim W = d(d+1)/2$, by proving that the list ${v_i tensor v_j+v_j tensor v_i}_(1<=i<=j<=d) subset W$ form a basis of $W$ (Note: for all $j in {1,...,d}$, there are $j$ indices satisfy $i<=j$, which the length of the list is $sum_(j=1)^d j = d(d+1)/2$, which is the length of the list).
 
     First, for all $x,y in V$, it can be uniquely written as $x=sum_(i=1)^n a_i v_i$ and $y=sum_(j=1)^n b_j v_j$, hence we have the following:
     $ x tensor y+y tensor x &= (sum_(i=1)^n a_i v_i) tensor (sum_(j=1)^n b_j v_j)=(sum_(j=1)^n b_j v_j) tensor (sum_(i=1)^n a_i v_i)\ 
@@ -369,7 +369,7 @@
 
     \ 
 
-    For the $2$-dimension case, we'll again find a subrepresentation in $CC^4$ (with standard basis $e_1,e_2,e_3,e_4$): If consider the dihedral group $D_8$ as the symmetry group on a square in $CC$ (with four vertices labeled as $1,2,3,4$ in counterclockwise order, and with the vertex $1$ lying on positive real axis; for convenience $1,2,3,4$ can also be represented with $1,i,-1,-i$ using coordinates on $CC$), then let $sigma$ denotes the counterclockwise rotation, $tau$ denotes the reflection by real axis, we have $sigma = (1234)$, and $tau = (13)$ as permutations of the vertices. Hence, this creates an embedding $D_8 arrow.hook S_4$.
+    For the $2$-dimension case, we'll again find a subrepresentation in $CC^4$ (with standard basis $e_1,e_2,e_3,e_4$): If consider the dihedral group $D_8$ as the symmetry group on a square in $CC$ (with four vertices labeled as $1,2,3,4$ in counterclockwise order, and with the vertex $1$ lying on positive real axis; for convenience $1,2,3,4$ can also be represented with $1,i,-1,-i$ using coordinates on $CC$), then let $sigma$ denotes the counterclockwise rotation, $tau$ denotes the reflection by imaginary axis, we have $sigma = (1234)$, and $tau = (13)$ as permutations of the vertices. Hence, this creates an embedding $D_8 arrow.hook S_4$.
 
     Now, consider the natural action of $S_4$ on $CC^4$ (which induces a subgroup representation of $D_8$ over $CC^4$), by $sigma(x e_1+y e_2+z e_3+w e_4):=x e_(sigma(1))+y e_(sigma(2))+z e_(sigma(3))+ w e_(sigma(4))$, notice that the $3$-dimensional subspace $V = {(x,y,z,w) in CC^4 | x+y+z+w=0}$ forms a subrepresentation of $S_4$ (since after permuting the coordinates, the entries are still given by $x,y,z,w$, so the sum $x+y+z+w=0$ is invariant). Hence, with $D_8 arrow.hook S_4$, $V$ is also a subrepersentation of $D_8$. 
 
