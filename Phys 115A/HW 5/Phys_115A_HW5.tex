@@ -21,6 +21,58 @@ Let’s go back to the odd case of the finite square well:
 3. What is the energy spectrum of bound states in the limiting cases of a wide, deep well and a shallow, narrow well (in the sense that Griffiths describes in Section 2.6 around Eq.\ $2.157$)? Do we always find an odd bound state?
 \end{ques}
 
+\begin{proof}
+    Recall that the general solution to the bound-state wavefunction of the symmetric finite square well (given that the potential is $-V_0$ on $[-a,a]$ for some $V_0>0$, and $0$ elsewhere), is given as follow:
+    \begin{align}
+        \psi(x)=\begin{cases}
+            Ae^{kx} & x<-a\\
+            C\sin(\ell x)+D\cos(\ell x) & x\in[-a,a]\\
+            Be^{-kx} & x>a
+        \end{cases}
+    \end{align}
+    Where the coeffficient $k=\frac{\sqrt{-2mE}}{\hbar}$, and $\ell=\frac{\sqrt{2m(E+V_0)}}{\hbar}$.
+    \begin{enumerate}
+        \item The general form of the odd bound-state wavefunction is then given as follow:
+        \begin{align}
+            \psi_\text{odd}(x)=\begin{cases}
+                -Ae^{kx} & x<-a\\
+                C\sin(\ell x) & x\in[-a,a]\\
+                Ae^{-kx} & x>a
+            \end{cases}
+        \end{align}
+        Where the coefficient $k,\ell$ are listed above.
+
+        \hfil
+
+        \item Using continuity and differentiability, we get the following implication:
+        \begin{align}
+            \text{continuity} \implies -Ae^{k(-a)} = C\sin(\ell (-a))\implies Ae^{k(-a)} = C\sin(\ell a)\\
+            \text{differentiability}\implies -kAe^{k(-a)} = \ell C\cos(\ell(-a)) = \ell C\cos(\ell a)
+        \end{align}
+        Dividing the equations, we get that $-k =\ell\cot(\ell a)$. Which, plug in $k,\ell$ as their original expression, we get:
+        \begin{align}
+            -\frac{\sqrt{-2mE}}{\hbar}=\frac{\sqrt{2m(E+V_0)}}{\hbar}\cot\left(\frac{\sqrt{2m(E+V_0)}}{\hbar}a\right)
+        \end{align}
+        Fixing constant $V_0,a,m,\hbar>0$, we get the following graph:
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=150mm]{q1.png}
+        \end{figure}
+        Where, the intersection points are the $x$ (or $E$ in the previous equations) that provides the bound-state energy.
+
+        \hfil
+
+        \item If the well is wide and deep, then graphically it is verified that the energy spectrum will range widely, and becomes more dense; graphically, here is an example:
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=150mm]{q1_2.png}
+        \end{figure}
+        on the other hand, a shallow and narrow one (an example would be the first graph provided), has only few energy spectrum allowed (and are pretty limited).
+
+        In this case it's not guaranteed to find an odd bound state: Graphically when we plot $a=\frac{1}{V_0}$ for instance, after a certain value the two equations no longer intersect, indicating there's no allowed odd bound-state (since there is no corresponding energy allowed based on calculation).
+    \end{enumerate}
+\end{proof}
+
 \newpage
 \section*{2}
 \begin{ques}
@@ -28,6 +80,43 @@ Delta limit (Griffiths 2.31)
 
 As we discussed in class, a Dirac delta function can be thought of as a limiting case of a finite square well, with the added condition that the area is fixed to be $1$ as the height goes to infinity and the width goes to zero. Show that the delta function well is a ``weak'' potential in the sense that $z_0 \to 0$. Determine the bound state energy for the delta-function potential by treating it as the limit of the finite square well. Check that your answer is consistent with Eq.\ $2.132$. Also show that Eq.\ $2.172$ reduces to Eq.\ $2.144$ in the appropriate limit.
 \end{ques}
+\begin{proof}
+    Given the condition that the area of the well is fixed to $1$, then with the (symmetric) well of width $2a$ and depth $V_0$, we need $2aV_0=1$, so fixing $V_0$, we get $a=\frac{1}{2V_0}$. As a result, the equation $z_0 :=\frac{a}{\hbar}\sqrt{2mV_0}$ satisfies the following:
+    \begin{align}
+        \lim_{V_0\rightarrow \infty}z_0 = \lim_{V_0\rightarrow \infty}\frac{\sqrt{2m}}{2\hbar V_0}\cdot \sqrt{V_0} = \lim_{V_0\rightarrow \infty}\frac{\sqrt{2m}}{2\hbar \sqrt{V_0}} = 0
+    \end{align}
+    Since it's guaranteed that at least one of the bound-state is left behind in the well (regardless of the well's shape), and such left behind bound-state is always given by an even bound-state, which based on the even bound-state energy equation, we get the following:
+    \begin{align}
+        \frac{\sqrt{-2mE}}{\hbar} &=\frac{\sqrt{2m(E+V_0)}}{\hbar}\tan\left(\frac{\sqrt{2m(E+V_0)}}{\hbar}a\right)=\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar}\cdot\sqrt{V_0}\tan\left(\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar}\frac{\sqrt{V_0}}{2V_0}\right)\\
+        &= \frac{2m(\frac{E}{V_0}+1)}{\hbar^2}\frac{\tan\left(\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar}\frac{1}{2\sqrt{V_0}}\right)}{\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar}\frac{1}{2\sqrt{V_0}}} = \frac{2m(\frac{E}{V_0}+1)}{\hbar^2}\frac{\tan\left(\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar}\frac{1}{2\sqrt{V_0}}\right)}{\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar}\frac{1}{2\sqrt{V_0}}}
+    \end{align}
+    Which, let $y := \frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar}\frac{1}{2\sqrt{V_0}}$, we have $\lim_{V_0\rightarrow \infty}y = 0$. So, we get the following:
+    \begin{align}
+        \lim_{V_0\rightarrow\infty}\frac{\sqrt{2mE}}{\hbar}&=\lim_{V_0\rightarrow\infty}\frac{2m(\frac{E}{V_0}+1)}{2\hbar^2}\frac{\tan(y)}{y} = \frac{2m}{2\hbar^2} = \frac{m}{\hbar^2}
+    \end{align}
+    Hence, under the limit of delta square well, $\frac{\sqrt{-2mE}}{\hbar}=\frac{m}{\hbar^2}$, so $-2mE = \frac{m^2}{\hbar^2}$, showing $E = -\frac{m}{2\hbar^2}$. Which, given that the delta well has area $1$, then it's given by $V(x)= -\delta(x)$ (so the coefficient $\alpha = -1$), then Eq. 2.132 provides the energy $E = -\frac{m\alpha^2}{2\hbar^2} = -\frac{m}{2\hbar^2}$ agrees with the limit.
+
+    \hfil
+
+    Finally, given Eq. 2.172 as follow:
+    \begin{align}
+        T^{-1}=1+\frac{V_0^2}{4E(E+V_0)}\sin^2\left(\frac{2a}{\hbar}\sqrt{2m(E+V_0)}\right)
+    \end{align}
+    Also, Eq. 2.144 is as follow:
+    \begin{align}
+        T=\frac{1}{1+(m\alpha^2/2\hbar^2E)}
+    \end{align}
+    Which, according to Eq. 2.172, it can be rewritten as follow (based on the fact that $a=\frac{1}{2V_0}$ under our assumption):
+    \begin{align}
+        T^{-1} &= 1+\frac{V_0}{4E(\frac{E}{V_0}+1)}\sin^2\left(\frac{1}{\hbar V_0}\sqrt{2m\left(\frac{E}{V_0}+1\right)}\sqrt{V_0}\right) = 1+\frac{1}{4E}\left(\frac{\sin\left(\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar\sqrt{V_0}}\right)}{\sqrt{\frac{E}{V_0}+1}\frac{1}{\sqrt{V_0}}}\right)^2\\
+        &= 1+\frac{2m}{\hbar^24E}\left(\frac{\sin\left(\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar\sqrt{V_0}}\right)}{\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar\sqrt{V_0}}}\right)^2
+    \end{align}
+    Hence, we get the following limit, due to the fact that $\lim_{V_0\rightarrow\infty}\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar\sqrt{V_0}} = 0$:
+    \begin{align}
+        \lim_{V_0\rightarrow\infty}T^{-1}=\lim_{V_0\rightarrow\infty}1+\frac{2m}{\hbar^24E}\left(\frac{\sin\left(\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar\sqrt{V_0}}\right)}{\frac{\sqrt{2m(\frac{E}{V_0}+1)}}{\hbar\sqrt{V_0}}}\right)^2 = 1+\frac{2m}{\hbar^24E}
+    \end{align}
+    Hence, under the limit, we have $T = \frac{1}{T^{-1}} = \frac{1}{1+2m/(\hbar^24E)} = \frac{1}{1+m/(2\hbar^2E)}$. Which, if cf. Eq. 2.144, with $\alpha=-1$ (based on what we previously get), $T=\frac{1}{1+m\alpha^2/(2\hbar^2E)} = \frac{1}{1+m/(2\hbar^2E)}$, which coincides with our limit.
+\end{proof}
 
 \newpage
 \section*{3}
@@ -49,6 +138,138 @@ for $V_0 > 0$. There are three possible cases of interest: $E < V_0$; $E = V_0$;
 Partial answer: for $E < V_0$,  
 $T^{-1} = 1 + \frac{V_0^2}{4E(V_0 - E)} \sinh^2\left( \frac{2a}{\hbar} \sqrt{2m(V_0 - E)} \right)$
 \end{ques}
+\begin{proof}
+    (\textbf{Rmk:} The calculation is too tedious to include every detail, we'll just summarize when necessary).
+
+    \hfil
+
+    Regardless of the case, on the intervals $(-\infty,a)$ and $(a,\infty)$, since $V(x)=0$, the time-independent Schr\"odinger equation (TISE) is given by $E\psi=-\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}$, which let $k:=\frac{\sqrt{2mE}}{\hbar}$, the equation becomes $\frac{\partial^2\psi}{\partial x^2}+k^2\psi=0$, so $\psi(x)=Ae^{ikx}+Be^{-ikx}$. WLOG assume that the source of the particles are only from the left to the right, then on the two regions, we have the following solution for $A,B,F\in\CC$:
+    \begin{align}
+        \psi(x)=\begin{cases}
+            Ae^{ikx}+Be^{-ikx} &x\in(-\infty,-a)\\
+            Fe^{ikx} &x\in(a,\infty)
+        \end{cases}
+    \end{align}
+    \begin{enumerate}
+        \item If given that $E<V_0$, then on the region $(-a,a)$, the TISE becomes the following:
+        \begin{align}
+            E\psi=-\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}+V_0\psi \implies \frac{\partial^2\psi}{\partial x^2}-\frac{2m(V_0-E)}{\hbar^2}\psi=0
+        \end{align}
+        Which, with $w :=\frac{\sqrt{2m(V_0-E)}}{\hbar}$, on the region $(-a,a)$ the solution is $\psi(x)=Ce^{wx}+De^{-wx}$ for $C,D\in\CC$.
+
+        Which, using both continuity and differentiability at $\pm a$, we get the following four equations:
+        \begin{align}
+            \begin{cases}
+                Ae^{-ika}+Be^{ika}=Ce^{-wa}+De^{wa}\\
+                ikAe^{-ika}-ikBe^{ika}=wCe^{-wa}-wDe^{wa}\\
+                Ce^{wa}+De^{-wa}=Fe^{ika}\\
+                wCe^{wa}-wDe^{-wa}=ikFe^{ika}
+            \end{cases}
+        \end{align}
+        Using the first two equations, $C,D$ can be expressed using the following matrix equation:
+        \begin{align}
+            \begin{pmatrix}
+                e^{-wa}&e^{wa}\\we^{-wa} & -we^{wa}
+            \end{pmatrix}\begin{pmatrix}
+                C\\D
+            \end{pmatrix}=\begin{pmatrix}
+                Ae^{-ika}+Be^{ika}\\ikAe^{-ika}-ikBe^{ika}
+            \end{pmatrix}
+        \end{align}
+        Which, after solving the linear equations, we get the following:
+        \begin{align}
+            C=\frac{e^{wa}}{2}\left(\left(1+\frac{ik}{w}\right)Ae^{-ika}+\left(1-\frac{ik}{w}\right)Be^{ika}\right)\\
+            D=\frac{e^{-wa}}{2}\left(\left(1-\frac{ik}{w}\right)Ae^{-ika}+\left(1+\frac{ik}{w}\right)Be^{ika}\right)
+        \end{align}
+        Which, this implies the following:
+        \begin{align}
+            Ce^{wa}=\frac{e^{2wa}}{2}\left(\left(1+\frac{ik}{w}\right)Ae^{-ika}+\left(1-\frac{ik}{w}\right)Be^{ika}\right)\\
+            De^{-wa}=\frac{e^{-2wa}}{2}\left(\left(1-\frac{ik}{w}\right)Ae^{-ika}+\left(1+\frac{ik}{w}\right)Be^{ika}\right)
+        \end{align}
+        Now, the third and the fourth equation provides the following equality:
+        \begin{align}
+            Ce^{wa}+De^{-wa}=Fe^{ika}=-\frac{iw}{k}Ce^{wa}+\frac{iw}{k}De^{-wa}\implies \left(1+\frac{iw}{k}\right)Ce^{wa}+\left(1-\frac{iw}{k}\right)De^{-wa}=0
+        \end{align}
+        Plugin the previous equalities about $Ce^{wa}, De^{-wa}$ (with some simplification), we get:
+        \begin{align}
+            0=&\left(1+\frac{iw}{k}\right)\frac{e^{2wa}}{2}\left(\left(1+\frac{ik}{w}\right)Ae^{-ika}\left(1-\frac{ik}{w}\right)Be^{ika}\right)\\
+            &+\left(1-\frac{iw}{k}\right)\frac{e^{-2wa}}{2}\left(\left(1-\frac{ik}{w}\right)Ae^{-ka}+\left(1+\frac{ik}{w}\right)Be^{ika}\right)\\
+            &\implies A\left(\frac{w^2+k^2}{kw}\right)ie^{-ika}\sinh(2wa) = -Be^{ika}\left(2\cosh(2wa)+i\frac{w^2-k^2}{kw}\sinh(2wa)\right)\\
+            &\implies |A|^2\left(\frac{w^2+k^2}{wk}\right)^2\sinh^2(2wa) = |B|^2\left(4+\left(\frac{w^2+k^2}{wk}\right)^2\sinh^2(2wa)\right)\\
+            &\implies \frac{|B|^2}{|A|^2} = \frac{\left(\frac{w^2+k^2}{wk}\right)^2\sinh^2(2wa)}{4+\left(\frac{w^2+k^2}{wk}\right)^2\sinh^2(2wa)}
+        \end{align}
+        Which, the transmission rate $T=1-\frac{|B|^2}{|A|^2}$ can be given as below:
+        \begin{align}
+            &T=1-\frac{|B|^2}{|A|^2} = \frac{4}{4+\left(\frac{w^2+k^2}{wk}\right)^2\sinh^2(2wa)}\\
+            &\implies T^{-1} = 1+\frac{1}{4}\left(\frac{w^2+k^2}{wk}\right)^2\sinh^2(2wa)
+        \end{align}
+        Finally, recall that $w=\frac{\sqrt{2m(V_0-E)}}{\hbar}$ and $k=\frac{\sqrt{2mE}}{\hbar}$, so $w^2+k^2 = \frac{2m(V_0-E)}{\hbar^2}+\frac{2mE}{\hbar^2}=\frac{2mV_0}{\hbar^2}$, while $kw = \frac{2m\sqrt{E(V_0-E)}}{\hbar^2}$. This shows that $\left(\frac{w^2+k^2}{wk}\right)^2=\frac{V_0^2}{E(V_0-E)}$. Hence, $T^{-1}$ expands to be the following:
+        \begin{align}
+            T^{-1} = 1+\frac{1}{4}\cdot\frac{V_0^2}{E(V_0-E)}\sinh^2\left(2a\cdot\frac{\sqrt{2m(V_0-E)}}{\hbar}\right) = 1+\frac{V_0^2}{4E(V_0-E)}\sinh^2\left(\frac{2a}{\hbar}\sqrt{2m(V_0-E)}\right)
+        \end{align}
+        
+        \hfil
+
+        \item If given that $E=V_0$, then on the region $(-a,a)$, the TISE becomes the following:
+        \begin{align}
+            V_0\psi = E\psi=-\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}+V_0\psi \implies \frac{\partial^2\psi}{\partial x^2}=0
+        \end{align}
+        Hence, on the region $(-a,a)$, the solution is $\psi(x)=Cx+D$ for $C,D\in\CC$.
+
+        Together with the solutions outside of this region, based on the continuity of both $\psi$ and $\frac{d\psi}{dx}$ at $-a$ and $a$, we get the following four equations:
+        \begin{align}
+            \begin{cases}
+                Ae^{-ika}+Be^{ika}=-Ca+D\\
+                ikAe^{-ika}-ikBe^{ika}=C\\
+                Ca+D = Fe^{ika}\\
+                C=ikFe^{ika}
+            \end{cases}
+        \end{align}
+        The first two equations can be collected into the following linear system:
+        \begin{align}
+            \begin{pmatrix}
+                e^{-ika}&e^{ika}\\ ike^{-ika}&-ike^{ika}
+            \end{pmatrix}\begin{pmatrix}
+                A\\B
+            \end{pmatrix}=\begin{pmatrix}
+                -Ca+D\\C
+            \end{pmatrix}
+        \end{align}
+        Which, after solving, we get that $A=De^{ika}$, and $B=-Cae^{-ika}$. Now, use $D=Ae^{-ika}$ and $Ca = -Be^{ika}$, plugin to the third and the fourth equation, we get:
+        \begin{align}
+            \begin{cases}
+                Fe^{ika} = -Be^{ika}+Ae^{-ika}\\
+                ikFe^{ika} = -\frac{Be^{ika}}{a}
+            \end{cases}&\implies Ae^{-ika}-Be^{ika} = -\frac{Be^{ika}}{ika}\\
+            &\implies Ae^{-ika} = Be^{ika}\left(1-\frac{1}{ika}\right)\\
+            &\implies |A|^2 = |B|^2\cdot\left|\frac{ika-1}{ika}\right|^2 = \frac{1+(ka)^2}{(ka)^2}
+        \end{align}
+        As a result, we get the reflection rate $R=\frac{|B|^2}{|A|^2} = \frac{(ka)^2}{1+(ka)^2}$, so the transmission rate $T=1-R = \frac{1}{1+(ka)^2}$. Hence, $T^{-1}$ can be expressed as follow, given $E=V_0$, and $k=\frac{\sqrt{2mE}}{\hbar}$:
+        \begin{align}
+            E=V_0\implies T^{-1} = 1+(ka)^2 = 1+\frac{2mEa^2}{\hbar^2} = 1+\frac{2mV_0a^2}{\hbar^2}
+        \end{align}
+        
+        \hfil
+
+        \item If given that $E>V_0$, then on the region $(-a,a)$, the TISE becomes the following:
+        \begin{align}
+            E\psi=-\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}+V_0\psi\implies \frac{\partial^2\psi}{\partial x^2}+\frac{2m(E-V_0)}{\hbar^2}\psi=0
+        \end{align}
+        Which, with $w:=\frac{\sqrt{2m(E-V_0)}}{\hbar}$, on the region $(-a,a)$ the solution is $\psi(x)=Ce^{iwx}+De^{-iwx}$ for $C,D\in\CC$.
+
+        Then, with both continuity and differentiability at $\pm a$, we get the following four equations:
+        \begin{align}
+            Ae^{-ika}+Be^{ika}=Ce^{-ika}+De^{ika}\\
+            ikAe^{-ika}-ikBe^{ika}=iwCe^{-ika}-iwDe^{iwa}\\
+            Ce^{iwa}+De^{-iwa}=Fe^{ika}\\
+            iwCe^{iwa}-iwDe^{-iwa}=ikFe^{ika}
+        \end{align}
+        Notice that this relation is similar to the finite square well (basically it's with the energy being $V_0$ instead of $-V_0$, since $E>V_0$, it's similar to the finite square well case where $E>-V_0$). Using the equation from finite square well, with the modification of $-V_0$ to $V_0$, we get:
+        \begin{align}
+            T^{-1} = 1+\frac{V_0^2}{4E(E-V_0)}\sin^2\left(\frac{2a}{\hbar}\sqrt{2m(E-V_0)}\right)
+        \end{align}
+    \end{enumerate}
+\end{proof}
 
 \newpage
 \section*{4}
@@ -57,8 +278,42 @@ Mass on (circular) string (Griffiths 2.46)
 
 Imagine a bead of mass $m$ that slides frictionlessly around a circular wire ring of circumference $L$. (This is like a free particle except that $\psi(x+L) = \psi(x)$.) Find the stationary states (with appropriate normalization) and the corresponding allowed energies. Note that there are (with one exception) two independent solutions for each energy $E_n$—corresponding to clockwise and counter-clockwise circulation; call them $\psi_n^+(x)$ and $\psi_n^-(x)$. How do you account for this degeneracy, in view of the theorem of problem $2.44$ (why does the theorem fail in this case)? Hint: you worked through problem $2.44$ in discussion section.
 \end{ques}
+\begin{proof}
+    Given that $V(x)=0$ where $x \in \RR/(L \ZZ)$ (i.e. it's periodic with period $L$ position wise). Then, the Hamiltonian is given by $\hat{H}=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}$. So, the stationary state satisfies the following equation with some energy $E\geq 0$:
+    \begin{align}
+        E\psi = -\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2}\implies \frac{\partial^2\psi}{\partial x^2} + \frac{2mE}{\hbar^2}\psi = 0\implies \psi(x)=Ae^{ikx}+Be^{-ikx},\quad k:= \frac{\sqrt{2mE}}{\hbar}
+    \end{align}
+    Which, using the periodicity, since $\psi(x+L) = \psi(x)$, one must have the following:
+    \begin{align}
+        Ae^{ikx}+Be^{-ikx}=\psi(x)=\psi(x+L)=Ae^{ik(x+L)}+Be^{-ik(x+L)} = (Ae^{ikL})e^{ikx}+(B^{-ikL})e^{-ikx}
+    \end{align}
+    Then, by linear independence of the two functions $e^{ikx},e^{-ikx}$ over $\CC$, it enforces $A=Ae^{ikL}$ and $B=Be^{-ikL}$ for all $A,B\in\CC$, showing $e^{ikL}=e^{-ikL}=1$, which $kL = 2n\pi$ for some $n\in\ZZ$, or $\frac{\sqrt{2mE}}{\hbar} = \frac{2n\pi}{L}$, showing that $E =\frac{1}{2m}\left(\frac{2n\pi\hbar}{L}\right)^2$ for some $n\in\NN$ (since it's squared).
 
-\newpage
+    \hfil
+
+    Fix $n\in\NN$, define $E_n:=\frac{2n^2\pi^2\hbar^2}{mL^2}$, then $k_n:=\frac{\sqrt{2mE_n}}{\hbar}=\frac{2n\pi}{L}$. Let $\psi_n(x):=Ae^{ik_nx}+Be^{-ik_nx}$ be the corresponding $n^\text{th}$ stationary state. To normalize this, since it's restricted to $\RR/L\ZZ$, then the most fundamental domain is up to $[0,L)$. Then, to normalize the solution above, we get:
+    \begin{align}
+        1&=\int_{0}^{L}|\psi|^2dx = \int_{0}^{L}(Ae^{ik_nx}+Be^{-ik_nx})^*(Ae^{ik_nx}+Be^{-ik_nx})dx \\
+        &= \int_{0}^{L}\left(|A|^2+|B|^2 + A^*Be^{-i2k_nx}+AB^*e^{i2k_nx}\right)dx = L(|A|^2+|B|^2)
+    \end{align}
+    (Note: Here $e^{i2k_nx},e^{-i2k_nx}$ still have period multiples being $L$). 
+
+    Hence, one must have $|A|^2+|B|^2=\frac{1}{L}$. Hence, given any $0\leq D_1\leq\frac{1}{\sqrt{L}}$, with $D_2:=\sqrt{\frac{1}{L}-D_1^2}\geq 0$, given any $\theta_1,\theta_2\in[0,2\pi]$, the constants $A:=D_1e^{i\theta_1}$ and $B:=D_2e^{i\theta_2}$, they satisfy $|A|^2+|B|^2=|D_1|^2+|D_2|^2  = D_1^2+(\frac{1}{L}-D_1^2)=\frac{1}{L}$, which satisfies the given condition.
+
+    Which, incorporate for the time evolution (where fixing $n\in\NN$, we have $E_n=\frac{2n^2\pi^2\hbar^2}{mL}$, $k_n = \frac{\sqrt{2mE_n}}{\hbar}=\frac{2n\pi}{L}$, and $\frac{iE_nt}{\hbar} = \frac{i\cdot 2n^2\pi^2\hbar}{mL^2}$), we get the following:
+    \begin{align}
+        \psi_n(x,t) = A\exp\left(\frac{i2n\pi}{L}x - \frac{i2n^2\pi^2\hbar}{mL^2}t\right) + B\exp\left(-\frac{i2n\pi}{L}x - \frac{i2n^2\pi^2\hbar}{mL^2}t\right),\quad |A|^2+|B|^2=\frac{1}{L}
+    \end{align}
+
+    \hfil
+
+    If restrict to $B=0$ or $A=0$ respectively, one can get $A:=\frac{1}{\sqrt{L}}$ or $B:=\frac{1}{\sqrt{L}}$, and one can define $\psi_n^+(x):= \frac{1}{\sqrt{L}}e^{\frac{i2n\pi}{L}x}$ and $\psi_n^-(x):=\frac{1}{\sqrt{L}}e^{-\frac{i2n\pi}{L}x}$, which they form a $\CC$-linearly independent solutions, and form a basis for the stationary state for energy $E_n$.
+
+    The reason why theorem in Problem 2.44 fails here (where $\psi_n^+$ and $\psi_n^-$ are non-degenerate), is because the the domain is bounded - instead of on the whole real line $x\in\RR$, we have $x\in\RR/(L\ZZ)$ (which can essentially be described by $[0,L)$), since the domain is somewhat limited, it takes away extra restrictions (for instance $\lim_{x\rightarrow\infty}\psi(x)=0$ is no longer required), hence the solution space essentiallly gets enlarged, and causing such degeneracy to be possible (since the proof in Problem 2.44 usees the fact that $\psi(x)$ converges to $0$ when approaching $\pm\infty$).
+\end{proof}
+
+\hfil
+
 \section*{5}
 \begin{ques}
 The Transfer Matrix (Griffiths 2.54)
@@ -78,6 +333,167 @@ d. By the method of part (b), find the $M$-matrix for scattering from the double
 $V(x) = -\alpha [\delta(x+a) + \delta(x-a)]$  
 What is the transmission coefficient for this potential?
 \end{ques}
+\begin{proof}
+
+    \hfil
+
+    \begin{itemize}
+        \item[a.] Given the relation with the $S$-matrix as follow:
+    \begin{align}
+        \begin{pmatrix}
+            B\\F
+        \end{pmatrix}=\begin{pmatrix}
+            S_{11}&S_{12}\\S_{21}&S_{22}
+        \end{pmatrix}\begin{pmatrix}
+            A\\G
+        \end{pmatrix}= \begin{pmatrix}
+            AS_{11}+GS_{12}\\AS_{21}+GS_{22}
+        \end{pmatrix}
+    \end{align}
+    With the transfer matrix relation and the above $S$-matrix relation, we get:
+    \begin{align}
+        \begin{pmatrix}
+            AS_{21}+GS_{22}\\G
+        \end{pmatrix}=\begin{pmatrix}
+            F\\G
+        \end{pmatrix}=\begin{pmatrix}
+            M_{11}&M_{12}\\M_{21}&M_{22}
+        \end{pmatrix}\begin{pmatrix}
+            A\\B
+        \end{pmatrix}=\begin{pmatrix}
+            AM_{11}+BM_{12}\\AM_{21}+BM_{22}
+        \end{pmatrix} = \begin{pmatrix}
+            AM_{11}+AS_{11}M_{12}+GS_{12}M_{12}\\AM_{21}+AS_{11}M_{22}+GS_{12}M_{22}
+        \end{pmatrix}
+    \end{align}
+    If given that $A,G$ are arbitrary, , this enforce the coefficients of $A$ and $G$ on both sides to be identical, hence we have the following relation:
+    \begin{align}
+        \begin{cases}
+            S_{21}=M_{11}+S_{11}M_{12}\\
+            S_{22}=S_{12}M_{12}\\
+            0=M_{21}+S_{11}M_{22}\\
+            1=S_{12}M_{22}
+        \end{cases}\implies \begin{cases}
+            M_{12}=\frac{S_{22}}{S_{12}}\\
+            M_{22}=\frac{1}{S_{12}}
+        \end{cases}
+    \end{align}
+    The right hand relation is based on the second and the fourth relation Now, plugin to the first and the third relation, we get:
+    \begin{align}
+        \begin{cases}
+            M_{11} = S_{21}-S_{11}M_{12} = S_{21}-\frac{S_{11}S_{22}}{S_{12}}\\
+            M_{21} = -S_{11}M_{22}=-\frac{S_{11}}{S_{12}}
+        \end{cases}
+    \end{align}
+    Hence, the whole transfer matrix is as follow:
+    \begin{align}
+        \begin{pmatrix}
+            S_{21}-\frac{S_{11}S_{22}}{S_{12}} & \frac{S_{22}}{S_{12}}\\ -\frac{S_{11}}{S_{12}} & \frac{1}{S_{12}}
+        \end{pmatrix}
+    \end{align}
+    Conversely, the $S$-matrix in terms of the transfer matrix coefficients, we also have the following:
+    \begin{align}
+            M_{22}=\frac{1}{S_{12}}&\implies S_{12}=\frac{1}{M_{22}}\\
+            M_{21}=-\frac{S_{11}}{S_{12}} = -S_{11}M_{22}&\implies S_{11}=-\frac{M_{21}}{M_{22}}\\
+            M_{12}=\frac{S_{22}}{S_{12}}=S_{22}M_{22}&\implies S_{22}=\frac{M_{12}}{M_{22}}\\
+            M_{11}=S_{21}-\frac{S_{11}S_{22}}{S_{12}} = S_{21}+\frac{M_{21}M_{12}}{M_{22}}&\implies S_{21} = \frac{M_{11}M_{22}-M_{21}M_{12}}{M_{22}}
+    \end{align}
+
+    Now, given that $R_l=|S_{11}|^2, T_l=|S_{21}|^2, R_r=|S_{22}|^2, T_r=|S_{12}|^2$, we have the following:
+    \begin{align}
+        &R_r = |S_{22}|^2 = \frac{|M_{12}|^2}{|M_{22}|^2}\\
+        &T_l = |S_{21}|^2 = \frac{|M_{11}M_{22}-M_{21}M_{12}|^2}{|M_{22}|^2}\\
+        &T_r = |S_{12}|^2 = \frac{1}{|M_{22}|^2}\\
+        &R_l = |S_{11}|^2 = \frac{|M_{21}|^2}{|M_{22}|^2}
+    \end{align}
+
+    \hfil
+
+    \item[b.] Let region 1 has amplitudes $\begin{pmatrix}A\\B\end{pmatrix}$, region 2 has amplitudes $\begin{pmatrix}C\\D\end{pmatrix}$, and region 3 has amplitudes $\begin{pmatrix}F\\G\end{pmatrix}$. Also, let the first isolated piece (from region 1 to region 2) be described by transfer matrix $\mathcal{M}_1$, and the second isolated piece (from region 2 to region 3) be described by transfer matrix $\mathcal{M}_2$. 
+    
+    Then, the property of transfer matrices state the following:
+    \begin{align}
+        \begin{pmatrix}
+            C\\D
+        \end{pmatrix}=\mathcal{M}_1\begin{pmatrix}
+            A\\B
+        \end{pmatrix},\quad \begin{pmatrix}
+            F\\G
+        \end{pmatrix}=\mathcal{M}_2\begin{pmatrix}
+            C\\D
+        \end{pmatrix}
+    \end{align}
+    Hence, it implies $\begin{pmatrix}F\\G\end{pmatrix} = \mathcal{M}_2\mathcal{M}_1\begin{pmatrix}A\\B\end{pmatrix}$. So, the total transfer matrix $\mathcal{M}=\mathcal{M}_2\mathcal{M}_1$.
+
+    \hfil
+
+    \item[c.] Recall that for scattering states, the solution is given as follow:
+    \begin{align}
+        \psi(x)=\begin{cases}
+            Ae^{ikx}+Be^{-ikx} & x<0\\
+            Fe^{ikx}+Ge^{-ikx} & x>0
+        \end{cases},\quad \begin{cases}
+            F+G=A+B\\
+            F-G=A(1+2i\beta)-B(1-2i\beta)
+        \end{cases}
+    \end{align}
+    Where, $\beta=\frac{m\alpha}{\hbar^2k}$, andthe second relation is provided by the continuity of $\psi$, and potential $V(x)=-\alpha\delta(x)$.
+
+    So, written in matrix equation, we get (from the relation on the right hand side):
+    \begin{align}
+        &\begin{pmatrix}
+            1&1\\1&-1
+        \end{pmatrix}\begin{pmatrix}
+            F\\G
+        \end{pmatrix}=\begin{pmatrix}
+            1&1\\(1+2i\beta)&-(1-2i\beta)
+        \end{pmatrix}\begin{pmatrix}
+            A\\B
+        \end{pmatrix}\\
+        &\implies \begin{pmatrix}
+            F\\G
+        \end{pmatrix}=\frac{1}{2}\begin{pmatrix}
+            1&1\\1&-1
+        \end{pmatrix}\begin{pmatrix}
+            1&1\\(1+2i\beta)&-(1-2i\beta)
+        \end{pmatrix}\begin{pmatrix}
+            A\\B
+        \end{pmatrix} = \begin{pmatrix}
+            1+i\beta & i\beta\\-i\beta & 1-i\beta
+        \end{pmatrix}\begin{pmatrix}
+            A\\B
+        \end{pmatrix}
+    \end{align}
+    So, the transfer matrix is $\mathcal{M}=\begin{pmatrix}
+        1+i\beta & i\beta\\-i\beta & 1-i\beta
+    \end{pmatrix}$.
+
+    \hfil
+
+    \item[d.] Since there are two parts of the delta square well, both with coefficient $\alpha$ (where $V(x)=-\alpha\delta(x+k)$ for $k=\pm a$). Then, since up to a shift of domain, both potentials are identical, they have the same transfer matrix. Hence, let $\begin{pmatrix}
+        A\\B
+    \end{pmatrix}$ denotes the amplitudes on the left most region $x<-a$, and $\begin{pmatrix}
+        F\\G
+    \end{pmatrix}$ denotes the amplitudes on the right most region $x>a$, the the method in part b implies that $\begin{pmatrix}
+        F\\G
+    \end{pmatrix}=\mathcal{M}^2\begin{pmatrix}
+        A\\B
+    \end{pmatrix}$, where $\mathcal{M}$ is proided in part c. So, the transfer matrix is as follow:
+    \begin{align}
+        \mathcal{M}^2 = \begin{pmatrix}
+            1+2i\beta & 2i\beta\\-2i\beta & 1-2i\beta
+        \end{pmatrix}
+    \end{align}
+        Finally, using the transmission coefficients derived in part a, we get:
+        \begin{align}
+            &R_r = \frac{|M_{12}|^2}{|M_{22}|^2} = \frac{(2\beta)^2}{1+(2\beta)^2}\\
+            &T_l=\frac{|M_{11}M_{22}-M_{21}M_{12}|^2}{|M_{22}|^2} = \frac{1}{1+(2\beta)^2}\\
+            &T_r=\frac{1}{|M_{22}|^2}=\frac{1}{1+(2\beta)^2}\\
+            &R_l=\frac{|M_{21}|^2}{|M_{22}|^2}=\frac{(2\beta)^2}{1+(2\beta)^2}
+        \end{align}
+    \end{itemize}
+
+\end{proof}
 
 \newpage
 \section*{6}
@@ -90,6 +506,40 @@ Linear Algebra Bootcamp I: Vector spaces (modified Griffiths A.3)
 
 3. Does the set of odd polynomials in $x$ constitute a vector space? Why or why not?
 \end{ques}
+\begin{proof}
+    
+    \hfil
+    
+    \begin{enumerate}
+        \item Let $V$ be a $\KK$-vector space (where $\KK$ denotes the field). Let $I$ denote an index set, where $\{v_i\}_{i\in I} \subset V$ is a basis of $V$. Which, the list is linearly independent, meaning that if $\sum_{i\in I}c_i v_i=0$ (where each $c_i\in \KK$), then it implies $c_i=0$ for all $i\in I$.
+        
+        As a result, given any $v\in V$, since $\{v_i\}_{i\in I}$ spans $V$, $v=\sum_{i\in I}c_i v_i$ for some list of coefficients $\{c_i\}_{i\in I} \subset \KK$. Now, for uniqueness suppose the two lists of coefficients $\{c_i\}_{i\in I}, \{d_i\}_{i\in I} \subset \KK$ satisfies $v = \sum_{i\in I}c_i v_i = \sum_{i\in I}d_i v_i$, then $0=v-v = \sum_{i\in I}(c_i-d_i)v_i$, with the claim of linear independence one must have $c_i-d_i=0$, or $c_i=d_i$ for all $i\in I$.
+
+        Hence, this shows that the component (i.e. the coefficient of each $v_i$ for $v$) must be unique.
+
+        \vspace{0.5em}
+
+        \item Let $\mathcal{P}_N(\CC)$ denotes all degree $\leq N$ polynomials with complex coefficients, to show it's a vector space it suffices to show given any $f,g \in \mathcal{P}_N(\CC)$, arbitrary linear combination $af+bg \in \mathcal{P}_N(\CC)$ (since choose $a,b=0\in\CC$, this shows $0\in\mathcal{P}_N(\CC)$, the set has a zero vector; choose $a,b=1\in\CC$, it shows $f+g\in\mathcal{P}_N(\CC)$, which is closed under addition; also, choose $b=0$ and arbitrary $a\in\CC$, this shows $af\in\mathcal{P}_N(\CC)$, so it's closed under scalar multiplication).
+        
+        For any $f,g\in\mathcal{P}_N(\CC)$, there exists $\{a_j\}_{j=0}^N,\{b_j\}_{j=0}^N\subset \CC$, such that $f(z) = \sum_{j=0}^N a_j z^j$, and $g(z)=\sum_{i=0}^N B_j z^j$. Which, given arbitrary $k,l \in\CC$, we have the following:
+        \begin{align}
+            k\cdot f(z)+l\cdot g(z)=k\cdot\sum_{i=0}^{N}a_i z^i+l\cdot \sum_{j=0}^{N}b_j z^j = \sum_{j=0}^{N}(k\cdot a_j)z^j + \sum_{j=0}^{N}(l\cdot b_j)z^j = \sum_{j=0}^{N}(k\cdot a_j+l\cdot b_j)z^j
+        \end{align}
+        Since each $j\in\{0,1,...,N\}$ satisfies $k\cdot a_j+l\cdot b_j \in\CC$ (since $\CC$ is a field), then $kf+lg$ is still a polynomial, and it has degree at most $N$ (since it can only have nonzero coefficients for degree $\leq N$). Hence, $kf+lg \in\mathcal{P}_N(\CC)$, this shows that $\mathcal{P}_N(\CC)$ is a vector space.
+
+        A convenient basis is $\{z^j\}_{j=0}^N$ (since a polynomial is $0$ iff all the coefficients of each $z^j$ is $0$, so $\{z^j\}$ if contained in the space, is linearly-independent; and, since $\{z^j\}_{j=0}^N \subset \mathcal{P}_N(\CC)$, together with the fact that all polynomials is a linear combination of these, the given list does form a basis).
+
+        \vspace{0.5em}
+
+        \item Let $L$ denotes all odd polynomials in $x$ (say over $\KK$ a field), then any $f\in L$ satisfies $f(-x)=-f(x)$. 
+        
+        Again, it suffices to show arbitrary finite linear combination still belongs to the space: Given any $f,g\in L$, and any scalar $a,b\in\KK$, we have the following:
+        \begin{align}
+            (af+bg)(-x) = a\cdot f(-x)+b\cdot g(-x) = a\cdot (-1)\cdot f(x)+b\cdot (-1)\cdot g(x)= -(af+bg)(x)
+        \end{align}
+        Hence, $af+bg\in L$, showing that $L$ is closed under arbitrary linear combination, hence a vector space.
+    \end{enumerate}
+\end{proof}
 
 \newpage
 \section*{7}
@@ -101,8 +551,18 @@ $|\langle \alpha | \beta \rangle|^2 \le \langle \alpha | \alpha \rangle \langle 
 
 Hint: Let $|\delta\rangle = |\beta\rangle - \frac{\langle \alpha | \beta \rangle}{\langle \alpha | \alpha \rangle} |\alpha\rangle$ and use $\langle \delta | \delta \rangle \ge 0$.
 \end{ques}
+\begin{proof}
+    Given $\ket{\delta} = \ket{\beta} - \frac{\braket{\alpha}{\beta}}{\braket{\alpha}{\alpha}}\ket{\alpha}$, we have the following inequality:
+    \begin{align}
+        &0\leq \braket{\delta}{\delta} = \braket{\beta}{\beta} + \left|\frac{\braket{\alpha}{\beta}}{\braket{\alpha}{\alpha}}\right|^2 \braket{\alpha}{\alpha} - \frac{\braket{\alpha}{\beta}}{\braket{\alpha}{\alpha}}\braket{\beta}{\alpha} - \frac{\braket{\alpha}{\beta}^*}{\braket{\alpha}{\alpha}}\braket{\alpha}{\beta}\\
+        &\implies 0\leq \braket{\beta}{\beta}+\frac{|\braket{\alpha}{\beta}|^2}{\braket{\alpha}{\alpha}}-2\frac{|\braket{\alpha}{\beta}|^2}{\braket{\alpha}{\alpha}}\\
+        &\implies \frac{|\braket{\alpha}{\beta}|^2}{\braket{\alpha}{\alpha}}\leq \braket{\beta}{\beta}\\
+        &\implies |\braket{\alpha}{\beta}|^2 \leq \braket{\alpha} \braket{\beta}
+    \end{align}
+\end{proof}
 
-\newpage
+\hfil
+
 \section*{8}
 \begin{ques}
 Linear Algebra Bootcamp III: Matrices (modified Griffiths A.8)
@@ -127,6 +587,59 @@ compute the following:
 
 7. $\det(B)$
 \end{ques}
+\begin{proof}
+    
+    \hfil
+
+    \begin{enumerate}
+        \item \begin{align}
+            A+B = \begin{pmatrix}
+                4&-1&2i\\3&1&2\\-i&2+2i&3
+            \end{pmatrix}
+        \end{align}
+        \item \begin{align}
+            AB = \begin{pmatrix} 1 & -1 & i \\ 3 & 0 & 2 \\ -2i & 2i & 2 \end{pmatrix}\begin{pmatrix} 3 & 0 & i \\ 0 & 1 & 0 \\ i & 2 & 1 \end{pmatrix} = \begin{pmatrix}
+                2&-1+2i&2i\\9+2i&4&2+3i\\-4i&4+2i&4
+            \end{pmatrix}
+        \end{align}
+        \item \begin{align}
+            [A,B] &= AB-BA = \begin{pmatrix}
+                2&-1+2i&2i\\9+2i&4&2+3i\\-4i&4+2i&4
+            \end{pmatrix}-\begin{pmatrix} 3 & 0 & i \\ 0 & 1 & 0 \\ i & 2 & 1 \end{pmatrix}\begin{pmatrix} 1 & -1 & i \\ 3 & 0 & 2 \\ -2i & 2i & 2 \end{pmatrix}\\
+            &= \begin{pmatrix}
+                2&-1+2i&2i\\9+2i&4&2+3i\\-4i&4+2i&4
+            \end{pmatrix}-\begin{pmatrix}
+                5&-5&5i\\3&0&2\\5-i&i&5
+            \end{pmatrix} = \begin{pmatrix}
+                -3&4+2i&-3i\\6+2i&4&3i\\-5-3i&4+i&-1
+            \end{pmatrix}
+        \end{align}
+        \item \begin{align}
+            A^T = \begin{pmatrix}
+                1&3&-2i\\-1&0&2i\\i&2&2
+            \end{pmatrix}
+        \end{align}
+        \item \begin{align}
+            A^* =\begin{pmatrix}
+                1&-1&-i\\3&0&2\\2i&-2i&2
+            \end{pmatrix}
+        \end{align}
+        \item \begin{align}
+            A^\dagger = \begin{pmatrix}
+                1&3&2i\\-1&0&-2i\\-i&2&2
+            \end{pmatrix}
+        \end{align}
+        \item \begin{align}
+            \det(B) = - 0 \cdot \det\begin{pmatrix}
+                0&i\\2&1
+            \end{pmatrix} + 1\cdot\det\begin{pmatrix}
+                3&i\\i&1
+            \end{pmatrix} - 0\cdot \det\begin{pmatrix}
+                3&0\\i&2
+            \end{pmatrix} = 4
+        \end{align}
+    \end{enumerate}
+\end{proof}
 
 \newpage
 \section*{9}
@@ -206,7 +719,21 @@ Is it normal? Is it diagonalizable?
 
         \hfil
 
-        \item[3.] Given a finite-dimensional $\KK$-vector space $V$ (where $\KK$ is a field), and have any linear operator $A,B:V \rightarrow V$. Let $\alpha$ be an ordered basis
+        \item[3.] Given a finite-dimensional $\KK$-vector space $V$ (where $\KK$ is a field), and have any linear operator $A,B:V \rightarrow V$. Let $\alpha$ be an ordered basis, and let $\mathcal{M}(A, \alpha),\mathcal{M}(B,\alpha)$ denote the matrix of $A,B$ under ordered basis $\alpha$. If $\mathcal{M}(A,\alpha)\mathcal{M}(B,\alpha)=\mathcal{M}(B,\alpha)\mathcal{M}(A,\alpha)$ (the matrix representative under basis $\alpha$ commutes), then given any other ordered basis $\beta$ of $V$, let $T^\beta_\alpha$ denote the change of basis matrix from ordered basis $\beta$ to $\alpha$ (which the inverse $(T^\beta_\alpha)^{-1}$ is the change of basis matrix from $\alpha$ to $\beta$), then we have the following:
+        \begin{align}
+            \mathcal{M}(C,\beta) = (T^\beta_\alpha)^{-1}\mathcal{M}(C,\alpha)T^\beta_\alpha
+        \end{align}
+        Where $C:V\rightarrow V$ is arbitrary linear operator on $V$, and $\mathcal{M}(C,\beta)$ denotes its matrix representative in basis $\beta$.
+
+        Hence, we get the following:
+        \begin{align}
+            \mathcal{M}(A,\beta)\mathcal{M}(B,\beta) &= \left((T^\beta_\alpha)^{-1}\mathcal{M}(A,\alpha)T^\beta_\alpha\right)\left((T^\beta_\alpha)^{-1}\mathcal{M}(B,\alpha)T^\beta_\alpha\right)\\ 
+            &= (T^\beta_\alpha)^{-1}\mathcal{M}(A,\alpha)\mathcal{M}(B,\alpha)T^\beta_\alpha\\
+            &= (T^\beta_\alpha)^{-1}\mathcal{M}(B,\alpha)\mathcal{M}(A,\alpha)T^\beta_\alpha\\
+            &= \left((T^\beta_\alpha)^{-1}\mathcal{M}(B,\alpha)T^\beta_\alpha\right)\left((T^\beta_\alpha)^{-1}\mathcal{M}(A,\alpha)T^\beta_\alpha\right)\\
+            &= \mathcal{M}(B,\beta)\mathcal{M}(A,\beta)
+        \end{align}
+        Hence, $A,B$ as linear operators still commute as matrices under basis $\beta$. Then, because $\beta$ as a basis of $V$ is arbitrary, $A,B$ as linear operators have their matrices commute under any basis. (Which comes down to the fact that as linear operators $A,B$ already commutes, so regardless of the matrix representative they should be the same).
     \end{itemize}
 \end{proof}
 

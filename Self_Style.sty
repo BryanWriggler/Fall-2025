@@ -17,7 +17,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathtools}
-\usepackage{braket} %specifically appear in physics (QM)
+\usepackage{physics} %specifically for braket notation
 \usepackage{verbatim} %for special environment (for instance the comment environment)
 \usepackage[utf8]{inputenc} %for japanese? I forgot
 \usepackage[dvipsnames]{xcolor} %for importing multiple colors
@@ -98,8 +98,8 @@
 \newcommand{\lcm}{\mathrm{lcm}} %least common multiple
 
 %paired command
-\DeclarePairedDelimiter{\abs}{\lvert}{\rvert} %absolute value
-\DeclarePairedDelimiter{\norm}{\lVert}{\rVert} %norm
+%\DeclarePairedDelimiter{\abs}{\lvert}{\rvert} %absolute value
+%\DeclarePairedDelimiter{\norm}{\lVert}{\rVert} %norm
 %\DeclarePairedDelimiter{\paran}{(}{)}%paranthesis
 \DeclarePairedDelimiter{\brac}{\langle}{\rangle} %bracket (used for cyclic group, generated group, etc.)
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor} %floor function
@@ -158,7 +158,7 @@
 %complex
 \newcommand{\Real}{\mathrm{Re}} %real part
 \newcommand{\Imag}{\mathrm{Im}} %imaginary part
-\newcommand{\Res}{\mathrm{Res}} %residue
+%\newcommand{\Res}{\mathrm{Res}} %residue
 \newcommand{\Holo}{\mathcal{O}} %represent holomorphic / analytic function
 \newcommand{\Mero}{\mathcal{M}} %represent meromorphic function
 
@@ -183,3 +183,7 @@
 \newcommand{\Poi}{\mathrm{Poi}} %poisson distribution
 \newcommand{\Unif}{\mathrm{Unif}} %uniform distribution
 \newcommand{\Exp}{\mathrm{Exp}} %exponential distribution
+\newcommand{\Cov}{\mathrm{Cov}} %covariance
+\newcommand{\Corr}{\mathrm{Corr}} %correlation
+\newcommand{\Beta}{\mathrm{Beta}} %beta distribution
+\newcommand{\GammaD}{\mathrm{Gamma}} %gamma distribution

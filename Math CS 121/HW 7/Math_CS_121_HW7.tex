@@ -1,0 +1,452 @@
+\documentclass{article}
+\usepackage{../../Self_Style}
+
+\title{Math CS 121 HW 7}
+\author{Zih-Yu Hsieh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{1}
+\begin{ques}\label{q1}
+    8.1.6:
+
+    Two dice are rolled. The sum of the outcomes is denoted by $X$ and the absolute value of their difference by $Y$. Calculate the joint probability mass function of $X$ and $Y$ and the marginal probability mass functions of $X$ and $Y$.
+\end{ques}
+
+\begin{proof}
+    Let $i_1,i_2\in\{1,...,6\}$ represents the values of the two dice after getting rolled. Then $X = i_1+i_2\in\{2,...,12\}$ and $Y=|i_1-i_2|\in\{0,...,5\}$ (since $1\leq i_1,i_2\leq 6$, so $2\leq i_1+i_2\leq 12$ and $-5\leq i_1-i_2\leq 5$, so $0\leq |i_1-i_2|\leq 5$).
+
+    As a result, they form the following table:
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{c||c|c|c|c|c|c}
+            \diagbox[width=1.5cm,height=1cm]{$i_1$}{$i_2$} & 1&2&3&4&5&6\\
+            \hline
+            \hline
+            1&$X=2,Y=0$ & $X=3,Y=1$ & $X=4,Y=2$ & $X=5,Y=3$ & $X=6,Y=4$ & $X=7,Y=5$\\
+            \hline
+            2&$X=3,Y=1$ & $X=4,Y=0$ & $X=5,Y=1$ & $X=6,Y=2$ & $X=7,Y=3$ & $X=8,Y=4$\\
+            \hline
+            3&$X=4,Y=2$ & $X=5,Y=1$ & $X=6,Y=0$ & $X=7,Y=1$ & $X=8,Y=2$ & $X=9,Y=3$\\
+            \hline
+            4&$X=5,Y=3$ & $X=6,Y=2$ & $X=7,Y=1$ & $X=8,Y=0$ & $X=9,Y=1$ & $X=10,Y=2$\\
+            \hline
+            5&$X=6,Y=4$ & $X=7,Y=3$ & $X=8,Y=2$ & $X=9,Y=1$ & $X=10,Y=0$ & $X=11,Y=1$\\
+            \hline
+            6&$X=7,Y=5$ & $X=8,Y=4$ & $X=9,Y=3$ & $X=10,Y=2$ & $X=11,Y=1$ & $X=12,Y=0$\\
+        \end{tabular}
+    \end{table}
+    Since one can assume each value of the dice is equally likely to be rolled (and the two dice are independent of each other), then all the above cases are equally likely to happen (with total of $36$ possible cases). Hence, we get the following table for the probability mass function $P_(X,Y)(x,y) = \PP(X=x, Y=y)$:
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{c||c|c|c|c|c|c|c|c|c|c|c}
+            \diagbox[width=1.5cm,height=1cm]{$Y$}{$X$} & 2&3&4&5&6&7&8&9&10&11&12\\
+            \hline
+            \hline
+            0 & $1/36$ & $0$ & $1/36$ & $0$ & $1/36$ & $0$ & $1/36$ & $0$ & $1/36$ & 0 & $1/36$\\
+            \hline
+            1 & 0 & $2/36$ & 0 & $2/36$ & 0 & $2/36$ & 0 & $2/36$ & 0 & $2/36$ & 0\\
+            \hline
+            2 & 0&0& $2/36$ & 0 & $2/36$ & 0 & $2/36$ & 0 & $2/36$ & 0 & 0\\
+            \hline
+            3 & 0&0&0&$2/36$&0&$2/36$&0&$2/36$&0&0&0\\
+            \hline
+            4 & 0&0&0&0&$2/36$&0&$2/36$&0&0&0&0\\
+            \hline
+            5 & 0&0&0&0&0&$2/36$&0&0&0&0&0
+        \end{tabular}
+    \end{table}
+    Which, one can verify that summing up all the components indeed provide $1$, so the above is a joint probability mass function.
+
+    Alo, as a result we also have the following marginal probability mass functions for $X$ and $Y$:
+    \begin{align}
+        P_Y(t) = \begin{cases}
+            2/36 & t=5\\
+            4/36 & t=4\\
+            6/36 & t=0,t=3\\
+            8/36 & t=2\\
+            10/36 & t=1
+        \end{cases}, \quad P_X(t) = \begin{cases}
+            1/36 & t=2,=12\\
+            2/36 & t=3,t=11\\
+            3/36 & t=4,t=10\\
+            4/36 & t=5,t=9\\
+            5/36 & t=6,t=8\\
+            6/36 & t=7
+        \end{cases}
+    \end{align}
+\end{proof}
+
+\hfil
+
+\section*{2}
+\begin{ques}\label{q2}
+    8.1.10:
+
+    Let the joint probability density function of random variables $X$ and $Y$ be given by 
+    $$f(x,y) = \begin{cases}
+        8xy & 0\leq y\leq x\leq 1\\
+        0 & \text{otherwise}
+    \end{cases}$$
+    \begin{itemize}
+        \item[(a)] Calculate the marginal probability density functions of $X$ and $Y$, respectively.
+        \item[(b)] Calculate $\EE[X]$ and $\EE[Y]$. 
+    \end{itemize}
+\end{ques}
+
+\begin{proof}
+
+    \hfil
+
+    \begin{itemize}
+        \item[(a)] First, the marginal probability density functions of $X$ and $Y$ are given by $f_X(t) = \int_{-\infty}^{\infty}f(t,y)dy$, and $f_Y(t)=\int_{-\infty}^{\infty}f(x,t)dx$ respectively. 
+        
+        Which, in both cases if $t\notin [0,1]$, then we have $f(t,y)=f(x,t)=0$ for all $x,y\in\RR$ (since the input of $x$ or $y$ are not in the range of $[0,1]$). Also, given $t\in[0,1]$, we have the following classification of $f$:
+        \begin{align}
+            f(t,y)=\begin{cases}
+                8ty & y\in[0,t]\\
+                0 & y\notin [0,t]
+            \end{cases},\quad f(x,t)=\begin{cases}
+                0 & x\notin [t,1]\\
+                8xt & x\in[t,1]
+            \end{cases}
+        \end{align}
+        Hence, we get the following expression of the marginal probability density functions:
+        \begin{align}
+            f_X(t) = \int_{-\infty}^{\infty}f(t,y)dy = \begin{cases}
+                0 & t\notin [0,1]\\
+                \int_{0}^{t}8ty dy = 4t^3 & t\in[0,1]
+            \end{cases}
+        \end{align}
+        \begin{align}
+            f_Y(t) = \int_{-\infty}^{\infty}f(x,t)dx = \begin{cases}
+                0 & t\notin[0,1]\\
+                \int_t^1 8xt dx = 4t(1-t^2) & t\in[0,1]
+            \end{cases}
+        \end{align}
+
+        \hfil
+
+        \item[(b)] With the marginal probability density function from above, we get the following expected values:
+        \begin{align}
+            \EE[X] = \int_{-\infty}^{\infty}x\cdot f_X(x)dx = \int_{0}^{1}x \cdot 4x^3dx = \frac{4}{5}x^5\bigg|_{0}^{1}=\frac{4}{5}
+        \end{align}
+        \begin{align}
+            \EE[Y]=\int_{-\infty}^{\infty}y\cdot f_Y(y)dy = \int_{0}^{1}y\cdot 4y(1-y^2)dy = \frac{4}{3}y^3 - \frac{4}{5}y^5\bigg|_{0}^{1} = \frac{8}{15}
+        \end{align}
+    \end{itemize}
+\end{proof}
+
+\hfil
+
+\section*{3}
+\begin{ques}\label{q3}
+    8.2.25:
+
+    Suppose that $X$ and $Y$ are independent, identically distributed exponential random variables with mean $\frac{1}{\lambda}$. Prove that $X/(X+Y)$ is uniform over $(0,1)$.
+\end{ques}
+
+\begin{proof}
+    Given that $X,Y$ are exponential random variables with mean $\frac{1}{\lambda}$, we have $X,Y\sim \Exp(\lambda)$, showing that they both have probability density $f_X(t),f_Y(t)=\lambda e^{-\lambda t}$ for $t\in(0,\infty)$. 
+
+    Now, since $X,Y\in (0,\infty)$, then $0<X<X+Y$, showing that $0<\frac{X}{X+Y}<1$. Which, given any $a\in (0,1)$, the probability $\PP(\frac{X}{X+Y}\leq a) = \PP(X\leq aX+aY) = \PP((1-a)X\leq aY) = \PP(X\leq \frac{a}{1-a}Y)$. Using the joint probability density, it's provided as follow:
+    \begin{align}
+        \PP\left(\frac{X}{X+Y}\leq a\right)&= \PP\left(X\leq \frac{a}{1-a}Y\right) = \int_{0}^{\infty}\left(\int_{0}^{\frac{a}{1-a}y}f_X(x)dx\right)f_Y(y)dy\\
+        &= \int_{0}^{\infty}\lambda e^{-\lambda y}\left(\int_{0}^{\frac{a}{1-a}y}\lambda e^{-\lambda x}dx\right)dy = \int_{0}^{\infty}\lambda e^{-\lambda y}\left(-e^{-\lambda x}\bigg|_{0}^{\frac{a}{1-a}y}\right)dy\\
+        &= \int_{0}^{\infty}\lambda e^{-\lambda y}\left(1-e^{-\frac{\lambda a}{1-a}y}\right)dy = \int_{0}^{\infty}\lambda e^{-\lambda y}dy - \int_{0}^{\infty}\lambda e^{-\lambda y}e^{-\frac{\lambda a}{1-a}y}dy\\
+        &= 1-\left(\frac{-\lambda}{\lambda +\frac{\lambda a}{1-a}}e^{-(\lambda + \frac{\lambda a}{1-a})y}\bigg|_{0}^{\infty}\right) = 1-\frac{\lambda}{\lambda + \frac{\lambda a}{1-a}} = 1-\frac{1}{1+\frac{a}{1-a}}\\
+        &= 1-\frac{1-a}{1-a+a} = 1-(1-a) = a
+    \end{align}
+    Hence, let $Z=\frac{X}{X+Y}$, its probability density is given by $f_Z(a) = \frac{d}{da}\PP(\frac{X}{X+Y}\leq a)=\frac{d}{da}a = 1$ for $a\in(0,1)$, showing it's a uniform distribution.
+\end{proof}
+
+\newpage
+
+\section*{4}
+\begin{ques}\label{q4}
+    8.Rev.11:
+
+    Let the joint probability distribution function of the lifetimes of two brands of lightbulb be given by 
+    $$F(x,y)=\begin{cases}
+        (1-e^{-x^2})(1-e^{-y^2}) & x>0,\ y>0\\
+        0 & \text{otherwise}
+    \end{cases}$$
+    Find the probability that one lightbulb lasts more than twice as long as the other.
+\end{ques}
+
+\begin{proof}
+    First, to calculate the marginal probability density of $X$ and $Y$ (representing the two brands of lightbulbs), we have the following:
+    \begin{align}
+        \PP(X\leq t) = \lim_{y\rightarrow\infty}F(t,y) = \begin{cases}
+            0 & t\leq 0\\
+            1-e^{-t^2} & t>0
+        \end{cases},\quad \PP(Y\leq t)=\lim_{x\rightarrow \infty}F(x,t) = \begin{cases}
+            0 & t\leq 0\\
+            1-e^{-t^2} & t>0
+        \end{cases}
+    \end{align}
+    So, $\PP(X\leq t)=\PP(Y\leq t)$. Hence, the marginal probability density are given as follow, respectively:
+    \begin{align}
+        f_X(t) = \frac{d}{dt}\PP(X\leq t) = \begin{cases}
+            0 & t\leq 0\\
+            2te^{-t^2} & t>0
+        \end{cases},\quad f_Y(t) = \frac{d}{dt}\PP(Y\leq t) = \frac{d}{dt}\PP(X\leq t) = f_X(t)
+    \end{align}
+    Now, to calculate the probability that one lasts more than twice as long as the other, the event is given as either $2Y<X$, or $2X<Y$. Notice that the two are mutually exclusive (or else if not, then $2Y<x<\frac{1}{2}Y$ is a contradiction, since $Y\geq 0$), hence we get the proability is provided as $\PP(\{2Y<X\}\sqcup \{2X<Y\}) = \PP(2Y<X)+\PP(2X<y)$. Which, they're given as follow, respectively:
+    \begin{align}
+        \PP(2Y<X) &= \PP\left(Y<\frac{1}{2}X\right) = \int_{-\infty}^{\infty}f_X(x) \left(\int_{\infty}^{\frac{1}{2}x}f_Y(y)dy\right)dx\\
+        &= \int_{0}^{\infty}2xe^{-x^2}\left(\int_{0}^{\frac{1}{2}x}2ye^{-y^2}dy\right)dx = \int_{0}^{\infty}2xe^{-x^2}\left(-e^{-y^2}\bigg|_{0}^{\frac{1}{2}x}\right)dx\\
+        &= \int_{0}^{\infty}2xe^{-x^2}(1-e^{-\frac{1}{4}x^2})dx = \int_{0}^{\infty}2xe^{-x^2}dx - \int_{0}^{\infty}2xe^{-\frac{5}{4}x^2}dx\\
+        &= \left(-e^{-x^2}\bigg|_{0}^{\infty}\right) - \int_{0}^{\infty}2xe^{-\left(\frac{\sqrt{5}}{2}x\right)^2}dx = 1-\int_{0}^{\infty}2\cdot \frac{2}{\sqrt{5}}ue^{-u^2}\frac{2}{\sqrt{5}}du\\
+        &= 1-\frac{4}{5}\left(-e^{-u^2}\bigg|_{0}^{\infty}\right) = 1-\frac{4}{5}=\frac{1}{5}
+    \end{align}
+    \begin{align}
+        \PP(2X<Y) &= \PP(X<\frac{1}{2}Y) = \int_{-\infty}^{\infty}f_Y(u)\left(\int_{-\infty}^{\frac{1}{2}u}f_X(v)dv\right) du\\
+        &= \int_{-\infty}^{\infty}f_X(u)\left(\int_{-\infty}^{\frac{1}{2}u}f_Y(v)dv\right) du = \int_{-\infty}^{\infty}f_X(x)\left(\int_{-\infty}^{\frac{1}{2}x}f_Y(y)dy\right) dx\\
+        &= \PP(2Y<X) = \frac{1}{5}
+    \end{align}
+    Hence, the probability that one lasts more than twice as long as the other lightbulb, is $\PP(2Y<X)+\PP(2X<Y)=\frac{2}{5}$.
+\end{proof}
+
+\newpage
+
+\section*{5}
+\begin{ques}\label{q5}
+    8.Rev.17:
+
+    Let $X$ and $Y$ be two independent uniformly distributed random variables over the intervals $(0,1)$ and $(0,2)$, respectively. Find the probability density function of $X/Y$.
+\end{ques}
+
+\begin{proof}
+    Given that $X,Y$ are independent uniform distribution over $(0,1)$ and $(0,2)$ respectively (or $X\sim \Unif(0,1)$ and $Y\sim \Unif(0,2)$). Then, their probability density is given as follow:
+    \begin{align}
+        f_X(t)=\begin{cases}
+            1 & t\in(0,1)\\
+            0 & \text{otherwise}
+        \end{cases},\quad f_Y(t) = \begin{cases}
+            \frac{1}{2} & t\in(0,2)\\
+            0 & \text{otherwise}
+        \end{cases}
+    \end{align}
+    Since $X\in (0,1)$ and $Y\in (0,2)$, we have $\frac{X}{Y}\in (0,\infty)$. Which, for all $a\in (0,\infty)$, we have $\PP(\frac{X}{Y}\leq a) = \PP(X\leq aY)$, which can be given as the following calculation:
+    \begin{align}
+        \PP(X\leq aY)&= \int_{0}^{2}f_Y(y)\left(\int_{0}^{ay}f_X(x)dx\right)dy
+    \end{align}
+    There are two cases one can consider:
+    \begin{itemize}
+        \item If $a\leq \frac{1}{2}$, since $y\in(0,2)$, then $0<ay<1$, so $f_X(x)=1$ for $0<x<ay$. Hence:
+        \begin{align}
+            \PP(X\leq aY)=\int_{0}^{2}\frac{1}{2}\left(\int_{0}^{ay}1 dx\right)dy = \int_{0}^{2}\frac{a}{2}ydy = \frac{a}{4}y^2\bigg|_{0}^{2}=a
+        \end{align}
+        \item Else, if $a>\frac{1}{2}$, since $0<\frac{1}{a}<2$, then for $y\geq \frac{1}{a}$, one has $ay \geq 1$, so $\int_{0}^{ay}f_X(x)dx = \int_{0}^{1}1 dx = 1$ for $y\geq \frac{1}{a}$; on the other hand, if $y< \frac{1}{a}$, then $ay<1$, where $f_X(x) = 1$ for $0<x<ay$ again. Hence, the probability is given as follow:
+        \begin{align}
+            \PP(X\leq aY)&=\int_{0}^{2}f_Y(y)\left(\int_{0}^{ay}f_X(x)dx\right)dy = \int_{0}^{\frac{1}{a}}\frac{1}{2}\left(\int_{0}^{ay}1 dx\right)dy+\int_{\frac{1}{a}}^{2}\frac{1}{2}\left(1\right)dy\\
+            &= \int_{0}^{\frac{1}{a}}\frac{a}{2}ydy + \left(1-\frac{1}{2a}\right) = \frac{a}{4}y^2\bigg|_{0}^{\frac{1}{a}}+1-\frac{1}{2a} = \frac{1}{4a}+1-\frac{1}{2a}=1-\frac{1}{4a}
+        \end{align}
+        Hence, the cumulative distribution is given as follow:
+        \begin{align}
+            \forall a\in(0,\infty),\quad \PP\left(\frac{X}{Y}\leq a\right)=\begin{cases}
+                a & a\leq \frac{1}{2}\\
+                1-\frac{1}{4a} & a>\frac{1}{2}
+            \end{cases}
+        \end{align}
+        So, given $Z=\frac{X}{Y}$, the probability density is given as follow:
+        \begin{align}
+            f_Z(a) = \frac{d}{da}\PP\left(\frac{X}{Y}\leq a\right) = \begin{cases}
+                1 & a<\frac{1}{2}\\
+                \frac{1}{4a^2} & a\geq\frac{1}{2}
+            \end{cases}
+        \end{align}
+    \end{itemize}
+\end{proof}
+
+\newpage
+
+\section*{6}
+\begin{ques}
+    Not Given?
+\end{ques}
+
+
+\newpage
+
+\section*{7}
+\begin{ques}\label{q6}
+    Buses arrive at rate 3 per hour. Given that 2 buses came in the last 30 minutes, find the joint distribution of $(T_1,T_2)$, the arrival times of the first and the second bus.
+\end{ques}
+
+\begin{proof}
+    Recall from lecture, that if given at time $t>0$ one has $N_t=n$ (at time $t$, $n$ things had happened), then the random variable $(T_k|N_t = n) \sim \Beta(k, n+1-k)$, and rescale the interval to $(0,t)$ (the random variable of $T_k$ the time for $k^\text{th}$ arrival, given that $N_t=n$, where $k\leq n$). So, for $T_1$, given that at $t=\frac{1}{2}$ hour $N_\frac{1}{2}=2$, the random variable $Z = (T_1|N_\frac{1}{2}=2)\sim \Beta(1,2)$ (and rescale to the interval $(0,\frac{1}{2})$). Given that on the interval $(0,1)$, $\Beta(1,2)$ has probability density $f(t) = t^{1-1}(1-t)^{2-1}\frac{\Gamma(1+2)}{\Gamma(1)\Gamma(2)} = 2(1-t)$, then after rescaling to the interval $(0,\frac{1}{2})$, we get the probability density of $Z$ is $f_Z(t) = 4(1-2t)$ (where $t\in(0,\frac{1}{2})$).
+
+    Now, since another condition is $T_1 < T_2 < \frac{1}{2}$, then based on the memoryless property, when fixing $T_1 = t$, the time of $T_2$ is on the interval $(t,\frac{1}{2})$ (given that at the endpoint no other new things had happen), so it's the same as the case of $(T_1 | N_{\frac{1}{2}-t}=1)$, which is in fact a uniform distribution on $(0,\frac{1}{2}-t)$. Hence, up to a shift of interval, we get that $A = (T_2 | T_1=t, N_\frac{1}{2}=2) \sim \Unif(t,\frac{1}{2})$. Which, the probability density is: 
+    \begin{align}
+        f_A(s)=\begin{cases}
+            \frac{1}{\frac{1}{2}-t} & s\in (t,\frac{1}{2})\\
+            0 & \text{otherwise}
+        \end{cases}
+    \end{align} 
+
+    \hfil
+
+    Now, if asking for the cummulative distribution of $T_1,T_2$ under this condition, define $F(a,b):= \PP(T_1\leq a,T_2\leq b)$ (where, it's conditioned $a,b\geq 0$). Which, it can be expressed as follow using conditional probability (Note: Here $A$ is conditioned on $Z=t$):
+    \begin{align}
+        F(a,b)=\int_{0}^{a}\int_{0}^{b}f_A(s)f_Z(t)dsdt
+    \end{align}
+    Which, there are two cases to consider for $0< a,b< \frac{1}{2}$ (note that if both $a,b\geq \frac{1}{2}$, then $F(a,b)=1$, since $T_1,T_2<\frac{1}{2}$ is guaranteed based on the question).
+    \begin{itemize}
+        \item If $b>a$, then for all $t\in (0,a)$, one has $b\in (t,\frac{1}{2})$, so the integral can be expressed as follow:
+        \begin{align}
+            F(a,b)=\int_{0}^{a}\int_{t}^{b}\frac{1}{\frac{1}{2}-t}\cdot 4(1-2t)dsdt = \int_{0}^{a}\frac{2(b-t)}{(1-2t)}\cdot 4(1-2t)dt = \int_{0}^{a}8(b-t)dt = 4a(2b-a)
+        \end{align}
+        \item Else, if $b\leq a$, then for $t\in [b,a] \subset (0,\frac{1}{2})$, the corresponding $f_A(s) = 0$ for $s\in (0,b)$ (since now $s<b\leq t$, so $s\notin (t,\frac{1}{2})$). Also, note that for $t\in (0,b)$, the probability density of $A$, $f_A(s)$ is similar to the previous case. Then, the integral can be expressed as follow instead:
+        \begin{align}
+            F(a,b) &= \int_{0}^{b}\int_{t}^{b}\frac{1}{\frac{1}{2}-t}\cdot 4(1-2t)dsdt + \int_{b}^{a}0\cdot 4(1-2t)dsdt\\
+            &= \int_{0}^{b}\frac{2(b-t)}{(1-2t)}\cdot 4(1-2t)dt = \int_{0}^{b}8(b-t)dt = 4b^2
+        \end{align}
+    \end{itemize}
+    So, the cummulative distribution is given as follow:
+    \begin{align}
+        F(a,b) = \PP(T_1\leq a,T_2\leq b) = \begin{cases}
+            1 & a,b\geq \frac{1}{2}\\
+            4a(2b-a) & 0<a<b<\frac{1}{2}\\
+            4b^2 & 0<b\leq a<\frac{1}{2}\\
+            0 & \text{otherwise}
+        \end{cases}
+    \end{align}
+\end{proof}
+
+\newpage
+
+\section*{8}
+\begin{ques}\label{q7}
+    Suppose that the buses arrive at rate $3$ per hour and trains arrive at rate $2$ per hour, independently of buses. Find the distribution of $B_t+T_t$ where $B_t$ is the number of buses, and $T_t$ is the number of trains by time $t$. This shows that superposition of Poisson processes is Poisson.
+\end{ques}
+
+\begin{proof}
+    Since the buses arrive at rate of $3$ per hour, and the trains arrive at rate of $2$ per hour (independent from the buses), then after time $t$ (in unit of hour), they independently have arrival rate of $3t$ and $2t$ respectively. Hence, we get that $B_t \sim \Poi(3t)$, while $T_t\sim\Poi(2t)$.
+
+    Now, if consider the distribution $A_t:=B_t+T_t$, its probability mass function is given by $p_{A_t}(n) = \PP(B_t+T_t= n)$ for $n\in\NN$. Using the law of total probability, it is given as follow (consider the fact that both $B_t,T_t\in\NN$):
+    \begin{align}
+        \PP(B_t+T_t= n)&= \sum_{k=0}^{\infty}\PP(B_t+T_t= n|T_t=k)\PP(T_t=k) = \sum_{k=0}^\infty\PP(B_t= n-k|T_t=k)\PP(T_t=k)\\
+        &= \sum_{k=0}^{\infty}\PP(B_t= n-k)\PP(T_t=k)
+    \end{align}
+    Where, the last equality is given by independence between $B_t$ and $T_t$.
+
+    Since $B_t\geq 0$, then the first constraint is $n-k\geq 0$, so $k\leq n$, hence the sum runs through $k\in\{0,1,...,n\}$. Now, based on Poisson distribution, we have $\PP(T_t=k) = e^{-2t}\frac{(2t)^k}{k!}$, while $\PP(B_t=n-k) = e^{-3t}\frac{(3t)^{n-k}}{(n-k)!}$. So, the above probability has the following form:
+    \begin{align}
+        \PP(B_t+T_t=n)&=\sum_{k=0}^{n}\P(B_t= n-k)\PP(T_t=k) = \sum_{k=0}^{n}e^{-2t}\frac{(2t)^k}{k!}\cdot e^{-3t}\frac{(3t)^{n-k}}{(n-k)!}\\
+        &= \frac{e^{-5t}t^n}{n!}\sum_{k=0}^{n}\frac{n!}{k!(n-k)!}2^k \cdot 3^{n-k} = \frac{e^{-5t}t^n}{n!}\sum_{k=0}^{n}\begin{pmatrix}
+            n\\k
+        \end{pmatrix}2^k\cdot 3^{n-k}\\
+        &= \frac{e^{-5t}t^n}{n!}(2+3)^n = e^{-5t}\frac{(5t)^n}{n!}
+    \end{align}
+    Since for each $n\in\NN$, one has $p_{A_t}(n) = \PP(B_t+T_t=n)=e^{-5t}\frac{(5t)^n}{n!}$, then we canc conclude that $A_t=B_t+T_t\sim \Poi(5t)$, which is a Poisson process with rate $\lambda = 5t$.
+\end{proof}
+
+\newpage
+
+\section*{9}
+\begin{ques}\label{q8}
+    A stick of length $L$ is broken randomly into $2$ pieces. We then take the longer piece and break it again. What is the probability that the $3$ sticks can form a triangle? (You MUST start by deriving the joint density of two of the $3$ sticks). 
+\end{ques}
+
+\begin{proof}
+    Let $C_1$ denotes the first cut. No matter where the cut is at, one can always rearrange the list so that the short side is on the left. Let $\ell_1$ denotes the length of the firs stick (which $\ell_1\in (0,\frac{L}{2})$, since it must be the shorter one), then $\ell_1\sim \Unif(0,\frac{L}{2})$ (since it's equally possible to be any of these lengths). Hence, it has the following probabiity density:
+    \begin{align}
+        f_{\ell_1}(t)=\begin{cases}
+            \frac{2}{L} & t\in(0,\frac{L}{2})\\
+            0 & \text{otherwise}
+        \end{cases}
+    \end{align}
+    Now, the longer side is expressed as $L-\ell_1$, so after fixing $\ell_1=t$ (where $t\in(0,\frac{L}{2})$), let $\ell_2,\ell_3$ be the second and third stick, we get that $\ell_2\sim \Unif(0,L-t)$ (since the second break is equally likely to be on the remaining stick), and $\ell_3=(L-t)-\ell_2$ (Note: Here $\ell_2$ is conditioned based on $\ell_1$). Which, the probability density of $\ell_2$ (given $\ell_1=t\in(0,\frac{L}{2})$) is as follow:
+    \begin{align}
+        f_{\ell_2|\ell_1=t}(s) = \begin{cases}
+            \frac{1}{L-t} & s\in (0,L-t)\\
+            0 & \text{otherwise}
+        \end{cases}
+    \end{align}
+    So, the joint probability density is given as follow:
+    \begin{align}
+        f_{\ell_1,\ell_2}(t,s) = f_{\ell_2|\ell_1=t}(s)f_{\ell_1}(t) = \begin{cases}
+            \frac{2}{L(L-t)}.& t\in(0,\frac{L}{2}),\ s\in(0,L-t)\\
+            0 & \text{otherwise}
+        \end{cases}
+    \end{align}
+    Now, the condition for such two breaks to form a triangle, is equivalent to having all three sides with length $0<\ell_1,\ell_2,\ell_3<\frac{L}{2}$ (if such condition is true, then every distinct $i,j,k$ satisfies $\ell_i+\ell_j = L-\ell_k > L-\frac{L}{2}=\frac{L}{2}>\ell_k$, so it forms a triangle; conversely, if they form a triangle, then $\ell_i+\ell_j>\ell_k$ given distinct index $i,j,k$, so $L-\ell_k = \ell_i+\ell_j>\ell_k$, implying $L>2\ell_k$, or $\ell_k<\frac{L}{2}$). Hence, we must hat $t,s\in (0,\frac{L}{2})$; moreover, since $t,s$ represents the length $\ell_1,\ell_2$ respectively, so we also need $t+s = L-\ell_3 > \frac{L}{2}$, or $s>\frac{L}{2}-t$. 
+
+    Hence, with the region $A$ described by $t,s\in (0,\frac{L}{2})$ and $s>\frac{L}{2}-t$, the probability can be calculated using the following integral:
+    \begin{align}
+        \PP(\text{form a triangle})&=\int_{0}^{\frac{L}{2}}\int_{\frac{L}{2}-t}^{\frac{L}{2}}f_{l\ell_1,\ell_2}(t,s)ds\ dt = \int_{0}^{\frac{L}{2}}\int_{\frac{L}{2}-t}^{\frac{L}{2}}\frac{2}{L(L-t)}ds\ dt\\
+        &= \frac{2}{L}\int_{0}^{\frac{L}{2}}\frac{t}{L-t}dt = -\frac{2}{L}\int_{0}^{\frac{L}{2}}\left(1+\frac{L}{t-L}\right)dt\\
+        &= -\frac{2}{L}\cdot\frac{L}{2} - \frac{2}{L}\left(L\cdot\ln|t-L|\bigg|_{0}^{\frac{L}{2}}\right) = -1 - 2\left(\ln\left(\frac{L}{2}\right)-\ln(L)\right)\\
+        &= -1-2\ln(1/2) = 2\ln(2)-1
+    \end{align}
+    So, probability of forming a triangle is $2\ln(2)-1\approx 0.3863$.
+\end{proof}
+
+\newpage
+
+\section*{10}
+\begin{ques}\label{q9}
+    Two points are picked independently and at random on the perimeter of a rectangle with sides $a,b$. Find the expected squared distance between the points. 
+
+    Hint: condition on whether the points are on the same side, opposite sides, or adjacent. It turns out that the answer only depends on the sum $a+b$, but not on $a,b$ separately.
+\end{ques}
+
+\begin{proof}
+    It's reasonable to assume that the distribution of the two points on the perimeter is a uniform distribution. Let $P_1,P_2$ denotes the point's location, with perimeter being $2(a+b)$, the probability of $P_i$ landing on a side with length $a$, is given by $\frac{2a}{2(a+b)}=\frac{a}{a+b}$ (since it must land on one of the two sides with length $a$, while the total length is $2(a+b)$). Similarly, the probability of landing on a side with length $b$ is $\frac{2b}{2(a+b)}=\frac{b}{a+b}$.
+
+    \hfil
+
+    There are multiple cases one need to consider:
+    \begin{enumerate}
+        \item First, consider the case where they land on the same side. Let $S_a,S_b$ denote the events that $P_1,P_2$ land on $a$ together or $b$ together, respectively. Then, these two events cover all cases where they land on the same side, and can assume they're disjoint. Which, their probability are given as follow:
+        \begin{align}
+            \PP(S_a) = \frac{a}{a+b}\cdot \frac{a}{2(a+b)} = \frac{a^2}{2(a+b)^2},\quad \PP(S_b) = \frac{b}{a+b}\cdot \frac{b}{2(a+b)} = \frac{b^2}{2(a+b)^2}
+        \end{align}
+        The idea is that after fixing the first point's side, it enforces the second point to be on that side: For instance, if the $P_1$ is on a side with length $a$ (which has probability $\frac{a}{a+b}$ to happen), then out of the two sides with length $a$, $P_2$ needs to land on the one with $P_1$, so given side of $P_1$, $P_2$ has a probability of $\frac{a}{2(a+b)}$ to be on the same side.
+
+        Which, given that $S_a$ has happened, if label the side they landed on as an interval $(0,a)$, then both $P_1,P_2\sim \Unif(0,a)$ (and are independent), so the probability density is $\frac{1}{a}$ on $(0,a)$. Hence, the expected value of length square $\EE[(P_1-P_2)^2|S_a]$ is given as follow:
+        \begin{align}
+            \EE[(P_1-P_2)^2|S_a] &= \int_{0}^{a}\int_{0}^{a}(p_1-p_2)^2\cdot \frac{1}{a}\cdot \frac{1}{a}dp_2\ dp_1 = \frac{1}{a^2}\int_{0}^{a}\left(-\frac{(p_1-p_2)^3}{3}\bigg|_{0}^{a}\right)dp_1\\
+            &= \frac{1}{a^2}\int_{0}^{a}\left(\frac{p_1^3}{3}-\frac{(p_1-a)^3}{3}\right)dp_1 = \frac{1}{12a^2}\left(p_1^4-(p_1-a)^4\right)\bigg|_{0}^{a} = \frac{a^2}{6}
+        \end{align}
+        Which, if $S_b$ has happened instead, then $P_1,P_2\sim\Unif(0,b)$. So, swap $a$ with $b$ from the above equation, we get that $\EE[(P_1-P_2)^2|S_b] = \frac{b^2}{6}$ instead.
+
+        \hfil
+
+        \item Then, consider the case where they land on the opposite side (which for rectangle opposite sides always have the same sidelength). Let $O_a,O_b$ denote the events that $P_1,P_2$ land on opposite sides with length $a$, or length $b$. Then, here $\PP(O_a) = \PP(S_a)$ and $\PP(O_b)=\PP(S_b)$ (since after determining where the first point lands, the second point is forced to be on the other side, which is similar to the case where the second point is forced to be on the same side as the first point).
+        
+        Which, given that $O_a$ has happened, if label both sides with length $a$ as interval $(0,a)$, then $P_1,P_2\sim \Unif(0,a)$ again. However, since now the two sides have orthogonal distance being $b$, then the square distance is $b^2+(P_1-P_2)^2$ instead. So, we get the following expected square distance:
+        \begin{align}
+            \EE[(P_1-P_2)^2+b^2|O_a] &= \int_{0}^{a}\int_{0}^{a}((p_1-p_2)^2+b^2)\frac{1}{a}\cdot\frac{1}{a}dp_2\ dp_1 = b^2+\int_{0}^{a}\int_{0}^{a}(p_1-p_2)^2\cdot \frac{1}{a^2}dp_2\ dp_1\\
+            &= b^2 + \frac{a^2}{6}
+        \end{align}
+        Which, if switch $a,b$, given that $O_b$ has happened, then we have $P_1,P_2\sim \Unif(0,b)$. Since the orthogonal distance between the two sides with length $b$ is now $a$, so the square distance is given by $a^2+(P_1-P_2)^2$. Then, we get the expected value as $\EE[(P_1-P_2)^2+a^2|O_b] = a^2+\frac{b^2}{6}$ (if swapping the $a,b$ in the above, we get this).
+
+        \hfil
+
+        \item Finally, consider the case where they land on the adjacent sides (denote as event $A$), then one belongs to one with side length $a$, while the other belongs to the side with length $b$. Then, the probability $\PP(A) = 2\cdot \frac{2a}{2(a+b)}\cdot\frac{2b}{2(a+b)} = \frac{2ab}{(a+b)^2}$ (after choosing the first point to land on side length with $a$ or $b$, the second point must land on the other type of side length).
+        
+        Which, under this case WLOG can say $P_1\sim \Unif(0,a)$ and $P_2\sim \Unif(0,b)$ (where label the side length with $a$ using $(0,a)$, and side length with $b$ using $(0,b)$). Then, the distance square is given by $P_1^2+P_2^2$ (since the two sides are orthogonal). So, the expected squared distance is:
+        \begin{align}
+            \EE[P_1^2+P_2^2|A] &= \int_{0}^{a}\int_{0}^{b}(p_1^2+p_2^2)\cdot\frac{1}{a}\cdot\frac{1}{b}dp_2\ dp_1 = \frac{1}{ab}\int_{0}^{a}\left(bp_1^2 + \left(\frac{p_2^3}{3}\bigg|_{0}^{b}\right)\right)dp_1\\
+            &= \frac{1}{ab}\int_{0}^{a}(bp_1^2 + \frac{b^3}{3})dp_1 = \frac{1}{ab}\left(\frac{ab^3}{3}+\left(\frac{bp_1^3}{3}\bigg|_{0}^{a}\right)\right) = \frac{1}{ab}\left(\frac{ab^3}{3}+\frac{ba^3}{3}\right)\\
+            &= \frac{a^2+b^2}{3}
+        \end{align}
+    \end{enumerate}
+    As a result, the expected squared distance $D$ is given as follow:
+    \begin{align}
+        \EE[D] =& \EE[(P_1-P_2)^2|S_a]\cdot \PP(S_a)+\EE[(P_1-P_2)^2|S_b]\cdot \PP(S_b)\\
+        &+\EE[b^2+(P_1-P_2)^2|S_a]\cdot \PP(O_a)+\EE[a^2+(P_1-P_2)^2|O_b]\cdot \PP(O_b)\\
+        &+ \EE[P_1^2+P_2^2|A]\cdot\PP(A)\\
+        =& \frac{a^2}{6}\cdot \frac{a^2}{2(a+b)^2}+\frac{b^2}{6}\cdot \frac{b^2}{2(a+b)^2} + \left(b^2+\frac{a^2}{6}\right)\cdot\frac{a^2}{2(a+b)^2}+\left(a^2+\frac{b^2}{6}\right)\cdot\frac{b^2}{2(a+b)^2} + \frac{a^2+b^2}{3}\cdot \frac{2ab}{(a+b)^2}\\
+        &= \frac{(a+b)^2}{6}
+    \end{align}
+\end{proof}
+
+\newpage
+
+\end{document}
