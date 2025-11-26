@@ -217,7 +217,10 @@ What are the eigenvectors and eigenvalues for the following operators? In each c
 
         \hfil
 
-        \item 
+        \item Given $f$ as an eigenvector of $\frac{d^2}{d\phi^2}$ with eigenvalue $-\lambda^2$, one has $\frac{d^2f}{d\phi^2}=-\lambda^2\phi$, showing $f(\phi) = Ke^{i\lambda\phi} + Le^{-i\lambda\phi}$. Again, with period being multiples of $2\pi$, this again enforces $\lambda = n$ for $n\in\ZZ$. So, the eigenvectors can be collected to $\frac{1}{\sqrt{2\pi}}e^{in\phi}$ again, with eigenvalue $-n^2$. For general inital wavefunction $\Psi(\phi,0)$, one can again express it identically as part 7:
+        \begin{align}
+            \Psi(x,0) = \sum_{n\in\ZZ}\frac{c_n}{\sqrt{2\pi}}e^{in\phi}, \quad c_n = \int_{0}^{2\pi}\Psi(\phi,0)\frac{1}{\sqrt{2\pi}}e^{-in\phi}d\phi
+        \end{align}
     \end{enumerate}
 \end{proof}
 
@@ -235,6 +238,11 @@ for $H = \hat{p}^2/2m + V(\hat{x})$. For stationary states this is not particula
 \end{ques}
 
 \begin{proof}
+    Given any two operators $\hat{A},\hat{B}$ corresponding to observables $A,B$, the generalized uncertainty principle states:
+    \begin{align}
+        \sigma_A\sigma_B \geq \frac{1}{2}\left|\left<[\hat{A},\hat{B}]\right>\right|
+    \end{align}
+    Here, choose $A=x$ and $B=H$, then $[\hat{x},\hat{H}]$ can b given as
 \end{proof}
 
 \newpage
