@@ -79,7 +79,7 @@
 
 \newpage
 
-\section*{2 (part 1 ND)}
+\section*{2}
 \begin{ques}\label{q2}
 2 Hilbert Space
 
@@ -93,10 +93,21 @@
     \hfil
 
     \begin{enumerate}
-        \item Let $L$ denotes the set of all square-integrable functions on $[a,b]$. Then, for any $f,g \in L$ and any $z,w \in\CC$, we have:
+        \item Let $L$ denotes the set of all square-integrable functions on $[a,b]$. Then, for any $f,g \in L$ and any $z \in\CC$, we have:
         \begin{align}
-            \int_{a}^{b}|z\cdot f(x)+w\cdot g(x)|^2 dx
+            |f(x)+g(x)|^2 &\leq (|f(x)|+|g(x)|)^2 \leq (2\max\{|f(x)|,|g(x)|\})^2 = 4\max\{|f(x)|^2,|g(x)|^2\} \leq 4(|f(x)|^2+|g(x)|^2)
         \end{align}
+        Hence, performing integration, one gets:
+        \begin{align}
+            \int_{a}^{b}|f(x)+g(x)|^2ds \leq 4\left(\int_{a}^{b}|f(x)|^2dx+\int_{a}^{b}|g(x)|^2dx\right) < \infty
+        \end{align}
+        Hence, $f(x)+g(x)\in L$, which $L$ is closed under addtion. Similarly, one has:
+        \begin{align}
+            \int_{a}^{b}|z f(x)|^2 dx = |z|^2\int_{a}^{b}|f(x)|^2 dx < \infty
+        \end{align}
+        Hence, $z f(x)\in L$, showing $L$ is closed under $\CC$-scalar multiplication.
+
+        So, these two conditions conclude that $L$ is a $\CC$-vector space.
 
         \hfil
 
@@ -107,7 +118,7 @@
         \begin{align}
             \braket{f}{f}=0 \iff \int_{a}^{b}|f(x)|^2dx = 0\iff |f(x)|^2=0 \iff f(x)=0
         \end{align}
-        (Note: for this one, it requires the continuity of $|f(x)|^2$ on $[a,b]$. For non-continuous functions, there ar pathological cases where $f(x)\neq 0$, yet such integral is $0$. For instance, $f(a)=1$ and $f(x)=0$ elsewhere works).
+        (Note: for this one, it requires the continuity of $|f(x)|^2$ on $[a,b]$. For non-continuous functions, there ar pathological cases where $f(x)\neq 0$, yet such integral is $0$. For instance, $f(a)=1$ and $f(x)=0$ elsewhere works. In general, if the set of values where $f(x)\neq 0$ is measure $0$, then such integral is $0$).
         \begin{align}
             \braket{f}{z g+wh}=\int_{a}^{b}f(x)^*(zg(x)+w h(x))dx = z\int_{a}^{b}f(x)^*g(x)dx+w\int_{a}^{b}f(x)^*h(x)dx = z\braket{f}{g}+w\braket{f}{h}
         \end{align}
@@ -226,7 +237,7 @@ What are the eigenvectors and eigenvalues for the following operators? In each c
 
 \newpage
 
-\section*{5 (ND)}
+\section*{5}
 \begin{ques}\label{q5}
 5 (Your Name) Uncertainty Principle (Griffiths 3.15)
 
@@ -242,8 +253,20 @@ for $H = \hat{p}^2/2m + V(\hat{x})$. For stationary states this is not particula
     \begin{align}
         \sigma_A\sigma_B \geq \frac{1}{2}\left|\left<[\hat{A},\hat{B}]\right>\right|
     \end{align}
-    Here, choose $A=x$ and $B=H$, then $[\hat{x},\hat{H}]$ can b given as
-\end{proof}
+    Here, choose $A=x$ and $B=H$, then $[\hat{x},\hat{H}]$ can be given as follow:
+    \begin{align}
+        [\hat{x},\hat{H}]f &= x\left(-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+V(x)\right)f - \left(-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+V(x)\right)(xf)\\
+        &= -x\cdot \frac{\hbar^2}{2m}\frac{d^2f}{dx^2} + xV(x)f + \frac{\hbar^2}{2m}\frac{d^2}{dx^2}(xf) - xV(x)f\\
+        &= -\frac{\hbar^2}{2m}\cdot x\frac{d^2f}{dx^2} + \frac{\hbar^2}{2m}\left(2\frac{df}{dx}+x\frac{d^2f}{dx^2}\right)\\
+        &= \frac{i\hbar}{m}\left(-i\hbar\frac{d}{dx}\right)f = -\frac{i\hbar}{m}\hat{p}f
+    \end{align}
+    So, it's concluded that on the function space, $[\hat{x},\hat{H}] = -\frac{i\hbar}{m}\hat{p}$. Hence, applying the generalized uncertainty principle, one has:
+    \begin{align}
+        \sigma_x\sigma_H \geq \frac{1}{2}\left|\left<[\hat{x},\hat{H}]\right>\right| = \frac{1}{2}\left|\left<-\frac{i\hbar}{m}\hat{p}\right>\right| = \frac{\hbar}{2m}\left|\left<\hat{p}\right>\right|
+    \end{align}
+
+    For stationary state, this is not usefule since $\sigma_H = 0$ (as it is an eigenvector of $\hat{H}$), so the inequality is enforces to be $0\geq \frac{\hbar}{2m}\left|\left<p\right>\right|$, or enforcing $\left<p\right>=0$. This doesn't provide further information about the state's uncertainty in position.
+\end{proof} 
 
 \newpage
 
@@ -353,7 +376,7 @@ Consider an observable $A$ with eigenvectors $\psi_1,\psi_2$ and eigenvalues $a_
 
 \newpage
 
-\section*{8 (ND)}
+\section*{8}
 \begin{ques}\label{q8}
 8 Harmonic Oscillator in “energy space’’ (Griffiths 3.39)
 
@@ -369,6 +392,125 @@ Consider an observable $A$ with eigenvectors $\psi_1,\psi_2$ and eigenvalues $a_
 \end{ques}
 
 \begin{proof}
+
+    First, recall that in terms of ladder operators, $\hat{x}=\sqrt{\frac{\hbar}{2mw}}(a_++a_-)$, and $ \hat{p}=i\sqrt{\frac{\hbar mw}{2}}(a_+-a_-)$. 
+    
+    Also, if $\ket{n'}$ represents the eigenvector of the harmonic oscillator Hamiltonian, then $a_+\ket{n'}=\sqrt{n'+1}\ket{n'+1}$, and $a_-\ket{n'}=\sqrt{n'}\ket{n'-1}$ (recall the relation $a_+\psi_n(x)=\sqrt{n+1}\psi_{n+1}(x)$, and $a_-\psi_n(x)=\sqrt{n}\psi_{n-1}(x)$). 
+
+    Finally, we also have $a_-\ket{0} = 0$ (due to the fact $a_-\psi_0(x)=0$).
+
+    \begin{enumerate}
+        \item Given the above relations, we have the following for all $n\in \NN$, and $n'\in\ZZ_{>0}$:
+        \begin{align}
+            \hat{x}\ket{n'} = \sqrt{\frac{\hbar}{2mw}}\left(\sqrt{n'+1}\ket{n'+1}+\sqrt{n
+            }\ket{n'-1}\right)\implies \bra{n}\hat{x}\ket{n'} = \begin{cases}
+                \sqrt{\frac{\hbar(n'+1)}{2mw}} & n=n'+1\\
+                \sqrt{\frac{\hbar n'}{2mw}} & n=n'-1\\
+                0 & \text{otherwise}
+            \end{cases}
+        \end{align}
+        Which, a special case happens when $n'=0$, where $\hat{x}\ket{0} =\sqrt{\frac{\hbar}{2mw}}\ket{1}$, so $\bra{n}\hat{x}\ket{0} = \begin{cases}
+            \sqrt{\frac{\hbar}{2mw}} & n=1\\
+            0 & \text{otherwise}
+        \end{cases}$.
+
+        \hfil
+
+        \item We also have the following for all $n\in\NN$ and $n'\in\ZZ_{>0}$:
+        \begin{align}
+            \hat{p}\ket{n'} = i\sqrt{\frac{\hbar mw}{2}}(\sqrt{n'+1}\ket{n'+1}-\sqrt{n'}\ket{n'-1})\implies \bra{n}\hat{p}\ket{n'} = \begin{cases}
+                i\sqrt{\frac{\hbar mw(n'+1)}{2}} & n=n'+1\\
+                -i\sqrt{\frac{\hbar mw n'}{2}} & n=n'-1\\
+                0 & \text{otherwise}
+            \end{cases}
+        \end{align}
+        Again, a special case happens when $n'=0$, where $\hat{p}\ket{0} = i\sqrt{\frac{\hbar mw}{2}}\ket{1}$, so $\bra{n}\hat{p}\ket{0} = \begin{cases}
+            i\sqrt{\frac{\hbar mw}{2}} & n=1\\
+            0 & \text{otherwise}
+        \end{cases}$.
+
+        \hfil
+
+        \item Based on the results in part 1, if $\mathcal{M}(\hat{x}) = (a_{ij})_{0\leq i,j}$ represents the matrix under this basis, then one has:
+        \begin{align}
+            a_{ij}=\begin{cases}
+                0 & i=j \text{ or } |i-j|\geq 2\\
+                \sqrt{\frac{\hbar (j+1)}{2mw}} & i=j+1\\
+                \sqrt{\frac{\hbar j}{2mw}} & i=j-1
+            \end{cases}
+        \end{align}
+        Writing out the first several rows and columns, we have:
+        \begin{align}
+            \sqrt{\frac{\hbar}{2mw}}\begin{pmatrix}
+                0 & 1&0&0&0&\cdots\\
+                1 & 0&\sqrt{2}&0&0&\cdots\\
+                0&\sqrt{2}&0&\sqrt{3}&0&\cdots\\
+                0 & 0& \sqrt{3} & 0 & \sqrt{4} & \cdots\\
+                0 & 0 & 0 & \sqrt{4} & 0 & \cdots\\
+                \vdots & \vdots & \vdots & \vdots & \vdots & \ddots
+            \end{pmatrix}
+        \end{align}
+
+        \hfil
+
+        \item Based on th results in part 2, if $\mathcal{M}(\hat{p}) = (b_{jk})_{0\leq j,k}$ represents the matrix under this basis, then one has:
+        \begin{align}
+            b_{jk} = \begin{cases}
+                0 & j=k \text{ or } |j-k|\geq 2\\
+                i\sqrt{\frac{\hbar mw(k+1)}{2}} & j=k+1\\
+                -i\sqrt{\frac{\hbar mwk}{2}} & j=k-1
+            \end{cases}
+        \end{align}
+        Writing out the first several rows and columns, we have:
+        \begin{align}
+            i\sqrt{\frac{\hbar mw}{2}}\begin{pmatrix}
+                0 & -1 & 0&0&0&\cdots\\
+                1&0&-\sqrt{2}&0&0&\cdots\\
+                0&\sqrt{2}&0&-\sqrt{3}&0&\cdots\\
+                0&0&\sqrt{3}&0&-\sqrt{4}&\cdots\\
+                0&0&0&\sqrt{4}&0&\cdots\\
+                \vdots &\vdots &\vdots &\vdots &\vdots &\ddots
+            \end{pmatrix}
+        \end{align}
+
+        \hfil
+
+        \item To show $\hat{H}=\frac{\hat{p}^2}{2m}+\frac{1}{2}mw^2\hat{x}^2$ is diagonal in this basis, we first yield the following computation for all $n'\geq 2$:
+        \begin{align}
+            \hat{p}^2\ket{n'} &= \hat{p} i\sqrt{\frac{\hbar mw}{2}}(\sqrt{n'+1}\ket{n'+1} - \sqrt{n'}\ket{n'-1})\\
+            &= -\frac{\hbar mw}{2}(\sqrt{(n'+1)(n'+2)}\ket{n'+2} - (n'+1)\ket{n'} - n'\ket{n'}+ \sqrt{n'(n'-1)}\ket{n'-2})\\
+            &= -\frac{\hbar mw}{2}(\sqrt{(n'+1)(n'+2)}\ket{n'+2} + \sqrt{n'(n'-1)}\ket{n'-2} - (2n'+1)\ket{n'})
+        \end{align}
+        \begin{align}
+            \hat{x}^2 \ket{n'} &= \hat{x}\sqrt{\frac{\hbar}{2mw}}(\sqrt{n'+1}\ket{n'+1} + \sqrt{n'}\ket{n'-1})\\
+            &= \frac{\hbar}{2mw}(\sqrt{(n'+1)(n'+2)}\ket{n'+2} + (n'+1)\ket{n'} + n'\ket{n'} + \sqrt{n'(n'-1)}\ket{n'-2})\\
+            &= \frac{\hbar}{2mw}(\sqrt{(n'+1)(n'+2)}\ket{n'+2} + (2n'+1)\ket{n'} + \sqrt{n'(n'-1)}\ket{n'-2})
+        \end{align}
+        Which, the action of $\hat{H}$ is as follow:
+        \begin{align}
+            \hat{H}\ket{n'} =& \frac{1}{2m}\hat{p}^2\ket{n'}+\frac{1}{2}mw^2\hat{x}^2\ket{n'}\\
+            =& -\frac{\hbar w}{4}(\sqrt{(n'+1)(n'+2)}\ket{n'+2}+\sqrt{n'(n'-1)}\ket{n'-2}-(2n'+1)\ket{n'})\\
+            &+ \frac{\hbar w}{4}(\sqrt{(n'+1)(n'+2)}\ket{n'+2}+\sqrt{n'(n'-1)}\ket{n'-2}+(2n'+1)\ket{n'})\\
+            =& \frac{\hbar w}{2}(2n'+1)\ket{n'} = \hbar w\left(n'+\frac{1}{2}\right)\ket{n'}
+        \end{align}
+
+        \hfil
+
+        For special case $n=0$, one has:
+        \begin{align}
+            &\hat{p}^2\ket{0} = \hat{p}i\sqrt{\frac{\hbar mw}{2}}\ket{1} = -\frac{\hbar mw}{2}(\sqrt{2}\ket{2}-\ket{0})\\
+            &\hat{x}^2\ket{0} = \hat{x}\sqrt{\frac{\hbar}{2mw}}\ket{1} = \frac{\hbar}{2mw}(\sqrt{2}\ket{2}+\ket{0})\\
+            &\implies \hat{H}\ket{0} = \frac{1}{2m}\hat{p}^2\ket{0}+\frac{1}{2}mw^2\hat{x}^2\ket{0} = -\frac{\hbar w}{4}(\sqrt{2}\ket{2}-\ket{0}) + \frac{\hbar w}{4}(\sqrt{2}\ket{2}+\ket{0}) = \frac{\hbar w}{2}\ket{0}
+        \end{align}
+
+        Also, for special case $n=1$, one has:
+        \begin{align}
+            &\hat{p}^2\ket{1} = \hat{p}i\sqrt{\frac{\hbar mw}{2}}(\sqrt{2}\ket{2}-\ket{0})= -\frac{\hbar mw}{2}(\sqrt{6}\ket{3} - 3\ket{1})\\
+            &\hat{x}^2\ket{1} = \hat{x}\sqrt{\frac{\hbar}{2mw}}(\sqrt{2}\ket{2}+\ket{0}) = \frac{\hbar}{2mw}(\sqrt{6}\ket{3}+3\ket{1})\\
+            &\implies \hat{H}\ket{1} = \frac{1}{2m}\hat{p}^2\ket{1}+\frac{1}{2}mw^2\hat{x}^2\ket{1} = -\frac{\hbar w}{4}(\sqrt{6}\ket{3}-3\ket{1}) + \frac{\hbar w}{4}(\sqrt{6}\ket{3}+3\ket{1}) = \frac{3\hbar w}{2}\ket{1}
+        \end{align}
+        Which, one can see the action of $\hat{H}$ on $\ket{n'}$ is by scaling with factor $E_n = \hbar w\left(n'+\frac{1}{2}\right)$, which is exactly the eigenvalue / energy of the harmonic oscillator statopmaru states.
+    \end{enumerate}
 \end{proof}
 
 \newpage
@@ -419,7 +561,7 @@ The Hamiltonian in basis $|1\rangle,|2\rangle$ is
 
 \newpage
 
-\section*{10 (ND)}
+\section*{10}
 \begin{ques}\label{q10}
 10 A three-level system (Griffiths 3.44)
 
@@ -445,7 +587,123 @@ H = \begin{pmatrix} a & 0 & b \\ 0 & c & 0 \\ b & 0 & a \end{pmatrix}
             x(t)\\y(t)\\z(t)
         \end{pmatrix}
     \end{align}
-    Which, compute the 
+    Which, compute the characeristic polynomial of the matrix $\frac{1}{i\hbar}\hat{H}$, one has:
+    \begin{align}
+        \det(\hat{H}/(i\hbar)-\lambda I) &= \left(\frac{c}{i\hbar}-\lambda\right)\left(\left(\frac{a}{i\hbar}-\lambda\right)^2-\left(\frac{b}{i\hbar}\right)^2\right)\\
+        &= \left(\frac{c}{i\hbar}-\lambda\right)\left(\lambda^2 - \frac{2a}{i\hbar}\lambda + \frac{b^2-a^2}{\hbar^2}\right)
+    \end{align}
+    Which, the roots of the characteristic polynomials (or, the eigenvalues) includes $\lambda_1 = \frac{c}{i\hbar}$, and the other two are $\lambda_{2\pm} = \frac{2a/(i\hbar) \pm \sqrt{-4a^2/\hbar^2 + 4(a^2-b^2)/\hbar^2}}{2} = \frac{a\pm b}{i\hbar}$.
+
+    \hfil
+
+    Here, for simplicity assume $a,b,c\in\RR$ satisfy $(a+b),(a-b),c$ are distinct (so the three eigenvalues are distinct). Then, the eigenvectors corresponding to each eigenvalue are:
+    \begin{align}
+        \lambda_1:\quad (\hat{H}/(i\hbar) - \lambda_1 I)\begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix} = 0 &\implies \frac{1}{i\hbar}\begin{pmatrix}
+            a-c&0&b\\0&0&0\\b&0&a-c
+        \end{pmatrix}\begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix}=0 \implies \begin{pmatrix}
+            1&0&0\\0&0&0\\0&0&1
+        \end{pmatrix}\begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix}=0\\
+        &\implies x,z=0 \implies \begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix} = y\begin{pmatrix}
+            0\\1\\0
+        \end{pmatrix}
+    \end{align}
+
+    \begin{align}
+        \lambda_{2+}: \quad (\hat{H}/(i\hbar) - \lambda_{2+} I) \begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix} = 0&\implies \frac{1}{i\hbar}\begin{pmatrix}
+            -b&0&b\\0&c-(a+b)&0\\b&0&-b
+        \end{pmatrix}\begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix} = 0\implies \begin{pmatrix}
+            1&0&-1\\0&1&0\\0&0&0
+        \end{pmatrix}\begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix}=0\\
+        &\implies y=0,\ x=z \implies \begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix} = z\begin{pmatrix}
+            1\\0\\1
+        \end{pmatrix}
+    \end{align}
+
+    \begin{align}
+        \lambda_{2-}: \quad (\hat{H}/(i\hbar)-\lambda_{2-} I)\begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix} = 0&=implies \frac{1}{i\hbar}\begin{pmatrix}
+            b&0&b\\0&c-(a-b)&0\\b&0&b
+        \end{pmatrix}\begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix}=0\implies \begin{pmatrix}
+            1&0&1\\0&1&0\\0&0&0
+        \end{pmatrix}\begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix}=0\\
+        &\implies y=0,\ x=-z \implies \begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix} = z\begin{pmatrix}
+            -1\\0\\1
+        \end{pmatrix}
+    \end{align}
+    Hence, the general solution to the given Schr\"odinger equation is spanned by the following three eigenvectors:
+    \begin{align}
+        \ket{\lambda_1}=e^{\lambda_1 t}\begin{pmatrix}
+            0\\1\\0
+        \end{pmatrix} = e^{-\frac{ict}{\hbar}}\begin{pmatrix}
+            0\\1\\0
+        \end{pmatrix},\quad \ket{\lambda_{2+}}=e^{\lambda_{2+}t}\begin{pmatrix}
+            1\\0\\1
+        \end{pmatrix} = e^{-\frac{i(a+b)t}{\hbar}}\begin{pmatrix}
+            1\\0\\1
+        \end{pmatrix},\quad \ket{\lambda_{2-}}=e^{\lambda_{2-}t}\begin{pmatrix}
+            -1\\0\\1
+        \end{pmatrix} = e^{-\frac{i(a-b)t}{\hbar}}\begin{pmatrix}
+            -1\\0\\1
+        \end{pmatrix}
+    \end{align}
+    Which, any state $\ket{S(t)} = a_1 \ket{\lambda_1}+a_{2+}\ket{\lambda_{2+}}+a_{2-}\ket{\lambda_{2-}}$ for some coefficients in $\CC$.
+
+    \hfil
+
+    \begin{enumerate}
+        \item If the initial state is $\begin{pmatrix}
+            0\\1\\0
+        \end{pmatrix}$, plugin $t=0$, one yields $\ket{S(0)} = \begin{pmatrix}
+            a_{2+}-a_{2-}\\a_1\\a_{2+}+a_{2-}
+        \end{pmatrix}$, which enforces $a_1=1$, $a_{2+}-a_{2-}=0$ (or $a_{2+}=a_{2-}$), and $a_{2+}+a_{2-}=0$ (or $a_{2+}=-a-{2-}$). This enforces $a_{2+}=a_{2-}=0$. So, $\ket{S(t)} = \ket{\lambda_1}$, which is as follow:
+        \begin{align}
+            \ket{S(t)}=e^{-\frac{ict}{\hbar}}\begin{pmatrix}
+                0\\1\\0
+            \end{pmatrix}
+        \end{align}
+
+        \hfil
+
+        \item If the initial state is $\begin{pmatrix}
+            1\\0\\0
+        \end{pmatrix}$, we again have $\ket{S(0)} = \begin{pmatrix}
+            a_{2+}-a_{2-}\\a_1\\a_{2+}+a_{2-}
+        \end{pmatrix}$, which enforces $a_1=0$, $a_{2+}+a_{2-}=0$ (or $a_{2-}=-a_{2+}$), and $a_{2+}-a_{2-}=1$ (which enforces $2a_{2+}=1$, or $a_{2+}=\frac{1}{2}$, and $a_{2-}=-\frac{1}{2}$). Hence, $\ket{S(t)} = \frac{1}{2}\ket{\lambda_{2+}} - \frac{1}{2}\ket{\lambda_-}$, which is as follow:
+        \begin{align}
+            \ket{S(t)} = \frac{1}{2}e^{-\frac{i(a+b)t}{\hbar}}\begin{pmatrix}
+                1\\0\\1
+            \end{pmatrix} - \frac{1}{2}e^{-\frac{i(a-b)t}{\hbar}}\begin{pmatrix}
+                -1\\0\\1
+            \end{pmatrix} = e^{-\frac{iat}{\hbar}}\begin{pmatrix}
+                \frac{e^{ibt/\hbar}+e^{-ibt/\hbar}}{2}\\0\\-\frac{e^{ibt/\hbar}-e^{-ibt/\hbar}}{2} 
+            \end{pmatrix}= e^{-iat/\hbar}\begin{pmatrix}
+                    \cos(bt/\hbar)\\0\\-i\sin(bt/\hbar)
+                \end{pmatrix}
+        \end{align}
+    \end{enumerate}
 \end{proof}
 
 
