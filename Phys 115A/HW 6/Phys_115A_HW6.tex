@@ -131,7 +131,7 @@
 
 \newpage
 
-\section*{3 (ND)}
+\section*{3 (part 3 a, c ND)}
 \begin{ques}\label{q3}
 3 Rigged Hilbert Space
 
@@ -150,6 +150,80 @@
 \end{ques}
 
 \begin{proof}
+
+    \hfil
+
+    \begin{enumerate}
+        \item Consider the function $\psi(x)=\frac{1}{\sqrt{x^2+1}}$, then $|\psi(x)|^2 = \frac{1}{x^2+1}$, showing $\int_{-\infty}^{\infty}|\psi(x)|^2dx = \arctan(x)\bigg|_{-\infty}^{\infty} = \pi$, hence $\psi(x)\in H$. However, if consider $x\psi(x)$, one has $|x\psi(x)|^2 = \frac{x^2}{x^2+1} = 1-\frac{1}{x^2+1}$, which the integral $\int_{a}^{b}\left(1-\frac{1}{x^2+1}\right)dx = (b-a) - \left(\arctan(x)\bigg|_{a}^{b}\right) = (b-a) - (\arctan(b)-\arctan(a))$. Which, take $b\rightarrow\infty$ and $a\rightarrow-\infty$, this integral clearly diverges (since $\arctan(b)-\arctan(a)$ is bounded, but not so for $b-a$). So, $x\psi(x)\notin H$.
+        
+        \hfil
+
+        \item First, by induction one can show that $\int_{-\infty}^{\infty}|\phi(x)|^2\cdot|x|^n dx<\infty$ for all $n\in\NN$. For base case $n=0$, it is given by $\int_{-\infty}^{\infty}|\phi(x)|^2 \cdot |x|^0dx = \int_{-\infty}^{\infty}|\phi(x)|^2\cdot (1+|x|)^0 dx < \infty$. Now, suppose for all integer $k<n$ it satisfies $\int_{-\infty}^{\infty}|\phi(x)|^2 \cdot|x|^kdx < \infty$, then for $k=n$, one has the following:
+        \begin{align}
+            &|x|^n = (1+|x|)^n - \sum_{k=0}^{n-1}\begin{pmatrix}
+                n\\k
+            \end{pmatrix}|x|^k\\ 
+            &\implies \int_{-\infty}^{\infty}|\phi(x)|^2 \cdot |x|^n dx = \int_{-\infty}^{\infty}|\phi(x)|^2 \cdot (1+|x|)^n dx - \sum_{k=0}^{n-1} \begin{pmatrix}
+                n\\k
+            \end{pmatrix}\int_{-\infty}^{\infty}|\phi(x)|^2 \cdot |x|^k dx < \infty
+        \end{align}
+        So, $\int_{-\infty}^{\infty}|\phi(x)|^2 \cdot |x|^n dx < \infty$, which completes the induction.
+
+        So, this implies that given $\phi(x)\in\Sigma$, one has $x\phi(x)$ satisfies the following for all $n\in\NN$:
+        \begin{align}
+            \int_{-\infty}^{\infty}|x\phi(x)|^2 (1+|x|)^n dx = \sum_{k=0}^{n}\begin{pmatrix}
+                n\\k
+            \end{pmatrix}\int_{-\infty}^{\infty}|\phi(x)|^2 \cdot |x|^{k+2}dx < \infty
+        \end{align}
+        So, this indicates that $x\phi(x)\in \Omega^\times$ also.
+
+        \hfil
+
+        \item The spaces satisfy $\Omega \subseteq H \subseteq \Omega^\times$. Which, the functions given satisfy:
+        \begin{itemize}
+            \item[(a)] $\sin(x)\in\Omega^\times$: Given that $\int_{-\infty}^{\infty}|\sin(x)|^2 dx$ diverges (since integral of $\sin^2(x)$ diverges), then $\sin(x)\notin H$; however, since $-1\leq \sin(x)\leq 1$, any $\phi(x)\in \Omega^\times$ satisfies 
+            
+            \hfil
+
+            \item[(b)] $\frac{\sin(x)}{x}\in H\setminus \Omega$, since one has $\int_{-\infty}^{\infty}\left|\frac{\sin(x)}{x}\right|^2 dx<\infty$ (since around $x=0$, one has $\int_{-1}^{1}\frac{\sin^2(x)}{x^2}dx$ converges due to the existence of limit at $x=0$, and the other two pieces $\int_{1}^{\infty}\frac{\sin^2(x)}{x^2}dx\leq \int_{1}^{\infty}\frac{1}{x^2}dx < \infty$, similar for the other piece on $(-\infty,-1)$).
+            
+            However, it's not in $\Omega$, since $x\cdot\frac{\sin(x)}{x}=\sin(x)\notin H$ (by part 3 (a)), hence $x\cdot\frac{\sin(x)}{x}\notin \Omega$, which it can't be in $\Omega$ (or else it contradicts the result in part 2).
+            
+            \hfil
+
+            \item[(c)] d
+            
+            \hfil
+
+            \item[(d)] $\frac{\log(1+|x|)}{1+|x|}\in H\setminus \Omega$. Recall that for all $\epsilon>0$, the growth order of $\log(z)$ is less than $z^\epsilon$. So, for simplicity one can pick $\epsilon=\frac{1}{4}$, so there exists $a\in\RR$, such that $\log(z) < z^\frac{1}{4}$ for all $a\in\RR$. As a result, one has the following:
+            \begin{align}
+                \int_{a}^{\infty}\left|\frac{\log(1+|x|)}{1+|x|}\right|^2dx < \int_{a}^{\infty}\frac{(1+|x|)^\frac{1}{2}}{(1+|x|)^2}dx = \int_{a}^{\infty}\frac{1}{(1+|x|)^\frac{3}{2}}dx < \infty
+            \end{align}
+            Which, $\int_{0}^{\infty}\left|\frac{\log(1+|x|)}{1+|x|}\right|^2dx<\infty$, with the function being symmetric, this implies $\int_{-\infty}^{\infty}\left|\frac{\log(1+|x|)}{1+|x|}\right|^2dx<\infty$.
+
+            The reason it's not in $\Omega$, because take $n=2$, one has the following:
+            \begin{align}
+                \int_{-\infty}^{\infty}\left|\frac{\log(1+|x|)}{1+|x|}\right|^2 \cdot (1+|x|)^2 dx = \int_{-\infty}^{\infty}\log^2(1+|x|)dx \rightarrow \infty
+            \end{align}
+            Which, it doesn't satisfy the condition for being in $\Omega$.
+            
+            \hfil
+
+            \item[(e)] $e^{-x^2}\in \Omega$, since for any $n\in\NN$, $(1+|x|)^n$ has growth order being a polynomial, so one has the following:
+            \begin{align}
+                \int_{-\infty}^{\infty}|e^{-x^2}|^2 (1+|x|)^ndx = \int_{-\infty}^{\infty}e^{-2x^2}(1+|x|)^n dx < \infty
+            \end{align}
+            Since $e^{-2x^2}$ has growth order much larger than the polynomials, the above integral converges.
+            
+            \hfil
+
+            \item[(f)] $x^4e^{-|x|} \in \Omega$, since for any $n\in\NN$, one has $(1+|x|)^n$ being a polynomial, so is $|x|^8(1+|x|)^n$. As a result, one has:
+            \begin{align}
+                \int_{-\infty}^{\infty}|x^4e^{-|x|}|^2 (1+|x|)^n dx = \int_{-\infty}^{\infty}e^{-2|x|}\cdot |x|^8(1+|x|)^n dx < \infty
+            \end{align}
+            Since the improper integral on both sides are with exponential functions, which decay at a faster rate than any polynomials.
+        \end{itemize}
+    \end{enumerate}
 \end{proof}
 
 \newpage
@@ -217,7 +291,20 @@ What are the eigenvectors and eigenvalues for the following operators? In each c
 
         \hfil
 
-        \item d
+        \item Given the lowering operator $a_- = \frac{1}{\sqrt{2mw\hbar}}(mw\hat{x}+i\hat{p}) = \frac{1}{\sqrt{2mw\hbar}}\left(mwx + \hbar\frac{d}{dx}\right)$. Which, suppose $\lambda\in\CC$ and $\psi:\RR\rightarrow\CC$ satisfies the following:
+        \begin{align}
+            a_- \psi = \lambda \psi &\implies mwx\psi + \hbar\frac{d\psi}{dx} = \sqrt{2mw\hbar} \lambda \psi\\
+            &\implies \frac{d\psi}{dx} +\left(\frac{mw}{\hbar}x-\sqrt{\frac{2mw}{\hbar}}\lambda\right)\psi=0
+        \end{align}
+        Which, using integrating factor, we get the following function as eigenvector, with eigenvalue $\lambda$:
+        \begin{align}
+            &I = \exp\left(\int \left(\frac{mw}{\hbar}x - \sqrt{\frac{2mw}{\hbar}}\lambda\right)dx\right) = \exp\left(\frac{mw}{2\hbar}x^2 - \sqrt{\frac{2mw}{\hbar}}\lambda x\right)\\
+            &\implies I \psi = C\implies \psi = CI^{-1} = C\exp\left(-\frac{mw}{2\hbar}x^2 + \sqrt{\frac{2mw}{\hbar}}\lambda x\right)
+        \end{align}
+        Which, take $ik := \sqrt{\frac{2mw}{\hbar}}\lambda$, any $\phi(k)$ that converges under Fourier Transform satisfies:
+        \begin{align}
+            
+        \end{align}
         
         \hfil
 
@@ -367,7 +454,7 @@ Consider an observable $A$ with eigenvectors $\psi_1,\psi_2$ and eigenvalues $a_
         \end{align}
         Since it's possible that the state becomes $\phi_1$ (with probability $36\%$) or $\phi_2$ (with probability $64\%$). After measuring $A$, the probability of getting $a_1$ is given by the conditional probability. 
 
-        If ending with $b_1$ previously (or at state $\phi_1$), since $\psi_1$ (the eigenvector of $a_1$) has coefficient $\frac{3}{5}$, the probability of getting $a_1$ is $\PP(a_1|b_1)=\left|\frac{3}{5}\right|^2 = \frac{9}{25}=36\%$; else, if ending with $b_2$ previously (or at state $\phi_2$), since $\psi_1$ has coefficient $\frac{4}{5}$, the probability of getting $a_1$ is $\PP(a_1|b_2)\left|\frac{4}{5}\right|^2 = 64\%$. So, the total probability of measuring $a_1$ is:
+        If ending with $b_1$ previously (or at state $\phi_1$), since $\psi_1$ (the eigenvector of $a_1$) has $\phi_1$ coefficient $\frac{3}{5}$, the probability of getting $a_1$ is $\PP(a_1|b_1)=\left|\frac{3}{5}\right|^2 = \frac{9}{25}=36\%$; else, if ending with $b_2$ previously (or at state $\phi_2$), since $\psi_1$ has $\phi_1$ coefficient $\frac{4}{5}$, the probability of getting $a_1$ is $\PP(a_1|b_2)\left|\frac{4}{5}\right|^2 = 64\%$. So, the total probability of measuring $a_1$ is:
         \begin{align}
             \PP(a_1) &= \PP(a_1|b_1)\cdot\PP(b_1) + \PP(a_1|b_2)\cdot\PP(b_2) = \left(\frac{9}{25}\right)^2+\left(\frac{16}{25}\right)^2=\frac{337}{625} \approx 53.92\%
         \end{align}
