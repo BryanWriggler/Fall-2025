@@ -38,6 +38,7 @@
 #let Bil = math.upright[Bil] //module of bilinear maps
 #let Id = math.upright[Id] //normally, used for other types of identity (when there are small purpose, use id; if there are large purposes, use Id instead)
 #let sign = math.upright[sign] //used for sign of a permutation
+#let rad = math.upright[rad] // for radical
 
 //category theory
 #let cat(name) = math.sans[#name] //general category font command
@@ -76,6 +77,8 @@
 #let Ad = math.upright[Ad] //the Adjoint action of Lie group on itself
 #let ad = math.upright[ad] //the adjoint action of Lie algebra on itself
 #let Lie = math.upright[Lie] //functor from lie gp to lie alg
+#let UT = math.upright[UT] //denote the lie gp of upper triangular matrices
+#let ut = math.frak[ut] //denote the lie alg of upper triangular matrices.
 
 //analysis
 #let Vol = math.upright[Vol] //volume, in the sense of Riemann / Jordan measure
