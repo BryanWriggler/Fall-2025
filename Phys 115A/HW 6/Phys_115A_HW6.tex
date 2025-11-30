@@ -1,0 +1,797 @@
+\documentclass{article}
+\usepackage{../../Self_Style}
+
+\title{Phys 115A HW 6}
+\author{Zih-Yu Hsieh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{1}
+
+\begin{ques}\label{q1}
+1 Hermitian Conjugates (Griffiths 3.5 + extra)
+
+1. Find the Hermitian conjugates of x, i, and d/dx.
+
+2. Show that for any two operators $\hat{Q}$ and $\hat{R}$ (not necessarily Hermitian), that $(\hat{Q}\hat{R})^\dagger = \hat{R}^\dagger \hat{Q}^\dagger$, $(\hat{Q}+ \hat{R})^\dagger = \hat{Q}^\dagger + \hat{R}^\dagger$, and $(c\hat{Q})^\dagger = c^\ast \hat{Q}^\dagger$ for a complex number $c$.
+
+3. Construct the Hermitian conjugate of the harmonic oscillator raising operator $a^+$ (Eq. 2.48).
+
+4. For a particle moving in one dimension, show that the operator $\hat{x}\hat{p}$ is not Hermitian. Can you construct an operator corresponding to some sort of physically observable product of position and momentum that is Hermitian?
+\end{ques}
+
+\begin{proof}
+
+    \hfil
+
+    \begin{enumerate}
+        \item Here, if consider the Nuclear Space of integrable functions with domain $\RR$, codomain $\CC$, then given any such functions $\phi,\psi$, we have:
+        \begin{align}
+            \braket{\phi}{x\psi} &= \int_{-\infty}^{\infty}\phi^* \cdot (x\cdot \psi) dx = \int_{-\infty}^{\infty} (x\cdot \phi)^* \cdot \psi dx = \braket{x\phi}{\psi}
+        \end{align}
+        \begin{align}
+            \braket{\phi}{i\psi} &= \int_{-\infty}^{\infty}\phi^* \cdot (i\psi)dx = \int_{-\infty}^{\infty}(-i\phi)^*\cdot \psi dx=\braket{-i\phi}{\psi}
+        \end{align}
+        \begin{align}
+            \braket{\phi}{\frac{d}{dx}\psi} &= \int_{-\infty}^{\infty}\phi^* \cdot \frac{d}{dx}\psi dx = \phi^*\psi\bigg|_{-\infty}^{\infty}-\int_{-\infty}^{\infty}\left(\frac{d}{dx}\phi^*\right)\cdot \psi dx\\
+            &= \int_{-\infty}^{\infty}\left(-\frac{d}{dx}\phi\right)^* \cdot \psi dx = \braket{-\frac{d}{dx}\phi}{\psi}
+        \end{align}
+        So, the above three relations show that $x^\dagger = x$, $i^\dagger = -i$, and $\left(\frac{d}{dx}\right)^\dagger = -\frac{d}{dx}$.
+
+        \hfil
+
+        \item Given any two operators $\hat{Q},\hat{R}$, let $\ket{\phi},\ket{\psi}$ be any two vectors, then:
+        \begin{align}
+            \braket{(\hat{Q}\hat{R})^\dagger \phi}{\psi}=\braket{\phi}{(\hat{Q}\hat{R})\psi} = \braket{\hat{Q}^\dagger \phi}{\hat{R}\psi} = \braket{\hat{R}^\dagger \hat{Q}^\dagger \phi}{\psi}
+        \end{align}
+        \begin{align}
+            \braket{(\hat{Q}+\hat{R})^\dagger \phi}{\psi}&=\braket{\phi}{(\hat{Q}+\hat{R})\psi}=\braket{\phi}{\hat{Q}\psi}+\braket{\phi}{\hat{R}\psi}\\
+            &= \braket{\hat{Q}^\dagger \phi}{\psi}+\braket{\hat{R}^\dagger \phi}{\psi} = \braket{(\hat{Q}^\dagger+\hat{R}^\dagger)\phi}{\psi}
+        \end{align}
+        \begin{align}
+            \braket{(c\hat{Q})^\dagger \phi}{\psi}&= \braket{\phi}{c\hat{Q}\psi} = c\braket{\phi}{\hat{ Q}\psi} = c\braket{\hat{Q}^\dagger\phi}{\psi} = \braket{c^*\hat{Q}^\dagger \phi}{\psi}
+        \end{align}
+        Which, the above three relations show that $(\hat{Q}\hat{R})^\dagger = \hat{R}^\dagger \hat{Q}^\dagger$, $(\hat{Q}+\hat{R})^\dagger = \hat{Q}^\dagger+\hat{R}^\dagger$, and $(c\hat{Q})^\dagger = c^* \hat{Q}^\dagger$.
+
+        \hfil
+
+        \item Recall that the raising operator is defined as $a_+ = \frac{1}{\sqrt{2m\hbar w}}\left(x-i\frac{d}{dx}\right)$. So, using the result in part 1 and 2, we have:
+        \begin{align}
+            a_+^\dagger &= \left(\frac{1}{\sqrt{2m\hbar w}}\left(x-i\frac{d}{dx}\right)\right)^\dagger = \frac{1}{\sqrt{2m\hbar w}}\left(x^\dagger - \left(i\frac{d}{dx}\right)^\dagger\right) = \frac{1}{\sqrt{2m\hbar w}}\left(x + i\frac{d}{dx}\right) = a_-
+        \end{align}
+        Hence, the adjoint (Hermitian conjugate) of the raising operator is the lowering operator.
+
+        \hfil
+
+        \item Under one dimension, one has $\hat{x} \psi = x\psi$, and $\hat{p}\psi = -i\hbar\frac{d}{dx}\psi$. And, recall that both are self-adjoint/Hermitian operators (on the function space). So, we have the following:
+        \begin{align}
+            (\hat{x}\hat{p})^\dagger\psi &= \hat{p}\hat{x}\psi = -i\hbar\frac{d}{dx}(x\psi) = -i\hbar\psi + x\cdot \left(-i\hbar\frac{d}{dx}\psi\right) = \left(-i\hbar + \hat{x}\hat{p}\right)\psi
+        \end{align}
+        So, $(\hat{x}\hat{p})^\dagger = \hat{x}\hat{p} - i\hbar \neq \hat{x}\hat{p}$, showing it's not self-adjoint/Hermitian. However, if consider the operator $\frac{\hat{x}\hat{p}+\hat{p}\hat{x}}{2}$, since $(\hat{x}\hat{p})^\dagger = \hat{p}\hat{x}$ and $(\hat{p}\hat{x})^\dagger = \hat{x}\hat{p}$, we have:
+        \begin{align}
+            \left(\frac{\hat{x}\hat{p}+\hat{p}\hat{x}}{2}\right)^\dagger = \frac{(\hat{x}\hat{p})^\dagger+(\hat{p}\hat{x})^\dagger}{2}=\frac{\hat{p}\hat{x}+\hat{x}\hat{p}}{2}=\frac{\hat{x}\hat{p}+\hat{p}\hat{x}}{2}
+        \end{align}
+        Which is a desired self-adjoint/Hermitian operator corresponding to somewhat a product of position and momentum.
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{2}
+\begin{ques}\label{q2}
+2 Hilbert Space
+
+1. Show that the set of all square-integrable functions (that is, the set of functions $f(x)$ for which $\int_a^b |f(x)|^2 dx$ is finite on a specified interval $x\in[a,b]$) is a vector space.
+
+2. Show that $\langle f|g\rangle = \int_a^b f^\ast(x) g(x) dx$ satisfies the conditions for an inner product.
+\end{ques}
+
+\begin{proof}
+
+    \hfil
+
+    \begin{enumerate}
+        \item Let $L$ denotes the set of all square-integrable functions on $[a,b]$. Then, for any $f,g \in L$ and any $z \in\CC$, we have:
+        \begin{align}
+            |f(x)+g(x)|^2 &\leq (|f(x)|+|g(x)|)^2 \leq (2\max\{|f(x)|,|g(x)|\})^2 = 4\max\{|f(x)|^2,|g(x)|^2\} \leq 4(|f(x)|^2+|g(x)|^2)
+        \end{align}
+        Hence, performing integration, one gets:
+        \begin{align}
+            \int_{a}^{b}|f(x)+g(x)|^2ds \leq 4\left(\int_{a}^{b}|f(x)|^2dx+\int_{a}^{b}|g(x)|^2dx\right) < \infty
+        \end{align}
+        Hence, $f(x)+g(x)\in L$, which $L$ is closed under addtion. Similarly, one has:
+        \begin{align}
+            \int_{a}^{b}|z f(x)|^2 dx = |z|^2\int_{a}^{b}|f(x)|^2 dx < \infty
+        \end{align}
+        Hence, $z f(x)\in L$, showing $L$ is closed under $\CC$-scalar multiplication.
+
+        So, these two conditions conclude that $L$ is a $\CC$-vector space.
+
+        \hfil
+
+        \item To show the integral is an inner product, given any $f,g,h\in L$ and any $z, w\in\CC$, we have:
+        \begin{align}
+            \braket{f}{f}&=\int_{a}^{b}f(x)^*f(x)dx = \int_{a}^{b}|f(x)|^2dx \geq 0
+        \end{align}
+        \begin{align}
+            \braket{f}{f}=0 \iff \int_{a}^{b}|f(x)|^2dx = 0\iff |f(x)|^2=0 \iff f(x)=0
+        \end{align}
+        (Note: for this one, it requires the continuity of $|f(x)|^2$ on $[a,b]$. For non-continuous functions, there ar pathological cases where $f(x)\neq 0$, yet such integral is $0$. For instance, $f(a)=1$ and $f(x)=0$ elsewhere works. In general, if the set of values where $f(x)\neq 0$ is measure $0$, then such integral is $0$).
+        \begin{align}
+            \braket{f}{z g+wh}=\int_{a}^{b}f(x)^*(zg(x)+w h(x))dx = z\int_{a}^{b}f(x)^*g(x)dx+w\int_{a}^{b}f(x)^*h(x)dx = z\braket{f}{g}+w\braket{f}{h}
+        \end{align}
+        \begin{align}
+            \braket{g}{f}=\int_{a}^{b}g(x)^*f(x)dx = \int_{a}^{b}(f(x)^*g(x))^* dx = \left(\int_{a}^{b}f(x)^*g(x)dx\right)^* = \braket{f}{g}^*
+        \end{align}
+        So, these conditions characterize an inner product on $L$.
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{3 (part 3 a, c ND)}
+\begin{ques}\label{q3}
+3 Rigged Hilbert Space
+
+1. Consider a Hilbert space $H$ that consists of all functions $\psi(x)$ such that $\int_{-\infty}^{\infty} |\psi(x)|^2 dx$ is finite. Show that there are functions in $H$ for which $\hat{x}\psi(x) \equiv x\psi(x)$ is not in $H$.
+
+2. Consider the function space $\Omega$, called the nuclear space, which consists of all functions $\phi(x)$ that satisfy the infinite set of conditions $\int_{-\infty}^{\infty} |\phi(x)|^2 (1+|x|)^n dx < \infty$ for $n=0,1,2,\dots$. Show that for any $\phi(x)$ in $\Omega$, the function $\hat{x}\phi(x)\equiv x\phi(x)$ is also in $\Omega$.
+
+3. Now consider the extended space $\Omega^\times$, which consists of all functions $\chi(x)$ that satisfy the condition $\langle \chi|\phi\rangle = \int_{-\infty}^{\infty} \chi^\ast(x)\phi(x)dx <\infty$ for all $\phi$ in the nuclear space $\Omega$. Which of the following functions belong to $\Omega$, to $H$, and/or to $\Omega^\times$?
+
+(a) $\sin(x)$  
+(b) $\sin(x)/x$  
+(c) $x^2 \cos(x)$  
+(d) $\dfrac{\log(1+|x|)}{1+|x|}$  
+(e) $\exp(-x^2)$  
+(f) $x^4 e^{-|x|}$
+\end{ques}
+
+\begin{proof}
+
+    \hfil
+
+    \begin{enumerate}
+        \item Consider the function $\psi(x)=\frac{1}{\sqrt{x^2+1}}$, then $|\psi(x)|^2 = \frac{1}{x^2+1}$, showing $\int_{-\infty}^{\infty}|\psi(x)|^2dx = \arctan(x)\bigg|_{-\infty}^{\infty} = \pi$, hence $\psi(x)\in H$. However, if consider $x\psi(x)$, one has $|x\psi(x)|^2 = \frac{x^2}{x^2+1} = 1-\frac{1}{x^2+1}$, which the integral $\int_{a}^{b}\left(1-\frac{1}{x^2+1}\right)dx = (b-a) - \left(\arctan(x)\bigg|_{a}^{b}\right) = (b-a) - (\arctan(b)-\arctan(a))$. Which, take $b\rightarrow\infty$ and $a\rightarrow-\infty$, this integral clearly diverges (since $\arctan(b)-\arctan(a)$ is bounded, but not so for $b-a$). So, $x\psi(x)\notin H$.
+        
+        \hfil
+
+        \item First, by induction one can show that $\int_{-\infty}^{\infty}|\phi(x)|^2\cdot|x|^n dx<\infty$ for all $n\in\NN$. For base case $n=0$, it is given by $\int_{-\infty}^{\infty}|\phi(x)|^2 \cdot |x|^0dx = \int_{-\infty}^{\infty}|\phi(x)|^2\cdot (1+|x|)^0 dx < \infty$. Now, suppose for all integer $k<n$ it satisfies $\int_{-\infty}^{\infty}|\phi(x)|^2 \cdot|x|^kdx < \infty$, then for $k=n$, one has the following:
+        \begin{align}
+            &|x|^n = (1+|x|)^n - \sum_{k=0}^{n-1}\begin{pmatrix}
+                n\\k
+            \end{pmatrix}|x|^k\\ 
+            &\implies \int_{-\infty}^{\infty}|\phi(x)|^2 \cdot |x|^n dx = \int_{-\infty}^{\infty}|\phi(x)|^2 \cdot (1+|x|)^n dx - \sum_{k=0}^{n-1} \begin{pmatrix}
+                n\\k
+            \end{pmatrix}\int_{-\infty}^{\infty}|\phi(x)|^2 \cdot |x|^k dx < \infty
+        \end{align}
+        So, $\int_{-\infty}^{\infty}|\phi(x)|^2 \cdot |x|^n dx < \infty$, which completes the induction.
+
+        So, this implies that given $\phi(x)\in\Sigma$, one has $x\phi(x)$ satisfies the following for all $n\in\NN$:
+        \begin{align}
+            \int_{-\infty}^{\infty}|x\phi(x)|^2 (1+|x|)^n dx = \sum_{k=0}^{n}\begin{pmatrix}
+                n\\k
+            \end{pmatrix}\int_{-\infty}^{\infty}|\phi(x)|^2 \cdot |x|^{k+2}dx < \infty
+        \end{align}
+        So, this indicates that $x\phi(x)\in \Omega^\times$ also.
+
+        \hfil
+
+        \item The spaces satisfy $\Omega \subseteq H \subseteq \Omega^\times$. Which, the functions given satisfy:
+        \begin{itemize}
+            \item[(a)] $\sin(x)\in\Omega^\times$: Given that $\int_{-\infty}^{\infty}|\sin(x)|^2 dx$ diverges (since integral of $\sin^2(x)$ diverges), then $\sin(x)\notin H$; however, since $-1\leq \sin(x)\leq 1$, any $\phi(x)\in \Omega^\times$ satisfies 
+            
+            \hfil
+
+            \item[(b)] $\frac{\sin(x)}{x}\in H\setminus \Omega$, since one has $\int_{-\infty}^{\infty}\left|\frac{\sin(x)}{x}\right|^2 dx<\infty$ (since around $x=0$, one has $\int_{-1}^{1}\frac{\sin^2(x)}{x^2}dx$ converges due to the existence of limit at $x=0$, and the other two pieces $\int_{1}^{\infty}\frac{\sin^2(x)}{x^2}dx\leq \int_{1}^{\infty}\frac{1}{x^2}dx < \infty$, similar for the other piece on $(-\infty,-1)$).
+            
+            However, it's not in $\Omega$, since $x\cdot\frac{\sin(x)}{x}=\sin(x)\notin H$ (by part 3 (a)), hence $x\cdot\frac{\sin(x)}{x}\notin \Omega$, which it can't be in $\Omega$ (or else it contradicts the result in part 2).
+            
+            \hfil
+
+            \item[(c)] d
+            
+            \hfil
+
+            \item[(d)] $\frac{\log(1+|x|)}{1+|x|}\in H\setminus \Omega$. Recall that for all $\epsilon>0$, the growth order of $\log(z)$ is less than $z^\epsilon$. So, for simplicity one can pick $\epsilon=\frac{1}{4}$, so there exists $a\in\RR$, such that $\log(z) < z^\frac{1}{4}$ for all $a\in\RR$. As a result, one has the following:
+            \begin{align}
+                \int_{a}^{\infty}\left|\frac{\log(1+|x|)}{1+|x|}\right|^2dx < \int_{a}^{\infty}\frac{(1+|x|)^\frac{1}{2}}{(1+|x|)^2}dx = \int_{a}^{\infty}\frac{1}{(1+|x|)^\frac{3}{2}}dx < \infty
+            \end{align}
+            Which, $\int_{0}^{\infty}\left|\frac{\log(1+|x|)}{1+|x|}\right|^2dx<\infty$, with the function being symmetric, this implies $\int_{-\infty}^{\infty}\left|\frac{\log(1+|x|)}{1+|x|}\right|^2dx<\infty$.
+
+            The reason it's not in $\Omega$, because take $n=2$, one has the following:
+            \begin{align}
+                \int_{-\infty}^{\infty}\left|\frac{\log(1+|x|)}{1+|x|}\right|^2 \cdot (1+|x|)^2 dx = \int_{-\infty}^{\infty}\log^2(1+|x|)dx \rightarrow \infty
+            \end{align}
+            Which, it doesn't satisfy the condition for being in $\Omega$.
+            
+            \hfil
+
+            \item[(e)] $e^{-x^2}\in \Omega$, since for any $n\in\NN$, $(1+|x|)^n$ has growth order being a polynomial, so one has the following:
+            \begin{align}
+                \int_{-\infty}^{\infty}|e^{-x^2}|^2 (1+|x|)^ndx = \int_{-\infty}^{\infty}e^{-2x^2}(1+|x|)^n dx < \infty
+            \end{align}
+            Since $e^{-2x^2}$ has growth order much larger than the polynomials, the above integral converges.
+            
+            \hfil
+
+            \item[(f)] $x^4e^{-|x|} \in \Omega$, since for any $n\in\NN$, one has $(1+|x|)^n$ being a polynomial, so is $|x|^8(1+|x|)^n$. As a result, one has:
+            \begin{align}
+                \int_{-\infty}^{\infty}|x^4e^{-|x|}|^2 (1+|x|)^n dx = \int_{-\infty}^{\infty}e^{-2|x|}\cdot |x|^8(1+|x|)^n dx < \infty
+            \end{align}
+            Since the improper integral on both sides are with exponential functions, which decay at a faster rate than any polynomials.
+        \end{itemize}
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{4 (part 6 ND)}
+\begin{ques}\label{q4}
+4 Operators, Eigenvectors, Eigenvalues
+
+What are the eigenvectors and eigenvalues for the following operators? In each case, how would you express a general initial wavefunction $\Psi(x,0)$ in terms of linear combinations of these eigenvectors?
+
+1. The position operator $\hat{x}$ in position space.
+
+2. The momentum operator $\hat{p}$ in position space.
+
+3. The Hamiltonian for the free particle in position space.
+
+4. The Hamiltonian for the infinite square well in position space.
+
+5. The Hamiltonian for the harmonic oscillator in position space.
+
+6. The lowering operator $a^-$ for the harmonic oscillator in position space.
+
+7. The operator $i\frac{d}{d\phi}$, where $\phi$ is the polar angle in two dimensions, acting on the space of functions defined on the interval $0\le\phi\le 2\pi$ such that $f(\phi+2\pi)=f(\phi)$.
+
+8. The operator $\frac{d^2}{d\phi^2}$, acting on the same space.
+\end{ques}
+
+\begin{proof}
+
+    \hfil
+
+    \begin{enumerate}
+        \item Given $\hat{x}=x$, the eigenvectors are $\delta(x-a)$, corresponding to eigenvalue $a\in\RR$ (since $x\delta(x-a) = a\delta(x-a)$ as operators when integrating with general functions). For general initial wavefunction $\Psi(x,0)$, one can express it as:
+        \begin{align}
+            \Psi(x,0) = \int_{-\infty}^{\infty}\Psi(a,0)\delta(x-a)da
+        \end{align}
+
+        \hfil
+
+        \item Given $\hat{p} = -i\hbar\frac{d}{dx}$, the eigenvectors and eigenvalues are $\frac{1}{\sqrt{2\pi}}e^{ikx}$, with eigenvalue $\hbar k$ for $k\in\RR$ (since taking derivative one yields $\frac{ik}{\sqrt{2\pi}}e^{ikx}$, multiply $-i\hbar$ gives $\frac{\hbar k}{\sqrt{2\pi}}e^{ikx}$). For general initial wavefunction $\Psi(x,0)$, one can express it as (using Fourier / Inverse Fourier Transform):
+        \begin{align}
+            \Psi(x,0) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\phi(k)e^{ikx}dk,\quad \phi(k) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\Psi(x,0)e^{-ikx}dx
+        \end{align}
+
+        \hfil
+
+        \item Given Hamiltonia for the free partical $\hat{H}=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}$, the eigenvectors are again $\frac{1}{\sqrt{2\pi}}e^{ikx}$ for $k\in\RR$, with eigenvalue $\frac{k^2\hbar^2}{2m}$ (since after taking second derivative, one yields $-\frac{k^2}{\sqrt{2\pi}}e^{ikx}$, multiply by $-\frac{\hbar^2}{2m}$ gives $\frac{k^2\hbar^2}{2m}\cdot\frac{1}{\sqrt{2\pi}}e^{ikx}$). For general initial wavefunction $\Psi(x,0)$, one again express it as follow, similar to part 2:
+        \begin{align}
+            \Psi(x,0) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\phi(k)e^{ikx}dk,\quad \phi(k) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\Psi(x,0)e^{-ikx}dx
+        \end{align}
+
+        \hfil
+
+        \item The Hamiltonian for the infinite square well is $\hat{H}=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}$, where $x\in [0,a]$, with condition $\psi(0)=\psi(a)=0$, and $\psi(x)=0$ for $x\notin [0,a]$. The eigenvectors are $\sqrt{\frac{2}{a}}\sin\left(\frac{n\pi}{a}x\right)$ ($x\in[0,a]$) for $n\in\ZZ^{\geq 0}$, with eigenvalue $E_n = \frac{1}{2m}\left(\frac{n\pi\hbar}{a}\right)^2$ (since after taking second derivative, one yields $-\frac{n^2\pi^2}{a^2}\cdot\sqrt{\frac{2}{a}}\sin\left(\frac{n\pi}{a}x\right)$, multiply by $-\frac{\hbar^2}{2m}$ gives $\frac{n^2\pi^2\hbar^2}{2ma^2}\sqrt{\frac{2}{a}}\sin\left(\frac{n\pi}{a}x\right)$). For general initial wavefunction $\Psi(x,0)$ can be expressed as follow:
+        \begin{align}
+            \Psi(x,0)=\sum_{n=1}^{\infty}c_n \sqrt{\frac{2}{a}}\sin\left(\frac{n\pi}{a}x\right),\quad c_n = \int_{0}^{a}\Psi(x,0)\sqrt{\frac{2}{a}}\sin\left(\frac{n\pi}{a}x\right)dx
+        \end{align}
+
+        \hfil
+
+        \item The Hamiltonian for harmonic oscillator is $\hat{H}=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+\frac{1}{2}mw^2x^2$, so the eigenvectors are given by $\psi_n(x) = \frac{1}{\sqrt{n!}}(a_+)^n\psi_0(x)$, where $\psi_0(x)=\left(\frac{mw}{\pi\hbar}\right)^\frac{1}{4}e^{-\frac{mw}{2\hbar}x^2}$ and the operator $a_+ = \frac{1}{\sqrt{2mw\hbar}}(\hat{x}-i\hat{p})$, with eigenvalue $E_n = \hbar w\left(n+\frac{1}{2}\right)$ (these are the results from the Harmonic Oscillator chapter). For general initial wavefunction $\Psi(x,0)$, one can express it as:
+        \begin{align}
+            \Psi(x,0) = \sum_{n=0}^{\infty}c_n \psi_n(x),\quad c_n=\int_{-\infty}^{\infty}\Psi(x,0)\psi_n(x)dx
+        \end{align}
+
+        \hfil
+
+        \item Given the lowering operator $a_- = \frac{1}{\sqrt{2mw\hbar}}(mw\hat{x}+i\hat{p}) = \frac{1}{\sqrt{2mw\hbar}}\left(mwx + \hbar\frac{d}{dx}\right)$. Which, suppose $\lambda\in\CC$ and $\psi:\RR\rightarrow\CC$ satisfies the following:
+        \begin{align}
+            a_- \psi = \lambda \psi &\implies mwx\psi + \hbar\frac{d\psi}{dx} = \sqrt{2mw\hbar} \lambda \psi\\
+            &\implies \frac{d\psi}{dx} +\left(\frac{mw}{\hbar}x-\sqrt{\frac{2mw}{\hbar}}\lambda\right)\psi=0
+        \end{align}
+        Which, using integrating factor, we get the following function as eigenvector, with eigenvalue $\lambda$:
+        \begin{align}
+            &I = \exp\left(\int \left(\frac{mw}{\hbar}x - \sqrt{\frac{2mw}{\hbar}}\lambda\right)dx\right) = \exp\left(\frac{mw}{2\hbar}x^2 - \sqrt{\frac{2mw}{\hbar}}\lambda x\right)\\
+            &\implies I \psi = C\implies \psi = CI^{-1} = C\exp\left(-\frac{mw}{2\hbar}x^2 + \sqrt{\frac{2mw}{\hbar}}\lambda x\right)
+        \end{align}
+        Which, take $ik := \sqrt{\frac{2mw}{\hbar}}\lambda$, any $\phi(k)$ that converges under Fourier Transform satisfies:
+        \begin{align}
+            
+        \end{align}
+        
+        \hfil
+
+        \item Given $f(\phi+2\pi)=f(\phi)$, if it's the eigenvector of $i\frac{d}{d\phi}$ with eigenvalue $\lambda$, one has $i\frac{d}{d\phi}f = \lambda f$, or $\frac{df}{d\phi}=-i\lambda f$, showing $f(\phi) = Ke^{-i\lambda \phi}$. As a result, with period being multiples of $2\pi$, it enforces $\lambda = n$ for $n\in\ZZ$. So, the eigenvectors can be chosen as $\frac{1}{\sqrt{2\pi}}e^{in\phi}$ for $n\in\ZZ$, with eigenvalue $-n$. For general initial wavefunction $\Psi(\phi,0)$, one can express it as follow (using Fourier series):
+        \begin{align}
+            \Psi(x,0) = \sum_{n\in\ZZ}\frac{c_n}{\sqrt{2\pi}}e^{in\phi}, \quad c_n = \int_{0}^{2\pi}\Psi(\phi,0)\frac{1}{\sqrt{2\pi}}e^{-in\phi}d\phi
+        \end{align}
+
+        \hfil
+
+        \item Given $f$ as an eigenvector of $\frac{d^2}{d\phi^2}$ with eigenvalue $-\lambda^2$, one has $\frac{d^2f}{d\phi^2}=-\lambda^2\phi$, showing $f(\phi) = Ke^{i\lambda\phi} + Le^{-i\lambda\phi}$. Again, with period being multiples of $2\pi$, this again enforces $\lambda = n$ for $n\in\ZZ$. So, the eigenvectors can be collected to $\frac{1}{\sqrt{2\pi}}e^{in\phi}$ again, with eigenvalue $-n^2$. For general inital wavefunction $\Psi(\phi,0)$, one can again express it identically as part 7:
+        \begin{align}
+            \Psi(x,0) = \sum_{n\in\ZZ}\frac{c_n}{\sqrt{2\pi}}e^{in\phi}, \quad c_n = \int_{0}^{2\pi}\Psi(\phi,0)\frac{1}{\sqrt{2\pi}}e^{-in\phi}d\phi
+        \end{align}
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{5}
+\begin{ques}\label{q5}
+5 (Your Name) Uncertainty Principle (Griffiths 3.15)
+
+Using the generalized uncertainty principle, prove the “(Your Name) Uncertainty Principle’’ relating the uncertainty in position $\sigma_x$ to the uncertainty in energy $\sigma_H$:
+\[
+\sigma_x \sigma_H \ge \frac{\hbar}{2m} |\langle p\rangle|
+\]
+for $H = \hat{p}^2/2m + V(\hat{x})$. For stationary states this is not particularly helpful – why not?
+\end{ques}
+
+\begin{proof}
+    Given any two operators $\hat{A},\hat{B}$ corresponding to observables $A,B$, the generalized uncertainty principle states:
+    \begin{align}
+        \sigma_A\sigma_B \geq \frac{1}{2}\left|\left<[\hat{A},\hat{B}]\right>\right|
+    \end{align}
+    Here, choose $A=x$ and $B=H$, then $[\hat{x},\hat{H}]$ can be given as follow:
+    \begin{align}
+        [\hat{x},\hat{H}]f &= x\left(-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+V(x)\right)f - \left(-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+V(x)\right)(xf)\\
+        &= -x\cdot \frac{\hbar^2}{2m}\frac{d^2f}{dx^2} + xV(x)f + \frac{\hbar^2}{2m}\frac{d^2}{dx^2}(xf) - xV(x)f\\
+        &= -\frac{\hbar^2}{2m}\cdot x\frac{d^2f}{dx^2} + \frac{\hbar^2}{2m}\left(2\frac{df}{dx}+x\frac{d^2f}{dx^2}\right)\\
+        &= \frac{i\hbar}{m}\left(-i\hbar\frac{d}{dx}\right)f = -\frac{i\hbar}{m}\hat{p}f
+    \end{align}
+    So, it's concluded that on the function space, $[\hat{x},\hat{H}] = -\frac{i\hbar}{m}\hat{p}$. Hence, applying the generalized uncertainty principle, one has:
+    \begin{align}
+        \sigma_x\sigma_H \geq \frac{1}{2}\left|\left<[\hat{x},\hat{H}]\right>\right| = \frac{1}{2}\left|\left<-\frac{i\hbar}{m}\hat{p}\right>\right| = \frac{\hbar}{2m}\left|\left<\hat{p}\right>\right|
+    \end{align}
+
+    For stationary state, this is not usefule since $\sigma_H = 0$ (as it is an eigenvector of $\hat{H}$), so the inequality is enforces to be $0\geq \frac{\hbar}{2m}\left|\left<p\right>\right|$, or enforcing $\left<p\right>=0$. This doesn't provide further information about the state's uncertainty in position.
+\end{proof} 
+
+\newpage
+
+\section*{6}
+\begin{ques}\label{q6}
+6 Spectra of Operators (Griffiths 3.16 + extra)
+
+1. Show that two noncommuting operators cannot have a complete set of common eigenfunctions.
+
+2. Consider two operators $\hat{P},\hat{Q}$ for which $[\hat{P},\hat{Q}]=0$. $\hat{P}$ has a spectrum of non-degenerate eigenvectors $\psi_i$ with eigenvalues $p_i$. You prepare a particle. A measurement of $P$ yields value $p_5$. If you measure $Q$ afterwards, what do you find?
+
+3. $\hat{Q}$ has only non-degenerate eigenvectors $\psi_i$ and eigenvalues $Q_i$. What are the eigenvectors and eigenvalues of the inverse operator $\hat{Q}^{-1}$?
+\end{ques}
+
+\begin{proof}
+    
+    \hfil
+
+    \begin{enumerate}
+        \item We'll prove the contrapositive: Suppose $\hat{P},\hat{Q}$ are two operators with complete set of common eigenvectors $\{\psi_i\}_{i\in I}$, each associated with eigenvalue $\{p_i\}_{i\in I}$ for $\hat{P}$ and $\{q_i\}_{i\in I}$ for $\hat{Q}$ (or, the eigenvectors span the whole space). Then, for any function $f$, one can express it as $f=\sum_{i \in I}a_i\psi_i$, where $a_i\in\CC$ are chosen so that this converges. So, consider the action of $[\hat{P},\hat{Q}]$, we have:
+        \begin{align}
+            [\hat{P},\hat{Q}]f = \sum_{i\in I}a_i(\hat{P}\hat{Q}-\hat{Q}\hat{P})\psi_i = \sum_{i\in I}a_i(p_i q_i-q_i p_i)\psi_i=0
+        \end{align}
+        (Note: since $\hat{Q}\psi_i = q_i\psi_i$, and $\hat{P}=p_i\psi_i$).
+
+        Hence, on the desired vector space, $[\hat{P},\hat{Q}]=0$, showing $\hat{P},\hat{Q}$ commutes.
+
+        \hfil
+
+        \item Since $[\hat{P},\hat{Q}]=0$, one has $\hat{P}\hat{Q}=\hat{Q}\hat{P}$. Which, applying on the eigenvectors $\psi_i$, one has:
+        \begin{align}
+            \hat{P}(\hat{Q}\psi_i) = \hat{Q}(\hat{P}\psi_i) = p_i \hat{Q}\psi_i
+        \end{align}
+        Which, let $E(\hat{P},p_i)$ denotes the eigenspace of $\hat{P}$ with eigenvalue $p_1$, then $\hat{Q}\psi_i \in E(\hat{P},p_i)$ (showing $\hat{Q}$ maps the eigenspace to itself). 
+
+        Hence, if measurement of $P$ yields value $p_5$, the state is currently at $\psi_5$; which, after measuring $Q$, one has $\hat{Q}\psi_t\in E(\hat{P},p_5)$, showing that if measuring $P$ again, one definitively gets $p_5$. (Even though the state may change, but it's still within the sam eigenspace of $\hat{P}$, so the measured observable of $P$ stays the same).
+
+        \hfil
+
+        \item The eigenvectors and eigenvalues of $\hat{Q}^{-1}$ are precisely given by $\psi_i$ and $\frac{1}{Q_i}$ respectively. 
+        
+        First, the $\psi_i$, $\frac{1}{Q_i}$ are eigenvectors / eigenvalues of $\hat{Q}^{-1}$, since:
+        \begin{align}
+            \psi_i=\hat{Q}^{-1}(\hat{Q}\psi_i) = \hat{Q}^{-1}(Q_i\psi_i)\implies \hat{Q}^{-1}\psi_i = \frac{1}{Q_i}\psi_i
+        \end{align}
+        Conversely, if $v, \frac{1}{\lambda}$ are eigenvector / eigenvalue of $\hat{Q}^{-1}$, then:
+        \begin{align}
+            v = \hat{Q}(\hat{Q}^{-1}v) = \hat{Q}\left(\frac{1}{\lambda} v\right)\implies \hat{Q}v = \lambda v
+        \end{align}S
+        o, $v,\lambda$ are eigenvector / eigenvalue of $\hat{Q}$, by the claim one must have $v=\psi_i$ and $\lambda=Q_i$ for some $i$. So, the eigenvector / eigenvalue of $\hat{Q}^{-1}$ must be $\psi_i$ and $\frac{1}{Q_i}$ respectively.
+
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{7}
+\begin{ques}\label{q7}
+7 Sequential Measurements (Griffiths 3.33)
+
+Consider an observable $A$ with eigenvectors $\psi_1,\psi_2$ and eigenvalues $a_1,a_2$. Consider a second observable $B$ with eigenvectors $\phi_1,\phi_2$ and eigenvalues $b_1,b_2$. The TA tells you:
+\[
+\psi_1 = \frac{1}{5}(3\phi_1 + 4\phi_2), \qquad
+\psi_2 = \frac{1}{5}(4\phi_1 - 3\phi_2)
+\]
+
+1. You prepare a particle and measure $A$, getting $a_1$. What is the state afterwards?
+
+2. Then measure $B$. What are the results and their probabilities?
+
+3. Immediately measure $A$ again. What is the probability of getting $a_1$?
+\end{ques}
+
+\begin{proof}
+
+    \hfil
+
+    \begin{enumerate}
+        \item If measure observable $A$ and get $a_1$, it implies the state collapses to the eigenvector of $A$ corresponding to $a_1$, which is $\psi_1$.
+        
+        \hfil
+
+        \item Since after measuring $A$, the current state is $\psi_1=\frac{1}{5}(3\phi_1+4\phi_2)$ (in terms of the eigenvectors of $B$), so measuring $B$, the possible results are the eigenvalues of $B$, which are $b_1,b_2$. 
+        
+        And, since in this state $\phi_1$ (the eigenvector of $b_1$) has coefficient $\frac{3}{5}$, while $\phi_2$ (the eigenvector of $b_2$) has coefficient $\frac{4}{5}$, the probabilities of getting $b_1,b_2$ are $\PP(b_1)=\left|\frac{3}{5}\right|^2 = \frac{9}{25} = 36\%$, and $\PP(b_2)=\left|\frac{4}{5}\right|^2 = \frac{16}{25}=64\%$.
+
+        \hfil
+
+        \item First, we'll express $\phi_1,\phi_2$ (the eigenvectors of $B$, corresponding to eigenvalues $b_1,b_2$) in terms of $\psi_1,\psi_2$ (the eigenvectors of $A$). Which, based on the given relation, by scalar multiplication we get:
+        \begin{align}
+            &20\psi_1 = 12\phi_1 + 16\phi_2,\quad 15\psi_2 = 12\phi_1 - 9\phi_2\\
+            &\implies 20\psi_1 - 15\psi_2 = 25\phi_2,\quad \phi_2 = \frac{1}{5}(4\psi_1 - 3\psi_2)\\
+        \end{align}
+        Again, with scalar multiplication and substitution, we have:
+        \begin{align}
+            &25\psi_1 = 15\phi_1 + 20\phi_2 = 15\phi_1+16\psi_1 - 12\psi_2\\
+            &\implies 15\phi_1 = 9\psi_1 + 12\psi_2,\quad \phi_1 = \frac{1}{5}(3\psi_1+4\psi_2)
+        \end{align}
+        Since it's possible that the state becomes $\phi_1$ (with probability $36\%$) or $\phi_2$ (with probability $64\%$). After measuring $A$, the probability of getting $a_1$ is given by the conditional probability. 
+
+        If ending with $b_1$ previously (or at state $\phi_1$), since $\psi_1$ (the eigenvector of $a_1$) has $\phi_1$ coefficient $\frac{3}{5}$, the probability of getting $a_1$ is $\PP(a_1|b_1)=\left|\frac{3}{5}\right|^2 = \frac{9}{25}=36\%$; else, if ending with $b_2$ previously (or at state $\phi_2$), since $\psi_1$ has $\phi_1$ coefficient $\frac{4}{5}$, the probability of getting $a_1$ is $\PP(a_1|b_2)\left|\frac{4}{5}\right|^2 = 64\%$. So, the total probability of measuring $a_1$ is:
+        \begin{align}
+            \PP(a_1) &= \PP(a_1|b_1)\cdot\PP(b_1) + \PP(a_1|b_2)\cdot\PP(b_2) = \left(\frac{9}{25}\right)^2+\left(\frac{16}{25}\right)^2=\frac{337}{625} \approx 53.92\%
+        \end{align}
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{8}
+\begin{ques}\label{q8}
+8 Harmonic Oscillator in “energy space’’ (Griffiths 3.39)
+
+1. Compute $\langle n|\hat{x}|n'\rangle$ for general $n,n'$.
+
+2. Compute $\langle n|\hat{p}|n'\rangle$.
+
+3. Construct the infinite-dimensional matrix representation of $\hat{x}$ using these matrix elements.
+
+4. Construct the infinite-dimensional matrix for $\hat{p}$.
+
+5. Show that $H = \frac{1}{2m}p^2 + \frac{1}{2}m\omega^2 x^2$ is diagonal in this basis. What are the diagonal elements?
+\end{ques}
+
+\begin{proof}
+
+    First, recall that in terms of ladder operators, $\hat{x}=\sqrt{\frac{\hbar}{2mw}}(a_++a_-)$, and $ \hat{p}=i\sqrt{\frac{\hbar mw}{2}}(a_+-a_-)$. 
+    
+    Also, if $\ket{n'}$ represents the eigenvector of the harmonic oscillator Hamiltonian, then $a_+\ket{n'}=\sqrt{n'+1}\ket{n'+1}$, and $a_-\ket{n'}=\sqrt{n'}\ket{n'-1}$ (recall the relation $a_+\psi_n(x)=\sqrt{n+1}\psi_{n+1}(x)$, and $a_-\psi_n(x)=\sqrt{n}\psi_{n-1}(x)$). 
+
+    Finally, we also have $a_-\ket{0} = 0$ (due to the fact $a_-\psi_0(x)=0$).
+
+    \begin{enumerate}
+        \item Given the above relations, we have the following for all $n\in \NN$, and $n'\in\ZZ_{>0}$:
+        \begin{align}
+            \hat{x}\ket{n'} = \sqrt{\frac{\hbar}{2mw}}\left(\sqrt{n'+1}\ket{n'+1}+\sqrt{n
+            }\ket{n'-1}\right)\implies \bra{n}\hat{x}\ket{n'} = \begin{cases}
+                \sqrt{\frac{\hbar(n'+1)}{2mw}} & n=n'+1\\
+                \sqrt{\frac{\hbar n'}{2mw}} & n=n'-1\\
+                0 & \text{otherwise}
+            \end{cases}
+        \end{align}
+        Which, a special case happens when $n'=0$, where $\hat{x}\ket{0} =\sqrt{\frac{\hbar}{2mw}}\ket{1}$, so $\bra{n}\hat{x}\ket{0} = \begin{cases}
+            \sqrt{\frac{\hbar}{2mw}} & n=1\\
+            0 & \text{otherwise}
+        \end{cases}$.
+
+        \hfil
+
+        \item We also have the following for all $n\in\NN$ and $n'\in\ZZ_{>0}$:
+        \begin{align}
+            \hat{p}\ket{n'} = i\sqrt{\frac{\hbar mw}{2}}(\sqrt{n'+1}\ket{n'+1}-\sqrt{n'}\ket{n'-1})\implies \bra{n}\hat{p}\ket{n'} = \begin{cases}
+                i\sqrt{\frac{\hbar mw(n'+1)}{2}} & n=n'+1\\
+                -i\sqrt{\frac{\hbar mw n'}{2}} & n=n'-1\\
+                0 & \text{otherwise}
+            \end{cases}
+        \end{align}
+        Again, a special case happens when $n'=0$, where $\hat{p}\ket{0} = i\sqrt{\frac{\hbar mw}{2}}\ket{1}$, so $\bra{n}\hat{p}\ket{0} = \begin{cases}
+            i\sqrt{\frac{\hbar mw}{2}} & n=1\\
+            0 & \text{otherwise}
+        \end{cases}$.
+
+        \hfil
+
+        \item Based on the results in part 1, if $\mathcal{M}(\hat{x}) = (a_{ij})_{0\leq i,j}$ represents the matrix under this basis, then one has:
+        \begin{align}
+            a_{ij}=\begin{cases}
+                0 & i=j \text{ or } |i-j|\geq 2\\
+                \sqrt{\frac{\hbar (j+1)}{2mw}} & i=j+1\\
+                \sqrt{\frac{\hbar j}{2mw}} & i=j-1
+            \end{cases}
+        \end{align}
+        Writing out the first several rows and columns, we have:
+        \begin{align}
+            \sqrt{\frac{\hbar}{2mw}}\begin{pmatrix}
+                0 & 1&0&0&0&\cdots\\
+                1 & 0&\sqrt{2}&0&0&\cdots\\
+                0&\sqrt{2}&0&\sqrt{3}&0&\cdots\\
+                0 & 0& \sqrt{3} & 0 & \sqrt{4} & \cdots\\
+                0 & 0 & 0 & \sqrt{4} & 0 & \cdots\\
+                \vdots & \vdots & \vdots & \vdots & \vdots & \ddots
+            \end{pmatrix}
+        \end{align}
+
+        \hfil
+
+        \item Based on th results in part 2, if $\mathcal{M}(\hat{p}) = (b_{jk})_{0\leq j,k}$ represents the matrix under this basis, then one has:
+        \begin{align}
+            b_{jk} = \begin{cases}
+                0 & j=k \text{ or } |j-k|\geq 2\\
+                i\sqrt{\frac{\hbar mw(k+1)}{2}} & j=k+1\\
+                -i\sqrt{\frac{\hbar mwk}{2}} & j=k-1
+            \end{cases}
+        \end{align}
+        Writing out the first several rows and columns, we have:
+        \begin{align}
+            i\sqrt{\frac{\hbar mw}{2}}\begin{pmatrix}
+                0 & -1 & 0&0&0&\cdots\\
+                1&0&-\sqrt{2}&0&0&\cdots\\
+                0&\sqrt{2}&0&-\sqrt{3}&0&\cdots\\
+                0&0&\sqrt{3}&0&-\sqrt{4}&\cdots\\
+                0&0&0&\sqrt{4}&0&\cdots\\
+                \vdots &\vdots &\vdots &\vdots &\vdots &\ddots
+            \end{pmatrix}
+        \end{align}
+
+        \hfil
+
+        \item To show $\hat{H}=\frac{\hat{p}^2}{2m}+\frac{1}{2}mw^2\hat{x}^2$ is diagonal in this basis, we first yield the following computation for all $n'\geq 2$:
+        \begin{align}
+            \hat{p}^2\ket{n'} &= \hat{p} i\sqrt{\frac{\hbar mw}{2}}(\sqrt{n'+1}\ket{n'+1} - \sqrt{n'}\ket{n'-1})\\
+            &= -\frac{\hbar mw}{2}(\sqrt{(n'+1)(n'+2)}\ket{n'+2} - (n'+1)\ket{n'} - n'\ket{n'}+ \sqrt{n'(n'-1)}\ket{n'-2})\\
+            &= -\frac{\hbar mw}{2}(\sqrt{(n'+1)(n'+2)}\ket{n'+2} + \sqrt{n'(n'-1)}\ket{n'-2} - (2n'+1)\ket{n'})
+        \end{align}
+        \begin{align}
+            \hat{x}^2 \ket{n'} &= \hat{x}\sqrt{\frac{\hbar}{2mw}}(\sqrt{n'+1}\ket{n'+1} + \sqrt{n'}\ket{n'-1})\\
+            &= \frac{\hbar}{2mw}(\sqrt{(n'+1)(n'+2)}\ket{n'+2} + (n'+1)\ket{n'} + n'\ket{n'} + \sqrt{n'(n'-1)}\ket{n'-2})\\
+            &= \frac{\hbar}{2mw}(\sqrt{(n'+1)(n'+2)}\ket{n'+2} + (2n'+1)\ket{n'} + \sqrt{n'(n'-1)}\ket{n'-2})
+        \end{align}
+        Which, the action of $\hat{H}$ is as follow:
+        \begin{align}
+            \hat{H}\ket{n'} =& \frac{1}{2m}\hat{p}^2\ket{n'}+\frac{1}{2}mw^2\hat{x}^2\ket{n'}\\
+            =& -\frac{\hbar w}{4}(\sqrt{(n'+1)(n'+2)}\ket{n'+2}+\sqrt{n'(n'-1)}\ket{n'-2}-(2n'+1)\ket{n'})\\
+            &+ \frac{\hbar w}{4}(\sqrt{(n'+1)(n'+2)}\ket{n'+2}+\sqrt{n'(n'-1)}\ket{n'-2}+(2n'+1)\ket{n'})\\
+            =& \frac{\hbar w}{2}(2n'+1)\ket{n'} = \hbar w\left(n'+\frac{1}{2}\right)\ket{n'}
+        \end{align}
+
+        \hfil
+
+        For special case $n=0$, one has:
+        \begin{align}
+            &\hat{p}^2\ket{0} = \hat{p}i\sqrt{\frac{\hbar mw}{2}}\ket{1} = -\frac{\hbar mw}{2}(\sqrt{2}\ket{2}-\ket{0})\\
+            &\hat{x}^2\ket{0} = \hat{x}\sqrt{\frac{\hbar}{2mw}}\ket{1} = \frac{\hbar}{2mw}(\sqrt{2}\ket{2}+\ket{0})\\
+            &\implies \hat{H}\ket{0} = \frac{1}{2m}\hat{p}^2\ket{0}+\frac{1}{2}mw^2\hat{x}^2\ket{0} = -\frac{\hbar w}{4}(\sqrt{2}\ket{2}-\ket{0}) + \frac{\hbar w}{4}(\sqrt{2}\ket{2}+\ket{0}) = \frac{\hbar w}{2}\ket{0}
+        \end{align}
+
+        Also, for special case $n=1$, one has:
+        \begin{align}
+            &\hat{p}^2\ket{1} = \hat{p}i\sqrt{\frac{\hbar mw}{2}}(\sqrt{2}\ket{2}-\ket{0})= -\frac{\hbar mw}{2}(\sqrt{6}\ket{3} - 3\ket{1})\\
+            &\hat{x}^2\ket{1} = \hat{x}\sqrt{\frac{\hbar}{2mw}}(\sqrt{2}\ket{2}+\ket{0}) = \frac{\hbar}{2mw}(\sqrt{6}\ket{3}+3\ket{1})\\
+            &\implies \hat{H}\ket{1} = \frac{1}{2m}\hat{p}^2\ket{1}+\frac{1}{2}mw^2\hat{x}^2\ket{1} = -\frac{\hbar w}{4}(\sqrt{6}\ket{3}-3\ket{1}) + \frac{\hbar w}{4}(\sqrt{6}\ket{3}+3\ket{1}) = \frac{3\hbar w}{2}\ket{1}
+        \end{align}
+        Which, one can see the action of $\hat{H}$ on $\ket{n'}$ is by scaling with factor $E_n = \hbar w\left(n'+\frac{1}{2}\right)$, which is exactly the eigenvalue / energy of the harmonic oscillator statopmaru states.
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{9}
+\begin{ques}\label{q9}
+9 A two-level system
+
+The Hamiltonian in basis $|1\rangle,|2\rangle$ is
+\[
+\hat{H} = \varepsilon(-|1\rangle\langle1| + |2\rangle\langle2| + |1\rangle\langle2| + |2\rangle\langle1|)
+\]
+
+1. Find the eigenvalues and eigenvectors.
+
+2. Write the matrix representation of $\hat{H}$ in this basis.
+\end{ques}
+
+\begin{proof}
+
+    If input $\ket{1}, \ket{2}$ respectively, we have $\hat{H}\ket{1} = -\epsilon\ket{1} + \epsilon\ket{2}$, and $\hat{H}\ket{2} = \epsilon \ket{1}+\epsilon\ket{2}$ (based on the orthonormality $\braket{1}=\braket{2}=1$, and $\braket{1}{2}=\braket{2}{1}=0$). Here, we'll assume $\epsilon\neq 0$.
+
+    \begin{enumerate}
+        \item Suppose $\lambda\in\CC$ is an eigenvalue of $\hat{H}$ and vector $a\ket{1}+b\ket{2}$ is an eigenvector corresponding to it. Then, we have:
+        \begin{align}
+            \lambda(a\ket{1}+b\ket{2}) &=\hat{H}(a\ket{1}+b\ket{2})=a(-\epsilon\ket{1}+\epsilon\ket{2})+b(\epsilon\ket{1}+\epsilon\ket{2}) = \epsilon(b-a)\ket{1}+\epsilon(b+a)\ket{2}
+        \end{align}
+        So, $\lambda a=\epsilon(b-a)$, and $\lambda b=\epsilon(b+a)$.
+
+        First, suppose $a\neq 0$, WLOG can assume $a=1$ up to scaling, then $\lambda=\epsilon(b-1)$, plugin to the second equation provides $\epsilon(b-1)b=\epsilon(b+1)$, or $b^2-2b-1=0$. So, $b=1\pm \sqrt{2}$. Which, these provide $\lambda_\pm = \epsilon(b-1) = \pm \epsilon\sqrt{2}$, each corresponds to eigenvectors $\ket{\lambda_\pm} = \ket{1}+(1\pm\sqrt{2})\ket{2}$ (up to nonzero scaling).
+        
+        \hfil
+
+        \item Under ordered basis $\alpha = \{\ket{1},\ket{2}\}$, $\hat{H}$ is given as:
+        \begin{align}
+            \mathcal{M}(\hat{H},\alpha)=\epsilon\begin{pmatrix}
+                -1&1\\1&1
+            \end{pmatrix}
+        \end{align}
+        If written in the ordered eigenvector basis $\beta=\{\ket{\lambda_+},\ket{\lambda_-}\}$, then $\hat{H}$ is represented as:
+        \begin{align}
+            \mathcal{M}(\hat{H},\beta)=\begin{pmatrix}
+                \epsilon\sqrt{2} &0\\0&-\epsilon\sqrt{2}
+            \end{pmatrix}
+        \end{align}
+    \end{enumerate}
+\end{proof}
+
+\newpage
+
+\section*{10}
+\begin{ques}\label{q10}
+10 A three-level system (Griffiths 3.44)
+
+\[
+H = \begin{pmatrix} a & 0 & b \\ 0 & c & 0 \\ b & 0 & a \end{pmatrix}
+\]
+
+1. If the initial state is $\begin{pmatrix} 0 \\ 1 \\ 0\end{pmatrix}$, find $|S(t)\rangle$.
+
+2. If the initial state is $\begin{pmatrix} 1 \\ 0 \\ 0\end{pmatrix}$, find $|S(t)\rangle$.
+\end{ques}
+
+\begin{proof}
+    Given the hamiltonian as above, given the state $\ket{S(t)} = \begin{pmatrix}
+        x(t)\\y(t)\\z(t)
+    \end{pmatrix}$, the time-dependent Schr\"odinger equation states:
+    \begin{align}
+        \begin{pmatrix}
+            x'(t)\\y'(t)\\z'(t)
+        \end{pmatrix}&=\frac{\partial}{\partial t}\ket{S(t)}=\frac{1}{i\hbar}\hat{H}\ket{S(t)} = \begin{pmatrix}
+            a/(i\hbar)&0&b/(i\hbar)\\0&c/(i\hbar)&0\\b/(i\hbar)&0&a/(i\hbar)
+        \end{pmatrix}\begin{pmatrix}
+            x(t)\\y(t)\\z(t)
+        \end{pmatrix}
+    \end{align}
+    Which, compute the characeristic polynomial of the matrix $\frac{1}{i\hbar}\hat{H}$, one has:
+    \begin{align}
+        \det(\hat{H}/(i\hbar)-\lambda I) &= \left(\frac{c}{i\hbar}-\lambda\right)\left(\left(\frac{a}{i\hbar}-\lambda\right)^2-\left(\frac{b}{i\hbar}\right)^2\right)\\
+        &= \left(\frac{c}{i\hbar}-\lambda\right)\left(\lambda^2 - \frac{2a}{i\hbar}\lambda + \frac{b^2-a^2}{\hbar^2}\right)
+    \end{align}
+    Which, the roots of the characteristic polynomials (or, the eigenvalues) includes $\lambda_1 = \frac{c}{i\hbar}$, and the other two are $\lambda_{2\pm} = \frac{2a/(i\hbar) \pm \sqrt{-4a^2/\hbar^2 + 4(a^2-b^2)/\hbar^2}}{2} = \frac{a\pm b}{i\hbar}$.
+
+    \hfil
+
+    Here, for simplicity assume $a,b,c\in\RR$ satisfy $(a+b),(a-b),c$ are distinct (so the three eigenvalues are distinct). Then, the eigenvectors corresponding to each eigenvalue are:
+    \begin{align}
+        \lambda_1:\quad (\hat{H}/(i\hbar) - \lambda_1 I)\begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix} = 0 &\implies \frac{1}{i\hbar}\begin{pmatrix}
+            a-c&0&b\\0&0&0\\b&0&a-c
+        \end{pmatrix}\begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix}=0 \implies \begin{pmatrix}
+            1&0&0\\0&0&0\\0&0&1
+        \end{pmatrix}\begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix}=0\\
+        &\implies x,z=0 \implies \begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix} = y\begin{pmatrix}
+            0\\1\\0
+        \end{pmatrix}
+    \end{align}
+
+    \begin{align}
+        \lambda_{2+}: \quad (\hat{H}/(i\hbar) - \lambda_{2+} I) \begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix} = 0&\implies \frac{1}{i\hbar}\begin{pmatrix}
+            -b&0&b\\0&c-(a+b)&0\\b&0&-b
+        \end{pmatrix}\begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix} = 0\implies \begin{pmatrix}
+            1&0&-1\\0&1&0\\0&0&0
+        \end{pmatrix}\begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix}=0\\
+        &\implies y=0,\ x=z \implies \begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix} = z\begin{pmatrix}
+            1\\0\\1
+        \end{pmatrix}
+    \end{align}
+
+    \begin{align}
+        \lambda_{2-}: \quad (\hat{H}/(i\hbar)-\lambda_{2-} I)\begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix} = 0&=implies \frac{1}{i\hbar}\begin{pmatrix}
+            b&0&b\\0&c-(a-b)&0\\b&0&b
+        \end{pmatrix}\begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix}=0\implies \begin{pmatrix}
+            1&0&1\\0&1&0\\0&0&0
+        \end{pmatrix}\begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix}=0\\
+        &\implies y=0,\ x=-z \implies \begin{pmatrix}
+            x\\y\\z
+        \end{pmatrix} = z\begin{pmatrix}
+            -1\\0\\1
+        \end{pmatrix}
+    \end{align}
+    Hence, the general solution to the given Schr\"odinger equation is spanned by the following three eigenvectors:
+    \begin{align}
+        \ket{\lambda_1}=e^{\lambda_1 t}\begin{pmatrix}
+            0\\1\\0
+        \end{pmatrix} = e^{-\frac{ict}{\hbar}}\begin{pmatrix}
+            0\\1\\0
+        \end{pmatrix},\quad \ket{\lambda_{2+}}=e^{\lambda_{2+}t}\begin{pmatrix}
+            1\\0\\1
+        \end{pmatrix} = e^{-\frac{i(a+b)t}{\hbar}}\begin{pmatrix}
+            1\\0\\1
+        \end{pmatrix},\quad \ket{\lambda_{2-}}=e^{\lambda_{2-}t}\begin{pmatrix}
+            -1\\0\\1
+        \end{pmatrix} = e^{-\frac{i(a-b)t}{\hbar}}\begin{pmatrix}
+            -1\\0\\1
+        \end{pmatrix}
+    \end{align}
+    Which, any state $\ket{S(t)} = a_1 \ket{\lambda_1}+a_{2+}\ket{\lambda_{2+}}+a_{2-}\ket{\lambda_{2-}}$ for some coefficients in $\CC$.
+
+    \hfil
+
+    \begin{enumerate}
+        \item If the initial state is $\begin{pmatrix}
+            0\\1\\0
+        \end{pmatrix}$, plugin $t=0$, one yields $\ket{S(0)} = \begin{pmatrix}
+            a_{2+}-a_{2-}\\a_1\\a_{2+}+a_{2-}
+        \end{pmatrix}$, which enforces $a_1=1$, $a_{2+}-a_{2-}=0$ (or $a_{2+}=a_{2-}$), and $a_{2+}+a_{2-}=0$ (or $a_{2+}=-a-{2-}$). This enforces $a_{2+}=a_{2-}=0$. So, $\ket{S(t)} = \ket{\lambda_1}$, which is as follow:
+        \begin{align}
+            \ket{S(t)}=e^{-\frac{ict}{\hbar}}\begin{pmatrix}
+                0\\1\\0
+            \end{pmatrix}
+        \end{align}
+
+        \hfil
+
+        \item If the initial state is $\begin{pmatrix}
+            1\\0\\0
+        \end{pmatrix}$, we again have $\ket{S(0)} = \begin{pmatrix}
+            a_{2+}-a_{2-}\\a_1\\a_{2+}+a_{2-}
+        \end{pmatrix}$, which enforces $a_1=0$, $a_{2+}+a_{2-}=0$ (or $a_{2-}=-a_{2+}$), and $a_{2+}-a_{2-}=1$ (which enforces $2a_{2+}=1$, or $a_{2+}=\frac{1}{2}$, and $a_{2-}=-\frac{1}{2}$). Hence, $\ket{S(t)} = \frac{1}{2}\ket{\lambda_{2+}} - \frac{1}{2}\ket{\lambda_-}$, which is as follow:
+        \begin{align}
+            \ket{S(t)} = \frac{1}{2}e^{-\frac{i(a+b)t}{\hbar}}\begin{pmatrix}
+                1\\0\\1
+            \end{pmatrix} - \frac{1}{2}e^{-\frac{i(a-b)t}{\hbar}}\begin{pmatrix}
+                -1\\0\\1
+            \end{pmatrix} = e^{-\frac{iat}{\hbar}}\begin{pmatrix}
+                \frac{e^{ibt/\hbar}+e^{-ibt/\hbar}}{2}\\0\\-\frac{e^{ibt/\hbar}-e^{-ibt/\hbar}}{2} 
+            \end{pmatrix}= e^{-iat/\hbar}\begin{pmatrix}
+                    \cos(bt/\hbar)\\0\\-i\sin(bt/\hbar)
+                \end{pmatrix}
+        \end{align}
+    \end{enumerate}
+\end{proof}
+
+
+\end{document}
