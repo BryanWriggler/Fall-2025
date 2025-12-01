@@ -66,7 +66,7 @@
   Show taht for $frak(g)=sl(n,CC)$, the Killing form si given by $K(x,y) = 2n tr(x y)$.
 ][]
 
-\ 
+#pagebreak()
 
 = part (2) ND //3
 #problem[
@@ -96,7 +96,7 @@
 
 ]
 
-\ 
+#pagebreak()
 
 = D//4
 #problem[
@@ -124,31 +124,109 @@
   So, since all the generators of $sp(n,KK)$ have a corresponding element also in $sp(n,KK)$, such that the form $tr(x,y)!=0$, then such form is non-degenerate.
 ]
 
-\ 
+#pagebreak()
 
-= ND //5
+= D //5
 #problem[
   Etingof Problem Set 5.5:
 
   Let $frak(g)$ be a real Lie algebra with positive definite Killing form. Show that then $frak(g)=0$. 
 
   (Hint: $frak(g) subset so(frak(g))$).
-][]
+][
+  Suppose the contrary that as a reall Lie algebra $frak(g)!=0$, and it has a positive definite Killing form. Let $K:frak(g) times frak(g) -> RR$ denotes the Killing form of $frak(g)$. Since the Killing form is positive definite (and is a real bilinear form), it satisfies all the properties of a real inner product, so one can choose $x_1,...,x_n in frak(g)$ to form an orthonormal basis with respect to the Killing form as inner product, then for any $x in frak(g)$, one has $x = sum_(i=1)^n K(x,x_i) x_i$. 
 
-\ 
+  \ 
 
-= ND//6
+  Now, for all $x in frak(g)$, consider $ad x in gl(frak(g))$ with its matrix form with respect to the chosen orthonormal basis $x_1,...,x_n$, denote as $cal(M)(ad x) = (a_(i j))_(1<=i,j<=n)$. Using the invariance of Killing form, for any $x_i, x_j$, one has the following:
+  $ -K(ad x(x_i),x_j) = K([x_i,x], x_j)=K(x_i,[x,x_j]) = K(x_i, ad x(x_j)) = K(ad x(x_j),x_i) $
+  Where, since $sum_(k=1)^n a_(k i)x_k =  ad x(x_i) = sum_(k=1)^n K(ad x(x_i), x_k) x_k$ (left side given by matrix entries, right side given by inner product), then $a_(j i) = K(ad x(x_i),x_j)$; similarly, one also has $a_(i j) = K(ad x(x_j),x_i)$. Then, based on the above equality, one has $a_(i j) = K(ad x(x_j),x_i) = -K(ad x(x_i),x_j)=-a_(j i)$, showing that matrix of $ad x$ is skew-symmetric, hence $ad x in so(frak(g))$.
+
+  \ 
+
+  Then, notice that any operator $A in so(frak(g))$ must have $tr(A^2) <= 0$: If represent $A$ under the chosen basis as above, since $A$ is skew-symmetric, if let $c_1,...,c_n$ denote the ordered column vectors of $A$, and $r_1,...,r_n$ denote the ordered row vectors of $A$, it satisfies $r_i = -c_i^T$ (as matrices), hence one has the following:
+  $ tr(A^2) = sum_(i=1)^n r_i c_i = sum_(i=1)^n - c_i^T c_i = sum_(i=1)^n -(c_i dot c_i) <= 0 $
+  Where, the last part is interpreting $c_i^T c_i$ (multiplication of row and column vector) as $c_i dot c_i$  (regular dot product on $RR^n$). Hence, for any $x in frak(g)$, one also has $K(x,x) = tr((ad x)^2) <= 0$ (since $ad x in so(frak(g))$).
+
+  \ 
+
+  However, by positive definiteness, we must have $K(x,x)>=0$, together with the previous statement, this enforces $K(x,x)=0$, which happens iff $x=0$ (by positive definiteness). Hence, $frak(g)=0$, which contradicts the assumption.
+
+  As a result, one must have $frak(g)=0$.
+]
+
+#pagebreak()
+
+= D//6
 #problem[
   Etingof Problem Set 5.6:
 
   Let $frak(g)$ be a simple Lie algebra.
   + Show that the invariant bilinear form is unique up to a factor.
   + Show that $frak(g) tilde.equiv frak(g)^*$ as representations of $frak(g)$.
-][]
+][
+  (Here, assume $Char(k)=0$, and $k=overline(k)$).1 In this case (2) is in fact easier to prove (while (1) follows from it), so we'll first show (2).
 
-\ 
+  \ 
 
-= ND//7
+  2. To prove the statement that $frak(g) tilde.equiv frak(g)^*$ as representations of $frak(g)$ (where the first one is the adjoint representation, the second is the dual representation of that), it relies on two statements: First, the Killing form $K$ is non-degenerate (since $frak(g)$ is simple, hence semisimple, showing $ker(K) = 0$ by Cartan's semisimplicity criterion); also, $K$ is invariant under adjoint action.
+
+    \
+
+    First, $K$ is non-degenerate, meaning for all nonzero $x in frak(g)$, one has $K(x,\_):frak(g) -> k$ being a nonzero linear functional, hence, the linear map $f: frak(g) -> frak(g)^*$ by $f(x) = K(x,\_)$ is injective, while $dim frak(g) = dim frak(g)^*$, showing that such map $f$ is indeed an isomorphism as vector spaces.
+
+    Now, to show it's a morphism of representations, consider the following: For any $x,y,z in frak(g)$, one has $K(ad z(x),y) = K([z,x],y) = -K([x,z],y) = K(x, -[z,y]) = K(x, -ad z(y)) = K(x,\_) compose(- ad z)(y)$. Hence, one has $f(z dot x) = f(ad z (x)) = K( ad z(x),\_) = K(x,\_) compose (- ad z) = f(x) compose (- ad z) = z dot f(x)$, so $f$ is a morphism of representation. 
+    
+    (Note: recall that if $rho:frak(g) -> gl(V)$ is a Lie-algebra representation, then the dual representation $rho^*: frak(g) -> gl(V^*)$ by $rho^*(z) dot phi := phi compose (- rho(z))$).
+
+    So, $f:frak(g)-> frak(g)^*$ as both an isomorphism of vector spaces and a morphism of representation of $frak(g)$, then $frak(g) tilde.equiv frak(g)^*$ as representation of $frak(g)$.
+
+    \ 
+
+    \ 
+
+  1. The goal for this part is to prove that $frak(g)$ as a representation of $frak(g)$, is irreducible (hence by Schur's Lemma $Hom_(Lie)(frak(g), frak(g)^*) tilde.equiv k$, based on the assumption $k=overline(k)$).
+
+    \ 
+
+    Suppose a subspace $frak(h) subset.eq frak(g)$ is a nontrivial subrepresentation of $frak(g)$, then for all $a in frak(h)$ and $z in frak(g)$, one has $z dot a = ad z(a) = [z,a] in frak(h)$, showing that $[frak(g),frak(h)] subset.eq frak(h)$, or $frak(h)$ is an ideal. But, based on the assumption of $frak(g)$'s simplicity, this enforces $frak(h)=frak(g)$. Hence, $frak(g)$ has no nontrivial proper subrepresentation, which is irreducible. Hence Schur's Lemma holds here.
+
+    \
+
+    Finally, notice that if $B:frak(g) times frak(g) -> k$ is an invariant bilinear form, the linear map $g:frak(g) -> frak(g)^*$ by $g(x) = B(x,\_)$ is also a morphism of Lie-algebra representation, since every $x,y,z in frak(g)$ again satisfy the following:
+    $ B(ad z(x),y) &= B([z,x],y) = -B([x,z],y) = -B(x,[z,y]) \ 
+    &= B(x, - ad z(y))= B(x,\_) compose (-ad z)(y) $
+    Hence, as linear maps, $g(z dot x)=g(ad z(x)) = B(ad z(x),\_) = B(x,\_) compose (- ad z) = g(x) compose (-ad z) = z dot g(x) $, showing $g$ is a morphsism of representation. 
+
+    Hence, $g in Hom_(Lie)(frak(g),frak(g)^*) tilde.equiv k$, showing that $g = lambda dot f$ for some $lambda in k$. Hence, for all $x,y in frak(g)$, one has $B(x,y) = g(x)(y) = lambda dot f(x)(y) = lambda dot K(x,y)$, showing $B = lambda dot K$, which is a scalar multiple of the Killing form of $frak(g)$. 
+
+    So, all invariant bilinear form on $frak(g)$ is unique up to a factor in $k$.
+]
+
+#pagebreak()
+
+= D//7
 #problem[
   Let $V$ be a finite-dimensional complex vector space and let $A:V -> V$ be an upper-triangular operator. Let $F^k subset End(V)$, $-n<= k<= n$ be the subspace spanned by matrix units $E_(i j)$ with $i-j<=k$. Show that then $ad A dot F^k subset F^(k-1)$ and thus, $ad A:End(V) -> End(V)$ is nilpotent.
-][]
+][
+
+  #text(weight: "bold")[1. The statement is false in general:]
+
+  For instance, choose $V = CC^2$, let $A = mat(1,2;0,3)$, then $E_(2 1)=mat(0,0;1,0) in F^1$ in this case. However, if consider $ad A(E_(2 1))$, we get:
+  $ ad A(E_(2 1)) = A E_(2 1)-E_(2 1)A = mat(2,0;3,0) - mat(0,0;1,2) = mat(2,0;2,-2) in.not F^0 $
+  Actually, a more precise requirement is $A$ needs to be an upper-triangular operator with only one eigenvalue, i.e. under upper-triangular matrix form, the diagonal entries $A_(i i)=A_(j j)$ for all $i,j in {1,...,n}$. We'll prove the statement for this assumption.
+
+  \ 
+
+  #text(weight: "bold")[2. The statement is true, if Diagonal Entries of $A$ are the same:]
+
+  Let $A = (a_(i j))_(1<=i,j <=n)$ be an upper-triangular operator, with all the diagonal entries being the same (so, $a_(i i)=a_(j j)$ for all $i,j$, while $a_(i j)=0$ for $i>j$). To prove $ad A dot F^k subset F^(k-1)$ for integer $-n <= k<= n$, it suffices to show that for all $E_(i j)$ satisfying $i-j = k$, one has $ad A(E_(i j)) in F^(k-1)$ (since each $F^k = F^(k-1) plus.circle (plus.circle.big_(i-j = k) CC dot E_(i j))$, so inductively if $ad A dot F^(k-1) subset F^(k-2) subset F^(k-1)$, then for each $E_(i j)$ with $i-j=k$, $Ad A(E_(i j)) in F^(k-1)$ guarantees $Ad A dot F^k subset F^(k-1)$, since each direct summand is mapped into $F^(k-1)$).
+
+  Now, fix an integer $-n<=k<=n$, for each $E_(i j)$ satisfying $i-j=k$, one has the following:
+  $ ad A(E_(i j))=A E_(i j)-E_(i j)A = mat(0,0, a_(1 i),0,0;0,0,dots.v,0,0;0,0,a_(i i),0,0; 0,0,0,0,0;0,0,0,0,0) - mat(0,0,0,0,0;0,0,0,0,0;0,0,a_(j j),dots,a_(j n);0,0,0,0,0;0,0,0,0,0) = mat(0,0,a_(1 i),0,0;0,0,dots.v,0,0;0,0,0,dots, a_(j n);0,0,0,0,0;0,0,0,0,0) $
+  Which, the column with $dots.v$ is the $j^upright(t h)$ column, and the row with $dots$ is the $i^upright(t h)$ row (and the $0$ in between could be different sizes of zero matrices, depending on the amount of entries given). As a result, since $ad A(E_(i j))$ contains no entries of $E_(i' j')$ (where $i'-j' >= k$, since everything on these diagonals are all $0$), then $ad A(E_(i j)) in F^(k-1)$, and this proves the claim, showing $ad A dot F^k subset F^(k-1)$.
+
+  \ 
+
+  As a result, since $F^(-n) = 0$ (since no entries satisfy this relation), so $(ad A)^(2n) = 0$ (since for $F^n = End(V)$, one has $(ad A)^(2n)dot F^n subset  F^(n - 2n) = F^(-n)=0$ by induction). So, $ad A$ is nilpotent operator on $End(V)$.
+]
