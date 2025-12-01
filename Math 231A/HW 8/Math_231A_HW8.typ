@@ -54,7 +54,7 @@
 
   + First, given any $a in I$, any $x in frak(g)$ satisfies $ad a(x) = [a,x] in I$ (by definition of ideal). Hence, $ad a: frak(g) -> frak(g)$ has $im(ad a) subset.eq I$. Which, if composing with the projection $pi:frak(g) ->> frak(g)\/I$, $pi compose ad a: frak(g) ->> frak(g)\/I$ is a zero map, which factors through $frak(g)\/I$ (say denotes as $overline(ad a): frak(g)\/I -> frak(g)\/I$, this is a zero map). 
   
-    So, similar to the previous section, let $W:= I$, $V:= frak(g)$, and $rho := ad:frak(g) -> gl(frak(g))$, for any $a,b in I$, one has the killing form on $frak(g), frak(g)\/I$ satisfies $K_(frak(g))(a,b) = K_(I)(a,b) + K_(frak(g)\/I)(a,b)$. However, we've shown that ay $a in I$ has its action on $frak(g)\/I$ being a zero map, hence $K_(frak(g)\/I)(a,b) = 0$ (since it's trace of products of zero maps). So, $K_(frak(g))(a,b) = K_(I)(a,b)$, showing the Killing form of $I$ coincides with the Killing form of $frak(g)$ restricting to $I$. 
+    So, similar to the previous section, let $W:= I$, $V:= frak(g)$, and $rho := ad:frak(g) -> gl(frak(g))$, for any $a,b in I$, one has the killing form on $frak(g), frak(g)\/I$ satisfies $K_(frak(g))(a,b) = K_(I)(a,b) + K_(frak(g)\/I)(a,b)$. However, we've shown that any $a in I$ has its action on $frak(g)\/I$ being a zero map, hence $K_(frak(g)\/I)(a,b) = 0$ (since it's trace of products of zero maps). So, $K_(frak(g))(a,b) = K_(I)(a,b)$, showing the Killing form of $I$ coincides with the Killing form of $frak(g)$ restricting to $I$. 
 ]
 
 \ 
@@ -63,7 +63,7 @@
 #problem[
   Etingof Problem Set 5.2:
 
-  Show taht for $frak(g)=sl(n,CC)$, the Killing form si given by $K(x,y) = 2n tr(x y)$.
+  Show that for $frak(g)=sl(n,CC)$, the Killing form is given by $K(x,y) = 2n tr(x y)$.
 ][
   First, recall that $sl(n,CC)$ is simple, hence by #text(weight: "bold")[Problem 6] of this problem set (which will be proven), any invariant bilinear form is up to a scalar factor.
 
@@ -200,7 +200,7 @@
 
   Now, for all $x in frak(g)$, consider $ad x in gl(frak(g))$ with its matrix form with respect to the chosen orthonormal basis $x_1,...,x_n$, denote as $cal(M)(ad x) = (a_(i j))_(1<=i,j<=n)$. Using the invariance of Killing form, for any $x_i, x_j$, one has the following:
   $ -K(ad x(x_i),x_j) = K([x_i,x], x_j)=K(x_i,[x,x_j]) = K(x_i, ad x(x_j)) = K(ad x(x_j),x_i) $
-  Where, since $sum_(k=1)^n a_(k i)x_k =  ad x(x_i) = sum_(k=1)^n K(ad x(x_i), x_k) x_k$ (left side given by matrix entries, right side given by inner product), then $a_(j i) = K(ad x(x_i),x_j)$; similarly, one also has $a_(i j) = K(ad x(x_j),x_i)$. Then, based on the above equality, one has $a_(i j) = K(ad x(x_j),x_i) = -K(ad x(x_i),x_j)=-a_(j i)$, showing that matrix of $ad x$ is skew-symmetric, hence $ad x in so(frak(g))$.
+  Where, since $sum_(k=1)^n a_(k i)x_k =  ad x(x_i) = sum_(k=1)^n K(ad x(x_i), x_k) x_k$ (left side given by matrix entries, right side given by $K$ as inner product), then $a_(j i) = K(ad x(x_i),x_j)$; similarly, one also has $a_(i j) = K(ad x(x_j),x_i)$. Then, based on the above equality, one has $a_(i j) = K(ad x(x_j),x_i) = -K(ad x(x_i),x_j)=-a_(j i)$, showing that matrix of $ad x$ is skew-symmetric, hence $ad x in so(frak(g))$.
 
   \ 
 
