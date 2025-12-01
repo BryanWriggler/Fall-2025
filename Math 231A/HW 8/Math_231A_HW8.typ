@@ -59,12 +59,49 @@
 
 \ 
 
-= ND//2
+= D//2
 #problem[
   Etingof Problem Set 5.2:
 
   Show taht for $frak(g)=sl(n,CC)$, the Killing form si given by $K(x,y) = 2n tr(x y)$.
-][]
+][
+  First, recall that $sl(n,CC)$ is simple, hence by #text(weight: "bold")[Problem 6] of this problem set (which will be proven), any invariant bilinear form is up to a scalar factor.
+
+  Given any $x,y,z in sl(n,CC)$, notice that $tr(x,y)$ satisfies the following:
+  $ tr([x,z] y) = tr(x z y-z x y) = tr(x z y - x y z) = tr(x [z,y]) $
+  Hence, $tr$ is an invariant bilinear form, so its relation with the Killing form is up to a scalar factor.
+
+  \ 
+
+  Now, consider the element $E_(11)-E_(22) in sl(n,CC)$: First, we have the following:
+  $ tr((E_(11)-E_(22))^2) = tr(E_(11)+E_(22)) = 2 $
+  Now, if compute $K(E_(11)-E_(22), E_(11)-E_(22))$, we first need to compute the adjoint action of it on the basis elements: Since $sl(n,CC)$ has basis being all $E_(k l)$ (where $k!=l$) and $E_(k k)-E_(k+1,k+1)$ for integer $1<=k<n$, then we have the following relations:
+  $ ad(E_(11)-E_(22))(E_(k l)) = cases(
+    2E_(12) "  " quad k=1\,l=2,
+    -2E_(2 1) " " quad k=2\, l=1,
+    E_(1 l) "    " quad k=1\, l!=1\,2,
+    -E_(k 1) "  " quad l=1\, k!=1\,2,
+    E_(2 l) "     " quad k=2\, l!=1\,2,
+    -E_(k 2) "  " quad l=2\, k!=1\,2,
+    0 quad quad "   " quad "otherwise"
+  ), quad ad(E_(11)-E_(22))(E_(k k)-E_(k+1,k+1)) = 0 $
+  Which, we have the following for square:
+  $ ad(E_(11)-E_(22))^2(E_(k l)) = cases(
+    4E_(12) " " quad k=1\,l=2,
+    4E_(2 1) " " quad k=2\, l=1,
+    E_(1 l) "  " quad k=1\, l!=1\,2,
+    E_(k 1) "  " quad l=1\, k!=1\,2,
+    E_(2 l) "  " quad k=2\, l!=1\,2,
+    E_(k 2) "  " quad l=2\, k!=1\,2,
+    0 quad quad quad "otherwise"
+  ), quad ad(E_(11)-E_(22))^2(E_(k k)-E_(k+1,k+1)) = 0 $
+  Hence, for $ad(E_(11)-E_(22))^2$, there are two basis elements being eigenvectors with eigenvalue 4 (namely $E_(12), E_(21)$), and there are $4(n-2)$ basis elements being eigenvectors with eigenvalue 1 (namely all $E_(k l)$, where $k=1$ or $k=2$ while $l!=1,2$, or $l=1$ or $l=2$ while $k!=1,2$), and the rest are eigenvectors with eigenvalue $0$ (total of $(n^2-1) - 4(n-2) - 2 = n^2-4n+5$ being eigenvector of $0$).
+
+  Therefore, under this basis, we have $tr(ad(E_(11)-E_(22))^2) = 2 dot 4 + 4(n-2) dot 1 + (n^2-4n+5) dot 0 = 4n$. So, this shows the following: 
+  $ K(E_(11)-E_(22),E_(11)-E_(22)) = tr(ad(E_(11)-E_(22))^2) = 4n = 2n dot tr((E_(11)-E_(22))^2) $
+  Since $K(x,y)$ is a scalar of $tr(x y)$ (or vice versa), this indicates that $K(x,y) = 2n dot tr(x y)$.
+
+]
 
 #pagebreak()
 
