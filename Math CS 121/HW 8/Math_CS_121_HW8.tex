@@ -1,0 +1,165 @@
+\documentclass{article}
+\usepackage{../../Self_Style}
+
+\title{Math CS 121 HW 8}
+\author{Zih-Yu Hsieh}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{1}
+\begin{ques}\label{q1}
+    8.3.7:
+
+    Let $X$ and $Y$ be continuous random variables with joint probability density function given by 
+    $$f(x,y)=\begin{cases}
+        e^{-x(y+1)} & x\geq 0,\ 0\leq y\leq e-1\\
+        0 & \text{elsewhere}
+    \end{cases}$$
+    Calculate $\EE[X|Y=y]$.
+\end{ques}
+
+\begin{proof}
+    First, we'll gather the marginal density of $Y$: If $t<0$ or $t>e-1$, since $f(x,t)=0$, then $f_y(t) = int_{0}^{\infty}f(x,t)dx = 0$; else, if $t in [0,e-1]$, $f_y(t)$ is given as follow:
+    \begin{align}
+        f_y(t)=\int_{0}^{\infty}f(x,t)dx = \int_{0}^{\infty}e^{-x(t+1)}dx = \frac{-1}{t+1}e^{-x(t+1)}\bigg|_{0}^{\infty} = \frac{1}{t+1}
+    \end{align} 
+    So, $f_y(t) = \begin{cases}
+        \frac{1}{t+1} & 0\leq t\leq e-1\\ 0 & \text{otherwise}
+    \end{cases}$. 
+
+    This indicates that the conditional probability density $f_{X|Y}(s|t)$ is only defined for $t \in [0,e-1]$ (since it requires $f_y(t)\neq 0$ on the region). Which, one has the following:
+    \begin{align}
+        t\in[0,e-1],\quad f_{X|Y}(s|t) = \frac{f(s,t)}{f_y(t)} \begin{cases}
+            (t+1)e^{-s(t+1)} & s\geq 0\\
+            0 & \text{otherwise}
+        \end{cases}
+    \end{align}
+    Hence, given $Y=y$ (where $y in [0,e-1]$), the expectation of $X$ is given as follow:
+    \begin{align}
+        \EE[X|Y=y] &= \int_{0}^{\infty}x \cdot f_{X|Y}(x|y)dx = \int_{0}^{\infty}x(y+1)e^{-x(y+1)}dx = -xe^{-x(y+1)}\bigg|_{0}^{\infty} + \int_{0}^{\infty}e^{-x(y+1)}dx\\
+        &= -\frac{1}{y+1}e^{-x(y+1)}\bigg|_{0}^{\infty} = \frac{1}{y+1}
+    \end{align}
+\end{proof}
+
+\newpage
+
+\section*{2}
+\begin{ques}\label{q2}
+    8.3.18:
+
+    Let $X$ and $Y$ be continuous random variables with joint probaility density function 
+    $$f(x,y) = \begin{cases}
+        n(n-1)(y-x)^{n-2} & 0\leq x\leq y\leq 1\\
+        0 &\text{otherwise}
+    \end{cases}$$
+    Find the conditional expectation of $Y$ given that $X=x$.
+\end{ques}
+
+\begin{proof}
+    First, we'll calculate the marginal density of $X$ (xhere $X,Y in [0,1]$): Given $x<0$ or $x>1$, since $f(x,y)=0$, then $f_X(t) = \int_{0}^{1}f(t,y) dy =0$. Else, if $0\leq x\leq 1$, it's described as follow (Note: if $t>y$, then $f(t,y)=0$):
+    \begin{align}
+        f_X(t) = \int_{0}^{1}f(t,y) dy = \int_{t}^{1}n(n-1)(y-t)^{n-2}dy = n(y-t)^{n-1}\bigg|_{0}^{1} = n\left((1-t)^{n-1}-(-t)^{n-1}\right)
+    \end{align}
+    As a result, the conditional density $f_{Y|X}(s|t) = \frac{f(t,s)}{f_X(t)}$ is only defined on some subset of $t\in [0,1]$. Which, fixing $X=x$ (or $t=x$), the conditional expectation of $Y$ is given as follow:
+    \begin{align}
+        \EE[Y|X=x] &= \int_{0}^{1}y\cdot f_{Y|X}(y|x)dy  = \int_{x}^{1}y\cdot\frac{n(n-1)(y-x)^{n-2}}{n\left((1-x)^{n-1}-(-x)^{n-1}\right)}dy\\
+        &= y\cdot \frac{(y-x)^{n-1}}{\left((1-x)^{n-1}-(-x)^{n-1}\right)}\bigg|_{x}^{1} - \int_{x}^{1}\frac{(y-x)^{n-1}}{\left((1-x)^{n-1}-(-x)^{n-1}\right)}dy \\
+        &= \frac{(1-x)^{n-1}}{\left((1-x)^{n-1}-(-x)^{n-1}\right)} - \frac{(y-x)^n}{n\left((1-x)^{n-1}-(-x)^{n-1}\right)}\bigg|_{x}^{1}\\
+        &= \frac{(1-x)^{n-1}}{\left((1-x)^{n-1}-(-x)^{n-1}\right)} - \frac{(1-x)^n}{n\left((1-x)^{n-1}-(-x)^{n-1}\right)}
+    \end{align}
+\end{proof}
+
+\newpage
+
+\section*{3 ND}
+\begin{ques}\label{q3}
+    8.4.8:
+
+    Let $X$ and $Y$ be independent (strictly positive) gamma random variables with parameters $(r_1,\lambda)$ and $(r_2,\lambda)$ respectively. Define $U=X+Y$ and $V=X/(X+Y)$. 
+    \begin{itemize}
+        \item[(a)] Find the joint probability density function of $U$ and $V$.
+        \item[(b)] Prove that $U$ and $V$ are independent.
+        \item[(c)] Show that $U$ is gamma and $V$ is beta.  
+    \end{itemize}
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\section*{4 ND}
+\begin{ques}\label{q4}
+    8.Rev.16:
+
+    A point is selected at random from the bounded region between the curves $y=x^2-1$ and $y=1-x^2$. Let $X$ be the $x$-coordinate, and let $Y$ be the $y$-coordinate of the point selected. Determine if $X$ and $Y$ are independent.
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\section*{5 ND}
+\begin{ques}\label{q5}
+    8.Rev.21:
+
+    Let the joint probability density function of random variables $X$ and $Y$ be given by 
+    $$f(x,y)=\begin{cases}
+        1 & |y|<x,\ 0<x<1\\
+        0 & \text{otherwise}
+    \end{cases}$$
+    Show that $\EE[Y|X=x]$ is a linear function of $x$ while $\EE[X|Y=y]$ is not a linear function of $y$.
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\section*{6}
+\begin{ques}\label{q6}
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\section*{7}
+\begin{ques}\label{q7}
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\section*{8}
+\begin{ques}\label{q8}
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\section*{9}
+\begin{ques}\label{q9}
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\newpage
+
+\section*{10}
+\begin{ques}\label{q10}
+\end{ques}
+
+\begin{proof}
+\end{proof}
+
+\end{document}
