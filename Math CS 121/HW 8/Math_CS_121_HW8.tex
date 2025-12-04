@@ -73,7 +73,7 @@
 
 \newpage
 
-\section*{3 (tweak the justification)}
+\section*{3}
 \begin{ques}\label{q3}
     8.4.8:
 
@@ -85,6 +85,12 @@
 
 \begin{proof}
     Given $X,Y \sim N(0,1)$, then one has $f_X(t)=f_Y(t) = \frac{1}{\sqrt{2\pi}}e^{-x^2/2}$. To show that $U=X+Y, V=X-Y$ are independent, we'll verify that the joint probability density of $U,V$ is separable. 
+
+    \hfil
+
+    First, since $-Y\sim N(0,1)$ (due to the fact that the probability density $f_Y(t)$ is symmetric about $x$-axis, so one has $\PP(-Y\leq t) = \PP(Y\geq -t) = \int_{-t}^{\infty}f_Y(t)dt = \int_{-\infty}^{t}f_Y(t)dt = \PP(Y\leq t)$), so based on the additivity of normal distribution, one has $U=X+Y\sim N(0+0,1+1) = N(0,2)$, and $V=X-Y\sim N(0+0,1+1) = N(0,2)$ also (with mean $\mu=0$, and variance $\sigma^2=2$, or standard deviation $\sigma=\sqrt{2}$). Hence, one has $f_U(s) = f_V(s) = \frac{1}{\sqrt{2}\cdot \sqrt{2\pi}}e^{-(s/\sqrt{2})^2/2}$.
+
+    \hfil
 
     Given the definition of $U,V$, one can retrieve $X = \frac{U+V}{2}$, and $Y = \frac{U-V}{2}$. So, given this transformation $(X,Y) = T(U,V)$, one has the differential and Jacobian determinant given as follow:
     \begin{align}
@@ -98,9 +104,9 @@
     \begin{align}
         f_{U,V}(u,v) &= f_{X,Y}(x,y)|\det J| = \frac{1}{2}f_{X,Y}\left(\frac{u+v}{2},\frac{u-v}{2}\right) = \frac{1}{4\pi}\exp\left(-\frac{1}{2}\left(\frac{u+v}{2}\right)^2\right)\exp\left(-\frac{1}{2}\left(\frac{u-v}{2}\right)^2\right)\\
         &= \frac{1}{4\pi}\exp\left(-\frac{(u^2+v^2+2uv)+(u^2+v^2-2uv)}{8}\right) = \frac{1}{4\pi}e^{-u^2/4}e^{-v^2/4} \\
-        &= \left(\frac{1}{\sqrt{2}\cdot\sqrt{2\pi}}e^{-\frac{(u/\sqrt{2})^2}{2}}\right)\left(\frac{1}{\sqrt{2}\cdot\sqrt{2\pi}}e^{-(v/\sqrt{2})^2/2}\right)
+        &= \left(\frac{1}{\sqrt{2}\cdot\sqrt{2\pi}}e^{-\frac{(u/\sqrt{2})^2}{2}}\right)\left(\frac{1}{\sqrt{2}\cdot\sqrt{2\pi}}e^{-(v/\sqrt{2})^2/2}\right) = f_U(u)f_V(v)
     \end{align}
-    Since the function can be written as $f(u) \cdot g(v)$ Here $f(t)=g(t) = \frac{1}{\sqrt{2}\cdot\sqrt{2\pi}}e^{-(t/\sqrt{2})^2/2}$), showing that the joint probability density of $U,V$ is separable in terms of the variables $u$ and $v$, hence $U,V$ are independent.
+    Since the probability density is separable (with $f_{U,V}(u,v) = f_U(u)f_V(v)$), one can conclude that $U=X+Y,V=X-Y$ are independent.
 \end{proof}
 
 \newpage
@@ -238,7 +244,7 @@
 
 \newpage
 
-\section*{7 ND}
+\section*{7}
 \begin{ques}\label{q7}
     10.2.25:
 
@@ -246,7 +252,33 @@
 \end{ques}
 
 \begin{proof}
-    First, let $X$ be the random variable 
+    First, let $X, Y$ be the random variable of the number of $1$'s and $6$'s within this $n$ throws respectively. Then, both $X,Y\sim \Bin(n, \frac{1}{6})$ (since each throw has a $\frac{1}{6}$ chance of getting 1, or getting 6 respectively, and there are $n$ independent throws). Hence, one has $\EE[X]=\EE[Y] = n p = \frac{n}{6}$, and $\Var(X) =\Var(Y) = \frac{5n}{36}$.
+
+    \hfil
+    
+    Now, to get $\EE[X Y]$, since another restriction one has is $X+Y \leq n$ (since $X,Y$ cannot represent the same collection of throws, because each throw only corresponds to one output; and, there's total of $n$ throws only). So, using conditional probability, one has $\PP(X=i, Y=j) = \PP(Y=j|X=i)\PP(X=i)$, whre $\PP(X=i) = \begin{pmatrix}
+        n\\i
+    \end{pmatrix}\left(\frac{1}{6}\right)^i\left(\frac{5}{6}\right)^{n-i}$, and one requires $i+j\leq n$, so if $i+j>n$, one has $\PP(X=i,Y=j)=0$. Hence, it suffices to understand the distribution of $(Y|X=i)$. 
+
+    If $X=i$, then $Y\leq n-i$; also, since each throw of the fair die within these $n-i$ throws can only have $5$ possible outcomes (since already excluded the possibility that the die gets a $1$, because all the thorws with $1$ are collected by random variable $X$), and each outcome is equally possible to happen, then each throw has a $\frac{1}{5}$ chance of getting outcome $6$. Hence, one has $(Y|X=i) \sim \Bin(n-i, \frac{1}{5})$, showing $\PP(Y=j|X=i) = \begin{pmatrix}
+        n-i\\j
+    \end{pmatrix}\left(\frac{1}{5}\right)^j\left(\frac{4}{5}\right)^{n-i-j}$, and $\EE[Y|X=i] = \frac{n-i}{5}$.
+
+    Finally, this gives the following expected value:
+    \begin{align}
+        \EE[XY]&= \sum_{i=0}^{n}\sum_{j=0}^{n}(i j)\cdot \PP(X=i,Y=j) = \sum_{i=0}^{n}\sum_{j=0}^{n-i}(i j)\cdot \PP(Y=j|X=i)\PP(X=i)\\
+        &= \sum_{i=0}^{n}i\cdot \PP(X=i)\left(\sum_{j=0}^{n-i}j\cdot \PP(Y=j|X=i)\right)= \sum_{i=0}^{n}i\cdot\EE[Y|X=i]\cdot \PP(X=i)\\
+        &= \sum_{i=0}^{n}i \cdot \frac{n-i}{5}\cdot \PP(X=i) = \frac{n}{5}\cdot\EE[X] - \frac{1}{5}\cdot \EE[X^2] = \frac{n}{5}\cdot\EE[X] - \frac{1}{5}\left(\Var(X) + \EE[X]^2\right)
+    \end{align}
+    Hence, plugin the values, one has:
+    \begin{align}
+        \EE[XY]&=\frac{n}{5}\cdot\frac{n}{6} - \frac{1}{5}\left(\frac{5n}{36} + \frac{n^2}{36}\right) = n^2\left(\frac{1}{30}-\frac{1}{36}\right) - \frac{n}{36} = \frac{n^2 - 5n}{180}
+    \end{align}
+    So, the covariance is given as follow:
+    \begin{align}
+        \Cov(X,Y)=\EE[XY]-\EE[X]\EE[Y]=\frac{n^2-5n}{180} - \frac{n^2}{36} = -\frac{4n^2+5n}{180}
+    \end{align}
+
 \end{proof}
 
 \newpage
