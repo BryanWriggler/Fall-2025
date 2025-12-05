@@ -1,10 +1,10 @@
-\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
 \contentsline {section}{\numberline {2}Experimental Setup}{2}{section.2}%
-\contentsline {section}{\numberline {3}Methods of Measurement and Quantities to Measure}{2}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Focal Length Measurement}{2}{subsection.3.1}%
+\contentsline {section}{\numberline {3}Methods of Measurement and Quantities to Measure}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Focal Length Measurement}{3}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Lense Equation:}{3}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Transversal Magnification}{3}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Experimental Procedure}{3}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Focal Length Measurement}{3}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Lense Equation \& Transversal Magnification}{4}{subsection.4.2}%
+\contentsline {section}{\numberline {4}Experimental Procedure}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Focal Length Measurement}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Lense Equation and Transversal Magnification}{5}{subsection.4.2}%
 \contentsline {section}{\numberline {5}Experimental Data}{5}{section.5}%
