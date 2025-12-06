@@ -10,7 +10,7 @@
 
 \tableofcontents
 
-\hfil
+\newpage
 
 \section{Introduction}
 For different lenses / mirrors, there are different effects on refracting the light: For instance, convex lenses (or lenses with positive focal length) and concave mirrors would concentrate the light, while concave lenses (or lenses with negative focal length) would separate the light to wider ranges in contrast to that.
@@ -19,21 +19,24 @@ For these lenses, a simple way of characterizing them is the radius of curvature
 
 The aim for this lab is to understand the relation between the distance of the lens / mirror from the object, the focal length, and the image. Which, the first part of the experimetn is designed to measure the focal length, the second part is proposed for lens equation $\frac{1}{s_o}+\frac{1}{s_i}=\frac{1}{f}$,  the third part is then verify the transversal magnification for provided lens, and the fourth part is for explaning the mirage setup in the lab.
 
-\newpage
+\hfil
+
+\hfil
 
 \section{Experimental Setup}
+\subsection{Normal Setup}
 The lab equipments include: A light source (with multiple mode: including point light source and parallel light source), a track with length provided (to simplify the distance measurement, by reading the values on the track), several lenses (including 3 convex lenses, 1 concave lens, and 1 concave mirror), a bourd (for convex lenses' images), and a half-transparent paper (for concave lens / mirror's image).
 
 The setup is simple: fix the light source on one end of the track, and set the lenses / mirror on the track (at the desired position), then use the board / the paper to observe the position of the image.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=100mm]{lab_setup10.png}
+    \includegraphics[width=80mm]{lab_setup10.png}
     \caption{Picture of the actual Lab Setup}
     \label{fig:lab_setup}
 \end{figure}
 
-\hfil
+\subsection{Mirage Setup}
 
 For the Mirage setup, it includes two concave mirrors with the same focal length (one has a hole at the centor) (the focal length is specifically designed to be twice as the height of the mirror), together with a small object.
 
@@ -56,7 +59,9 @@ Th two mirrors are stacked together with the mirror sides facing each other (the
     \end{subfigure}
 \end{figure}
 
-\newpage
+\hfil
+
+\hfil
 
 \section{Methods of Measurement and Quantities to Measure}
 There are three sections to consider:
@@ -90,7 +95,9 @@ For this section, with light source distance $s_o$ and image distance $s_i$, the
 
 The data for this section will be derived from the data collected for the Lense Equation Section.
 
-\newpage
+\hfil
+
+\hfil
 
 \section{Experimental Procedure}
 \subsection{Focal Length Measurement}
@@ -124,7 +131,7 @@ Finally, the following procedure will be performed for the concave lens:
     \item Repeat Step 4 for different board positions.
 \end{enumerate}
 
-\newpage
+\hfil
 
 \subsection{Lense Equation and Transversal Magnification}
 The following procedure will be performed for convex lenses:
@@ -143,7 +150,7 @@ The following procedure will be performed for concavee lenses:
     \item Repeat Step 1 and 2 for all desired light source distance $s_o$.
 \end{itemize}
 
-\hfil
+\newpage
 
 \section{Experimental Data and Data Analysis}
 \subsection{Focal Length Measurement}
@@ -196,7 +203,7 @@ Image distance (mm) &  & 100.000 & 200.000 & 300.000 \\
 Measured Gap (mm)      & 5.000 & 10.000  & 15.500  & 20.000  \\
 \hline
 \end{tabular}
-\caption{Measurements for Concave Lens (f = -150 mm)}
+\caption{Focal Length for Concave Lens (f = -150 mm)}
 \label{tab:concave_focal}
 \end{table}
 
@@ -207,6 +214,9 @@ Which, under concave lens, with $f$ representing the (absolute value of) focal l
     \caption{Diagram of Concave Lens}
     \label{fig:concave_focal_diagram}
 \end{figure}
+
+\newpage
+
 Which, using the equation $f=\frac{dh}{h'-h}$, one has the three focal lengths (under trial $1-3$ respectively) being $-100.000, -95.238,-100.000$ mm, with average focal length is $f_\text{ave}=-98.413$ mm, and standard deviation SD$=2.749$ mm. Here, the standard deviation in comparison to the average is still on a small scale, so one has a hight confidence of saying the average focal length is a good representative of the actual focal length.
 
 \newpage
@@ -242,7 +252,7 @@ For the lens equation, the following data is gathered (for two convex lenses and
  & 450.000 & -96.000 & -0.008 \\
 \hline
 \end{tabular}
-\caption{Focal Length Measurements for Convex and Concave Lenses}
+\caption{Light Source and Image Distances for Convex and Concave Lenses (unit: mm)}
 \label{tab:lens_eq}
 \end{table}
 
@@ -262,6 +272,61 @@ Which, each case has the following conclusions:
 \end{itemize}
 
 In all three lenses, one can observe a huge percent error between the data for the lens equation and the data prediction, which there is in fact a low confidence that such data support the proposed lens equation $\frac{1}{f}=\frac{1}{s_o}+\frac{1}{s_i}$.
+
+\newpage
+
+\subsection{Transversal Magnification}
+The definition of Transversal Magnification is $M_T := \frac{s_i}{s_o}$. Which, with $\delta s_i$ and $\delta s_o$ be the uncertainty respectively (based on the measurement of the ruler, it'll be up to $\pm 0.5$ mm), one has the following propogation of uncertainty:
+\begin{align}
+    \delta M_T = \sqrt{\left(\frac{\partial M_T}{\partial s_i}\delta s_i\right)^2 + \left(\frac{\partial M_T}{\partial s_o}\delta s_o\right)^2} = \sqrt{\left(\frac{\delta s_i}{s_o}\right)^2+\left(\frac{s_i}{s_o^2}\delta s_o\right)^2}
+\end{align}
+Then, using the data in Table \ref{tab:lens_eq}, for Convex 1 (with focal length $f=81.167$ mm) and the Concave Lense (with focal length $f=-98.413$ mm), one has the following magnification calculation:
+\begin{table}[h!]
+\centering
+\begin{tabular}{l||cc|cc}
+\hline
+\textbf{Measured Focal Length (mm)} & \textbf{$s_o$ (mm)} & \textbf{$s_i$ (mm)} & \textbf{$M_T = s_i/s_o$} & \textbf{$\delta M_T$} \\
+\hline
+\multicolumn{5}{l}{\textbf{Convex 1 (f = 81.167 mm)}} \\
+ & 200.000 & 228.000 & -1.140 & 0.004 \\
+ & 250.000 & 187.000 & -0.748 & 0.002 \\
+ & 300.000 & 167.000 & -0.557 & 0.002 \\
+ & 350.000 & 154.000 & -0.440 & 0.002 \\
+ & 400.000 & 148.000 & -0.370 & 0.001 \\
+\hline
+\multicolumn{5}{l}{\textbf{Concave (f = -98.413 mm)}} \\
+ & 250.000 & -107.000 & 0.428 & 0.002 \\
+ & 300.000 & -104.000 & 0.347 & 0.001 \\
+ & 350.000 & -101.000 & 0.289 & 0.001 \\
+ & 400.000 & -98.000 & 0.245 & 0.001 \\
+ & 450.000 & -96.000 & 0.213 & 0.001 \\
+\hline
+\end{tabular}
+\caption{Transversal Magnification $M_T$ with respect to Light Source Distance $s_o$ and Image Distance $s_i$}
+\label{tab:trans_magnify}
+\end{table}
+
+Which, one can observe that the propogation of uncertainty in general is small in comparison to the magnification, hence one has a high confidence to conclude that the values can represent the transversal magnification in each case.
+
+\hfil
+
+\subsection{Mirage Setup}
+
+For Mirage Setup, some data are collected as follow:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=100mm]{mirage data.jpg}
+    \caption{The Radius of Curavture, Focal Length, and Height of the mirrors}
+    \label{fig:mirage_data}
+\end{figure}
+
+Where, under the small angle approximation, one can assume $f\approx \frac{r}{2}$, showing $f \approx 84.333$ mm (based on the given height and other lenggth of the mirror). With height $h \approx 43$ mm, one can say the focal length $f \approx 2h$ (two times the height of the mirror). So, if one has two identical mirrors, and stack them in the way where the mirror sides face each other, one would have the focal point of each mirror being approximately right on the other mirror's surface (and at the center) as follow:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=100mm]{mirage explain.jpg}
+    \caption{Illustration of the Mirage Setup}
+    \label{fig:mirage_explain}
+\end{figure}
 
 \newpage
 
