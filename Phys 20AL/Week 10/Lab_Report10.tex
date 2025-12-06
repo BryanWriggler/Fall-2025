@@ -203,7 +203,7 @@ Image distance (mm) &  & 100.000 & 200.000 & 300.000 \\
 Measured Gap (mm)      & 5.000 & 10.000  & 15.500  & 20.000  \\
 \hline
 \end{tabular}
-\caption{Focal Length for Concave Lens (f = -150 mm)}
+\caption{Focal Length for Concave Lens (unit: mm)}
 \label{tab:concave_focal}
 \end{table}
 
@@ -328,13 +328,39 @@ Where, under the small angle approximation, one can assume $f\approx \frac{r}{2}
     \label{fig:mirage_explain}
 \end{figure}
 
+Since the object (blue) is right on the top mirror's focal point (botto red dot), then the light from the object after reflected by the top mirror, becomes a parallel light.
+
+Now, the parallel light gets reflected by the bottom mirror, and concentrated toward the bottom mirror's focal point (the top red dot), as a result when the light gets observed by human eyes, the object has the light passes through (and concetrated) at the top focal point, forming an image at the top focal point. In reality it looks like the object is floating on the top opening.
+
 \newpage
 
 \section{Error Analysis}
 
-\newpage
+Within this experiment, besides the human measurement mistakes (or human limitation of making the measurement), here are some potential sources of error:
+\begin{enumerate}
+    \item The light source isn't necessarily a perfect point source or parallel light, which will cause some uncertainty in the experimental behavior, and affect the final measurements.
+    \item The lens itself is also not perfect (just approximately the structure used for lenses), which such imperfection could also cause some uncertainty in the final measurements.
+\end{enumerate}
+
+\hfil
+
+\hfil
 
 \section{Conclusion}
+In this lab, several observations and measurements are made:
+\begin{enumerate}
+    \item For focal length measurements, the three convex lenses have average focal lengths being 81.167 mm, 161.667 mm, and 203.000 mm; the concave mirror has average focal length $-58.500$ mm; and, the concave lens has average focal length -98.413 mm. These data all have small standard deviation (uncertainty), which has a high confidence that these average focal length is a good representative of the actual focal length.
+    
+    \hfil
+
+    \item For the lens equation, unfortunately each measured light source distance $s_o$ and image distance $s_i$ has reciprical sum $\frac{1}{s_o}+\frac{1}{s_i}$ with a high percent error when comparing to the inverse focal length $\frac{1}{f}$, which the collected data has a low confidence of supporting the lens equation, which the lens equation is not a good model of representing this experimental data.
+    
+    \hfil
+
+    \item For the transversal magnification, the data are all provided in Table \ref{tab:trans_magnify}, which one can observe that the propogation of uncertainties $\delta M_T$ are all relatively small in compareson to the magnification $M_T$, hence there is a high confidence that the calculated magnification represnts the actual experimental situation.
+\end{enumerate}
+
+Some possible errors in the experiment include: the imperfection of light source (from being a point source or a parallel source), and the imperfection of lens shape (in general having some errors), both have a possibility of causing uncertainties in the measured image distance / behavior of light with focal lengths.
 
 
 

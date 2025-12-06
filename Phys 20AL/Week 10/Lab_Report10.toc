@@ -15,4 +15,4 @@
 \contentsline {subsection}{\numberline {5.3}Transversal Magnification}{9}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Mirage Setup}{9}{subsection.5.4}%
 \contentsline {section}{\numberline {6}Error Analysis}{11}{section.6}%
-\contentsline {section}{\numberline {7}Conclusion}{12}{section.7}%
+\contentsline {section}{\numberline {7}Conclusion}{11}{section.7}%
