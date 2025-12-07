@@ -39,6 +39,7 @@
 #let Id = math.upright[Id] //normally, used for other types of identity (when there are small purpose, use id; if there are large purposes, use Id instead)
 #let sign = math.upright[sign] //used for sign of a permutation
 #let rad = math.upright[rad] // for radical
+#let Bl = math.upright[Bl] //blow up notation for alg geo
 
 //category theory
 #let cat(name) = math.sans[#name] //general category font command
