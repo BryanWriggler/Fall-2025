@@ -131,7 +131,7 @@
 
 \newpage
 
-\section*{3 (part 3 a, c ND)}
+\section*{3}
 \begin{ques}\label{q3}
 3 Rigged Hilbert Space
 
@@ -181,7 +181,7 @@
 
         \item The spaces satisfy $\Omega \subseteq H \subseteq \Omega^\times$. Which, the functions given satisfy:
         \begin{itemize}
-            \item[(a)] $\sin(x)\in\Omega^\times$: Given that $\int_{-\infty}^{\infty}|\sin(x)|^2 dx$ diverges (since integral of $\sin^2(x)$ diverges), then $\sin(x)\notin H$; however, since $-1\leq \sin(x)\leq 1$, any $\phi(x)\in \Omega^\times$ satisfies 
+            \item[(a)] $\sin(x)\in\Omega^\times$: Given that $\int_{-\infty}^{\infty}|\sin(x)|^2 dx$ diverges (since integral of $\sin^2(x)$ diverges), then $\sin(x)\notin H$; however, since $-1\leq \sin(x)\leq 1$, any $\phi(x)\in \Omega$ also is converging at a fast enough rate (which satisfies $\int_{-\infty}^{\infty}\phi(x)dx$ converges), then one has $\int_{-\infty}^{\infty}\sin(x)\phi(x)dx$ also converges (by the boundedness of $\sin(x)$). As a result, $\sin(x)\in \Omega^\times$.
             
             \hfil
 
@@ -191,7 +191,9 @@
             
             \hfil
 
-            \item[(c)] d
+            \item[(c)] It's clear that $\int_{-\infty}^{\infty}|x^2\cos(x)|^2 dx$ diverges (since $\lim_{x\rightarrow\infty}x^4\cos(x)$ diverges), so $x^2\cos(x)\notin H$, hence also $x^2\cos(x)\notin \Omega$ either. However, for any $\phi(x)\in \Omega$, one has $x^2\phi(x)\in \Omega$ by the result in part 2, then $\int_{-\infty}^{\infty}x^2\cos(x)\phi(x)dx = \int_{-\infty}^{\infty}\cos(x)\left(x^2\phi(x)\right)dx$ also converges (since again $-1\leq \cos(x)\leq 1$, which it is bounded; and, for any $\psi(x)\in \Omega$, it's converging fast enough so $\int_{-\infty}^{\infty}\psi(x)dx$ also converges).
+            
+            As a result, $x^2\cos(x)\in\Omega^\times$.
             
             \hfil
 
@@ -228,7 +230,7 @@
 
 \newpage
 
-\section*{4 (part 6 ND)}
+\section*{4}
 \begin{ques}\label{q4}
 4 Operators, Eigenvectors, Eigenvalues
 
@@ -301,10 +303,7 @@ What are the eigenvectors and eigenvalues for the following operators? In each c
             &I = \exp\left(\int \left(\frac{mw}{\hbar}x - \sqrt{\frac{2mw}{\hbar}}\lambda\right)dx\right) = \exp\left(\frac{mw}{2\hbar}x^2 - \sqrt{\frac{2mw}{\hbar}}\lambda x\right)\\
             &\implies I \psi = C\implies \psi = CI^{-1} = C\exp\left(-\frac{mw}{2\hbar}x^2 + \sqrt{\frac{2mw}{\hbar}}\lambda x\right)
         \end{align}
-        Which, take $ik := \sqrt{\frac{2mw}{\hbar}}\lambda$, any $\phi(k)$ that converges under Fourier Transform satisfies:
-        \begin{align}
-            
-        \end{align}
+        Which, in general there isn't a good way of breaking the functions into sums of these values.
         
         \hfil
 

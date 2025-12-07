@@ -54,7 +54,7 @@
 
   + First, given any $a in I$, any $x in frak(g)$ satisfies $ad a(x) = [a,x] in I$ (by definition of ideal). Hence, $ad a: frak(g) -> frak(g)$ has $im(ad a) subset.eq I$. Which, if composing with the projection $pi:frak(g) ->> frak(g)\/I$, $pi compose ad a: frak(g) ->> frak(g)\/I$ is a zero map, which factors through $frak(g)\/I$ (say denotes as $overline(ad a): frak(g)\/I -> frak(g)\/I$, this is a zero map). 
   
-    So, similar to the previous section, let $W:= I$, $V:= frak(g)$, and $rho := ad:frak(g) -> gl(frak(g))$, for any $a,b in I$, one has the killing form on $frak(g), frak(g)\/I$ satisfies $K_(frak(g))(a,b) = K_(I)(a,b) + K_(frak(g)\/I)(a,b)$. However, we've shown that ay $a in I$ has its action on $frak(g)\/I$ being a zero map, hence $K_(frak(g)\/I)(a,b) = 0$ (since it's trace of products of zero maps). So, $K_(frak(g))(a,b) = K_(I)(a,b)$, showing the Killing form of $I$ coincides with the Killing form of $frak(g)$ restricting to $I$. 
+    So, similar to the previous section, let $W:= I$, $V:= frak(g)$, and $rho := ad:frak(g) -> gl(frak(g))$, for any $a,b in I$, one has the killing form on $frak(g), frak(g)\/I$ satisfies $K_(frak(g))(a,b) = K_(I)(a,b) + K_(frak(g)\/I)(a,b)$. However, we've shown that any $a in I$ has its action on $frak(g)\/I$ being a zero map, hence $K_(frak(g)\/I)(a,b) = 0$ (since it's trace of products of zero maps). So, $K_(frak(g))(a,b) = K_(I)(a,b)$, showing the Killing form of $I$ coincides with the Killing form of $frak(g)$ restricting to $I$. 
 ]
 
 \ 
@@ -63,7 +63,7 @@
 #problem[
   Etingof Problem Set 5.2:
 
-  Show taht for $frak(g)=sl(n,CC)$, the Killing form si given by $K(x,y) = 2n tr(x y)$.
+  Show that for $frak(g)=sl(n,CC)$, the Killing form is given by $K(x,y) = 2n tr(x y)$.
 ][
   First, recall that $sl(n,CC)$ is simple, hence by #text(weight: "bold")[Problem 6] of this problem set (which will be proven), any invariant bilinear form is up to a scalar factor.
 
@@ -105,7 +105,7 @@
 
 #pagebreak()
 
-= part (2) ND //3
+= D //3
 #problem[
   Etingof Problem Set 5.3:
 
@@ -117,20 +117,43 @@
 ][
   + Given any $mat(A,B;0,D), mat(A',B';0,D') in frak(g)$, one has the following:
     $ [mat(A,B;0,D), mat(A',B';0,D')]&=mat(A,B;0,D)mat(A',B';0,D')-mat(A',B';0,D')mat(A,B;0,D)\ 
-    &= mat(A A', *;0, D D') - mat(A' A, *'; 0, D' D) in frak(g) $
-    Hence, $frak(g)$ is closed under Lie bracket, showing it's a Lie subalgebra.
+    &= mat(A A', *;0, D D') - mat(A' A, *'; 0, D' D)\ 
+    &= mat([A,A'], * - *';0, [D,D']) in frak(g) $
+    Where, the brakets in the columns are the commutator of $gl(k,CC)$ for the top left, and the commutator of $gl(n-k,CC)$ for the bottom right.
+
+    Hence, $frak(g)$ is closed under commutator, showing it's a Lie subalgebra.
 
     \ 
 
-  + First, let $I:= {mat(lambda dot I, B'; 0, mu dot I)}$ be the given subspace of $frak(g)$, given any $mat(A,B;0,D) in frak(g)$, one has the following:
+  + First, let $J:= {mat(lambda dot I, B'; 0, mu dot I)}$ be the given subspace of $frak(g)$, given any $mat(A,B;0,D) in frak(g)$, one has the following:
     $ [mat(lambda dot I, B'; 0, mu dot I), mat(A,B;0,D)] &= mat(lambda dot I, B'; 0, mu dot I)mat(A,B;0,D)-mat(A,B;0,D)mat(lambda dot I, B'; 0, mu dot I)\ 
     &= mat(lambda A, *;0, mu D) - mat(lambda A, *'; 0, mu D) = mat(0, * - *'; 0,0) in I $
-    Hence, this shows that $I$ is an ideal of $frak(g)$.
+    Hence, this shows that $J$ is an ideal of $frak(g)$.
 
-    Also, notice that $I subset ut(n, CC)$ (where $ut(n,CC)$ denotes the Lie subalgebra of upper-triangular matrices), since $ut(n,CC)$ is solvable, then $I$ is solvable. So, one hsa $I subset.eq rad(frak(g))$ by definition.
+    Also, notice that $J subset ut(n, CC)$ (where $ut(n,CC)$ denotes the Lie subalgebra of upper-triangular matrices), since $ut(n,CC)$ is solvable, then $J$ is solvable. So, one hsa $J subset.eq rad(frak(g))$ by definition.
 
-    Now, to show that $I = rad(frak(g))$, 
+    Now, to show that $J = rad(frak(g))$, consider the two projections $p_1:frak(g) -> gl(k,CC)$ and $p_2:frak(g)-> gl(n-k,CC)$, by $p_1 mat(A,B;0,D) = A$, and $p_2 mat(A,B;0,D) = D$, which the two are clearly linear maps. However, based on the commutation relation in part (1), these two are also Lie-algebra homomorphisms:
+    $ p_1 [mat(A,B;0,D), mat(A',B';0,D')] &= p_1 mat([A,A'],*-*';0,[D,D']) \ 
+    &= [A,A'] = [p_1 mat(A,B;0,D), p_1 mat(A',B';0,D')] $
+    $ p_2 [mat(A,B;0,D), mat(A',B';0,D')] &= p_2 mat([A,A'],*-*';0,[D,D']) \ 
+    &= [D,D'] = [p_2 mat(A,B;0,D), p_2 mat(A',B';0,D')] $
+    Hence, as a result, $p_1(rad(frak(g))) subset.eq gl(k,CC), p_2(rad(frak(g))) subset.eq gl(n-k,CC)$ are both solvable ideals (since $p_1,p_2$ are surjective in this case), showing $p_1(rad(frak(g))) subset.eq rad(gl(k,CC)) = {lambda dot I_k}$, and $p_2(rad(frak(g))) subset.eq rad(gl(n-k,CC)) = {mu dot I_(n-k)}$ (since classical lie algebras are reductive, meaning $rad(gl(l,CC)) = frak(z)(gl(l,CC))= {lambda dot I_l}$, or the radical and the center coincides).
 
+    Hence, $rad(frak(g)) subset.eq p_1^(-1){lambda dot I_k} = {mat(lambda dot I, B;0, D)}$, and $rad(frak(g)) subset.eq p_2^(-1){mu dot I_(n-k)} = {mat(A, B';0, mu dot I)}$. Hence, $rad(frak(g)) subset.eq {mat(lambda dot I, B;0, D)} sect {mat(A, B';0,mu dot I)} = {mat(lambda dot I, B;0, mu dot I)} = J$. As a conclusion, $rad(frak(g)) = J$.
+
+    \ 
+
+    Finally, to talk about the structure of $frak(g)\/rad(frak(g))$, it can be described by ${mat(A,0;0,D) eval(#200%) A in sl(k,CC), D in sl(n-k,CC)} =: frak(k)$ (the block diagonals are contained in $sl$). 
+    
+    (Note: As a Lie-algebra, since all its components are in $sl$, and are block diagonal, we have $frak(k) tilde.equiv sl(k,CC) plus.circle sl(n-k,CC)$).
+
+    Given any $mat(A,B;0,D) in frak(g)$, take $lambda := tr(A)/k$, and $mu:= tr(D)/(n-k)$, define $A' := A-lambda dot I_k$ and $D' := D- mu dot I_(n-k)$. Notice that $tr(A') = tr(A) - k dot lambda = tr(A)- tr(A) = 0$, and $tr(D')= tr(D)- (n-k) dot mu = tr(D)-tr(D) = 0$, showing $A' in sl(k,CC)$ and $D' in sl(n-k,CC)$. Where, the matrix $mat(A',0;0,D') in frak(k)$, one has the following:
+    $ mat(A,B;0,D)-mat(A',0;0,D) = mat(lambda dot I_k, B;0, mu dot I_(n-k)) in rad(frak(g)) $ 
+    Hence, $mat(A',0;0,D') in frak(k)$ is a representative of $mat(A,B;0,D)$ in $frak(g)\/rad(frak(g))$.
+
+    Now, suppose $mat(A',0;0,D') in frak(k)$ represents the zero coset in $frak(g)\/rad(frak(g))$, one has $mat(A',0;0,D') in rad(frak(g))$, hence there exists $lambda, mu in CC$, such that $A' = lambda dot I_k$, and $D' = lambda dot I_(n-k)$. However, since $A' in sl(k,CC)$ and $D' in sl(n-k,CC)$, one has $0=tr(A') = tr(lambda dot I_k) = k dot lambda$ and $0=tr(D') = tr(mu dot I_(n-k)) = (n-k) dot mu$. With $k,n-k != 0$ (for nontrivial case), then $lambda, mu=0$. Hence, $A'=0$ and $D'=0$, showing $mat(A',0;0,D')=0$.
+
+    Hence, there is a linear one-to-one correspondance between $sl(k,CC) plus.circle sl(n-k,CC) tilde.equiv frak(k)$ and $frak(g)\/rad(frak(g))$ (that also agrees on the Lie-algebra structure), hence $frak(g)\/rad(frak(g)) tilde.equiv sl(k,CC) plus.circle sl(n-k,CC)$.
 ]
 
 #pagebreak()
@@ -177,7 +200,7 @@
 
   Now, for all $x in frak(g)$, consider $ad x in gl(frak(g))$ with its matrix form with respect to the chosen orthonormal basis $x_1,...,x_n$, denote as $cal(M)(ad x) = (a_(i j))_(1<=i,j<=n)$. Using the invariance of Killing form, for any $x_i, x_j$, one has the following:
   $ -K(ad x(x_i),x_j) = K([x_i,x], x_j)=K(x_i,[x,x_j]) = K(x_i, ad x(x_j)) = K(ad x(x_j),x_i) $
-  Where, since $sum_(k=1)^n a_(k i)x_k =  ad x(x_i) = sum_(k=1)^n K(ad x(x_i), x_k) x_k$ (left side given by matrix entries, right side given by inner product), then $a_(j i) = K(ad x(x_i),x_j)$; similarly, one also has $a_(i j) = K(ad x(x_j),x_i)$. Then, based on the above equality, one has $a_(i j) = K(ad x(x_j),x_i) = -K(ad x(x_i),x_j)=-a_(j i)$, showing that matrix of $ad x$ is skew-symmetric, hence $ad x in so(frak(g))$.
+  Where, since $sum_(k=1)^n a_(k i)x_k =  ad x(x_i) = sum_(k=1)^n K(ad x(x_i), x_k) x_k$ (left side given by matrix entries, right side given by $K$ as inner product), then $a_(j i) = K(ad x(x_i),x_j)$; similarly, one also has $a_(i j) = K(ad x(x_j),x_i)$. Then, based on the above equality, one has $a_(i j) = K(ad x(x_j),x_i) = -K(ad x(x_i),x_j)=-a_(j i)$, showing that matrix of $ad x$ is skew-symmetric, hence $ad x in so(frak(g))$.
 
   \ 
 
