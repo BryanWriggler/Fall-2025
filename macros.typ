@@ -40,6 +40,7 @@
 #let sign = math.upright[sign] //used for sign of a permutation
 #let rad = math.upright[rad] // for radical
 #let Bl = math.upright[Bl] //blow up notation for alg geo
+#let Ind = math.upright[Ind] //induced rep functor
 
 //category theory
 #let cat(name) = math.sans[#name] //general category font command
@@ -61,6 +62,7 @@
 #let op = math.upright[op] //used for opposite category
 #let Cone = math.upright[Cone] //used for cone functor
 #let Cocone = math.upright[Cocone] //used for cocone functor
+#let Rep = math.sans[Rep]
 
 //lie group/lie algebra
 #let GL = $"GL"$ //general linear
