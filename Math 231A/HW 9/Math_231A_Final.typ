@@ -176,7 +176,7 @@
 #pagebreak()
 
 #set enum(numbering: "(1)")
-= ND//5
+= D//5
 #problem[
   + Define a bilinear form $B$ on $W = Lambda^2 CC^4$ by $w_1 and w_2 = B(w_1,w_2)e_1 and e_2 and e_3 and e_4$. Show that $B$ is a symmetric non-degenerate form and construct an orthonormal basis for $B$.
   + Let $frak(g)=so(W,B) = {x in gl(W) | B(x w_1,w_2) + B(w_1,x w_2)=0}$.Show that $frak(g) tilde.equiv so(6,CC)$.
@@ -257,5 +257,13 @@
 
     \ 
 
-    Given 
+    Given any $x=(a_(i j)), in sl(4,CC)$ (where the matrix is with respect to the standard basis), one can see their actions on the standard basis of $W = Lambda^2 CC^4$ are given as follow (for simplicity here only shows for $e_1 and e_2$):
+    $ overline(rho)(x) dot (e_1 and e_2) =& (x dot e_1) and e_2+e_1 and (x dot e_2) = sum_(i=1)^4 a_(i 1)e_i and e_2 + sum_(j=1)^4 a_(j 2) e_1 and e_j\ 
+    =& (a_(11)+a_(33))e_1 and e_2 + a_(3 1)e_3 and e_2 + a_(4 1)e_4 and e_2 \ 
+    &+ a_(3 2)e_1 and e_3 + a_(4 2)e_1 and e_4 $
+    Which, if $overline(rho)(x)=0$, the above two terms is $0$. Then, by linear independence of the basis elements, one has $a_(31)=a_(41)=a_(32)=a_(42)=0$, while $a_(11)+a_(33)=0$.
+
+    Run the computation through all the basis elements, one gets that $a_(i j)=0$ for all $i!=j$, while $a_(i i)+a_(j j) = 0$ for all $i,j$. Then, given any $i,j,k$,  since $a_(i i)+a_(j j)=a_(i i)+a_(k k)=a_(j j)+a_(k k)=0$, one has $a_(i i)-a_(j j)=0 = -a_(i i)-a_(j j)$, so $2a_(i i)=0$, or $a_(i i)=0$. 
+
+    Hence, with all entries being $0$, $x = 0$, showing the homomorphism $overline(rho)$ is injective, hence an isomorphism.
 ]
