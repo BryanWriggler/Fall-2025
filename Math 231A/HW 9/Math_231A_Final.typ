@@ -26,17 +26,13 @@
   date: datetime.today().display("[month repr:long] [day], [year]"),
 )
 
-=  ==> ND//1
+= D//1
 #problem[
   Etingof Problem Sets 6.2:
 
   Show that for $frak(g)=gl(n,CC)$, the definition of a semisimple element (an element $x$ such that $ad x$ is a semisimple operator) coincides to the usual definition of a semisimple operator.
 ][
   The goal is to show that $x in frak(g)$ (as a matrix in $gl(n,CC):= M_(n times n)(CC)$) has $ad x in End(frak(g))$ being a semisimple operator $<==>$ $x in End(CC^n)$ is a semisimple operator. (Note: Here assume that $x in gl(n,CC)$ is a matrix under standard basis).
-
-  \ 
-
-  $==>:$
 
   \ 
 
@@ -56,9 +52,25 @@
     &= (lambda_i - lambda_j)P E_(i j)P^(-1) $
 
   So, ${P E_(i j)P^(-1)}_(1<=i,j<=n) subset frak(g)$ is indeed a basis, consists of eigenvectors of $ad x$, showing $ad x in End(frak(g))$ is a semisimple operator, hence $x in frak(g)$ is a semisimple element.
+
+  \ 
+
+  $==>:$ Suppose $ad x in End(frak(g))$ is a semisimple operator. Let $x = x_s + x_n$ (where $x_s, x_n in frak(g) = End(CC^n)$ are semisimple and nilpotent operators on $CC^n$ respectively) such that $x_s x_n = x_n x_s$, or $[x_s, x_n]=0$ (which can be done using Jordan decomposition). In particular, $x x_s = x_s x$, showing the following:
+  $ ad x(ad x_s (A)) = [x,[x_s,A]] = -[x_s,[A,x]] - [A, [x,x_s]] = [x_s,[x,A]] = ad x_s (ad x(A)) $
+  This shows that $ad x$, $ad x_s$ are commuting operators. Which, based on the converse above, since $ad x_s$ is also semisimple, it is diagonalizable; with $ad x_s$, $ad x$ being two diagonalizable operators that commute, they're simultaneously diagonalizable.
+
+  Let $A_1,..., A_(n^2) in frak(g)$ be the basis consists of common eigenvectors of $ad x$ and $ad x_s$ (with eigenvalues $lambda_1,...,lambda_(n^2)$ and $mu_1, ..., mu_(n^2)$ respectively). Then, one has the following:
+  $ lambda_i A_i = ad x(A_i) = ad(x_s+x_n)(A_i) = ad x_s (A_i) + ad x_n (A_i) = mu_i A_i + ad x_n (A_i) $
+  Hence, $ad x_n (A_i) = (lambda_i - mu_i) A_i$, showing that $ad x_n$ is also a diagonalizable operator; however, notice that since $x_n in End(CC^n)$ is nilpotent, hence so is $ad x_n$. Then, being semisimple and nilpotent implies $ad x_n = 0$, so $x_n in frak(z)(frak(g))$, the center of $gl(n,CC)$.
+
+  Finally, since the center of $gl(n,CC)$ are all the complex scalar multiples of identity, the $x_n = lambda dot I$ for some $lambda in CC$; then with nilpotency of $x_n$ as an operator on $CC^n$, one must have $lambda = 0$. So, $x = x_s$ is a semisimple operator on $CC^n$.
+
+  \
+
+  The above two directions shows the equivalency of $x in gl(n,CC)$ being a semisimple operator on $CC^n$, and $ad x in End(frak(g))$ being a semisimple operator.
 ]
 
-\ 
+#pagebreak()
 
 = D//2
 #problem[
@@ -81,14 +93,26 @@
 
 \ 
 
-= ND//3
+= D//3
 #problem[
   Etingof Problem Sets 6.4:
 
   Let $frak(g)$ be a complex Lie algebra which has a root decomposition:
   $ frak(g)=frak(h) plus.circle plus.circle.big_(alpha in R)frak(g)_alpha $
   where $R$ is a finite subset in $frak(h)^*\\{0}$, $frak(h)$ is commutative and for $h in frak(h)$, $x in frak(g)_alpha$, we have $[h,x] = langle h,alpha rangle x$. Show that then $frak(g)$ is semisimple, and $frak(h)$ is a Cartan subalgebra.
-][]
+
+  (Correction: For any $alpha in frak(h)^*$, the Killing form $K$ also gives a non-degenerate pairing on $frak(g)_alpha times frak(g)_(-alpha)$, which implies $alpha in R <==> -alpha in R$, while the restriction of $K$ to $frak(h)$ is non-degenerate).
+][
+  First, given that the Killing form $K$ restricts to a non-degenerate pairing $frak(g)_alpha times frak(g)_(-alpha)$, it's clear that the Killing form is non-degenerate, since for any $x in frak(h)$, one has some $y in frak(h)$ such that $K(x,y)!=0$, while for any $alpha in R$, since $-alpha in R$, then any $x' in frak(g)_(alpha)$ has some nonzero $y' in frak(g)_(-alpha)$, such that $K(x',y')!=0$. Since $frak(g)=frak(h) plus.circle (plus.circle.big_(alpha in R)frak(g)_alpha)$, then choose a basis according to this direct sum, one has the Killing Form being non-degenerate for all the basis elements, showing $ker(K)=0$. Hence, as a result of Cartan Semisimplicity Theorem, $frak(g)$ is semisimple.
+
+  \ 
+
+  Now, to show that $frak(h)$ is a Cartan subalgebra, first it's clear that $frak(h)$ is Toral, since it's first abelian, and for any $x in frak(h)$, choose a basis according to the Root Decomposition $frak(g)=frak(h)plus.circle (plus.circle.big_(alpha in R)frak(g)_alpha)$ (i.e. a basis consists of elements in each direct sum), then one has $ad x$ acts diagonally on this basis (since each $frak(g)_alpha$ is an eigenspace of $ad x$, with weight $alpha(x)$, while any $y in frak(h)$ has $ad x(y)=0$ by abelian property of $frak(h)$), showing $ad x$ is diagonalizable, hence semisimple. So, any $x in frak(h)$ is a semisimple element, showing $frak(h)$ is toral.
+
+  Finally, since for any $x,y in frak(h)$, the abelian property guarantees $ad x(y) = 0$, showing $y in frak(g)_0$ (since $ad x(y) = 0 dot y$ for all $x in frak(h)$), so $frak(h) subset.eq frak(g)_0$. Also, for any $y in frak(g)_0$ (say $y = x_0 + x_(1)+...+x_(n)$, with $x_0 in frak(h)$, and each $x_(i) in frak(g)_(alpha_i)$ based on the root decomposition of $frak(g)$), since for any $alpha_i in R$, thre exists $z_i in frak(h)$ such that $alpha_i (z_i)!=0$, then one has the following:
+  $ 0 = ad z_i (y) = [z_i,x] + [z_i, x_1]+... + [z_i, x_n] = alpha_1 (z_i) x_1 + ... + alpha_i (z_i) x_i + ... + alpha_n (z_i) x_n $
+  Which, each $alpha_j (z_i) x_j in frak(g)_(alpha_j)$, so by the direct sum property this enforces each $alpha_j (z_i) x_j = 0$. But, with $alpha_i (z_i)!=0$, one must have $x_i=0$ for this to be true. Hence, with $i in {1,...,n}$ being arbitrary, one must have each $x_i=0$, showing $y = x_0+x_1+...+x_n = x_0 in frak(h)$. So, $frak(g)_0 subset.eq frak(h)$, showing $frak(g)_0 = frak(h)$. Hence, $frak(h)$ is a Cartan subalgebra.
+]
 
 \ 
 

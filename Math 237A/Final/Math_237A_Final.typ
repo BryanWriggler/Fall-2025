@@ -270,13 +270,17 @@
 
     \ 
 
-  + Given $tilde(X) = Bl_P X = {(overline(x), [ell]) in AA^3 times PP^2 | overline(x) in X, overline(x) in ell}$ (where $ell$ is a $1$-dimensional subspace of $AA^3$), which are all the points $(overline(x), [ell]) in X times PP^2$, such that $overline(x) = (x,y,z)$ and $[ell] = [X',Y,Z]$ satisfies $mat(x,y,z;X',Y,Z)$ has rank $<=1$ (here, $x,y,z$ are the defining equations of $P=(0,0,0) in AA^3$). Which, if cover $tilde(X)$ with the standard affine charts, one can calculate the defining equations as follow: 
+  + First, we know that $tilde(X)$ can also be viewed as the proper transform of $X$, namely if constructing the blowing-up $Bl_P AA^3 = {(overline(x), [ell]) in AA^3 times PP^2 | overline(x) in ell}$ (where $ell subset AA^3$ is a $1$-dimensional subspace), with projection $mu:Bl_P AA^3 -> AA^3$, the blowing-up $tilde(X)$ is also isomorphic to $overline(mu^(-1)(X\\{P})) subset Bl_P AA^3$.
+
+    Which, consider the closed set $C = (X times Y) sect l_P AA^3$ (which are all pairs $(overline(x), [ell])$, such that $[ell] in Y$, and $overline(x) in ell$), we claim that $C = overline(mu^(-1)(X\\{P}))$, the proper transform of $X$. It's clear that $overline(mu^(-1)(X\\{P})) subset.eq C$ (since for any nonzero $overline(x) in X subset AA^3$, let $ell$ be the $1$-dimensional subspace spanned by $overline(x)$, then $(overline(x), [ell]) in C$ since $f$ is homogeneous, the $f(overline(x))=0$ implies all points on $ell$ is also a solution of $f$, so $f([ell])=0$ also, hence $[ell] in Y$; also, $(overline(x), [ell]) in mu^(-1)(X\\{P})$ by definition of $Bl_P AA^3$)
+
+  Given $tilde(X) = Bl_P X = {(overline(x), [ell]) in AA^3 times PP^2 | overline(x) in X, overline(x) in ell}$ (where $ell$ is a $1$-dimensional subspace of $AA^3$), which are all the points $(overline(x), [ell]) in X times PP^2$, such that $overline(x) = (x,y,z)$ and $[ell] = [X',Y,Z]$ satisfies $mat(x,y,z;X',Y,Z)$ has rank $<=1$ (here, $x,y,z$ are the defining equations of $P=(0,0,0) in AA^3$). Which, if cover $tilde(X)$ with the standard affine charts, one can calculate the defining equations as follow: 
   
     For instance, take open subset $U_X'$ (where $X'!=0$ in $AA^3 times PP^2$), its intersection with $Bl_P AA^3$ can be given as all points $(overline(x), [ell])$ such that $mat(x,y,z;X',Y,Z)$ has rank $<=1$; with $X!=0$, one can assume $X=1$, hence $(x,y,z)$ is a scalar multiple of $(1,Y,Z)$, causing $y = x Y$ and $z = x Z$. So, such open chart in $Bl_P AA^3$ is isomorphic to $AA^3$ by the coordinate $(x,Y,Z)$. And, the projeciton $mu:tilde(X) -> X$ restricted onto this chart $U_X sect tilde(X)$ has $phi(x,Y,Z) = (x,y,z) = (x,x Y, x Z)$. So, the defining equation of $X$ (given as $f$), pulls back to a definine equation of $tilde(X) sect U_X'$, given by $f_X'  = f(x, x Y, x Z)$; and since $f$ is homogeneous of degree $d$, $f_X'= f(x, x Y, x Z) = x^d f(1, Y, Z)$. Which, the partial derivatives of $f_X'$, are $(partial f_X')/(partial x) = d x^(d-1) f(1,Y,Z)$, $(partial f_X')/(partial Y) = x^d dot (partial f)/(partial Y)(1,Y,Z)$, and $(partial f_X')/(partial Z) = x^d dot (partial f)/(partial Z)(1,Y,Z)$. With $d>1$, this shows that all partial derivatives vanished whenever $x = 0$. Which, notice that any points $(0,Y,Z)$ satisfies the defining equation $f_X'$, since $f_X'(0,Y,Z) = f(0,0 dot Y, 0 dot Z) = f(0,0,0)=0$ (due to the fact that $f$ is homogeneous of degree $d>1$). Hence, within the open chart $tilde(X) sect U_X'$, one can find a collection of singular points, showing $tilde(X)$ is non-singular.
 
     \ 
 
-  + 
+  + Notice that the set $phi^(-1)(P) = {(overline(0), [ell]) in tilde(X)}$
 
     
 ]
