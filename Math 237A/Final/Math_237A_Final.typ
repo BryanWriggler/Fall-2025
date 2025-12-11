@@ -357,7 +357,7 @@
 
 #pagebreak()
 
-= (b),(c) ND//7
+= D//7
 #problem[
   Hartshorne 5.7:
 
@@ -376,28 +376,29 @@
 
     \ 
 
-  /*
-  + First, we know that $tilde(X)$ can also be viewed as the proper transform of $X$, namely if constructing the blowing-up $Bl_P AA^3 = {(overline(x), [ell]) in AA^3 times PP^2 | overline(x) in ell}$ (where $ell subset AA^3$ is a $1$-dimensional subspace), with projection $mu:Bl_P AA^3 -> AA^3$, the blowing-up $tilde(X)$ is also isomorphic to $overline(mu^(-1)(X\\{P})) subset Bl_P AA^3$.
-
-    Which, consider the closed set $C = (X times Y) sect Bl_P AA^3$ (which are all pairs $(overline(x), [ell])$, such that $[ell] in Y$, and $overline(x) in ell$), we claim that $C = overline(mu^(-1)(X\\{P}))$, the proper transform of $X$. 
-    
-    It's clear that $overline(mu^(-1)(X\\{P})) subset.eq C$ (since for any nonzero $overline(x) in X subset AA^3$, its fibre is $mu^(-1)(overline(x)) = (overline(x), [ell]) in Bl_P AA^2$, where $ell$ is the $1$-dimensional subspace spanned by $overline(x)$; notice that $(overline(x), [ell]) in C$ since $f$ is homogeneous, the $f(overline(x))=0$ implies all points on $ell$ is also a solution of $f$, so $f([ell])=0$ also, hence $[ell] in Y$, showing $mu^(-1)(overline(x)) = (overline(x), [ell]) in C$).
-
-    For the converse, since $mu$ is continuous, one has $mu(overline(mu^(-1)(X\\{P}))) subset.eq overline(mu(mu^(-1)(X\\{P}))) = overline(X\\{P}) = X$ (the first inclusion is the property of continuous map, the second inclusion is by definition of preimage and image; on the other hand, since $mu$ is surjective, $mu(mu^(-1)(X\\{P})) = X\\{P}$). Also, one has $X=overline(mu(mu^(-1)(X\\{P}))) subset.eq mu(overline(mu^(-1)(X\\{P})))$ (since $mu:Bl_P AA^3-> AA^3$ is a restriction of the projection $AA^3 times PP^2 -> AA^3$, which is a closed map; which, this inclusion is the property of closed map). Hence, one has $mu(overline(mu^(-1)(X\\{P}))) = X$
-
-    \ 
-
-    From the above information, given $tilde(X) = Bl_P X = {(overline(x), [ell]) in Bl_P AA^3 | overline(x) in ell subset X}$ (where $ell$ is a $1$-dimensional subspace of $AA^3$, with $[ell] in Y$, hence $ell subset X$, the cone of $Y$), which are also all the points $(overline(x), [ell]) in X times Y$, such that $overline(x) = (x,y,z)$ and $[ell] = [X',Y,Z]$ satisfies $mat(x,y,z;X',Y,Z)$ has rank $<=1$ (here, $x,y,z$ are the defining equations of $P=(0,0,0) in AA^3$). Which, if cover $tilde(X)$ with the standard affine charts, one can calculate the defining equations as follow: 
+  + We'll consider $tilde(X)$ as the proper transform of $X$ in $Bl_0 AA^3$. For simplicity, we'll just demonstrate one affine chart calculation: Pick $U_X'$ (where $X'!=0$ in $Bl_0 AA^3$, where the points are of the form $(overline(x), [ell])$, where $overline(x)=(x,y,z)$ and $[ell] = [X',Y,Z]$ have $mat(x,y,z;X',Y,Z)$ with rank $<=1$). Then, the local description is $(x,Y,Z)$.
   
-    For instance, take open subset $U_X'$ (where $X'!=0$ in $AA^3 times PP^2$), its intersection with $Bl_P AA^3$ can be given as all points $(overline(x), [ell])$ such that $mat(x,y,z;X',Y,Z)$ has rank $<=1$; with $X!=0$, one can assume $X=1$, hence $(x,y,z)$ is a scalar multiple of $(1,Y,Z)$, causing $y = x Y$ and $z = x Z$. So, such open chart in $Bl_P AA^3$ is isomorphic to $AA^3$ by the coordinate $(x,Y,Z)$. And, the projeciton $mu:tilde(X) -> X$ restricted onto this chart $U_X sect tilde(X)$ has $phi(x,Y,Z) = (x,y,z) = (x,x Y, x Z)$. So, the defining equation of $X$ (given as $f$), pulls back to a definine equation of $tilde(X) sect U_X'$, given by $f_X'  = f(x, x Y, x Z)$; and since $f$ is homogeneous of degree $d$, $f_X'= f(x, x Y, x Z) = x^d f(1, Y, Z)$. Which, the partial derivatives of $f_X'$, are $(partial f_X')/(partial x) = d x^(d-1) f(1,Y,Z)$, $(partial f_X')/(partial Y) = x^d dot (partial f)/(partial Y)(1,Y,Z)$, and $(partial f_X')/(partial Z) = x^d dot (partial f)/(partial Z)(1,Y,Z)$. With $d>1$, this shows that all partial derivatives vanished whenever $x = 0$. Which, notice that any points $(0,Y,Z)$ satisfies the defining equation $f_X'$, since $f_X'(0,Y,Z) = f(0,0 dot Y, 0 dot Z) = f(0,0,0)=0$ (due to the fact that $f$ is homogeneous of degree $d>1$). Hence, within the open chart $tilde(X) sect U_X'$, one can find a collection of singular points, showing $tilde(X)$ is non-singular in the region $U_X'$. Apply similar logic to open subsets $U_Y$ (where $Y!=0$) and $U_Z$ (where $Z!=0$), in each region one can deduce $tilde(X)$ is non-singular using similar method
+    Take the pull back of the equation, we in fact ield $f(x, x Y, x Z) = x^d dot f(1, Y, Z)$ (this is based on the fact that $f$ is homogeneous of degree $d$). Here, since the preimage of $P=(0,0,0)$ in this affine chart has $x=0$, $x^d=0$ is the defining equation for the exceptional divisor, hence we're left with the equation $f(1, Y, Z)$ that defines $tilde(X)$ in $U_X'$. Then, the partial derivatives with respect to $Y,Z$ are given by $(partial f)/(partial Y)(1,Y,Z)$, and $(partial f)/(partial Z)(1,Y,Z)$. In part (a) we've verified that at theast one of the two must be nonzero, showing $tilde(X)$ is non-singular within the affine chart.
+
+    Also, notice that the same idea applies to all the other affine charts (liek $U_Y$ where $Y!=0$, and $U_Z$ where $Z!=0$), showing that under the affine cover $tilde(X)$ contains only non-singular points, hence non-singular.
 
     \ 
 
-  + Notice that the set $phi^(-1)(P) = {(P, [ell]) in tilde(X)}$ (based on the information in part (b)), where $tilde(X)$ enforces $[ell] in Y$; and, since $P = (0,0,0)$, then $P in ell$ for any $[ell] in Y$. So, the map $Y -> phi^(-1)(P)$ by $[ell] mapsto (P, [ell])$ is well-defined; also, if using the restricted second projection $"pr"_2:phi^(-1)(P) -> PP^2$, one has $"pr"_2 (P, [ell]) = [ell] in Y$ for any $(P,[ell]) in phi^(-1)(P)$.
+  + It suffices to check that under each of the three standard affine charts of $Bl_0 AA^3$ and $PP^2$ (while viewing $tilde(X)$ as the proper transform of $X$), it induces an isomorphism between $phi^(-1)(P)$ and $Y$.
 
-    Which, these two maps are clearly mutual inverses of each other, while being morphisms, showing that $phi^(-1)(P) tilde.equiv Y$.
+    Let $U_X' tilde.equiv AA^3$ denotes the affine open chart of $Bl_0 AA^3$ with $X'!=0$ (which has local description $(x,Y,Z)$ and projection back to $AA^3$, by $phi(x,Y,Z) = (x,x Y, x Z)$), and let $V_x tilde.equiv AA^2$ denotes the affine open chart of $PP^2$ where $x != 0$ (use $[x,y,z]$ as the coordinates of $PP^2$).
 
-    */
+    Which, the answer in part (a) suggested that in $V_x$ (with coordinate $(y,z)$, since WLOG can assume $x = 1$), $Y$ is cut out by the equation $f(1,y,z)=0$; on the other hand the answer in part (b) suggested that in $U_X'$ (with coordinate $(x, Y, Z)$), the exceptional divisor is cut out by the equation $x^d = 0$, hence $phi^(-1)(P) subset.eq {x=0} subset.eq U_X'$ (since if $phi(x,Y,Z) = (x,x Y, x Z) = P = (0,0,0)$, one must have $x=0$), which narrows down the the subset ${(0,Y,Z) in U_X'} tilde.equiv AA^2$.
+
+    Also, notice that $phi^(-1)(P)$ under $U_X'$, is precisely the intersection ${x^d=0} sect (tilde(X) sect U_X')$ (since any point that projects down to $P=(0,0,0)$ must precisely have $x=0$, which is precisely $phi^(-1)(P) sect U_X'$ should contain this set; the other inclusion is by the fact that $phi^(-1)(P) subset.eq tilde(X)$, and all point must have $x=0$ when intersecting $U_X'$), while $tilde(X) sect U_(X')$ has the defining equation $f(1,Y,Z)$ based on the result in part (b).
+
+    Hence, this shows the following isomorphism: 
+    $ phi^(-1)(P) sect U_X' &= {x^d = 0} sect (tilde(x) sect U_X') =  {(0,Y,Z) | f(1,Y,Z)=0} \
+    &tilde.equiv {(y,z) | f(1,y,z)=0} = Y sect V_x $
+    Which, under the intersection with affine charts, one can see $phi^(-1)(P)$ is isomorphic to $Y$. 
+
+    /*
+    Finally, it comes down to check such isomorphism on each intersection with the affine chart, agrees when the affine chart overlaps (or, it is uniquely determined regardless of the affine chart). Given any point in $phi^(-1)(P)$, say it's both in $U_X'$ and $U_Y$, then one needs $x=y=0$, which corresponds to a matrix $mat(0,0,z;X',Y,Z)$, with both $X',Y !=0$. However, for this matrix to be in the proper transform (which is part of the $Bl_0 AA^3$), one needs its rank to be at most 1, showing that $(0,0,z)$ is a scalar multiple of $(X',Y,Z)$, and this further implies $z=0$ (since $X',Y$ are multiplied by a scalar to get $0$). However, based on te isomorphism constructed, it corresponds to $[1,0,0]$ and $[0,1,0]$*/
 ]
 
 #pagebreak()
