@@ -31,55 +31,41 @@
   Lazarsfeld Problem Set 6 (4):
 
   Let $GG=GG(1,3)$ be the Grassmannian parametrizing lines in $PP^3$, and fix a line $ell_0 subset PP^3$. Let $Sigma subset GG$ be the subset of $GG$ corresponding to all lines meeting $ell_0$, so that (as we've seen before) $Sigma$ is a hyperplane section of $GG$.
-  + Show that $Sigma$ has a unique singular point (at the point of $GG$ corresponding to $ell_0$). In fact, $Sigma'$ is a quardric $Q$ of rank $4$ in $PP^4$.
-  + Let $Q subset PP^4$ be a quadric of rank $4$ in $PP^4$, with singular point $o in Q$. Let $Q'$ be the proper transform of $Q$ under the blowing up of $o in P^4$. Show that $Q'$ is non-singular, and that the fibre of $nu:Q'-->Q$ over $o$ is (isomorphic to) $PP^1 times PP^1$.d
+  + Show that $Sigma$ has a unique singular point (at the point of $GG$ corresponding to $ell_0$). In fact, $Sigma$ is a quardric $Q$ of rank $4$ in $PP^4$.
+  + Let $Q subset PP^4$ be a quadric of rank $4$ in $PP^4$, with singular point $o in Q$. Let $Q'$ be the proper transform of $Q$ under the blowing up of $o in PP^4$. Show that $Q'$ is non-singular, and that the fibre of $nu:Q'-->Q$ over $o$ is (isomorphic to) $PP^1 times PP^1$.
   + Returning to the realization $Sigma$ of $Q$ in (a), define $Sigma' subset.eq GG times ell_0$ to be the incidence correspondance $Sigma' = {([ell], x) | x in ell sect ell_0}$. Show that $Sigma'$ is smooth (non-signular), and that the projection $mu:Sigma' --> Sigma$ is an isomorphism away from$[ell_0]$, while $mu^(-1)[ell_0]$ is a copy of $PP^1$. This map is called the "small resolution" of $Q=Sigma$.
 ][
-  
-]
+  + First, recall that the Grassmannian has Plucker Embedding $GG(1,3) arrow.hook PP^5$, where for each line (or a 2-dimensional subspace in $k^4$), a corresponding matrix $mat(x_1,x_2,x_3,x_4;y_1,y_2,y_3,y_4)$ in $PP^5$ corresponds to the point $[X_(12),X_(13),X_(14),X_(23),X_(24),X_(34)] in PP^5$, where each $X_(i j) = det mat(x_i,x_j;y_i, y_j)$. 
 
-#pagebreak()
+    WLOG, up to a projective linear transform one can assume the point $ell_0 = mat(1,0,0,0;0,1,0,0)$, which corresponds to the point $[1,0,0,0,0,0] in GG(1,3) subset PP^5$. Which, we claim that a line $ell = mat(x_1,x_2,x_3,x_3;y_1,y_2,y_3,Y_4) in Sigma$ iff $X_(3 4) = det mat(x_3,x_4;y_3,y_4)=0$.
 
-= D//7
-#problem[
-  Hartshorne 5.7:
+    $==>:$ If $ell in Sigma$, then it intersects with $ell_0$. On the level of $k^4$, it implies there exists $[s,t] in PP^1$, such that $s[x_1,x_2,x_3,x_4]+t [y_1,y_2,y_3,y_4] in ell_0$, which has the last two coordinates being zero, showing $(s x_3 + t y_3, s x_4+t y_4) = mat(s ,t)mat(x_3,x_4;y_3,y_4) = mat(0,0)$. With $(s,t)!=0$ as a vector, this implies $det mat(x_3,x_4;y_3,y_4)=0$, hence the corresponding Pucker coordinate has $X_(3 4)=0$.
 
-  Let $Y subset.eq PP^2$ be a non-singular plane curve of degree $>1$, defined by the equation $f(x,y,z)=0$. Let $X subset.eq AA^3$ be the affine variety defined by $f$ (this is the cone over $Y$; see (Exercise 2.10)). Let $P$ be the point $(0,0,0)$, which is the #emph[vertex] of the cone. Let $phi:tilde(X)->X$ be the blowing-up of $X$ at $P$.
-  + Show that $X$ has just one singular point, namely $P$.
-  + Show that $tilde(X)$ is non-singular (cover it with open affines).
-  + Show that $phi^(-1)(P)$ is isomorphic to $Y$.
-][
-  + Since $Y$ is a projective algebraic set, its defining equation $f$ is homogeneous of some degree $d$; also, it is assumed to be non-singular, then under the affine cover of $PP^2$, the defining equation of $Y$ in each of the affine chart is nonzero: 
-  
-    For instance, in the affine chart $U_x$ (where $x!=0$), the defining equation of $Y sect U_x subset.eq U_x$ is $f(1,y,z)$ (since can assume $x=1$). Then, $Y$ is non-singular implies $(partial f)/(partial y)(1,y,z)$ or $(partial f)/(partial z)(1,y,z)$ is nonzero (for definiteness, say $(partial f)/(partial y)(1,y,z)!=0$). Hence, in $AA^3$, if $(x,y,z) in X$ has $x = a!=0$, then since $(partial f)/(partial y)$ has degree $d-1$ (Note: in #text(weight: "bold")[Problem 5] it's proven that any homogeneous polynomial of degree $d$ has nonzero partial derivatives being homogeneous of degree $d-1$), then one has $(partial f)/(partial y)(a,y,z) = a^(d-1) (partial f)/(partial y)(1, y/a, z/a) != 0$. So, the partial derivative is nonvanishing at $(x,y,z) = (a,y,z)!=0$.
-
-    Apply similar logic to $y!=0$ and $z!=0$ (which instead need the affine chart $U_y subset.eq PP^2$ and $U_z subset.eq PP^2$ respectively, and the same claim on the partial derivatives in the affine chart), one can deduce that if $x!=0$, $y!=0$, or $z!=0$, at least one of the partial derivatives of $f$ is nonvanishing. Hence, the only possible singularity must be at $P=(0,0,0)$.
-
-    Finally, the reason why $P$ is singular, is because $Y subset PP^2$ is of degree $d>1$ (the homogeneous degree of $f$), hence all of its partial derivatives $(partial f)/(partial x), (partial f)/(partial y), (partial f)/(partial z)$ are homogeneous of degree $d-1 >= 1$. Hence, plugin $(x,y,z)=(0,0,0)$, since each monomial (of the partial derivatives) is non-constant, it must evaluate to be $0$, showing all partial derivatives vanish at $P=(0,0,0)$.
+    $<==:$ If $X_(34)=det mat(x_3,x_4;y_3,y_4)=0$, there exists nonzero $(s,t)$, such that $mat(s,t)mat(x_3,x_4;y_3,y_4)=(s x_3+t y_3,s x_4+t y_4)=0$. Hence, the vector (in $k^4$) / point (in $PP^3$) has $[s x_1+t y_1,s x_2+t y_2, s x_3+t y_3, s x_4+t y_4] = [s x_1+t y_1,s x_2+t y_2,0,0] in ell_0$, shwoing $ell sect ell_0 != emptyset$, or $ell in Sigma$.
 
     \ 
 
-  + We'll consider $tilde(X)$ as the proper transform of $X$ in $Bl_0 AA^3$. For simplicity, we'll just demonstrate one affine chart calculation: Pick $U_X'$ (where $X'!=0$ in $Bl_0 AA^3$, where the points are of the form $(overline(x), [ell])$, where $overline(x)=(x,y,z)$ and $[ell] = [X',Y,Z]$ have $mat(x,y,z;X',Y,Z)$ with rank $<=1$). Then, the local description is $(x,Y,Z)$.
-  
-    Take the pull back of the equation, we in fact ield $f(x, x Y, x Z) = x^d dot f(1, Y, Z)$ (this is based on the fact that $f$ is homogeneous of degree $d$). Here, since the preimage of $P=(0,0,0)$ in this affine chart has $x=0$, $x^d=0$ is the defining equation for the exceptional divisor, hence we're left with the equation $f(1, Y, Z)$ that defines $tilde(X)$ in $U_X'$. Then, the partial derivatives with respect to $Y,Z$ are given by $(partial f)/(partial Y)(1,Y,Z)$, and $(partial f)/(partial Z)(1,Y,Z)$. In part (a) we've verified that at theast one of the two must be nonzero, showing $tilde(X)$ is non-singular within the affine chart.
+    Hence, $Sigma subset GG(1,3) subset PP^5$ is the intersection ${X_(34)=0} sect GG(1,3)$; with $GG(1,3)$ being cut out by the equation $X_(12)X_(34)-X_(13)X_(24)+X_(14)X_(23)=0$, the defining equation for $Sigma subset PP^5$ is ${X_(34)=0, X_(14)X_(23)-X_(13)X_(24)=0}$. And, notice that since the last coordinate is $0$, one can simply project $Sigma$ down to $PP^4$ with coordinates $[X_(12),X_(13),X_(14),X_(23),X_(24)]$, and now the definig equation is $X_(14)X_(23)-X_(13)X_(24)=0$.
 
-    Also, notice that the same idea applies to all the other affine charts (liek $U_Y$ where $Y!=0$, and $U_Z$ where $Z!=0$), showing that under the affine cover $tilde(X)$ contains only non-singular points, hence non-singular.
+    For this equations, the partial derivatives all vanished iff $X_(14)=X_(23)=X_(13)=X_(24)=0$ (since the partials would precistly result in these for, up to $pm 1$), showing the only singular point must be at $[X_(12),0,0,0,0] = [1,0,0,0,0]$. Which, the only line in $PP^3$ with $X_(12)!=0$, is $ell_0$. So, $ell_0$ is the only singular point.
 
     \ 
 
-  + It suffices to check that under each of the three standard affine charts of $Bl_0 AA^3$ and $PP^2$ (while viewing $tilde(X)$ as the proper transform of $X$), it induces an isomorphism between $phi^(-1)(P)$ and $Y$.
+    \ 
 
-    Let $U_X' tilde.equiv AA^3$ denotes the affine open chart of $Bl_0 AA^3$ with $X'!=0$ (which has local description $(x,Y,Z)$ and projection back to $AA^3$, by $phi(x,Y,Z) = (x,x Y, x Z)$), and let $V_x tilde.equiv AA^2$ denotes the affine open chart of $PP^2$ where $x != 0$ (use $[x,y,z]$ as the coordinates of $PP^2$).
+  + WLOG,up to change of coordinates, say the singularity occurs at $o=[1,0,0,0,0]$ (and say $PP^4$ has coordinates $[x_0,x_1,x_2,x_3,x_4]$). Then, if say $Q$ is a quadric defined by homogeneous equation $f$, then within the affine chart $U_(x_0)$ (where $x_0!=0$, WLOG say $x_0=1$), the equation of $Q$ is defined by $f(1,x_1,x_2,x_3,x_4)$, and must have all of its partial derivatives vanished at $x_1=x_2=x_3=x_4=0$. This indicates that one can't have any terms wit $x_0$ involved. Which, $f$ can be viewed as a homogeneous polynomial in $x_1,...,x_4$.
 
-    Which, the answer in part (a) suggested that in $V_x$ (with coordinate $(y,z)$, since WLOG can assume $x = 1$), $Y$ is cut out by the equation $f(1,y,z)=0$; on the other hand the answer in part (b) suggested that in $U_X'$ (with coordinate $(x, Y, Z)$), the exceptional divisor is cut out by the equation $x^d = 0$, hence $phi^(-1)(P) subset.eq {x=0} subset.eq U_X'$ (since if $phi(x,Y,Z) = (x,x Y, x Z) = P = (0,0,0)$, one must have $x=0$), which narrows down the the subset ${(0,Y,Z) in U_X'} tilde.equiv AA^2$.
+    As a result, when blowing up with respect to this affine chart (say $U_(x_0) tilde.equiv AA^4$ with coordinates $(x_1,x_2,x_3,x_4)$), then one has $Bl_0 U_(x_0) = {mat(x_1,x_2,x_3,x_4;W,X,Y,Z)}$ (where $[W,X,Y,Z] in PP^3$ and the matrix has rank $<=1$). Which, if pick the affine chart $U_W$ (where $W!=0$), then within the blowing-up the proper transform of $Q$, say $Q'$, has the equation of $Q$ pulling back to $f(1,x_1, x_1 X, x_1 Y, x_1 Z) = x_1^2 dot f(1,1,X,Y,Z)$ (since $f$ is homogeneous, and for quadric surface the degree is $2$), where $x_1^2$ cuts out the exceptional divisor in this chart, so the defining equation of $Q'$ in $U_(W)$ is $f(1,1,X,Y,Z)$. Which, notice that since within $Q subset PP^4$, the only singularity is $o$, then with the point $[1,1,X,Y,Z] != o$, hence any partial derivatives with respect to $X,Y,Z$ has $f$ being non-vanishing, showing it's non-singular. If apply similar results, this indicates that it is non-singular at all points.
 
-    Also, notice that $phi^(-1)(P)$ under $U_X'$, is precisely the intersection ${x^d=0} sect (tilde(X) sect U_X')$ (since any point that projects down to $P=(0,0,0)$ must precisely have $x=0$, which is precisely $phi^(-1)(P) sect U_X'$ should contain this set; the other inclusion is by the fact that $phi^(-1)(P) subset.eq tilde(X)$, and all point must have $x=0$ when intersecting $U_X'$), while $tilde(X) sect U_(X')$ has the defining equation $f(1,Y,Z)$ based on the result in part (b).
+    (Isomorphism to $PP^1 times PP^1$ now is unclear).
 
-    Hence, this shows the following isomorphism: 
-    $ phi^(-1)(P) sect U_X' &= {x^d = 0} sect (tilde(x) sect U_X') =  {(0,Y,Z) | f(1,Y,Z)=0} \
-    &tilde.equiv {(y,z) | f(1,y,z)=0} = Y sect V_x $
-    Which, under the intersection with affine charts, one can see $phi^(-1)(P)$ is isomorphic to $Y$. 
+    \ 
 
-    /*
-    Finally, it comes down to check such isomorphism on each intersection with the affine chart, agrees when the affine chart overlaps (or, it is uniquely determined regardless of the affine chart). Given any point in $phi^(-1)(P)$, say it's both in $U_X'$ and $U_Y$, then one needs $x=y=0$, which corresponds to a matrix $mat(0,0,z;X',Y,Z)$, with both $X',Y !=0$. However, for this matrix to be in the proper transform (which is part of the $Bl_0 AA^3$), one needs its rank to be at most 1, showing that $(0,0,z)$ is a scalar multiple of $(X',Y,Z)$, and this further implies $z=0$ (since $X',Y$ are multiplied by a scalar to get $0$). However, based on te isomorphism constructed, it corresponds to $[1,0,0]$ and $[0,1,0]$*/
+    \ 
+
+  + 
+
+    For $ell in Sigma$ such that $ell != ell_0$, it's clear that $ell sect ell_0 = {x}$ a single point, so there exists a unique $x in ell_0$, where $([ell], x) in Sigma'$. Hence, restricting to $Sigma \\ {[ell_0]}$, the map $psi: Sigma \\{[ell_0]}$ has $psi([ell]) = ([ell], ell sect ell_0)$ being a well-defined morphism (since it requires the second coordinate to satisfy the equation for both $ell$ and $ell_0$ as a variety in $PP^3$), and it defines an isomorphism onto its image (since each $ell!=ell_0$ corresponds to a unique intersection). Which, the inverse is instead given by the projectio (since $mu compose psi([ell]) = mu([ell], ell sect ell_0)= [ell]$, while $([ell],x)$ with $x = ell sect ell_0$ has $psi compose mu([ell],x) = psi([ell]) = ([ell],x)$).
+
+    Finally, the reason why $mu^(-1)([ell_0]) = PP^1$, because for any $x in ell_0$, one has $x in ell_0 sect ell_0$, hence $([ell_0], x) in Sigma'$. Which, one has $mu^(-1)([ell_0]) = {([ell_0],x) | x in ell_0}$ has a one-to-one correspondance to $ell_0$ by projecting down to the second coordinates. Then, since $ell_0 tilde.equiv PP^1$ (a copy of $PP^1$), then $mu^(-1)([ell_0]) tilde.equiv PP^1$.
 ]
