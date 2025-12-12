@@ -26,30 +26,79 @@
   date: datetime.today().display("[month repr:long] [day], [year]"),
 )
 #set enum(numbering: "(a)")
-= ND//1
+= D//1
 #problem[
   Lazarsfeld Problem Set 6 (4):
 
   Let $GG=GG(1,3)$ be the Grassmannian parametrizing lines in $PP^3$, and fix a line $ell_0 subset PP^3$. Let $Sigma subset GG$ be the subset of $GG$ corresponding to all lines meeting $ell_0$, so that (as we've seen before) $Sigma$ is a hyperplane section of $GG$.
-  + Show that $Sigma$ has a unique singular point (at the point of $GG$ corresponding to $ell_0$). In fact, $Sigma'$ is a quardric $Q$ of rank $4$ in $PP^4$.
-  + Let $Q subset PP^4$ be a quadric of rank $4$ in $PP^4$, with singular point $o in Q$. Let $Q'$ be the proper transform of $Q$ under the blowing up of $o in P^4$. Show that $Q'$ is non-singular, and that the fibre of $nu:Q'-->Q$ over $o$ is (isomorphic to) $PP^1 times PP^1$.d
+  + Show that $Sigma$ has a unique singular point (at the point of $GG$ corresponding to $ell_0$). In fact, $Sigma$ is a quardric $Q$ of rank $4$ in $PP^4$.
+  + Let $Q subset PP^4$ be a quadric of rank $4$ in $PP^4$, with singular point $o in Q$. Let $Q'$ be the proper transform of $Q$ under the blowing up of $o in PP^4$. Show that $Q'$ is non-singular, and that the fibre of $nu:Q'-->Q$ over $o$ is (isomorphic to) $PP^1 times PP^1$.
   + Returning to the realization $Sigma$ of $Q$ in (a), define $Sigma' subset.eq GG times ell_0$ to be the incidence correspondance $Sigma' = {([ell], x) | x in ell sect ell_0}$. Show that $Sigma'$ is smooth (non-signular), and that the projection $mu:Sigma' --> Sigma$ is an isomorphism away from$[ell_0]$, while $mu^(-1)[ell_0]$ is a copy of $PP^1$. This map is called the "small resolution" of $Q=Sigma$.
 ][
-  
+  + First, recall that the Grassmannian has Plucker Embedding $GG(1,3) arrow.hook PP^5$, where for each line (or a 2-dimensional subspace in $k^4$), a corresponding matrix $mat(x_1,x_2,x_3,x_4;y_1,y_2,y_3,y_4)$ in $PP^5$ corresponds to the point $[X_(12),X_(13),X_(14),X_(23),X_(24),X_(34)] in PP^5$, where each $X_(i j) = det mat(x_i,x_j;y_i, y_j)$. 
+
+    WLOG, up to a projective linear transform one can assume the point $ell_0 = mat(1,0,0,0;0,1,0,0)$, which corresponds to the point $[1,0,0,0,0,0] in GG(1,3) subset PP^5$. Which, we claim that a line $ell = mat(x_1,x_2,x_3,x_3;y_1,y_2,y_3,Y_4) in Sigma$ iff $X_(3 4) = det mat(x_3,x_4;y_3,y_4)=0$.
+
+    $==>:$ If $ell in Sigma$, then it intersects with $ell_0$. On the level of $k^4$, it implies there exists $[s,t] in PP^1$, such that $s[x_1,x_2,x_3,x_4]+t [y_1,y_2,y_3,y_4] in ell_0$, which has the last two coordinates being zero, showing $(s x_3 + t y_3, s x_4+t y_4) = mat(s ,t)mat(x_3,x_4;y_3,y_4) = mat(0,0)$. With $(s,t)!=0$ as a vector, this implies $det mat(x_3,x_4;y_3,y_4)=0$, hence the corresponding Pucker coordinate has $X_(3 4)=0$.
+
+    $<==:$ If $X_(34)=det mat(x_3,x_4;y_3,y_4)=0$, there exists nonzero $(s,t)$, such that $mat(s,t)mat(x_3,x_4;y_3,y_4)=(s x_3+t y_3,s x_4+t y_4)=0$. Hence, the vector (in $k^4$) / point (in $PP^3$) has $[s x_1+t y_1,s x_2+t y_2, s x_3+t y_3, s x_4+t y_4] = [s x_1+t y_1,s x_2+t y_2,0,0] in ell_0$, shwoing $ell sect ell_0 != emptyset$, or $ell in Sigma$.
+
+    \ 
+
+    Hence, $Sigma subset GG(1,3) subset PP^5$ is the intersection ${X_(34)=0} sect GG(1,3)$; with $GG(1,3)$ being cut out by the equation $X_(12)X_(34)-X_(13)X_(24)+X_(14)X_(23)=0$, the defining equation for $Sigma subset PP^5$ is ${X_(34)=0, X_(14)X_(23)-X_(13)X_(24)=0}$. And, notice that since the last coordinate is $0$, one can simply project $Sigma$ down to $PP^4$ with coordinates $[X_(12),X_(13),X_(14),X_(23),X_(24)]$, and now the definig equation is $X_(14)X_(23)-X_(13)X_(24)=0$.
+
+    For this equations, the partial derivatives all vanished iff $X_(14)=X_(23)=X_(13)=X_(24)=0$ (since the partials would precistly result in these for, up to $pm 1$), showing the only singular point must be at $[X_(12),0,0,0,0] = [1,0,0,0,0]$. Which, the only line in $PP^3$ with $X_(12)!=0$, is $ell_0$. So, $ell_0$ is the only singular point.
+
+    \ 
+
+    \ 
+
+  + WLOG,up to change of coordinates, say the singularity occurs at $o=[1,0,0,0,0]$ (and say $PP^4$ has coordinates $[x_0,x_1,x_2,x_3,x_4]$). Then, if say $Q$ is a quadric defined by homogeneous equation $f$, then within the affine chart $U_(x_0)$ (where $x_0!=0$, WLOG say $x_0=1$), the equation of $Q$ is defined by $f(1,x_1,x_2,x_3,x_4)$, and must have all of its partial derivatives vanished at $x_1=x_2=x_3=x_4=0$. This indicates that one can't have any terms wit $x_0$ involved. Which, $f$ can be viewed as a homogeneous polynomial in $x_1,...,x_4$.
+
+    As a result, when blowing up with respect to this affine chart (say $U_(x_0) tilde.equiv AA^4$ with coordinates $(x_1,x_2,x_3,x_4)$), then one has $Bl_0 U_(x_0) = {mat(x_1,x_2,x_3,x_4;W,X,Y,Z)}$ (where $[W,X,Y,Z] in PP^3$ and the matrix has rank $<=1$). Which, if pick the affine chart $U_W$ (where $W!=0$), then within the blowing-up the proper transform of $Q$, say $Q'$, has the equation of $Q$ pulling back to $f(1,x_1, x_1 X, x_1 Y, x_1 Z) = x_1^2 dot f(1,1,X,Y,Z)$ (since $f$ is homogeneous, and for quadric surface the degree is $2$), where $x_1^2$ cuts out the exceptional divisor in this chart, so the defining equation of $Q'$ in $U_(W)$ is $f(1,1,X,Y,Z)$. Which, notice that since within $Q subset PP^4$, the only singularity is $o$, then with the point $[1,1,X,Y,Z] != o$, hence any partial derivatives with respect to $X,Y,Z$ has $f$ being non-vanishing, showing it's non-singular. If apply similar results, this indicates that it is non-singular at all points.
+
+    (Isomorphism to $PP^1 times PP^1$ now is unclear).
+
+    \ 
+
+    \ 
+
+  + 
+
+    For $ell in Sigma$ such that $ell != ell_0$, it's clear that $ell sect ell_0 = {x}$ a single point, so there exists a unique $x in ell_0$, where $([ell], x) in Sigma'$. Hence, restricting to $Sigma \\ {[ell_0]}$, the map $psi: Sigma \\{[ell_0]}$ has $psi([ell]) = ([ell], ell sect ell_0)$ being a well-defined morphism (since it requires the second coordinate to satisfy the equation for both $ell$ and $ell_0$ as a variety in $PP^3$), and it defines an isomorphism onto its image (since each $ell!=ell_0$ corresponds to a unique intersection). Which, the inverse is instead given by the projectio (since $mu compose psi([ell]) = mu([ell], ell sect ell_0)= [ell]$, while $([ell],x)$ with $x = ell sect ell_0$ has $psi compose mu([ell],x) = psi([ell]) = ([ell],x)$).
+
+    Finally, the reason why $mu^(-1)([ell_0]) = PP^1$, because for any $x in ell_0$, one has $x in ell_0 sect ell_0$, hence $([ell_0], x) in Sigma'$. Which, one has $mu^(-1)([ell_0]) = {([ell_0],x) | x in ell_0}$ has a one-to-one correspondance to $ell_0$ by projecting down to the second coordinates. Then, since $ell_0 tilde.equiv PP^1$ (a copy of $PP^1$), then $mu^(-1)([ell_0]) tilde.equiv PP^1$.
 ]
 
-\ 
+#pagebreak()
 
-= ND//2
+= D//2
 #problem[
   Lazarsfeld Problem Set 7 (1):
 
-  Let $X subset.eq CC^3$ be the hypersurface $x^2+y^4+z^4=0$, and denote y $X' subset.eq Bl_(0)(CC^3)$ the proper transform of $X$ under the blowing up of the origin. Show that $X$ has an isolated singularity, but that $X'$ is singular along a curve.
-][]
+  Let $X subset.eq CC^3$ be the hypersurface $x^2+y^4+z^4=0$, and denote $X' subset.eq Bl_(0)(CC^3)$ the proper transform of $X$ under the blowing up of the origin. Show that $X$ has an isolated singularity, but that $X'$ is singular along a curve.
+][
 
-\ 
+  #text(weight: "bold")[I. Isolated Singularity of $X$:]
 
-= ND//3
+  Consider th partial derivatives of the defining equation $f(x,y,z) = x^2+y^4+z^4$, one has $(partial f)/(partial x)=2x$, $(partial f)/(partial y)=4y^3$, and $(partial f)/(partial z)=4z^3$. Which, the singularity happens when all three partial derivatives vanished, which requires $2x=4y^3=4z^3=0$, showing $x=y=z=0$. Hence, the only singularity of $X$ is $(x,y,z)=(0,0,0)$.
+
+  \ 
+
+  #text(weight: "bold")[II. Singularity of Proper Transform:]
+
+  If consider the blowing up of $CC^3$ at the origion, it is given by $Bl_0 CC^3 subset CC^3 times PP^2$, where $Bl_0 CC^3 = {(overline(x), [ell]) | overline(x) in ell}$ (where $overline(x)=(x,y,z)$ is a point of the $1$-dimensional subspace $ell subset CC^3$). If expresses $[ell] = [X',Y,Z]$, then $overline(x) in ell$ implies $(x,y,z)$ is some multiple of $(X',Y,Z)$, hence the matrix $mat(x,y,z;X,Y,Z)$ has rank $<=1$. Which, on the open set $Z!=0$ (WLOG $Z=1$), $Bl_0 CC^3$ has $(overline(x), [ell])$ satisfy $overline(x)=(x,y,z)$ and $[ell] = (X,Y,1)$ being linearly dependent, showing $x = z X$ and $y = z Y$. Which, it can be described by the affine chart $(X, Y, z)$, with projection onto $CC^3$ given by $(X,Y,z) mapsto (X z,Y z, z)$.
+
+  Notice that under this affine chart, the defining equation $f=x^2+y^4+z^4$ pulls back to $z^2 X^2 + z^4 Y^4 + z^4 = z^2(X^2+z^2Y^4 + z^2) = 0$. Which, excluding the exceptional divisor's equation $z^2$, the defining equation is $f_z = X^2 + z^2 Y^2 + z^2 = 0$. Which, to find singular points, its partial derivatives are given as follow:
+  $ (partial f_z)/(partial X) = 2X, quad (partial f_z)/(partial Y) = 2 Y z^2, quad (partial f_z)/(partial z) = 2z(1+Y^2) $
+  Which, if all three partial derivatives vanish, one has $X=0$ (for $partial X$), $Y=0$ or $z=0$ (for $partial Y$), $z=0$ or $Y^2=-1$ (for $partial z$).
+
+  Which, all the points of the form $X=z=0$ has all partial derivatives vanished, also $f_z (0,Y,0) = 0^2 + 0^2 dot Y^2 + 0^2 = 0$, showing these points are contained in the proper transform. Hence, the proper transform is non-singular, and within the affine chart (where $Z!=0$), one has all $(0,Y,0)$ (where $Y in k$) being singular. Hence, the proper transform is singular along a curve.
+]
+
+#pagebreak()
+
+= D//3
 #problem[
   Hartshorne 5.1:
 
@@ -61,11 +110,76 @@
   #figure(
   image("hartshorne 5.1.png", width: 80%)
   )
-][]
+][
+  + Given the equation $f(x,y)=x^4-x^2+y^4$, the singular points occurred at where all the partial derivatives are $0$. Which, one has $(partial f)/(partial x) = 4x^3 - 2x = 0$ (which occurred at $x=0$, and $4x^2-2=0$ /  $x^2 = 1/2$); also, one has $(partial f)/(partial y) = 4y^3 = 0$ (which occurred at $y=0$). Hence, the points where all partial derivatives vanished include $(x,y)=(0,0), (z_1,0), (z_2,0)$ (where $z_1,z_2 in k$ satisfy $z_1^2=z_2^2=1/2$).
 
-\ 
+    Out of these points, only $(0,0)$ is a solution to $f(x,y)$ (since if $z=z_1,z_2$, one has $z^2 = 1/2$, so $f(z,0) = z^4-z^2+0^4 = 1/4-1/2 = -1/4 !=0$). So, the only singular point on the curve is $(0,0)$.
 
-= ND//4
+    \ 
+
+    Which, if limited to $k = RR$, given that $(x,y)$ is a solution to $f$, one also has $(x,-y), (-x,y), (-x,-y)$ being solutions to $f$ (since all $x,y$ in $f$ has even power, so the $-1$ doesn't impact the solution), this implies that $x$ is invariant under reflection over $x$ and $y$ axis, showing the only possible graph is the Tacnode.
+    #figure(
+      image("p3_tacnode.png", width: 20%)
+    )
+
+    \ 
+
+    \ 
+
+  + Given the equation $g(x,y) = x^6-x y+y^6$, the singular points occurred at where all partial derivatives are $0$. Which, $(partial g)/(partial x)=6x^5 - y=0$ (where $y=6x^5$), and $(partial g)/(partial y)=6y^5 - x$ (where $x = 6 y^5$). This indicates that $x = 6^6 dot x^25$, so either $x = 0$ (indicating $y=0$ also), or $x^(24) = 1/(6^6)$ (which this has no inconsistency; notice that $y$ also satisfies $6^6 dot y^25 = y$, so $y=0$ or $y^(24) = 1/6^6$; with $y = 6x^5$, $y^24 = 6^24 dot (x^24)^5 = 6^24 dot (1/6^6)^5 = 6^24/6^30 = 1/6^6$). So, points where partial derivatives all vanished include $(x,y)= (0,0)$, and $(x,y) = (z, 6z^5)$ (where $z$ is a solution to the equation $z^24 = 1/6^6$).
+
+    Out of these points, the only one that is a solution to $g(x,y)$ is $(0,0)$ (since $(z,6z^5)$ has $f(z,6z^5) = z^6 - z dot 6z^5 + (6 z^5)^6 = z^6 - 6z^6 + 6^6 dot z^24 dot z^6 = z^6 - 6z^6 + z^6 = -4z^6 !=0$). So, the only singular point on the curve is $(0,0)$.
+
+    \ 
+
+    If limited to $k=RR$ again, if $(x,y)$ is a solution to $g$, one also has $(-x,-y)$ being a solution to $g$ (since the homogeneous degrees of each monomials are all even). Hence, the only possible curves are the Node or the Tacnode (since it's invariant under rotation by radian $pi$); yet, because $(-x,y)$ is not a solution for most $x,y !=0$ (since if $(x,y)$ is a solution to $g$, one has $x^6 + y^6 = x y!=0$, then $x^6+y^6 != -x y$, showing $(-x)^6 - (-x)y + y^6!=0$). So, the curve is not invariant under he reflection over $y$-axis, showing it's not a Tacnode. Hence, it must be a Node.
+    #figure(
+      image("p3_node.png", width: 20%)
+    )
+
+    \ 
+
+    \ 
+
+  + Given the equation $h(x,y) = x^4-x^3+y^4+y^2$, the singular points occurred at where all partial derivatives vanishes. Which, $(partial h)/(partial x)= 4x^3-3x^2=0$ (where $x=0$ or $x=3/4$), and $(partial h)/(partial y)=4y^3 + 2y = 0$ (where $y=0$, or $y^2 = -1/2$). Hence, let $z_1,z_2 in k$ satisfy $z_1^2=z_2^2 = -1/2$, the points where all partial derivatives vanished include $(0,0), (0,z_1), (0,z_2), (3/4,0), (3/4,z_1)$, and $(3/4,z_2)$. 
+
+    However, only $(0,0)$ is actually a solution to $h(x,y)$ (for $(0,z_1), (0,z_2),$ and $(3/4,0)$, it's clear that plugging in creates equation of only $x$ or $y$, but none of the numbers are solutions; also, $h(3/4, z_1) = 81/256 - 27/64 + 1/4 - 1/2 != 0$). So, the only singular point on the curve is $(0,0)$.
+
+    \ 
+
+    If limit to $k=RR$, if $(x,y)$ is a solution to $h$, then $(x,-y)$ is also a solution to $h$ (since all terms include $y$ with even degree), this indicates the solution curve is invariant under reflection by $x$-axis, which can only be a Cusp or a Tacnode; yet, in general for $x,y!=0$, if $(x,y)$ is a solution, $(-x,y)$ is not (for instance, take $(x,y)=1,0$, one has $h(1,0) = 1^4-1^3+0^4+0^2 = 0$, yet $h(-1,0) = (-1)^4 - (-1)^3+0^4+0^2 = 2!=0$), so the curve is not invariant under reflection by $y$-axis, showing it can't be a Tacnode. Hence, it's a Cusp.
+    #figure(
+      image("p3_cusp.png", width: 20%)
+    )
+
+    \ 
+
+    \ 
+
+  + For $l(x,y) = x^4-x^2y-x y^2+y^4$, the singular points occurred at where all partial derivatives vanished. Which, $(partial l)/(partial x)=4x^3 - 2x y - y^2 = 0$, and $(partial l)/(partial y) = 4y^3 - x^2 - 2 x y = 0$. Which, using these equations, a singular on a curve also needs to satisfy $y^2 = 4x^3 - 2x y$, and $y^3 = x^2/4+ (x y)/2$. Plugin $y^2 = 4x^3 - 2x y$ to $l(x,y)$, one has the singular points satisfy:
+    $ -3x^4 + x^2y + y^4=0 $
+    Now, substituting $y^3 = x^2/4+ (x y)/2$ in, one also has:
+    $ -4x^4 + x^2y=0 ==> x^2(y-4x^2)=0 $
+    So, there are two outcomes:
+    - If $x=0$, this enforces $y=0$ (since $y^2=4x^3-2x y = 0$). Which, $(0,0)$ is indeed a singular point (since $l(0,0)=0$, while the partial derivatives also vanished).
+    - Else, if $x!=0$, then $y = 4x^2$ instead. Plugin this to $(partial l)/(partial x)$, one has:
+      $ 4x^3 - 8x^3 - 16x^4 = 0 ==> -4x^3(4x+1)=0 $
+      Hence, either $x=0$ (which is ruled out in this case), or $x=-1/4$. Then, $y=4x^2$ implies $y = 1/4$. Yet, $(x,y)=(-1/4,1/4)$ is not a singular point, since $l(-1/4,1/4) = 1/256 - 1/64 + 1/64 + 1/256 = 1/128 != 0$, so it's not on the curve.
+
+    Hence, the only singular point on the curve is $(0,0)$.
+
+    \ 
+
+    When limit to $k=RR$, notice that if $(x,y)$ is a solution to $l$, then so is $(y,x)$ (since each $x^p y^q$ involved in $l(x,y)$, one also has $y^p x^q$ involved in it), so it's invariant under reflection about the line $y=x$, so the only possibilities are Node and Triple Point. Yet, in general if $(x,y)$ is a solution, $(-x,-y)$ need not be a solution: Take $(x,y)=(1,1)$, $l(1,1) = 1-1-1+1 = 0$, yet $l(-1,-1) = 1+1+1+1=4!=0$, showing $(-1,-1)$ is not a solution. Hence, it's not invariant under the rotation by radian $pi$, which can't be a Node. So, it must be a Triple Point.
+    #figure(
+      image("p3_triple point.png", width: 20%)
+    )
+
+]
+
+#pagebreak()
+
+= D//4
 #problem[
   Hartshorne 5.2:
 
@@ -76,37 +190,206 @@
   #figure(
   image("hartshorne 5.2.png", width: 80%)
   )
-][]
+][
+  + Given $f(x,y,z) = x y^2-z^2$, its singular points occurred as all partial derivatives vanished. Which, $(partial f)/(partial x)=y^2 = 0$ implies $y=0$, $(partial f)/(partial y)=2x y=0$ implies $x=0$ or $y=0$, and $(partial f)/(partial z)=-2z=0$ implies $z=0$. So, the partial derivatives all vanished when $(x,y,z)=(x,0,0)$.
 
-\ 
+    Also, for any points of this form, it satisfies $f(x,0,0) = x dot 0^2-0^2 = 0$, hence any point of this form is on the surface, which is a singular point. So, all singular points are of the form $(x,0,0)$ (where $x in k$).
 
-= ND//5
+    \ 
+
+    If consider $k=RR$, then since the surface has a whole line worth of singularities, it must either be a double line, or a Pinch point; also, since if $(x,y,z)$ is a solution, one als has $(x,-y,z)$ being a solution (since the term involving $y$ has even power of $y$). Hence, the curve is invariant when reflecting by the $x z$-plane, which cannot be the Double line in this case. Hence, it is the Pinch point.
+    #figure(
+      image("p4 pinch.png", width: 20%)
+    )
+
+    \ 
+
+    \ 
+
+  + Given $g(x,y,z)=x^2+y^2-z^2$, its singular points occurred where all partial derivatives vanished. So, $(partial g)/(partial x)=2x=0$ (implying $x=0$), $(partial g)/(partial y)=2y=0$ (implying $y=0$), and $(partial g)/(partial z)=2z=0$ (implying $z=0$). Hence, the only possible singular point is $(0,0,0)$ (which is also on the curve, so it's actually a singular point.
+
+    \ 
+
+    for $k=RR$, since it only has a singular point, it must be the Conical Double Point (also, for each fixed $z$, $x,y$ satisfy the equation for a circle, hence the intersection with a horizontal plane is always a circle).
+    #figure(
+      image("p4 conical.png", width: 20%)
+    )
+
+    \ 
+
+    \ 
+
+  + Given $h(x,y,z)=x y+x^3+y^3$, the singular points occurred when the partial derivatives are all vanishing. Hence, $(partial h)/(partial x)=y+3x^2 = 0$, showing $y=-3x^2$; $(partial h)/(partial y) = x+3 y^2 = 0$, showing $x = -3 y^2$; $(partial h)/(partial z)=0$, which doesn't impose extra restriction. Plugin the equations to $h(x,y,z)$, one gets the following:
+    $ -3y^3 - 27 y^6 + y^3 = 0 ==> y^3(27 y^3 + 2)=0 $
+    S, either $y=0$ (which implies $x=0$), or $y^3 = -2/27$. Which, the two potential collections of singular points, are $(0,0,z)$ (where $z=k$), or $(-3y^2, y, z)$ (where $z in k$, and $y$ satisfies $y^3 - 2/27$).
+
+    The first collection $(0,0,z)$ is guaranteed to be singular points, since $h(0,0,z) = 0$ (all entries are $x,y$), while the second one is not singular (since if $y^3=-2/27$ and $x=-3y^2$, with the equation $y=-3x^2$, one needs $y = -27 y^4$, so $y(27 y^3+1)=0$, hence $y!=0$ implies $y^3 = -1/27$, which contradicts the assumption that $y^3=-2/27$). So, the only singular points are $(0,0,z)$ (where $z in k$).
+
+    \ 
+
+    Consider $k=RR$, then since the whole $z$-axis is singular, then it must be the Double line.
+    #figure(
+      image("p4 double line.png", width: 20%)
+    )
+
+]
+
+#pagebreak()
+
+= D//5
 #problem[
   Hartshorne 5.3:
 
-  #emph[Multiplicities]. Let $Y subset.eq AA^2$ be a curve defined by the equation $f(x,y)=0$. Let $P=(a,b)$ be a point of $AA^2$. Make a linear change of coordinates so that $P$ becomes the point $(0,0)$. Then write $f$ as a sum $f=f_0+f_1+...+f_d$, where $f_i$ is a homogeneous polynomial of degree $i$ in $x$ and $y$. Then we define the #emph[multiplicity] of $P$ on $Y$, denoted $mu_(P)(Y)$, to be the least $r$ such that $f_1!=0$ (Note that $P in Y <==> mu_(P)(Y) >0$). The linear factors of $f_r$ are called the #emph[tangent directions] at $P$.
+  #emph[Multiplicities]. Let $Y subset.eq AA^2$ be a curve defined by the equation $f(x,y)=0$. Let $P=(a,b)$ be a point of $AA^2$. Make a linear change of coordinates so that $P$ becomes the point $(0,0)$. Then write $f$ as a sum $f=f_0+f_1+...+f_d$, where $f_i$ is a homogeneous polynomial of degree $i$ in $x$ and $y$. Then we define the #emph[multiplicity] of $P$ on $Y$, denoted $mu_(P)(Y)$, to be the least $r$ such that $f_r!=0$ (Note that $P in Y <==> mu_(P)(Y) >0$). The linear factors of $f_r$ are called the #emph[tangent directions] at $P$.
   + Show that $mu_(P)(Y)=1 <==> P$ is a nonsingular point of $Y$.
   + Find the multiplicity of each of the singular points in Exercise 5.1 (#text(weight: "bold")[Problem 3]) above.
-][]
+][
+  + First, one knows that $P$ is nonsingular $<==>$ at least one of the partial derivatives of $f$ is non-vanishing (so, one of $(partial f)/(partial x), (partial f)/(partial y)$ is nonzero at $P = (0,0)$). Which, this is equivalent to having one of the $(partial f)/(partial x), (partial f)/(partial y)$ endowed with nonzero constant term.
 
-\ 
+    Which, notice that given any homogeneous monomial $x^p y^q$ of degree $p+q$, its partial derivative of $x$ is $p dot x^(p-1) y^q$ with degree $(p+q-1)$ (if the result is nonzero), while its partial derivative of $y$ is $q dot x^(p) y^(q-1)$ with degree $(p+q-1)$ again (if the result is nonzero). Hence, given a homogeneous polynomial $f_n$ of degree $n$, if its partial derivative (with respect to any variable $x_i$) is nonzero, then $(partial f_n)/((partial x_i))$ is of homogeneous degree $n-1$. Hence, $(partial f)/(partial x) = sum_(i=1)^d (partial f_i)/(partial x)$ and $(partial f)/(partial y) = sum_(i=1)^d (partial f_i)/(partial y)$, where each nonzero $(partial f_i)/(partial x), (partial f_i)/(partial y)$ is of homogeneous degree $i-1$.
 
-= ND//6
+    \ 
+
+    $==>:$ If $mu_P (Y) = 1$, this implies the term $f_1 !=0$, hence $f_1 = a x+b y$ for some $a, b in k$ (where one of them is nonzero). For definiteness, say $a!=0$, hence $(partial f)/(partial x)$ contains constant term $ (partial f_1)/(partial x)=a!=0$, showing $(partial f)/(partial x)!=0$ at $P=(0,0)$.
+
+    $<==:$ Suppose $P$ is a nonsingular point, then we know one of the $(partial f)/(partial x), (partial f)/(partial y)$ has nonzero constant term. For definiteness say $(partial f)/(partial x) = sum_(i=1)^d (partial f_i)/(partial x)$ has nonzero constant term, then $(partial f_1)/(partial x) = a$ for some nonzero $a in k$. Hence, one must have $f_1 = a x+b y$ for some $b in k$, showing $f_1 !=0$, or $mu_P (Y) = 1$ (since $P in Y$ implies $mu_P (Y)>0$ implies $f_0 = 0$, so $f_1 !=0$ implies $mu_P (Y)=1$).
+
+    \ 
+
+    \ 
+
+  + In 5.1 (#text(weight: "bold")[Problem 3]), it turns out that all four curves in $AA^2$ only contain $(0,0)$ as their only singular point. Which, one has the following:
+    - For $Y$ defined by $x^4+y^4 - x^2=0$, the smallest degree homogeneous polynomial is $-x^2$, hence $mu_((0,0))(Y) = 2$.
+    - For $Y$ defined by $x^6+y^6-x y=0$, the smallest degree homogeneous polynomial is $-x y$, hence $mu_((0,0))(Y)=2$.
+    - For $Y$ defined by $x^4+y^4 - x^3 + y^2$, the smallest degree homogeneous polynomial is $-y^2$, hence $mu_((0,0))(Y)=2$.
+    - For $Y$ defined by $x^4+y^4 - x^2y-x y^2=0$, the smallest degree homogeneous polynomial is $-x^2y-x y^2$, hence $mu_((0,0))(Y) = 3$.
+]
+
+#pagebreak()
+
+= D//6
 #problem[
   Hartshorne 5.6:
 
   #emph[Blowing Up Curve Singularities:]
-  + Let $Y$ be a cusp or node of Exercise 5.1 (#text(weight: "bold")[Problem 3]. Show that the curve $tilde(Y)$ obtained by blowing up $Y$ at $O=(0,0)$ is non=singular (cf. Hartshorne (4.9.1) and (Exercise 4.10)).
+  + Let $Y$ be a cusp or node of Exercise 5.1 (#text(weight: "bold")[Problem 3]). Show that the curve $tilde(Y)$ obtained by blowing up $Y$ at $O=(0,0)$ is non-singular (cf. Hartshorne (4.9.1) and (Exercise 4.10)).
   + We define a #emph[node] (also called  #emph[ordinary double point]) to be a double point (i.e. a point of multiplicity 2) of a plane curve with distinct tangent directions (Exercise 5.3, #text(weight: "bold")[Problem 5]). If $P$ is a node on a plane curve $Y$, show that $phi^(-1)(P)$ consists of two distinct nonsingular points on the blown-up curve $tilde(Y)$. We say that "blowing up $P$ resolves the singularity at $P$".
-  + Let $P in Y$ be the tacnode of (Exercise 5.1, #text(weight: "bold")[Problem 3]). If $phi:tilde(Y) -> Y$ is the blowing-up at $P$, show that $phi^(-1)(P)$ is a noe. Using (b) we see that the tacnode can be resolved by two successive blowings-up.
+  + Let $P in Y$ be the tacnode of (Exercise 5.1, #text(weight: "bold")[Problem 3]). If $phi:tilde(Y) -> Y$ is the blowing-up at $P$, show that $phi^(-1)(P)$ is a node. Using (b) we see that the tacnode can be resolved by two successive blowings-up.
   + Let $Y$ be the plane curve $y^3=x^5$, which has a "higher order cusp" at $O$. Show that $O$ is a triple point; that blowing up $O$ give rise to a double point (what kind?) and that one further blowing up resolves the singularity.
 
   Note: We will see late (V, 3.8) that any singular point of a plane curve can be resolved by a finite sequence of successive blowings-up.
-][]
+][
+  We'll consider the blowing-up as the proper transform of the albegraic sets. under the blowing-up $Bl_0 AA^2 = {(overline(x), [ell]) in AA^2 times PP^1 | overline(x) in [ell]}$ (where $[ell] = [X,Y]$ represents a $1$-dimensional subspace in $AA^2$, and with $overline(x) = (x,y)$, they satisfy $mat(x,y;X,Y)$ has rank $<=1$), and the projection $phi:Bl_0 AA^2 -> AA^2$.
 
-\ 
+  \ 
 
-= ND//7
+  + #text(weight: "bold")[Cusp:] It's corresponding to the equation $f=x^4-x^3+y^4+y^2=0$. 
+    
+    Under the open subset $U_X$ (where $X!=0$, WLOG say $X=1$), since $(x,y)$ is a scalar multiple of $[1,Y]$, then $y = x Y$, so the local description of the chart is $(x, Y)$ (which $U_X sect Bl_0 AA^2 tilde.equiv AA^2$). And, under the projection $phi:U_X sect Bl_0 AA^2 -> AA^2$, one has $phi(x,Y) = (x,x Y) = (x,y) = overline(x)$.
+
+    Which, the equation pulls back to $x^4 - x^3 + x^4Y^4 + x^2Y^2 = x^2(x^2-x+x^2Y^4+Y^2)=0$. With $x^2$ defines the exceptional divisor, the equation is $f_X = x^2-x+x^2Y^4 + Y^2 = 0$. For any singular points, it has the following relations:
+    $ &(partial f_X)/(partial x)=2x-1++2x Y^4 = 0 ==>2x (1+Y^4)=1\ 
+    &(partial f_X)/(partial Y)=4x^2Y^3 + 2Y=0 ==> 2Y(2x^2Y^2 +1)=0 $
+    This indicates that $x!=0$ and $Y^4!=-1$ (for the first equation to hold). There are two casees: 
+    
+    First, if $Y=0$, then plugin the first partial reads $2x=1$, or $x=1/2$. Yet, plugin $(x,Y)=(1/2,0)$ to $f_X$, it reads $1/2^2-1/2+ 0 = -1/4!=0$, so such point is not in the proper transform. 
+    
+    Second, if $2x^2Y^2 +1=0$ (or $2x^2Y^2 = -1$), then both $x,Y!=0$, and one reads $Y^2=-1/(2x^2)$, and one also has $1+Y^4 = 1/(2x)$, or $Y^4 = 1/(2x)-1$. Plugin to $f_X$, it simplifies to the following:
+    $ f_X &= x^2-x+x^2Y^4+Y^2 = x^2-x+x^2(1/(2x)-1) - 1/(2x^2)\ 
+    &= -1/(2x^2)(x^3+2)=0 $
+    Hence, $x^3+2=0$, or $x^3=-2$. Then, with $2x^2 Y^2 = -1$, $-4Y^2 = 2 x^3 Y^2 = -x$, so $4 Y^2 = x$. Plugin back to $f_X$, one yields $x^2-x+x^2 Y^4 + Y^2 = x^2 - x + x^2/16 + x/4 = 0$, showing $x/16 (17x-12) = 0$. With $x!=0$, it must be $x = 12/17$. Yet, this doesn't satisfy the equation $x^3 = -2$, which is a contradiction. Hence, in this case there can't have any singular points either.
+
+    \ 
+
+    Under the open subset $U_Y$ (where $Y!=0$, again WLOG $Y=1$), since $(x,y)$ is some multiple of $[X,1]$, then $x= y X$, so the local dexcription of the chart $(X,y)$, and under the projection $mu(X,y) = (y X,y)$. 
+
+    Which, the equation pulls back to $y^4X^4-y^3X^3+y^4+y^2 = y^2(y^2X^4-y X^3+y^2+1)=0$, with $y^2$ defines the exceptional divisor, the defining equation is  $f_Y = y^2X^4-y X^3+y^2+1=0$. For any singular points, it has the following relations:
+    $ &(partial f_Y)/(partial X)=4y^2X^3 - 3 y X^2=0 ==> y X^2(4y X - 3)=0\ 
+    &(partial f_Y)/(partial y)=2y X^4-X^3+2 y =0 $
+    If $X=0$ or $y=0$ (to satisfy $partial X=0$), $X=0$ implies $2 y=0$ (or $y=0$), while $y=0$ implies $-X^3=0$, $X=0$. So, this directly implies $X=0$ iff $y=0$. Yet, plugin $(X,y)=(0,0)$ for $f_Y$, one yields $1!=0$, so these points are not on the proper transform, hence doesn't affect.
+
+    Else, if $4y X=3$ (where $y,X!=0$), then the second partial tells that $2(2y X^4-X^3+2y) = 3X^3 - 2X^3 + 4y = X^3 +4 y=0$, so $4y = -X^3$. Plugin to the initial relation, $4y X=-X^4 = 3$, so $X^4 = -3$, and $X^3 = -4y$. Plugin to $f_Y$ one yields $-3y^2+ 4y^2 + y^2+1 = 0$, or $2y^2+1=0$. However, this implies $y^2=-1/2$, showing $X^6 = 16y^2 = 4$, so $X^12 = 16$; yet $X^4 = -3$ implies $X^12 = -27$, which reaches a contradiction. So, there cannot be any singular points in $U_Y$.
+
+    The above two claims showed that the Cusp in Exercise 5.1 (Problem 3) is non-singular after blowing-up.
+
+    \ 
+
+    #text(weight: "bold")[Node:] Its corersponding equation is $g=x^6-x y+y^6=0$. 
+
+    Under the open subset $U_X$, the chart has description $(x,Y)$, so map has description $phi(x,Y) = (x,x Y)$. Then, the equation pulls back to $x^6 - x^2Y + x^6Y^6 = x^2(x^4-Y+x^4Y^6)=0$. With $x^2$ defines the exceptional divisor, the equation is $g_X = x^4-Y + x^4Y^6=0$. Then, the singular points satisfy:
+    $ (partial g_X)/(partial x)=4x^3(1+Y^6)=0, quad (partial g_X)/(partial Y)=-1+6x^4Y^5 = 0 $
+    Hence, $6x^4Y^5 = 1$, indicating $x,Y!=0$. So, one has $Y^6=-1$ instead (for $partial x$ to hold). But, plugin $g_X$ one yields $x^4 - Y - x^4 = -Y !=0$, showing this point is not in the proper transform, hence not a singular point.
+
+    \ 
+
+    Else, under the open subset $U_Y$, the chart has description $(X,y)$, with the map's description $phi(X,y) = (y X,y)$. Then, the equation pulls back to $y^6 X^6 - y^2 X + y^6 = y^2(y^4X^6 - X + y^4)=0$. With $y^2$ defines the exceptional divisor, the equation is $g_Y = y^4X^6 - X+y^4=0$. Then, the singular points satisfy:
+    $ (partial g_Y)/(partial X)=6y^4X^5 - 1=0, quad (partial g_Y)/(partial y)=4y^3(X^6+1)=0 $
+    With $6y^4X^5=1$, this indicates $X,y!=0$; so, for the second equation to hold, $X^6=-1$. Yet, plugin to $g_Y$, one yields $-y^4 - X + y^4 = -X !=0$, which is not in the proper transform, hence not a singular point.
+
+    As a result, the two charts contained no singular points (for the proper transform), showing the blowing-up is non-singular.
+
+    \
+
+    \ 
+
+  + If consider a plane curve with a node (WLOG, say up to a shift of coordinate, the node $P = (0,0)$), if say that the equation is given by $f = f_2 + ... + f_d$ (each $f_i$ is a homogeneous polynomial of degree $i$), then the description of a node provides that $f_2 = a x^2+b x y + c y^2 = (e x+f y)(g x+h y)$, where $(e x+f y)(g x+h y)$ are distinct linear factors. If view $k[x,y]$ as a $k$-vector space, the two being distinct linear factors imply they're linearly  independent, hence one must have $e h-f g!=0$.
+
+    If consider the blowing-up as a proper transform in $Bl_0 AA^2$, for simplicity let's derive some statements using the open subset $U_X$ of $Bl_0 AA^2$ (where $X!=0$). In here the local chart is $(x,Y)$, with map $phi(x,Y) = (x,x Y)$ projecting down to the original affine space. Notice that for equation $f$, any of the homogeneous polynomial $f_i = sum_(j=0)^i a_(j,i) x^j y^(i-j)$ pulls back to $sum_(j=0)^i a_(j,i) x^j dot x^(i-j) Y^(i-j) = x^i dot sum_(j=0)^i Y^(i-j)$. With $i>=2$ for $f$, define $overline(f_i) := x^(i-2)sum_(j=0)^i a_(j,i)Y^(i-j)$, then $f$ pulls back to $x^2(overline(f_2)+...+overline(f_d))$ (since each $f_i$ pulls back to $x^2 dot overline(f_i)$). 
+    
+    Notice that $phi^(-1)(P)$ (under this affine chart) all have $x$-coordinate being $0$ (since one needs $phi(x,Y) = (x,x Y)=P = (0,0)$). With all the $i>=3$ term including a factor of $x$ in $overline(f_i)$, then at any point in $phi^(-1)(P)$, $overline(f_i)$ vanishes for $i>=2$, with only $overline(f_2) = (e+f Y)(g + h Y)$ left (this is constructed by the previous definition). Which, in case for $overline(f)=0$, we need $overline(f_2)=0$. Which, there are two possible cases:
+    - If both $f,h!=0$, $overline(f_2)$ is a quadratic, then the solutions yield $Y=-e/f, -g/h$. Which, under the blowing-up $Bl_0 AA^3$, they correspond to the matrix $mat(x,y;X,Y)=mat(0,0;1,-e/f)$ and $mat(0,0;1,-g/h)$ (these two are distinct, based on the fact that $e h-g f!=0$, or $e/f != g/h$).
+
+      Notice that at these points $(partial overline(f))/(partial Y)!=0$, since $(partial overline(f_2))/(partial Y) = (e h+f g) - 2 f h Y$. Which, if $Y=-e/f$, it provides $-e h+f g = -(e h-f g)!=0$; else if $Y=-g/h$, it provides $e h-f g!=0$. So, at any point of $phi^(-1)(P)$, in this case the partial derivative of $Y$ is non-vanishing, hence non-singular.
+    - If one of $f,h$ is $0$, then $overline(f_2)$ is linear. If $f=0$, for linear independence of $(e x+f y),(g x+h y)$, it enforces $h!=0$, then the only point is $Y = -g/h$; else if $h=0$, by similar reason it enforces $f!=0$, then the only point is $Y = -e/f$. Which, regardless these two cases both yield non-singular points.
+
+    \ 
+
+    But, in both cases we still need to worry about the other affine chart (if they provide more information or not): Using the same machinery, if looking into the open subset $U_Y$ in $Bl_0 AA^2$ (where $X!=0$), the local description is by $(X,y)$, and with the projection $phi(X,y) = (y X,y)$. So, the equation $f$ pulls back to an equation $overline(overline(f))$, where $y^2 dot overline(overline(f)) = y^2 dot (overline(overline(f_2))+...+overline(overline(f_d)))$, where each $overline(overline(f_i)) = y^(i-2)sum_(j=0)^i b_(j,i)X^j$ (here the coefficients depend on each $f_i$). So, with $phi^(-1)(P)$ having the $y$-coordinate being $0$, then every term $overline(overline(f_i))$ vanishes for $i>=3$ (since they contained nontrivial factor of $y$).
+
+    Then, looking at the factor $overline(overline(f_2)) = (e X+f)(g X+h)$, one can consider the two cases:
+    - If $e,g!=0$, then one has $X = -f/e, X=-h/g$. Which, in $Bl_0 AA^2$ they correspond to the matrices $mat(x,y;X,Y) = mat(0,0;-f/e,1), mat(0,0;-h/g,1)$. (Note: in this case $(partial x)$ never vanishes at these points, using the same logic as the proof in $U_X$).
+    - If $e=0$ or $g=0$, then first case corresponds to $X=-h/g$, the second case corresponds to $X=-f/e$ (since again by linear independence of factors $(e x+f y), (g x+h y)$, $e=0$ implies $g!=0$, while $g=0$ implies $e!=0$).
+
+    For the case where $f,h!=0$, in the chart $U_X$ one has $phi^(-1)(P) = {mat(0,0;1,-e/f), mat(0,0;1,-g/h)}$. If $e!=0$, then the point $X=-f/e$ in $U_Y$ reads $mat(0,0;-f/e,1) = mat(0,0;1,-e/f)$ (since $[X,Y] in PP^1$, so up to scaling they're the same). Else if $f!=0$, then the point $X=-h/g$ reads $mat(0,0;-h/g,1) = mat(0,0;1,-g/h)$. So, in this case $U_Y$ doesn't provde extra points, it's indeed the two points listed in $U_X$.
+
+    For the case where $f=0$ or $h=0$ (for definiteness say $f=0$), it implies $h!=0$, and one has $phi^(-1)(P) = {mat(0,0;1,-g/h)}$ in $U_X$. for $(e x+f y), (g x+h y)$ to be linearly independent, one needs $e!=0$, which extends to two cases: Either $g=0$ or $g!=0$. If $g=0$, then in $U_Y$ the solution provides $X=-f/e = 0$, which corresponds to $mat(0,0;0,1)$ (distinct from $phi^(-1)(P)$); else if $g!=0$, then in the solution it has $X = -f/e = 0$ and $X = -h/g != 0$, corresponding to the two matrices $mat(0,0;0,1), mat(0,0;-h/g,1) = mat(0,0;1,-g/h)$. Which, we yield two distinct points, with one of them coincide with the solution derived in $U_X$.
+
+    So, regardless we'll always find two distinct solutions, and they're non-singular because under the affine chart, one of the partial derivative doesn't vanish. 
+
+    \ 
+
+    \ 
+
+  + Given the equation of the Tacnode being $x^4-x^2+y^4=0$ in Exercise 5.1 (Problem 3). Take the BLowing-up $tilde(Y)$ as the proper transform under $Bl_0 AA^2$, and take the open subset $U_Y$ (where $Y!=0$), then the local description of the chart is $(X,y)$, with $phi(X,y) = (y X,y)$.
+
+    Then, the defining equation pulls back to $y^4X^4-y^2X^2+y^4=y^2(y^2X^4-X^2+y^2)=0$, so with $y^2$ describes the exceptional divisor, the defining equation is $y^2X^4-X^2+y^2 = 0$. 
+
+    Notice that $phi^(-1)(P)$ yields $(X,y) = (0,0)$. Which, since under the open subset $U_Y$ the defining equation has the lowest degree nonzero homogeneous polynomial being $-X^2+y^2 = (y-X)(y+X)$, showing that the point $phi^(-1)(P)$ (under this chart) has two distinct linear factors corresponding to $f_2$ (the lowest degree nonzero homogeneous polynomial of the defining equation), hence it's a node.
+
+    For safety (meaning $phi^(-1)(P)$ is only one point), let's check the other open subset $U_X$ (where $X!=0$). The local description of the chart is $(x,Y)$, with the mapt $phi(x,Y)=(x,x Y)$. Which, the defining equation pulls back to $x^4-x^2 + x^4Y^4 = x^2(x^2-1+x^2Y^4)=0$, with $x^2$ defines the exceptional divisor, the equation is $x^2-1+x^2 Y^4=0$. Notice that $phi^(-1)(P)$ should yield $(x,Y)=(0,0)$, but this point is not on the curve defined by the equation mentioned, hence $phi^(-1)(P)$ doesn't exist in this chart. This shows the only point in $phi^(-1)(P)$ lies in $U_Y$ (which has been calculated above), and it is a node.
+
+    \ 
+
+    \ 
+
+  + First, the point $(0,0)$ in $x^5-y^3=0$ has multiplicity $3$, since the lowest degree homogeneous plynomial is $-y^3$, indicating that it's a triple point.
+
+    If blowing up at $O = (0,0)$ (viewed as the proper transform in $Bl_0 AA^2$), take the open subset $U_Y$ (where $Y!=0$), the local chart provides $(X,y)$, and the map can be defined as $phi(X,y)=(y X,y)$. So, the defining equation pulls back to $y^5 X^4 - y^3 = y^3(y^2X^4 -1)=0$. With $y^3$ defines the exceptional divisor, $y^2 X^4 -1 = 0$ is the defining equation. Which, $phi^(-1)(O)$ supposedly provides $(X,y)=(0,0)$, yet this point is not on the algebraic set (since plugin provides $-1!=0$), so we need to see the other affine chart.
+
+    \ 
+
+    Take $U_X$ (where $X!=0$), the local chart provides $(x,Y)$, and the map can be defined as $phi(x,Y)= (x,x Y)$. So, the defining equation pulls back to $x^5-x^3 Y^3 = x^3(x^2-Y^3)=0$. So, the defining equation is given by $x^2-Y^3 = 0$. Here, $phi^(-1)(O)$ provides $(x,Y)=(0,0)$, which is on the locus; and, notice that the lowest degree homogeneous polynomial is $x^2$, showing that $phi^(-1)(O)$ is a double point (and since the linear factor of $x^2$ is not distinct, it's not a node, must be a Tacnode or a Cusp). If limit to $k=RR$, it defines a cuspidal cubic, which the point $phi^(-1)(O)$ is a cusp.
+
+    Finally, under this affine chart (isomorphic to $AA^2$), the blowing-up of $x^2-Y^3=0$ at $(x,Y)=(0,0)$ as a set, can be viewed as the proper transform in $Bl_0 AA^2 = {(overline(x), [ell])}$, where $overline(x)=(x,Y)$ and $[ell] = [X',Y']$ has $mat(x,Y;X',Y')$ with rank $<=1$.
+
+    On the open subset $V_(X')$ (where $X'!=0$), the local chart is $(x,Y')$, with map $mu(x,Y') = (x,x Y')$ as the projection back to the affine chart. Which, the equation pulls back to $x^2 - x^3 Y'^3 = x^2(1-x Y'^3)=0$, which the $x^2$ is defining the exceptional divisor, so the equation under this set $V_(X')$ is $1-x Y'^3 = 0$. But, notice that $mu^(-1)(0,0)$ supposedly provides $(x,Y')=(0,0)$, which is not on the curve. Hence, we need to look at the other open subset.
+
+    Take $V_(Y')$ (where $Y'!=0$), the local chart is $(X', Y)$, with projection $mu(X',Y) = (Y X', Y)$, so the equation pulls back to $Y^2 X'^2 - Y^3 = Y^2(X'^2 - Y)=0$. With $Y^2$ defines the exceptional devisor, the equation is $X'^2 - Y=0$. Notice that this has linear factor, hence under this chart the point $mu^(-1)(0,0)$ (being $(X',Y)= (0,0)$) is non-singular, showing the second blowing up in fact resolves the singularity at the point.
+]
+
+#pagebreak()
+
+= D//7
 #problem[
   Hartshorne 5.7:
 
@@ -114,13 +397,129 @@
   + Show that $X$ has just one singular point, namely $P$.
   + Show that $tilde(X)$ is non-singular (cover it with open affines).
   + Show that $phi^(-1)(P)$ is isomorphic to $Y$.
-][]
+][
+  + Since $Y$ is a projective algebraic set, its defining equation $f$ is homogeneous of some degree $d$; also, it is assumed to be non-singular, then under the affine cover of $PP^2$, the defining equation of $Y$ in each of the affine chart is nonzero: 
+  
+    For instance, in the affine chart $U_x$ (where $x!=0$), the defining equation of $Y sect U_x subset.eq U_x$ is $f(1,y,z)$ (since can assume $x=1$). Then, $Y$ is non-singular implies $(partial f)/(partial y)(1,y,z)$ or $(partial f)/(partial z)(1,y,z)$ is nonzero (for definiteness, say $(partial f)/(partial y)(1,y,z)!=0$). Hence, in $AA^3$, if $(x,y,z) in X$ has $x = a!=0$, then since $(partial f)/(partial y)$ has degree $d-1$ (Note: in #text(weight: "bold")[Problem 5] it's proven that any homogeneous polynomial of degree $d$ has nonzero partial derivatives being homogeneous of degree $d-1$), then one has $(partial f)/(partial y)(a,y,z) = a^(d-1) (partial f)/(partial y)(1, y/a, z/a) != 0$. So, the partial derivative is nonvanishing at $(x,y,z) = (a,y,z)!=0$.
 
-\ 
+    Apply similar logic to $y!=0$ and $z!=0$ (which instead need the affine chart $U_y subset.eq PP^2$ and $U_z subset.eq PP^2$ respectively, and the same claim on the partial derivatives in the affine chart), one can deduce that if $x!=0$, $y!=0$, or $z!=0$, at least one of the partial derivatives of $f$ is nonvanishing. Hence, the only possible singularity must be at $P=(0,0,0)$.
 
-= ND//8
+    Finally, the reason why $P$ is singular, is because $Y subset PP^2$ is of degree $d>1$ (the homogeneous degree of $f$), hence all of its partial derivatives $(partial f)/(partial x), (partial f)/(partial y), (partial f)/(partial z)$ are homogeneous of degree $d-1 >= 1$. Hence, plugin $(x,y,z)=(0,0,0)$, since each monomial (of the partial derivatives) is non-constant, it must evaluate to be $0$, showing all partial derivatives vanish at $P=(0,0,0)$.
+
+    \ 
+
+  + We'll consider $tilde(X)$ as the proper transform of $X$ in $Bl_0 AA^3$. For simplicity, we'll just demonstrate one affine chart calculation: Pick $U_X'$ (where $X'!=0$ in $Bl_0 AA^3$, where the points are of the form $(overline(x), [ell])$, where $overline(x)=(x,y,z)$ and $[ell] = [X',Y,Z]$ have $mat(x,y,z;X',Y,Z)$ with rank $<=1$). Then, the local description is $(x,Y,Z)$.
+  
+    Take the pull back of the equation, we in fact ield $f(x, x Y, x Z) = x^d dot f(1, Y, Z)$ (this is based on the fact that $f$ is homogeneous of degree $d$). Here, since the preimage of $P=(0,0,0)$ in this affine chart has $x=0$, $x^d=0$ is the defining equation for the exceptional divisor, hence we're left with the equation $f(1, Y, Z)$ that defines $tilde(X)$ in $U_X'$. Then, the partial derivatives with respect to $Y,Z$ are given by $(partial f)/(partial Y)(1,Y,Z)$, and $(partial f)/(partial Z)(1,Y,Z)$. In part (a) we've verified that at theast one of the two must be nonzero, showing $tilde(X)$ is non-singular within the affine chart.
+
+    Also, notice that the same idea applies to all the other affine charts (liek $U_Y$ where $Y!=0$, and $U_Z$ where $Z!=0$), showing that under the affine cover $tilde(X)$ contains only non-singular points, hence non-singular.
+
+    \ 
+
+  + It suffices to check that under each of the three standard affine charts of $Bl_0 AA^3$ and $PP^2$ (while viewing $tilde(X)$ as the proper transform of $X$), it induces an isomorphism between $phi^(-1)(P)$ and $Y$.
+
+    Let $U_X' tilde.equiv AA^3$ denotes the affine open chart of $Bl_0 AA^3$ with $X'!=0$ (which has local description $(x,Y,Z)$ and projection back to $AA^3$, by $phi(x,Y,Z) = (x,x Y, x Z)$), and let $V_x tilde.equiv AA^2$ denotes the affine open chart of $PP^2$ where $x != 0$ (use $[x,y,z]$ as the coordinates of $PP^2$).
+
+    Which, the answer in part (a) suggested that in $V_x$ (with coordinate $(y,z)$, since WLOG can assume $x = 1$), $Y$ is cut out by the equation $f(1,y,z)=0$; on the other hand the answer in part (b) suggested that in $U_X'$ (with coordinate $(x, Y, Z)$), the exceptional divisor is cut out by the equation $x^d = 0$, hence $phi^(-1)(P) subset.eq {x=0} subset.eq U_X'$ (since if $phi(x,Y,Z) = (x,x Y, x Z) = P = (0,0,0)$, one must have $x=0$), which narrows down the the subset ${(0,Y,Z) in U_X'} tilde.equiv AA^2$.
+
+    Also, notice that $phi^(-1)(P)$ under $U_X'$, is precisely the intersection ${x^d=0} sect (tilde(X) sect U_X')$ (since any point that projects down to $P=(0,0,0)$ must precisely have $x=0$, which is precisely $phi^(-1)(P) sect U_X'$ should contain this set; the other inclusion is by the fact that $phi^(-1)(P) subset.eq tilde(X)$, and all point must have $x=0$ when intersecting $U_X'$), while $tilde(X) sect U_(X')$ has the defining equation $f(1,Y,Z)$ based on the result in part (b).
+
+    Hence, this shows the following isomorphism: 
+    $ phi^(-1)(P) sect U_X' &= {x^d = 0} sect (tilde(x) sect U_X') =  {(0,Y,Z) | f(1,Y,Z)=0} \
+    &tilde.equiv {(y,z) | f(1,y,z)=0} = Y sect V_x $
+    Which, under the intersection with affine charts, one can see $phi^(-1)(P)$ is isomorphic to $Y$. 
+
+    /*
+    Finally, it comes down to check such isomorphism on each intersection with the affine chart, agrees when the affine chart overlaps (or, it is uniquely determined regardless of the affine chart). Given any point in $phi^(-1)(P)$, say it's both in $U_X'$ and $U_Y$, then one needs $x=y=0$, which corresponds to a matrix $mat(0,0,z;X',Y,Z)$, with both $X',Y !=0$. However, for this matrix to be in the proper transform (which is part of the $Bl_0 AA^3$), one needs its rank to be at most 1, showing that $(0,0,z)$ is a scalar multiple of $(X',Y,Z)$, and this further implies $z=0$ (since $X',Y$ are multiplied by a scalar to get $0$). However, based on te isomorphism constructed, it corresponds to $[1,0,0]$ and $[0,1,0]$*/
+]
+
+#pagebreak()
+
+= D//8
 #problem[
   Hartshorne 5.11:
 
   #emph[The Elliptic Quarter Curve in $PP^3$:] Let $Y$ be the algebraic set in $PP^3$ defined by the equations $x^2-x z-y w=0$ and $y z-x w-z w=0$. Let $P$ be the point $[x,y,z,w]=[0,0,0,1]$, and let $phi$ denote the projection from $P$ to the plane $w=0$. Show that $phi$ induces an isomorphism of $Y\\{P}$ with the plane cubic curve $y^2z-x^3+x z^2=0$ minus the point $[1,0,-1]$. Then show that $Y$ is an irreducible non-singular curve. It is called the #emph[elliptic quartic curve in $PP^3$]. Since it is defined by two equations it is another example of complete intersection (Exercise 2.17).
-][]
+][
+
+  Let $Z :={y^2z-x^3+x z^2=0} subset.eq PP^2$ be the algebraic set. Also, the projection $phi:PP^3\{P} -> PP^2$ is defined by $phi([x,y,z,w]) = [x,y,z]$ (here it rules out $P=[0,0,0,1]$, so the projection is well-defined).
+
+  \ 
+
+  #text(weight: "bold")[I. Projection $phi:Y\\{P} -> Z\\{[1,0,-1]}$ is well-defined:]
+
+  If restrict to $Y\\{P}$, we'll first show that $phi(Y\\{P}) subset.eq Z$: Given any $[x,y,z,w] in Y$ that's not $P$, they satisfy the equations $cases(
+    x^2-x z-y w=0, y z-x w-z w=0
+  )$. Which, there are two cases:
+  - First, if $w=0$, the equations reduce to $cases(x^2-x z=0, y z=0)$. So, one has $[x,y,z] = phi([x,y,z,w])$ satisfy:
+    $ y^2 z - x^3 + x z^2 = y(y z) + (x^2-x z)(z+x) = 0 $
+    Hence, $phi([x,y,z,w]) = [x,y,z] in Z$.
+  - Else, if $w!=0$, WLOG say $w=1$. Which, teh equations reduce to $cases(x^2 - x z - y=0, y z - x - z = 0)$, or $cases(x^2 = x z+y, y z=x+z)$ (also, by rearrangement $x z = x^2-y$ also). Again, one has $[x,y,z]=phi([x,y,z,w])$ satisfy:
+    $ y^2z - x^3 + x z^2 &= y(x+z) - x(x z+y) + z(x^2-y)\
+    &= x y+y z - x^2z - x y + x^2z - y z = 0  $
+    Hence again, $phi([x,y,z,w]) = [x,y,z] in Z$.
+
+  These showed that as projection, $phi:Y\\{P} -> Z$ is well-defined.
+
+  Also, notice that for all $w in k$, the point $[1,0,-1,w] in.not Y$ (since plugin the polynomial $x^2-x z-y w$, one has $1^2 - 1(-1) - 0 dot w = 2 != 0$ if $Char(k)!=2$; if $Char(k)=2$, plugin the polynomial $y z-x w-z w$, one has $0 - 1 dot w - (-1) dot w = 0$). So $[1,0,-1,w] in.not Y$, showing $[1,0,-1] in.not im(phi)$ when restricting to $Y\\{P}$. So, $phi:Y\\{P} -> Z\\{[1,0,-1]}$ is a well-defined projection.
+
+  \ 
+
+  #text(weight: "bold")[II. Projection $phi:Y\\{P}-> Z\\{[1,0,-1]}$ is an isomorphism:]
+
+  For this, it suffices to find the inverse in some open neighborhood, for every point in $Z\\{[1,0,-1]}$. Let $U_y$ denotes the open set such that $y!=0$, and $V$ denotes the open set where $x+z!=0$. 
+  
+  Notice that $Z\\{[1,0,-1]} subset.eq U_y union V$, since if any $[x,y,z] in.not U_y union V$, one has $y = 0$ and $x+z = 0$ (or $x=-z$), which to have $[x,y,z] in PP^2$ be well-defined, one needs $x=-z!=0$, hence WLOG assume $x=1$, showing $[x,y,z]=[1,0,-1]$, which is not contained in $Z\\{[1,0,-1]}$. In other words, $Z\\{[1,0,-1]}$ is fully contained in $U_y union V$, so having the inverse defined on these two open sets is enough.
+  
+  Now, define the map $psi:Z\\{[1,0,-1]} -> Y\\{P}$ as follow:
+  $ psi([x,y,z]) = cases(
+    [x,y,z, x(x-z)/y]\, quad y!=0,
+    [x,y,z,(y z)/(x+z)] quad\, quad x+z !=0
+  ) $
+  Which, the first condition can be defined on $U_y$, the second condition can be defined on $V$.
+
+  First, to show it's well-defined at each point, given any $[x,y,z] in Z\\{[1,0,-1]}$ that's also in $U_y sect V$, notice that it satisfies the equation $y^2 z - x^3 + x z^2=0$, or $y(y z) = x(x-z)(x+z)$ (where $y, x+z!=0$). So, one has $(y z)/(x+z) = x(x-z)/y$, showing the two definitions above agree, which the map $psi$ (into $PP^3$) is well-defined (and is a well-defined rational map on $Z\\{[1,0,-1]}$).
+
+  Second, to show the image is in $Y\\{P}$, consider the following two cases:
+  - If $[x,y,z] in (Z\\{[1,0,-1]}) sect U_y$, then $psi([x,y,z]) = [x,y,z,x(x-z)/y]$ satisfies:
+    $ x^2 - x z - y w &= x^2 - x z - y dot x(x-z)/y = x^2 - x z - x^2+ x z = 0 $
+    $ y z - x w - z w= y z - (x+z) dot x(x-z)/y = 1/y (y^2 z - x^3 - x z^2) = 0 $
+    (Note: the second equation is due to the fact that $[x,y,z] in Z$, so $y^2 z-x^3-x z^2=0$).
+
+    Hence, $psi([x,y,z]) in Y$ based on the two equations. 
+
+  - If $[x,y,z] in (Z\\{[1,0,-1]}) sect V$ (in fact, $V$ automaticaly rules oout the point $[1,0,-1]$), then $psi([x,y,z]) = [x,y,z,(y z)/(x+z)]$ satisfies:
+    $ x^2 - x z - y w = (x^2-x z)-y dot (y z)/(x+z) = 1/(x+z)(x^3 - x z^2 - y^2 z)=0 $
+    $ y z- x w - z w = y z - (x+z) dot (y z)/(x+z) = 0 $
+    (Note: the first equation is due to $[x,y,z] in Z$, so $y^2 z - x^3 - x z^2=0$).
+
+    Hence, $psi([x,y,z]) in Y$ based on the two equations.
+    
+  Also, since one of $x,y,z$ is nonzero (since $[x,y,z] in PP^2$), it's clear that $psi([x,y,z]) != P = [0,0,0,1]$, hence it's in $Y\\{P}$. So, $psi:Z\\{[1,0,-1]}-> Y\\{P}$ is well-defined.
+
+  Finally, to check it's the inverse of $phi:Y\\{P}-> Z\\{[1,0,-1]}$, any $[x,y,z,w] in Y\\{P}$ divides to the following two cases:
+  - If $y!=0$, then the first equation of $Y$, $x^2-x z-y w=0$ implies $w = x(x-z)/y$. Hence:
+    $ psi compose phi([x,y,z,w]) = psi([x,y,z]) = [x,y,z,x(x-z)/y] = [x,y,z,w] $
+  - Else if $x+z!=0$, then the second equation of $Y$, $y z-x w-z w=0$ implies $w=(y z)/(x+z)$. Hence:
+    $ psi compose phi([x,y,z,w]) = psi([x,y,z]) = [x,y,z,(y z)/(x+z)] = [x,y,z,w] $
+  This shows that $psi compose phi = id$ on $Y\\{P}$. Also, it's clear that for all $[x,y,z] in Z\\{[1,0,-1]}$, one has $phi compose psi([x,y,z]) = phi([x,y,z,*]) =[x,y,z]$, showing $phi compose psi = id$ on $Z\\{[1,0,-1]}$. Hence, the two sets are isomorphic. 
+
+  \ 
+
+  #text(weight: "bold")[III. $Y$ is an irreducible Non-singular curve:]
+
+  Based on the isomorphism above, it suffices to show that $Z$ is a projective variety (which implies $Z\\{[1,0,-1]}$ is an irreducible open subset of $Z$, so $Y\\{P}$ is irreducible, hence $Y = overline(Y\\{P})$ under its subspace topology is also irreducible). 
+  
+  Which, to show $Z$ is a projective variety, it's the most efficient to show its defining equation $y^2 z - x^3 + x z^2$ is irreducible (hence the homogeneous ideal $(y^2 z-x^3 + x z^2) subset k[x,y,z]$ is prime, where $Z$ as the algebraic set of this ideal, is a variety).
+
+  Since the polynomial has $y$-degree being $2$, if it's reducible it must be the form $z dot y^2 + (x z^2+x^3) = (f dot y - g)(h dot y - l)$, where $f,g,h,l in k[x,z]$. Which, one has $f dot h = z$, showing both $f,h$ involves no $x$ term, while one has $z$-degree $1$. Hence up to unit, one can assume $f = z$ and $h=1$ (so, $z dot y^2 + (x z^2 - x^3) = (z dot y-g)(y - l)$).
+
+  Then, in case to have no degree 1 $y$ term, one must have $-z dot l -g = 0$, or $g = -z dot l$. Which, this implies $-z l^2 = g l = x z^2 - x^3$. Yet, this is clearly impossible, since plugin $z=0, x=1$, one yields $-z l^2 = 0$, while $x z^2-x^3 = -1!=0$. So, we reach a contradiction. Therefore, $y^2 z-x^3+x z^2$ cannot be reducible, hence irreducible, and this finishes the proof that $Y$ is irreducible.
+
+  \ 
+
+  Finally, to show $Y$ is non-singular, let's look at one of the affine open subset: Consider the open subset $U_z$ (where $z!=0$), WLOG say $z=1$. Hence, $Y sect U_z$ can be defined by the two equations $cases(x^2-x-y w, y^2-x^3-x)$. So, the Jacobian matrix becomes (in terms of $x,y,w$ from left to right columns, and the polynomials are from top to bottom row in order):
+  $ J = mat((2x-1), -w, -y;-(3x^2-1),2y, 0) $
+  Which, since $Y subset PP^3$ has dimension at most 1 (since the two defining equations generate two hypersurfaces not containing each other, so the intersection must necessarily be a curve with one dimension lower), hence the Jacobian must have rank being the codimension $3-1 = 2$ for it to be non-singular. However, take $x=1/2, y=w=0$, then $J = mat(0,0,0;1/4,0,0)$, which clearly doesn't have rank $2$. This shows that $Y$ contains non-singular points, which finishes the last piece of the proof.
+
+]
