@@ -416,7 +416,7 @@ Let $H < G$ be a subgroup of a finite group $G$. In the recording of the last le
 
   Again, pick representatives of each $S_4$'s conjugacy classes as $(12) in C_(211)$, $(12)(34) in C_(22)$, $(123) in C_(31)$, and $(1234) in C_(4)$, their actions on each basis elements have the following "evaluation":
   $ &((12) dot phi^((i))_(f_j))(x_1) = phi^((i))_(f_j)((12))\
-  &((12) dot phi^((i))_(f_j))(x_2) = phi^((i))_(f_j)((14)(12)) =  $
+  &((12) dot phi^((i))_(f_j))(x_2) = phi^((i))_(f_j)((14)(12)) =  $ hello
 
 ]
 
