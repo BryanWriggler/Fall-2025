@@ -261,19 +261,9 @@ Let $H < G$ be a subgroup of a finite group $G$. In the recording of the last le
 #problem[
   Consider the following special example: Let $V_upright(s t)$ denote the irreducible $2$-dimensional representation of $S_3$. Compute the character of $Ind^(S_4)_(S_3) V_(s t)$, compute the character table of $S_4$, then decompose $Ind^(S_4)_(S_3)V_(s t)$ as direct sums of irreducible representations of $S_4$.
 ][
-  First, let's consider a basis for $Ind^G_H W$ (where $W in Rep_k (H)$): in #text(weight: "bold")[Problem 5] it has been verified that all $phi in Ind^G_H W$ has decomposition $phi = sum_(i=1)^l phi^((i))_(phi(x_i))$, each $phi^((i))_(phi(x_i)) in W^((i))$ has $phi^((i))_(phi(x_i))(h x_i) = h dot phi(x_i)$ for all $h in H$ (this decomposition is based on $W = plus.circle_(i=1)^l W^((i))$, each $W^((i))$ associates to the coset $H x_i$).
-
-  On the other hand, for each $a,b in k$ and $u,w in W$, the element $phi^((i))_(a u+b w)(h x_i) = h dot (a u+b w) = a (h dot u)+b (h dot w) = a phi^((i))_u (h x_i)+b phi^((i))_(w)(h x_i)$ for all $h in H$ (with $phi^((i))_(a u+b v)(h x_j)=0 = a phi^((i))_u (h x_j)+b phi^((i))_(w)(h x_j)$ for $j!=i$), showing that $phi^((i))_(a u+b w)=a phi^((i))_u + b phi^((i))_w$.
-
-  So, pick a basis $w_,...,w_n in W$, then ${phi^((i))_(w_j)}_(1<=i<=l\ 1<=j<=n)$ is a basis for $Ind^G_H W$, since each $phi in W$ has $phi(x_i) = sum_(j=1)^n a_(i j)w_j$ for unique collections of $a_(i j) in k$, hence one has $phi = sum_(i=1)^l phi^((i))_(phi(x_i)) = sum_(i=1)^l sum_(j=1)^n a_(i j)phi^((i))_(w_j)$, with each coefficient $a_(i j)$ being uniquely determined by each $phi(x_i)$.
+  Let's establish all the tools needed for this problem:
 
   \ 
-
-  Besides this, let's establish all the tools needed for this problem:
-
-  \ 
-
-  \
 
   #text(weight: "bold")[I. Cosets of $S_3$ in $S_4$:]
 
@@ -414,6 +404,20 @@ Let $H < G$ be a subgroup of a finite group $G$. In the recording of the last le
 
   #text(weight: "bold")[IV. Representation $Ind^(S_4)_(S_3) V_upright(s t)$, and its character $chi_(Ind^G_H V_upright(s t))$:]
 
+  First, let's consider a basis for $Ind^G_H W$ (where $W in Rep_k (H)$): in #text(weight: "bold")[Problem 5] it has been verified that all $phi in Ind^G_H W$ has decomposition $phi = sum_(i=1)^l phi^((i))_(phi(x_i))$, each $phi^((i))_(phi(x_i)) in W^((i))$ has $phi^((i))_(phi(x_i))(h x_i) = h dot phi(x_i)$ for all $h in H$ (this decomposition is based on $W = plus.circle_(i=1)^l W^((i))$, each $W^((i))$ associates to the coset $H x_i$).
+
+  On the other hand, for each $a,b in k$ and $u,w in W$, the element $phi^((i))_(a u+b w)(h x_i) = h dot (a u+b w) = a (h dot u)+b (h dot w) = a phi^((i))_u (h x_i)+b phi^((i))_(w)(h x_i)$ for all $h in H$ (with $phi^((i))_(a u+b v)(h x_j)=0 = a phi^((i))_u (h x_j)+b phi^((i))_(w)(h x_j)$ for $j!=i$), showing that $phi^((i))_(a u+b w)=a phi^((i))_u + b phi^((i))_w$.
+
+  So, pick a basis $w_,...,w_n in W$, then ${phi^((i))_(w_j)}_(1<=i<=l\ 1<=j<=n)$ is a basis for $Ind^G_H W$, since each $phi in W$ has $phi(x_i) = sum_(j=1)^n a_(i j)w_j$ for unique collections of $a_(i j) in k$, hence one has $phi = sum_(i=1)^l phi^((i))_(phi(x_i)) = sum_(i=1)^l sum_(j=1)^n a_(i j)phi^((i))_(w_j)$, with each coefficient $a_(i j)$ being uniquely determined by each $phi(x_i)$.
+
+  \ 
+
+  Which, let $x_1:= e$, $x_2:= (14)$, $x_3 := (24)$, and $x_4 := (34)$ (use the cosets developed in #text(weight: "bold")[I]), and use $V_upright(s t) := {(x,y,z) in CC^3 | x+y+z=0}$, and with basis $f_1 := (1,-1,0), f_2 := (0,1,-1)$ establshed in #text(weight: "bold")[II], a basis for $Ind^(S_4)_(S_3)V_upright(s t)$ is ${phi^((i))_(f_j)}_(1<=i<=4\ j=1,2)$.
+
+  Again, pick representatives of each $S_4$'s conjugacy classes as $(12) in C_(211)$, $(12)(34) in C_(22)$, $(123) in C_(31)$, and $(1234) in C_(4)$, their actions on each basis elements have the following "evaluation":
+  $ &((12) dot phi^((i))_(f_j))(x_1) = phi^((i))_(f_j)((12))\
+  &((12) dot phi^((i))_(f_j))(x_2) = phi^((i))_(f_j)((14)(12)) =  $
+
 ]
 
 #pagebreak()
@@ -519,7 +523,7 @@ Let $H < G$ be a subgroup of a finite group $G$. In the recording of the last le
 
   \ 
 
-  Hence, it suffices to show $Hom_G (V_i, Res^G_H W_j) tilde.equiv Hom_H (Res^G_H V_i, W_j)$.
+  Hence, to prove $Hom_G (V, Ind^G_H W) tilde.equiv Hom_H (Res^G_H V, W)$ (as $k$-vector spaces, which also proves the adjunction), it suffices to show $Hom_G (V_i, Res^G_H W_j) tilde.equiv Hom_H (Res^G_H V_i, W_j)$.
 
   Let $Res^G_H V_i tilde.equiv plus.circle.big_r W_r^(p_r)$ as $H$-representations, and $Ind^G_H W_j tilde.equiv plus.circle.big_s V_s^(q_s)$ as $G$-representations, then using the orthonormality of the character (together with the fact that direct sum representation has character, being the sum of the direct summands' characters), one can deduce that each $p_r = langle chi_(Res V_i), chi_(W_r) rangle_H$, and $q_s = langle chi_(Ind^G_H W_j), chi_(V_s)rangle_G$ (with $p_r, q_s in NN$). Hence, one has the following, based on Schur's Lemma:
   $ &Hom_G (V_i, Ind^G_H W_j) tilde.equiv Hom_G (V_i, plus.circle.big_s V_s^(q_s)) tilde.equiv plus.circle.big_s Hom_G (V_i, V_s)^(q_s) tilde.equiv Hom_G (V_i,V_i)^(q_i) tilde.equiv CC^(q_i)\ 
@@ -532,6 +536,8 @@ Let $H < G$ be a subgroup of a finite group $G$. In the recording of the last le
 #pagebreak()
 
 = Bonus:
+
+As of an apology, the last several question (Problem 8-11) took me a long while to finish, so the answer for these may not be complete.
 #problem[
   Continue to let $W in Rep_k (H)$ and let $V in Rep_k (G)$. Let $f:W->V$ be a map of $H$-representations. Let us define a map of vector spaces $g^((i))_f:W^((i))->V$ as follow: we define 
   $ g^((i))_(f)(phi^((i))_w):= x_i dot f(w) in V $
