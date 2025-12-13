@@ -218,7 +218,7 @@ Let $H < G$ be a subgroup of a finite group $G$. In the recording of the last le
 
 #pagebreak()
 
-== ND//7
+== D//7
 #problem[
   Use Part (6) to show that $Ind^G_H$ is a right adjoint of $Res^G_H$.
 ][
@@ -226,19 +226,49 @@ Let $H < G$ be a subgroup of a finite group $G$. In the recording of the last le
 
   \ 
 
-  Now, the goal is to show that $e compose \_$ is an isomorphism: Suppose $T in ker(e compose \_)$, then $e compose T = 0$, hence for any $v in V$, one has $e compose T(v) = 0$. However, Let $phi_v := T(v) in Ind^G_H W$
+  Now, the goal is to show that $e compose \_$ is a bijection by constructing an inverse: Given any $H$-representation morphism $S in Hom_H (Res^G_H V, W)$, for all $v in V$, define a map $phi_v: G -> W$, by $phi_v (x) := S(x dot v)$. Notice that for any $x in G$, $h in H$, this map satisfies the following:
+  $ phi_v (h x) = S((h x)dot v)= S(h dot (x dot v)) = h dot S(x dot v) = h dot phi_v (x) $
+  Hence, this implies $phi_v in Ind^G_H W$. Which, define a map $I_S:V -> Ind^G_H W$ by $I_S (v) := phi_v$, we can show it's in fact a $G$-representation morphism:
+  - First, given any $a,b in k$ and $u,v in V$, the map satisfies the following:
+    $ forall x in G, I_S (a u+b v)(x) &= phi_(a u+b v)(x) = S(x dot (a u+b v)) = a S(x dot u)+b S(x dot v)\ 
+    &= a phi_u (x) + b phi_v (x) = (a I_S (u)+b I_S (v))(x) $
+    Hence, $I_S (a u+b v)= a I_S (u)+b I_S (v)$, showing it's a linear map.
+  - Given any $g, x in G$ and $v in V$, one has the map satisfies the following:
+    $ I_S (g dot v)(x) &= phi_(g dot v)(x) = S(x dot (g dot v)) = S((x g) dot v) \ 
+    &= phi_(v)(x g) = (g dot phi_v)(x) = (g dot I_T (v))(x) $
+    This shows that $I_S (g dot v) =g dot I_S (v)$, showing $I_S$ is a $G$-representation morphism,
+
+  \ 
+
+  With these properties, define a map $f:Hom_H (Res^G_H V, W)-> Hom_G (V, Ind^G_H W)$ by $f(S):= I_S$ defined above. Which, we claim that $e compose \_$ and $f$ are mutual inverse.
+
+  - Given any $T in Hom_G (V, Ind^G_H W)$, any $v in V$ has $T(v) in Ind^G_H W$, which for all $x in G$, one hasthe following:
+    $ T(v)(x) = T(v) (1 x) = (x dot T(v))(1) = e(x dot T(v)) $
+    Also, $f(e compose T) = I_(e compose T)$ has all $v in V$ satisfies the following for all $x in G$:
+    $ I_(e compose T)(v)(x) = e compose T(x dot v) = e(x dot T(v)) $
+    Hence, one gets that $T(v) = I_(e compose T)(v)$, showing $T = I_(e compose T) = f(e compose T)$. Hence, $f compose (e compose\_)$ is identity on $Hom_G (V, Ind^G_H W)$.
+
+  - Given any $S in Hom_H (Res^G_H V, W)$, one has $f(S) = I_S in Hom_G (V, Ind^G_H W)$. Which, for any $v in V$, $e compose I_S$ satisfies the following:
+    $ e compose I_S (v) = e(phi_v) = phi_v (1) = S(1 dot v) = S(v) $
+    Hence, this shows that $e compose (f(S)) = e compose I_S = S$, showing that $(e compose \_) compose f$ is identity on $Hom_H (Res^G_H V, W)$.
+
+  Hence, these two properties show that $e compose \_:Hom_G (V, Ind^G_H W)-> Hom_H (Res^G_H V, W)$ and $f: Hom_H (Res^G_H V, W)-> Hom_G (V, Ind^G_H W)$ are mutual inverse, hence $Ind^G_H$ is a right adjoint of $Res^G_H$. 
 ]
 
 \ 
 
+
+== ND//8
 #problem[
   Consider the following special example: Let $V_upright(s t)$ denote the irreducible $2$-dimensional representation of $S_3$. Compute the character of $Ind^(S_4)_(S_3) V_(s t)$, compute the character table of $S_4$, then decompose $Ind^(S_4)_(S_3)V_(s t)$ as direct sums of irreducible representations of $S_4$.
 ][]
 
 \
 
+
+== ND//9
 #problem[
-  For any function $f:H -> CC$, let us define a function $tilde(f):G -> H$ by 
+  For any function $f:H -> CC$, let us define a function $tilde(f):G -> CC$ by 
   $ tilde(f)(x) = cases(
     f(x) quad "if" x in H,
     0 quad quad "  otherwise"
