@@ -621,7 +621,7 @@ Let $H < G$ be a subgroup of a finite group $G$. In the recording of the last le
 
 = Bonus:
 
-As of an apology, the last several question (Problem 8-11) took me a long while to finish, so the answer for these may not be complete.
+Apology here, the last several question (Problem 8-11) took me a long while to understand and finish, so the answer for these may not be complete.
 
 == ND//12
 #problem[
@@ -629,6 +629,12 @@ As of an apology, the last several question (Problem 8-11) took me a long while 
   $ g^((i))_(f)(phi^((i))_w):= x_i dot f(w) in V $
   where the action by $x_i$ is given using the $G$-representation structure on $V$. This way (by Part (3)) we obtain a map $g_f:Ind^G_H W->V$ as vector spaces. Show that $g_f$ is in fact a map between $G$-representations. Use this to show that $Ind^G_H$ is also a left adjoint of $Res^G_H$ when $G$ is finite. 
 ][
+  For any $phi in Ind^G_H W$, since $phi = sum_(i=1)^l phi^((i))_phi(x_i)$, then for any $x in G$, one has the following:
+  $ x dot g_f (phi) = x dot sum_(i=1)^l g^((i))_f (phi^((i))_(phi(x_i))) = x dot sum_(i=1)^l x_i dot f(phi(x_i)) $
+  On the other hand, let $x_i x = h_i x_(sigma(i))$ for some permutation $sigma in S_l$, then one has the following:
+  $ g_f (x dot phi) &= sum_(i=1)^l g^((i))_f (phi^((i))_((x dot phi)(x_i))) = sum_(i=1)^l x_i dot f(phi(x_i x)) \ 
+  &= sum_(i=1)^l x_i dot f(phi(h_i x_(sigma(i)))) = sum_(i=1)^l x_i h_i  dot f(phi(x_(sigma(i)))) $
+  The goal is to prove that $x x_(sigma(i))$
 ]
 
 \ 
@@ -641,4 +647,6 @@ As of an apology, the last several question (Problem 8-11) took me a long while 
   - For any $s in G\\H$, we have 
     $ langle rho_s, Res^G_H rho rangle_(H_s) = 0 $
     where $H_s:= s H s^(-1) sect H$ and $rho_s$ denotes the representation of $H_s$ on $W$ given by $rho_s (x) = rho_W (s x s^(-1))$.
-][]
+][
+
+]
