@@ -257,7 +257,7 @@ Let $H < G$ be a subgroup of a finite group $G$. In the recording of the last le
 
 #pagebreak()
 
-== ND//8
+== D//8
 #problem[
   Consider the following special example: Let $V_upright(s t)$ denote the irreducible $2$-dimensional representation of $S_3$. Compute the character of $Ind^(S_4)_(S_3) V_(s t)$, compute the character table of $S_4$, then decompose $Ind^(S_4)_(S_3)V_(s t)$ as direct sums of irreducible representations of $S_4$.
 ][
@@ -412,17 +412,78 @@ Let $H < G$ be a subgroup of a finite group $G$. In the recording of the last le
 
   \ 
 
-  Which, let $x_1:= e$, $x_2:= (14)$, $x_3 := (24)$, and $x_4 := (34)$ (use the cosets developed in #text(weight: "bold")[I]), and use $V_upright(s t) := {(x,y,z) in CC^3 | x+y+z=0}$, and with basis $f_1 := (1,-1,0), f_2 := (0,1,-1)$ establshed in #text(weight: "bold")[II], a basis for $Ind^(S_4)_(S_3)V_upright(s t)$ is ${phi^((i))_(f_j)}_(1<=i<=4\ j=1,2)$.
+  Which, let $x_1:= e$, $x_2:= (14)$, $x_3 := (24)$, and $x_4 := (34)$ (use the cosets developed in #text(weight: "bold")[I]), and use $V_upright(s t) := {(x,y,z) in CC^3 | x+y+z=0}$, and with basis $f_1 := (1,-1,0), f_2 := (0,1,-1)$ establshed in #text(weight: "bold")[II], a basis for $Ind^(S_4)_(S_3)V_upright(s t)$ is ${phi^((i))_(f_j)}_(1<=i<=4\ j=1,2)$ (and $dim Ind^(S_4)_(S_3)V_upright(s t)=8$).
 
-  Again, pick representatives of each $S_4$'s conjugacy classes as $(12) in C_(211)$, $(12)(34) in C_(22)$, $(123) in C_(31)$, and $(1234) in C_(4)$, their actions on each basis elements have the following "evaluation":
-  $ &((12) dot phi^((i))_(f_j))(x_1) = phi^((i))_(f_j)((12))\
-  &((12) dot phi^((i))_(f_j))(x_2) = phi^((i))_(f_j)((14)(12)) =  $ hello
+  Again, pick representatives of each $S_4$'s conjugacy classes as $(12) in C_(211)$, $(12)(34) in C_(22)$, $(123) in C_(31)$, and $(1234) in C_(4)$, their actions on each basis elements have the following "evaluations" of the coset representatives:
+  $ &((12) dot phi^((i))_(f_j))(x_1) = phi^((i))_(f_j)((12)x_1)\
+  &((12) dot phi^((i))_(f_j))(x_2) = phi^((i))_(f_j)((14)(12)) = phi^((i))_(f_j)((12)(24)) = phi^((i))_(f_j)((12)x_3)\ 
+  &((12) dot phi^((i))_(f_j))(x_3) = phi^((i))_(f_j)((24)(12)) = phi^((i))_(f_j)((12)(14))=phi^((i))_(f_j)((12)x_2)\ 
+  &((12) dot phi^((i))_(f_j))(x_4) = phi^((i))_(f_j)((34)(12)) = phi^((i))_(f_j)((12)x_4) $
+
+  $ &((12)(34) dot phi^((i))_(f_j))(x_1) = phi^((i))_(f_j)((12)(34))= phi^((i))_(f_j)((12) x_4)\
+  &((12)(34) dot phi^((i))_(f_j))(x_2) = phi^((i))_(f_j)((14)(12)(34)) = phi^((i))_(f_j)((123)(24)) = phi^((i))_(f_j)((123)x_3)\ 
+  &((12)(34) dot phi^((i))_(f_j))(x_3) = phi^((i))_(f_j)((24)(12)(34)) = phi^((i))_(f_j)((132)(14))=phi^((i))_(f_j)((132)x_2)\ 
+  &((12)(34) dot phi^((i))_(f_j))(x_4) = phi^((i))_(f_j)((34)(12)(34)) = phi^((i))_(f_j)((12))= phi^((i))_(f_j)((12)x_1) $
+
+  $ &((123) dot phi^((i))_(f_j))(x_1) = phi^((i))_(f_j)((123)x_1)\
+  &((123) dot phi^((i))_(f_j))(x_2) = phi^((i))_(f_j)((14)(123)) = phi^((i))_(f_j)((123)(34)) = phi^((i))_(f_j)((123)x_4)\ 
+  &((123) dot phi^((i))_(f_j))(x_3) = phi^((i))_(f_j)((24)(123)) = phi^((i))_(f_j)((123)(14))=phi^((i))_(f_j)((123)x_2)\ 
+  &((123) dot phi^((i))_(f_j))(x_4) = phi^((i))_(f_j)((34)(123)) = phi^((i))_(f_j)((123)(24)) = phi^((i))_(f_j)((123)x_3) $
+  
+  $ &((1234) dot phi^((i))_(f_j))(x_1) = phi^((i))_(f_j)((1234)) = phi^((i))_(f_j)((123)(34))=phi^((i))_(f_j)((123)x_4) \
+  &((1234) dot phi^((i))_(f_j))(x_2) = phi^((i))_(f_j)((14)(1234)) = phi^((i))_(f_j)((123)) = phi^((i))_(f_j)((123)x_1)\ 
+  &((1234) dot phi^((i))_(f_j))(x_3) = phi^((i))_(f_j)((24)(1234)) = phi^((i))_(f_j)((23)(14))=phi^((i))_(f_j)((23)x_2)\ 
+  &((1234) dot phi^((i))_(f_j))(x_4) = phi^((i))_(f_j)((34)(1234)) = phi^((i))_(f_j)((124)) = phi^((i))_(f_j)((12)(24)) = phi^((i))_(f_j)((12)x_3) $
+
+  Then, use the decomposition $phi = sum_(i)phi^((i))_(phi(x_i))$, one has the following (after insanely long computation...):
+  $ &(12) dot phi^((1))_(f_1)= phi^((1))_(-f_1) = -phi^((1))_(f_1), quad (12) dot phi^((1))_(f_2) = phi^((1))_(f_2-f_1) = -phi^((1))_(f_1)+phi^((1))_(f_2)\ 
+  &(12) dot phi^((2))_(f_1) = phi^((3))_(-f_1) = -phi^((3))_(f_1), quad (12) dot phi^((2))_(f_2) = f^((3))_(f_2-f_1)=-phi^((3))_(f_1)+phi^((3))_(f_2)\ 
+  &(12) dot phi^((3))_(f_1) = phi^((2))_(-f_1) = -phi^((2))_(f_1), quad (12) dot phi^((3))_(f_2) = f^((2))_(f_2-f_1)=-phi^((2))_(f_1)+phi^((2))_(f_2)\ 
+  &(12) dot phi^((4))_(f_1)= phi^((4))_(-f_1) = -phi^((4))_(f_1), quad (12) dot phi^((4))_(f_2) = phi^((4))_(f_2-f_1) = -phi^((4))_(f_1)+phi^((4))_(f_2) $
+
+  $ &(12)(34) dot phi^((1))_(f_1) = phi^((4))_(-f_1)=-phi^((4))_(f_1), quad (12)(34) dot phi^((1))_(f_2) = phi^((4))_(f_2-f_1) = -phi^((4))_(f_1)+phi^((4))_(f_2)\ 
+  &(12)(34) dot phi^((2))_(f_1)=phi^((3))_(-f_2)=-phi^((3))_(f_2), quad (12)(34) dot phi^((2))_(f_2) = phi^((3))_(f_1-f_2)= phi^((3))_(f_1)-phi^((3))_(f_2)\ 
+  &(12)(34) dot phi^((3))_(f_1)=phi^((2))_(f_2-f_1)=-phi^((2))_(f_1)+phi^((2))_(f_2), quad (12)(34) dot phi^((3))_(f_2)=phi^((2))_(-f_1)=-phi^((2))_(f_1) \
+  &(12)(34) dot phi^((4))_(f_1)=phi^((1))_(-f_1)=-phi^((1))_(f_1), quad (12)(34) dot phi^((4))_(f_2) = phi^((1))_(f_2-f_1)=-phi^((1))_(f_1)+phi^((1))_(f_2) $
+
+  $ &(123) dot phi^((1))_(f_1)=phi^((1))_(f_2-f_1)=-phi^((1))_(f_1)+phi^((1))_(f_2), quad (123) dot phi^((1))_(f_2)=phi^((1))_(-f_1)=-phi^((1))_(f_1)\ 
+  &(123) dot phi^((2))_(f_1)=phi^((3))_(f_2-f_1)=-phi^((3))_(f_1)+phi^((3))_(f_2), quad (123) dot phi^((2))_(f_2)=phi^((3))_(-f_1)=-phi^((3))_(f_1)\ 
+  &(123) dot phi^((3))_(f_1)=phi^((4))_(f_2-f_1)=-phi^((4))_(f_1)+phi^((4))_(f_2), quad (123) dot phi^((3))_(f_2) = phi^((4))_(-f_1)=-phi^((4))_(f_1)\ 
+  &(123) dot phi^((4))_(f_1)=phi^((2))_(f_2-f_1)=-phi^((2))_(f_1)+phi^((2))_(f_2),quad (123) dot phi^((4))_(f_2)=phi^((2))_(-f_1)=-phi^((2))_(f_1) $
+
+  $ &(1234) dot phi^((1))_(f_1)=phi^((2))_(f_2-f_1)=-phi^((2))_(f_1)+phi^((2))_(f_2), quad (1234) dot phi^((1))_(f_2)=phi^((2))_(-f_1)=-phi^((2))_(f_1)\ 
+  &(1234) dot phi^((2))_(f_1)=phi^((3))_(f_2), quad (1234) dot phi^((2))_(f_2)=phi^((3))_(f_1)\ 
+  &(1234) dot phi^((3))_(f_1)=phi^((4))_(-f_1)=-phi^((4))_(f_1), quad (1234) dot phi^((3))_(f_2)=phi^((4))_(f_2-f_1)=-phi^((4))_(f_1)+phi^((4))_(f_2)\ 
+  &(1234) dot phi^((4))_(f_1)=phi^((1))_(f_2-f_1)=-phi^((1))_(f_1)+phi^((1))_(f_2), quad (1234) dot phi^((4))_(f_2)=phi^((1))_(-f_1)=-phi^((1))_(f_1) $
+  So, express in matrix (with respect to basis ${phi^((i))_(f_j)}_(1<=i<=4\ j=1,2)$ in dictionary order), one has the following:
+  $ &cal(M)(12) = mat(-1,-1,0,0,0,0,0,0;0,1,0,0,0,0,0,0;0,0,0,0,-1,-1,0,0;0,0,0,0,0,1,0,0;0,0,-1,-1,0,0,0,0;0,0,0,1,0,0,0,0;0,0,0,0,0,0,-1,-1;0,0,0,0,0,0,0,1)\ 
+  &cal(M)((12)(34)) = mat(0,0,0,0,0,0,-1,-1;0,0,0,0,0,0,0,1;0,0,0,0,-1,-1,0,0;0,0,0,0,1,0,0,0;0,0,0,1,0,0,0,0;0,0,-1,-1,0,0,0,0;-1,-1,0,0,0,0,0,0;0,1,0,0,0,0,0,0)\ 
+  &cal(M)(123) = mat(-1,-1,0,0,0,0,0,0;1,0,0,0,0,0,0,0;0,0,0,0,0,0,-1,-1;0,0,0,0,0,0,1,0;0,0,-1,-1,0,0,0,0;0,0,1,0,0,0,0,0;0,0,0,0,-1,-1,0,0;0,0,0,0,1,0,0,0)\ 
+  &cal(M)(1234) = mat(0,0,0,0,0,0,-1,-1;0,0,0,0,0,0,1,0;-1,-1,0,0,0,0,0,0;1,0,0,0,0,0,0,0;0,0,0,1,0,0,0,0;0,0,1,0,0,0,0,0;0,0,0,0,-1,-1,0,0;0,0,0,0,0,1,0,0) $
+  Hence, the character (using the trace of above representatives) can be decomposed as follow:
+
+  #set align(center)
+    #table(
+    columns: 6,
+    stroke: 0.5pt + rgb("000000"),
+    [Character\\Class], [$C_(1111)$],[$C_(211)$],[$C_(22)$],[$C_(31)$], [$C_4$],
+    [$chi_(Ind^(S_4)_(S_3)V_upright(s t))$], [$8$], [$0$], [$0$],[$-1$],[$0$]
+    )
+  #set align(left)
+
+  \ 
+
+  #text(weight: "bold")[V. Decomposition of $Ind^G_H V_upright(s t)$:]
+
+  Taking the inner product of $psi = chi_(Ind^(S_4)_(S_3)V_upright(s t))$ with all the irreducible characters derived in #text(weight: "bold")[III], we have the following:
+  $ langle psi, chi_t rangle_G = 0, quad langle psi, chi_s rangle_G = 0, quad langle psi, chi_2 rangle_G = 1, quad langle psi, chi_(3,1) rangle_G = 1, quad langle psi, chi_(3,2) rangle_G = 1  $
+  This indicates $Ind^(S_4)_(S_3) V_upright(s t) tilde.equiv V_2 plus.circle V_(3,1) plus.circle V_(3,2)$, where $V_2$ denotes the (only) $2$-dimensional irreducible representation, while $V_(3,1), V_(3,2)$ denote the two $3$-dimensional irreducible representations.
 
 ]
 
-#pagebreak()
+\ 
 
-== HD (calculate example for S3 induce S4)//9
+== D//9
 #problem[
   For any function $f:H -> CC$, let us define a function $tilde(f):G -> CC$ by 
   $ tilde(f)(x) = cases(
@@ -468,6 +529,29 @@ Let $H < G$ be a subgroup of a finite group $G$. In the recording of the last le
   \ 
 
   #text(weight: "bold")[IV. Special Case $Ind^(S_4)_(S_3) V_upright(s t)$:]
+
+  Again, take $(12) in C_(211)$, $(12)(34) in C_(22)$, $(123) in C_(31)$, and $(1234) in C_4$ as representatives of the conjugacy classes. With the above formula (in fact, the one where $chi_(Ind^G_H W)(x) = sum_(i=1)^l delta_(i, sigma(i)) chi_W (h_i)$, since it's a simlpified version of the equation), notice that the results in #text(weight: "bold")[Problem 8], one has the following:
+  $ &forall i in{1,2,3,4}, quad x_i e=e x_i\
+  &x_1 (12) =(12)x_1, quad x_2 (12) =(12)x_3, quad x_3 (12) =(12)x_2, quad x_4(12) =(12)x_4 \
+  &x_1 (12)(34)=(12)x_4, quad x_2 (12)(34)=(123)x_3, quad x_3 (12)(34) = (132)x_2, quad x_4 (12)(34)=(12)x_1\
+  &x_1 (123)=(123)x_1, quad x_2 (123)=(123)x_4, quad x_3 (123)=(123)x_2, quad x_4 (123)=(123) x_3\ 
+  &x_1 (1234)=(123)x_4, quad x_2 (1234)=(123)x_1, quad x_3 (1234)=(23) x_2, quad x_4 (1234) = (12) x_3 $
+  Hence, plugin to the formula, one yields:
+  $ &chi_(Ind^(S_4)_(S_3) V_upright(s t))(e) = sum_(i=1)^4 delta_(i,i) chi_(V_upright(s t))(e) = 4 dot 2 = 8\ 
+  &chi_(Ind^(S_4)_(S_3)V_upright(s t))(12) = delta_(1,1)chi_(V_upright(s t)) (12) + delta_(2,3) chi_(V_upright(s t)) (12)+delta_(3,2) chi_(V_upright(s t)) (12) + delta_(4,4)chi_(V_upright(s t)) (12)= 0\ 
+  &chi_(Ind^(S_4)_(S_3)V_upright(s t))((12)(34))= delta_(1,4) chi_(V_upright(s t)) (12)+delta_(2,3) chi_(V_upright(s t)) (123) + delta_(3,2) chi_(V_upright(s t)) (132)+delta_(4,1) chi_(V_upright(s t)) (12)= 0\ 
+  &chi_(Ind^(S_4)_(S_3)V_upright(s t))(123) = delta_(1,1) chi_(V_upright(s t)) (123)+delta_(2,4) chi_(V_upright(s t))(123) + delta_(3,2)chi_(V_upright(s t))(123)+delta_(4,3)chi_(V_upright(s t))(123) = -1\ 
+  &chi_(Ind^(S_4)_(S_3)V_upright(s t))(1234) = delta_(1,4)chi_(V_upright(s t))(123) + delta_(2,1)chi_(V_upright(s t))(123)+delta_(3,2)chi_(V_upright(s t))(23)+delta_(4,3)chi_(V_upright(s t))(12) = 0 $
+  So, it corresponds to the following table:
+  #set align(center)
+    #table(
+    columns: 6,
+    stroke: 0.5pt + rgb("000000"),
+    [Character\\Class], [$C_(1111)$],[$C_(211)$],[$C_(22)$],[$C_(31)$], [$C_4$],
+    [$chi_(Ind^(S_4)_(S_3)V_upright(s t))$], [$8$], [$0$], [$0$],[$-1$],[$0$]
+    )
+  #set align(left)
+  Which, the answer coincides with the one manually computed in #text(weight: "bold")[Problem 8].
 ]
 
 #pagebreak()
@@ -538,6 +622,8 @@ Let $H < G$ be a subgroup of a finite group $G$. In the recording of the last le
 = Bonus:
 
 As of an apology, the last several question (Problem 8-11) took me a long while to finish, so the answer for these may not be complete.
+
+== ND//12
 #problem[
   Continue to let $W in Rep_k (H)$ and let $V in Rep_k (G)$. Let $f:W->V$ be a map of $H$-representations. Let us define a map of vector spaces $g^((i))_f:W^((i))->V$ as follow: we define 
   $ g^((i))_(f)(phi^((i))_w):= x_i dot f(w) in V $
@@ -547,6 +633,8 @@ As of an apology, the last several question (Problem 8-11) took me a long while 
 
 \ 
 
+
+== ND//13
 #problem[
   Show that $V=Ind^G_H W$ is irreducible if and only if the following holds:
   - $W$ is irreducible
